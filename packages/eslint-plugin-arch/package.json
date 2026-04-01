@@ -1,0 +1,13 @@
+{
+  "name": "eslint-plugin-arch",
+  "version": "0.0.0",
+  "description": "Custom ESLint rules for the Arch Design System",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "echo 'TODO: build'",
+    "test": "echo 'No tests yet'",
+    "lint": "echo 'No lint yet'"
+  },
+  "license": "ISC"
+}

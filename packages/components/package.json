@@ -1,0 +1,19 @@
+{
+  "name": "@arch-ui/components",
+  "version": "0.0.0",
+  "description": "React component library for the Arch Design System",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "echo 'TODO: build'",
+    "dev": "echo 'TODO: dev'",
+    "test": "echo 'No tests yet'",
+    "lint": "echo 'No lint yet'"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "sideEffects": false,
+  "license": "ISC"
+}

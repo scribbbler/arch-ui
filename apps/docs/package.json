@@ -1,0 +1,14 @@
+{
+  "name": "@arch-ui/docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Astro documentation site for the Arch Design System",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'TODO: astro build'",
+    "dev": "echo 'TODO: astro dev'",
+    "test": "echo 'No tests yet'",
+    "lint": "echo 'No lint yet'"
+  },
+  "license": "ISC"
+}

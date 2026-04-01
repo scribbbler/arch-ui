@@ -1,0 +1,20 @@
+{
+  "name": "@arch-ui/tokens",
+  "version": "0.0.0",
+  "description": "Design tokens for the Arch Design System",
+  "type": "module",
+  "exports": {
+    "./css": "./build/css/tokens.css",
+    "./brand-template": "./build/css/brand-template.css",
+    "./json": "./build/json/tokens.json",
+    "./ts": "./build/ts/tokens.ts"
+  },
+  "scripts": {
+    "build": "echo 'TODO: style-dictionary build'",
+    "dev": "echo 'TODO: style-dictionary build --watch'",
+    "test": "echo 'No tests yet'",
+    "lint": "echo 'No lint yet'"
+  },
+  "sideEffects": false,
+  "license": "ISC"
+}

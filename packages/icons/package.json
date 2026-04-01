@@ -1,0 +1,18 @@
+{
+  "name": "@arch-ui/icons",
+  "version": "0.0.0",
+  "description": "SVG icon set and React wrappers for the Arch Design System",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "echo 'TODO: build'",
+    "dev": "echo 'TODO: dev'",
+    "test": "echo 'No tests yet'",
+    "lint": "echo 'No lint yet'"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "sideEffects": false,
+  "license": "ISC"
+}

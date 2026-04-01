@@ -1,0 +1,17 @@
+{
+  "name": "@arch-ui/mcp-server",
+  "version": "0.0.0",
+  "description": "MCP server for agent consumption of the Arch Design System",
+  "type": "module",
+  "main": "src/index.ts",
+  "bin": {
+    "arch-mcp-server": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "echo 'TODO: build'",
+    "dev": "echo 'TODO: dev'",
+    "test": "echo 'No tests yet'",
+    "lint": "echo 'No lint yet'"
+  },
+  "license": "ISC"
+}

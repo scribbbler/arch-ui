@@ -146,3 +146,16 @@ This keeps sessions focused and ensures discovered work is not lost.
 | `@arch-ui/mcp-server` | MCP tools and data loading | Contain component logic |
 | `apps/docs` | Documentation site | Be the source of truth for anything |
 | `apps/storybook` | Component explorer | Duplicate manifest content |
+
+---
+
+## Reference Documents
+
+Read these before touching the relevant area:
+
+- `/docs/token-naming.md` — before touching any token
+- `/docs/versioning-and-breaking-changes.md` — before any rename or removal
+- `/docs/testing-strategy.md` — before marking any component done
+- `/docs/session-handoff-protocol.md` — start and end of every session
+- `/docs/accessibility-guidelines.md` — before writing any component
+- `/decisions/README.md` — before making any architectural decision
