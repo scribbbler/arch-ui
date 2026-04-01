@@ -1,2 +1,47 @@
-// @arch-ui/icons — barrel export
-// Icons will be added in Phase 2.
+// @arch-ui/icons — auto-generated barrel export
+// Do not edit manually. Run "pnpm generate" to regenerate.
+
+export { Icon, type IconProps, type IconSize } from "./Icon";
+export { AlertTriangleIcon } from "./icons/AlertTriangleIcon";
+export { ArrowDownIcon } from "./icons/ArrowDownIcon";
+export { ArrowLeftIcon } from "./icons/ArrowLeftIcon";
+export { ArrowRightIcon } from "./icons/ArrowRightIcon";
+export { ArrowUpIcon } from "./icons/ArrowUpIcon";
+export { BookmarkIcon } from "./icons/BookmarkIcon";
+export { CalendarIcon } from "./icons/CalendarIcon";
+export { CheckCircleIcon } from "./icons/CheckCircleIcon";
+export { CheckIcon } from "./icons/CheckIcon";
+export { ChevronDownIcon } from "./icons/ChevronDownIcon";
+export { ChevronLeftIcon } from "./icons/ChevronLeftIcon";
+export { ChevronRightIcon } from "./icons/ChevronRightIcon";
+export { ChevronUpIcon } from "./icons/ChevronUpIcon";
+export { ClockIcon } from "./icons/ClockIcon";
+export { CopyIcon } from "./icons/CopyIcon";
+export { DownloadIcon } from "./icons/DownloadIcon";
+export { EditIcon } from "./icons/EditIcon";
+export { ExternalLinkIcon } from "./icons/ExternalLinkIcon";
+export { EyeIcon } from "./icons/EyeIcon";
+export { EyeOffIcon } from "./icons/EyeOffIcon";
+export { FileIcon } from "./icons/FileIcon";
+export { FilterIcon } from "./icons/FilterIcon";
+export { FolderIcon } from "./icons/FolderIcon";
+export { HeartIcon } from "./icons/HeartIcon";
+export { ImageIcon } from "./icons/ImageIcon";
+export { InfoIcon } from "./icons/InfoIcon";
+export { LockIcon } from "./icons/LockIcon";
+export { MenuIcon } from "./icons/MenuIcon";
+export { MinusIcon } from "./icons/MinusIcon";
+export { MoreHorizontalIcon } from "./icons/MoreHorizontalIcon";
+export { MoreVerticalIcon } from "./icons/MoreVerticalIcon";
+export { PlusIcon } from "./icons/PlusIcon";
+export { SearchIcon } from "./icons/SearchIcon";
+export { SettingsIcon } from "./icons/SettingsIcon";
+export { StarIcon } from "./icons/StarIcon";
+export { TrashIcon } from "./icons/TrashIcon";
+export { UnlockIcon } from "./icons/UnlockIcon";
+export { UploadIcon } from "./icons/UploadIcon";
+export { UserIcon } from "./icons/UserIcon";
+export { UsersIcon } from "./icons/UsersIcon";
+export { WarningIcon } from "./icons/WarningIcon";
+export { XCircleIcon } from "./icons/XCircleIcon";
+export { XIcon } from "./icons/XIcon";

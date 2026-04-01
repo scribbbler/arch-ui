@@ -1,0 +1,4 @@
+/* RTL support: directional icons flip in RTL layouts */
+[dir="rtl"] .arch-icon--rtl {
+  transform: scaleX(-1);
+}
