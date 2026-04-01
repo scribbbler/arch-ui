@@ -1,0 +1,7 @@
+.arch-stack {
+  display: flex;
+  flex-direction: var(--stack-direction, column);
+  gap: var(--stack-gap);
+  align-items: var(--stack-align, stretch);
+  justify-content: var(--stack-justify, start);
+}

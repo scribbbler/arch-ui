@@ -1,0 +1,77 @@
+/* ProgressBar — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Indeterminate keyframe ─────────────────────────────────────────────────── */
+
+@keyframes arch-progressbar-indeterminate {
+  0% {
+    inline-size: 30%;
+    inset-inline-start: -40%;
+  }
+  60% {
+    inline-size: 60%;
+    inset-inline-start: 100%;
+  }
+  100% {
+    inline-size: 60%;
+    inset-inline-start: 100%;
+  }
+}
+
+/* ─── Track (wrapper) ────────────────────────────────────────────────────────── */
+
+.arch-progressbar {
+  display: block;
+  inline-size: 100%;
+  background-color: var(--color-background-muted);
+  border-radius: var(--radius-component-full);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-progressbar--sm {
+  block-size: var(--spacing-component-xs);
+}
+
+.arch-progressbar--md {
+  block-size: var(--spacing-component-sm);
+}
+
+/* ─── Fill bar ───────────────────────────────────────────────────────────────── */
+
+.arch-progressbar__fill {
+  block-size: 100%;
+  background-color: var(--color-action-primary);
+  border-radius: var(--radius-component-full);
+  transition: inline-size var(--motion-duration-normal) var(--motion-semantic-easing-default);
+}
+
+/* Determinate: inline-size driven by --arch-progress-value CSS custom property */
+.arch-progressbar:not(.arch-progressbar--indeterminate) .arch-progressbar__fill {
+  inline-size: var(--arch-progress-value, 0%);
+}
+
+/* ─── Indeterminate ──────────────────────────────────────────────────────────── */
+
+.arch-progressbar--indeterminate .arch-progressbar__fill {
+  position: absolute;
+  inset-block-start: 0;
+  animation: arch-progressbar-indeterminate var(--motion-duration-slow) var(--motion-semantic-easing-default) infinite;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-progressbar__fill {
+    transition: none;
+  }
+
+  .arch-progressbar--indeterminate .arch-progressbar__fill {
+    animation: none;
+    inline-size: 50%;
+    inset-inline-start: 0;
+  }
+}

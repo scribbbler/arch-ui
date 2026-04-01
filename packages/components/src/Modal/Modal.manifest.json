@@ -1,0 +1,95 @@
+{
+  "name": "Modal",
+  "version": "1.0.0",
+  "description": "A full-overlay dialog component with scroll lock, focus management, and configurable size. Composed from Portal, Overlay, and FocusTrap. Includes ModalHeader, ModalBody, and ModalFooter sub-components.",
+  "status": "stable",
+  "accessibility": {
+    "role": "dialog",
+    "ariaAttributes": ["aria-modal", "aria-labelledby"],
+    "keyboardInteraction": ["Escape (close, if closeOnEscape=true)", "Tab / Shift+Tab (cycle within)"],
+    "notes": [
+      "role='dialog' and aria-modal='true' are set on the dialog element.",
+      "aria-labelledby connects the dialog to ModalHeader's heading element.",
+      "Body scroll is locked (overflow:hidden) while the modal is open.",
+      "Focus is trapped inside via FocusTrap and restored to the trigger on close.",
+      "Clicking the Overlay closes the modal when closeOnOverlayClick=true (default)."
+    ]
+  },
+  "props": {
+    "isOpen": {
+      "type": "boolean",
+      "description": "Controls modal visibility."
+    },
+    "onClose": {
+      "type": "() => void",
+      "description": "Called when the modal should close."
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg' | 'xl' | 'full'",
+      "default": "md",
+      "description": "Controls the max-width of the modal panel."
+    },
+    "closeOnOverlayClick": {
+      "type": "boolean",
+      "default": true,
+      "description": "When true, clicking the backdrop closes the modal."
+    },
+    "closeOnEscape": {
+      "type": "boolean",
+      "default": true,
+      "description": "When true, pressing Escape closes the modal."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Modal content. Typically composed of ModalHeader, ModalBody, and ModalFooter."
+    }
+  },
+  "subComponents": {
+    "ModalHeader": {
+      "description": "Renders the modal title in a header element. Includes a close button. Provides aria-labelledby id to the parent dialog.",
+      "props": {
+        "children": { "type": "ReactNode", "description": "Title content." },
+        "onClose": { "type": "() => void", "description": "Handler for the close button." }
+      }
+    },
+    "ModalBody": {
+      "description": "Scrollable body area of the modal.",
+      "props": {
+        "children": { "type": "ReactNode", "description": "Body content." }
+      }
+    },
+    "ModalFooter": {
+      "description": "Footer area, typically containing action buttons.",
+      "props": {
+        "children": { "type": "ReactNode", "description": "Footer content, usually buttons." }
+      }
+    }
+  },
+  "usage": {
+    "do": [
+      "Always include a ModalHeader with a descriptive title for aria-labelledby.",
+      "Use ModalBody for scrollable content and ModalFooter for action buttons.",
+      "Provide a visible close button inside ModalHeader."
+    ],
+    "dont": [
+      "Do not open a modal from inside another modal.",
+      "Do not use modals for simple confirmations — use a compact dialog with clear action labels.",
+      "Do not disable closeOnEscape without providing another keyboard-accessible close mechanism."
+    ]
+  },
+  "tokens": [
+    "color-surface-base",
+    "color-border-default",
+    "color-border-focus",
+    "color-text-default",
+    "shadow-overlay",
+    "spacing-component-md",
+    "spacing-component-lg",
+    "spacing-component-xl",
+    "radius-component-lg",
+    "z-semantic-modal",
+    "motion-duration-normal",
+    "motion-semantic-easing-enter",
+    "motion-semantic-easing-exit"
+  ]
+}

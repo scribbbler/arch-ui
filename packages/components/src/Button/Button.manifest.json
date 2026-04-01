@@ -1,0 +1,138 @@
+{
+  "name": "Button",
+  "version": "1.0.0",
+  "description": "A polymorphic button component supporting multiple variants, sizes, and states including loading. Always renders a <button> element by default, but accepts an `as` prop to render as any element type (e.g., an anchor for link-styled buttons).",
+  "status": "stable",
+  "accessibility": {
+    "role": "button",
+    "keyboardInteraction": ["Enter", "Space"],
+    "ariaAttributes": ["aria-disabled", "aria-busy"],
+    "notes": [
+      "When loading, aria-busy is set to true and the button is disabled.",
+      "Disabled state uses both the disabled attribute and aria-disabled for maximum compatibility.",
+      "Focus indicator uses a 2px outline with a 2px offset using var(--color-border-focus).",
+      "When loadingText is provided, it replaces the visible label during loading for screen reader clarity."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'primary' | 'secondary' | 'ghost' | 'destructive' | 'link'",
+      "default": "primary",
+      "description": "Visual style of the button. Maps directly to action color tokens."
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "default": "md",
+      "description": "Size of the button, controlling padding and font-size."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the button. Applies reduced opacity and prevents interaction."
+    },
+    "loading": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a loading spinner and disables the button. Sets aria-busy=true."
+    },
+    "loadingText": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Optional text to display while loading. Replaces children visually and for screen readers."
+    },
+    "leftIcon": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "Icon rendered to the inline-start of the label."
+    },
+    "rightIcon": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "Icon rendered to the inline-end of the label."
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, the button stretches to fill its container width."
+    },
+    "as": {
+      "type": "ElementType",
+      "default": "button",
+      "description": "The HTML element or React component to render. Use 'a' for link-styled buttons."
+    },
+    "type": {
+      "type": "'button' | 'submit' | 'reset'",
+      "default": "button",
+      "description": "The HTML button type attribute. Defaults to 'button' to avoid accidental form submissions."
+    },
+    "onClick": {
+      "type": "(event: React.MouseEvent) => void",
+      "default": "undefined",
+      "description": "Click event handler."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Button label content."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply."
+    }
+  },
+  "variants": {
+    "primary": "High-emphasis action. Use for the single most important action on a page or in a section.",
+    "secondary": "Medium-emphasis action. Use for secondary or alternative actions.",
+    "ghost": "Low-emphasis action. Use for tertiary actions that should not compete visually.",
+    "destructive": "Destructive action. Use for delete, remove, or irreversible operations. Always confirm intent before triggering.",
+    "link": "Inline-style action. Looks like a text link but behaves as a button."
+  },
+  "usage": {
+    "do": [
+      "Use a single primary button per section or dialog.",
+      "Provide loadingText when the loading state needs a descriptive label.",
+      "Use the `as` prop with an anchor element when navigating, so keyboard and screen reader behaviour is correct.",
+      "Pair leftIcon or rightIcon with concise label text."
+    ],
+    "dont": [
+      "Do not use more than one primary button in the same visual group.",
+      "Do not disable a button without explaining why (use a tooltip or adjacent helper text).",
+      "Do not use the link variant for navigation outside the current context — use a real anchor.",
+      "Do not nest interactive elements inside a button."
+    ]
+  },
+  "tokens": [
+    "color-action-primary",
+    "color-action-primary-hover",
+    "color-action-primary-active",
+    "color-action-primary-text",
+    "color-action-secondary",
+    "color-action-secondary-hover",
+    "color-action-secondary-active",
+    "color-action-secondary-text",
+    "color-action-ghost",
+    "color-action-ghost-hover",
+    "color-action-ghost-active",
+    "color-action-ghost-text",
+    "color-action-destructive",
+    "color-action-destructive-hover",
+    "color-action-destructive-active",
+    "color-action-destructive-text",
+    "color-text-link",
+    "color-text-link-hover",
+    "color-border-focus",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-component-lg",
+    "radius-component-sm",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "typography-scale-text-md",
+    "typography-scale-text-lg",
+    "typography-weight-medium",
+    "typography-weight-semibold",
+    "motion-duration-fast",
+    "motion-easing-default"
+  ]
+}

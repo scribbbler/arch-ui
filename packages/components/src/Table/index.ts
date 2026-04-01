@@ -1,0 +1,15 @@
+export {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  type TableProps,
+  type TableSize,
+  type TableSectionProps,
+  type TrProps,
+  type ThProps,
+  type TdProps,
+} from './Table';

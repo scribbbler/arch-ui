@@ -1,0 +1,85 @@
+{
+  "name": "Pagination",
+  "version": "1.0.0",
+  "description": "A pagination navigation component that renders page number buttons with previous/next controls and optional first/last buttons. Supports ellipsis truncation via a configurable sibling count.",
+  "status": "stable",
+  "accessibility": {
+    "role": "navigation",
+    "keyboardInteraction": ["Tab", "Enter", "Space"],
+    "ariaAttributes": ["aria-label", "aria-current", "aria-disabled"],
+    "notes": [
+      "Wraps all controls in a <nav> element with aria-label=\"Pagination\".",
+      "The current page button has aria-current=\"page\".",
+      "Previous button is aria-disabled when on page 1; next button is aria-disabled when on the last page.",
+      "Ellipsis spans are aria-hidden to avoid screen reader noise.",
+      "All interactive buttons have :focus-visible styling using var(--color-border-focus)."
+    ]
+  },
+  "props": {
+    "totalPages": {
+      "type": "number",
+      "description": "Total number of pages."
+    },
+    "currentPage": {
+      "type": "number",
+      "description": "The currently active page (1-indexed)."
+    },
+    "onChange": {
+      "type": "(page: number) => void",
+      "description": "Called when the user navigates to a new page. Receives the target page number."
+    },
+    "showFirstLast": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, renders buttons to jump to the first and last page."
+    },
+    "siblingCount": {
+      "type": "number",
+      "default": 1,
+      "description": "Number of page buttons to show on each side of the current page before showing an ellipsis."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the nav element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Keep siblingCount at 1 for compact layouts and increase to 2 for wide layouts.",
+      "Always provide an onChange handler — this is a controlled component.",
+      "Show the total number of results adjacent to the pagination control when possible."
+    ],
+    "dont": [
+      "Do not use pagination for fewer than 2 pages.",
+      "Do not allow currentPage to be 0 or greater than totalPages.",
+      "Do not use showFirstLast when totalPages is small — it adds noise."
+    ]
+  },
+  "tokens": [
+    "color-text-default",
+    "color-text-subtle",
+    "color-action-primary",
+    "color-action-primary-text",
+    "color-action-ghost",
+    "color-action-ghost-hover",
+    "color-action-ghost-text",
+    "color-background-default",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-subtle",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-inline-xs",
+    "spacing-inline-sm",
+    "radius-component-sm",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "typography-scale-text-md",
+    "typography-weight-medium",
+    "border-width-default",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

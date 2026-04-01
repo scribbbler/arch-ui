@@ -1,0 +1,62 @@
+{
+  "name": "Popover",
+  "version": "1.0.0",
+  "description": "An interactive overlay panel triggered by clicking a reference element. Closes on Escape and outside click. Manages focus on open and close. Rendered via Portal with a transparent Overlay for click-outside detection.",
+  "status": "stable",
+  "accessibility": {
+    "keyboardInteraction": ["Escape (close)", "Tab / Shift+Tab (cycle focus within)"],
+    "ariaAttributes": ["aria-expanded", "aria-haspopup", "aria-controls"],
+    "notes": [
+      "On open, focus moves to the first focusable element inside the popover.",
+      "On close, focus returns to the trigger element.",
+      "The trigger receives aria-expanded and aria-haspopup='dialog'.",
+      "FocusTrap is used to contain keyboard focus while the popover is open."
+    ]
+  },
+  "props": {
+    "content": {
+      "type": "ReactNode",
+      "description": "The interactive content rendered inside the popover panel."
+    },
+    "position": {
+      "type": "'top' | 'bottom' | 'start' | 'end'",
+      "default": "bottom",
+      "description": "Preferred position of the popover relative to the trigger."
+    },
+    "isOpen": {
+      "type": "boolean",
+      "description": "Controls whether the popover is visible."
+    },
+    "onClose": {
+      "type": "() => void",
+      "description": "Called when the popover should close (Escape, outside click)."
+    },
+    "children": {
+      "type": "ReactElement",
+      "description": "The trigger element. Must be a single focusable React element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Popover for rich interactive overlays such as date pickers, filter panels, and action menus.",
+      "Always provide an onClose handler that sets isOpen to false.",
+      "Ensure the trigger element is keyboard focusable."
+    ],
+    "dont": [
+      "Do not use Popover for purely informational content — use Tooltip instead.",
+      "Do not nest Popover inside another Popover."
+    ]
+  },
+  "tokens": [
+    "color-surface-raised",
+    "color-border-default",
+    "color-border-focus",
+    "shadow-component-md",
+    "spacing-component-md",
+    "spacing-component-lg",
+    "radius-component-md",
+    "z-semantic-popover",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

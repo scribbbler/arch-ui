@@ -1,0 +1,126 @@
+/* Slider — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--spacing-component-xs);
+}
+
+/* ─── Range input ─────────────────────────────────────────────────────────────── */
+
+.arch-slider {
+  /* Layout */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+  /* Reset appearance */
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  outline: none;
+
+  /* Ensure minimum touch target block-size */
+  min-block-size: 2.75rem; /* 44px */
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────────── */
+
+.arch-slider:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 4px;
+  border-radius: var(--radius-component-sm);
+}
+
+/* ─── Disabled ────────────────────────────────────────────────────────────────── */
+
+.arch-slider:disabled,
+.arch-slider--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ─── WebKit / Blink — Track ────────────────────────────────────────────────── */
+
+.arch-slider::-webkit-slider-runnable-track {
+  block-size: 0.25rem; /* 4px */
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-background-muted);
+  border: none;
+}
+
+/* ─── WebKit / Blink — Thumb ────────────────────────────────────────────────── */
+
+.arch-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  inline-size: 1.25rem;  /* 20px */
+  block-size: 1.25rem;   /* 20px */
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-action-primary);
+  border: none;
+  cursor: pointer;
+  /* Vertically centre the thumb on the track */
+  margin-block-start: calc(-0.5rem + 2px); /* (thumb - track) / 2 */
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-slider:not(:disabled)::-webkit-slider-thumb:hover {
+  background-color: var(--color-action-primary-hover);
+  transform: scale(1.1);
+}
+
+/* ─── Firefox — Track ────────────────────────────────────────────────────────── */
+
+.arch-slider::-moz-range-track {
+  block-size: 0.25rem;
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-background-muted);
+  border: none;
+}
+
+/* ─── Firefox — Thumb ────────────────────────────────────────────────────────── */
+
+.arch-slider::-moz-range-thumb {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-action-primary);
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-slider:not(:disabled)::-moz-range-thumb:hover {
+  background-color: var(--color-action-primary-hover);
+  transform: scale(1.1);
+}
+
+/* ─── Firefox — Progress fill ────────────────────────────────────────────────── */
+
+.arch-slider::-moz-range-progress {
+  block-size: 0.25rem;
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-action-primary);
+}
+
+/* ─── Reduce motion ──────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-slider::-webkit-slider-thumb,
+  .arch-slider::-moz-range-thumb {
+    transition: none;
+  }
+}

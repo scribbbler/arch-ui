@@ -1,0 +1,9 @@
+.arch-heading {
+  font-family: var(--typography-family-sans);
+  font-size: var(--heading-font-size);
+  line-height: var(--heading-line-height);
+  letter-spacing: var(--heading-letter-spacing);
+  font-weight: var(--heading-font-weight);
+  color: var(--heading-color);
+  margin: 0;
+}

@@ -1,0 +1,98 @@
+{
+  "name": "Slider",
+  "version": "1.0.0",
+  "description": "A range slider rendered as a native <input type='range'>. Styled track and thumb use CSS vendor-prefixed pseudo-elements. The filled portion hint uses color-action-primary. Keyboard arrow key interaction is provided natively by the browser.",
+  "status": "stable",
+  "accessibility": {
+    "role": "slider",
+    "keyboardInteraction": [
+      "ArrowLeft / ArrowDown — decrease by step",
+      "ArrowRight / ArrowUp — increase by step",
+      "Home — jump to min",
+      "End — jump to max",
+      "Tab / Shift+Tab — focus management"
+    ],
+    "ariaAttributes": [
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow",
+      "aria-disabled",
+      "aria-label",
+      "aria-labelledby"
+    ],
+    "notes": [
+      "aria-valuemin, aria-valuemax, and aria-valuenow are provided natively by the range input.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus) and a 2px offset.",
+      "Disabled state reduces opacity and sets cursor: not-allowed.",
+      "Thumb meets the 44x44px minimum touch target via min-block-size and min-inline-size.",
+      "Always provide an accessible name via aria-label or by associating with a visible label."
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "number",
+      "default": "undefined",
+      "description": "Current value. Use with onChange for controlled usage."
+    },
+    "defaultValue": {
+      "type": "number",
+      "default": "undefined",
+      "description": "Initial value for uncontrolled usage."
+    },
+    "min": {
+      "type": "number",
+      "default": 0,
+      "description": "Minimum allowed value."
+    },
+    "max": {
+      "type": "number",
+      "default": 100,
+      "description": "Maximum allowed value."
+    },
+    "step": {
+      "type": "number",
+      "default": 1,
+      "description": "Increment size for each step."
+    },
+    "onChange": {
+      "type": "(value: number) => void",
+      "default": "undefined",
+      "description": "Callback fired with the numeric value when the slider changes."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the slider."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the wrapper div."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide an accessible name via aria-label or a visible label element with htmlFor.",
+      "Pair with a visible value display so users know the exact current value.",
+      "Use step values that produce a clean set of options for the context (e.g., step=5 for percentages)."
+    ],
+    "dont": [
+      "Do not use for precise numeric entry — use an Input type='number' instead or alongside.",
+      "Do not omit a label — range inputs have no implicit accessible name.",
+      "Do not rely on colour alone to communicate the filled portion."
+    ]
+  },
+  "tokens": [
+    "color-action-primary",
+    "color-action-primary-hover",
+    "color-background-muted",
+    "color-background-disabled",
+    "color-border-focus",
+    "color-border-default",
+    "radius-component-full",
+    "radius-component-sm",
+    "spacing-component-sm",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

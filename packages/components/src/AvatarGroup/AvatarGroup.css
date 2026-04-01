@@ -1,0 +1,79 @@
+/* AvatarGroup — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-avatar-group {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* ─── Individual items in the group ─────────────────────────────────────────── */
+
+.arch-avatar-group__item {
+  /* Negative margin creates the overlap */
+  margin-inline-start: calc(var(--arch-avatar-size, 2.5rem) * -0.25);
+  /* First item has no negative margin */
+  outline: 2px solid var(--color-surface-base);
+  border-radius: var(--radius-component-full);
+}
+
+.arch-avatar-group__item:first-child {
+  margin-inline-start: 0;
+}
+
+/* ─── Overflow badge ─────────────────────────────────────────────────────────── */
+
+.arch-avatar-group__overflow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  inline-size: var(--arch-avatar-size, 2.5rem);
+  block-size: var(--arch-avatar-size, 2.5rem);
+  margin-inline-start: calc(var(--arch-avatar-size, 2.5rem) * -0.25);
+  outline: 2px solid var(--color-surface-base);
+
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-background-muted);
+  color: var(--color-text-default);
+
+  font-family: inherit;
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-scale-text-xs);
+  user-select: none;
+}
+
+/* ─── Size variants for overflow badge ──────────────────────────────────────── */
+
+.arch-avatar-group--xs .arch-avatar-group__overflow {
+  --arch-avatar-size: 1.5rem;
+  font-size: var(--typography-scale-text-xs);
+}
+
+.arch-avatar-group--sm .arch-avatar-group__overflow {
+  --arch-avatar-size: 2rem;
+  font-size: var(--typography-scale-text-xs);
+}
+
+.arch-avatar-group--md .arch-avatar-group__overflow {
+  --arch-avatar-size: 2.5rem;
+  font-size: var(--typography-scale-text-xs);
+}
+
+.arch-avatar-group--lg .arch-avatar-group__overflow {
+  --arch-avatar-size: 3rem;
+  font-size: var(--typography-scale-text-sm);
+}
+
+.arch-avatar-group--xl .arch-avatar-group__overflow {
+  --arch-avatar-size: 4rem;
+  font-size: var(--typography-scale-text-sm);
+}
+
+.arch-avatar-group--2xl .arch-avatar-group__overflow {
+  --arch-avatar-size: 6rem;
+  font-size: var(--typography-scale-text-sm);
+}

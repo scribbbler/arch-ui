@@ -1,0 +1,91 @@
+/* ─── Drawer — base ──────────────────────────────────────────────────────────── */
+
+.arch-drawer {
+  position: fixed;
+  z-index: var(--z-semantic-modal);
+  background-color: var(--color-surface-base);
+  box-shadow: var(--shadow-overlay);
+  overflow-y: auto;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-drawer:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Drawer — positions ─────────────────────────────────────────────────────── */
+
+/* End (inline-end) — slides from the right in LTR */
+.arch-drawer--end {
+  inset-block: 0;
+  inset-inline-end: 0;
+  border-inline-start: 1px solid var(--color-border-default);
+}
+
+/* Start (inline-start) — slides from the left in LTR */
+.arch-drawer--start {
+  inset-block: 0;
+  inset-inline-start: 0;
+  border-inline-end: 1px solid var(--color-border-default);
+}
+
+/* Top */
+.arch-drawer--top {
+  inset-inline: 0;
+  inset-block-start: 0;
+  border-block-end: 1px solid var(--color-border-default);
+}
+
+/* Bottom */
+.arch-drawer--bottom {
+  inset-inline: 0;
+  inset-block-end: 0;
+  border-block-start: 1px solid var(--color-border-default);
+}
+
+/* ─── Drawer — transitions ───────────────────────────────────────────────────── */
+
+.arch-drawer--end,
+.arch-drawer--start {
+  block-size: 100%;
+  transition: transform var(--motion-duration-normal) var(--motion-semantic-easing-default);
+}
+
+.arch-drawer--top,
+.arch-drawer--bottom {
+  inline-size: 100%;
+  transition: transform var(--motion-duration-normal) var(--motion-semantic-easing-default);
+}
+
+/* Open state — no transform */
+.arch-drawer--open {
+  transform: translate(0, 0);
+}
+
+/* Closed states — slid off screen */
+.arch-drawer--end.arch-drawer--closed {
+  transform: translateX(100%);
+}
+
+.arch-drawer--start.arch-drawer--closed {
+  transform: translateX(-100%);
+}
+
+.arch-drawer--top.arch-drawer--closed {
+  transform: translateY(-100%);
+}
+
+.arch-drawer--bottom.arch-drawer--closed {
+  transform: translateY(100%);
+}
+
+/* ─── Reduced motion ──────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-drawer {
+    transition: none;
+  }
+}

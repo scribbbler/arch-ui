@@ -1,0 +1,108 @@
+/* Tag — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-inline-xs);
+
+  padding-block: var(--spacing-component-xs);
+  padding-inline: var(--spacing-component-sm);
+
+  font-family: inherit;
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-medium);
+  white-space: nowrap;
+  vertical-align: middle;
+
+  border-radius: var(--radius-component-full);
+}
+
+/* ─── Icon slot ──────────────────────────────────────────────────────────────── */
+
+.arch-tag__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+/* ─── Label ──────────────────────────────────────────────────────────────────── */
+
+.arch-tag__label {
+  display: inline;
+}
+
+/* ─── Remove button ──────────────────────────────────────────────────────────── */
+
+.arch-tag__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-inline-start: var(--spacing-inline-xs);
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+  line-height: 1;
+}
+
+.arch-tag__remove:hover {
+  opacity: 1;
+}
+
+.arch-tag__remove:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-component-sm);
+}
+
+/* ─── Variant: neutral ───────────────────────────────────────────────────────── */
+
+.arch-tag--neutral {
+  background-color: var(--color-background-muted);
+  color: var(--color-text-default);
+}
+
+/* ─── Variant: primary ───────────────────────────────────────────────────────── */
+
+.arch-tag--primary {
+  background-color: var(--color-action-primary);
+  color: var(--color-action-primary-text);
+}
+
+/* ─── Variant: info ──────────────────────────────────────────────────────────── */
+
+.arch-tag--info {
+  background-color: var(--color-feedback-info-bg);
+  color: var(--color-feedback-info-text);
+}
+
+/* ─── Variant: success ───────────────────────────────────────────────────────── */
+
+.arch-tag--success {
+  background-color: var(--color-feedback-success-bg);
+  color: var(--color-feedback-success-text);
+}
+
+/* ─── Variant: warning ───────────────────────────────────────────────────────── */
+
+.arch-tag--warning {
+  background-color: var(--color-feedback-warning-bg);
+  color: var(--color-feedback-warning-text);
+}
+
+/* ─── Variant: danger ────────────────────────────────────────────────────────── */
+
+.arch-tag--danger {
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+}

@@ -1,0 +1,94 @@
+{
+  "name": "Toggle",
+  "version": "1.0.0",
+  "description": "A binary on/off switch rendered as a styled checkbox with role='switch'. The thumb position (not colour alone) communicates the checked state. Integrates with FormControl context to receive id, disabled, and required state automatically.",
+  "status": "stable",
+  "accessibility": {
+    "role": "switch",
+    "keyboardInteraction": ["Space", "Tab", "Shift+Tab"],
+    "ariaAttributes": [
+      "aria-checked",
+      "aria-disabled",
+      "aria-required",
+      "aria-label",
+      "aria-labelledby"
+    ],
+    "notes": [
+      "The underlying input has type='checkbox' and role='switch' — assistive technology announces on/off state via aria-checked.",
+      "Thumb position is the primary non-color indicator: off = inline-start, on = inline-end.",
+      "Focus indicator is a 2px solid outline on the track using var(--color-border-focus) with a 2px offset.",
+      "Disabled state reduces opacity and sets cursor: not-allowed.",
+      "prefers-reduced-motion is respected — transition is disabled when the user has opted out of motion.",
+      "Touch target meets 44x44px minimum for the md size via min-block-size on the label wrapper."
+    ]
+  },
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "default": "undefined",
+      "description": "Whether the toggle is in the on (checked) state. Use with onChange for controlled usage."
+    },
+    "defaultChecked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Initial checked state for uncontrolled usage."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the toggle. Also inherited from FormControl context if not explicitly set."
+    },
+    "onChange": {
+      "type": "(e: React.ChangeEvent<HTMLInputElement>) => void",
+      "default": "undefined",
+      "description": "Callback fired when the checked state changes."
+    },
+    "children": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "Optional label text rendered beside the track."
+    },
+    "size": {
+      "type": "'sm' | 'md'",
+      "default": "md",
+      "description": "Size variant. sm renders a narrower track; md meets the 44px touch-target minimum."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the outermost wrapper element."
+    }
+  },
+  "sizes": {
+    "sm": "track is 32px wide × 18px tall — suitable for dense UIs. Below 44px touch target; avoid on touch-primary interfaces.",
+    "md": "track is 44px wide × 24px tall — default. Wrapper meets 44px touch target via min-block-size."
+  },
+  "usage": {
+    "do": [
+      "Always provide a visible label (children) or aria-label so the toggle has an accessible name.",
+      "Use inside a FormControl when the toggle is part of a labelled form field group.",
+      "Use size='sm' only in dense UIs such as settings panels with many options."
+    ],
+    "dont": [
+      "Do not use a Toggle for multi-step choices — use a Checkbox group or Radio group instead.",
+      "Do not rely on colour alone to communicate state — the thumb position must also signal on/off.",
+      "Do not apply inline styles — use the className prop and extend via CSS tokens."
+    ]
+  },
+  "tokens": [
+    "color-action-primary",
+    "color-action-primary-hover",
+    "color-background-muted",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-disabled",
+    "color-text-default",
+    "color-text-disabled",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "radius-component-full",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

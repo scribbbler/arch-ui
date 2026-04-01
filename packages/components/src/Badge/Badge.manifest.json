@@ -1,0 +1,83 @@
+{
+  "name": "Badge",
+  "version": "1.0.0",
+  "description": "An inline label used to communicate status, count, or categorical information at a glance. Supports five semantic variants and two sizes. A dot mode renders a compact indicator without text.",
+  "status": "stable",
+  "accessibility": {
+    "role": "generic",
+    "ariaAttributes": ["aria-label"],
+    "notes": [
+      "When dot=true and no children are provided, aria-label is required to convey meaning to screen readers.",
+      "The dot element is aria-hidden when children are present alongside it.",
+      "Badge is a presentational element — do not rely on colour alone to convey information."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'neutral' | 'info' | 'success' | 'warning' | 'danger'",
+      "default": "neutral",
+      "description": "Controls the colour palette of the badge. Maps to feedback colour tokens, except neutral which uses muted background."
+    },
+    "size": {
+      "type": "'sm' | 'md'",
+      "default": "md",
+      "description": "Controls the padding and font size of the badge."
+    },
+    "dot": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, renders a small circular indicator instead of text content. Requires aria-label when children are absent."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Label content displayed inside the badge."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    },
+    "aria-label": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Required when dot=true and no children are provided, to give screen readers a textual description."
+    }
+  },
+  "variants": {
+    "neutral": "Default state. Uses muted background and default text. For generic labels with no semantic meaning.",
+    "info": "Informational state. Uses info feedback tokens. For supplementary context.",
+    "success": "Positive or complete state. Uses success feedback tokens.",
+    "warning": "Caution state. Uses warning feedback tokens. For items needing attention.",
+    "danger": "Error or critical state. Uses danger feedback tokens. For failures or blocking issues."
+  },
+  "usage": {
+    "do": [
+      "Use badge to communicate status inline with related content.",
+      "Provide aria-label when using dot=true without children.",
+      "Pair badge with adjacent text so colour is not the only information carrier."
+    ],
+    "dont": [
+      "Do not use badge as a standalone interactive element.",
+      "Do not use badge to replace a full notification system.",
+      "Do not render dot=true without an aria-label and without children."
+    ]
+  },
+  "tokens": [
+    "color-background-muted",
+    "color-text-default",
+    "color-feedback-info-bg",
+    "color-feedback-info-text",
+    "color-feedback-success-bg",
+    "color-feedback-success-text",
+    "color-feedback-warning-bg",
+    "color-feedback-warning-text",
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "spacing-component-xs",
+    "spacing-inline-xs",
+    "radius-component-full",
+    "typography-scale-text-xs",
+    "typography-scale-text-sm",
+    "typography-weight-medium"
+  ]
+}

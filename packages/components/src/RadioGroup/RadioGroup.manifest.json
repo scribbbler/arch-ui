@@ -1,0 +1,76 @@
+{
+  "name": "RadioGroup",
+  "version": "1.0.0",
+  "description": "A group container for Radio components. Renders a <fieldset> with a <legend> for accessible grouping. Provides name, selected value, onChange, and disabled state to child Radio components via context. Implements arrow key navigation per the ARIA radio group pattern.",
+  "status": "stable",
+  "accessibility": {
+    "role": "radiogroup",
+    "keyboardInteraction": ["Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    "ariaAttributes": ["aria-disabled"],
+    "notes": [
+      "Uses a native <fieldset> with role=radiogroup and a <legend> for accessible group labelling.",
+      "Arrow keys (Up/Down/Left/Right) cycle focus and selection through enabled radio options.",
+      "Tab moves focus into and out of the group; only the selected (or first) radio is in the tab order.",
+      "Disabled radio items are skipped during arrow key navigation.",
+      "The onChange callback receives the string value of the newly selected radio."
+    ]
+  },
+  "props": {
+    "legend": {
+      "type": "string",
+      "description": "The accessible label for the group. Rendered as a <legend>. Required."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name attribute shared by all Radio inputs in the group. Must be unique on the page."
+    },
+    "value": {
+      "type": "string",
+      "description": "The currently selected radio value."
+    },
+    "onChange": {
+      "type": "(value: string) => void",
+      "description": "Called when the selected value changes. Receives the new string value."
+    },
+    "direction": {
+      "type": "'vertical' | 'horizontal'",
+      "default": "vertical",
+      "description": "Layout direction of the radio items. 'vertical' stacks them; 'horizontal' places them in a row."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables all Radio children in the group."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Radio components to render inside the group."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the fieldset element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide a legend prop for accessible grouping.",
+      "Provide a unique name prop to associate radios with the same group.",
+      "Use RadioGroup for mutually exclusive choices.",
+      "Handle the onChange to update the controlled value."
+    ],
+    "dont": [
+      "Do not use RadioGroup for non-exclusive choices — use CheckboxGroup instead.",
+      "Do not nest RadioGroups.",
+      "Do not omit the legend — it is required for accessibility."
+    ]
+  },
+  "tokens": [
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "color-text-default",
+    "typography-scale-text-md",
+    "typography-weight-medium"
+  ]
+}

@@ -1,0 +1,68 @@
+/* Card — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface-raised);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  box-shadow: var(--shadow-component-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ─── Clickable ──────────────────────────────────────────────────────────────── */
+
+.arch-card--clickable {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  appearance: none;
+  font: inherit;
+  transition:
+    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-card--clickable:hover {
+  box-shadow: var(--shadow-component-md);
+  background-color: var(--color-background-subtle);
+}
+
+.arch-card--clickable:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.arch-card--clickable:active {
+  box-shadow: var(--shadow-component-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-card--clickable {
+    transition: none;
+  }
+}
+
+/* ─── Sub-components ─────────────────────────────────────────────────────────── */
+
+.arch-card__header {
+  padding-inline: var(--spacing-component-md);
+  padding-block: var(--spacing-component-sm);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+.arch-card__body {
+  flex: 1;
+  padding-inline: var(--spacing-component-md);
+  padding-block: var(--spacing-component-md);
+}
+
+.arch-card__footer {
+  padding-inline: var(--spacing-component-md);
+  padding-block: var(--spacing-component-sm);
+  border-block-start: var(--border-width-default) solid var(--color-border-default);
+}

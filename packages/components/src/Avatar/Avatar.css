@@ -1,0 +1,83 @@
+/* Avatar — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  inline-size: var(--arch-avatar-size);
+  block-size: var(--arch-avatar-size);
+
+  background-color: var(--color-background-muted);
+  color: var(--color-text-default);
+
+  font-family: inherit;
+  font-weight: var(--typography-weight-medium);
+  user-select: none;
+}
+
+/* ─── Shape: circle ──────────────────────────────────────────────────────────── */
+
+.arch-avatar--circle {
+  border-radius: var(--radius-component-full);
+}
+
+/* ─── Shape: square ──────────────────────────────────────────────────────────── */
+
+.arch-avatar--square {
+  border-radius: var(--radius-component-md);
+}
+
+/* ─── Sizes — map size prop to CSS custom property ───────────────────────────── */
+
+.arch-avatar--xs {
+  --arch-avatar-size: 1.5rem;
+  font-size: var(--typography-scale-text-xs);
+}
+
+.arch-avatar--sm {
+  --arch-avatar-size: 2rem;
+  font-size: var(--typography-scale-text-xs);
+}
+
+.arch-avatar--md {
+  --arch-avatar-size: 2.5rem;
+  font-size: var(--typography-scale-text-sm);
+}
+
+.arch-avatar--lg {
+  --arch-avatar-size: 3rem;
+  font-size: var(--typography-scale-text-sm);
+}
+
+.arch-avatar--xl {
+  --arch-avatar-size: 4rem;
+  font-size: var(--typography-scale-text-md);
+}
+
+.arch-avatar--2xl {
+  --arch-avatar-size: 6rem;
+  font-size: var(--typography-scale-text-md);
+}
+
+/* ─── Image ──────────────────────────────────────────────────────────────────── */
+
+.arch-avatar__image {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* ─── Initials ───────────────────────────────────────────────────────────────── */
+
+.arch-avatar__initials {
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}

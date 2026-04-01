@@ -1,0 +1,27 @@
+/* ─── Tooltip ────────────────────────────────────────────────────────────────── */
+
+.arch-tooltip {
+  position: absolute;
+  z-index: var(--z-semantic-tooltip);
+  background-color: var(--color-surface-overlay);
+  color: var(--color-text-default);
+  box-shadow: var(--shadow-overlay);
+  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-component-sm);
+  border-radius: var(--radius-component-sm);
+  font: var(--typography-scale-text-sm);
+  pointer-events: none;
+  white-space: nowrap;
+  max-inline-size: 20rem;
+  white-space: normal;
+}
+
+/* ─── Visibility ─────────────────────────────────────────────────────────────── */
+
+.arch-tooltip--visible {
+  opacity: 1;
+}
+
+.arch-tooltip--hidden {
+  opacity: 0;
+}

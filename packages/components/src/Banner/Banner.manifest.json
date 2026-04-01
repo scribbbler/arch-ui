@@ -1,0 +1,72 @@
+{
+  "name": "Banner",
+  "version": "1.0.0",
+  "description": "A full-width top-of-page announcement bar. Use for site-wide or page-level status messages. Supports four semantic variants: info, success, warning, danger.",
+  "status": "stable",
+  "accessibility": {
+    "role": "alert (danger/warning) or status (success/info)",
+    "keyboardInteraction": [],
+    "ariaAttributes": ["role"],
+    "notes": [
+      "Danger and warning banners use role='alert' (assertive).",
+      "Success and info banners use role='status' (polite).",
+      "When onClose is provided, a dismiss button is rendered with an accessible label.",
+      "Banner should be placed near the top of the page to communicate site-wide context."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'info' | 'success' | 'warning' | 'danger'",
+      "default": "info",
+      "description": "Semantic variant controlling color."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Banner content. May include text, links, or inline elements."
+    },
+    "onClose": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "When provided, a dismiss button is rendered at the inline-end."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Place at the very top of the page above main navigation.",
+      "Keep banner content brief — one or two sentences at most.",
+      "Use 'danger' for maintenance windows or breaking issues.",
+      "Use 'info' for announcements or promotions."
+    ],
+    "dont": [
+      "Do not use Banner for form-level errors — use Alert.",
+      "Do not show multiple banners simultaneously.",
+      "Do not place heavy content or images inside a Banner."
+    ]
+  },
+  "tokens": [
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "color-feedback-danger-border",
+    "color-feedback-success-bg",
+    "color-feedback-success-text",
+    "color-feedback-success-border",
+    "color-feedback-warning-bg",
+    "color-feedback-warning-text",
+    "color-feedback-warning-border",
+    "color-feedback-info-bg",
+    "color-feedback-info-text",
+    "color-feedback-info-border",
+    "color-border-focus",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-inline-sm",
+    "typography-scale-text-sm",
+    "typography-scale-text-md",
+    "border-width-default"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "name": "Alert",
+  "version": "1.0.0",
+  "description": "An inline feedback message component that communicates status or important information to the user. Supports four semantic variants: info, success, warning, and danger.",
+  "status": "stable",
+  "accessibility": {
+    "role": "alert (danger/warning) or status (success/info)",
+    "keyboardInteraction": [],
+    "ariaAttributes": ["role"],
+    "notes": [
+      "Danger and warning alerts use role='alert' (assertive, interrupts screen readers).",
+      "Success and info alerts use role='status' (polite, waits for idle).",
+      "When onClose is provided, a dismiss button is rendered with an accessible label.",
+      "The icon is aria-hidden — decorative only.",
+      "Title is bold and rendered as a strong element."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'info' | 'success' | 'warning' | 'danger'",
+      "default": "info",
+      "description": "Semantic variant controlling color and icon."
+    },
+    "title": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Bold heading text for the alert."
+    },
+    "description": {
+      "type": "string | ReactNode",
+      "default": "undefined",
+      "description": "Body content of the alert."
+    },
+    "onClose": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "When provided, a dismiss button is rendered."
+    },
+    "icon": {
+      "type": "ReactNode",
+      "default": "variant default icon",
+      "description": "Override the default variant icon. Pass null to suppress."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use 'danger' for errors or destructive consequences.",
+      "Use 'warning' for non-critical cautions that require attention.",
+      "Use 'success' for confirmations of completed actions.",
+      "Use 'info' for neutral informational messages.",
+      "Always include a title or description — never an empty alert."
+    ],
+    "dont": [
+      "Do not use Alert for transient notifications — use Toast instead.",
+      "Do not use 'danger' for general information.",
+      "Do not place multiple alerts on a page when one summary would suffice."
+    ]
+  },
+  "tokens": [
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "color-feedback-danger-border",
+    "color-feedback-success-bg",
+    "color-feedback-success-text",
+    "color-feedback-success-border",
+    "color-feedback-warning-bg",
+    "color-feedback-warning-text",
+    "color-feedback-warning-border",
+    "color-feedback-info-bg",
+    "color-feedback-info-text",
+    "color-feedback-info-border",
+    "color-icon-danger",
+    "color-icon-success",
+    "color-icon-warning",
+    "color-icon-info",
+    "color-border-focus",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-inline-sm",
+    "radius-component-sm",
+    "typography-scale-text-md",
+    "typography-scale-text-sm",
+    "typography-weight-semibold",
+    "border-width-default"
+  ]
+}

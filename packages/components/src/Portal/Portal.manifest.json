@@ -1,0 +1,35 @@
+{
+  "name": "Portal",
+  "version": "1.0.0",
+  "description": "Renders children into a DOM node outside the current React tree using createPortal. Defaults to document.body; accepts a custom container element.",
+  "status": "stable",
+  "accessibility": {
+    "notes": [
+      "Portal does not add any ARIA attributes itself.",
+      "Content rendered inside a Portal must manage its own accessible roles and attributes.",
+      "Portals do not affect the React event bubbling order — events still bubble through the React tree."
+    ]
+  },
+  "props": {
+    "children": {
+      "type": "ReactNode",
+      "description": "Content to teleport into the target container."
+    },
+    "container": {
+      "type": "HTMLElement | null",
+      "default": "null",
+      "description": "Target DOM element to render children into. Defaults to document.body when null."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Portal as the rendering layer for overlays, tooltips, modals, and drawers.",
+      "Pass a custom container when you need to scope the portal within a specific DOM subtree."
+    ],
+    "dont": [
+      "Do not rely on Portal for z-index stacking — manage that with z-index tokens on the content.",
+      "Do not render portals during server-side rendering without a defined container."
+    ]
+  },
+  "tokens": []
+}

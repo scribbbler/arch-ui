@@ -1,0 +1,61 @@
+{
+  "name": "Tooltip",
+  "version": "1.0.0",
+  "description": "Non-interactive supplementary content shown on hover and focus after a configurable delay. Rendered via Portal into document.body. Must not contain interactive elements.",
+  "status": "stable",
+  "accessibility": {
+    "role": "tooltip",
+    "ariaAttributes": ["aria-describedby"],
+    "keyboardInteraction": ["Tab (focus trigger to show)", "Escape (implicit — tooltip hides on blur)"],
+    "notes": [
+      "The trigger element receives aria-describedby pointing to the tooltip id.",
+      "The tooltip element has role='tooltip'.",
+      "Tooltip must NOT contain buttons, links, or any interactive content.",
+      "Tooltip hides immediately on blur or mouse-leave; no delay on hide.",
+      "Tooltip is rendered in a Portal to avoid clipping by overflow:hidden ancestors."
+    ]
+  },
+  "props": {
+    "content": {
+      "type": "ReactNode",
+      "description": "The tooltip content. Must be non-interactive text or static elements."
+    },
+    "position": {
+      "type": "'top' | 'bottom' | 'start' | 'end'",
+      "default": "top",
+      "description": "Preferred position of the tooltip relative to the trigger."
+    },
+    "delay": {
+      "type": "number",
+      "default": 300,
+      "description": "Milliseconds to wait before showing the tooltip after hover or focus."
+    },
+    "children": {
+      "type": "ReactElement",
+      "description": "The trigger element. Must be a single React element that can receive event handler props."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use tooltips to supplement icon buttons with a text label.",
+      "Keep tooltip content concise — one sentence or less.",
+      "Ensure the trigger element is keyboard focusable so tooltip content is accessible to keyboard users."
+    ],
+    "dont": [
+      "Do not put interactive elements (links, buttons) inside a tooltip.",
+      "Do not use tooltips as the only way to convey essential information.",
+      "Do not use tooltips on disabled elements — screen readers may not reach them."
+    ]
+  },
+  "tokens": [
+    "color-surface-overlay",
+    "color-text-default",
+    "shadow-overlay",
+    "spacing-component-sm",
+    "radius-component-sm",
+    "typography-scale-text-sm",
+    "z-semantic-tooltip",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

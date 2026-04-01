@@ -1,0 +1,45 @@
+{
+  "name": "Overlay",
+  "version": "1.0.0",
+  "description": "A fixed-position semi-transparent backdrop used behind modals, drawers, and popovers. Marked aria-hidden as it is purely decorative.",
+  "status": "stable",
+  "accessibility": {
+    "ariaAttributes": ["aria-hidden"],
+    "notes": [
+      "Always renders with aria-hidden='true' — it is a decorative backdrop.",
+      "Accessible labels and focus management are the responsibility of the containing dialog component.",
+      "The onClick handler enables closing parent components when the user clicks the backdrop."
+    ]
+  },
+  "props": {
+    "transparent": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, the overlay background becomes fully transparent. Useful for popovers that need click-outside behaviour without a visible backdrop."
+    },
+    "onClick": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Handler called when the backdrop is clicked. Used by parent components to close themselves."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the overlay element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always place Overlay behind the focused dialog content in the z-index stack.",
+      "Use the transparent variant when you need click-outside detection without a dimming effect."
+    ],
+    "dont": [
+      "Do not place interactive content inside the Overlay element.",
+      "Do not rely on Overlay for scroll locking — that is the dialog component's responsibility."
+    ]
+  },
+  "tokens": [
+    "color-background-overlay",
+    "z-semantic-overlay"
+  ]
+}

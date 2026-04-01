@@ -1,0 +1,161 @@
+/* Tabs — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Root ───────────────────────────────────────────────────────────────────── */
+
+.arch-tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-tabs--vertical {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* ─── Tablist ────────────────────────────────────────────────────────────────── */
+
+.arch-tabs__tablist {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* Horizontal tablist */
+.arch-tabs--horizontal .arch-tabs__tablist {
+  flex-direction: row;
+  border-block-end: var(--border-width-default) solid var(--color-border-subtle);
+}
+
+/* Vertical tablist */
+.arch-tabs--vertical .arch-tabs__tablist {
+  flex-direction: column;
+  border-inline-end: var(--border-width-default) solid var(--color-border-subtle);
+  min-inline-size: 10rem;
+}
+
+/* ─── Tab button ─────────────────────────────────────────────────────────────── */
+
+.arch-tabs__tab {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--typography-scale-text-md);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-subtle);
+  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-component-md);
+  white-space: nowrap;
+  transition:
+    color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+  position: relative;
+}
+
+.arch-tabs__tab:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+  border-radius: var(--radius-component-sm);
+}
+
+.arch-tabs__tab:hover:not([aria-disabled="true"]) {
+  color: var(--color-text-default);
+  background-color: var(--color-action-ghost-hover);
+}
+
+.arch-tabs__tab[aria-selected="true"] {
+  color: var(--color-text-default);
+  font-weight: var(--typography-weight-semibold);
+}
+
+.arch-tabs__tab[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ─── Line variant ───────────────────────────────────────────────────────────── */
+
+.arch-tabs--line.arch-tabs--horizontal .arch-tabs__tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset-block-end: calc(-1 * var(--border-width-default));
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  block-size: var(--border-width-medium);
+  background-color: var(--color-action-primary);
+  border-radius: var(--radius-component-sm) var(--radius-component-sm) 0 0;
+}
+
+.arch-tabs--line.arch-tabs--vertical .arch-tabs__tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-end: calc(-1 * var(--border-width-default));
+  inline-size: var(--border-width-medium);
+  background-color: var(--color-action-primary);
+  border-radius: 0 var(--radius-component-sm) var(--radius-component-sm) 0;
+}
+
+/* ─── Enclosed variant ───────────────────────────────────────────────────────── */
+
+.arch-tabs--enclosed.arch-tabs--horizontal .arch-tabs__tablist {
+  gap: var(--spacing-inline-xs);
+  padding-inline: var(--spacing-inline-sm);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+.arch-tabs--enclosed.arch-tabs--horizontal .arch-tabs__tab {
+  border-radius: var(--radius-component-sm) var(--radius-component-sm) 0 0;
+  border: var(--border-width-default) solid transparent;
+  border-block-end: none;
+  margin-block-end: calc(-1 * var(--border-width-default));
+  background-color: var(--color-background-subtle);
+}
+
+.arch-tabs--enclosed.arch-tabs--horizontal .arch-tabs__tab[aria-selected="true"] {
+  background-color: var(--color-surface-base);
+  border-color: var(--color-border-default);
+  border-block-end-color: var(--color-surface-base);
+}
+
+.arch-tabs--enclosed.arch-tabs--vertical .arch-tabs__tablist {
+  gap: var(--spacing-inline-xs);
+  padding-block: var(--spacing-component-sm);
+  border-inline-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+.arch-tabs--enclosed.arch-tabs--vertical .arch-tabs__tab {
+  border-radius: var(--radius-component-sm) 0 0 var(--radius-component-sm);
+  border: var(--border-width-default) solid transparent;
+  border-inline-end: none;
+  margin-inline-end: calc(-1 * var(--border-width-default));
+  background-color: var(--color-background-subtle);
+}
+
+.arch-tabs--enclosed.arch-tabs--vertical .arch-tabs__tab[aria-selected="true"] {
+  background-color: var(--color-surface-base);
+  border-color: var(--color-border-default);
+  border-inline-end-color: var(--color-surface-base);
+}
+
+/* ─── Panel ──────────────────────────────────────────────────────────────────── */
+
+.arch-tabs__panel {
+  flex: 1;
+  padding: var(--spacing-component-md);
+  color: var(--color-text-default);
+}
+
+.arch-tabs__panel:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-tabs__tab {
+    transition: none;
+  }
+}

@@ -1,0 +1,114 @@
+/* Accordion — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Root ───────────────────────────────────────────────────────────────────── */
+
+.arch-accordion {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-sm);
+  overflow: hidden;
+}
+
+/* ─── Item ───────────────────────────────────────────────────────────────────── */
+
+.arch-accordion__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-accordion__item + .arch-accordion__item {
+  border-block-start: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────────── */
+
+.arch-accordion__header {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.arch-accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-component-sm);
+  inline-size: 100%;
+  padding-block: var(--spacing-component-md);
+  padding-inline: var(--spacing-component-md);
+  background: var(--color-background-default);
+  border: none;
+  cursor: pointer;
+  text-align: start;
+  font-family: inherit;
+  font-size: var(--typography-scale-text-md);
+  font-weight: var(--typography-weight-semibold);
+  color: var(--color-text-default);
+  transition: background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-accordion__trigger:hover {
+  background-color: var(--color-background-subtle);
+}
+
+.arch-accordion__trigger:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: -2px;
+}
+
+/* ─── Icon ───────────────────────────────────────────────────────────────────── */
+
+.arch-accordion__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-text-subtle);
+  transition: transform var(--motion-duration-normal) var(--motion-semantic-easing-default);
+}
+
+.arch-accordion__trigger[aria-expanded="true"] .arch-accordion__icon {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-accordion__trigger {
+    transition: none;
+  }
+
+  .arch-accordion__icon {
+    transition: none;
+  }
+}
+
+/* ─── Panel ──────────────────────────────────────────────────────────────────── */
+
+.arch-accordion__panel {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--motion-duration-normal) var(--motion-semantic-easing-default);
+}
+
+.arch-accordion__panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.arch-accordion__panel-inner {
+  overflow: hidden;
+}
+
+.arch-accordion__content {
+  padding-block: var(--spacing-component-md);
+  padding-inline: var(--spacing-component-md);
+  padding-block-start: 0;
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-text-md);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-accordion__panel {
+    transition: none;
+  }
+}

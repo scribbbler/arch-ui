@@ -1,0 +1,33 @@
+{
+  "name": "VisuallyHidden",
+  "description": "Hides content visually while keeping it accessible to screen readers. Used for icon labels, skip links, and supplementary context.",
+  "category": "utility",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "as": {
+      "type": "React.ElementType",
+      "description": "HTML element to render. Default: 'span'.",
+      "required": false,
+      "default": "span"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "required": true
+    }
+  },
+  "usage": {
+    "do": [
+      "Use VisuallyHidden to provide accessible labels for icon-only buttons",
+      "Use inside form elements to add context for screen readers",
+      "Use for skip navigation link text"
+    ],
+    "doNot": [
+      "Do not use to hide content that should be visible — it is only for a11y content",
+      "Do not use display:none or visibility:hidden — those hide from screen readers too"
+    ]
+  },
+  "accessibility": {
+    "notes": "This component uses the standard visually-hidden CSS technique. Content remains in the accessibility tree and is announced by screen readers."
+  }
+}

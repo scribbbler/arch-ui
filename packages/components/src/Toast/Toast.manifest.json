@@ -1,0 +1,108 @@
+{
+  "name": "Toast",
+  "version": "1.0.0",
+  "description": "A transient notification system. Individual Toast items stack in a fixed portal region. ToastProvider wraps the app and provides context. The useToast hook exposes an imperative toast() API for programmatic creation.",
+  "status": "stable",
+  "accessibility": {
+    "role": "status (polite) or alert (assertive for danger variant)",
+    "keyboardInteraction": [],
+    "ariaAttributes": ["aria-live", "aria-atomic"],
+    "notes": [
+      "The toast container uses aria-live='assertive' for danger toasts and aria-live='polite' for all others.",
+      "aria-atomic='true' ensures screen readers announce the full toast message.",
+      "Toasts auto-dismiss after the duration prop expires (default 5000ms).",
+      "Pass duration=0 for persistent toasts that require manual dismissal.",
+      "Animation respects prefers-reduced-motion.",
+      "Toasts are rendered in a Portal attached to document.body."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'default' | 'success' | 'warning' | 'danger'",
+      "default": "default",
+      "description": "Visual and semantic variant."
+    },
+    "title": {
+      "type": "string",
+      "description": "Bold heading of the toast notification."
+    },
+    "description": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Optional supporting text beneath the title."
+    },
+    "duration": {
+      "type": "number",
+      "default": 5000,
+      "description": "Auto-dismiss delay in milliseconds. Pass 0 for persistent toast."
+    },
+    "onClose": {
+      "type": "() => void",
+      "description": "Called when the toast is dismissed (auto or manual)."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "subcomponents": {
+    "ToastProvider": "Wraps the application. Required to use useToast. Accepts a position prop.",
+    "useToast": "Hook that returns { toast(options) } for imperative creation."
+  },
+  "toastProviderProps": {
+    "position": {
+      "type": "'top-right' | 'top-center' | 'bottom-right' | 'bottom-center'",
+      "default": "top-right",
+      "description": "Screen position for the toast stack."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "App content to wrap."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use ToastProvider once at the root of your app.",
+      "Use the useToast hook to trigger toasts from anywhere in the tree.",
+      "Keep toast messages brief — a title and optionally one short description sentence.",
+      "Use 'danger' sparingly for truly critical failures.",
+      "Provide onClose handling for toasts that should persist."
+    ],
+    "dont": [
+      "Do not use Toast for inline validation errors — use FormControl instead.",
+      "Do not stack more than 3 toasts simultaneously.",
+      "Do not place interactive elements inside a toast."
+    ]
+  },
+  "tokens": [
+    "color-surface-raised",
+    "color-background-default",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-default",
+    "color-border-focus",
+    "color-feedback-success-bg",
+    "color-feedback-success-text",
+    "color-feedback-success-border",
+    "color-feedback-warning-bg",
+    "color-feedback-warning-text",
+    "color-feedback-warning-border",
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "color-feedback-danger-border",
+    "shadow-component-md",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-inline-sm",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "typography-scale-text-md",
+    "typography-weight-semibold",
+    "border-width-default",
+    "motion-duration-normal",
+    "motion-semantic-easing-default",
+    "z-semantic-toast"
+  ]
+}

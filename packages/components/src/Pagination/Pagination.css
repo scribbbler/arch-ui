@@ -1,0 +1,98 @@
+/* Pagination — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Root nav ───────────────────────────────────────────────────────────────── */
+
+.arch-pagination {
+  display: block;
+}
+
+/* ─── List ───────────────────────────────────────────────────────────────────── */
+
+.arch-pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-inline-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Item ───────────────────────────────────────────────────────────────────── */
+
+.arch-pagination__item {
+  display: inline-flex;
+}
+
+/* ─── Page button (shared base) ──────────────────────────────────────────────── */
+
+.arch-pagination__btn {
+  appearance: none;
+  background: none;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-sm);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-default);
+  min-inline-size: var(--spacing-component-md);
+  block-size: var(--spacing-component-md);
+  padding-inline: var(--spacing-component-xs);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-pagination__btn:hover:not([aria-disabled="true"]):not([aria-current="page"]) {
+  background-color: var(--color-action-ghost-hover);
+  border-color: var(--color-border-default);
+}
+
+.arch-pagination__btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Current page ───────────────────────────────────────────────────────────── */
+
+.arch-pagination__btn[aria-current="page"] {
+  background-color: var(--color-action-primary);
+  border-color: var(--color-action-primary);
+  color: var(--color-action-primary-text);
+  cursor: default;
+  font-weight: var(--typography-weight-semibold);
+}
+
+/* ─── Disabled (prev/next at boundaries) ─────────────────────────────────────── */
+
+.arch-pagination__btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ─── Ellipsis ───────────────────────────────────────────────────────────────── */
+
+.arch-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--spacing-component-md);
+  block-size: var(--spacing-component-md);
+  padding-inline: var(--spacing-component-xs);
+  color: var(--color-text-subtle);
+  font-size: var(--typography-scale-text-sm);
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-pagination__btn {
+    transition: none;
+  }
+}

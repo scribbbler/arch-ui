@@ -1,0 +1,62 @@
+{
+  "name": "Link",
+  "description": "Anchor element with token-based color variants and accessibility-aware external link handling. Provides :focus-visible styling and distinct visited/hover states.",
+  "category": "typography",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "href": {
+      "type": "string",
+      "description": "The URL the link points to.",
+      "required": true
+    },
+    "external": {
+      "type": "boolean",
+      "description": "When true, appends ' (opens in new tab)' to aria-label for screen reader users. Does NOT automatically set target='_blank' — callers must do that explicitly.",
+      "required": false,
+      "default": false
+    },
+    "variant": {
+      "type": "'default' | 'subtle' | 'inverse'",
+      "description": "Color variant. 'default' uses color-text-link tokens. 'subtle' uses color-text-subtle. 'inverse' uses color-text-inverse.",
+      "required": false,
+      "default": "default"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "description": "Link label content.",
+      "required": false
+    },
+    "className": {
+      "type": "string",
+      "description": "Additional CSS class names.",
+      "required": false
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide meaningful link text — avoid 'click here' or 'read more'",
+      "Use external=true when the link opens content outside the current application",
+      "Set target='_blank' explicitly alongside external=true when you want the link to open in a new tab",
+      "Use variant='inverse' for links placed on dark or coloured backgrounds"
+    ],
+    "doNot": [
+      "Do not rely on external prop alone to open a new tab — set target='_blank' separately",
+      "Do not use Link for actions — use a Button instead",
+      "Do not suppress the visited state for navigation links"
+    ]
+  },
+  "accessibility": {
+    "notes": "The external prop appends ' (opens in new tab)' to the aria-label so screen reader users are informed before activating the link. :focus-visible outline uses var(--color-border-focus) to meet WCAG 2.4.11 focus appearance criteria. Visited state is preserved via color-text-link-visited token."
+  },
+  "tokens": {
+    "used": [
+      "color-text-link",
+      "color-text-link-hover",
+      "color-text-link-visited",
+      "color-text-subtle",
+      "color-text-inverse",
+      "color-border-focus"
+    ]
+  }
+}

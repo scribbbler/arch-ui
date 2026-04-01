@@ -1,0 +1,52 @@
+{
+  "name": "Divider",
+  "version": "1.0.0",
+  "description": "A visual separator that divides content either horizontally or vertically. Supports an optional inline label that appears centred between two lines.",
+  "status": "stable",
+  "accessibility": {
+    "role": "separator",
+    "ariaAttributes": ["aria-orientation"],
+    "notes": [
+      "The component always has role=separator.",
+      "aria-orientation is set to match the orientation prop.",
+      "When a label is present, the separator is wrapped in a div and the line is purely presentational."
+    ]
+  },
+  "props": {
+    "orientation": {
+      "type": "'horizontal' | 'vertical'",
+      "default": "horizontal",
+      "description": "Orientation of the divider. Horizontal renders a full-width rule; vertical renders an inline rule."
+    },
+    "label": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Optional text label displayed at the centre of the divider. Only supported for horizontal orientation."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use horizontal dividers to separate sections of content.",
+      "Use vertical dividers to separate inline items like toolbar actions.",
+      "Keep labels very short — one to three words."
+    ],
+    "dont": [
+      "Do not use a label on a vertical divider.",
+      "Do not use the divider as a layout primitive — use spacing tokens instead.",
+      "Do not nest interactive content inside a divider."
+    ]
+  },
+  "tokens": [
+    "color-border-subtle",
+    "color-text-subtle",
+    "spacing-component-sm",
+    "spacing-inline-sm",
+    "typography-scale-text-xs",
+    "typography-weight-medium"
+  ]
+}

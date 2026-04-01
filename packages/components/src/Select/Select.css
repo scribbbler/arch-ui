@@ -1,0 +1,114 @@
+/* Select — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+/* ─── Base select ─────────────────────────────────────────────────────────────── */
+
+.arch-select {
+  /* Layout */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Appearance — remove native styling */
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  color: var(--color-text-default);
+  font-family: inherit;
+  cursor: pointer;
+
+  /* Custom chevron via background-image (encoded SVG — token-coloured via currentColor) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-component-sm) center;
+  /* Extra inline-end padding so text doesn't overlap the chevron */
+  padding-inline-end: calc(var(--spacing-component-md) + 1.25rem);
+
+  /* Reset */
+  margin: 0;
+  outline: none;
+}
+
+/* ─── Placeholder option ─────────────────────────────────────────────────────── */
+
+.arch-select option[value=""] {
+  color: var(--color-text-subtle);
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────────── */
+
+.arch-select:focus-visible {
+  border-color: var(--color-border-focus);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Invalid / error ────────────────────────────────────────────────────────── */
+
+.arch-select[aria-invalid="true"],
+.arch-select--error {
+  border-color: var(--color-border-danger);
+}
+
+.arch-select[aria-invalid="true"]:focus-visible,
+.arch-select--error:focus-visible {
+  border-color: var(--color-border-danger);
+  outline-color: var(--color-border-danger);
+}
+
+/* ─── Disabled ────────────────────────────────────────────────────────────────── */
+
+.arch-select:disabled,
+.arch-select[aria-disabled="true"] {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ─── Multiple ────────────────────────────────────────────────────────────────── */
+
+.arch-select[multiple] {
+  /* No chevron for multi-select listbox */
+  background-image: none;
+  padding-inline-end: var(--spacing-component-md);
+  block-size: auto;
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-select--sm {
+  padding-block: var(--spacing-component-xs);
+  padding-inline-start: var(--spacing-component-sm);
+  font-size: var(--typography-scale-text-sm-font-size);
+  line-height: var(--typography-scale-text-sm-line-height);
+  min-block-size: 2rem; /* 32px */
+  border-radius: var(--radius-component-sm);
+}
+
+.arch-select--md {
+  padding-block: var(--spacing-component-sm);
+  padding-inline-start: var(--spacing-component-md);
+  font-size: var(--typography-scale-text-md-font-size);
+  line-height: var(--typography-scale-text-md-line-height);
+  min-block-size: 2.75rem; /* 44px touch target */
+}
+
+.arch-select--lg {
+  padding-block: var(--spacing-component-md);
+  padding-inline-start: var(--spacing-component-md);
+  font-size: var(--typography-scale-text-md-font-size);
+  line-height: var(--typography-scale-text-md-line-height);
+  min-block-size: 3rem; /* 48px */
+}

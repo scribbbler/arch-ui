@@ -1,0 +1,46 @@
+{
+  "name": "FocusTrap",
+  "version": "1.0.0",
+  "description": "Constrains keyboard Tab and Shift+Tab focus cycling within a container. When deactivated with restoreFocus=true, returns focus to the previously focused element.",
+  "status": "stable",
+  "accessibility": {
+    "keyboardInteraction": ["Tab", "Shift+Tab"],
+    "notes": [
+      "When active, Tab cycles forward through focusable children; Shift+Tab cycles backward.",
+      "Focus is contained — pressing Tab on the last focusable element moves focus to the first, and vice versa.",
+      "When restoreFocus is true (default), focus returns to the element that was active when the trap was activated.",
+      "No visual style is added; the rendered div wrapper is transparent to layout."
+    ]
+  },
+  "props": {
+    "active": {
+      "type": "boolean",
+      "description": "Whether focus trapping is currently active."
+    },
+    "restoreFocus": {
+      "type": "boolean",
+      "default": true,
+      "description": "When true, focus returns to the previously focused element when active transitions to false."
+    },
+    "children": {
+      "type": "ReactElement",
+      "description": "A single child element that serves as the focus trap container."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the wrapper div."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use FocusTrap inside Modal, Drawer, and Popover to comply with ARIA dialog patterns.",
+      "Set active=false before unmounting to trigger restoreFocus cleanup."
+    ],
+    "dont": [
+      "Do not nest FocusTrap instances — only the innermost active trap will receive keyboard events.",
+      "Do not rely on FocusTrap for click containment — it only intercepts keyboard Tab events."
+    ]
+  },
+  "tokens": []
+}

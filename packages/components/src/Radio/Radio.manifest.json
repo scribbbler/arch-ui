@@ -1,0 +1,72 @@
+{
+  "name": "Radio",
+  "version": "1.0.0",
+  "description": "A radio input component that renders a real <input type=\"radio\"> for accessibility, with a custom-styled visual overlay. Must be used inside a RadioGroup, from which it reads name, selectedValue, onChange, and disabled via context.",
+  "status": "stable",
+  "accessibility": {
+    "role": "radio",
+    "keyboardInteraction": ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"],
+    "ariaAttributes": ["aria-checked", "aria-disabled"],
+    "notes": [
+      "A real <input type=\"radio\"> is rendered and visually hidden; the styled circle is a presentation layer.",
+      "Must be used inside a RadioGroup which provides name, value, onChange, and disabled via context.",
+      "Focus indicator appears on the visual circle via :focus-visible using var(--color-border-focus).",
+      "Arrow key navigation is managed by the parent RadioGroup.",
+      "The tab index follows ARIA radio group pattern: only the selected (or first) radio is in the tab order."
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "string",
+      "description": "The value this radio represents. Compared against RadioGroup's value to determine selected state."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables this specific radio. Also disabled if the parent RadioGroup is disabled."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Label content rendered next to the radio circle."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names for the wrapper element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always use Radio inside a RadioGroup.",
+      "Provide a unique value prop for each Radio in the group.",
+      "Provide visible label text as children."
+    ],
+    "dont": [
+      "Do not use Radio outside of a RadioGroup.",
+      "Do not use Radio for non-exclusive choices — use Checkbox instead.",
+      "Do not leave a radio without a label."
+    ]
+  },
+  "tokens": [
+    "color-action-primary",
+    "color-action-primary-hover",
+    "color-action-primary-text",
+    "color-background-default",
+    "color-background-disabled",
+    "color-text-default",
+    "color-text-disabled",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-disabled",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-inline-sm",
+    "border-width-default",
+    "border-width-medium",
+    "typography-scale-text-md",
+    "typography-weight-regular",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

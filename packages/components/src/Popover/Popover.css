@@ -1,0 +1,19 @@
+/* ─── Popover ─────────────────────────────────────────────────────────────────── */
+
+.arch-popover {
+  position: absolute;
+  z-index: var(--z-semantic-popover);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-default);
+  box-shadow: var(--shadow-component-md);
+  padding-block: var(--spacing-component-md);
+  padding-inline: var(--spacing-component-lg);
+  border-radius: var(--radius-component-md);
+  min-inline-size: 12rem;
+  outline: none;
+}
+
+.arch-popover:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}

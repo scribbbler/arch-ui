@@ -1,0 +1,54 @@
+{
+  "name": "Grid",
+  "description": "CSS Grid wrapper with token-based gap and responsive columns via container queries. Columns accept a number (1–12), 'auto', or a responsive object { base, sm, md, lg, xl }.",
+  "category": "layout",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "columns": {
+      "type": "number | 'auto' | { base?: number, sm?: number, md?: number, lg?: number, xl?: number }",
+      "description": "Number of columns (1–12), 'auto' for auto-fill, or responsive object using container queries",
+      "required": false,
+      "default": 1
+    },
+    "gap": {
+      "type": "string",
+      "description": "Spacing token for both row and column gap",
+      "required": false
+    },
+    "rowGap": {
+      "type": "string",
+      "description": "Spacing token for row gap (overrides gap for rows)",
+      "required": false
+    },
+    "colGap": {
+      "type": "string",
+      "description": "Spacing token for column gap (overrides gap for columns)",
+      "required": false
+    },
+    "as": {
+      "type": "React.ElementType",
+      "description": "HTML element to render. Default: 'div'.",
+      "required": false,
+      "default": "div"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "required": false
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Grid for multi-column layouts",
+      "Use responsive columns object for container-query-based responsive layouts",
+      "Prefer container queries over viewport breakpoints for component portability"
+    ],
+    "doNot": [
+      "Do not use Grid for simple vertical or horizontal layouts — use Stack or Inline",
+      "Do not use more than 12 columns"
+    ]
+  },
+  "accessibility": {
+    "notes": "Grid is a layout utility with no inherent semantics."
+  }
+}

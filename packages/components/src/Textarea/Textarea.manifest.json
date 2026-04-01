@@ -1,0 +1,105 @@
+{
+  "name": "Textarea",
+  "version": "1.0.0",
+  "description": "A multi-line text input component. Mirrors the ARIA integration of Input: when placed inside a FormControl it inherits id, required, disabled, and invalid state. Supports rows, resize behaviour, an autoResize mode that grows with content, and three size variants.",
+  "status": "stable",
+  "accessibility": {
+    "role": "textbox",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "Enter (newline)"],
+    "ariaAttributes": [
+      "aria-required",
+      "aria-disabled",
+      "aria-invalid",
+      "aria-describedby",
+      "aria-multiline"
+    ],
+    "notes": [
+      "aria-multiline is implicitly true for <textarea>.",
+      "When used inside a FormControl, the textarea's id is set to the context id so FormLabel's htmlFor links correctly.",
+      "aria-describedby is automatically built from '{id}-helper' and/or '{id}-error' when inside a FormControl.",
+      "aria-required is set when the FormControl is required.",
+      "aria-invalid is set when the FormControl is invalid.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus) and a 2px offset.",
+      "Minimum touch target is met for md and lg sizes."
+    ]
+  },
+  "props": {
+    "rows": {
+      "type": "number",
+      "default": 3,
+      "description": "The initial visible number of text lines. Has no effect when autoResize is true and the content is taller."
+    },
+    "resize": {
+      "type": "'none' | 'vertical' | 'both'",
+      "default": "vertical",
+      "description": "Controls the CSS resize handle. Set to 'none' when autoResize is true."
+    },
+    "autoResize": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, the textarea grows to fit its content on every input event by setting its height to its scrollHeight. Automatically overrides resize to 'none' in CSS. Does not shrink below the initial rows height."
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "default": "md",
+      "description": "Controls padding and font size. Mirrors the Input size tokens."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the textarea. Also inherited from FormControl context."
+    },
+    "readOnly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Makes the textarea read-only."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the textarea element."
+    }
+  },
+  "sizes": {
+    "sm": "padding uses spacing-component-xs / spacing-component-sm, text-sm tokens.",
+    "md": "padding uses spacing-component-sm / spacing-component-md, text-md tokens. Default.",
+    "lg": "padding uses spacing-component-md, text-lg tokens."
+  },
+  "usage": {
+    "do": [
+      "Always pair with a FormLabel (via FormControl) to provide an accessible name.",
+      "Use autoResize for chat or note-taking contexts where variable-length input is expected.",
+      "Set resize='none' when the Textarea is inside a fixed-height layout container.",
+      "Use rows to set a meaningful default height that indicates expected input length."
+    ],
+    "dont": [
+      "Do not use autoResize and a fixed rows value as the sole height constraint — provide a max-height via a wrapper if needed.",
+      "Do not omit a label — if no visible label, provide aria-label directly.",
+      "Do not use inline styles to set height — use autoResize or rows."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-subtle",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-danger",
+    "color-border-disabled",
+    "color-text-default",
+    "color-text-placeholder",
+    "color-text-disabled",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "radius-component-sm",
+    "radius-component-md",
+    "typography-scale-text-sm-font-size",
+    "typography-scale-text-sm-line-height",
+    "typography-scale-text-md-font-size",
+    "typography-scale-text-md-line-height",
+    "typography-scale-text-lg-font-size",
+    "typography-scale-text-lg-line-height",
+    "border-width-default"
+  ]
+}

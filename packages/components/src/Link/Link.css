@@ -1,0 +1,55 @@
+.arch-link {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.arch-link:hover {
+  color: var(--link-color-hover);
+}
+
+.arch-link:visited {
+  color: var(--link-color-visited);
+}
+
+.arch-link:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Default variant */
+.arch-link--default {
+  --link-color: var(--color-text-link);
+  --link-color-hover: var(--color-text-link-hover);
+  --link-color-visited: var(--color-text-link-visited);
+}
+
+/* Subtle variant */
+.arch-link--subtle {
+  --link-color: var(--color-text-subtle);
+  --link-color-hover: var(--color-text-link-hover);
+  --link-color-visited: var(--color-text-link-visited);
+}
+
+/* Inverse variant */
+.arch-link--inverse {
+  --link-color: var(--color-text-inverse);
+  --link-color-hover: var(--color-text-inverse);
+  --link-color-visited: var(--color-text-inverse);
+}
+
+.arch-link--inverse:visited {
+  color: var(--color-text-inverse);
+}
+
+/* External indicator */
+.arch-link__external-icon {
+  display: inline-block;
+  margin-inline-start: var(--spacing-inline-xs);
+  vertical-align: middle;
+  width: 0.85em;
+  height: 0.85em;
+}

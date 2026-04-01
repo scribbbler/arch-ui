@@ -1,0 +1,40 @@
+/* CheckboxGroup — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Fieldset reset ─────────────────────────────────────────────────────────── */
+
+.arch-checkbox-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+}
+
+/* ─── Legend ─────────────────────────────────────────────────────────────────── */
+
+.arch-checkbox-group__legend {
+  padding: 0;
+  margin-block-end: var(--spacing-component-sm);
+  font-size: var(--typography-scale-text-md);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-default);
+  float: none;
+  /* Prevent legend from causing fieldset layout issues */
+  display: block;
+  inline-size: 100%;
+}
+
+/* ─── Items container ────────────────────────────────────────────────────────── */
+
+.arch-checkbox-group__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-component-sm);
+}
+
+.arch-checkbox-group__items--horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--spacing-component-md);
+  align-items: center;
+}

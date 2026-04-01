@@ -7,7 +7,8 @@
   "scripts": {
     "build": "echo 'TODO: build'",
     "dev": "echo 'TODO: dev'",
-    "test": "echo 'No tests yet'",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "echo 'No lint yet'"
   },
   "peerDependencies": {

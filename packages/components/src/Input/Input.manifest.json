@@ -1,0 +1,103 @@
+{
+  "name": "Input",
+  "version": "1.0.0",
+  "description": "A single-line text input component. Integrates with FormControl context to receive id, required, disabled, and invalid state automatically. Supports optional leading and trailing element slots (icon, button, adornment) and three sizes.",
+  "status": "stable",
+  "accessibility": {
+    "role": "textbox",
+    "keyboardInteraction": ["Tab", "Shift+Tab"],
+    "ariaAttributes": [
+      "aria-required",
+      "aria-disabled",
+      "aria-invalid",
+      "aria-describedby"
+    ],
+    "notes": [
+      "When used inside a FormControl, the input's id is set to the context id so the FormLabel's htmlFor links correctly.",
+      "aria-describedby is automatically built from '{id}-helper' and/or '{id}-error' when inside a FormControl.",
+      "aria-required is set when the FormControl is required.",
+      "aria-invalid is set when the FormControl is invalid.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus) and a 2px offset.",
+      "Minimum touch target for md and lg sizes meets the 44x44px requirement.",
+      "leftElement and rightElement are aria-hidden so decorative icons do not pollute the accessible name."
+    ]
+  },
+  "props": {
+    "type": {
+      "type": "'text' | 'email' | 'password' | 'number' | 'search' | 'url' | 'tel'",
+      "default": "text",
+      "description": "The HTML input type."
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "default": "md",
+      "description": "Controls the input height, padding, and font size. md and lg meet the 44px minimum touch target."
+    },
+    "leftElement": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "An element (icon, text, etc.) placed in the leading slot of the input. The input receives additional inline-start padding to avoid text overlap."
+    },
+    "rightElement": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "An element placed in the trailing slot. The input receives additional inline-end padding to avoid text overlap."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the input. Also inherited from FormControl context if not explicitly set."
+    },
+    "readOnly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Makes the input read-only."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the outer wrapper div."
+    }
+  },
+  "sizes": {
+    "sm": "min-block-size 32px — suitable for dense UIs. Does not meet 44px touch target; avoid on touch-primary interfaces.",
+    "md": "min-block-size 40px — default. Meets 44px touch target via min-inline-size and padding.",
+    "lg": "min-block-size 48px — for prominent or standalone fields."
+  },
+  "usage": {
+    "do": [
+      "Always pair with a FormLabel (via FormControl) to provide an accessible name.",
+      "Use leftElement for leading icons that visually clarify the input purpose (e.g., search icon, currency symbol).",
+      "Use rightElement for trailing actions like show/hide password or clear buttons.",
+      "Use size='sm' only in dense UI contexts like data tables where 44px targets are not achievable."
+    ],
+    "dont": [
+      "Do not place interactive elements in leftElement or rightElement without making them keyboard-accessible separately.",
+      "Do not use inline styles to adjust input appearance — add a token and use var(--token-name) in the CSS.",
+      "Do not omit a label — if a visible label is not possible, provide aria-label directly on the Input."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-danger",
+    "color-border-disabled",
+    "color-text-default",
+    "color-text-placeholder",
+    "color-text-disabled",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "radius-component-sm",
+    "radius-component-md",
+    "typography-scale-text-sm-font-size",
+    "typography-scale-text-sm-line-height",
+    "typography-scale-text-md-font-size",
+    "typography-scale-text-md-line-height",
+    "typography-scale-text-lg-font-size",
+    "typography-scale-text-lg-line-height",
+    "border-width-default"
+  ]
+}

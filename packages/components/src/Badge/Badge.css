@@ -1,0 +1,93 @@
+/* Badge — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-inline-xs);
+
+  font-family: inherit;
+  font-weight: var(--typography-weight-medium);
+  white-space: nowrap;
+  vertical-align: middle;
+
+  border-radius: var(--radius-component-full);
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-badge--sm {
+  padding-block: var(--spacing-inline-xs);
+  padding-inline: var(--spacing-component-xs);
+  font-size: var(--typography-scale-text-xs);
+}
+
+.arch-badge--md {
+  padding-block: var(--spacing-component-xs);
+  padding-inline: var(--spacing-component-sm);
+  font-size: var(--typography-scale-text-sm);
+}
+
+/* ─── Variant: neutral ───────────────────────────────────────────────────────── */
+
+.arch-badge--neutral {
+  background-color: var(--color-background-muted);
+  color: var(--color-text-default);
+}
+
+/* ─── Variant: info ──────────────────────────────────────────────────────────── */
+
+.arch-badge--info {
+  background-color: var(--color-feedback-info-bg);
+  color: var(--color-feedback-info-text);
+}
+
+/* ─── Variant: success ───────────────────────────────────────────────────────── */
+
+.arch-badge--success {
+  background-color: var(--color-feedback-success-bg);
+  color: var(--color-feedback-success-text);
+}
+
+/* ─── Variant: warning ───────────────────────────────────────────────────────── */
+
+.arch-badge--warning {
+  background-color: var(--color-feedback-warning-bg);
+  color: var(--color-feedback-warning-text);
+}
+
+/* ─── Variant: danger ────────────────────────────────────────────────────────── */
+
+.arch-badge--danger {
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+}
+
+/* ─── Dot mode ───────────────────────────────────────────────────────────────── */
+
+.arch-badge--dot {
+  padding: var(--spacing-component-xs);
+}
+
+.arch-badge__dot {
+  display: inline-block;
+  border-radius: var(--radius-component-full);
+  flex-shrink: 0;
+}
+
+.arch-badge--sm .arch-badge__dot {
+  inline-size: var(--spacing-inline-xs);
+  block-size: var(--spacing-inline-xs);
+}
+
+.arch-badge--md .arch-badge__dot {
+  inline-size: var(--spacing-component-xs);
+  block-size: var(--spacing-component-xs);
+}
+
+.arch-badge__dot {
+  background-color: currentColor;
+}

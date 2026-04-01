@@ -1,0 +1,61 @@
+/* Skeleton — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Shimmer keyframe ───────────────────────────────────────────────────────── */
+
+@keyframes arch-skeleton-shimmer {
+  from {
+    background-position: 200% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-skeleton {
+  display: block;
+  background-color: var(--color-background-muted);
+  overflow: hidden;
+}
+
+/* ─── Animated (shimmer) ─────────────────────────────────────────────────────── */
+
+.arch-skeleton--animated {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-background-muted) 25%,
+    var(--color-background-subtle) 50%,
+    var(--color-background-muted) 75%
+  );
+  background-size: 400% 100%;
+  animation: arch-skeleton-shimmer var(--motion-duration-slow) var(--motion-semantic-easing-default) infinite;
+}
+
+/* ─── Variants ───────────────────────────────────────────────────────────────── */
+
+.arch-skeleton--text {
+  inline-size: 100%;
+  block-size: var(--typography-scale-text-sm);
+  border-radius: var(--radius-component-sm);
+}
+
+.arch-skeleton--circular {
+  border-radius: var(--radius-component-full);
+}
+
+.arch-skeleton--rectangular {
+  border-radius: var(--radius-component-sm);
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-skeleton--animated {
+    animation: none;
+    background-image: none;
+    background-color: var(--color-background-muted);
+  }
+}

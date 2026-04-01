@@ -1,0 +1,51 @@
+{
+  "name": "Label",
+  "description": "UI text for interactive elements — form labels, button text, navigation items, badges, table headers. Medium or semibold weight by default. Not for body copy (use Paragraph) or headings (use Heading).",
+  "category": "typography",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "size": {
+      "type": "'lg' | 'md' | 'sm' | 'xs'",
+      "description": "Label size. Maps to text scale tokens.",
+      "required": false,
+      "default": "md"
+    },
+    "weight": {
+      "type": "'medium' | 'semibold' | 'bold'",
+      "description": "Font weight. Default: 'medium'.",
+      "required": false,
+      "default": "medium"
+    },
+    "color": {
+      "type": "string",
+      "description": "Semantic text color token name",
+      "required": false,
+      "default": "color-text-default"
+    },
+    "uppercase": {
+      "type": "boolean",
+      "description": "Renders text in uppercase with wider letter-spacing. Useful for overlines and category labels.",
+      "required": false,
+      "default": false
+    },
+    "as": {
+      "type": "React.ElementType",
+      "description": "HTML element to render. Default: 'span'.",
+      "required": false,
+      "default": "span"
+    },
+    "children": { "type": "React.ReactNode", "required": true }
+  },
+  "usage": {
+    "do": [
+      "Use Label for button text, nav items, form labels, table headers, badge text",
+      "Use uppercase=true for overlines and category labels",
+      "Use size='xs' for fine print and metadata"
+    ],
+    "doNot": [
+      "Do not use Label for body copy — use Paragraph",
+      "Do not use Label for page headings — use Heading or Display"
+    ]
+  }
+}

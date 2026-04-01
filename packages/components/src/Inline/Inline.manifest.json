@@ -1,0 +1,55 @@
+{
+  "name": "Inline",
+  "description": "Horizontal flex layout with token-based gap. Children are laid out horizontally and wrap naturally.",
+  "category": "layout",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "gap": {
+      "type": "string",
+      "description": "Spacing token name for gap between children",
+      "required": false
+    },
+    "align": {
+      "type": "'start' | 'center' | 'end' | 'stretch' | 'baseline'",
+      "description": "Cross-axis alignment (maps to align-items)",
+      "required": false,
+      "default": "center"
+    },
+    "justify": {
+      "type": "'start' | 'center' | 'end' | 'space-between'",
+      "description": "Main-axis alignment (maps to justify-content)",
+      "required": false,
+      "default": "start"
+    },
+    "wrap": {
+      "type": "boolean",
+      "description": "Whether children wrap to next line. Default: true.",
+      "required": false,
+      "default": true
+    },
+    "as": {
+      "type": "React.ElementType",
+      "description": "HTML element to render. Default: 'div'.",
+      "required": false,
+      "default": "div"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "required": false
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Inline for horizontal layouts like button groups, tag lists, icon + text",
+      "Inline wraps by default — this is intentional for responsive layouts"
+    ],
+    "doNot": [
+      "Do not use Inline for vertical layouts — use Stack instead",
+      "Do not disable wrap unless you are certain the content will fit"
+    ]
+  },
+  "accessibility": {
+    "notes": "Inline is a layout utility with no inherent semantics."
+  }
+}

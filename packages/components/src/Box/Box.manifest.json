@@ -1,0 +1,85 @@
+{
+  "name": "Box",
+  "description": "Generic container with token-based styling props. Foundation of every other component's layout. Maps props directly to CSS custom properties.",
+  "category": "layout",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "padding": {
+      "type": "string",
+      "description": "Spacing token name for all sides padding (e.g. 'spacing-component-md')",
+      "required": false
+    },
+    "paddingX": {
+      "type": "string",
+      "description": "Spacing token for inline (horizontal) padding",
+      "required": false
+    },
+    "paddingY": {
+      "type": "string",
+      "description": "Spacing token for block (vertical) padding",
+      "required": false
+    },
+    "margin": {
+      "type": "string",
+      "description": "Spacing token name for all sides margin",
+      "required": false
+    },
+    "marginX": {
+      "type": "string",
+      "description": "Spacing token for inline (horizontal) margin",
+      "required": false
+    },
+    "marginY": {
+      "type": "string",
+      "description": "Spacing token for block (vertical) margin",
+      "required": false
+    },
+    "background": {
+      "type": "string",
+      "description": "Color token name for background (e.g. 'color-surface-raised')",
+      "required": false
+    },
+    "border": {
+      "type": "string",
+      "description": "Color token name for border color",
+      "required": false
+    },
+    "radius": {
+      "type": "string",
+      "description": "Radius token name (e.g. 'radius-component-md')",
+      "required": false
+    },
+    "shadow": {
+      "type": "string",
+      "description": "Shadow token name (e.g. 'shadow-component-sm')",
+      "required": false
+    },
+    "as": {
+      "type": "React.ElementType",
+      "description": "HTML element to render. Default: 'div'.",
+      "required": false,
+      "default": "div"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "description": "Content to render inside the box",
+      "required": false
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Box as the base container for layout composition",
+      "Pass semantic token names as prop values",
+      "Use paddingX/paddingY for directional padding (maps to CSS logical properties)"
+    ],
+    "doNot": [
+      "Do not pass raw CSS values — only token names",
+      "Do not use Box for visual components — use specific components instead",
+      "Do not nest Boxes deeply when Stack or Inline would be clearer"
+    ]
+  },
+  "accessibility": {
+    "notes": "Box is a layout utility with no inherent semantics. Use the 'as' prop to render semantic elements where appropriate."
+  }
+}

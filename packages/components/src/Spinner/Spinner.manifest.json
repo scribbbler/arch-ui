@@ -1,0 +1,57 @@
+{
+  "name": "Spinner",
+  "version": "1.0.0",
+  "description": "A circular loading indicator that communicates an ongoing process. Respects prefers-reduced-motion by replacing the animation with a static circle. Uses role='status' and an accessible aria-label so screen readers announce the loading state.",
+  "status": "stable",
+  "accessibility": {
+    "role": "status",
+    "ariaAttributes": ["aria-label"],
+    "notes": [
+      "role='status' causes screen readers to announce the label without interrupting the user (live region with aria-live='polite').",
+      "aria-label defaults to 'Loading' and must always be provided — either via the default or an explicit override.",
+      "When prefers-reduced-motion is set the rotation animation is disabled and a static circle is shown instead.",
+      "The element is not interactive and never receives focus."
+    ]
+  },
+  "props": {
+    "size": {
+      "type": "'xs' | 'sm' | 'md' | 'lg'",
+      "default": "md",
+      "description": "Controls the diameter of the spinner. xs=16px, sm=20px, md=32px, lg=48px."
+    },
+    "aria-label": {
+      "type": "string",
+      "default": "Loading",
+      "description": "Accessible label announced by screen readers. Override when context requires a more descriptive phrase such as 'Saving changes'."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root element."
+    }
+  },
+  "sizes": {
+    "xs": "16px diameter — use only in extremely compact contexts such as inline button icons.",
+    "sm": "20px diameter — suitable for dense list rows or input adornments.",
+    "md": "32px diameter — default; suitable for most page-level loading states.",
+    "lg": "48px diameter — use for full-section or full-page loading states."
+  },
+  "usage": {
+    "do": [
+      "Always provide a meaningful aria-label when the default 'Loading' is not descriptive enough.",
+      "Use the lg size for full-page loading and xs/sm inside buttons or tight containers.",
+      "Pair with VisuallyHidden text if you need visible copy alongside the spinner."
+    ],
+    "dont": [
+      "Do not use a Spinner for progress that can be quantified — use ProgressBar instead.",
+      "Do not apply inline styles — use the className prop and extend via CSS tokens.",
+      "Do not suppress the aria-label — every Spinner must have an accessible name."
+    ]
+  },
+  "tokens": [
+    "color-action-primary",
+    "color-background-muted",
+    "motion-duration-slow",
+    "motion-semantic-easing-default"
+  ]
+}

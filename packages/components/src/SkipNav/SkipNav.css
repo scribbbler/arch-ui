@@ -1,0 +1,32 @@
+.arch-skip-nav {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  text-decoration: none;
+  color: var(--color-text-default);
+  background: var(--color-surface-base);
+}
+
+.arch-skip-nav:focus-visible {
+  position: fixed;
+  inset-block-start: var(--spacing-component-sm);
+  inset-inline-start: var(--spacing-component-sm);
+  z-index: var(--z-tooltip);
+  width: auto;
+  height: auto;
+  padding: var(--spacing-component-sm) var(--spacing-component-md);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border-radius: var(--radius-component-sm);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-component-md);
+}

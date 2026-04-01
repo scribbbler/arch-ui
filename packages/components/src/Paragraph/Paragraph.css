@@ -1,0 +1,15 @@
+.arch-paragraph {
+  font-size: var(--paragraph-font-size);
+  line-height: var(--paragraph-line-height);
+  letter-spacing: var(--paragraph-letter-spacing);
+  font-weight: var(--paragraph-font-weight);
+  color: var(--paragraph-color);
+  font-family: var(--typography-family-sans);
+  margin: 0;
+}
+
+.arch-paragraph--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,55 @@
+{
+  "name": "Stack",
+  "description": "Vertical flex layout with token-based gap. Children are stacked vertically with consistent spacing.",
+  "category": "layout",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "gap": {
+      "type": "string",
+      "description": "Spacing token name for gap between children (e.g. 'spacing-component-md')",
+      "required": false
+    },
+    "align": {
+      "type": "'start' | 'center' | 'end' | 'stretch'",
+      "description": "Cross-axis alignment (maps to align-items)",
+      "required": false,
+      "default": "stretch"
+    },
+    "justify": {
+      "type": "'start' | 'center' | 'end' | 'space-between'",
+      "description": "Main-axis alignment (maps to justify-content)",
+      "required": false,
+      "default": "start"
+    },
+    "direction": {
+      "type": "'column' | 'column-reverse'",
+      "description": "Stack direction",
+      "required": false,
+      "default": "column"
+    },
+    "as": {
+      "type": "React.ElementType",
+      "description": "HTML element to render. Default: 'div'.",
+      "required": false,
+      "default": "div"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "required": false
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Stack for vertical layouts with consistent spacing",
+      "Use gap prop with spacing tokens for consistent rhythm"
+    ],
+    "doNot": [
+      "Do not use Stack for horizontal layouts — use Inline instead",
+      "Do not pass raw pixel values to gap — use token names"
+    ]
+  },
+  "accessibility": {
+    "notes": "Stack is a layout utility with no inherent semantics. Use the 'as' prop for semantic elements like 'nav', 'section', or 'ul'."
+  }
+}

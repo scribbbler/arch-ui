@@ -1,0 +1,8 @@
+.arch-inline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: var(--inline-wrap, wrap);
+  gap: var(--inline-gap);
+  align-items: var(--inline-align, center);
+  justify-content: var(--inline-justify, start);
+}

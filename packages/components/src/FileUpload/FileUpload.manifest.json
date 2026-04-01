@@ -1,0 +1,95 @@
+{
+  "name": "FileUpload",
+  "version": "1.0.0",
+  "description": "A file upload drop zone with drag-and-drop support. A visually styled <label> wraps a hidden <input type='file'>. Supports accept filtering, multiple files, max file size validation, and exposes drag states via CSS modifier classes.",
+  "status": "stable",
+  "accessibility": {
+    "role": "presentation (label wraps input)",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "Space / Enter — activate file dialog"],
+    "ariaAttributes": [
+      "aria-disabled",
+      "aria-label",
+      "aria-labelledby",
+      "aria-describedby"
+    ],
+    "notes": [
+      "The hidden <input type='file'> receives focus — screen readers announce it as a file upload button.",
+      "The label's for/id association means clicking or activating the visible zone opens the file dialog.",
+      "Disabled state hides the input from keyboard navigation and reduces visual opacity.",
+      "Error state (file too large or wrong type) is communicated via role='alert' on the error message element.",
+      "Focus indicator is applied to the hidden input via :focus-visible, with a visible outline on the drop zone."
+    ]
+  },
+  "props": {
+    "accept": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Comma-separated list of accepted file types (MIME types or extensions, e.g. 'image/*,.pdf'). Passed directly to the input's accept attribute."
+    },
+    "multiple": {
+      "type": "boolean",
+      "default": false,
+      "description": "Allows selecting multiple files at once."
+    },
+    "maxSize": {
+      "type": "number",
+      "default": "undefined",
+      "description": "Maximum individual file size in bytes. Files exceeding this trigger the error state."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the drop zone and prevents file selection."
+    },
+    "onDrop": {
+      "type": "(files: File[]) => void",
+      "default": "undefined",
+      "description": "Callback fired when files are selected (via dialog or drag-and-drop) and pass validation."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root wrapper div."
+    }
+  },
+  "states": {
+    "default": "Dashed border, subtle background.",
+    "dragover": "Solid border using color-border-focus, muted background highlight.",
+    "error": "Solid border using color-border-danger, danger background tint.",
+    "disabled": "Reduced opacity, cursor: not-allowed, drag events blocked."
+  },
+  "usage": {
+    "do": [
+      "Provide descriptive children content explaining accepted file types and size limits.",
+      "Show a file list after selection so users know what will be uploaded.",
+      "Use the error state with a role='alert' message to explain why files were rejected."
+    ],
+    "dont": [
+      "Do not suppress the native file dialog — some users rely on it exclusively.",
+      "Do not silently reject files — always communicate why a file was not accepted.",
+      "Do not omit the accept prop if only specific file types are valid — it filters the OS file picker."
+    ]
+  },
+  "tokens": [
+    "color-background-subtle",
+    "color-background-muted",
+    "color-background-disabled",
+    "color-feedback-danger-bg",
+    "color-feedback-danger-border",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-danger",
+    "color-border-disabled",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-disabled",
+    "color-text-danger",
+    "spacing-component-md",
+    "spacing-component-lg",
+    "radius-component-md",
+    "border-width-default",
+    "typography-scale-text-md",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

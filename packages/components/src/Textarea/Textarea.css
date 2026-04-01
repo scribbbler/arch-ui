@@ -1,0 +1,119 @@
+/* Textarea — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-textarea {
+  /* Layout */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Appearance */
+  appearance: none;
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  color: var(--color-text-default);
+  font-family: inherit;
+
+  /* Default resize */
+  resize: vertical;
+
+  /* Reset */
+  margin: 0;
+  outline: none;
+}
+
+/* ─── Placeholder ─────────────────────────────────────────────────────────────── */
+
+.arch-textarea::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────────── */
+
+.arch-textarea:focus-visible {
+  border-color: var(--color-border-focus);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Invalid ─────────────────────────────────────────────────────────────────── */
+
+.arch-textarea[aria-invalid="true"] {
+  border-color: var(--color-border-danger);
+}
+
+.arch-textarea[aria-invalid="true"]:focus-visible {
+  border-color: var(--color-border-danger);
+  outline-color: var(--color-border-danger);
+}
+
+/* ─── Disabled ───────────────────────────────────────────────────────────────── */
+
+.arch-textarea:disabled,
+.arch-textarea[aria-disabled="true"] {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  resize: none;
+}
+
+.arch-textarea:disabled::placeholder,
+.arch-textarea[aria-disabled="true"]::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Read-only ───────────────────────────────────────────────────────────────── */
+
+.arch-textarea:read-only:not(:disabled) {
+  background-color: var(--color-background-subtle);
+  cursor: default;
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-textarea--sm {
+  padding-block: var(--spacing-component-xs);
+  padding-inline: var(--spacing-component-sm);
+  font-size: var(--typography-scale-text-sm-font-size);
+  line-height: var(--typography-scale-text-sm-line-height);
+  border-radius: var(--radius-component-sm);
+}
+
+.arch-textarea--md {
+  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-component-md);
+  font-size: var(--typography-scale-text-md-font-size);
+  line-height: var(--typography-scale-text-md-line-height);
+}
+
+.arch-textarea--lg {
+  padding-block: var(--spacing-component-md);
+  padding-inline: var(--spacing-component-md);
+  font-size: var(--typography-scale-text-lg-font-size);
+  line-height: var(--typography-scale-text-lg-line-height);
+}
+
+/* ─── Resize modifiers ────────────────────────────────────────────────────────── */
+
+.arch-textarea--resize-none {
+  resize: none;
+}
+
+.arch-textarea--resize-vertical {
+  resize: vertical;
+}
+
+.arch-textarea--resize-both {
+  resize: both;
+}
+
+/* autoResize: disable manual resize handle; height is controlled via JS */
+.arch-textarea--auto-resize {
+  resize: none;
+  overflow: hidden;
+}

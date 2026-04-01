@@ -1,0 +1,54 @@
+/* FormControl — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── FormControl wrapper ────────────────────────────────────────────────────── */
+
+.arch-form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── FormLabel ──────────────────────────────────────────────────────────────── */
+
+.arch-form-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-component-xs);
+  font-size: var(--typography-scale-text-sm-font-size);
+  line-height: var(--typography-scale-text-sm-line-height);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-default);
+  margin-block-end: var(--spacing-component-xs);
+}
+
+/* Required asterisk injected via data attribute so it never enters the DOM as
+   plain text (screen readers will read "asterisk" which is confusing). */
+.arch-form-label[data-required="true"]::after {
+  content: " *";
+  color: var(--color-text-danger);
+  aria-hidden: true;
+}
+
+/* Disabled label */
+.arch-form-label[data-disabled="true"] {
+  color: var(--color-text-disabled);
+}
+
+/* ─── FormHelperText ──────────────────────────────────────────────────────────── */
+
+.arch-form-helper-text {
+  font-size: var(--typography-scale-text-sm-font-size);
+  line-height: var(--typography-scale-text-sm-line-height);
+  color: var(--color-text-subtle);
+  margin-block-start: var(--spacing-component-xs);
+}
+
+/* ─── FormErrorMessage ───────────────────────────────────────────────────────── */
+
+.arch-form-error-message {
+  font-size: var(--typography-scale-text-sm-font-size);
+  line-height: var(--typography-scale-text-sm-line-height);
+  color: var(--color-text-danger);
+  margin-block-start: var(--spacing-component-xs);
+}

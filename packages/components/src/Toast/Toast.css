@@ -1,0 +1,176 @@
+/* Toast — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Container (portal region) ─────────────────────────────────────────────── */
+
+.arch-toast-container {
+  position: fixed;
+  z-index: var(--z-semantic-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-component-sm);
+  pointer-events: none;
+  max-inline-size: min(calc(100vw - var(--spacing-component-lg, 2rem) * 2), 24rem);
+}
+
+/* ─── Position variants ──────────────────────────────────────────────────────── */
+
+.arch-toast-container--top-right {
+  inset-block-start: var(--spacing-component-lg, 1.5rem);
+  inset-inline-end: var(--spacing-component-lg, 1.5rem);
+}
+
+.arch-toast-container--top-center {
+  inset-block-start: var(--spacing-component-lg, 1.5rem);
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+.arch-toast-container--bottom-right {
+  inset-block-end: var(--spacing-component-lg, 1.5rem);
+  inset-inline-end: var(--spacing-component-lg, 1.5rem);
+  flex-direction: column-reverse;
+}
+
+.arch-toast-container--bottom-center {
+  inset-block-end: var(--spacing-component-lg, 1.5rem);
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  flex-direction: column-reverse;
+}
+
+/* ─── Individual Toast ───────────────────────────────────────────────────────── */
+
+.arch-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-inline-sm);
+  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-component-md);
+  background-color: var(--color-surface-raised);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  box-shadow: var(--shadow-component-md);
+  pointer-events: all;
+  inline-size: 100%;
+
+  /* Entry animation */
+  animation: arch-toast-enter var(--motion-duration-normal) var(--motion-semantic-easing-default) forwards;
+}
+
+.arch-toast--exiting {
+  animation: arch-toast-exit var(--motion-duration-normal) var(--motion-semantic-easing-default) forwards;
+}
+
+@keyframes arch-toast-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes arch-toast-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-toast {
+    animation: none;
+  }
+
+  .arch-toast--exiting {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ─── Body ───────────────────────────────────────────────────────────────────── */
+
+.arch-toast__body {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.arch-toast__title {
+  display: block;
+  font-size: var(--typography-scale-text-md);
+  font-weight: var(--typography-weight-semibold);
+  color: var(--color-text-default);
+}
+
+.arch-toast__description {
+  display: block;
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+  margin-block-start: var(--spacing-component-xs, 0.25em);
+}
+
+/* ─── Close button ───────────────────────────────────────────────────────────── */
+
+.arch-toast__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-component-xs, 0.25em);
+  border-radius: var(--radius-component-sm);
+  color: var(--color-text-subtle);
+  flex-shrink: 0;
+  margin-block-start: -0.125em;
+  margin-inline-end: calc(-1 * var(--spacing-component-xs, 0.25em));
+}
+
+.arch-toast__close:hover {
+  color: var(--color-text-default);
+}
+
+.arch-toast__close:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Variant: success ───────────────────────────────────────────────────────── */
+
+.arch-toast--success {
+  background-color: var(--color-feedback-success-bg);
+  border-color: var(--color-feedback-success-border);
+}
+
+.arch-toast--success .arch-toast__title {
+  color: var(--color-feedback-success-text);
+}
+
+/* ─── Variant: warning ───────────────────────────────────────────────────────── */
+
+.arch-toast--warning {
+  background-color: var(--color-feedback-warning-bg);
+  border-color: var(--color-feedback-warning-border);
+}
+
+.arch-toast--warning .arch-toast__title {
+  color: var(--color-feedback-warning-text);
+}
+
+/* ─── Variant: danger ────────────────────────────────────────────────────────── */
+
+.arch-toast--danger {
+  background-color: var(--color-feedback-danger-bg);
+  border-color: var(--color-feedback-danger-border);
+}
+
+.arch-toast--danger .arch-toast__title {
+  color: var(--color-feedback-danger-text);
+}

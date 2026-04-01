@@ -1,0 +1,155 @@
+/* ProgressSteps — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Root list ──────────────────────────────────────────────────────────────── */
+
+.arch-progress-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* ─── Horizontal (default) ───────────────────────────────────────────────────── */
+
+.arch-progress-steps--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.arch-progress-steps--horizontal .arch-progress-steps__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  /* connector line via pseudo-element on all but the last step */
+}
+
+.arch-progress-steps--horizontal .arch-progress-steps__step:not(:last-child)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset-block-start: calc(var(--spacing-component-md) / 2);
+  inset-inline-start: 50%;
+  inline-size: 100%;
+  block-size: 2px;
+  background-color: var(--color-background-subtle);
+}
+
+.arch-progress-steps--horizontal .arch-progress-steps__step--completed:not(:last-child)::after {
+  background-color: var(--color-action-primary);
+}
+
+.arch-progress-steps--horizontal .arch-progress-steps__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding-block-start: 0;
+}
+
+.arch-progress-steps--horizontal .arch-progress-steps__text {
+  margin-block-start: var(--spacing-component-xs);
+  text-align: center;
+}
+
+/* ─── Vertical ───────────────────────────────────────────────────────────────── */
+
+.arch-progress-steps--vertical {
+  flex-direction: column;
+}
+
+.arch-progress-steps--vertical .arch-progress-steps__step {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* connector line on the inline-start side */
+.arch-progress-steps--vertical .arch-progress-steps__step:not(:last-child)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset-inline-start: calc(var(--spacing-component-md) / 2);
+  inset-block-start: var(--spacing-component-md);
+  inline-size: 2px;
+  block-size: 100%;
+  background-color: var(--color-background-subtle);
+}
+
+.arch-progress-steps--vertical .arch-progress-steps__step--completed:not(:last-child)::after {
+  background-color: var(--color-action-primary);
+}
+
+.arch-progress-steps--vertical .arch-progress-steps__body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-inline-sm);
+  position: relative;
+  z-index: 1;
+  padding-block-end: var(--spacing-component-sm);
+}
+
+.arch-progress-steps--vertical .arch-progress-steps__text {
+  margin-block-start: 0;
+}
+
+/* ─── Circle ─────────────────────────────────────────────────────────────────── */
+
+.arch-progress-steps__circle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--spacing-component-md);
+  block-size: var(--spacing-component-md);
+  border-radius: var(--radius-component-full);
+  border: 2px solid var(--color-background-subtle);
+  background-color: transparent;
+  font-size: var(--typography-scale-text-xs);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-subtle);
+}
+
+/* Completed circle */
+.arch-progress-steps__step--completed .arch-progress-steps__circle {
+  background-color: var(--color-action-primary);
+  border-color: var(--color-action-primary);
+  color: var(--color-feedback-success-text);
+}
+
+/* Current circle */
+.arch-progress-steps__step--current .arch-progress-steps__circle {
+  border-color: var(--color-action-primary);
+  color: var(--color-action-primary);
+  font-weight: var(--typography-weight-medium);
+}
+
+/* ─── Text block ─────────────────────────────────────────────────────────────── */
+
+.arch-progress-steps__label {
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-subtle);
+  line-height: 1;
+}
+
+.arch-progress-steps__step--current .arch-progress-steps__label {
+  color: var(--color-text-default);
+}
+
+.arch-progress-steps__step--completed .arch-progress-steps__label {
+  color: var(--color-text-default);
+}
+
+.arch-progress-steps__description {
+  display: block;
+  margin-block-start: var(--spacing-inline-xs);
+  font-size: var(--typography-scale-text-xs);
+  color: var(--color-text-subtle);
+}

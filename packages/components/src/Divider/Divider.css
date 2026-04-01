@@ -1,0 +1,52 @@
+/* Divider — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Horizontal ─────────────────────────────────────────────────────────────── */
+
+.arch-divider--horizontal {
+  display: block;
+  border: none;
+  border-block-start: 1px solid var(--color-border-subtle);
+  block-size: 0;
+  inline-size: 100%;
+  margin-block: var(--spacing-component-sm);
+}
+
+/* ─── Vertical ───────────────────────────────────────────────────────────────── */
+
+.arch-divider--vertical {
+  display: inline-block;
+  border: none;
+  border-inline-start: 1px solid var(--color-border-subtle);
+  inline-size: 0;
+  block-size: 1em;
+  margin-inline: var(--spacing-inline-sm);
+  vertical-align: middle;
+}
+
+/* ─── With label (horizontal only) ─────────────────────────────────────────── */
+
+.arch-divider--with-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-inline-sm);
+  border: none;
+  block-size: auto;
+  margin-block: var(--spacing-component-sm);
+}
+
+.arch-divider__line {
+  flex: 1;
+  block-size: 0;
+  border: none;
+  border-block-start: 1px solid var(--color-border-subtle);
+}
+
+.arch-divider__label {
+  flex-shrink: 0;
+  font-family: inherit;
+  font-size: var(--typography-scale-text-xs);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+}

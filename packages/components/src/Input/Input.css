@@ -1,0 +1,140 @@
+/* Input — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* ─── Base input ─────────────────────────────────────────────────────────────── */
+
+.arch-input {
+  /* Layout */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Appearance */
+  appearance: none;
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  color: var(--color-text-default);
+  font-family: inherit;
+
+  /* Reset */
+  margin: 0;
+  outline: none;
+}
+
+/* ─── Placeholder ─────────────────────────────────────────────────────────────── */
+
+.arch-input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────────── */
+
+.arch-input:focus-visible {
+  border-color: var(--color-border-focus);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Invalid ────────────────────────────────────────────────────────────────── */
+
+.arch-input[aria-invalid="true"] {
+  border-color: var(--color-border-danger);
+}
+
+.arch-input[aria-invalid="true"]:focus-visible {
+  border-color: var(--color-border-danger);
+  outline-color: var(--color-border-danger);
+}
+
+/* ─── Disabled ───────────────────────────────────────────────────────────────── */
+
+.arch-input:disabled,
+.arch-input[aria-disabled="true"] {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.arch-input:disabled::placeholder,
+.arch-input[aria-disabled="true"]::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Read-only ───────────────────────────────────────────────────────────────── */
+
+.arch-input:read-only:not(:disabled) {
+  background-color: var(--color-background-subtle);
+  cursor: default;
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-input--sm {
+  padding-block: var(--spacing-component-xs);
+  padding-inline: var(--spacing-component-sm);
+  font-size: var(--typography-scale-text-sm-font-size);
+  line-height: var(--typography-scale-text-sm-line-height);
+  min-block-size: 2rem; /* 32px — dense UI only, below 44px touch target */
+  border-radius: var(--radius-component-sm);
+}
+
+.arch-input--md {
+  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-component-md);
+  font-size: var(--typography-scale-text-md-font-size);
+  line-height: var(--typography-scale-text-md-line-height);
+  min-block-size: 2.75rem; /* 44px touch target */
+}
+
+.arch-input--lg {
+  padding-block: var(--spacing-component-md);
+  padding-inline: var(--spacing-component-md);
+  font-size: var(--typography-scale-text-lg-font-size);
+  line-height: var(--typography-scale-text-lg-line-height);
+  min-block-size: 3rem; /* 48px */
+}
+
+/* ─── Element slots ───────────────────────────────────────────────────────────── */
+
+.arch-input__element {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  block-size: 100%;
+  color: var(--color-text-subtle);
+  pointer-events: none;
+}
+
+.arch-input__element--left {
+  inset-inline-start: var(--spacing-component-sm);
+}
+
+.arch-input__element--right {
+  inset-inline-end: var(--spacing-component-sm);
+}
+
+/* Shift input padding to accommodate element slots */
+.arch-input-wrapper--has-left .arch-input {
+  padding-inline-start: calc(
+    var(--spacing-component-sm) + 1.25em + var(--spacing-component-xs)
+  );
+}
+
+.arch-input-wrapper--has-right .arch-input {
+  padding-inline-end: calc(
+    var(--spacing-component-sm) + 1.25em + var(--spacing-component-xs)
+  );
+}

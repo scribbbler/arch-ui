@@ -1,0 +1,58 @@
+{
+  "name": "Breadcrumbs",
+  "version": "1.0.0",
+  "description": "A breadcrumb navigation component that renders an ordered list of links showing the user's location in a hierarchy. The last item is the current page and is rendered as a non-interactive span with aria-current=\"page\".",
+  "status": "stable",
+  "accessibility": {
+    "role": "navigation",
+    "keyboardInteraction": ["Tab"],
+    "ariaAttributes": ["aria-label", "aria-current"],
+    "notes": [
+      "Wraps the list in a <nav> element with aria-label=\"Breadcrumb\".",
+      "The last item (current page) has aria-current=\"page\" and is rendered as a <span>, not a link.",
+      "Separator elements are aria-hidden to avoid noise for screen readers.",
+      "Links have :focus-visible styling using var(--color-border-focus)."
+    ]
+  },
+  "props": {
+    "items": {
+      "type": "Array<{ label: string; href?: string }>",
+      "description": "Ordered array of breadcrumb items. The last item is treated as the current page."
+    },
+    "separator": {
+      "type": "ReactNode",
+      "default": "/",
+      "description": "The separator rendered between breadcrumb items. Defaults to a forward slash."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the nav element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Include the full path from root to the current page.",
+      "Keep labels short and matching the page titles they link to.",
+      "Omit the href on the last item — it is the current page and must not be a link."
+    ],
+    "dont": [
+      "Do not use breadcrumbs for single-level sites — they add noise without value.",
+      "Do not make the last item a link — it must be a span with aria-current=\"page\".",
+      "Do not provide more than 5-6 items — truncate intermediate levels if the hierarchy is deep."
+    ]
+  },
+  "tokens": [
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-link",
+    "color-text-link-hover",
+    "color-border-focus",
+    "spacing-inline-xs",
+    "spacing-inline-sm",
+    "typography-scale-text-sm",
+    "typography-scale-text-md",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "AvatarGroup",
+  "version": "1.0.0",
+  "description": "Wraps multiple Avatar components in a horizontal stack with overlap. When more avatars are provided than the max prop allows, an overflow badge displays the remaining count as '+N'.",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "ariaAttributes": ["aria-label"],
+    "notes": [
+      "The root element has role=group to semantically associate the avatars.",
+      "Each Avatar retains its own accessible name via the name prop.",
+      "The overflow badge has aria-label='N more' to describe the hidden count."
+    ]
+  },
+  "props": {
+    "max": {
+      "type": "number",
+      "default": "undefined",
+      "description": "Maximum number of avatars to display. Extras are collapsed into a '+N' overflow badge."
+    },
+    "size": {
+      "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+      "default": "md",
+      "description": "Size forwarded to each Avatar and the overflow badge. Controls visual dimensions."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Avatar components to display in the group."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Pass Avatar components directly as children.",
+      "Provide a max prop to control how many avatars are visible.",
+      "Pass a matching size prop so all avatars in the group are consistent."
+    ],
+    "dont": [
+      "Do not pass non-Avatar children.",
+      "Do not rely on CSS alone to control the number of visible avatars — use max."
+    ]
+  },
+  "tokens": [
+    "color-background-muted",
+    "color-text-default",
+    "color-surface-base",
+    "radius-component-full",
+    "radius-component-md",
+    "typography-scale-text-xs",
+    "typography-scale-text-sm",
+    "typography-weight-medium",
+    "spacing-inline-xs"
+  ]
+}

@@ -1,0 +1,86 @@
+/* Banner — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-inline-sm);
+  inline-size: 100%;
+  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-component-md);
+  border-block-end-width: var(--border-width-default);
+  border-block-end-style: solid;
+  font-size: var(--typography-scale-text-sm);
+  position: relative;
+}
+
+/* ─── Content ────────────────────────────────────────────────────────────────── */
+
+.arch-banner__content {
+  flex: 1;
+  text-align: center;
+}
+
+/* ─── Close button ───────────────────────────────────────────────────────────── */
+
+.arch-banner__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-component-xs, 0.25em);
+  border-radius: var(--radius-component-sm);
+  color: inherit;
+  opacity: 0.7;
+  flex-shrink: 0;
+  position: absolute;
+  inset-inline-end: var(--spacing-component-md);
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.arch-banner__close:hover {
+  opacity: 1;
+}
+
+.arch-banner__close:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Variant: info ──────────────────────────────────────────────────────────── */
+
+.arch-banner--info {
+  background-color: var(--color-feedback-info-bg);
+  color: var(--color-feedback-info-text);
+  border-block-end-color: var(--color-feedback-info-border);
+}
+
+/* ─── Variant: success ───────────────────────────────────────────────────────── */
+
+.arch-banner--success {
+  background-color: var(--color-feedback-success-bg);
+  color: var(--color-feedback-success-text);
+  border-block-end-color: var(--color-feedback-success-border);
+}
+
+/* ─── Variant: warning ───────────────────────────────────────────────────────── */
+
+.arch-banner--warning {
+  background-color: var(--color-feedback-warning-bg);
+  color: var(--color-feedback-warning-text);
+  border-block-end-color: var(--color-feedback-warning-border);
+}
+
+/* ─── Variant: danger ────────────────────────────────────────────────────────── */
+
+.arch-banner--danger {
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+  border-block-end-color: var(--color-feedback-danger-border);
+}

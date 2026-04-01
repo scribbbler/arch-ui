@@ -1,0 +1,68 @@
+{
+  "name": "ProgressSteps",
+  "version": "1.0.0",
+  "description": "A step indicator for multi-step flows such as wizards, onboarding sequences, or checkout. Renders an ordered list of steps with visual state (completed, current, upcoming) and connecting lines. Supports horizontal and vertical orientations.",
+  "status": "stable",
+  "accessibility": {
+    "role": "list",
+    "ariaAttributes": ["aria-current"],
+    "notes": [
+      "The root element is an <ol> (ordered list) to convey step sequence to screen readers.",
+      "The current step item has aria-current='step'.",
+      "Completed steps have a visible checkmark character inside the circle to convey state without relying on colour alone.",
+      "Step labels and optional descriptions are always visible as text.",
+      "The component is not interactive — it is display-only. Navigation is the responsibility of the parent."
+    ]
+  },
+  "props": {
+    "steps": {
+      "type": "Array<{ label: string; description?: string }>",
+      "default": "[]",
+      "description": "Ordered array of step descriptors. Each item must have a label; description is optional."
+    },
+    "currentStep": {
+      "type": "number",
+      "default": 0,
+      "description": "Zero-based index of the active step. Steps before this index are 'completed'; this index is 'current'; steps after are 'upcoming'."
+    },
+    "orientation": {
+      "type": "'horizontal' | 'vertical'",
+      "default": "horizontal",
+      "description": "Layout direction. horizontal: steps arranged in a row. vertical: steps stacked with connecting line on the inline-start side."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root <ol> element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Keep labels short (1–4 words) — long labels overflow in horizontal orientation.",
+      "Always set currentStep to the active step index so users know where they are.",
+      "Use vertical orientation when step labels are long or on narrow screens."
+    ],
+    "dont": [
+      "Do not use ProgressSteps as a navigation component — use Tabs or a custom nav instead.",
+      "Do not skip step indices — currentStep must always match an index in the steps array.",
+      "Do not nest ProgressSteps inside another ProgressSteps."
+    ]
+  },
+  "tokens": [
+    "color-action-primary",
+    "color-background-subtle",
+    "color-text-default",
+    "color-text-subtle",
+    "color-feedback-success-bg",
+    "color-feedback-success-text",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-inline-xs",
+    "spacing-inline-sm",
+    "radius-component-full",
+    "typography-scale-text-xs",
+    "typography-scale-text-sm",
+    "typography-weight-medium"
+  ]
+}

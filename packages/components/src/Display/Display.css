@@ -1,0 +1,9 @@
+.arch-display {
+  font-size: var(--display-font-size);
+  line-height: var(--display-line-height);
+  letter-spacing: var(--display-letter-spacing);
+  font-weight: var(--display-font-weight);
+  color: var(--display-color);
+  font-family: var(--typography-family-sans);
+  margin: 0;
+}

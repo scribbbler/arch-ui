@@ -1,0 +1,122 @@
+/* Alert — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-inline-sm);
+  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-component-md);
+  border-radius: var(--radius-component-sm);
+  border-width: var(--border-width-default);
+  border-style: solid;
+  font-size: var(--typography-scale-text-md);
+}
+
+/* ─── Icon ───────────────────────────────────────────────────────────────────── */
+
+.arch-alert__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-block-start: 0.1em;
+}
+
+/* ─── Body ───────────────────────────────────────────────────────────────────── */
+
+.arch-alert__body {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+/* ─── Title ──────────────────────────────────────────────────────────────────── */
+
+.arch-alert__title {
+  display: block;
+  font-weight: var(--typography-weight-semibold);
+  margin-block-end: var(--spacing-component-xs, 0.25em);
+}
+
+/* ─── Description ────────────────────────────────────────────────────────────── */
+
+.arch-alert__description {
+  display: block;
+  font-size: var(--typography-scale-text-sm);
+}
+
+/* ─── Close button ───────────────────────────────────────────────────────────── */
+
+.arch-alert__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-component-xs, 0.25em);
+  border-radius: var(--radius-component-sm);
+  color: inherit;
+  opacity: 0.7;
+  margin-block-start: -0.125em;
+  margin-inline-end: calc(-1 * var(--spacing-component-xs, 0.25em));
+}
+
+.arch-alert__close:hover {
+  opacity: 1;
+}
+
+.arch-alert__close:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Variant: info ──────────────────────────────────────────────────────────── */
+
+.arch-alert--info {
+  background-color: var(--color-feedback-info-bg);
+  color: var(--color-feedback-info-text);
+  border-color: var(--color-feedback-info-border);
+}
+
+.arch-alert--info .arch-alert__icon {
+  color: var(--color-icon-info);
+}
+
+/* ─── Variant: success ───────────────────────────────────────────────────────── */
+
+.arch-alert--success {
+  background-color: var(--color-feedback-success-bg);
+  color: var(--color-feedback-success-text);
+  border-color: var(--color-feedback-success-border);
+}
+
+.arch-alert--success .arch-alert__icon {
+  color: var(--color-icon-success);
+}
+
+/* ─── Variant: warning ───────────────────────────────────────────────────────── */
+
+.arch-alert--warning {
+  background-color: var(--color-feedback-warning-bg);
+  color: var(--color-feedback-warning-text);
+  border-color: var(--color-feedback-warning-border);
+}
+
+.arch-alert--warning .arch-alert__icon {
+  color: var(--color-icon-warning);
+}
+
+/* ─── Variant: danger ────────────────────────────────────────────────────────── */
+
+.arch-alert--danger {
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+  border-color: var(--color-feedback-danger-border);
+}
+
+.arch-alert--danger .arch-alert__icon {
+  color: var(--color-icon-danger);
+}

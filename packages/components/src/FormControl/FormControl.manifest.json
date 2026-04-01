@@ -1,0 +1,118 @@
+{
+  "name": "FormControl",
+  "version": "1.0.0",
+  "description": "A context-providing wrapper that connects a label, input, helper text, and error message via ARIA. Exposes a React context so child components (FormLabel, FormHelperText, FormErrorMessage, Input, Textarea, etc.) can co-ordinate their IDs, required state, disabled state, and invalid state without prop-drilling.",
+  "status": "stable",
+  "components": [
+    "FormControl",
+    "FormLabel",
+    "FormHelperText",
+    "FormErrorMessage"
+  ],
+  "accessibility": {
+    "notes": [
+      "FormControl generates a stable id via useId when none is provided; all child components derive their own ids from this root id.",
+      "FormLabel renders a <label> with htmlFor pointing to the root id, creating a native accessible name relationship.",
+      "FormHelperText renders with id='{id}-helper'; inputs should include this in aria-describedby.",
+      "FormErrorMessage renders with id='{id}-error' and role='alert'; only mounts when invalid is true so the alert fires at the right moment.",
+      "aria-required is reflected by the Input when required=true is set on the FormControl.",
+      "aria-invalid is reflected by the Input when invalid=true is set on the FormControl.",
+      "aria-disabled is reflected by the Input when disabled=true is set on the FormControl."
+    ]
+  },
+  "props": {
+    "FormControl": {
+      "id": {
+        "type": "string",
+        "default": "auto-generated via useId",
+        "description": "The root id shared across all child components. Auto-generated if omitted."
+      },
+      "required": {
+        "type": "boolean",
+        "default": false,
+        "description": "Marks the field as required. Propagated to label and input via context."
+      },
+      "disabled": {
+        "type": "boolean",
+        "default": false,
+        "description": "Disables the field. Propagated to all child components via context."
+      },
+      "invalid": {
+        "type": "boolean",
+        "default": false,
+        "description": "Marks the field as invalid. Shows the error message and applies danger border to the input."
+      },
+      "children": {
+        "type": "ReactNode",
+        "description": "Should contain FormLabel, an input-type component, and optionally FormHelperText or FormErrorMessage."
+      },
+      "className": {
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional CSS class names to apply to the wrapper div."
+      }
+    },
+    "FormLabel": {
+      "children": {
+        "type": "ReactNode",
+        "description": "Label text content."
+      },
+      "className": {
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional CSS class names."
+      }
+    },
+    "FormHelperText": {
+      "children": {
+        "type": "ReactNode",
+        "description": "Helper text content."
+      },
+      "className": {
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional CSS class names."
+      }
+    },
+    "FormErrorMessage": {
+      "children": {
+        "type": "ReactNode",
+        "description": "Error message content. Only rendered when context.invalid is true."
+      },
+      "className": {
+        "type": "string",
+        "default": "undefined",
+        "description": "Additional CSS class names."
+      }
+    }
+  },
+  "context": {
+    "id": "string — the root field id",
+    "required": "boolean",
+    "disabled": "boolean",
+    "invalid": "boolean"
+  },
+  "usage": {
+    "do": [
+      "Always place FormLabel as a direct or nested child of FormControl so it picks up the correct id.",
+      "Use FormHelperText for persistent guidance and FormErrorMessage for validation feedback — not both with overlapping content.",
+      "Supply a meaningful id prop when server-rendering to avoid hydration mismatches from auto-generated ids.",
+      "Keep FormErrorMessage content concise and actionable."
+    ],
+    "dont": [
+      "Do not use FormLabel outside a FormControl — it will have no htmlFor target.",
+      "Do not render FormErrorMessage when the form has not yet been submitted or touched, to avoid prematurely alarming users.",
+      "Do not nest FormControl instances — context will be overwritten by the innermost provider."
+    ]
+  },
+  "tokens": [
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-danger",
+    "color-text-disabled",
+    "typography-scale-text-sm-font-size",
+    "typography-scale-text-sm-line-height",
+    "typography-weight-medium",
+    "spacing-component-xs"
+  ]
+}

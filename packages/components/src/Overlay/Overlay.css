@@ -1,0 +1,12 @@
+/* ─── Overlay ────────────────────────────────────────────────────────────────── */
+
+.arch-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-semantic-overlay);
+  background-color: var(--color-background-overlay);
+}
+
+.arch-overlay--transparent {
+  background-color: transparent;
+}

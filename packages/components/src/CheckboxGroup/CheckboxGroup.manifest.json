@@ -1,0 +1,63 @@
+{
+  "name": "CheckboxGroup",
+  "version": "1.0.0",
+  "description": "A group container for Checkbox components. Renders a <fieldset> with a <legend> for accessible grouping. Passes the disabled prop down to child Checkbox components via context.",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "keyboardInteraction": ["Tab", "Space"],
+    "ariaAttributes": ["aria-disabled"],
+    "notes": [
+      "Uses a native <fieldset> and <legend> to provide an accessible group label to screen readers.",
+      "The disabled prop is propagated to all Checkbox children via React context.",
+      "Vertical and horizontal layout are controlled via a CSS flex direction on the group container."
+    ]
+  },
+  "props": {
+    "legend": {
+      "type": "string",
+      "description": "The accessible label for the group. Rendered as a <legend> inside the <fieldset>. Required."
+    },
+    "direction": {
+      "type": "'vertical' | 'horizontal'",
+      "default": "vertical",
+      "description": "Layout direction of the checkbox items. 'vertical' stacks them in a column; 'horizontal' places them in a row."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables all Checkbox children in the group. Passed via context."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Checkbox components to render inside the group."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the fieldset element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide a legend prop — it is the accessible name for the group.",
+      "Use CheckboxGroup whenever two or more related checkboxes appear together.",
+      "Use direction='horizontal' for short-label choices that fit on one line."
+    ],
+    "dont": [
+      "Do not nest CheckboxGroups — keep the structure flat.",
+      "Do not omit the legend — it is required for accessibility.",
+      "Do not use CheckboxGroup for mutually exclusive choices — use RadioGroup instead."
+    ]
+  },
+  "tokens": [
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "color-text-default",
+    "typography-scale-text-md",
+    "typography-weight-medium",
+    "border-width-default",
+    "color-border-default"
+  ]
+}

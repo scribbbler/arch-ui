@@ -1,0 +1,84 @@
+{
+  "name": "Card",
+  "version": "1.0.0",
+  "description": "A surface container for grouping related content. Supports optional clickability with link or button semantics. Sub-components CardHeader, CardBody, and CardFooter provide semantic structure.",
+  "status": "stable",
+  "accessibility": {
+    "role": "varies — 'button' when clickable without href, link when clickable with href",
+    "keyboardInteraction": ["Enter", "Space"],
+    "ariaAttributes": [],
+    "notes": [
+      "When clickable and href is provided, the card renders as an <a> element.",
+      "When clickable and onClick is provided (no href), the card renders as role='button' with tabIndex=0.",
+      "Enter and Space activate clickable cards.",
+      "Non-clickable cards have no interactive role.",
+      "Focus indicator uses var(--color-border-focus)."
+    ]
+  },
+  "props": {
+    "clickable": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, the card is interactive. Use href for navigation, onClick for actions."
+    },
+    "href": {
+      "type": "string",
+      "default": "undefined",
+      "description": "When provided with clickable=true, renders the card as an <a> element."
+    },
+    "onClick": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Click handler. When clickable=true and no href, renders with role='button'."
+    },
+    "padding": {
+      "type": "string",
+      "default": "spacing-component-md",
+      "description": "CSS custom property name (without --) for the card's internal padding. Must be a valid spacing token."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Card content. Use CardHeader, CardBody, CardFooter sub-components for structure."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "subcomponents": {
+    "CardHeader": "Renders a styled header area above card body content.",
+    "CardBody": "Renders the primary content area of the card.",
+    "CardFooter": "Renders a styled footer area below card body content."
+  },
+  "usage": {
+    "do": [
+      "Use CardHeader, CardBody, and CardFooter to structure content semantically.",
+      "Use href for cards that navigate to another page or route.",
+      "Use onClick for cards that trigger an action without navigation.",
+      "Ensure clickable cards always have a meaningful accessible name."
+    ],
+    "dont": [
+      "Do not place interactive controls (buttons, links) inside a clickable card — this creates nested interactive elements.",
+      "Do not use Card for tabular or list data — use Table or List instead.",
+      "Do not change the padding token to a raw value."
+    ]
+  },
+  "tokens": [
+    "color-surface-raised",
+    "color-background-subtle",
+    "color-border-default",
+    "color-border-focus",
+    "color-text-default",
+    "shadow-component-sm",
+    "shadow-component-md",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-component-lg",
+    "radius-component-md",
+    "border-width-default",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

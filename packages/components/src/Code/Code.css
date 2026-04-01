@@ -1,0 +1,33 @@
+.arch-code {
+  font-family: var(--typography-family-mono);
+  font-size: var(--code-font-size);
+  line-height: var(--code-line-height);
+  letter-spacing: var(--code-letter-spacing);
+  color: var(--color-text-default);
+}
+
+/* Inline mode */
+.arch-code--inline {
+  background-color: var(--color-background-subtle);
+  padding-block: var(--spacing-inline-xs);
+  padding-inline: var(--spacing-inline-xs);
+  border-radius: var(--radius-component-sm);
+}
+
+/* Block mode wrapper */
+.arch-code-block {
+  background-color: var(--color-background-subtle);
+  border-radius: var(--radius-component-sm);
+  padding-block: var(--spacing-inline-sm);
+  padding-inline: var(--spacing-inline-sm);
+  overflow-x: auto;
+  margin: 0;
+}
+
+/* Code element inside block wrapper */
+.arch-code-block .arch-code {
+  background-color: transparent;
+  padding-block: 0;
+  padding-inline: 0;
+  border-radius: 0;
+}

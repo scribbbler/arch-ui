@@ -1,0 +1,14 @@
+.arch-box {
+  padding: var(--box-padding);
+  padding-inline: var(--box-padding-x, var(--box-padding));
+  padding-block: var(--box-padding-y, var(--box-padding));
+  margin: var(--box-margin);
+  margin-inline: var(--box-margin-x, var(--box-margin));
+  margin-block: var(--box-margin-y, var(--box-margin));
+  background: var(--box-background);
+  border-color: var(--box-border);
+  border-style: solid;
+  border-width: var(--box-border-width, 0);
+  border-radius: var(--box-radius);
+  box-shadow: var(--box-shadow);
+}

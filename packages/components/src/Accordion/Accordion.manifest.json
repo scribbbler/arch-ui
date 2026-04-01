@@ -1,0 +1,67 @@
+{
+  "name": "Accordion",
+  "version": "1.0.0",
+  "description": "A vertically stacked set of interactive headings that expand or collapse associated content panels. Supports single or multiple open sections simultaneously.",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "keyboardInteraction": ["Enter", "Space", "ArrowDown", "ArrowUp", "Home", "End"],
+    "ariaAttributes": ["aria-expanded", "aria-controls", "aria-labelledby"],
+    "notes": [
+      "Each section header is a <button> element with aria-expanded and aria-controls.",
+      "Each panel has role='region' and aria-labelledby pointing to its trigger button.",
+      "Arrow keys move focus between header buttons.",
+      "Home/End move focus to first/last header.",
+      "Animation respects prefers-reduced-motion."
+    ]
+  },
+  "props": {
+    "items": {
+      "type": "Array<{ title: string; content: ReactNode }>",
+      "description": "Array of accordion sections. Each item must have a title string and content ReactNode."
+    },
+    "allowMultiple": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, multiple sections can be open simultaneously."
+    },
+    "defaultExpanded": {
+      "type": "number[]",
+      "default": "[]",
+      "description": "Indices of sections that are expanded by default on first render."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for FAQs, settings panels, or any grouped content that benefits from progressive disclosure.",
+      "Provide concise, descriptive titles for each section.",
+      "Use allowMultiple when sections are independent and users may need to compare content."
+    ],
+    "dont": [
+      "Do not nest Accordions inside Accordion panels — use a flat structure.",
+      "Do not use Accordion for navigation — use Tabs or a navigation menu instead.",
+      "Do not place critical required information inside a collapsed section."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-surface-raised",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-default",
+    "color-border-focus",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-component-lg",
+    "typography-scale-text-md",
+    "typography-weight-semibold",
+    "radius-component-sm",
+    "motion-duration-normal",
+    "motion-semantic-easing-default"
+  ]
+}

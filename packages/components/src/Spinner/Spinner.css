@@ -1,0 +1,62 @@
+/* Spinner — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Keyframe ───────────────────────────────────────────────────────────────── */
+
+@keyframes arch-spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-spinner {
+  display: inline-block;
+  flex-shrink: 0;
+  border-style: solid;
+  border-radius: var(--radius-component-full);
+  border-color: var(--color-background-muted);
+  border-block-start-color: var(--color-action-primary);
+  animation: arch-spinner-rotate var(--motion-duration-slow) var(--motion-semantic-easing-default) infinite;
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-spinner--xs {
+  inline-size: var(--spacing-component-md);
+  block-size: var(--spacing-component-md);
+  border-width: 0.125rem;
+}
+
+.arch-spinner--sm {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border-width: 0.125rem;
+}
+
+.arch-spinner--md {
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-width: 0.1875rem;
+}
+
+.arch-spinner--lg {
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-width: 0.25rem;
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-spinner {
+    animation: none;
+    border-color: var(--color-background-muted);
+    border-block-start-color: var(--color-action-primary);
+  }
+}

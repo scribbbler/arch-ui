@@ -1,0 +1,98 @@
+{
+  "name": "Select",
+  "version": "1.0.0",
+  "description": "A native <select> element styled consistently with the Input component. Uses a custom chevron via CSS background-image to replace the browser default arrow. Integrates with FormControl context to receive id, disabled, required, and invalid state automatically.",
+  "status": "stable",
+  "accessibility": {
+    "role": "combobox",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "ArrowUp", "ArrowDown", "Space", "Enter"],
+    "ariaAttributes": [
+      "aria-required",
+      "aria-disabled",
+      "aria-invalid",
+      "aria-describedby"
+    ],
+    "notes": [
+      "Uses a native <select> — keyboard navigation and screen reader announcements are handled by the browser/OS.",
+      "When used inside a FormControl, the select id is set to the context id so the FormLabel htmlFor links correctly.",
+      "aria-describedby is automatically built from '{id}-helper' and/or '{id}-error' when inside a FormControl.",
+      "aria-invalid is set when the FormControl is invalid or isError prop is true.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus) and a 2px offset.",
+      "Minimum touch target for md and lg sizes meets the 44x44px requirement."
+    ]
+  },
+  "props": {
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "default": "md",
+      "description": "Controls the select height, padding, and font size. md and lg meet the 44px minimum touch target."
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Inserts a disabled, empty-value <option> as the first item to act as a placeholder prompt."
+    },
+    "multiple": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enables multi-select mode. The browser renders a listbox instead of a dropdown."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the select. Also inherited from FormControl context if not explicitly set."
+    },
+    "isError": {
+      "type": "boolean",
+      "default": false,
+      "description": "Explicitly puts the select into an error visual state. Also triggered when FormControl invalid is true."
+    },
+    "children": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "<option> and <optgroup> elements rendered inside the select."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the wrapper div."
+    }
+  },
+  "sizes": {
+    "sm": "min-block-size 32px — suitable for dense UIs. Does not meet 44px touch target; avoid on touch-primary interfaces.",
+    "md": "min-block-size 40px — default. Meets 44px touch target.",
+    "lg": "min-block-size 48px — for prominent or standalone fields."
+  },
+  "usage": {
+    "do": [
+      "Always pair with a FormLabel (via FormControl) to provide an accessible name.",
+      "Provide a placeholder option for fields where no initial selection should be implied.",
+      "Use isError or FormControl invalid prop to signal validation failures."
+    ],
+    "dont": [
+      "Do not use for more than ~10 options without considering a searchable combobox instead.",
+      "Do not use multiple unless the interface clearly communicates that multi-selection is available.",
+      "Do not omit a label — if a visible label is not possible, provide aria-label directly on the Select."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-disabled",
+    "color-background-subtle",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-danger",
+    "color-border-disabled",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-disabled",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "radius-component-sm",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "typography-scale-text-md",
+    "border-width-default"
+  ]
+}

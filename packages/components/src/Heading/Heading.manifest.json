@@ -1,0 +1,85 @@
+{
+  "name": "Heading",
+  "description": "Semantic heading component rendering h1-h6 with independent typographic sizing. Level controls HTML semantics; size controls visual appearance from the display scale.",
+  "category": "typography",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "level": {
+      "type": "1 | 2 | 3 | 4 | 5 | 6",
+      "description": "Semantic heading level. Controls the rendered HTML element (h1-h6). Does not control visual size.",
+      "required": false,
+      "default": 1
+    },
+    "size": {
+      "type": "'display-2xl' | 'display-xl' | 'display-lg' | 'display-md' | 'display-sm' | 'text-xl'",
+      "description": "Visual typography scale size. Independent of level. Defaults follow convention: level 1 → display-2xl, 2 → display-xl, 3 → display-lg, 4 → display-md, 5 → display-sm, 6 → text-xl.",
+      "required": false
+    },
+    "weight": {
+      "type": "'semibold' | 'bold' | 'extrabold'",
+      "description": "Font weight. Maps to typography-weight-* tokens.",
+      "required": false,
+      "default": "bold"
+    },
+    "color": {
+      "type": "string",
+      "description": "Semantic text color token name (e.g. 'color-text-default'). Must be a valid design system token.",
+      "required": false,
+      "default": "color-text-default"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "description": "Heading content.",
+      "required": false
+    },
+    "className": {
+      "type": "string",
+      "description": "Additional CSS class names.",
+      "required": false
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Heading for page and section titles",
+      "Always choose a level that reflects document outline order — do not skip heading levels",
+      "Use the size prop to achieve the desired visual scale independently of document structure",
+      "Pass semantic token names as the color prop value"
+    ],
+    "doNot": [
+      "Do not use Heading for body text — use the Text component instead",
+      "Do not choose a heading level for its visual size — adjust size prop instead",
+      "Do not pass raw CSS values as color"
+    ]
+  },
+  "accessibility": {
+    "notes": "Heading level directly controls the h1-h6 element. Ensure headings follow a logical document outline. Do not skip levels (e.g. h1 → h3) as this confuses screen reader users navigating by heading."
+  },
+  "tokens": {
+    "used": [
+      "typography-scale-display-2xl-font-size",
+      "typography-scale-display-2xl-line-height",
+      "typography-scale-display-2xl-letter-spacing",
+      "typography-scale-display-xl-font-size",
+      "typography-scale-display-xl-line-height",
+      "typography-scale-display-xl-letter-spacing",
+      "typography-scale-display-lg-font-size",
+      "typography-scale-display-lg-line-height",
+      "typography-scale-display-lg-letter-spacing",
+      "typography-scale-display-md-font-size",
+      "typography-scale-display-md-line-height",
+      "typography-scale-display-md-letter-spacing",
+      "typography-scale-display-sm-font-size",
+      "typography-scale-display-sm-line-height",
+      "typography-scale-display-sm-letter-spacing",
+      "typography-scale-text-xl-font-size",
+      "typography-scale-text-xl-line-height",
+      "typography-scale-text-xl-letter-spacing",
+      "typography-weight-semibold",
+      "typography-weight-bold",
+      "typography-weight-extrabold",
+      "color-text-default",
+      "typography-family-sans"
+    ]
+  }
+}

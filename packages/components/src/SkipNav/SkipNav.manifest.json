@@ -1,0 +1,37 @@
+{
+  "name": "SkipNav",
+  "description": "Skip-to-main-content link that appears on first tab press. Must be the first focusable element in the document. Required for keyboard accessibility.",
+  "category": "utility",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "targetId": {
+      "type": "string",
+      "description": "The id of the main content element to skip to. Default: 'main-content'.",
+      "required": false,
+      "default": "main-content"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "description": "Link text. Default: 'Skip to main content'.",
+      "required": false,
+      "default": "Skip to main content"
+    }
+  },
+  "usage": {
+    "do": [
+      "Place SkipNav as the very first child of <body> or your root layout",
+      "Ensure the target element has a matching id attribute",
+      "Test by pressing Tab on page load — the link should be the first thing that appears"
+    ],
+    "doNot": [
+      "Do not hide SkipNav with display:none — it must be focusable",
+      "Do not place it inside a navigation or header — it goes before those"
+    ]
+  },
+  "accessibility": {
+    "role": "link",
+    "keyboard": "Tab to reveal, Enter to activate and jump to main content",
+    "notes": "Uses the visually-hidden-until-focused technique. Appears only on keyboard focus, skipping repetitive navigation for keyboard and screen reader users."
+  }
+}

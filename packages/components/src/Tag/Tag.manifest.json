@@ -1,0 +1,84 @@
+{
+  "name": "Tag",
+  "version": "1.0.0",
+  "description": "A removable, categorisation label. Supports an optional leading icon slot and an optional close button for removal. Built for use in tag inputs, filter chips, and multi-select displays.",
+  "status": "stable",
+  "accessibility": {
+    "role": "generic",
+    "keyboardInteraction": ["Tab", "Enter", "Space", "Delete", "Backspace"],
+    "ariaAttributes": ["aria-label"],
+    "notes": [
+      "The remove button receives aria-label='Remove {children}' to clearly communicate its action.",
+      "The icon slot is aria-hidden to prevent redundant announcements.",
+      "When onRemove is provided, the close button is focusable and keyboard-operable."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'neutral' | 'primary' | 'info' | 'success' | 'warning' | 'danger'",
+      "default": "neutral",
+      "description": "Colour palette variant of the tag."
+    },
+    "onRemove": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "When provided, renders a close button that triggers this callback. The button receives aria-label='Remove {children}'."
+    },
+    "icon": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "An optional icon rendered at the inline-start of the label."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "The label content of the tag."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "variants": {
+    "neutral": "Default style. Muted background, default text colour.",
+    "primary": "Highlighted style. Uses primary action token colours.",
+    "info": "Informational style. Uses info feedback tokens.",
+    "success": "Positive style. Uses success feedback tokens.",
+    "warning": "Caution style. Uses warning feedback tokens.",
+    "danger": "Error or critical style. Uses danger feedback tokens."
+  },
+  "usage": {
+    "do": [
+      "Use tags to represent user-selected filter values or categories.",
+      "Provide onRemove when the tag should be dismissible.",
+      "Keep tag labels concise — one to three words."
+    ],
+    "dont": [
+      "Do not use tags for navigation — use links instead.",
+      "Do not nest interactive elements inside a tag beyond the close button.",
+      "Do not use tags as the only mechanism to communicate a state — pair with text."
+    ]
+  },
+  "tokens": [
+    "color-background-muted",
+    "color-text-default",
+    "color-action-primary",
+    "color-action-primary-text",
+    "color-feedback-info-bg",
+    "color-feedback-info-text",
+    "color-feedback-success-bg",
+    "color-feedback-success-text",
+    "color-feedback-warning-bg",
+    "color-feedback-warning-text",
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "color-border-focus",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-inline-xs",
+    "spacing-inline-sm",
+    "radius-component-full",
+    "typography-scale-text-sm",
+    "typography-weight-medium"
+  ]
+}

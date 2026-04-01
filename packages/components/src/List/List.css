@@ -1,0 +1,63 @@
+/* List — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--arch-list-spacing, var(--spacing-component-xs));
+  margin: 0;
+  padding-inline-start: var(--spacing-inline-md);
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-text-md);
+}
+
+/* ─── Variants ───────────────────────────────────────────────────────────────── */
+
+.arch-list--bullet {
+  list-style-type: disc;
+}
+
+.arch-list--number {
+  list-style-type: decimal;
+}
+
+.arch-list--none {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+/* ─── List item ──────────────────────────────────────────────────────────────── */
+
+.arch-list-item {
+  display: list-item;
+  color: var(--color-text-default);
+}
+
+/* ─── Description List ───────────────────────────────────────────────────────── */
+
+.arch-description-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-component-xs) var(--spacing-inline-md);
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-text-md);
+}
+
+/* ─── Description Term ───────────────────────────────────────────────────────── */
+
+.arch-description-term {
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-subtle);
+  margin: 0;
+}
+
+/* ─── Description Detail ─────────────────────────────────────────────────────── */
+
+.arch-description-detail {
+  margin-inline-start: 0;
+  color: var(--color-text-default);
+}

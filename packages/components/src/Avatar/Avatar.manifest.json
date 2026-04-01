@@ -1,0 +1,63 @@
+{
+  "name": "Avatar",
+  "version": "1.0.0",
+  "description": "Displays a user's profile image with an initials fallback when the image is unavailable or fails to load. Supports multiple sizes and two shapes.",
+  "status": "stable",
+  "accessibility": {
+    "role": "img",
+    "ariaAttributes": ["alt", "aria-label"],
+    "notes": [
+      "The img element uses the name prop as its alt text for screen reader identification.",
+      "When rendering initials (no src or image error), the container has role=img and aria-label set to the name prop.",
+      "Image load errors are handled via onError to fall back to initials gracefully."
+    ]
+  },
+  "props": {
+    "src": {
+      "type": "string",
+      "default": "undefined",
+      "description": "URL of the avatar image. When absent or on load failure, initials are shown."
+    },
+    "name": {
+      "type": "string",
+      "description": "Full name of the person. Used as alt text for the image and as the source for initials. Required."
+    },
+    "size": {
+      "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+      "default": "md",
+      "description": "Controls the rendered dimensions via CSS custom properties."
+    },
+    "shape": {
+      "type": "'circle' | 'square'",
+      "default": "circle",
+      "description": "Circle uses radius-component-full; square uses radius-component-md."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide the name prop — it drives both the alt text and initials.",
+      "Use circle shape for person-oriented contexts (profiles, comments).",
+      "Use square shape for organisation or brand avatars."
+    ],
+    "dont": [
+      "Do not use avatar without the name prop.",
+      "Do not rely on the image alone to identify a person — the initials fallback must be meaningful.",
+      "Do not scale avatars with inline styles — use the size prop."
+    ]
+  },
+  "tokens": [
+    "color-background-muted",
+    "color-text-default",
+    "radius-component-full",
+    "radius-component-md",
+    "typography-scale-text-xs",
+    "typography-scale-text-sm",
+    "typography-scale-text-md",
+    "typography-weight-medium"
+  ]
+}

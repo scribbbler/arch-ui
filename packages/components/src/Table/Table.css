@@ -1,0 +1,84 @@
+/* Table — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-table-wrapper {
+  overflow-x: auto;
+  inline-size: 100%;
+}
+
+/* ─── Table ──────────────────────────────────────────────────────────────────── */
+
+.arch-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-background-default);
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-text-md);
+}
+
+/* ─── Caption ────────────────────────────────────────────────────────────────── */
+
+.arch-table__caption {
+  caption-side: top;
+  text-align: start;
+  padding-block-end: var(--spacing-component-xs);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+  font-weight: var(--typography-weight-semibold);
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-table--sm .arch-th,
+.arch-table--sm .arch-td {
+  padding-block: var(--spacing-component-xs);
+  padding-inline: var(--spacing-component-sm);
+}
+
+.arch-table--md .arch-th,
+.arch-table--md .arch-td {
+  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-component-md);
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────────── */
+
+.arch-th {
+  text-align: start;
+  font-weight: var(--typography-weight-semibold);
+  color: var(--color-text-subtle);
+  font-size: var(--typography-scale-text-sm);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+  white-space: nowrap;
+}
+
+/* ─── Cell ───────────────────────────────────────────────────────────────────── */
+
+.arch-td {
+  vertical-align: middle;
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Striped ────────────────────────────────────────────────────────────────── */
+
+.arch-table--striped .arch-tbody .arch-tr:nth-child(even) {
+  background-color: var(--color-background-subtle);
+}
+
+/* ─── Bordered ───────────────────────────────────────────────────────────────── */
+
+.arch-table--bordered .arch-th,
+.arch-table--bordered .arch-td {
+  border: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Footer row ─────────────────────────────────────────────────────────────── */
+
+.arch-tfoot .arch-th,
+.arch-tfoot .arch-td {
+  font-weight: var(--typography-weight-semibold);
+  border-block-start: var(--border-width-default) solid var(--color-border-default);
+  border-block-end: none;
+}

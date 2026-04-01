@@ -1,0 +1,67 @@
+{
+  "name": "Code",
+  "description": "Renders inline code snippets or block-level code samples. Inline mode renders a <code> element; block mode renders a <pre><code> structure. Uses the monospace font family and code typography scale tokens.",
+  "category": "typography",
+  "status": "stable",
+  "version": "0.1.0",
+  "props": {
+    "block": {
+      "type": "boolean",
+      "description": "When true, renders as a block-level <pre><code> element with background, padding, and border-radius. When false (default), renders as an inline <code> element.",
+      "required": false,
+      "default": false
+    },
+    "language": {
+      "type": "string",
+      "description": "Optional language hint for syntax identification (e.g. 'typescript', 'css'). Sets a data-language attribute. Does not perform syntax highlighting.",
+      "required": false
+    },
+    "size": {
+      "type": "'code-md' | 'code-sm'",
+      "description": "Typography scale size. Maps to typography-scale-code-* tokens.",
+      "required": false,
+      "default": "code-md"
+    },
+    "children": {
+      "type": "React.ReactNode",
+      "description": "Code content.",
+      "required": false
+    },
+    "className": {
+      "type": "string",
+      "description": "Additional CSS class names.",
+      "required": false
+    }
+  },
+  "usage": {
+    "do": [
+      "Use block mode for multi-line code samples or code examples in documentation",
+      "Use inline mode for referencing variable names, function names, or short snippets within prose",
+      "Provide the language prop as a hint for tooling or future syntax highlighting integration"
+    ],
+    "doNot": [
+      "Do not use Code for decorative monospace text — use Text with a mono font if needed",
+      "Do not nest block Code inside inline elements",
+      "Do not use Code as a replacement for a full syntax highlighter in code-heavy UIs"
+    ]
+  },
+  "accessibility": {
+    "notes": "Code elements convey programmatic text semantics to assistive technologies. The <pre> wrapper in block mode preserves whitespace as authored. No additional ARIA is required for basic usage."
+  },
+  "tokens": {
+    "used": [
+      "typography-scale-code-md-font-size",
+      "typography-scale-code-md-line-height",
+      "typography-scale-code-md-letter-spacing",
+      "typography-scale-code-sm-font-size",
+      "typography-scale-code-sm-line-height",
+      "typography-scale-code-sm-letter-spacing",
+      "typography-family-mono",
+      "color-text-default",
+      "color-background-subtle",
+      "radius-component-sm",
+      "spacing-inline-xs",
+      "spacing-inline-sm"
+    ]
+  }
+}

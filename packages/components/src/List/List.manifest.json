@@ -1,0 +1,74 @@
+{
+  "name": "List",
+  "version": "1.0.0",
+  "description": "Semantic list components for bullet lists, numbered lists, and unordered (no-marker) lists. Includes DescriptionList with DescriptionTerm and DescriptionDetail sub-components for key-value or term-definition content.",
+  "status": "stable",
+  "accessibility": {
+    "role": "list",
+    "keyboardInteraction": [],
+    "ariaAttributes": [],
+    "notes": [
+      "List renders as <ul> for bullet and none variants, <ol> for number variant.",
+      "ListItem renders as <li>.",
+      "DescriptionList renders as <dl>.",
+      "DescriptionTerm renders as <dt>.",
+      "DescriptionDetail renders as <dd>."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'bullet' | 'number' | 'none'",
+      "default": "bullet",
+      "description": "List marker style. 'bullet' uses disc markers, 'number' uses decimal markers, 'none' hides markers."
+    },
+    "spacing": {
+      "type": "string",
+      "default": "spacing-component-xs",
+      "description": "CSS custom property name (without --) for the gap between list items."
+    },
+    "as": {
+      "type": "'ul' | 'ol'",
+      "default": "auto",
+      "description": "Override the root element. Auto-selects ul for bullet/none, ol for number when not specified."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "List items. Use ListItem sub-component."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "subcomponents": {
+    "ListItem": "Renders a single <li> list item.",
+    "DescriptionList": "Renders a <dl> description list for term-definition content.",
+    "DescriptionTerm": "Renders a <dt> term within a DescriptionList.",
+    "DescriptionDetail": "Renders a <dd> detail/definition within a DescriptionList."
+  },
+  "usage": {
+    "do": [
+      "Use 'bullet' for unordered collections of items.",
+      "Use 'number' for ordered or sequential items.",
+      "Use 'none' for styled lists without visual markers.",
+      "Use DescriptionList for metadata, key-value pairs, or glossary content."
+    ],
+    "dont": [
+      "Do not place block-level elements (headings, dividers) directly inside ListItem.",
+      "Do not use a numbered list when order does not matter.",
+      "Do not nest DescriptionList items inside a regular List."
+    ]
+  },
+  "tokens": [
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "spacing-inline-sm",
+    "spacing-inline-md",
+    "color-text-default",
+    "color-text-subtle",
+    "typography-scale-text-md",
+    "typography-weight-medium"
+  ]
+}

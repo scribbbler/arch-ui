@@ -1,0 +1,79 @@
+{
+  "name": "Table",
+  "version": "1.0.0",
+  "description": "A semantic HTML table component with sub-components for all table sections. Supports striped rows, bordered cells, and two size presets. Caption is required for accessibility.",
+  "status": "stable",
+  "accessibility": {
+    "role": "table",
+    "keyboardInteraction": [],
+    "ariaAttributes": [],
+    "notes": [
+      "The caption prop is required and renders a <caption> element for screen reader context.",
+      "Th requires a scope attribute ('col' or 'row') to identify header cells correctly.",
+      "Use Thead, Tbody, and Tfoot for proper semantic grouping.",
+      "Avoid using the Table for layout — it is strictly for tabular data."
+    ]
+  },
+  "props": {
+    "caption": {
+      "type": "string",
+      "description": "REQUIRED. Accessible caption for the table. Rendered as a <caption> element."
+    },
+    "striped": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, alternating body rows receive a subtle background."
+    },
+    "bordered": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, all cells have visible borders."
+    },
+    "size": {
+      "type": "'sm' | 'md'",
+      "default": "md",
+      "description": "Controls cell padding density."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names on the <table> element."
+    }
+  },
+  "subcomponents": {
+    "Thead": "Renders <thead> — the table header group.",
+    "Tbody": "Renders <tbody> — the table body group.",
+    "Tfoot": "Renders <tfoot> — the table footer group.",
+    "Tr": "Renders <tr> — a table row.",
+    "Th": "Renders <th> — a header cell. Requires scope='col' or scope='row'.",
+    "Td": "Renders <td> — a data cell."
+  },
+  "usage": {
+    "do": [
+      "Always provide a caption that describes the table's purpose.",
+      "Use scope='col' on header cells in Thead and scope='row' on header cells in Tbody.",
+      "Use striped for long tables to aid row scanning.",
+      "Use size='sm' for dense data tables within compact layouts."
+    ],
+    "dont": [
+      "Do not use Table for layout or non-tabular content.",
+      "Do not omit the caption prop.",
+      "Do not omit the scope attribute on Th elements."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-subtle",
+    "color-surface-raised",
+    "color-border-default",
+    "color-text-default",
+    "color-text-subtle",
+    "spacing-component-xs",
+    "spacing-component-sm",
+    "spacing-component-md",
+    "typography-scale-text-sm",
+    "typography-scale-text-md",
+    "typography-weight-semibold",
+    "border-width-default"
+  ]
+}
