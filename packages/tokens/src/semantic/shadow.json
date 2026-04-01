@@ -1,0 +1,9 @@
+{
+  "shadow": {
+    "component": {
+      "sm": { "$value": "{shadow.sm}", "$type": "shadow" },
+      "md": { "$value": "{shadow.md}", "$type": "shadow" }
+    },
+    "overlay": { "$value": "{shadow.xl}", "$type": "shadow" }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "border": {
+    "width": {
+      "default": { "$value": "{border.width.thin}", "$type": "dimension" },
+      "strong": { "$value": "{border.width.medium}", "$type": "dimension" }
+    }
+  }
+}

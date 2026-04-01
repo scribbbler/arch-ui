@@ -1,0 +1,14 @@
+{
+  "motion": {
+    "semantic": {
+      "duration-instant": { "$value": "{motion.duration.instant}", "$type": "duration" },
+      "duration-fast": { "$value": "{motion.duration.fast}", "$type": "duration" },
+      "duration-normal": { "$value": "{motion.duration.normal}", "$type": "duration" },
+      "duration-slow": { "$value": "{motion.duration.slow}", "$type": "duration" },
+      "duration-slower": { "$value": "{motion.duration.slower}", "$type": "duration" },
+      "easing-default": { "$value": "{motion.easing.ease-in-out}", "$type": "cubicBezier" },
+      "easing-enter": { "$value": "{motion.easing.ease-out}", "$type": "cubicBezier" },
+      "easing-exit": { "$value": "{motion.easing.ease-in}", "$type": "cubicBezier" }
+    }
+  }
+}

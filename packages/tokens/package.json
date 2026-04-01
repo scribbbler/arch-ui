@@ -10,11 +10,14 @@
     "./ts": "./build/ts/tokens.ts"
   },
   "scripts": {
-    "build": "echo 'TODO: style-dictionary build'",
-    "dev": "echo 'TODO: style-dictionary build --watch'",
+    "build": "node config.js && npx tsx scripts/validate.ts",
+    "dev": "node config.js",
     "test": "echo 'No tests yet'",
     "lint": "echo 'No lint yet'"
   },
   "sideEffects": false,
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "style-dictionary": "^4"
+  }
 }

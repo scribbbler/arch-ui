@@ -1,0 +1,13 @@
+{
+  "z": {
+    "semantic": {
+      "dropdown": { "$value": "{z.dropdown}", "$type": "number" },
+      "sticky": { "$value": "{z.sticky}", "$type": "number" },
+      "overlay": { "$value": "{z.overlay}", "$type": "number" },
+      "modal": { "$value": "{z.modal}", "$type": "number" },
+      "popover": { "$value": "{z.popover}", "$type": "number" },
+      "toast": { "$value": "{z.toast}", "$type": "number" },
+      "tooltip": { "$value": "{z.tooltip}", "$type": "number" }
+    }
+  }
+}
