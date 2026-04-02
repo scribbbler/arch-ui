@@ -13,9 +13,15 @@
     },
     "children": {
       "type": "React.ReactNode",
-      "description": "Link text. Default: 'Skip to main content'.",
+      "description": "Link text. Takes precedence over labels.skipToContent.",
       "required": false,
-      "default": "Skip to main content"
+      "default": "undefined"
+    },
+    "labels": {
+      "type": "Partial<SkipNavLabels>",
+      "description": "Override default labels for internationalisation. SkipNavLabels: { skipToContent: string }. The children prop takes precedence over labels.skipToContent.",
+      "required": false,
+      "default": "{ skipToContent: 'Skip to main content' }"
     }
   },
   "usage": {

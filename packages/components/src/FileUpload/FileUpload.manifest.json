@@ -46,6 +46,11 @@
       "default": "undefined",
       "description": "Callback fired when files are selected (via dialog or drag-and-drop) and pass validation."
     },
+    "labels": {
+      "type": "Partial<FileUploadLabels>",
+      "default": "{ fileSizeError: (count, limit) => `${count} file(s) exceed(s) the ${limit} limit.` }",
+      "description": "Override default labels for internationalisation. FileUploadLabels: { fileSizeError: (count: number, limit: string) => string }."
+    },
     "className": {
       "type": "string",
       "default": "undefined",

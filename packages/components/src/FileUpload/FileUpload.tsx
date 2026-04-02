@@ -1,4 +1,5 @@
 import React, { forwardRef, useId, useState } from 'react';
+import { DEFAULT_LABELS, type FileUploadLabels } from './FileUpload.labels';
 import './FileUpload.css';
 
 /* ─── Types ───────────────────────────────────────────────────────────────────── */
@@ -23,6 +24,8 @@ export interface FileUploadProps {
   onDrop?: (files: File[]) => void;
   /** Additional CSS class names applied to the root wrapper div. */
   className?: string;
+  /** Override default labels for internationalisation. */
+  labels?: Partial<{ fileSizeError: (count: number, limit: string) => string }>;
   /** Content rendered inside the drop zone (instructions, icon, etc.). */
   children?: React.ReactNode;
 }
@@ -57,11 +60,13 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(function FileUp
     maxSize,
     disabled = false,
     onDrop,
+    labels,
     className,
     children,
   },
   ref
 ) {
+  const mergedLabels = { ...DEFAULT_LABELS, ...labels };
   const inputId = useId();
   const [isDragOver, setIsDragOver] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -82,7 +87,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(function FileUp
         : `${(maxSize / 1024).toFixed(0)} KB`;
       return {
         valid: files.filter((f) => f.size <= maxSize),
-        error: `${oversized.length} file${oversized.length > 1 ? 's' : ''} exceed${oversized.length === 1 ? 's' : ''} the ${limit} limit.`,
+        error: mergedLabels.fileSizeError(oversized.length, limit),
       };
     }
     return { valid: files, error: null };
@@ -192,4 +197,6 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(function FileUp
 });
 
 export { FileUpload };
+export type { FileUploadLabels } from './FileUpload.labels';
+export { DEFAULT_LABELS as DEFAULT_FILE_UPLOAD_LABELS } from './FileUpload.labels';
 export default FileUpload;

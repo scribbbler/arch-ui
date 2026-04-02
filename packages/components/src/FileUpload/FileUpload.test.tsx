@@ -240,6 +240,38 @@ describe('FileUpload — maxSize validation', () => {
   });
 });
 
+/* ─── Labels (i18n) ─────────────────────────────────────────────────────────── */
+
+describe('FileUpload — labels (i18n)', () => {
+  it('uses default error message', async () => {
+    render(<FileUpload maxSize={100} onDrop={vi.fn()} />);
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const bigFile = makeFile('large.txt', 500);
+
+    await userEvent.upload(input, bigFile);
+
+    const alert = screen.getByRole('alert');
+    expect(alert.textContent).toBe('1 file exceeds the 0 KB limit.');
+  });
+
+  it('accepts a custom fileSizeError label', async () => {
+    render(
+      <FileUpload
+        maxSize={100}
+        onDrop={vi.fn()}
+        labels={{ fileSizeError: (count, limit) => `${count} fichier(s) dépasse(nt) ${limit}.` }}
+      />
+    );
+    const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+    const bigFile = makeFile('large.txt', 500);
+
+    await userEvent.upload(input, bigFile);
+
+    const alert = screen.getByRole('alert');
+    expect(alert.textContent).toBe('1 fichier(s) dépasse(nt) 0 KB.');
+  });
+});
+
 /* ─── Accessibility ──────────────────────────────────────────────────────────── */
 
 describe('FileUpload — accessibility', () => {

@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { DEFAULT_LABELS, type AlertLabels } from './Alert.labels';
 import './Alert.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -19,6 +20,8 @@ export interface AlertProps {
    * When undefined, the default icon for the variant is used.
    */
   icon?: React.ReactNode;
+  /** Override default labels for internationalisation. */
+  labels?: Partial<AlertLabels>;
   /** Additional CSS class names. */
   className?: string;
 }
@@ -92,9 +95,10 @@ const defaultIcons: Record<AlertVariant, React.ReactNode> = {
  * <Alert variant="danger" title="Error" description="Something went wrong." onClose={() => setOpen(false)} />
  */
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  { variant = 'info', title, description, onClose, icon, className },
+  { variant = 'info', title, description, onClose, icon, labels, className },
   ref
 ) {
+  const mergedLabels = { ...DEFAULT_LABELS, ...labels };
   const role =
     variant === 'danger' || variant === 'warning' ? 'alert' : 'status';
 
@@ -128,7 +132,7 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
         <button
           type="button"
           className="arch-alert__close"
-          aria-label="Dismiss alert"
+          aria-label={mergedLabels.dismiss}
           onClick={onClose}
         >
           <CloseIcon />
@@ -139,4 +143,6 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
 });
 
 export { Alert };
+export type { AlertLabels } from './Alert.labels';
+export { DEFAULT_LABELS as DEFAULT_ALERT_LABELS } from './Alert.labels';
 export default Alert;

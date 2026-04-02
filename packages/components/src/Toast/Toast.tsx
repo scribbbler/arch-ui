@@ -9,6 +9,12 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
+import {
+  DEFAULT_TOAST_LABELS,
+  DEFAULT_PROVIDER_LABELS,
+  type ToastLabels,
+  type ToastProviderLabels,
+} from './Toast.labels';
 import './Toast.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -41,6 +47,8 @@ export interface ToastItem extends ToastOptions {
 export interface ToastProps extends ToastOptions {
   /** Called when the toast is dismissed. */
   onClose: () => void;
+  /** Override default labels for internationalisation. */
+  labels?: Partial<ToastLabels>;
   /** Additional CSS class names. */
   className?: string;
 }
@@ -48,6 +56,8 @@ export interface ToastProps extends ToastOptions {
 export interface ToastProviderProps {
   /** Stack position on screen. Defaults to 'top-right'. */
   position?: ToastPosition;
+  /** Override default labels for internationalisation. */
+  labels?: Partial<ToastProviderLabels>;
   /** App content to wrap. */
   children: React.ReactNode;
 }
@@ -98,10 +108,12 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
     description,
     duration = 5000,
     onClose,
+    labels,
     className,
   },
   ref
 ) {
+  const mergedLabels = { ...DEFAULT_TOAST_LABELS, ...labels };
   const [exiting, setExiting] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const exitDuration = 200; // ms — matches motion-duration-fast approximately
@@ -152,7 +164,7 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
       <button
         type="button"
         className="arch-toast__close"
-        aria-label="Dismiss notification"
+        aria-label={mergedLabels.dismiss}
         onClick={dismiss}
       >
         <CloseIcon />
@@ -174,7 +186,8 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
  *   <App />
  * </ToastProvider>
  */
-function ToastProvider({ position = 'top-right', children }: ToastProviderProps) {
+function ToastProvider({ position = 'top-right', labels, children }: ToastProviderProps) {
+  const mergedProviderLabels = { ...DEFAULT_PROVIDER_LABELS, ...labels };
   const [toasts, setToasts] = useState<ToastItem[]>([]);
   const uid = useId();
   const counterRef = useRef(0);
@@ -205,7 +218,7 @@ function ToastProvider({ position = 'top-right', children }: ToastProviderProps)
       {children}
       {mounted &&
         createPortal(
-          <div className={containerClasses} aria-label="Notifications">
+          <div className={containerClasses} aria-label={mergedProviderLabels.notifications}>
             {toasts.map((item) => (
               <Toast
                 key={item.id}
@@ -244,4 +257,6 @@ function useToast(): ToastContextValue {
 }
 
 export { Toast, ToastProvider, useToast };
+export type { ToastLabels, ToastProviderLabels } from './Toast.labels';
+export { DEFAULT_TOAST_LABELS, DEFAULT_PROVIDER_LABELS } from './Toast.labels';
 export default Toast;

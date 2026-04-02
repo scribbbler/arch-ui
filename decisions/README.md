@@ -53,6 +53,7 @@ For now, all records live at the root. Categorise when the count exceeds 15.
 | 0006 | `0006-use-style-dictionary-for-tokens.md` | Use Style Dictionary for the token pipeline | Accepted |
 | 0007 | `0007-use-astro-for-docs.md` | Use Astro for the documentation site | Accepted |
 | 0008 | `0008-use-storybook-for-component-explorer.md` | Use Storybook for the component explorer | Accepted |
+| 0009 | `0009-use-labels-prop-for-internationalisation.md` | Use a `labels` prop for component string internationalisation | Accepted |
 
 ---
 

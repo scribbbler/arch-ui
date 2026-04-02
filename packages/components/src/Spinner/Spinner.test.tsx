@@ -84,6 +84,16 @@ describe('Spinner — accessibility', () => {
     expect(results).toHaveNoViolations();
   });
 
+  it('accepts a custom loading label via labels prop', () => {
+    render(<Spinner labels={{ loading: 'Chargement' }} />);
+    expect(screen.getByRole('status')).toHaveAttribute('aria-label', 'Chargement');
+  });
+
+  it('aria-label prop takes precedence over labels prop', () => {
+    render(<Spinner aria-label="Saving" labels={{ loading: 'Chargement' }} />);
+    expect(screen.getByRole('status')).toHaveAttribute('aria-label', 'Saving');
+  });
+
   it('passes axe for every size', async () => {
     const sizes = ['xs', 'sm', 'md', 'lg'] as const;
     for (const size of sizes) {

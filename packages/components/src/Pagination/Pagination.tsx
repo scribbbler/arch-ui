@@ -1,4 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
+import { DEFAULT_LABELS, type PaginationLabels } from './Pagination.labels';
 import './Pagination.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -14,6 +15,8 @@ export interface PaginationProps {
   showFirstLast?: boolean;
   /** Number of page buttons to show on each side of the current page. Defaults to 1. */
   siblingCount?: number;
+  /** Override default labels for internationalisation. */
+  labels?: Partial<Omit<PaginationLabels, 'goToPage'>> & { goToPage?: (page: number) => string };
   /** Additional class names applied to the nav element. */
   className?: string;
 }
@@ -83,10 +86,12 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
     onChange,
     showFirstLast = false,
     siblingCount = 1,
+    labels,
     className,
   },
   ref
 ) {
+  const mergedLabels = { ...DEFAULT_LABELS, ...labels };
   const pages = useMemo(
     () => buildPageRange(currentPage, totalPages, siblingCount),
     [currentPage, totalPages, siblingCount]
@@ -98,7 +103,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
   const classes = ['arch-pagination', className].filter(Boolean).join(' ');
 
   return (
-    <nav ref={ref} aria-label="Pagination" className={classes}>
+    <nav ref={ref} aria-label={mergedLabels.pagination} className={classes}>
       <ol className="arch-pagination__list">
         {/* First page */}
         {showFirstLast && (
@@ -106,7 +111,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             <button
               type="button"
               className="arch-pagination__btn"
-              aria-label="Go to first page"
+              aria-label={mergedLabels.firstPage}
               aria-disabled={isPrevDisabled ? 'true' : undefined}
               onClick={() => {
                 if (!isPrevDisabled) onChange(1);
@@ -122,7 +127,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           <button
             type="button"
             className="arch-pagination__btn"
-            aria-label="Go to previous page"
+            aria-label={mergedLabels.previousPage}
             aria-disabled={isPrevDisabled ? 'true' : undefined}
             onClick={() => {
               if (!isPrevDisabled) onChange(currentPage - 1);
@@ -151,7 +156,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
               <button
                 type="button"
                 className="arch-pagination__btn"
-                aria-label={`Go to page ${page}`}
+                aria-label={mergedLabels.goToPage(page)}
                 aria-current={isCurrent ? 'page' : undefined}
                 onClick={() => {
                   if (!isCurrent) onChange(page);
@@ -168,7 +173,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           <button
             type="button"
             className="arch-pagination__btn"
-            aria-label="Go to next page"
+            aria-label={mergedLabels.nextPage}
             aria-disabled={isNextDisabled ? 'true' : undefined}
             onClick={() => {
               if (!isNextDisabled) onChange(currentPage + 1);
@@ -184,7 +189,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             <button
               type="button"
               className="arch-pagination__btn"
-              aria-label="Go to last page"
+              aria-label={mergedLabels.lastPage}
               aria-disabled={isNextDisabled ? 'true' : undefined}
               onClick={() => {
                 if (!isNextDisabled) onChange(totalPages);
@@ -200,4 +205,6 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
 });
 
 export { Pagination };
+export type { PaginationLabels } from './Pagination.labels';
+export { DEFAULT_LABELS as DEFAULT_PAGINATION_LABELS } from './Pagination.labels';
 export default Pagination;

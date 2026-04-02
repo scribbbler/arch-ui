@@ -38,6 +38,11 @@
       "default": 1,
       "description": "Number of page buttons to show on each side of the current page before showing an ellipsis."
     },
+    "labels": {
+      "type": "Partial<PaginationLabels>",
+      "default": "{ pagination: 'Pagination', firstPage: 'Go to first page', previousPage: 'Go to previous page', nextPage: 'Go to next page', lastPage: 'Go to last page', goToPage: (page) => `Go to page ${page}` }",
+      "description": "Override default labels for internationalisation. PaginationLabels: { pagination, firstPage, previousPage, nextPage, lastPage: string; goToPage: (page: number) => string }."
+    },
     "className": {
       "type": "string",
       "default": "undefined",

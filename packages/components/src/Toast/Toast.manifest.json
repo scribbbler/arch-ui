@@ -40,6 +40,11 @@
       "type": "() => void",
       "description": "Called when the toast is dismissed (auto or manual)."
     },
+    "labels": {
+      "type": "Partial<ToastLabels>",
+      "default": "{ dismiss: 'Dismiss notification' }",
+      "description": "Override default labels for internationalisation. ToastLabels: { dismiss: string }."
+    },
     "className": {
       "type": "string",
       "default": "undefined",
@@ -55,6 +60,11 @@
       "type": "'top-right' | 'top-center' | 'bottom-right' | 'bottom-center'",
       "default": "top-right",
       "description": "Screen position for the toast stack."
+    },
+    "labels": {
+      "type": "Partial<ToastProviderLabels>",
+      "default": "{ notifications: 'Notifications' }",
+      "description": "Override default labels for internationalisation. ToastProviderLabels: { notifications: string }."
     },
     "children": {
       "type": "ReactNode",

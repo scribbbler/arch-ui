@@ -24,6 +24,11 @@
       "default": "Loading",
       "description": "Accessible label announced by screen readers. Override when context requires a more descriptive phrase such as 'Saving changes'."
     },
+    "labels": {
+      "type": "Partial<SpinnerLabels>",
+      "default": "{ loading: 'Loading' }",
+      "description": "Override default labels for internationalisation. SpinnerLabels: { loading: string }. The labels.loading value is used as the aria-label default; an explicit aria-label prop takes precedence."
+    },
     "className": {
       "type": "string",
       "default": "undefined",

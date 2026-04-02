@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { DEFAULT_LABELS, type SpinnerLabels } from './Spinner.labels';
 import './Spinner.css';
 
 /* ─── Types ───────────────────────────────────────────────────────────────────── */
@@ -10,6 +11,8 @@ export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
   size?: SpinnerSize;
   /** Accessible label announced by screen readers. Defaults to 'Loading'. */
   'aria-label'?: string;
+  /** Override default labels for internationalisation. */
+  labels?: Partial<SpinnerLabels>;
   /** Additional CSS class names applied to the root element. */
   className?: string;
 }
@@ -30,12 +33,15 @@ export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
 const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(function Spinner(
   {
     size = 'md',
-    'aria-label': ariaLabel = 'Loading',
+    'aria-label': ariaLabel,
+    labels,
     className,
     ...rest
   },
   ref
 ) {
+  const mergedLabels = { ...DEFAULT_LABELS, ...labels };
+  const resolvedAriaLabel = ariaLabel ?? mergedLabels.loading;
   const classes = [
     'arch-spinner',
     `arch-spinner--${size}`,
@@ -49,11 +55,13 @@ const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(function Spinner(
       {...rest}
       ref={ref}
       role="status"
-      aria-label={ariaLabel}
+      aria-label={resolvedAriaLabel}
       className={classes}
     />
   );
 });
 
 export { Spinner };
+export type { SpinnerLabels } from './Spinner.labels';
+export { DEFAULT_LABELS as DEFAULT_SPINNER_LABELS } from './Spinner.labels';
 export default Spinner;

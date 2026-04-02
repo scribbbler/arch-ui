@@ -207,6 +207,29 @@ describe('Modal — focus management', () => {
   });
 });
 
+/* ─── Modal — labels (i18n) ──────────────────────────────────────────────────── */
+
+describe('Modal — labels (i18n)', () => {
+  it('uses default close label', () => {
+    render(<ModalFixture initialOpen />);
+    const closeBtn = document.querySelector('.arch-modal__close') as HTMLElement;
+    expect(closeBtn).toHaveAttribute('aria-label', 'Close');
+  });
+
+  it('accepts a custom close label via ModalHeader labels prop', () => {
+    const [isOpen, setIsOpen] = [true, () => {}];
+    render(
+      <Modal isOpen={isOpen} onClose={setIsOpen}>
+        <ModalHeader onClose={setIsOpen} labels={{ close: 'Fermer' }}>
+          Titre
+        </ModalHeader>
+      </Modal>
+    );
+    const closeBtn = document.querySelector('.arch-modal__close') as HTMLElement;
+    expect(closeBtn).toHaveAttribute('aria-label', 'Fermer');
+  });
+});
+
 /* ─── Modal — accessibility ──────────────────────────────────────────────────── */
 
 describe('Modal — accessibility', () => {

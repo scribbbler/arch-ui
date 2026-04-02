@@ -49,7 +49,8 @@
       "description": "Renders the modal title in a header element. Includes a close button. Provides aria-labelledby id to the parent dialog.",
       "props": {
         "children": { "type": "ReactNode", "description": "Title content." },
-        "onClose": { "type": "() => void", "description": "Handler for the close button." }
+        "onClose": { "type": "() => void", "description": "Handler for the close button." },
+        "labels": { "type": "Partial<ModalLabels>", "default": "{ close: 'Close' }", "description": "Override default labels for internationalisation. ModalLabels: { close: string }." }
       }
     },
     "ModalBody": {

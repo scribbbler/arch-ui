@@ -120,6 +120,20 @@ describe('Alert — icon', () => {
   });
 });
 
+/* ─── Labels (i18n) ─────────────────────────────────────────────────────────── */
+
+describe('Alert — labels (i18n)', () => {
+  it('uses default dismiss label', () => {
+    render(<Alert title="T" onClose={vi.fn()} />);
+    expect(screen.getByRole('button', { name: 'Dismiss alert' })).toBeInTheDocument();
+  });
+
+  it('accepts a custom dismiss label', () => {
+    render(<Alert title="T" onClose={vi.fn()} labels={{ dismiss: 'Masquer' }} />);
+    expect(screen.getByRole('button', { name: 'Masquer' })).toBeInTheDocument();
+  });
+});
+
 /* ─── Accessibility ──────────────────────────────────────────────────────────── */
 
 describe('Alert — accessibility', () => {

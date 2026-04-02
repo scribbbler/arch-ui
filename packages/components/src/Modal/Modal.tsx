@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useId } from 'react';
 import { Portal } from '../Portal';
 import { Overlay } from '../Overlay';
 import { FocusTrap } from '../FocusTrap';
+import { DEFAULT_LABELS, type ModalLabels } from './Modal.labels';
 import './Modal.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -28,6 +29,8 @@ export interface ModalHeaderProps {
   children: React.ReactNode;
   /** Handler for the close button. */
   onClose?: () => void;
+  /** Override default labels for internationalisation. */
+  labels?: Partial<ModalLabels>;
 }
 
 export interface ModalBodyProps {
@@ -58,10 +61,11 @@ const ModalContext = React.createContext<ModalContextValue | null>(null);
  * ModalHeader — renders the modal title and an optional close button.
  */
 const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function ModalHeader(
-  { children, onClose },
+  { children, onClose, labels },
   ref
 ) {
   const ctx = React.useContext(ModalContext);
+  const mergedLabels = { ...DEFAULT_LABELS, ...labels };
 
   return (
     <header ref={ref} className="arch-modal__header">
@@ -72,7 +76,7 @@ const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function ModalHead
         <button
           type="button"
           className="arch-modal__close"
-          aria-label="Close"
+          aria-label={mergedLabels.close}
           onClick={onClose}
         >
           {/* Simple × glyph — no external icon dependency */}
@@ -196,4 +200,6 @@ function Modal({
 }
 
 export { Modal, ModalHeader, ModalBody, ModalFooter, ModalContext };
+export type { ModalLabels } from './Modal.labels';
+export { DEFAULT_LABELS as DEFAULT_MODAL_LABELS } from './Modal.labels';
 export default Modal;

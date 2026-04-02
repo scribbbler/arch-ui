@@ -188,6 +188,43 @@ describe('useToast — error without provider', () => {
   });
 });
 
+/* ─── Labels (i18n) ─────────────────────────────────────────────────────────── */
+
+describe('Toast — labels (i18n)', () => {
+  it('uses default dismiss label', () => {
+    render(<Toast title="T" onClose={vi.fn()} duration={0} />);
+    expect(
+      screen.getByRole('button', { name: 'Dismiss notification' })
+    ).toBeInTheDocument();
+  });
+
+  it('accepts a custom dismiss label', () => {
+    render(
+      <Toast
+        title="T"
+        onClose={vi.fn()}
+        duration={0}
+        labels={{ dismiss: 'Ignorer' }}
+      />
+    );
+    expect(
+      screen.getByRole('button', { name: 'Ignorer' })
+    ).toBeInTheDocument();
+  });
+
+  it('accepts a custom notifications label on ToastProvider', async () => {
+    const user = userEvent.setup();
+    render(
+      <ToastProvider labels={{ notifications: 'Avis' }}>
+        <ToastTrigger title="T" />
+      </ToastProvider>
+    );
+    await user.click(screen.getByRole('button', { name: 'Add toast' }));
+    const container = document.querySelector('[aria-label="Avis"]');
+    expect(container).toBeInTheDocument();
+  });
+});
+
 /* ─── Accessibility ──────────────────────────────────────────────────────────── */
 
 describe('Toast — accessibility', () => {

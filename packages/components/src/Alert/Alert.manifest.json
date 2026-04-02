@@ -41,6 +41,11 @@
       "default": "variant default icon",
       "description": "Override the default variant icon. Pass null to suppress."
     },
+    "labels": {
+      "type": "Partial<AlertLabels>",
+      "default": "{ dismiss: 'Dismiss alert' }",
+      "description": "Override default labels for internationalisation. AlertLabels: { dismiss: string }."
+    },
     "className": {
       "type": "string",
       "default": "undefined",

@@ -260,6 +260,59 @@ describe('Pagination — onChange', () => {
   });
 });
 
+/* ─── Labels (i18n) ─────────────────────────────────────────────────────────── */
+
+describe('Pagination — labels (i18n)', () => {
+  it('uses default labels', () => {
+    render(<ControlledPagination totalPages={5} initialPage={1} showFirstLast />);
+    expect(screen.getByRole('navigation', { name: 'Pagination' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Go to first page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Go to previous page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Go to next page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Go to last page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Go to page 1' })).toBeInTheDocument();
+  });
+
+  it('accepts custom labels', () => {
+    render(
+      <Pagination
+        totalPages={5}
+        currentPage={1}
+        onChange={() => undefined}
+        showFirstLast
+        labels={{
+          pagination: 'Navigation par pages',
+          firstPage: 'Première page',
+          previousPage: 'Page précédente',
+          nextPage: 'Page suivante',
+          lastPage: 'Dernière page',
+          goToPage: (page: number) => `Aller à la page ${page}`,
+        }}
+      />
+    );
+    expect(screen.getByRole('navigation', { name: 'Navigation par pages' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Première page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Page précédente' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Page suivante' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Dernière page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Aller à la page 1' })).toBeInTheDocument();
+  });
+
+  it('supports partial label overrides', () => {
+    render(
+      <Pagination
+        totalPages={5}
+        currentPage={1}
+        onChange={() => undefined}
+        labels={{ pagination: 'Pages' }}
+      />
+    );
+    expect(screen.getByRole('navigation', { name: 'Pages' })).toBeInTheDocument();
+    // Other labels remain default
+    expect(screen.getByRole('button', { name: 'Go to next page' })).toBeInTheDocument();
+  });
+});
+
 /* ─── Accessibility ──────────────────────────────────────────────────────────── */
 
 describe('Pagination — accessibility', () => {
