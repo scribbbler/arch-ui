@@ -1,0 +1,90 @@
+# Arch Design System
+
+## What this is
+A React component library with 51 components, a three-layer token system, and an MCP server for AI agent consumption. Built for teams that want accessible, themeable UI primitives with first-class agent support.
+
+## MCP Server
+npx @arch-ui/mcp-server
+Tools: get_component, find_component, list_components, get_token, list_tokens, get_pattern, validate_usage, get_token_alias_chain, list_deprecated
+
+## Token architecture
+Three layers: primitive (raw values) → semantic (intent-based, what brands override) → component (per-component usage). All values are CSS custom properties.
+
+## Customisation
+Import @arch-ui/tokens/css, then @arch-ui/tokens/brand-template. Override semantic tokens in brand-template to apply your brand. All components update automatically.
+
+## RTL support
+Set dir="rtl" on the html element. All components use CSS logical properties and respond automatically.
+
+## Dark mode
+Set data-theme="dark" on the html element or any container.
+
+## Accessibility
+All components target WCAG 2.1 AA. Every interactive component has keyboard and screen reader support.
+
+## Components — stable
+Accordion — A vertically stacked set of interactive headings that expand or collapse associated content panels.
+Alert — An inline feedback message for communicating status or important information.
+Avatar — Displays a user's profile image with an initials fallback.
+AvatarGroup — Wraps multiple Avatar components in a horizontal stack with overlap and overflow count.
+Badge — An inline label for status, count, or categorical information.
+Banner — A full-width top-of-page announcement bar.
+Box — Generic container with token-based styling props.
+Breadcrumbs — An ordered list of links showing the user's location in a hierarchy.
+Button — A polymorphic button supporting multiple variants, sizes, and loading state.
+Card — A surface container for grouping related content with optional clickability.
+Checkbox — A checkbox input with checked, indeterminate, disabled, and error states.
+CheckboxGroup — A fieldset container for grouping Checkbox components.
+Code — Inline code snippets or block-level code samples.
+Display — Large display text for hero sections and visual emphasis.
+Divider — A visual separator with optional inline label.
+Drawer — A panel that slides in from a configurable side of the screen.
+FileUpload — A drag-and-drop file upload zone with size validation.
+FocusTrap — Constrains keyboard Tab cycling within a container.
+FormControl — Connects label, input, helper text, and error message via ARIA context.
+Grid — CSS Grid wrapper with token-based gap and responsive columns.
+Heading — Semantic h1-h6 with independent typographic sizing.
+IconButton — An icon-only button requiring aria-label.
+Inline — Horizontal flex layout with token-based gap.
+Input — A single-line text input with leading/trailing slots and three sizes.
+Label — UI text for interactive elements.
+Link — Anchor element with token-based color variants and external link handling.
+List — Semantic list components for bullet, numbered, and description lists.
+Modal — A full-overlay dialog with scroll lock, focus trap, and configurable size.
+Overlay — A fixed-position semi-transparent backdrop.
+Pagination — Page number buttons with previous/next controls and ellipsis truncation.
+Paragraph — Body text optimised for readability.
+Popover — An interactive overlay panel triggered by click.
+Portal — Renders children into a DOM node outside the React tree.
+ProgressBar — A linear progress indicator for determinate and indeterminate operations.
+ProgressSteps — A step indicator for multi-step flows.
+Radio — A radio input with custom-styled visual overlay.
+RadioGroup — A fieldset container for Radio components with arrow key navigation.
+Select — A native select element styled consistently with Input.
+Skeleton — A shimmer placeholder shown while content loads.
+SkipNav — Skip-to-main-content link for keyboard accessibility.
+Slider — A range slider rendered as a native input[type=range].
+Spinner — A circular loading indicator respecting prefers-reduced-motion.
+Stack — Vertical flex layout with token-based gap.
+Table — A semantic HTML table with striped rows, bordered cells, and size presets.
+Tabs — Horizontal and vertical tabs with line and enclosed variants.
+Tag — A removable categorisation label with optional icon.
+Textarea — A multi-line text input with auto-resize mode.
+Toast — A transient notification system with imperative useToast hook.
+Toggle — A binary on/off switch with role='switch'.
+Tooltip — Non-interactive supplementary content shown on hover and focus.
+VisuallyHidden — Hides content visually while keeping it accessible to screen readers.
+
+## Components — beta
+(none)
+
+## Components — deprecated
+(none)
+
+## Foundations
+Tokens, Grid, Typography, Color, Spacing, Motion, Icons, Accessibility, RTL
+
+## Do not
+- Do not use primitive tokens directly in components or application code — use semantic tokens
+- Do not import from a component's internal folder — import from the package root
+- Do not override component tokens directly in application CSS — override semantic tokens instead
