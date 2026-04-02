@@ -5,10 +5,26 @@
   "description": "Storybook component explorer for the Arch Design System",
   "type": "module",
   "scripts": {
-    "build": "echo 'TODO: build-storybook'",
-    "dev": "echo 'TODO: storybook dev'",
+    "build": "storybook build",
+    "dev": "storybook dev -p 6006",
     "test": "echo 'No tests yet'",
     "lint": "echo 'No lint yet'"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@arch-ui/components": "workspace:*",
+    "@arch-ui/icons": "workspace:*",
+    "@arch-ui/tokens": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8",
+    "@storybook/blocks": "^8",
+    "@storybook/react": "^8",
+    "@storybook/react-vite": "^8",
+    "@storybook/test": "^8",
+    "storybook": "^8",
+    "vite": "^6"
+  }
 }

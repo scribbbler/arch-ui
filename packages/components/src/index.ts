@@ -24,6 +24,8 @@ export {
   type FormErrorMessageProps,
   type FormControlContextValue,
 } from "./FormControl";
+export { Button, type ButtonProps, type ButtonVariant, type ButtonSize } from "./Button";
+export { IconButton, type IconButtonProps, type IconButtonVariant, type IconButtonSize } from "./IconButton";
 export { Input, type InputProps, type InputType, type InputSize } from "./Input";
 export {
   Textarea,

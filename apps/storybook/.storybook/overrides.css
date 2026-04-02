@@ -1,0 +1,11 @@
+/* Reduced motion override for Storybook toolbar toggle */
+.reduce-motion,
+.reduce-motion * {
+  --motion-duration-fast: 0ms !important;
+  --motion-duration-normal: 0ms !important;
+  --motion-duration-slow: 0ms !important;
+  --motion-semantic-duration-enter: 0ms !important;
+  --motion-semantic-duration-exit: 0ms !important;
+  animation-duration: 0ms !important;
+  transition-duration: 0ms !important;
+}
