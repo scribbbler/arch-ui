@@ -1,0 +1,91 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Grid"
+---
+
+# Grid
+
+<span class="status-badge status-badge--stable">stable</span>
+
+CSS Grid wrapper with token-based gap and responsive columns via container queries. Columns accept a number (1–12), 'auto', or a responsive object &#123; base, sm, md, lg, xl &#125;.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `columns` | `number \| 'auto' \| &#123; base?: number, sm?: number, md?: number, lg?: number, xl?: number &#125;` | `1` | Number of columns (1–12), 'auto' for auto-fill, or responsive object using container queries |
+| `gap` | `string` | `—` | Spacing token for both row and column gap |
+| `rowGap` | `string` | `—` | Spacing token for row gap (overrides gap for rows) |
+| `colGap` | `string` | `—` | Spacing token for column gap (overrides gap for columns) |
+| `as` | `React.ElementType` | `div` | HTML element to render. Default: 'div'. |
+| `children` | `React.ReactNode` | `—` |  |
+## Accessibility
+
+**Notes:**
+
+- G
+- r
+- i
+- d
+-  
+- i
+- s
+-  
+- a
+-  
+- l
+- a
+- y
+- o
+- u
+- t
+-  
+- u
+- t
+- i
+- l
+- i
+- t
+- y
+-  
+- w
+- i
+- t
+- h
+-  
+- n
+- o
+-  
+- i
+- n
+- h
+- e
+- r
+- e
+- n
+- t
+-  
+- s
+- e
+- m
+- a
+- n
+- t
+- i
+- c
+- s
+- .
+
+## Usage Guidelines
+
+**Do:**
+
+- Use Grid for multi-column layouts
+- Use responsive columns object for container-query-based responsive layouts
+- Prefer container queries over viewport breakpoints for component portability
+
+**Don't:**
+
+- Do not use Grid for simple vertical or horizontal layouts — use Stack or Inline
+- Do not use more than 12 columns
+

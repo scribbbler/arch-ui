@@ -1,0 +1,112 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Accessibility"
+---
+
+# Accessibility
+
+Arch targets WCAG 2.1 Level AA conformance. Every component is built with accessibility as a requirement, not an afterthought.
+
+## Core Rules
+
+Every component in the system must meet these requirements:
+
+- **No color-only communication.** State changes always combine color with icons, text, or patterns.
+- **Respect `prefers-reduced-motion`.** All animations stop or become instant when the user requests reduced motion.
+- **Meet contrast ratios.** Body text: 4.5:1 minimum. Large text (18px+ or 14px+ bold): 3:1 minimum. Non-text elements (borders, icons, UI controls): 3:1 minimum.
+
+## Interactive Component Requirements
+
+Every interactive component must provide:
+
+- Correct ARIA role
+- State communicated via `aria-*` attributes (not just CSS classes)
+- Keyboard interaction matching the patterns below
+- Focus visible style using `var(--color-border-focus)` with minimum 3:1 contrast
+- Touch target minimum of 44x44px
+
+## Keyboard Patterns
+
+| Pattern | Keyboard behavior |
+|---------|------------------|
+| Button | Enter or Space activates |
+| Link | Enter activates |
+| Dialog / Modal | Tab cycles within, Escape closes, focus returns to trigger |
+| Tooltip | Appears on focus, Escape dismisses |
+| Tabs | Arrow keys navigate tabs, Tab moves into panel |
+| Accordion | Enter/Space toggle section, arrow keys move between headers |
+| Combobox | Arrow keys navigate list, Enter selects, Escape closes |
+| Menu | Arrow keys navigate items, Escape closes, Tab moves out |
+| Checkbox | Space toggles |
+| Radio | Arrow keys move selection within group |
+| Switch / Toggle | Space toggles |
+| Slider | Arrow keys adjust value |
+
+## Form Elements
+
+Form components have additional requirements:
+
+- **Visible label** -- never rely on placeholder text alone
+- **Error announcements** -- use `aria-live` or `aria-describedby` to announce errors to screen readers
+- **Required fields** -- mark with `aria-required="true"` and a visual indicator (not color alone)
+- **Invalid fields** -- mark with `aria-invalid="true"`
+- **Disabled fields** -- use `aria-disabled="true"` or the native `disabled` attribute
+
+## Focus Management
+
+- **Focus must never be lost.** When a UI element is removed (e.g., a modal closes), focus returns to the element that triggered it.
+- **Use `FocusTrap`** for modal dialogs and drawers.
+- **Skip navigation** (`SkipNav`) must be the first focusable element on the page.
+- **Focus order must match visual order.** Do not use `tabindex` values greater than 0.
+
+```tsx
+{/* Focus ring is handled automatically via the token */}
+.interactive:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+```
+
+## Testing Requirements
+
+Every component must pass three levels of testing before it is considered complete:
+
+### 1. Automated (axe-core)
+
+Zero violations via `vitest-axe`. This catches missing ARIA attributes, contrast issues, and structural problems.
+
+```tsx
+import { axe } from 'vitest-axe';
+
+it('has no accessibility violations', async () => {
+  const { container } = render(<Button>Click me</Button>);
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
+```
+
+### 2. Keyboard Testing
+
+All functionality must be reachable without a mouse. Test that:
+
+- Every interactive element is reachable via Tab
+- Activation works via Enter/Space as appropriate
+- Escape dismisses overlays
+- Arrow keys work for composite widgets (tabs, menus, radios)
+
+### 3. Screen Reader Verification
+
+State changes must be announced correctly. This requires manual verification with at least one screen reader (VoiceOver on macOS, NVDA on Windows).
+
+## Checklist
+
+Before marking any component complete, verify:
+
+- [ ] Correct ARIA role assigned
+- [ ] All states have aria attributes (not just CSS classes)
+- [ ] `:focus-visible` style uses `var(--color-border-focus)`
+- [ ] Interactive elements meet 44x44px touch target
+- [ ] Does not rely on color alone
+- [ ] `prefers-reduced-motion` respected
+- [ ] axe-core passes with zero violations
+- [ ] Keyboard interaction matches the pattern table

@@ -1,0 +1,62 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "CheckboxGroup"
+---
+
+# CheckboxGroup
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A group container for Checkbox components. Renders a &lt;fieldset&gt; with a &lt;legend&gt; for accessible grouping. Passes the disabled prop down to child Checkbox components via context.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `legend` | `string` | `—` | The accessible label for the group. Rendered as a &lt;legend&gt; inside the &lt;fieldset&gt;. Required. |
+| `direction` | `'vertical' \| 'horizontal'` | `vertical` | Layout direction of the checkbox items. 'vertical' stacks them in a column; 'horizontal' places them in a row. |
+| `disabled` | `boolean` | `false` | Disables all Checkbox children in the group. Passed via context. |
+| `children` | `ReactNode` | `—` | Checkbox components to render inside the group. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply to the fieldset element. |
+## Accessibility
+
+**Role:** `group`
+
+**ARIA attributes:** `aria-disabled`
+
+**Keyboard interaction:**
+
+- Tab
+- Space
+
+**Notes:**
+
+- Uses a native &lt;fieldset&gt; and &lt;legend&gt; to provide an accessible group label to screen readers.
+- The disabled prop is propagated to all Checkbox children via React context.
+- Vertical and horizontal layout are controlled via a CSS flex direction on the group container.
+
+## Usage Guidelines
+
+**Do:**
+
+- Always provide a legend prop — it is the accessible name for the group.
+- Use CheckboxGroup whenever two or more related checkboxes appear together.
+- Use direction='horizontal' for short-label choices that fit on one line.
+
+**Don't:**
+
+- Do not nest CheckboxGroups — keep the structure flat.
+- Do not omit the legend — it is required for accessibility.
+- Do not use CheckboxGroup for mutually exclusive choices — use RadioGroup instead.
+
+## Tokens Used
+
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--color-text-default)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-weight-medium)`
+- `var(--border-width-default)`
+- `var(--color-border-default)`
+

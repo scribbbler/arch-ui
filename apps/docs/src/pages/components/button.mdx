@@ -1,0 +1,97 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Button"
+---
+
+# Button
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A polymorphic button component supporting multiple variants, sizes, and states including loading. Always renders a &lt;button&gt; element by default, but accepts an `as` prop to render as any element type (e.g., an anchor for link-styled buttons).
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'destructive' \| 'link'` | `primary` | Visual style of the button. Maps directly to action color tokens. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `md` | Size of the button, controlling padding and font-size. |
+| `disabled` | `boolean` | `false` | Disables the button. Applies reduced opacity and prevents interaction. |
+| `loading` | `boolean` | `false` | Shows a loading spinner and disables the button. Sets aria-busy=true. |
+| `loadingText` | `string` | `undefined` | Optional text to display while loading. Replaces children visually and for screen readers. |
+| `leftIcon` | `ReactNode` | `undefined` | Icon rendered to the inline-start of the label. |
+| `rightIcon` | `ReactNode` | `undefined` | Icon rendered to the inline-end of the label. |
+| `fullWidth` | `boolean` | `false` | When true, the button stretches to fill its container width. |
+| `as` | `ElementType` | `button` | The HTML element or React component to render. Use 'a' for link-styled buttons. |
+| `type` | `'button' \| 'submit' \| 'reset'` | `button` | The HTML button type attribute. Defaults to 'button' to avoid accidental form submissions. |
+| `onClick` | `(event: React.MouseEvent) =&gt; void` | `undefined` | Click event handler. |
+| `children` | `ReactNode` | `—` | Button label content. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply. |
+## Accessibility
+
+**Role:** `button`
+
+**ARIA attributes:** `aria-disabled`, `aria-busy`
+
+**Keyboard interaction:**
+
+- Enter
+- Space
+
+**Notes:**
+
+- When loading, aria-busy is set to true and the button is disabled.
+- Disabled state uses both the disabled attribute and aria-disabled for maximum compatibility.
+- Focus indicator uses a 2px outline with a 2px offset using var(--color-border-focus).
+- When loadingText is provided, it replaces the visible label during loading for screen reader clarity.
+
+## Usage Guidelines
+
+**Do:**
+
+- Use a single primary button per section or dialog.
+- Provide loadingText when the loading state needs a descriptive label.
+- Use the `as` prop with an anchor element when navigating, so keyboard and screen reader behaviour is correct.
+- Pair leftIcon or rightIcon with concise label text.
+
+**Don't:**
+
+- Do not use more than one primary button in the same visual group.
+- Do not disable a button without explaining why (use a tooltip or adjacent helper text).
+- Do not use the link variant for navigation outside the current context — use a real anchor.
+- Do not nest interactive elements inside a button.
+
+## Tokens Used
+
+- `var(--color-action-primary)`
+- `var(--color-action-primary-hover)`
+- `var(--color-action-primary-active)`
+- `var(--color-action-primary-text)`
+- `var(--color-action-secondary)`
+- `var(--color-action-secondary-hover)`
+- `var(--color-action-secondary-active)`
+- `var(--color-action-secondary-text)`
+- `var(--color-action-ghost)`
+- `var(--color-action-ghost-hover)`
+- `var(--color-action-ghost-active)`
+- `var(--color-action-ghost-text)`
+- `var(--color-action-destructive)`
+- `var(--color-action-destructive-hover)`
+- `var(--color-action-destructive-active)`
+- `var(--color-action-destructive-text)`
+- `var(--color-text-link)`
+- `var(--color-text-link-hover)`
+- `var(--color-border-focus)`
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-component-lg)`
+- `var(--radius-component-sm)`
+- `var(--radius-component-md)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-scale-text-lg)`
+- `var(--typography-weight-medium)`
+- `var(--typography-weight-semibold)`
+- `var(--motion-duration-fast)`
+- `var(--motion-easing-default)`
+

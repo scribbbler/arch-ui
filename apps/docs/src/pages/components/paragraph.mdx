@@ -1,0 +1,34 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Paragraph"
+---
+
+# Paragraph
+
+<span class="status-badge status-badge--stable">stable</span>
+
+Body text for content paragraphs, descriptions, and long-form reading. Regular weight by default. Optimized for readability.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `'lg' \| 'md' \| 'sm' \| 'xs'` | `md` | Paragraph size. Maps to text scale tokens. |
+| `weight` | `'regular' \| 'medium'` | `regular` | Font weight. Default: 'regular'. |
+| `color` | `string` | `color-text-default` | Semantic text color token name |
+| `truncate` | `boolean` | `false` | Truncate with ellipsis on a single line |
+| `as` | `React.ElementType` | `p` | HTML element to render. Default: 'p'. |
+| `children` | `React.ReactNode` | `—` |  |
+## Usage Guidelines
+
+**Do:**
+
+- Use Paragraph for body text, descriptions, and content blocks
+- Use size='sm' for secondary text and captions
+- Use color='color-text-subtle' for secondary content
+
+**Don't:**
+
+- Do not use Paragraph for UI labels — use Label
+- Do not use Paragraph for headings — use Heading or Display
+

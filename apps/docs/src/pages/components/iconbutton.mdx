@@ -1,0 +1,87 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "IconButton"
+---
+
+# IconButton
+
+<span class="status-badge status-badge--stable">stable</span>
+
+An icon-only button. Renders a square, accessible button that displays a single icon. Requires an `aria-label` prop to ensure screen reader users understand its purpose.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `aria-label` | `string` | `—` | Accessible name for the button. REQUIRED — must describe the action, not the icon shape. Example: 'Close dialog', not 'X icon'. |
+| `icon` | `ReactNode` | `—` | The icon to display. Typically an SVG element or icon component. |
+| `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'destructive' \| 'link'` | `primary` | Visual style of the button. Maps directly to action color tokens. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `md` | Size of the button, controlling the square dimensions and icon size. |
+| `disabled` | `boolean` | `false` | Disables the button. Applies reduced opacity and prevents interaction. |
+| `loading` | `boolean` | `false` | Shows a loading spinner and disables the button. Sets aria-busy=true. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply. |
+## Accessibility
+
+**Role:** `button`
+
+**ARIA attributes:** `aria-label`, `aria-disabled`, `aria-busy`
+
+**Keyboard interaction:**
+
+- Enter
+- Space
+
+**Notes:**
+
+- aria-label is REQUIRED. A console error is logged in development if it is missing.
+- When loading, aria-busy is set to true and the button is disabled.
+- Focus indicator uses a 2px outline with a 2px offset using var(--color-border-focus).
+- The icon itself is wrapped in an aria-hidden span so the label is the sole text alternative.
+
+## Usage Guidelines
+
+**Do:**
+
+- Always provide a descriptive aria-label that describes the action performed.
+- Use ghost variant for icon buttons in toolbars and dense UIs.
+- Pair with a visible tooltip to reinforce the icon meaning.
+
+**Don't:**
+
+- Do not omit aria-label — this will cause an accessibility violation.
+- Do not use aria-label values like 'icon' or 'button' — be specific about the action.
+- Do not place text children inside IconButton — use Button instead.
+
+## Tokens Used
+
+- `var(--color-action-primary)`
+- `var(--color-action-primary-hover)`
+- `var(--color-action-primary-active)`
+- `var(--color-action-primary-text)`
+- `var(--color-action-secondary)`
+- `var(--color-action-secondary-hover)`
+- `var(--color-action-secondary-active)`
+- `var(--color-action-secondary-text)`
+- `var(--color-action-ghost)`
+- `var(--color-action-ghost-hover)`
+- `var(--color-action-ghost-active)`
+- `var(--color-action-ghost-text)`
+- `var(--color-action-destructive)`
+- `var(--color-action-destructive-hover)`
+- `var(--color-action-destructive-active)`
+- `var(--color-action-destructive-text)`
+- `var(--color-text-link)`
+- `var(--color-text-link-hover)`
+- `var(--color-border-focus)`
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-component-lg)`
+- `var(--radius-component-sm)`
+- `var(--radius-component-md)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-scale-text-lg)`
+- `var(--motion-duration-fast)`
+- `var(--motion-easing-default)`
+

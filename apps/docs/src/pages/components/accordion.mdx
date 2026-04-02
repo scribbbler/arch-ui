@@ -1,0 +1,73 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Accordion"
+---
+
+# Accordion
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A vertically stacked set of interactive headings that expand or collapse associated content panels. Supports single or multiple open sections simultaneously.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `items` | `Array&lt;&#123; title: string; content: ReactNode &#125;&gt;` | `—` | Array of accordion sections. Each item must have a title string and content ReactNode. |
+| `allowMultiple` | `boolean` | `false` | When true, multiple sections can be open simultaneously. |
+| `defaultExpanded` | `number[]` | `[]` | Indices of sections that are expanded by default on first render. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply to the root element. |
+## Accessibility
+
+**Role:** `none`
+
+**ARIA attributes:** `aria-expanded`, `aria-controls`, `aria-labelledby`
+
+**Keyboard interaction:**
+
+- Enter
+- Space
+- ArrowDown
+- ArrowUp
+- Home
+- End
+
+**Notes:**
+
+- Each section header is a &lt;button&gt; element with aria-expanded and aria-controls.
+- Each panel has role='region' and aria-labelledby pointing to its trigger button.
+- Arrow keys move focus between header buttons.
+- Home/End move focus to first/last header.
+- Animation respects prefers-reduced-motion.
+
+## Usage Guidelines
+
+**Do:**
+
+- Use for FAQs, settings panels, or any grouped content that benefits from progressive disclosure.
+- Provide concise, descriptive titles for each section.
+- Use allowMultiple when sections are independent and users may need to compare content.
+
+**Don't:**
+
+- Do not nest Accordions inside Accordion panels — use a flat structure.
+- Do not use Accordion for navigation — use Tabs or a navigation menu instead.
+- Do not place critical required information inside a collapsed section.
+
+## Tokens Used
+
+- `var(--color-background-default)`
+- `var(--color-surface-raised)`
+- `var(--color-text-default)`
+- `var(--color-text-subtle)`
+- `var(--color-border-default)`
+- `var(--color-border-focus)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-component-lg)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-weight-semibold)`
+- `var(--radius-component-sm)`
+- `var(--motion-duration-normal)`
+- `var(--motion-semantic-easing-default)`
+

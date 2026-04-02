@@ -1,0 +1,79 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Theming"
+---
+
+# Theming
+
+Arch uses a three-layer token architecture. You brand the system by overriding a single layer -- the semantic tokens.
+
+## The three layers
+
+| Layer | Purpose | Example |
+|---|---|---|
+| **Primitive** | Raw values -- colours, sizes, weights | `--color-blue-500: #3b82f6` |
+| **Semantic** | Intent-based aliases that brands override | `--color-action-primary: var(--color-blue-500)` |
+| **Component** | Per-component bindings (you rarely touch these) | `--button-bg: var(--color-action-primary)` |
+
+Components reference component tokens, which reference semantic tokens, which reference primitives. When you change a semantic token, every component that uses it updates automatically.
+
+## 10-minute brand setup
+
+### 1. Import the base tokens and the brand template
+
+```ts
+import '@arch-ui/tokens/css';
+import '@arch-ui/tokens/brand-template';
+```
+
+The brand template file contains every overridable semantic token with its default value, ready for you to edit.
+
+### 2. Create your brand file
+
+Create a CSS file (e.g. `brand.css`) that overrides only the tokens you want to change:
+
+```css
+:root {
+  /* Primary action colour */
+  --color-action-primary: #7c3aed;
+  --color-action-primary-hover: #6d28d9;
+  --color-action-primary-active: #5b21b6;
+
+  /* Border radius */
+  --radius-md: 0.75rem;
+
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+```
+
+### 3. Import your brand file after the tokens
+
+```ts
+import '@arch-ui/tokens/css';
+import './brand.css';
+```
+
+Order matters -- your brand file must load after the base tokens so it wins in the cascade.
+
+### 4. Verify
+
+Every component that uses `--color-action-primary` (buttons, links, focus rings) now shows your brand colour. No prop changes needed.
+
+## Scoped theming
+
+You can scope overrides to a container instead of `:root`:
+
+```css
+.admin-panel {
+  --color-action-primary: #dc2626;
+}
+```
+
+Any Arch component rendered inside `.admin-panel` will pick up the red action colour while the rest of the page keeps the default.
+
+## Tips
+
+- Only override semantic tokens. Changing primitives can break the alias chain.
+- Use the `get_token_alias_chain` MCP tool to trace any token back to its root value.
+- Run `list_tokens` to see every available token and its current value.

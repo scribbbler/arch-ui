@@ -1,0 +1,267 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Navigation Patterns"
+---
+
+# Navigation Patterns
+
+Arch provides four navigation components, each serving a distinct purpose:
+
+| Component      | Purpose                                 |
+|----------------|-----------------------------------------|
+| `Breadcrumbs`  | Show hierarchy and allow upward navigation |
+| `Tabs`         | Switch between views within a page       |
+| `Pagination`   | Navigate through pages of a list         |
+| `SkipNav`      | Keyboard shortcut to skip to main content |
+
+## Breadcrumbs
+
+Use breadcrumbs to show the user where they are in a hierarchy and let them navigate back up. The last item is always the current page and renders as a `<span>` with `aria-current="page"`.
+
+```jsx
+import { Breadcrumbs } from '@arch-ui/components';
+
+<Breadcrumbs
+  items={[
+    { label: 'Home', href: '/' },
+    { label: 'Products', href: '/products' },
+    { label: 'Widgets', href: '/products/widgets' },
+    { label: 'Sprocket 3000' },
+  ]}
+/>
+```
+
+### Custom separator
+
+The default separator is `/`. Pass any string or element:
+
+```jsx
+<Breadcrumbs
+  items={items}
+  separator=">"
+/>
+```
+
+### When to use breadcrumbs
+
+- Sites with three or more levels of hierarchy.
+- When users may arrive at a deep page from search or a direct link.
+- Do not use breadcrumbs as the sole navigation -- they supplement a primary nav.
+
+## Tabs
+
+Use tabs to switch between related views on the same page without a full navigation. Tabs are controlled -- you manage the active value in state.
+
+```jsx
+import { Tabs } from '@arch-ui/components';
+
+function ProjectPage() {
+  const [activeTab, setActiveTab] = useState('overview');
+
+  return (
+    <Tabs
+      tabs={[
+        {
+          label: 'Overview',
+          value: 'overview',
+          content: <OverviewPanel />,
+        },
+        {
+          label: 'Activity',
+          value: 'activity',
+          content: <ActivityPanel />,
+        },
+        {
+          label: 'Settings',
+          value: 'settings',
+          content: <SettingsPanel />,
+        },
+      ]}
+      activeValue={activeTab}
+      onChange={setActiveTab}
+    />
+  );
+}
+```
+
+### Tab variants
+
+**Line tabs** (default) -- A minimal underline style suitable for most contexts:
+
+```jsx
+<Tabs variant="line" tabs={tabs} activeValue={active} onChange={setActive} />
+```
+
+**Enclosed tabs** -- Boxed tabs for when you need stronger visual separation:
+
+```jsx
+<Tabs variant="enclosed" tabs={tabs} activeValue={active} onChange={setActive} />
+```
+
+### Vertical tabs
+
+For side navigation within a settings page or configuration panel:
+
+```jsx
+<Tabs
+  orientation="vertical"
+  tabs={settingsTabs}
+  activeValue={activeTab}
+  onChange={setActiveTab}
+/>
+```
+
+### Disabled tabs
+
+Individual tabs can be disabled:
+
+```jsx
+<Tabs
+  tabs={[
+    { label: 'General', value: 'general', content: <General /> },
+    { label: 'Billing', value: 'billing', content: <Billing />, disabled: true },
+    { label: 'Security', value: 'security', content: <Security /> },
+  ]}
+  activeValue={activeTab}
+  onChange={setActiveTab}
+/>
+```
+
+Disabled tabs are skipped during keyboard navigation.
+
+### Keyboard navigation
+
+Tabs follow the WAI-ARIA Authoring Practices:
+
+- **Arrow keys** move focus between tabs (left/right for horizontal, up/down for vertical).
+- **Home / End** jump to the first and last enabled tab.
+- **Tab** moves focus into the active panel.
+
+## Pagination
+
+Use pagination to navigate through pages of a list. See the [Data Tables](/patterns/data-tables) pattern for a complete example with search and tables.
+
+### Basic pagination
+
+```jsx
+import { Pagination } from '@arch-ui/components';
+
+<Pagination
+  totalPages={20}
+  currentPage={currentPage}
+  onChange={setCurrentPage}
+/>
+```
+
+### With first/last buttons
+
+For large datasets, add buttons to jump to the first and last pages:
+
+```jsx
+<Pagination
+  totalPages={100}
+  currentPage={currentPage}
+  onChange={setCurrentPage}
+  showFirstLast
+  siblingCount={1}
+/>
+```
+
+### Sibling count
+
+`siblingCount` controls how many page numbers appear on each side of the current page. Ellipses fill the gaps:
+
+- `siblingCount={0}` -- Only the current page number is shown (plus boundaries).
+- `siblingCount={1}` (default) -- One page on each side: `1 ... 4 [5] 6 ... 20`.
+- `siblingCount={2}` -- Two pages on each side: `1 ... 3 4 [5] 6 7 ... 20`.
+
+## SkipNav
+
+`SkipNav` renders a link that is visually hidden until focused. It allows keyboard users to skip past the navigation and jump directly to the main content. Place it as the first focusable element on the page.
+
+```jsx
+import { SkipNav } from '@arch-ui/components';
+
+function Layout({ children }) {
+  return (
+    <>
+      <SkipNav targetId="main-content" />
+      <header>{/* Site navigation */}</header>
+      <main id="main-content">
+        {children}
+      </main>
+    </>
+  );
+}
+```
+
+### How it works
+
+1. The link is positioned off-screen by default.
+2. When a keyboard user presses Tab, it becomes the first focused element and slides into view.
+3. Pressing Enter scrolls to and focuses the element with the matching `id`.
+4. On blur, the link returns to its off-screen position.
+
+### Custom label
+
+The default text is "Skip to main content." Override it for different languages or targets:
+
+```jsx
+<SkipNav targetId="main-content">Skip to content</SkipNav>
+
+{/* Or using labels for i18n */}
+<SkipNav targetId="main-content" labels={{ skipToContent: 'Aller au contenu' }} />
+```
+
+## Combining Navigation Patterns
+
+A typical page might use several navigation patterns together:
+
+```jsx
+import { SkipNav, Breadcrumbs, Tabs, Pagination } from '@arch-ui/components';
+
+function ProductListPage() {
+  return (
+    <>
+      <SkipNav targetId="main-content" />
+      <header>{/* Primary nav */}</header>
+
+      <main id="main-content">
+        {/* Hierarchy */}
+        <Breadcrumbs
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Products' },
+          ]}
+        />
+
+        {/* Section switching */}
+        <Tabs
+          tabs={[
+            { label: 'All', value: 'all', content: <AllProducts /> },
+            { label: 'Active', value: 'active', content: <ActiveProducts /> },
+            { label: 'Archived', value: 'archived', content: <ArchivedProducts /> },
+          ]}
+          activeValue={activeTab}
+          onChange={setActiveTab}
+        />
+
+        {/* List navigation */}
+        <Pagination
+          totalPages={totalPages}
+          currentPage={page}
+          onChange={setPage}
+        />
+      </main>
+    </>
+  );
+}
+```
+
+## Accessibility Checklist
+
+- `Breadcrumbs` renders inside `<nav aria-label="Breadcrumb">` with the current page marked `aria-current="page"`.
+- `Tabs` uses `role="tablist"`, `role="tab"`, and `role="tabpanel"` with proper `aria-selected`, `aria-controls`, and `aria-labelledby` attributes.
+- `Pagination` renders inside `<nav aria-label="Pagination">` with the current page marked `aria-current="page"`.
+- `SkipNav` must be the first focusable element in the DOM for keyboard users to reach it immediately.
+- All navigation components support keyboard interaction without requiring a mouse.

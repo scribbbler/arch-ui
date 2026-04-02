@@ -1,0 +1,71 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Card"
+---
+
+# Card
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A surface container for grouping related content. Supports optional clickability with link or button semantics. Sub-components CardHeader, CardBody, and CardFooter provide semantic structure.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `clickable` | `boolean` | `false` | When true, the card is interactive. Use href for navigation, onClick for actions. |
+| `href` | `string` | `undefined` | When provided with clickable=true, renders the card as an &lt;a&gt; element. |
+| `onClick` | `() =&gt; void` | `undefined` | Click handler. When clickable=true and no href, renders with role='button'. |
+| `padding` | `string` | `spacing-component-md` | CSS custom property name (without --) for the card's internal padding. Must be a valid spacing token. |
+| `children` | `ReactNode` | `—` | Card content. Use CardHeader, CardBody, CardFooter sub-components for structure. |
+| `className` | `string` | `undefined` | Additional CSS class names. |
+## Accessibility
+
+**Role:** `varies — 'button' when clickable without href, link when clickable with href`
+
+**Keyboard interaction:**
+
+- Enter
+- Space
+
+**Notes:**
+
+- When clickable and href is provided, the card renders as an &lt;a&gt; element.
+- When clickable and onClick is provided (no href), the card renders as role='button' with tabIndex=0.
+- Enter and Space activate clickable cards.
+- Non-clickable cards have no interactive role.
+- Focus indicator uses var(--color-border-focus).
+
+## Usage Guidelines
+
+**Do:**
+
+- Use CardHeader, CardBody, and CardFooter to structure content semantically.
+- Use href for cards that navigate to another page or route.
+- Use onClick for cards that trigger an action without navigation.
+- Ensure clickable cards always have a meaningful accessible name.
+
+**Don't:**
+
+- Do not place interactive controls (buttons, links) inside a clickable card — this creates nested interactive elements.
+- Do not use Card for tabular or list data — use Table or List instead.
+- Do not change the padding token to a raw value.
+
+## Tokens Used
+
+- `var(--color-surface-raised)`
+- `var(--color-background-subtle)`
+- `var(--color-border-default)`
+- `var(--color-border-focus)`
+- `var(--color-text-default)`
+- `var(--shadow-component-sm)`
+- `var(--shadow-component-md)`
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-component-lg)`
+- `var(--radius-component-md)`
+- `var(--border-width-default)`
+- `var(--motion-duration-fast)`
+- `var(--motion-semantic-easing-default)`
+

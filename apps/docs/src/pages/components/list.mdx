@@ -1,0 +1,59 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "List"
+---
+
+# List
+
+<span class="status-badge status-badge--stable">stable</span>
+
+Semantic list components for bullet lists, numbered lists, and unordered (no-marker) lists. Includes DescriptionList with DescriptionTerm and DescriptionDetail sub-components for key-value or term-definition content.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'bullet' \| 'number' \| 'none'` | `bullet` | List marker style. 'bullet' uses disc markers, 'number' uses decimal markers, 'none' hides markers. |
+| `spacing` | `string` | `spacing-component-xs` | CSS custom property name (without --) for the gap between list items. |
+| `as` | `'ul' \| 'ol'` | `auto` | Override the root element. Auto-selects ul for bullet/none, ol for number when not specified. |
+| `children` | `ReactNode` | `—` | List items. Use ListItem sub-component. |
+| `className` | `string` | `undefined` | Additional CSS class names. |
+## Accessibility
+
+**Role:** `list`
+
+**Notes:**
+
+- List renders as &lt;ul&gt; for bullet and none variants, &lt;ol&gt; for number variant.
+- ListItem renders as &lt;li&gt;.
+- DescriptionList renders as &lt;dl&gt;.
+- DescriptionTerm renders as &lt;dt&gt;.
+- DescriptionDetail renders as &lt;dd&gt;.
+
+## Usage Guidelines
+
+**Do:**
+
+- Use 'bullet' for unordered collections of items.
+- Use 'number' for ordered or sequential items.
+- Use 'none' for styled lists without visual markers.
+- Use DescriptionList for metadata, key-value pairs, or glossary content.
+
+**Don't:**
+
+- Do not place block-level elements (headings, dividers) directly inside ListItem.
+- Do not use a numbered list when order does not matter.
+- Do not nest DescriptionList items inside a regular List.
+
+## Tokens Used
+
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-inline-sm)`
+- `var(--spacing-inline-md)`
+- `var(--color-text-default)`
+- `var(--color-text-subtle)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-weight-medium)`
+

@@ -1,0 +1,80 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Alert"
+---
+
+# Alert
+
+<span class="status-badge status-badge--stable">stable</span>
+
+An inline feedback message component that communicates status or important information to the user. Supports four semantic variants: info, success, warning, and danger.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'info' \| 'success' \| 'warning' \| 'danger'` | `info` | Semantic variant controlling color and icon. |
+| `title` | `string` | `undefined` | Bold heading text for the alert. |
+| `description` | `string \| ReactNode` | `undefined` | Body content of the alert. |
+| `onClose` | `() =&gt; void` | `undefined` | When provided, a dismiss button is rendered. |
+| `icon` | `ReactNode` | `variant default icon` | Override the default variant icon. Pass null to suppress. |
+| `labels` | `Partial&lt;AlertLabels&gt;` | `&#123; dismiss: 'Dismiss alert' &#125;` | Override default labels for internationalisation. AlertLabels: &#123; dismiss: string &#125;. |
+| `className` | `string` | `undefined` | Additional CSS class names. |
+## Accessibility
+
+**Role:** `alert (danger/warning) or status (success/info)`
+
+**ARIA attributes:** `role`
+
+**Notes:**
+
+- Danger and warning alerts use role='alert' (assertive, interrupts screen readers).
+- Success and info alerts use role='status' (polite, waits for idle).
+- When onClose is provided, a dismiss button is rendered with an accessible label.
+- The icon is aria-hidden — decorative only.
+- Title is bold and rendered as a strong element.
+
+## Usage Guidelines
+
+**Do:**
+
+- Use 'danger' for errors or destructive consequences.
+- Use 'warning' for non-critical cautions that require attention.
+- Use 'success' for confirmations of completed actions.
+- Use 'info' for neutral informational messages.
+- Always include a title or description — never an empty alert.
+
+**Don't:**
+
+- Do not use Alert for transient notifications — use Toast instead.
+- Do not use 'danger' for general information.
+- Do not place multiple alerts on a page when one summary would suffice.
+
+## Tokens Used
+
+- `var(--color-feedback-danger-bg)`
+- `var(--color-feedback-danger-text)`
+- `var(--color-feedback-danger-border)`
+- `var(--color-feedback-success-bg)`
+- `var(--color-feedback-success-text)`
+- `var(--color-feedback-success-border)`
+- `var(--color-feedback-warning-bg)`
+- `var(--color-feedback-warning-text)`
+- `var(--color-feedback-warning-border)`
+- `var(--color-feedback-info-bg)`
+- `var(--color-feedback-info-text)`
+- `var(--color-feedback-info-border)`
+- `var(--color-icon-danger)`
+- `var(--color-icon-success)`
+- `var(--color-icon-warning)`
+- `var(--color-icon-info)`
+- `var(--color-border-focus)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-inline-sm)`
+- `var(--radius-component-sm)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-weight-semibold)`
+- `var(--border-width-default)`
+

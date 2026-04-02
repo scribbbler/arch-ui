@@ -1,0 +1,69 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "RadioGroup"
+---
+
+# RadioGroup
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A group container for Radio components. Renders a &lt;fieldset&gt; with a &lt;legend&gt; for accessible grouping. Provides name, selected value, onChange, and disabled state to child Radio components via context. Implements arrow key navigation per the ARIA radio group pattern.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `legend` | `string` | `—` | The accessible label for the group. Rendered as a &lt;legend&gt;. Required. |
+| `name` | `string` | `—` | The name attribute shared by all Radio inputs in the group. Must be unique on the page. |
+| `value` | `string` | `—` | The currently selected radio value. |
+| `onChange` | `(value: string) =&gt; void` | `—` | Called when the selected value changes. Receives the new string value. |
+| `direction` | `'vertical' \| 'horizontal'` | `vertical` | Layout direction of the radio items. 'vertical' stacks them; 'horizontal' places them in a row. |
+| `disabled` | `boolean` | `false` | Disables all Radio children in the group. |
+| `children` | `ReactNode` | `—` | Radio components to render inside the group. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply to the fieldset element. |
+## Accessibility
+
+**Role:** `radiogroup`
+
+**ARIA attributes:** `aria-disabled`
+
+**Keyboard interaction:**
+
+- Tab
+- ArrowUp
+- ArrowDown
+- ArrowLeft
+- ArrowRight
+
+**Notes:**
+
+- Uses a native &lt;fieldset&gt; with role=radiogroup and a &lt;legend&gt; for accessible group labelling.
+- Arrow keys (Up/Down/Left/Right) cycle focus and selection through enabled radio options.
+- Tab moves focus into and out of the group; only the selected (or first) radio is in the tab order.
+- Disabled radio items are skipped during arrow key navigation.
+- The onChange callback receives the string value of the newly selected radio.
+
+## Usage Guidelines
+
+**Do:**
+
+- Always provide a legend prop for accessible grouping.
+- Provide a unique name prop to associate radios with the same group.
+- Use RadioGroup for mutually exclusive choices.
+- Handle the onChange to update the controlled value.
+
+**Don't:**
+
+- Do not use RadioGroup for non-exclusive choices — use CheckboxGroup instead.
+- Do not nest RadioGroups.
+- Do not omit the legend — it is required for accessibility.
+
+## Tokens Used
+
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--color-text-default)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-weight-medium)`
+

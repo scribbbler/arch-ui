@@ -1,0 +1,117 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Typography"
+---
+
+# Typography
+
+The Arch type system uses primitive tokens for raw values and semantic scale tokens that compose font size, line height, weight, and letter spacing into ready-to-use presets.
+
+## Font Families
+
+| Token | Stack |
+|-------|-------|
+| `--typography-family-sans` | system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif |
+| `--typography-family-mono` | ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace |
+| `--typography-family-serif` | Georgia, Cambria, 'Times New Roman', Times, serif |
+
+## Type Scale
+
+Semantic scale tokens bundle font-size, line-height, font-weight, and letter-spacing together.
+
+### Display Sizes
+
+For page titles, hero sections, and marketing content.
+
+| Scale | Font size | Weight | Line height | Letter spacing |
+|-------|-----------|--------|-------------|----------------|
+| `display-2xl` | 64px | bold (700) | tight (1.2) | tighter (-0.05em) |
+| `display-xl` | 56px | bold (700) | tight (1.2) | tighter (-0.05em) |
+| `display-lg` | 48px | bold (700) | tight (1.2) | tight (-0.025em) |
+| `display-md` | 36px | semibold (600) | tight (1.2) | tight (-0.025em) |
+| `display-sm` | 28px | semibold (600) | snug (1.375) | normal (0em) |
+
+### Text Sizes
+
+For body copy, labels, and UI elements.
+
+| Scale | Font size | Weight | Line height | Letter spacing |
+|-------|-----------|--------|-------------|----------------|
+| `text-xl` | 20px | regular (400) | snug (1.375) | normal (0em) |
+| `text-lg` | 18px | regular (400) | snug (1.375) | normal (0em) |
+| `text-md` | 15px | regular (400) | normal (1.5) | normal (0em) |
+| `text-sm` | 13px | regular (400) | normal (1.5) | normal (0em) |
+| `text-xs` | 11px | regular (400) | normal (1.5) | wide (0.025em) |
+
+### Code Sizes
+
+| Scale | Font size | Weight | Line height |
+|-------|-----------|--------|-------------|
+| `code-md` | 14px | regular (400) | normal (1.5) |
+| `code-sm` | 12px | regular (400) | normal (1.5) |
+
+### Using Scale Tokens
+
+Each scale token exposes four sub-properties:
+
+```css
+.heading {
+  font-size: var(--typography-scale-display-md-font-size);
+  line-height: var(--typography-scale-display-md-line-height);
+  font-weight: var(--typography-scale-display-md-font-weight);
+  letter-spacing: var(--typography-scale-display-md-letter-spacing);
+}
+```
+
+## Font Weights
+
+| Token | Value |
+|-------|-------|
+| `--typography-weight-regular` | 400 |
+| `--typography-weight-medium` | 500 |
+| `--typography-weight-semibold` | 600 |
+| `--typography-weight-bold` | 700 |
+| `--typography-weight-extrabold` | 800 |
+
+## Line Heights
+
+| Token | Value |
+|-------|-------|
+| `--typography-line-height-none` | 1 |
+| `--typography-line-height-tight` | 1.2 |
+| `--typography-line-height-snug` | 1.375 |
+| `--typography-line-height-normal` | 1.5 |
+| `--typography-line-height-relaxed` | 1.625 |
+| `--typography-line-height-loose` | 2 |
+
+## Letter Spacing
+
+| Token | Value |
+|-------|-------|
+| `--typography-letter-spacing-tighter` | -0.05em |
+| `--typography-letter-spacing-tight` | -0.025em |
+| `--typography-letter-spacing-normal` | 0em |
+| `--typography-letter-spacing-wide` | 0.025em |
+| `--typography-letter-spacing-wider` | 0.05em |
+
+## Typography Components
+
+Arch provides React components that map to the type scale:
+
+| Component | Default scale | Use for |
+|-----------|--------------|---------|
+| `Display` | `display-md` | Page titles, hero text |
+| `Heading` | `text-xl` | Section headings |
+| `Label` | `text-sm` | Form labels, captions |
+| `Paragraph` | `text-md` | Body copy |
+| `Code` | `code-md` | Inline and block code |
+
+```tsx
+import { Display, Heading, Paragraph, Code } from '@arch-ui/components';
+
+<Display size="lg">Page Title</Display>
+<Heading>Section Heading</Heading>
+<Paragraph>Body text using the default text-md scale.</Paragraph>
+<Paragraph size="sm">Smaller body text.</Paragraph>
+<Code>const x = 1;</Code>
+```

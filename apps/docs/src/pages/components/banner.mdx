@@ -1,0 +1,69 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Banner"
+---
+
+# Banner
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A full-width top-of-page announcement bar. Use for site-wide or page-level status messages. Supports four semantic variants: info, success, warning, danger.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'info' \| 'success' \| 'warning' \| 'danger'` | `info` | Semantic variant controlling color. |
+| `children` | `ReactNode` | `—` | Banner content. May include text, links, or inline elements. |
+| `onClose` | `() =&gt; void` | `undefined` | When provided, a dismiss button is rendered at the inline-end. |
+| `className` | `string` | `undefined` | Additional CSS class names. |
+## Accessibility
+
+**Role:** `alert (danger/warning) or status (success/info)`
+
+**ARIA attributes:** `role`
+
+**Notes:**
+
+- Danger and warning banners use role='alert' (assertive).
+- Success and info banners use role='status' (polite).
+- When onClose is provided, a dismiss button is rendered with an accessible label.
+- Banner should be placed near the top of the page to communicate site-wide context.
+
+## Usage Guidelines
+
+**Do:**
+
+- Place at the very top of the page above main navigation.
+- Keep banner content brief — one or two sentences at most.
+- Use 'danger' for maintenance windows or breaking issues.
+- Use 'info' for announcements or promotions.
+
+**Don't:**
+
+- Do not use Banner for form-level errors — use Alert.
+- Do not show multiple banners simultaneously.
+- Do not place heavy content or images inside a Banner.
+
+## Tokens Used
+
+- `var(--color-feedback-danger-bg)`
+- `var(--color-feedback-danger-text)`
+- `var(--color-feedback-danger-border)`
+- `var(--color-feedback-success-bg)`
+- `var(--color-feedback-success-text)`
+- `var(--color-feedback-success-border)`
+- `var(--color-feedback-warning-bg)`
+- `var(--color-feedback-warning-text)`
+- `var(--color-feedback-warning-border)`
+- `var(--color-feedback-info-bg)`
+- `var(--color-feedback-info-text)`
+- `var(--color-feedback-info-border)`
+- `var(--color-border-focus)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-inline-sm)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-scale-text-md)`
+- `var(--border-width-default)`
+

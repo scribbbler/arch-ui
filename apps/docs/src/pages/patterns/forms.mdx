@@ -1,0 +1,202 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Form Patterns"
+---
+
+# Form Patterns
+
+Forms are composed by combining `FormControl`, `Label`, input components, and validation messages. The `FormControl` context wires up ARIA attributes automatically -- label, input, helper text, and error message all share coordinated IDs.
+
+## Complete Form Example
+
+A registration form demonstrating text inputs, select, textarea, checkboxes, radios, and a toggle.
+
+```jsx
+import {
+  FormControl,
+  FormLabel,
+  FormHelperText,
+  FormErrorMessage,
+  Input,
+  Textarea,
+  Select,
+  Checkbox,
+  CheckboxGroup,
+  Radio,
+  RadioGroup,
+  Toggle,
+  Button,
+  Stack,
+} from '@arch-ui/components';
+
+function RegistrationForm() {
+  const [errors, setErrors] = useState({});
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <Stack gap="var(--spacing-6)">
+        {/* Text input */}
+        <FormControl id="full-name" required invalid={!!errors.name}>
+          <FormLabel>Full name</FormLabel>
+          <Input placeholder="Jane Doe" />
+          <FormErrorMessage>Full name is required.</FormErrorMessage>
+        </FormControl>
+
+        {/* Email input */}
+        <FormControl id="email" required invalid={!!errors.email}>
+          <FormLabel>Email address</FormLabel>
+          <Input type="email" placeholder="jane@example.com" />
+          <FormHelperText>We will never share your email.</FormHelperText>
+          <FormErrorMessage>A valid email is required.</FormErrorMessage>
+        </FormControl>
+
+        {/* Select */}
+        <FormControl id="role" required invalid={!!errors.role}>
+          <FormLabel>Role</FormLabel>
+          <Select placeholder="Select a role">
+            <option value="developer">Developer</option>
+            <option value="designer">Designer</option>
+            <option value="manager">Manager</option>
+          </Select>
+          <FormErrorMessage>Please select a role.</FormErrorMessage>
+        </FormControl>
+
+        {/* Textarea */}
+        <FormControl id="bio">
+          <FormLabel>Bio</FormLabel>
+          <Textarea rows={4} placeholder="Tell us about yourself..." />
+          <FormHelperText>Max 500 characters.</FormHelperText>
+        </FormControl>
+
+        {/* Checkbox group */}
+        <CheckboxGroup legend="Interests">
+          <Checkbox value="frontend">Frontend</Checkbox>
+          <Checkbox value="backend">Backend</Checkbox>
+          <Checkbox value="design">Design</Checkbox>
+        </CheckboxGroup>
+
+        {/* Radio group */}
+        <RadioGroup
+          legend="Experience level"
+          name="experience"
+          value={experience}
+          onChange={setExperience}
+        >
+          <Radio value="junior">Junior</Radio>
+          <Radio value="mid">Mid-level</Radio>
+          <Radio value="senior">Senior</Radio>
+        </RadioGroup>
+
+        {/* Toggle */}
+        <Toggle>Subscribe to newsletter</Toggle>
+
+        {/* Submit */}
+        <Button type="submit" variant="primary">
+          Create account
+        </Button>
+      </Stack>
+    </form>
+  );
+}
+```
+
+## Validation
+
+`FormControl` uses the `invalid` prop to coordinate error state across its children. When `invalid` is true, `FormErrorMessage` renders with `role="alert"` so screen readers announce the error.
+
+### Field-level validation
+
+```jsx
+<FormControl id="username" required invalid={!!errors.username}>
+  <FormLabel>Username</FormLabel>
+  <Input placeholder="Choose a username" />
+  <FormErrorMessage>
+    Username must be at least 3 characters.
+  </FormErrorMessage>
+</FormControl>
+```
+
+The `Input` component automatically receives `aria-invalid="true"` and `aria-describedby` pointing to the error message ID when inside an invalid `FormControl`. You do not need to set these manually.
+
+### Showing validation on submit
+
+Validate all fields on form submission, then set the `invalid` prop on each `FormControl` that has an error:
+
+```jsx
+function handleSubmit(e) {
+  e.preventDefault();
+  const newErrors = {};
+
+  if (!formData.name) newErrors.name = 'Name is required.';
+  if (!formData.email) newErrors.email = 'Email is required.';
+
+  setErrors(newErrors);
+
+  if (Object.keys(newErrors).length === 0) {
+    // Submit the form
+  }
+}
+```
+
+## Required Fields
+
+When `required` is passed to `FormControl`, the `FormLabel` renders with a `data-required="true"` attribute. Use this in CSS to append a visual indicator:
+
+```jsx
+<FormControl id="email" required>
+  <FormLabel>Email address</FormLabel>
+  <Input type="email" />
+</FormControl>
+```
+
+The underlying input also receives `aria-required="true"` automatically.
+
+## Disabled States
+
+Pass `disabled` to `FormControl` to disable all children at once -- the label, input, helper text, and error message all reflect the disabled state:
+
+```jsx
+<FormControl id="locked-field" disabled>
+  <FormLabel>Account ID</FormLabel>
+  <Input value="ACC-12345" readOnly />
+  <FormHelperText>This field cannot be changed.</FormHelperText>
+</FormControl>
+```
+
+You can also disable individual inputs without affecting siblings:
+
+```jsx
+<Input disabled placeholder="Not available" />
+<Select disabled><option>Locked option</option></Select>
+<Toggle disabled>Maintenance mode</Toggle>
+```
+
+## Layout
+
+Use `Stack` to space form fields consistently. A `gap` of `var(--spacing-6)` works well for standard forms. For compact forms, use `var(--spacing-4)`.
+
+For side-by-side fields (e.g. first name / last name), wrap them in an `Inline` or use `Grid`:
+
+```jsx
+import { Grid } from '@arch-ui/components';
+
+<Grid columns={2} gap="var(--spacing-4)">
+  <FormControl id="first-name" required>
+    <FormLabel>First name</FormLabel>
+    <Input />
+  </FormControl>
+  <FormControl id="last-name" required>
+    <FormLabel>Last name</FormLabel>
+    <Input />
+  </FormControl>
+</Grid>
+```
+
+## Accessibility Checklist
+
+- Every input must have a label. Use `FormControl` + `FormLabel` to wire them automatically.
+- Error messages use `role="alert"` -- they are announced as soon as they appear in the DOM.
+- Required fields have `aria-required="true"` on the input.
+- Invalid fields have `aria-invalid="true"` on the input.
+- Helper text and error text are linked via `aria-describedby`.
+- Use `CheckboxGroup` and `RadioGroup` for grouped controls -- they render a `<fieldset>` with `<legend>` for screen readers.

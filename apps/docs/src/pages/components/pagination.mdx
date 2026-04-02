@@ -1,0 +1,83 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Pagination"
+---
+
+# Pagination
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A pagination navigation component that renders page number buttons with previous/next controls and optional first/last buttons. Supports ellipsis truncation via a configurable sibling count.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `totalPages` | `number` | `—` | Total number of pages. |
+| `currentPage` | `number` | `—` | The currently active page (1-indexed). |
+| `onChange` | `(page: number) =&gt; void` | `—` | Called when the user navigates to a new page. Receives the target page number. |
+| `showFirstLast` | `boolean` | `false` | When true, renders buttons to jump to the first and last page. |
+| `siblingCount` | `number` | `1` | Number of page buttons to show on each side of the current page before showing an ellipsis. |
+| `labels` | `Partial&lt;PaginationLabels&gt;` | `&#123; pagination: 'Pagination', firstPage: 'Go to first page', previousPage: 'Go to previous page', nextPage: 'Go to next page', lastPage: 'Go to last page', goToPage: (page) =&gt; `Go to page $&#123;page&#125;` &#125;` | Override default labels for internationalisation. PaginationLabels: &#123; pagination, firstPage, previousPage, nextPage, lastPage: string; goToPage: (page: number) =&gt; string &#125;. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply to the nav element. |
+## Accessibility
+
+**Role:** `navigation`
+
+**ARIA attributes:** `aria-label`, `aria-current`, `aria-disabled`
+
+**Keyboard interaction:**
+
+- Tab
+- Enter
+- Space
+
+**Notes:**
+
+- Wraps all controls in a &lt;nav&gt; element with aria-label="Pagination".
+- The current page button has aria-current="page".
+- Previous button is aria-disabled when on page 1; next button is aria-disabled when on the last page.
+- Ellipsis spans are aria-hidden to avoid screen reader noise.
+- All interactive buttons have :focus-visible styling using var(--color-border-focus).
+
+## Usage Guidelines
+
+**Do:**
+
+- Keep siblingCount at 1 for compact layouts and increase to 2 for wide layouts.
+- Always provide an onChange handler — this is a controlled component.
+- Show the total number of results adjacent to the pagination control when possible.
+
+**Don't:**
+
+- Do not use pagination for fewer than 2 pages.
+- Do not allow currentPage to be 0 or greater than totalPages.
+- Do not use showFirstLast when totalPages is small — it adds noise.
+
+## Tokens Used
+
+- `var(--color-text-default)`
+- `var(--color-text-subtle)`
+- `var(--color-action-primary)`
+- `var(--color-action-primary-text)`
+- `var(--color-action-ghost)`
+- `var(--color-action-ghost-hover)`
+- `var(--color-action-ghost-text)`
+- `var(--color-background-default)`
+- `var(--color-border-default)`
+- `var(--color-border-focus)`
+- `var(--color-border-subtle)`
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-inline-xs)`
+- `var(--spacing-inline-sm)`
+- `var(--radius-component-sm)`
+- `var(--radius-component-md)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-weight-medium)`
+- `var(--border-width-default)`
+- `var(--motion-duration-fast)`
+- `var(--motion-semantic-easing-default)`
+

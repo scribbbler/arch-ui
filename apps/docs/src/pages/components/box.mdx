@@ -1,0 +1,162 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Box"
+---
+
+# Box
+
+<span class="status-badge status-badge--stable">stable</span>
+
+Generic container with token-based styling props. Foundation of every other component's layout. Maps props directly to CSS custom properties.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `padding` | `string` | `—` | Spacing token name for all sides padding (e.g. 'spacing-component-md') |
+| `paddingX` | `string` | `—` | Spacing token for inline (horizontal) padding |
+| `paddingY` | `string` | `—` | Spacing token for block (vertical) padding |
+| `margin` | `string` | `—` | Spacing token name for all sides margin |
+| `marginX` | `string` | `—` | Spacing token for inline (horizontal) margin |
+| `marginY` | `string` | `—` | Spacing token for block (vertical) margin |
+| `background` | `string` | `—` | Color token name for background (e.g. 'color-surface-raised') |
+| `border` | `string` | `—` | Color token name for border color |
+| `radius` | `string` | `—` | Radius token name (e.g. 'radius-component-md') |
+| `shadow` | `string` | `—` | Shadow token name (e.g. 'shadow-component-sm') |
+| `as` | `React.ElementType` | `div` | HTML element to render. Default: 'div'. |
+| `children` | `React.ReactNode` | `—` | Content to render inside the box |
+## Accessibility
+
+**Notes:**
+
+- B
+- o
+- x
+-  
+- i
+- s
+-  
+- a
+-  
+- l
+- a
+- y
+- o
+- u
+- t
+-  
+- u
+- t
+- i
+- l
+- i
+- t
+- y
+-  
+- w
+- i
+- t
+- h
+-  
+- n
+- o
+-  
+- i
+- n
+- h
+- e
+- r
+- e
+- n
+- t
+-  
+- s
+- e
+- m
+- a
+- n
+- t
+- i
+- c
+- s
+- .
+-  
+- U
+- s
+- e
+-  
+- t
+- h
+- e
+-  
+- '
+- a
+- s
+- '
+-  
+- p
+- r
+- o
+- p
+-  
+- t
+- o
+-  
+- r
+- e
+- n
+- d
+- e
+- r
+-  
+- s
+- e
+- m
+- a
+- n
+- t
+- i
+- c
+-  
+- e
+- l
+- e
+- m
+- e
+- n
+- t
+- s
+-  
+- w
+- h
+- e
+- r
+- e
+-  
+- a
+- p
+- p
+- r
+- o
+- p
+- r
+- i
+- a
+- t
+- e
+- .
+
+## Usage Guidelines
+
+**Do:**
+
+- Use Box as the base container for layout composition
+- Pass semantic token names as prop values
+- Use paddingX/paddingY for directional padding (maps to CSS logical properties)
+
+**Don't:**
+
+- Do not pass raw CSS values — only token names
+- Do not use Box for visual components — use specific components instead
+- Do not nest Boxes deeply when Stack or Inline would be clearer
+

@@ -1,0 +1,84 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Toast"
+---
+
+# Toast
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A transient notification system. Individual Toast items stack in a fixed portal region. ToastProvider wraps the app and provides context. The useToast hook exposes an imperative toast() API for programmatic creation.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'default' \| 'success' \| 'warning' \| 'danger'` | `default` | Visual and semantic variant. |
+| `title` | `string` | `—` | Bold heading of the toast notification. |
+| `description` | `string` | `undefined` | Optional supporting text beneath the title. |
+| `duration` | `number` | `5000` | Auto-dismiss delay in milliseconds. Pass 0 for persistent toast. |
+| `onClose` | `() =&gt; void` | `—` | Called when the toast is dismissed (auto or manual). |
+| `labels` | `Partial&lt;ToastLabels&gt;` | `&#123; dismiss: 'Dismiss notification' &#125;` | Override default labels for internationalisation. ToastLabels: &#123; dismiss: string &#125;. |
+| `className` | `string` | `undefined` | Additional CSS class names. |
+## Accessibility
+
+**Role:** `status (polite) or alert (assertive for danger variant)`
+
+**ARIA attributes:** `aria-live`, `aria-atomic`
+
+**Notes:**
+
+- The toast container uses aria-live='assertive' for danger toasts and aria-live='polite' for all others.
+- aria-atomic='true' ensures screen readers announce the full toast message.
+- Toasts auto-dismiss after the duration prop expires (default 5000ms).
+- Pass duration=0 for persistent toasts that require manual dismissal.
+- Animation respects prefers-reduced-motion.
+- Toasts are rendered in a Portal attached to document.body.
+
+## Usage Guidelines
+
+**Do:**
+
+- Use ToastProvider once at the root of your app.
+- Use the useToast hook to trigger toasts from anywhere in the tree.
+- Keep toast messages brief — a title and optionally one short description sentence.
+- Use 'danger' sparingly for truly critical failures.
+- Provide onClose handling for toasts that should persist.
+
+**Don't:**
+
+- Do not use Toast for inline validation errors — use FormControl instead.
+- Do not stack more than 3 toasts simultaneously.
+- Do not place interactive elements inside a toast.
+
+## Tokens Used
+
+- `var(--color-surface-raised)`
+- `var(--color-background-default)`
+- `var(--color-text-default)`
+- `var(--color-text-subtle)`
+- `var(--color-border-default)`
+- `var(--color-border-focus)`
+- `var(--color-feedback-success-bg)`
+- `var(--color-feedback-success-text)`
+- `var(--color-feedback-success-border)`
+- `var(--color-feedback-warning-bg)`
+- `var(--color-feedback-warning-text)`
+- `var(--color-feedback-warning-border)`
+- `var(--color-feedback-danger-bg)`
+- `var(--color-feedback-danger-text)`
+- `var(--color-feedback-danger-border)`
+- `var(--shadow-component-md)`
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-inline-sm)`
+- `var(--radius-component-md)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-weight-semibold)`
+- `var(--border-width-default)`
+- `var(--motion-duration-normal)`
+- `var(--motion-semantic-easing-default)`
+- `var(--z-semantic-toast)`
+

@@ -1,0 +1,82 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Input"
+---
+
+# Input
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A single-line text input component. Integrates with FormControl context to receive id, required, disabled, and invalid state automatically. Supports optional leading and trailing element slots (icon, button, adornment) and three sizes.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `type` | `'text' \| 'email' \| 'password' \| 'number' \| 'search' \| 'url' \| 'tel'` | `text` | The HTML input type. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `md` | Controls the input height, padding, and font size. md and lg meet the 44px minimum touch target. |
+| `leftElement` | `ReactNode` | `undefined` | An element (icon, text, etc.) placed in the leading slot of the input. The input receives additional inline-start padding to avoid text overlap. |
+| `rightElement` | `ReactNode` | `undefined` | An element placed in the trailing slot. The input receives additional inline-end padding to avoid text overlap. |
+| `disabled` | `boolean` | `false` | Disables the input. Also inherited from FormControl context if not explicitly set. |
+| `readOnly` | `boolean` | `false` | Makes the input read-only. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the outer wrapper div. |
+## Accessibility
+
+**Role:** `textbox`
+
+**ARIA attributes:** `aria-required`, `aria-disabled`, `aria-invalid`, `aria-describedby`
+
+**Keyboard interaction:**
+
+- Tab
+- Shift+Tab
+
+**Notes:**
+
+- When used inside a FormControl, the input's id is set to the context id so the FormLabel's htmlFor links correctly.
+- aria-describedby is automatically built from '&#123;id&#125;-helper' and/or '&#123;id&#125;-error' when inside a FormControl.
+- aria-required is set when the FormControl is required.
+- aria-invalid is set when the FormControl is invalid.
+- Focus indicator uses a 2px solid outline with var(--color-border-focus) and a 2px offset.
+- Minimum touch target for md and lg sizes meets the 44x44px requirement.
+- leftElement and rightElement are aria-hidden so decorative icons do not pollute the accessible name.
+
+## Usage Guidelines
+
+**Do:**
+
+- Always pair with a FormLabel (via FormControl) to provide an accessible name.
+- Use leftElement for leading icons that visually clarify the input purpose (e.g., search icon, currency symbol).
+- Use rightElement for trailing actions like show/hide password or clear buttons.
+- Use size='sm' only in dense UI contexts like data tables where 44px targets are not achievable.
+
+**Don't:**
+
+- Do not place interactive elements in leftElement or rightElement without making them keyboard-accessible separately.
+- Do not use inline styles to adjust input appearance — add a token and use var(--token-name) in the CSS.
+- Do not omit a label — if a visible label is not possible, provide aria-label directly on the Input.
+
+## Tokens Used
+
+- `var(--color-background-default)`
+- `var(--color-background-disabled)`
+- `var(--color-border-default)`
+- `var(--color-border-focus)`
+- `var(--color-border-danger)`
+- `var(--color-border-disabled)`
+- `var(--color-text-default)`
+- `var(--color-text-placeholder)`
+- `var(--color-text-disabled)`
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--radius-component-sm)`
+- `var(--radius-component-md)`
+- `var(--typography-scale-text-sm-font-size)`
+- `var(--typography-scale-text-sm-line-height)`
+- `var(--typography-scale-text-md-font-size)`
+- `var(--typography-scale-text-md-line-height)`
+- `var(--typography-scale-text-lg-font-size)`
+- `var(--typography-scale-text-lg-line-height)`
+- `var(--border-width-default)`
+

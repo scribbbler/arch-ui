@@ -1,0 +1,245 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Error Handling Patterns"
+---
+
+# Error Handling Patterns
+
+Arch provides three components for communicating errors and status to users. Each serves a different context:
+
+| Component          | Type               | Use when                                               |
+|--------------------|--------------------|--------------------------------------------------------|
+| `Alert`            | Inline, persistent | Page-level or section-level errors that need attention  |
+| `Toast`            | Transient          | Brief confirmations or non-critical errors              |
+| `FormErrorMessage` | Field-level        | Validation errors tied to a specific form field         |
+
+## When to Use Each
+
+**Alert** -- Use for persistent messages the user must acknowledge or act on. Alerts stay visible until dismissed or the condition is resolved. Best for API errors, permission issues, or important warnings at the top of a page or section.
+
+**Toast** -- Use for transient feedback that does not require user action. Toasts auto-dismiss after a duration (default 5 seconds). Best for success confirmations, non-blocking warnings, or background task completion.
+
+**FormErrorMessage** -- Use for validation errors directly below the invalid field. Always pair with `FormControl` so ARIA attributes are wired automatically. Best for form submission errors and inline validation.
+
+## API Error (Alert)
+
+Show a persistent alert when an API call fails:
+
+```jsx
+import { Alert, Stack } from '@arch-ui/components';
+
+function UserSettings({ error, onDismiss }) {
+  return (
+    <Stack gap="var(--spacing-4)">
+      {error && (
+        <Alert
+          variant="danger"
+          title="Failed to save settings"
+          description={error.message || 'An unexpected error occurred. Please try again.'}
+          onClose={onDismiss}
+        />
+      )}
+      {/* Settings form */}
+    </Stack>
+  );
+}
+```
+
+The `danger` and `warning` variants use `role="alert"` for assertive screen reader announcements. The `info` and `success` variants use `role="status"` for polite announcements.
+
+### Alert variants
+
+```jsx
+{/* Informational */}
+<Alert
+  variant="info"
+  title="Scheduled maintenance"
+  description="The system will be offline Saturday 2am-4am UTC."
+/>
+
+{/* Warning */}
+<Alert
+  variant="warning"
+  title="Approaching storage limit"
+  description="You are using 90% of your storage. Consider upgrading your plan."
+/>
+
+{/* Danger */}
+<Alert
+  variant="danger"
+  title="Connection lost"
+  description="Unable to reach the server. Changes will not be saved."
+/>
+
+{/* Success */}
+<Alert
+  variant="success"
+  title="Settings updated"
+  description="Your preferences have been saved successfully."
+/>
+```
+
+## Form Validation Error (FormErrorMessage)
+
+`FormErrorMessage` only renders when the parent `FormControl` has `invalid={true}`. It mounts with `role="alert"` so screen readers announce the error immediately.
+
+```jsx
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Input,
+  Button,
+  Stack,
+} from '@arch-ui/components';
+
+function LoginForm() {
+  const [errors, setErrors] = useState({});
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const newErrors = {};
+    if (!email) newErrors.email = 'Email is required.';
+    if (!password) newErrors.password = 'Password is required.';
+    if (password && password.length < 8)
+      newErrors.password = 'Password must be at least 8 characters.';
+    setErrors(newErrors);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <Stack gap="var(--spacing-4)">
+        <FormControl id="email" required invalid={!!errors.email}>
+          <FormLabel>Email</FormLabel>
+          <Input type="email" />
+          <FormErrorMessage>{errors.email}</FormErrorMessage>
+        </FormControl>
+
+        <FormControl id="password" required invalid={!!errors.password}>
+          <FormLabel>Password</FormLabel>
+          <Input type="password" />
+          <FormErrorMessage>{errors.password}</FormErrorMessage>
+        </FormControl>
+
+        <Button type="submit" variant="primary">
+          Sign in
+        </Button>
+      </Stack>
+    </form>
+  );
+}
+```
+
+### Combining page-level and field-level errors
+
+For form submissions that fail server-side, show both a page-level `Alert` and field-level `FormErrorMessage` components:
+
+```jsx
+<Stack gap="var(--spacing-4)">
+  {serverError && (
+    <Alert
+      variant="danger"
+      title="Could not create account"
+      description="Please fix the errors below and try again."
+    />
+  )}
+
+  <FormControl id="email" required invalid={!!errors.email}>
+    <FormLabel>Email</FormLabel>
+    <Input type="email" />
+    <FormErrorMessage>{errors.email}</FormErrorMessage>
+  </FormControl>
+
+  {/* More fields... */}
+</Stack>
+```
+
+## Success Confirmation (Toast)
+
+Use toasts for transient success messages after an action completes:
+
+```jsx
+import { useToast, Button } from '@arch-ui/components';
+
+function SaveButton({ onSave }) {
+  const { toast } = useToast();
+
+  async function handleSave() {
+    try {
+      await onSave();
+      toast({
+        title: 'Changes saved',
+        description: 'Your settings have been updated.',
+        variant: 'success',
+      });
+    } catch (err) {
+      toast({
+        title: 'Save failed',
+        description: 'Please try again.',
+        variant: 'danger',
+        duration: 8000,
+      });
+    }
+  }
+
+  return <Button onClick={handleSave}>Save</Button>;
+}
+```
+
+### Toast setup
+
+Wrap your application with `ToastProvider` once at the root:
+
+```jsx
+import { ToastProvider } from '@arch-ui/components';
+
+function App() {
+  return (
+    <ToastProvider position="top-right">
+      {/* Your application */}
+    </ToastProvider>
+  );
+}
+```
+
+### Toast variants
+
+```jsx
+const { toast } = useToast();
+
+// Default
+toast({ title: 'Profile updated' });
+
+// Success
+toast({ title: 'File uploaded', variant: 'success' });
+
+// Warning
+toast({ title: 'Slow connection', description: 'Uploads may take longer.', variant: 'warning' });
+
+// Danger -- consider a longer duration
+toast({ title: 'Delete failed', variant: 'danger', duration: 8000 });
+
+// Persistent -- set duration to 0
+toast({ title: 'Action required', variant: 'danger', duration: 0 });
+```
+
+## Decision Guide
+
+| Scenario                          | Component          | Why                                                     |
+|-----------------------------------|--------------------|----------------------------------------------------------|
+| API returns 500                   | `Alert` (danger)   | User needs to see the error and possibly retry           |
+| Form field has invalid input      | `FormErrorMessage` | Error is specific to one field                           |
+| Record saved successfully         | `Toast` (success)  | Brief confirmation, no action needed                     |
+| File upload fails                 | `Alert` (danger)   | User needs to retry, error should persist                |
+| Approaching quota limit           | `Alert` (warning)  | Persistent warning the user should address               |
+| Background sync completed         | `Toast` (default)  | Informational, no action needed                          |
+| Multiple form fields are invalid  | `Alert` + `FormErrorMessage` | Summary at top, details at each field        |
+
+## Accessibility Checklist
+
+- `Alert` with `variant="danger"` or `variant="warning"` uses `role="alert"` (assertive).
+- `Alert` with `variant="info"` or `variant="success"` uses `role="status"` (polite).
+- `FormErrorMessage` uses `role="alert"` and `aria-live="polite"` and is wired to the input via `aria-describedby`.
+- `Toast` uses `role="alert"` for danger variant and `role="status"` for others, with `aria-live` and `aria-atomic="true"`.
+- Dismissible alerts have a close button with `aria-label="Dismiss"`.
+- Do not rely on color alone to communicate error severity -- all components include icons or text.

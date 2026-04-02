@@ -1,0 +1,53 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Divider"
+---
+
+# Divider
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A visual separator that divides content either horizontally or vertically. Supports an optional inline label that appears centred between two lines.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `orientation` | `'horizontal' \| 'vertical'` | `horizontal` | Orientation of the divider. Horizontal renders a full-width rule; vertical renders an inline rule. |
+| `label` | `string` | `undefined` | Optional text label displayed at the centre of the divider. Only supported for horizontal orientation. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply to the root element. |
+## Accessibility
+
+**Role:** `separator`
+
+**ARIA attributes:** `aria-orientation`
+
+**Notes:**
+
+- The component always has role=separator.
+- aria-orientation is set to match the orientation prop.
+- When a label is present, the separator is wrapped in a div and the line is purely presentational.
+
+## Usage Guidelines
+
+**Do:**
+
+- Use horizontal dividers to separate sections of content.
+- Use vertical dividers to separate inline items like toolbar actions.
+- Keep labels very short — one to three words.
+
+**Don't:**
+
+- Do not use a label on a vertical divider.
+- Do not use the divider as a layout primitive — use spacing tokens instead.
+- Do not nest interactive content inside a divider.
+
+## Tokens Used
+
+- `var(--color-border-subtle)`
+- `var(--color-text-subtle)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-inline-sm)`
+- `var(--typography-scale-text-xs)`
+- `var(--typography-weight-medium)`
+

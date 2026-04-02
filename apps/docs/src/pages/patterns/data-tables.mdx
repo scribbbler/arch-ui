@@ -1,0 +1,211 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Data Table Patterns"
+---
+
+# Data Table Patterns
+
+Data tables combine `Table`, `Thead`, `Tbody`, `Tr`, `Th`, `Td` with `Pagination` for navigation, `Input` for search, and `Badge` for status indicators.
+
+## Paginated, Searchable Table
+
+A complete example showing a user list with search filtering, status badges, and pagination.
+
+```jsx
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Pagination,
+  Input,
+  Badge,
+  Stack,
+  Box,
+} from '@arch-ui/components';
+
+function UserTable() {
+  const [search, setSearch] = useState('');
+  const [page, setPage] = useState(1);
+  const pageSize = 10;
+
+  const filtered = users.filter((u) =>
+    u.name.toLowerCase().includes(search.toLowerCase())
+  );
+  const totalPages = Math.ceil(filtered.length / pageSize);
+  const pageData = filtered.slice((page - 1) * pageSize, page * pageSize);
+
+  return (
+    <Stack gap="var(--spacing-4)">
+      {/* Search */}
+      <Input
+        type="search"
+        placeholder="Search users..."
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setPage(1);
+        }}
+        aria-label="Search users"
+      />
+
+      {/* Table */}
+      <Table caption="User accounts" striped>
+        <Thead>
+          <Tr>
+            <Th scope="col">Name</Th>
+            <Th scope="col">Email</Th>
+            <Th scope="col">Role</Th>
+            <Th scope="col">Status</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {pageData.map((user) => (
+            <Tr key={user.id}>
+              <Td>{user.name}</Td>
+              <Td>{user.email}</Td>
+              <Td>{user.role}</Td>
+              <Td>
+                <Badge variant={statusVariant(user.status)}>
+                  {user.status}
+                </Badge>
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
+
+      {/* Pagination */}
+      <Pagination
+        totalPages={totalPages}
+        currentPage={page}
+        onChange={setPage}
+        siblingCount={1}
+      />
+    </Stack>
+  );
+}
+
+function statusVariant(status) {
+  switch (status) {
+    case 'Active': return 'success';
+    case 'Inactive': return 'neutral';
+    case 'Suspended': return 'danger';
+    case 'Pending': return 'warning';
+    default: return 'neutral';
+  }
+}
+```
+
+## Table Structure
+
+Every `Table` requires a `caption` for accessibility. The caption is rendered as a `<caption>` element inside the table. Use `Th` with a `scope` attribute on every header cell:
+
+```jsx
+<Table caption="Quarterly revenue">
+  <Thead>
+    <Tr>
+      <Th scope="col">Quarter</Th>
+      <Th scope="col">Revenue</Th>
+      <Th scope="col">Growth</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>Q1 2026</Td>
+      <Td>$1.2M</Td>
+      <Td>+12%</Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
+
+## Table Variants
+
+### Striped rows
+
+Alternating row backgrounds improve scanability for wide tables:
+
+```jsx
+<Table caption="Inventory" striped>
+  {/* ... */}
+</Table>
+```
+
+### Bordered cells
+
+Visible cell borders help when columns contain similar data types:
+
+```jsx
+<Table caption="Comparison matrix" bordered>
+  {/* ... */}
+</Table>
+```
+
+### Compact size
+
+Use `size="sm"` for dense data displays:
+
+```jsx
+<Table caption="Log entries" size="sm" striped>
+  {/* ... */}
+</Table>
+```
+
+## Status Badges in Tables
+
+Use `Badge` to communicate row status. Map status values to semantic variants:
+
+| Status    | Badge variant |
+|-----------|---------------|
+| Active    | `success`     |
+| Pending   | `warning`     |
+| Inactive  | `neutral`     |
+| Error     | `danger`      |
+| New       | `info`        |
+
+```jsx
+<Td>
+  <Badge variant="success">Active</Badge>
+</Td>
+```
+
+## Search Filtering
+
+Place the search input above the table. Use `type="search"` for the native clear button and `aria-label` for accessibility:
+
+```jsx
+<Input
+  type="search"
+  placeholder="Filter by name or email..."
+  aria-label="Filter table rows"
+  value={query}
+  onChange={(e) => setQuery(e.target.value)}
+/>
+```
+
+Reset pagination to page 1 when the search query changes to avoid showing an empty page.
+
+## Pagination
+
+`Pagination` renders a `<nav aria-label="Pagination">` with numbered buttons and previous/next controls. Use `showFirstLast` for large datasets and `siblingCount` to control how many page numbers are visible:
+
+```jsx
+<Pagination
+  totalPages={50}
+  currentPage={currentPage}
+  onChange={setCurrentPage}
+  showFirstLast
+  siblingCount={1}
+/>
+```
+
+## Accessibility Checklist
+
+- Always provide a `caption` on the `Table` component.
+- Use `scope="col"` on column headers and `scope="row"` on row headers.
+- Search inputs need `aria-label` when there is no visible label.
+- `Pagination` provides `aria-label` and `aria-current="page"` automatically.
+- For very long tables, consider adding a summary of the current view (e.g. "Showing 11-20 of 95 results") as a live region.

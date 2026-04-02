@@ -1,0 +1,63 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Breadcrumbs"
+---
+
+# Breadcrumbs
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A breadcrumb navigation component that renders an ordered list of links showing the user's location in a hierarchy. The last item is the current page and is rendered as a non-interactive span with aria-current="page".
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `items` | `Array&lt;&#123; label: string; href?: string &#125;&gt;` | `—` | Ordered array of breadcrumb items. The last item is treated as the current page. |
+| `separator` | `ReactNode` | `/` | The separator rendered between breadcrumb items. Defaults to a forward slash. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply to the nav element. |
+## Accessibility
+
+**Role:** `navigation`
+
+**ARIA attributes:** `aria-label`, `aria-current`
+
+**Keyboard interaction:**
+
+- Tab
+
+**Notes:**
+
+- Wraps the list in a &lt;nav&gt; element with aria-label="Breadcrumb".
+- The last item (current page) has aria-current="page" and is rendered as a &lt;span&gt;, not a link.
+- Separator elements are aria-hidden to avoid noise for screen readers.
+- Links have :focus-visible styling using var(--color-border-focus).
+
+## Usage Guidelines
+
+**Do:**
+
+- Include the full path from root to the current page.
+- Keep labels short and matching the page titles they link to.
+- Omit the href on the last item — it is the current page and must not be a link.
+
+**Don't:**
+
+- Do not use breadcrumbs for single-level sites — they add noise without value.
+- Do not make the last item a link — it must be a span with aria-current="page".
+- Do not provide more than 5-6 items — truncate intermediate levels if the hierarchy is deep.
+
+## Tokens Used
+
+- `var(--color-text-default)`
+- `var(--color-text-subtle)`
+- `var(--color-text-link)`
+- `var(--color-text-link-hover)`
+- `var(--color-border-focus)`
+- `var(--spacing-inline-xs)`
+- `var(--spacing-inline-sm)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-scale-text-md)`
+- `var(--motion-duration-fast)`
+- `var(--motion-semantic-easing-default)`
+

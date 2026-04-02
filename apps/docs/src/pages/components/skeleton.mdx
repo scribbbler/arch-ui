@@ -1,0 +1,57 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Skeleton"
+---
+
+# Skeleton
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A placeholder shape shown while content is loading. The shimmer animation communicates that data is on the way. Three variants match common content shapes: text (inline line), circular (avatar/icon), and rectangular (image/card). Marked aria-hidden because it conveys no information to screen readers.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'text' \| 'circular' \| 'rectangular'` | `text` | Shape of the placeholder. text=single line, circular=equal-radius circle, rectangular=block. |
+| `width` | `string` | `undefined` | Inline size override. Accepts any CSS value (e.g. '100%', '200px'). Text variant defaults to 100%. |
+| `height` | `string` | `undefined` | Block size override. Accepts any CSS value. Circular variant uses width value to keep equal dimensions. |
+| `animated` | `boolean` | `true` | Whether to show the shimmer animation. Has no effect when prefers-reduced-motion is set. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the root element. |
+## Accessibility
+
+**Role:** `none`
+
+**ARIA attributes:** `aria-hidden`
+
+**Notes:**
+
+- aria-hidden='true' is always applied — the skeleton is purely decorative and must not be announced by screen readers.
+- Pair with a VisuallyHidden region or an aria-busy='true' container so screen readers know content is loading.
+- When prefers-reduced-motion is set or animated=false, the shimmer animation is disabled and a plain static background is shown.
+- The component is not interactive and never receives focus.
+
+## Usage Guidelines
+
+**Do:**
+
+- Always set aria-busy='true' on the surrounding container so screen readers know content is loading.
+- Use the text variant in stacks to simulate paragraph loading.
+- Set animated=false when you want a static placeholder without motion context.
+
+**Don't:**
+
+- Do not rely on the Skeleton alone to communicate loading state to screen readers — pair it with aria-busy or a VisuallyHidden announcement.
+- Do not use a Skeleton when a Spinner is more appropriate (e.g. action in progress vs. content not yet loaded).
+- Do not apply inline styles — use the width/height props and the className prop.
+
+## Tokens Used
+
+- `var(--color-background-muted)`
+- `var(--color-background-subtle)`
+- `var(--radius-component-sm)`
+- `var(--radius-component-full)`
+- `var(--typography-scale-text-sm)`
+- `var(--motion-duration-slow)`
+- `var(--motion-semantic-easing-default)`
+

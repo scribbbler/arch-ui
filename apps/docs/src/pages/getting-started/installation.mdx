@@ -1,0 +1,66 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Installation"
+---
+
+# Installation
+
+Get Arch UI running in your project in under two minutes.
+
+## 1. Install packages
+
+```bash
+pnpm add @arch-ui/components @arch-ui/tokens
+```
+
+If you only need tokens (for non-React projects), install `@arch-ui/tokens` alone.
+
+## 2. Import the token stylesheet
+
+Add this import once at the root of your application, before any component CSS:
+
+```ts
+import '@arch-ui/tokens/css';
+```
+
+This injects all CSS custom properties (`--color-*`, `--space-*`, `--font-*`, etc.) into `:root`.
+
+## 3. Use a component
+
+```tsx
+import { Button } from '@arch-ui/components';
+
+function App() {
+  return (
+    <Button variant="primary" onClick={() => alert('It works!')}>
+      Get started
+    </Button>
+  );
+}
+```
+
+## 4. Optional: install icons
+
+```bash
+pnpm add @arch-ui/icons
+```
+
+```tsx
+import { IconCheck } from '@arch-ui/icons';
+
+<Button iconStart={<IconCheck />}>Confirm</Button>
+```
+
+## What you get
+
+| Package | Contents |
+|---|---|
+| `@arch-ui/tokens` | 336 CSS custom properties across primitive, semantic, and component layers |
+| `@arch-ui/components` | 51 React components with full a11y and RTL support |
+| `@arch-ui/icons` | 43 SVG icons with React wrappers |
+
+## Next steps
+
+- [Theming](/getting-started/theming) -- apply your brand in 10 minutes
+- [Dark mode](/getting-started/dark-mode) -- flip a single attribute
+- [Agent usage](/getting-started/agent-usage) -- query the design system from AI agents

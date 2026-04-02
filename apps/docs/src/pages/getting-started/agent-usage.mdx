@@ -1,0 +1,69 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Agent Usage"
+---
+
+# Agent Usage
+
+Arch ships an MCP (Model Context Protocol) server that lets AI agents query components, tokens, and usage patterns programmatically.
+
+## Start the MCP server
+
+```bash
+npx @arch-ui/mcp-server
+```
+
+The server exposes 10 tools over the MCP protocol. Any MCP-compatible client (Claude Desktop, Cursor, custom agents) can connect to it.
+
+## Available tools
+
+| Tool | Description |
+|---|---|
+| `get_component` | Return full metadata for a component by name, including props, slots, and usage rules |
+| `find_component` | Search for components by keyword or use-case description |
+| `list_components` | List all 51 components with their status (stable, beta, deprecated) |
+| `get_token` | Get a single token's value and which layer it belongs to |
+| `list_tokens` | List all 336 tokens, optionally filtered by layer or category |
+| `get_token_alias_chain` | Trace a token from component layer back through semantic to its primitive value |
+| `get_pattern` | Return guidance for a UI pattern (forms, data tables, empty states, etc.) |
+| `validate_usage` | Check whether a proposed component usage follows the design system rules |
+| `list_deprecated` | List all deprecated components and tokens with migration instructions |
+| `reload` | Reload the server's data from disk after a local build |
+
+## llms.txt
+
+The repository root contains an `llms.txt` file -- a plain-text summary of the design system optimised for LLM consumption. It covers:
+
+- The token architecture (primitive, semantic, component layers)
+- Customisation and theming approach
+- RTL and dark mode setup
+- All 51 components with one-line descriptions
+- Accessibility commitments
+
+Point any LLM at this file for a quick overview without needing the full MCP server.
+
+## Example: agent workflow
+
+An AI coding agent can use the MCP tools to:
+
+1. Call `find_component` with "file upload" to discover the `FileUpload` component
+2. Call `get_component` to retrieve its full prop interface and usage rules
+3. Call `get_pattern` with "forms" to understand how to compose it with other form elements
+4. Call `validate_usage` to verify the generated code follows design system guidelines
+
+## Configuration in Claude Desktop
+
+Add this to your Claude Desktop MCP config:
+
+```json
+{
+  "mcpServers": {
+    "arch-ui": {
+      "command": "npx",
+      "args": ["@arch-ui/mcp-server"]
+    }
+  }
+}
+```
+
+The server requires no API keys or authentication. It reads component manifests and token data from the installed packages.

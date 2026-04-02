@@ -1,0 +1,39 @@
+---
+layout: ../layouts/DocsLayout.astro
+title: "Changelog"
+---
+
+# Changelog
+
+All notable changes to the Arch Design System are documented here.
+
+---
+
+## v0.1.0
+
+**2026-04-02** -- Initial release
+
+Initial release with 51 components, 336 tokens, MCP server, Storybook, and documentation site.
+
+### Packages
+
+- **@arch-ui/tokens** -- 336 design tokens (primitive and semantic) built with Style Dictionary v4. Outputs CSS custom properties, JSON, and TypeScript.
+- **@arch-ui/components** -- 51 React components with full keyboard navigation, ARIA attributes, and forwardRef support. Every component includes a manifest JSON for agent consumption.
+- **@arch-ui/icons** -- 43 SVG icons with React wrappers.
+- **@arch-ui/mcp-server** -- MCP server exposing component metadata, token values, and usage guidance to AI agents.
+
+### Documentation
+
+- Getting started guide
+- Token foundations (color, typography, spacing, elevation, motion)
+- Component API reference for all 51 components
+- Pattern guides: forms, data tables, loading states, empty states, error handling, navigation
+- Storybook with interactive examples for every component
+
+### Highlights
+
+- All components use CSS custom properties from `@arch-ui/tokens` -- no hardcoded values.
+- FormControl context system wires labels, inputs, helper text, and error messages via shared ARIA IDs.
+- Toast system with imperative `useToast` hook and portal-mounted stack.
+- Full keyboard navigation for Tabs, Pagination, RadioGroup, and Modal.
+- `prefers-reduced-motion` support across all animated components.

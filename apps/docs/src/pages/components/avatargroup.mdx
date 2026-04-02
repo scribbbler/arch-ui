@@ -1,0 +1,56 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "AvatarGroup"
+---
+
+# AvatarGroup
+
+<span class="status-badge status-badge--stable">stable</span>
+
+Wraps multiple Avatar components in a horizontal stack with overlap. When more avatars are provided than the max prop allows, an overflow badge displays the remaining count as '+N'.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `max` | `number` | `undefined` | Maximum number of avatars to display. Extras are collapsed into a '+N' overflow badge. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `md` | Size forwarded to each Avatar and the overflow badge. Controls visual dimensions. |
+| `children` | `ReactNode` | `—` | Avatar components to display in the group. |
+| `className` | `string` | `undefined` | Additional CSS class names to apply to the root element. |
+## Accessibility
+
+**Role:** `group`
+
+**ARIA attributes:** `aria-label`
+
+**Notes:**
+
+- The root element has role=group to semantically associate the avatars.
+- Each Avatar retains its own accessible name via the name prop.
+- The overflow badge has aria-label='N more' to describe the hidden count.
+
+## Usage Guidelines
+
+**Do:**
+
+- Pass Avatar components directly as children.
+- Provide a max prop to control how many avatars are visible.
+- Pass a matching size prop so all avatars in the group are consistent.
+
+**Don't:**
+
+- Do not pass non-Avatar children.
+- Do not rely on CSS alone to control the number of visible avatars — use max.
+
+## Tokens Used
+
+- `var(--color-background-muted)`
+- `var(--color-text-default)`
+- `var(--color-surface-base)`
+- `var(--radius-component-full)`
+- `var(--radius-component-md)`
+- `var(--typography-scale-text-xs)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-weight-medium)`
+- `var(--spacing-inline-xs)`
+

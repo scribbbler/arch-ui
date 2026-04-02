@@ -1,0 +1,109 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Spacing"
+---
+
+# Spacing
+
+Spacing in Arch follows a primitive scale with semantic aliases for specific contexts. All spacing values are exposed as CSS custom properties.
+
+## Primitive Scale
+
+The base spacing scale used by semantic tokens. Do not use these directly in component CSS -- use semantic tokens instead.
+
+| Token | Value |
+|-------|-------|
+| `--spacing-0` | 0px |
+| `--spacing-1` | 1px |
+| `--spacing-2` | 2px |
+| `--spacing-4` | 4px |
+| `--spacing-6` | 6px |
+| `--spacing-8` | 8px |
+| `--spacing-10` | 10px |
+| `--spacing-12` | 12px |
+| `--spacing-16` | 16px |
+| `--spacing-20` | 20px |
+| `--spacing-24` | 24px |
+| `--spacing-28` | 28px |
+| `--spacing-32` | 32px |
+| `--spacing-40` | 40px |
+| `--spacing-48` | 48px |
+| `--spacing-56` | 56px |
+| `--spacing-64` | 64px |
+| `--spacing-80` | 80px |
+| `--spacing-96` | 96px |
+| `--spacing-112` | 112px |
+| `--spacing-128` | 128px |
+
+## Semantic Spacing
+
+### Component Spacing
+
+Internal padding and gaps within components (buttons, inputs, cards).
+
+| Token | Resolves to | Value |
+|-------|------------|-------|
+| `--spacing-component-xs` | spacing-4 | 4px |
+| `--spacing-component-sm` | spacing-8 | 8px |
+| `--spacing-component-md` | spacing-12 | 12px |
+| `--spacing-component-lg` | spacing-16 | 16px |
+| `--spacing-component-xl` | spacing-24 | 24px |
+
+```css
+.card {
+  padding: var(--spacing-component-lg);
+  gap: var(--spacing-component-sm);
+}
+```
+
+### Inline Spacing
+
+Small gaps between elements within a line (icon-to-text, badge-to-label).
+
+| Token | Resolves to | Value |
+|-------|------------|-------|
+| `--spacing-inline-xs` | spacing-2 | 2px |
+| `--spacing-inline-sm` | spacing-4 | 4px |
+| `--spacing-inline-md` | spacing-8 | 8px |
+| `--spacing-inline-lg` | spacing-12 | 12px |
+
+```css
+.button-icon {
+  gap: var(--spacing-inline-sm);
+}
+```
+
+### Layout Spacing
+
+Page-level and section-level spacing.
+
+| Token | Resolves to | Value |
+|-------|------------|-------|
+| `--spacing-layout-page-gutter` | spacing-16 | 16px |
+| `--spacing-layout-section-gap` | spacing-48 | 48px |
+| `--spacing-layout-content-gap` | spacing-24 | 24px |
+
+```css
+.page {
+  padding-inline: var(--spacing-layout-page-gutter);
+}
+
+.section + .section {
+  margin-top: var(--spacing-layout-section-gap);
+}
+
+.content-block {
+  gap: var(--spacing-layout-content-gap);
+}
+```
+
+## Choosing the Right Token
+
+| Situation | Use |
+|-----------|-----|
+| Padding inside a button or input | `--spacing-component-*` |
+| Gap between an icon and its label | `--spacing-inline-*` |
+| Space between two form fields | `--spacing-component-md` or `--spacing-component-lg` |
+| Space between page sections | `--spacing-layout-section-gap` |
+| Page edge padding | `--spacing-layout-page-gutter` |
+| Gap between content blocks (paragraphs, cards) | `--spacing-layout-content-gap` |

@@ -1,0 +1,65 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "ProgressSteps"
+---
+
+# ProgressSteps
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A step indicator for multi-step flows such as wizards, onboarding sequences, or checkout. Renders an ordered list of steps with visual state (completed, current, upcoming) and connecting lines. Supports horizontal and vertical orientations.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `steps` | `Array&lt;&#123; label: string; description?: string &#125;&gt;` | `[]` | Ordered array of step descriptors. Each item must have a label; description is optional. |
+| `currentStep` | `number` | `0` | Zero-based index of the active step. Steps before this index are 'completed'; this index is 'current'; steps after are 'upcoming'. |
+| `orientation` | `'horizontal' \| 'vertical'` | `horizontal` | Layout direction. horizontal: steps arranged in a row. vertical: steps stacked with connecting line on the inline-start side. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the root &lt;ol&gt; element. |
+## Accessibility
+
+**Role:** `list`
+
+**ARIA attributes:** `aria-current`
+
+**Notes:**
+
+- The root element is an &lt;ol&gt; (ordered list) to convey step sequence to screen readers.
+- The current step item has aria-current='step'.
+- Completed steps have a visible checkmark character inside the circle to convey state without relying on colour alone.
+- Step labels and optional descriptions are always visible as text.
+- The component is not interactive — it is display-only. Navigation is the responsibility of the parent.
+
+## Usage Guidelines
+
+**Do:**
+
+- Keep labels short (1–4 words) — long labels overflow in horizontal orientation.
+- Always set currentStep to the active step index so users know where they are.
+- Use vertical orientation when step labels are long or on narrow screens.
+
+**Don't:**
+
+- Do not use ProgressSteps as a navigation component — use Tabs or a custom nav instead.
+- Do not skip step indices — currentStep must always match an index in the steps array.
+- Do not nest ProgressSteps inside another ProgressSteps.
+
+## Tokens Used
+
+- `var(--color-action-primary)`
+- `var(--color-background-subtle)`
+- `var(--color-text-default)`
+- `var(--color-text-subtle)`
+- `var(--color-feedback-success-bg)`
+- `var(--color-feedback-success-text)`
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--spacing-inline-xs)`
+- `var(--spacing-inline-sm)`
+- `var(--radius-component-full)`
+- `var(--typography-scale-text-xs)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-weight-medium)`
+

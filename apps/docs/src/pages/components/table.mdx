@@ -1,0 +1,62 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: "Table"
+---
+
+# Table
+
+<span class="status-badge status-badge--stable">stable</span>
+
+A semantic HTML table component with sub-components for all table sections. Supports striped rows, bordered cells, and two size presets. Caption is required for accessibility.
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `caption` | `string` | `—` | REQUIRED. Accessible caption for the table. Rendered as a &lt;caption&gt; element. |
+| `striped` | `boolean` | `false` | When true, alternating body rows receive a subtle background. |
+| `bordered` | `boolean` | `false` | When true, all cells have visible borders. |
+| `size` | `'sm' \| 'md'` | `md` | Controls cell padding density. |
+| `className` | `string` | `undefined` | Additional CSS class names on the &lt;table&gt; element. |
+## Accessibility
+
+**Role:** `table`
+
+**Notes:**
+
+- The caption prop is required and renders a &lt;caption&gt; element for screen reader context.
+- Th requires a scope attribute ('col' or 'row') to identify header cells correctly.
+- Use Thead, Tbody, and Tfoot for proper semantic grouping.
+- Avoid using the Table for layout — it is strictly for tabular data.
+
+## Usage Guidelines
+
+**Do:**
+
+- Always provide a caption that describes the table's purpose.
+- Use scope='col' on header cells in Thead and scope='row' on header cells in Tbody.
+- Use striped for long tables to aid row scanning.
+- Use size='sm' for dense data tables within compact layouts.
+
+**Don't:**
+
+- Do not use Table for layout or non-tabular content.
+- Do not omit the caption prop.
+- Do not omit the scope attribute on Th elements.
+
+## Tokens Used
+
+- `var(--color-background-default)`
+- `var(--color-background-subtle)`
+- `var(--color-surface-raised)`
+- `var(--color-border-default)`
+- `var(--color-text-default)`
+- `var(--color-text-subtle)`
+- `var(--spacing-component-xs)`
+- `var(--spacing-component-sm)`
+- `var(--spacing-component-md)`
+- `var(--typography-scale-text-sm)`
+- `var(--typography-scale-text-md)`
+- `var(--typography-weight-semibold)`
+- `var(--border-width-default)`
+
