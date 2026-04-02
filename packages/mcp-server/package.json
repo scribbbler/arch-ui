@@ -8,10 +8,15 @@
     "arch-mcp-server": "./src/index.ts"
   },
   "scripts": {
+    "start": "npx tsx src/index.ts",
     "build": "echo 'TODO: build'",
-    "dev": "echo 'TODO: dev'",
+    "dev": "npx tsx --watch src/index.ts",
     "test": "echo 'No tests yet'",
     "lint": "echo 'No lint yet'"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.3.6"
+  }
 }
