@@ -58,7 +58,6 @@
 .arch-icon-button--compact {
   inline-size: var(--spacing-36);
   block-size: var(--spacing-36);
-  border-radius: var(--radius-sm);
 }
 .arch-icon-button--compact svg { width: 16px; height: 16px; }
 
