@@ -20,27 +20,27 @@ type Story = StoryObj<typeof meta>;
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 export const XSmall: Story = {
-  args: { size: 'xsmall', name: 'A' },
+  args: { size: 'xsmall', name: 'Alice Brown' },
 };
 
 export const Small: Story = {
-  args: { size: 'small', name: 'AB' },
+  args: { size: 'small', name: 'Alice Brown' },
 };
 
 export const Medium: Story = {
-  args: { size: 'medium', name: 'AB' },
+  args: { size: 'medium', name: 'Alice Brown' },
 };
 
 export const Large: Story = {
-  args: { size: 'large', name: 'AB' },
+  args: { size: 'large', name: 'Alice Brown' },
 };
 
 export const XLarge: Story = {
-  args: { size: 'xlarge', name: 'AB' },
+  args: { size: 'xlarge', name: 'Alice Brown' },
 };
 
 export const XXLarge: Story = {
-  args: { size: 'xxlarge', name: 'AB' },
+  args: { size: 'xxlarge', name: 'Alice Brown' },
 };
 
 /* ─── Shapes ─────────────────────────────────────────────────────────────────── */
