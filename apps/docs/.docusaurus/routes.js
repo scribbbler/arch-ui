@@ -39,15 +39,15 @@ export default [
   },
   {
     path: '/',
-    component: ComponentCreator('/', 'f67'),
+    component: ComponentCreator('/', '7c0'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', '98d'),
+        component: ComponentCreator('/', '883'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', 'be2'),
+            component: ComponentCreator('/', '4bd'),
             routes: [
               {
                 path: '/changelog',
@@ -93,7 +93,7 @@ export default [
               },
               {
                 path: '/components/button',
-                component: ComponentCreator('/components/button', '92c'),
+                component: ComponentCreator('/components/button', 'e38'),
                 exact: true,
                 sidebar: "docs"
               },
