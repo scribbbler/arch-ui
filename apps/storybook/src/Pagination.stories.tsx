@@ -2,27 +2,31 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Pagination } from '@arch-ui/components';
 
-function PaginationDemo(props: Omit<React.ComponentProps<typeof Pagination>, 'currentPage' | 'onChange'> & { currentPage?: number }) {
-  const [page, setPage] = useState(props.currentPage ?? 1);
-  return <Pagination {...props} currentPage={page} onChange={setPage} />;
-}
-
 const meta = {
   title: 'Navigation/Pagination',
   component: Pagination,
   argTypes: {
     size: { control: 'select', options: ['mini', 'compact', 'default', 'large'] },
     shape: { control: 'radio', options: ['default', 'pill', 'circle', 'square'] },
+    totalPages: { control: 'number' },
+    showFirstLast: { control: 'boolean' },
+    siblingCount: { control: 'number' },
   },
-  render: (args) => <PaginationDemo {...args} />,
+  args: {
+    totalPages: 10,
+    size: 'compact',
+    shape: 'default',
+  },
+  render: (args) => {
+    const [page, setPage] = useState(1);
+    return <Pagination {...args} currentPage={page} onChange={setPage} />;
+  },
 } satisfies Meta<typeof Pagination>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: { totalPages: 10 },
-};
+export const Default: Story = {};
 
 export const WithFirstLast: Story = {
   args: { totalPages: 20, showFirstLast: true },
@@ -35,33 +39,33 @@ export const SiblingCountTwo: Story = {
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 export const Mini: Story = {
-  args: { totalPages: 10, size: 'mini' },
+  args: { size: 'mini' },
 };
 
 export const Compact: Story = {
-  args: { totalPages: 10, size: 'compact' },
+  args: { size: 'compact' },
 };
 
 export const SizeDefault: Story = {
-  args: { totalPages: 10, size: 'default' },
+  args: { size: 'default' },
 };
 
 export const Large: Story = {
-  args: { totalPages: 10, size: 'large' },
+  args: { size: 'large' },
 };
 
 /* ─── Shapes ─────────────────────────────────────────────────────────────────── */
 
 export const Pill: Story = {
-  args: { totalPages: 10, shape: 'pill' },
+  args: { shape: 'pill' },
 };
 
 export const Circle: Story = {
-  args: { totalPages: 10, shape: 'circle' },
+  args: { shape: 'circle' },
 };
 
 export const SquareShape: Story = {
-  args: { totalPages: 10, shape: 'square' },
+  args: { shape: 'square' },
 };
 
 export const FewPages: Story = {
