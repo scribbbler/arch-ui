@@ -89,12 +89,20 @@ export const Pill: Story = {
   args: { shape: 'pill', children: 'Pill' },
 };
 
-export const Circle: Story = {
+export const CircleIcon: Story = {
   args: { shape: 'circle', startEnhancer: <PlusIcon />, children: undefined },
 };
 
-export const Square: Story = {
+export const CircleLabel: Story = {
+  args: { shape: 'circle', children: '1' },
+};
+
+export const SquareIcon: Story = {
   args: { shape: 'square', startEnhancer: <PlusIcon />, children: undefined },
+};
+
+export const SquareLabel: Story = {
+  args: { shape: 'square', children: 'A' },
 };
 
 /* ─── States ─────────────────────────────────────────────────────────────────── */
