@@ -19,88 +19,212 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
+<div style={{background: '#F3F3F3', padding: '48px 0', margin: '0 -16px 48px'}}>
+<div style={{maxWidth: '800px', margin: '0 auto', padding: '0 24px'}}>
+
 ## Principles
 
 ### Actionable
-Buttons should trigger a clear action. Every button needs a verb — "Save", "Delete", "Continue" — not just "OK" or "Submit".
+A button label indicates what happens when the user taps the button, even if it's just to acknowledge something.
 
-### Hierarchical
-Use button kinds to establish visual hierarchy. One `primary` per section, supported by `secondary` and `tertiary`.
+### Contextual
+Buttons work with other elements on a screen to surface the most important actions the user wants to take in that context.
 
-### Consistent
-Buttons across the product should use the same sizes, kinds, and patterns. Don't mix custom styles.
+### Incisive
+Buttons capture user intent concisely, distilling the action a user wants to take into an inclusive word or phrase.
 
-## When to Use
+</div>
+</div>
 
-- Triggering an action (save, submit, delete)
-- Navigating when styled as a link (`as="a"`)
-- Toggle selection in a ButtonGroup
-
-## When Not to Use
-
-- **For navigation** — use Link instead
-- **For toggling states** — use Toggle/Switch instead
-- **Inside another button** — never nest interactive elements
+---
 
 ## Anatomy
 
-```
-┌─────────────────────────────────────────┐
-│  [startEnhancer]  [label]  [endEnhancer] │
-└─────────────────────────────────────────┘
-```
+The most basic setup of a button includes only a single label or icon. Still, a button can also be customized to include a label with a leading icon and a trailing icon. Circle buttons can also support an additional label below the button's container.
 
-| Part | Description |
-|------|-------------|
-| **startEnhancer** | Optional icon before the label |
-| **label** | Text content via `children` |
-| **endEnhancer** | Optional icon after the label |
+<div style={{background: '#F9F9F9', borderRadius: '12px', padding: '40px', margin: '24px 0'}}>
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center'}}>
+<div style={{textAlign: 'center'}}>
+  <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#282828', color: 'white', padding: '12px 24px', borderRadius: '8px', fontSize: '16px', fontWeight: 500}}>Label</div>
+  <div style={{marginTop: '16px'}}>
+    <span style={{color: '#DE1135', fontSize: '13px', fontWeight: 500}}>Label</span><br/>
+    <span style={{color: '#DE1135', fontSize: '12px'}}>(recommended)</span>
+  </div>
+  <div style={{marginTop: '8px'}}>
+    <span style={{color: '#DE1135', fontSize: '13px', fontWeight: 500}}>Container</span><br/>
+    <span style={{color: '#DE1135', fontSize: '12px'}}>(required)</span>
+  </div>
+</div>
+<div style={{textAlign: 'center'}}>
+  <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#282828', color: 'white', padding: '12px 24px', borderRadius: '8px', fontSize: '16px', fontWeight: 500}}>
+    <span>♥</span> Label <span>▸</span>
+  </div>
+  <div style={{marginTop: '16px'}}>
+    <span style={{color: '#DE1135', fontSize: '13px', fontWeight: 500}}>Leading Icon</span>
+    <span style={{color: '#DE1135', fontSize: '12px'}}> (optional)</span>
+    {' · '}
+    <span style={{color: '#DE1135', fontSize: '13px', fontWeight: 500}}>Trailing Icon</span>
+    <span style={{color: '#DE1135', fontSize: '12px'}}> (optional)</span>
+  </div>
+</div>
+</div>
+</div>
 
-For icon-only buttons, use `shape="circle"` or `shape="square"` with only `startEnhancer` and no children. Always provide `aria-label`.
+---
 
-## Kinds
+## Shape
 
-| Kind | Use for | Example |
-|------|---------|---------|
-| `primary` | Main action. One per section. | Save, Continue, Submit |
-| `secondary` | Supporting actions. | Cancel, Back |
-| `tertiary` | Low-emphasis actions. | Learn more, Skip |
-| `dangerPrimary` | Destructive actions. | Delete account |
-| `dangerSecondary` | Destructive, less prominent. | Remove item |
-| `dangerTertiary` | Destructive, minimal. | Unsubscribe |
+Buttons come in rectangular, circle, square, and pill shapes.
+
+<div style={{display: 'grid', gridTemplateColumns: '200px 1fr', gap: '32px', alignItems: 'start', margin: '32px 0'}}>
+
+<div style={{display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', color: 'white', padding: '14px 48px', borderRadius: '8px', fontSize: '16px', fontWeight: 500, textAlign: 'center'}}>Label</div>
+</div>
+<div>
+
+**Rect (default)**
+
+Rectangular buttons are typically used at fixed widths, 100% and 50% width on mobile, and a variety of widths on the web. Large rectangle buttons are commonly used CTA buttons that move users forward in a flow.
+
+</div>
+
+<div style={{display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#E8E8E8', width: '48px', height: '48px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}>♥</div>
+</div>
+<div>
+
+**Circle**
+
+Circular buttons can include a text label or an icon. An optional label below is available as well. All maintain a center position.
+
+</div>
+
+<div style={{display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#E8E8E8', width: '48px', height: '48px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 500}}>01</div>
+</div>
+<div>
+
+**Square**
+
+Square buttons, similar to circle buttons, can include a text label or an icon. All maintain a center position.
+
+</div>
+
+<div style={{display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#E8E8E8', padding: '10px 20px', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 500}}>♥ Label</div>
+</div>
+<div>
+
+**Pill**
+
+Pill buttons are more commonly in line with other content and controls.
+
+</div>
+
+</div>
+
+---
+
+<div style={{background: '#F3F3F3', padding: '48px 0', margin: '0 -16px 48px'}}>
+<div style={{maxWidth: '800px', margin: '0 auto', padding: '0 24px'}}>
+
+## Usage
+
+Use buttons to let users take action, make choices, and move forward. Buttons can navigate to other pages while completing an action like purchasing or submitting a form.
+
+</div>
+</div>
+
+## Hierarchy
+
+Button hierarchy emphasizes which button is more important in the context so the user can take action immediately.
+
+<div style={{background: '#F9F9F9', borderRadius: '12px', padding: '40px', margin: '24px 0'}}>
+<div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
+  <div style={{display: 'flex', alignItems: 'center', gap: '24px'}}>
+    <div style={{width: '200px'}}>
+      <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Highest emphasis</div>
+      <div style={{color: '#727272', fontSize: '12px'}}>primary container color</div>
+    </div>
+    <div style={{background: '#282828', color: 'white', padding: '14px 32px', borderRadius: '8px', fontWeight: 500}}>Save</div>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '24px'}}>
+    <div style={{width: '200px'}}>
+      <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Medium emphasis</div>
+      <div style={{color: '#727272', fontSize: '12px'}}>secondary container color</div>
+    </div>
+    <div style={{background: '#E8E8E8', color: '#282828', padding: '14px 32px', borderRadius: '8px', fontWeight: 500}}>Edit</div>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', gap: '24px'}}>
+    <div style={{width: '200px'}}>
+      <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Low emphasis</div>
+      <div style={{color: '#727272', fontSize: '12px'}}>transparent container color</div>
+    </div>
+    <div style={{color: '#282828', padding: '14px 32px', fontWeight: 500}}>Cancel</div>
+  </div>
+</div>
+</div>
+
+In general, follow these guidelines for choosing the hierarchy of a button:
+
+| Hierarchy | Emphasis | # per context | Use for |
+|-----------|----------|---------------|---------|
+| Primary | High | 1 | **The most important action** to move forward in a flow, acknowledge and dismiss, or finish a task. |
+| Secondary | Medium | Many | **Most actions** are in line with other content. |
+| Tertiary | Low | A few | **Dismissive actions** give users a way out of something, letting them cancel, do nothing, dismiss, or skip. |
+
+**Primary**
+
+Use one primary button per context to allow users to take a specific action, move forward in a flow, acknowledge and dismiss, or finish a task.
+
+**Secondary**
+
+Secondary buttons are used for most actions that are in line with other content. They can be paired with a primary button.
+
+**Tertiary**
+
+Tertiary buttons are for dismissive or low-emphasis actions. Use them for cancel, back, skip, or learn more.
+
+---
+
+## Danger Variants
+
+For destructive actions, use the danger kinds to communicate risk.
+
+| Kind | Emphasis | Use for |
+|------|----------|---------|
+| `dangerPrimary` | High | Irreversible destructive actions (delete account) |
+| `dangerSecondary` | Medium | Destructive with confirmation step (remove item) |
+| `dangerTertiary` | Low | Dismissive destructive (unsubscribe) |
+
+---
 
 ## Sizes
 
 | Size | Height | Font | Use case |
 |------|--------|------|----------|
-| `mini` | 28px | Label XSmall (12px) | Dense UI, table row actions |
-| `compact` | 36px | Label Small (14px) | Toolbars, inline actions |
-| `default` | 48px | Label Medium (16px) | Standard forms and pages |
-| `large` | 56px | Label Large (18px) | Hero CTAs, prominent actions |
-
-## Shapes
-
-| Shape | Radius | Use case |
-|-------|--------|----------|
-| `default` | 8px | Standard buttons |
-| `pill` | 9999px | Softer, rounded style |
-| `circle` | 50%, fixed dims | Icon-only, round |
-| `square` | 4px, fixed dims | Icon-only, sharp |
+| `mini` | 28px | 12px / Label XSmall | Dense UI, table row actions |
+| `compact` | 36px | 14px / Label Small | Toolbars, compact forms |
+| `default` | 48px | 16px / Label Medium | Standard forms and pages |
+| `large` | 56px | 18px / Label Large | Hero CTAs, prominent actions |
 
 :::tip Do
 - Use `primary` for the single most important action on the page
 - Pair with `secondary` or `tertiary` for supporting actions
-- Always provide visible text — icon-only buttons need `aria-label`
+- Always provide visible text label — icon-only buttons need `aria-label`
 - Use `isLoading` with `loadingText` so users know what's happening
 :::
 
 :::danger Don't
 - Don't use multiple `primary` buttons in the same section
 - Don't use `dangerPrimary` for non-destructive actions
-- Don't disable buttons without explaining why (use tooltip)
+- Don't disable buttons without explaining why
 - Don't put interactive elements inside a button
-- Don't use `shape="circle"` with text content
+- Don't use `shape="circle"` with text content — it will overflow
 :::
+
+**Common alternative names:** Action, call to action, CTA
 
 </TabItem>
 <TabItem value="specs" label="Specs">
@@ -110,16 +234,25 @@ For icon-only buttons, use `shape="circle"` or `shape="square"` with only `start
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `kind` | `'primary' \| 'secondary' \| 'tertiary' \| 'dangerPrimary' \| 'dangerSecondary' \| 'dangerTertiary'` | `'primary'` | Visual style |
-| `size` | `'mini' \| 'compact' \| 'default' \| 'large'` | `'default'` | Height and font |
-| `shape` | `'default' \| 'pill' \| 'circle' \| 'square'` | `'default'` | Border radius |
-| `isSelected` | `boolean` | `false` | Toggle state |
+| `size` | `'mini' \| 'compact' \| 'default' \| 'large'` | `'default'` | Controls height and font |
+| `shape` | `'default' \| 'pill' \| 'circle' \| 'square'` | `'default'` | Border radius / dimensions |
+| `isSelected` | `boolean` | `false` | Toggle state for ButtonGroup |
 | `disabled` | `boolean` | `false` | Prevents interaction |
-| `isLoading` | `boolean` | `false` | Shows spinner |
-| `loadingText` | `string` | — | Label during loading |
+| `isLoading` | `boolean` | `false` | Shows spinner, disables button |
+| `loadingText` | `string` | — | Label shown during loading |
 | `startEnhancer` | `ReactNode` | — | Icon before label |
 | `endEnhancer` | `ReactNode` | — | Icon after label |
-| `fullWidth` | `boolean` | `false` | 100% width |
-| `as` | `ElementType` | `'button'` | Polymorphic element |
+| `fullWidth` | `boolean` | `false` | Stretches to 100% width |
+| `as` | `ElementType` | `'button'` | Polymorphic root element |
+
+## Spacing
+
+| Size | Padding Y | Padding X | Min Height | Icon Size |
+|------|-----------|-----------|------------|-----------|
+| mini | 6px | 8px | 28px | 16px |
+| compact | 10px | 12px | 36px | 16px |
+| default | 14px | 16px | 48px | 20px |
+| large | 16px | 20px | 56px | 24px |
 
 ## States
 
@@ -127,40 +260,32 @@ For icon-only buttons, use `shape="circle"` or `shape="square"` with only `start
 |-------|--------|------|
 | Default | Base background | — |
 | Hover | One shade darker | — |
-| Active | Two shades darker | — |
-| Focus | Inset 2px ring | — |
-| Disabled | 50% opacity | `disabled` |
-| Loading | Spinner | `aria-busy="true"` |
-| Selected | Active shade | `aria-pressed="true"` |
+| Active/Pressed | Two shades darker | — |
+| Focus | Inset 2px ring (`--color-border-focus`) | — |
+| Disabled | 50% opacity | `disabled` attribute |
+| Loading | Spinner + optional text | `aria-busy="true"` |
+| Selected | Active shade background | `aria-pressed="true"` |
 
 ## Keyboard
 
 | Key | Action |
 |-----|--------|
 | `Tab` | Move focus to/from button |
-| `Enter` | Activate |
-| `Space` | Activate |
-
-## Spacing
-
-| Size | Padding Y | Padding X | Min Height |
-|------|-----------|-----------|------------|
-| mini | 6px | 8px | 28px |
-| compact | 10px | 12px | 36px |
-| default | 14px | 16px | 48px |
-| large | 16px | 20px | 56px |
+| `Enter` | Activate button |
+| `Space` | Activate button |
 
 ## Tokens
 
 | Token | Purpose |
 |-------|---------|
-| `--color-action-primary` | Primary background |
-| `--color-action-primary-hover` | Primary hover |
-| `--color-action-primary-active` | Primary pressed |
+| `--color-action-primary` / `-hover` / `-active` | Primary kind colors |
+| `--color-action-secondary-*` | Secondary kind colors |
+| `--color-action-ghost-*` | Tertiary kind colors |
+| `--color-action-destructive-*` | Danger kind colors |
 | `--color-border-focus` | Focus ring |
-| `--typography-scale-label-*` | Font per size |
-| `--radius-md`, `--radius-full` | Border radius |
-| `--motion-duration-fast` | Transition |
+| `--typography-scale-label-*-font-size` | Font per size |
+| `--radius-md`, `--radius-sm`, `--radius-full` | Border radius per shape |
+| `--motion-duration-fast` | Transition speed |
 
 </TabItem>
 <TabItem value="content" label="Content">
@@ -168,13 +293,14 @@ For icon-only buttons, use `shape="circle"` or `shape="square"` with only `start
 ## Writing Button Labels
 
 - **Use verbs** — "Save changes", not "Changes"
-- **Be specific** — "Delete account" instead of "Delete"
+- **Be specific** — "Delete account" instead of just "Delete"
 - **Stay concise** — 1–3 words for primary, up to 5 for secondary
 - **Use sentence case** — "Save changes", not "Save Changes"
 
 ## Loading Text
 
 When `isLoading` is true, replace the label with a present participle:
+
 - "Save" → "Saving…"
 - "Delete" → "Deleting…"
 - "Submit" → "Submitting…"
@@ -183,7 +309,8 @@ When `isLoading` is true, replace the label with a present participle:
 
 - Icons should reinforce the label, not replace it (except icon-only buttons)
 - Use `startEnhancer` for action icons (add, search, download)
-- Use `endEnhancer` for directional icons (arrow right, external link)
+- Use `endEnhancer` for directional icons (arrow right, external link, chevron)
+- Keep icons at 16–24px depending on button size
 
 </TabItem>
 <TabItem value="changelog" label="Status & Changelog">
@@ -195,6 +322,7 @@ When `isLoading` is true, replace the label with a present participle:
 ## Changelog
 
 ### v0.2.0 (2026-04-04)
+
 - Renamed `variant` to `kind`
 - Renamed `leftIcon`/`rightIcon` to `startEnhancer`/`endEnhancer`
 - Renamed `loading` to `isLoading`
@@ -205,6 +333,7 @@ When `isLoading` is true, replace the label with a present participle:
 - Removed IconButton — use `Button shape="circle"` instead
 
 ### v0.1.0 (2026-04-02)
+
 - Initial release
 
 </TabItem>
