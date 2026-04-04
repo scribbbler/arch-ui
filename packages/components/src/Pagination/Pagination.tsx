@@ -150,8 +150,11 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
   const iconBtnSize = size as IconButtonSize;
 
   // Map pagination shape to Button/IconButton shape props
-  const btnShape = shape === 'circle' ? 'pill' : shape === 'square' ? 'default' : shape as ButtonShape;
-  const iconBtnShape = (shape === 'default' ? 'square' : shape === 'pill' ? 'circle' : shape) as IconButtonShape;
+  // Button has: default, pill, circle, square
+  // IconButton has: square, circle
+  // Map pagination shape to both consistently
+  const btnShape: ButtonShape = shape === 'circle' ? 'circle' : shape === 'pill' ? 'pill' : shape === 'square' ? 'square' : 'default';
+  const iconBtnShape: IconButtonShape = (shape === 'circle' || shape === 'pill') ? 'circle' : 'square';
 
   const classes = ['arch-pagination', sizeClassMap[size], className].filter(Boolean).join(' ');
 
