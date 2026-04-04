@@ -10,6 +10,9 @@ function PaginationDemo(props: Omit<React.ComponentProps<typeof Pagination>, 'cu
 const meta = {
   title: 'Navigation/Pagination',
   component: Pagination,
+  argTypes: {
+    size: { control: 'select', options: ['mini', 'compact', 'default', 'large'] },
+  },
   render: (args) => <PaginationDemo {...args} />,
 } satisfies Meta<typeof Pagination>;
 
@@ -28,8 +31,22 @@ export const SiblingCountTwo: Story = {
   args: { totalPages: 20, siblingCount: 2 },
 };
 
-export const SiblingCountThree: Story = {
-  args: { totalPages: 30, siblingCount: 3, showFirstLast: true },
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+export const Mini: Story = {
+  args: { totalPages: 10, size: 'mini' },
+};
+
+export const Compact: Story = {
+  args: { totalPages: 10, size: 'compact' },
+};
+
+export const SizeDefault: Story = {
+  args: { totalPages: 10, size: 'default' },
+};
+
+export const Large: Story = {
+  args: { totalPages: 10, size: 'large' },
 };
 
 export const FewPages: Story = {

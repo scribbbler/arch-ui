@@ -1,10 +1,12 @@
 import React, { forwardRef, useMemo } from 'react';
-import { IconButton } from '../IconButton';
-import { Button } from '../Button';
+import { IconButton, type IconButtonSize } from '../IconButton';
+import { Button, type ButtonSize } from '../Button';
 import { DEFAULT_LABELS, type PaginationLabels } from './Pagination.labels';
 import './Pagination.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
+
+export type PaginationSize = 'mini' | 'compact' | 'default' | 'large';
 
 export interface PaginationProps {
   /** Total number of pages. */
@@ -13,6 +15,8 @@ export interface PaginationProps {
   currentPage: number;
   /** Called with the target page number when the user navigates. */
   onChange: (page: number) => void;
+  /** Size of the pagination buttons. Defaults to 'compact'. */
+  size?: PaginationSize;
   /** When true, renders buttons to jump to the first and last pages. */
   showFirstLast?: boolean;
   /** Number of page buttons to show on each side of the current page. Defaults to 1. */
@@ -31,9 +35,8 @@ function buildPageRange(
   totalPages: number,
   siblingCount: number
 ): Array<number | 'ellipsis-start' | 'ellipsis-end'> {
-  const totalPageNumbers = siblingCount * 2 + 5; // siblings + current + 2 boundaries + 2 ellipses
+  const totalPageNumbers = siblingCount * 2 + 5;
 
-  // If total pages fit without ellipsis
   if (totalPages <= totalPageNumbers) {
     return Array.from({ length: totalPages }, (_, i) => i + 1);
   }
@@ -63,6 +66,15 @@ function buildPageRange(
   return result;
 }
 
+/* ─── Size class map for CSS ─────────────────────────────────────────────────── */
+
+const sizeClassMap: Record<PaginationSize, string> = {
+  mini: 'arch-pagination--mini',
+  compact: 'arch-pagination--compact',
+  default: 'arch-pagination--default',
+  large: 'arch-pagination--large',
+};
+
 /* ─── Component ──────────────────────────────────────────────────────────────── */
 
 /**
@@ -77,6 +89,7 @@ function buildPageRange(
  *   totalPages={20}
  *   currentPage={5}
  *   onChange={setPage}
+ *   size="compact"
  *   showFirstLast
  *   siblingCount={1}
  * />
@@ -86,6 +99,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
     totalPages,
     currentPage,
     onChange,
+    size = 'compact',
     showFirstLast = false,
     siblingCount = 1,
     labels,
@@ -102,7 +116,10 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
   const isPrevDisabled = currentPage <= 1;
   const isNextDisabled = currentPage >= totalPages;
 
-  const classes = ['arch-pagination', className].filter(Boolean).join(' ');
+  const btnSize = size as ButtonSize;
+  const iconBtnSize = size as IconButtonSize;
+
+  const classes = ['arch-pagination', sizeClassMap[size], className].filter(Boolean).join(' ');
 
   return (
     <nav ref={ref} aria-label={mergedLabels.pagination} className={classes}>
@@ -112,9 +129,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           <li className="arch-pagination__item">
             <IconButton
               kind="tertiary"
-              size="compact"
-                            aria-label={mergedLabels.firstPage}
-              aria-disabled={isPrevDisabled ? 'true' : undefined}
+              size={iconBtnSize}
+              aria-label={mergedLabels.firstPage}
               disabled={isPrevDisabled}
               onClick={() => {
                 if (!isPrevDisabled) onChange(1);
@@ -128,9 +144,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
         <li className="arch-pagination__item">
           <IconButton
             kind="tertiary"
-            size="compact"
-                        aria-label={mergedLabels.previousPage}
-            aria-disabled={isPrevDisabled ? 'true' : undefined}
+            size={iconBtnSize}
+            aria-label={mergedLabels.previousPage}
             disabled={isPrevDisabled}
             onClick={() => {
               if (!isPrevDisabled) onChange(currentPage - 1);
@@ -157,8 +172,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             <li key={`page-${page}-${index}`} className="arch-pagination__item">
               <Button
                 kind={isCurrent ? 'primary' : 'tertiary'}
-                size="compact"
-                                aria-label={mergedLabels.goToPage(page)}
+                size={btnSize}
+                aria-label={mergedLabels.goToPage(page)}
                 aria-current={isCurrent ? 'page' : undefined}
                 onClick={() => {
                   if (!isCurrent) onChange(page);
@@ -174,9 +189,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
         <li className="arch-pagination__item">
           <IconButton
             kind="tertiary"
-            size="compact"
-                        aria-label={mergedLabels.nextPage}
-            aria-disabled={isNextDisabled ? 'true' : undefined}
+            size={iconBtnSize}
+            aria-label={mergedLabels.nextPage}
             disabled={isNextDisabled}
             onClick={() => {
               if (!isNextDisabled) onChange(currentPage + 1);
@@ -190,9 +204,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           <li className="arch-pagination__item">
             <IconButton
               kind="tertiary"
-              size="compact"
-                            aria-label={mergedLabels.lastPage}
-              aria-disabled={isNextDisabled ? 'true' : undefined}
+              size={iconBtnSize}
+              aria-label={mergedLabels.lastPage}
               disabled={isNextDisabled}
               onClick={() => {
                 if (!isNextDisabled) onChange(totalPages);
@@ -207,6 +220,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
 });
 
 export { Pagination };
+export type { PaginationSize };
 export type { PaginationLabels } from './Pagination.labels';
 export { DEFAULT_LABELS as DEFAULT_PAGINATION_LABELS } from './Pagination.labels';
 export default Pagination;

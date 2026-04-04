@@ -1,5 +1,5 @@
 /* Pagination — arch-ui component styles
-   Uses Button and IconButton internally. CSS only handles layout. */
+   Uses Button and IconButton internally. CSS handles layout and size-specific overrides. */
 
 .arch-pagination {
   display: block;
@@ -19,21 +19,45 @@
   display: inline-flex;
 }
 
-/* Make page number buttons square — same width as height */
+/* Page number buttons — make square (same width as height) */
 .arch-pagination__item .arch-button {
-  min-inline-size: var(--spacing-36);
   padding-inline: 0;
 }
 
-/* Nav icon buttons already square via IconButton sizing */
+.arch-pagination--mini .arch-pagination__item .arch-button { min-inline-size: var(--spacing-28); }
+.arch-pagination--compact .arch-pagination__item .arch-button { min-inline-size: var(--spacing-36); }
+.arch-pagination--default .arch-pagination__item .arch-button { min-inline-size: var(--spacing-48); }
+.arch-pagination--large .arch-pagination__item .arch-button { min-inline-size: var(--spacing-56); }
 
+/* Ellipsis — match button height per size */
 .arch-pagination__ellipsis {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-inline-size: var(--spacing-28);
-  block-size: var(--spacing-36);
   color: var(--color-text-subtle);
-  font-size: var(--typography-scale-label-small-font-size);
   user-select: none;
+}
+
+.arch-pagination--mini .arch-pagination__ellipsis {
+  min-inline-size: var(--spacing-20);
+  block-size: var(--spacing-28);
+  font-size: var(--typography-scale-label-xsmall-font-size);
+}
+
+.arch-pagination--compact .arch-pagination__ellipsis {
+  min-inline-size: var(--spacing-24);
+  block-size: var(--spacing-36);
+  font-size: var(--typography-scale-label-small-font-size);
+}
+
+.arch-pagination--default .arch-pagination__ellipsis {
+  min-inline-size: var(--spacing-32);
+  block-size: var(--spacing-48);
+  font-size: var(--typography-scale-label-medium-font-size);
+}
+
+.arch-pagination--large .arch-pagination__ellipsis {
+  min-inline-size: var(--spacing-36);
+  block-size: var(--spacing-56);
+  font-size: var(--typography-scale-label-large-font-size);
 }
