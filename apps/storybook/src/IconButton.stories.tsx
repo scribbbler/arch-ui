@@ -49,6 +49,14 @@ export const DangerPrimary: Story = {
   args: { kind: 'dangerPrimary', 'aria-label': 'Delete' },
 };
 
+export const DangerSecondary: Story = {
+  args: { kind: 'dangerSecondary', 'aria-label': 'Delete' },
+};
+
+export const DangerTertiary: Story = {
+  args: { kind: 'dangerTertiary', 'aria-label': 'Delete' },
+};
+
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 export const Mini: Story = {
