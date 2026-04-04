@@ -1,98 +1,39 @@
 /* Pagination — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
-
-/* ─── Root nav ───────────────────────────────────────────────────────────────── */
+   Uses Button and IconButton internally. CSS only handles layout. */
 
 .arch-pagination {
   display: block;
 }
 
-/* ─── List ───────────────────────────────────────────────────────────────────── */
-
 .arch-pagination__list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--spacing-inline-xs);
+  gap: var(--spacing-4);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* ─── Item ───────────────────────────────────────────────────────────────────── */
-
 .arch-pagination__item {
   display: inline-flex;
 }
 
-/* ─── Page button (shared base) ──────────────────────────────────────────────── */
-
-.arch-pagination__btn {
-  appearance: none;
-  background: none;
-  border: var(--border-width-default) solid var(--color-border-default);
-  border-radius: var(--radius-component-sm);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: var(--typography-scale-label-small-font-size);
-  font-weight: var(--typography-weight-medium);
-  color: var(--color-text-default);
-  min-inline-size: var(--spacing-component-md);
-  block-size: var(--spacing-component-md);
-  padding-inline: var(--spacing-component-xs);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+/* Make page number buttons square — same width as height */
+.arch-pagination__item .arch-button {
+  min-inline-size: var(--spacing-36);
+  padding-inline: 0;
 }
 
-.arch-pagination__btn:hover:not([aria-disabled="true"]):not([aria-current="page"]) {
-  background-color: var(--color-action-ghost-hover);
-  border-color: var(--color-border-default);
-}
-
-.arch-pagination__btn:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
-}
-
-/* ─── Current page ───────────────────────────────────────────────────────────── */
-
-.arch-pagination__btn[aria-current="page"] {
-  background-color: var(--color-action-primary);
-  border-color: var(--color-action-primary);
-  color: var(--color-action-primary-text);
-  cursor: default;
-  font-weight: var(--typography-weight-semibold);
-}
-
-/* ─── Disabled (prev/next at boundaries) ─────────────────────────────────────── */
-
-.arch-pagination__btn[aria-disabled="true"] {
-  opacity: 0.4;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-/* ─── Ellipsis ───────────────────────────────────────────────────────────────── */
+/* Nav icon buttons already square via IconButton sizing */
 
 .arch-pagination__ellipsis {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-inline-size: var(--spacing-component-md);
-  block-size: var(--spacing-component-md);
-  padding-inline: var(--spacing-component-xs);
+  min-inline-size: var(--spacing-28);
+  block-size: var(--spacing-36);
   color: var(--color-text-subtle);
   font-size: var(--typography-scale-label-small-font-size);
   user-select: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .arch-pagination__btn {
-    transition: none;
-  }
 }

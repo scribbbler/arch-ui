@@ -113,8 +113,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             <IconButton
               kind="tertiary"
               size="compact"
-              className="arch-pagination__btn"
-              aria-label={mergedLabels.firstPage}
+                            aria-label={mergedLabels.firstPage}
               aria-disabled={isPrevDisabled ? 'true' : undefined}
               disabled={isPrevDisabled}
               onClick={() => {
@@ -130,8 +129,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           <IconButton
             kind="tertiary"
             size="compact"
-            className="arch-pagination__btn"
-            aria-label={mergedLabels.previousPage}
+                        aria-label={mergedLabels.previousPage}
             aria-disabled={isPrevDisabled ? 'true' : undefined}
             disabled={isPrevDisabled}
             onClick={() => {
@@ -160,8 +158,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
               <Button
                 kind={isCurrent ? 'primary' : 'tertiary'}
                 size="compact"
-                className="arch-pagination__btn"
-                aria-label={mergedLabels.goToPage(page)}
+                                aria-label={mergedLabels.goToPage(page)}
                 aria-current={isCurrent ? 'page' : undefined}
                 onClick={() => {
                   if (!isCurrent) onChange(page);
@@ -178,8 +175,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           <IconButton
             kind="tertiary"
             size="compact"
-            className="arch-pagination__btn"
-            aria-label={mergedLabels.nextPage}
+                        aria-label={mergedLabels.nextPage}
             aria-disabled={isNextDisabled ? 'true' : undefined}
             disabled={isNextDisabled}
             onClick={() => {
@@ -195,8 +191,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             <IconButton
               kind="tertiary"
               size="compact"
-              className="arch-pagination__btn"
-              aria-label={mergedLabels.lastPage}
+                            aria-label={mergedLabels.lastPage}
               aria-disabled={isNextDisabled ? 'true' : undefined}
               disabled={isNextDisabled}
               onClick={() => {
