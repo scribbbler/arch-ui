@@ -6,10 +6,10 @@
   "version": "0.1.0",
   "props": {
     "size": {
-      "type": "'display-2xl' | 'display-xl' | 'display-lg' | 'display-md' | 'display-sm'",
+      "type": "'large' | 'medium' | 'small' | 'xsmall'",
       "description": "Typography scale size",
       "required": false,
-      "default": "display-lg"
+      "default": "large"
     },
     "weight": {
       "type": "'semibold' | 'bold' | 'extrabold'",
@@ -39,6 +39,27 @@
     "doNot": [
       "Do not use Display for document headings — use Heading for h1-h6 semantics",
       "Do not use Display for body text — use Paragraph"
+    ]
+  },
+  "tokens": {
+    "used": [
+      "typography-scale-display-large-font-size",
+      "typography-scale-display-large-line-height",
+      "typography-scale-display-large-letter-spacing",
+      "typography-scale-display-medium-font-size",
+      "typography-scale-display-medium-line-height",
+      "typography-scale-display-medium-letter-spacing",
+      "typography-scale-display-small-font-size",
+      "typography-scale-display-small-line-height",
+      "typography-scale-display-small-letter-spacing",
+      "typography-scale-display-xsmall-font-size",
+      "typography-scale-display-xsmall-line-height",
+      "typography-scale-display-xsmall-letter-spacing",
+      "typography-weight-semibold",
+      "typography-weight-bold",
+      "typography-weight-extrabold",
+      "color-text-default",
+      "typography-family-sans"
     ]
   }
 }

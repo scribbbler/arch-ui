@@ -23,11 +23,11 @@ describe("Display", () => {
     render(<Display>text</Display>);
     const el = screen.getByText("text");
     expect(el.style.getPropertyValue("--display-font-size")).toBe(
-      "var(--typography-scale-display-lg-font-size)",
+      "var(--typography-scale-display-large-font-size)",
     );
   });
 
-  it.each(["display-2xl", "display-xl", "display-lg", "display-md", "display-sm"] as const)(
+  it.each(["large", "medium", "small", "xsmall"] as const)(
     "applies size=%s",
     (size) => {
       render(<Display size={size}>text</Display>);

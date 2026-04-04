@@ -6,10 +6,10 @@
   "version": "0.1.0",
   "props": {
     "size": {
-      "type": "'lg' | 'md' | 'sm' | 'xs'",
-      "description": "Paragraph size. Maps to text scale tokens.",
+      "type": "'large' | 'medium' | 'small' | 'xsmall'",
+      "description": "Paragraph size. Maps to paragraph scale tokens.",
       "required": false,
-      "default": "md"
+      "default": "medium"
     },
     "weight": {
       "type": "'regular' | 'medium'",
@@ -40,12 +40,32 @@
   "usage": {
     "do": [
       "Use Paragraph for body text, descriptions, and content blocks",
-      "Use size='sm' for secondary text and captions",
+      "Use size='small' for secondary text and captions",
       "Use color='color-text-subtle' for secondary content"
     ],
     "doNot": [
       "Do not use Paragraph for UI labels — use Label",
       "Do not use Paragraph for headings — use Heading or Display"
+    ]
+  },
+  "tokens": {
+    "used": [
+      "typography-scale-paragraph-large-font-size",
+      "typography-scale-paragraph-large-line-height",
+      "typography-scale-paragraph-large-letter-spacing",
+      "typography-scale-paragraph-medium-font-size",
+      "typography-scale-paragraph-medium-line-height",
+      "typography-scale-paragraph-medium-letter-spacing",
+      "typography-scale-paragraph-small-font-size",
+      "typography-scale-paragraph-small-line-height",
+      "typography-scale-paragraph-small-letter-spacing",
+      "typography-scale-paragraph-xsmall-font-size",
+      "typography-scale-paragraph-xsmall-line-height",
+      "typography-scale-paragraph-xsmall-letter-spacing",
+      "typography-weight-regular",
+      "typography-weight-medium",
+      "color-text-default",
+      "typography-family-sans"
     ]
   }
 }

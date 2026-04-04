@@ -8,9 +8,8 @@ const meta = {
     level: { control: 'select', options: [1, 2, 3, 4, 5, 6] },
     size: {
       control: 'select',
-      options: ['display-2xl', 'display-xl', 'display-lg', 'display-md', 'display-sm', 'text-xl'],
+      options: ['xxlarge', 'xlarge', 'large', 'medium', 'small', 'xsmall'],
     },
-    weight: { control: 'select', options: ['semibold', 'bold', 'extrabold'] },
   },
 } satisfies Meta<typeof Heading>;
 
@@ -18,41 +17,33 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Level1: Story = {
-  args: { level: 1, children: 'Heading Level 1' },
+  args: { level: 1, children: 'Heading Level 1 — 40px' },
 };
 
 export const Level2: Story = {
-  args: { level: 2, children: 'Heading Level 2' },
+  args: { level: 2, children: 'Heading Level 2 — 36px' },
 };
 
 export const Level3: Story = {
-  args: { level: 3, children: 'Heading Level 3' },
+  args: { level: 3, children: 'Heading Level 3 — 32px' },
 };
 
 export const Level4: Story = {
-  args: { level: 4, children: 'Heading Level 4' },
+  args: { level: 4, children: 'Heading Level 4 — 28px' },
 };
 
 export const Level5: Story = {
-  args: { level: 5, children: 'Heading Level 5' },
+  args: { level: 5, children: 'Heading Level 5 — 24px' },
 };
 
 export const Level6: Story = {
-  args: { level: 6, children: 'Heading Level 6' },
+  args: { level: 6, children: 'Heading Level 6 — 20px' },
 };
 
 export const CustomSize: Story = {
   args: {
     level: 3,
-    size: 'display-2xl',
-    children: 'h3 with display-2xl size',
+    size: 'xxlarge',
+    children: 'h3 with xxlarge size (40px)',
   },
-};
-
-export const WeightSemibold: Story = {
-  args: { level: 2, weight: 'semibold', children: 'Semibold Heading' },
-};
-
-export const WeightExtrabold: Story = {
-  args: { level: 2, weight: 'extrabold', children: 'Extrabold Heading' },
 };

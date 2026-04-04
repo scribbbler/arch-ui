@@ -49,74 +49,74 @@ describe("Heading", () => {
     expect(screen.getByText("Title")).toHaveClass("arch-heading", "custom");
   });
 
-  it("applies default size display-2xl for level 1", () => {
+  it("applies default size xxlarge for level 1", () => {
     render(<Heading level={1}>Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-size")).toBe(
-      "var(--typography-scale-display-2xl-font-size)",
+      "var(--typography-scale-heading-xxlarge-font-size)",
     );
   });
 
-  it("applies default size display-xl for level 2", () => {
+  it("applies default size xlarge for level 2", () => {
     render(<Heading level={2}>Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-size")).toBe(
-      "var(--typography-scale-display-xl-font-size)",
+      "var(--typography-scale-heading-xlarge-font-size)",
     );
   });
 
-  it("applies default size display-lg for level 3", () => {
+  it("applies default size large for level 3", () => {
     render(<Heading level={3}>Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-size")).toBe(
-      "var(--typography-scale-display-lg-font-size)",
+      "var(--typography-scale-heading-large-font-size)",
     );
   });
 
-  it("applies default size display-md for level 4", () => {
+  it("applies default size medium for level 4", () => {
     render(<Heading level={4}>Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-size")).toBe(
-      "var(--typography-scale-display-md-font-size)",
+      "var(--typography-scale-heading-medium-font-size)",
     );
   });
 
-  it("applies default size display-sm for level 5", () => {
+  it("applies default size small for level 5", () => {
     render(<Heading level={5}>Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-size")).toBe(
-      "var(--typography-scale-display-sm-font-size)",
+      "var(--typography-scale-heading-small-font-size)",
     );
   });
 
-  it("applies default size text-xl for level 6", () => {
+  it("applies default size xsmall for level 6", () => {
     render(<Heading level={6}>Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-size")).toBe(
-      "var(--typography-scale-text-xl-font-size)",
+      "var(--typography-scale-heading-xsmall-font-size)",
     );
   });
 
   it("overrides size independently of level", () => {
-    render(<Heading level={2} size="display-sm">Title</Heading>);
+    render(<Heading level={2} size="small">Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-size")).toBe(
-      "var(--typography-scale-display-sm-font-size)",
+      "var(--typography-scale-heading-small-font-size)",
     );
     expect(el.tagName).toBe("H2");
   });
 
-  it("applies display-2xl size tokens", () => {
-    render(<Heading size="display-2xl">Title</Heading>);
+  it("applies xxlarge size tokens", () => {
+    render(<Heading size="xxlarge">Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-size")).toBe(
-      "var(--typography-scale-display-2xl-font-size)",
+      "var(--typography-scale-heading-xxlarge-font-size)",
     );
     expect(el.style.getPropertyValue("--heading-line-height")).toBe(
-      "var(--typography-scale-display-2xl-line-height)",
+      "var(--typography-scale-heading-xxlarge-line-height)",
     );
     expect(el.style.getPropertyValue("--heading-letter-spacing")).toBe(
-      "var(--typography-scale-display-2xl-letter-spacing)",
+      "var(--typography-scale-heading-xxlarge-letter-spacing)",
     );
   });
 

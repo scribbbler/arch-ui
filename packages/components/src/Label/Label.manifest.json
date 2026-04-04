@@ -6,10 +6,10 @@
   "version": "0.1.0",
   "props": {
     "size": {
-      "type": "'lg' | 'md' | 'sm' | 'xs'",
-      "description": "Label size. Maps to text scale tokens.",
+      "type": "'large' | 'medium' | 'small' | 'xsmall'",
+      "description": "Label size. Maps to label scale tokens.",
       "required": false,
-      "default": "md"
+      "default": "medium"
     },
     "weight": {
       "type": "'medium' | 'semibold' | 'bold'",
@@ -41,11 +41,33 @@
     "do": [
       "Use Label for button text, nav items, form labels, table headers, badge text",
       "Use uppercase=true for overlines and category labels",
-      "Use size='xs' for fine print and metadata"
+      "Use size='xsmall' for fine print and metadata"
     ],
     "doNot": [
       "Do not use Label for body copy — use Paragraph",
       "Do not use Label for page headings — use Heading or Display"
+    ]
+  },
+  "tokens": {
+    "used": [
+      "typography-scale-label-large-font-size",
+      "typography-scale-label-large-line-height",
+      "typography-scale-label-large-letter-spacing",
+      "typography-scale-label-medium-font-size",
+      "typography-scale-label-medium-line-height",
+      "typography-scale-label-medium-letter-spacing",
+      "typography-scale-label-small-font-size",
+      "typography-scale-label-small-line-height",
+      "typography-scale-label-small-letter-spacing",
+      "typography-scale-label-xsmall-font-size",
+      "typography-scale-label-xsmall-line-height",
+      "typography-scale-label-xsmall-letter-spacing",
+      "typography-weight-medium",
+      "typography-weight-semibold",
+      "typography-weight-bold",
+      "color-text-default",
+      "typography-family-sans",
+      "typography-letter-spacing-wider"
     ]
   }
 }

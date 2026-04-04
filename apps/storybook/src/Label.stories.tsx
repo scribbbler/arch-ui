@@ -5,43 +5,25 @@ const meta = {
   title: 'Typography/Label',
   component: Label,
   argTypes: {
-    size: { control: 'select', options: ['lg', 'md', 'sm', 'xs'] },
-    weight: { control: 'select', options: ['medium', 'semibold', 'bold'] },
-    uppercase: { control: 'boolean' },
+    size: { control: 'select', options: ['large', 'medium', 'small', 'xsmall'] },
   },
 } satisfies Meta<typeof Label>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: { children: 'Default Label' },
+export const Large: Story = {
+  args: { size: 'large', children: 'Label Large — 18px / 500' },
 };
 
-export const SizeLarge: Story = {
-  args: { size: 'lg', children: 'Large Label' },
+export const Medium: Story = {
+  args: { size: 'medium', children: 'Label Medium — 16px / 500' },
 };
 
-export const SizeMedium: Story = {
-  args: { size: 'md', children: 'Medium Label' },
+export const Small: Story = {
+  args: { size: 'small', children: 'Label Small — 14px / 500' },
 };
 
-export const SizeSmall: Story = {
-  args: { size: 'sm', children: 'Small Label' },
-};
-
-export const SizeExtraSmall: Story = {
-  args: { size: 'xs', children: 'Extra Small Label' },
-};
-
-export const WeightSemibold: Story = {
-  args: { weight: 'semibold', children: 'Semibold Label' },
-};
-
-export const WeightBold: Story = {
-  args: { weight: 'bold', children: 'Bold Label' },
-};
-
-export const Uppercase: Story = {
-  args: { uppercase: true, children: 'Uppercase Label' },
+export const XSmall: Story = {
+  args: { size: 'xsmall', children: 'Label XSmall — 12px / 500' },
 };

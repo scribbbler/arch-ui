@@ -23,7 +23,7 @@ describe("Label", () => {
     render(<Label>text</Label>);
     const el = screen.getByText("text");
     expect(el.style.getPropertyValue("--label-font-size")).toBe(
-      "var(--typography-scale-text-md-font-size)",
+      "var(--typography-scale-label-medium-font-size)",
     );
   });
 
@@ -35,11 +35,11 @@ describe("Label", () => {
     );
   });
 
-  it.each(["lg", "md", "sm", "xs"] as const)("applies size=%s", (size) => {
+  it.each(["large", "medium", "small", "xsmall"] as const)("applies size=%s", (size) => {
     render(<Label size={size}>text</Label>);
     const el = screen.getByText("text");
     expect(el.style.getPropertyValue("--label-font-size")).toContain(
-      `text-${size}`,
+      `label-${size}`,
     );
   });
 

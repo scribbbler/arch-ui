@@ -27,11 +27,11 @@ describe("Paragraph", () => {
     );
   });
 
-  it.each(["lg", "md", "sm", "xs"] as const)("applies size=%s", (size) => {
+  it.each(["large", "medium", "small", "xsmall"] as const)("applies size=%s", (size) => {
     render(<Paragraph size={size}>text</Paragraph>);
     const el = screen.getByText("text");
     expect(el.style.getPropertyValue("--paragraph-font-size")).toContain(
-      `text-${size}`,
+      `paragraph-${size}`,
     );
   });
 

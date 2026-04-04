@@ -1,14 +1,11 @@
 import { forwardRef, type CSSProperties, type ElementType, type ReactNode } from "react";
 import "./Paragraph.css";
 
-type ParagraphSize = "lg" | "md" | "sm" | "xs";
-type ParagraphWeight = "regular" | "medium";
+type ParagraphSize = "large" | "medium" | "small" | "xsmall";
 
 export interface ParagraphProps {
-  /** Paragraph size. Default: 'md'. */
+  /** Paragraph size. Default: 'medium'. */
   size?: ParagraphSize;
-  /** Font weight. Default: 'regular'. */
-  weight?: ParagraphWeight;
   /** Semantic text color token name. Default: 'color-text-default'. */
   color?: string;
   /** Truncate with ellipsis. */
@@ -22,22 +19,16 @@ export interface ParagraphProps {
 }
 
 const SIZE_TOKEN_MAP: Record<ParagraphSize, string> = {
-  lg: "typography-scale-text-lg",
-  md: "typography-scale-text-md",
-  sm: "typography-scale-text-sm",
-  xs: "typography-scale-text-xs",
-};
-
-const WEIGHT_TOKEN_MAP: Record<ParagraphWeight, string> = {
-  regular: "typography-weight-regular",
-  medium: "typography-weight-medium",
+  large: "typography-scale-paragraph-large",
+  medium: "typography-scale-paragraph-medium",
+  small: "typography-scale-paragraph-small",
+  xsmall: "typography-scale-paragraph-xsmall",
 };
 
 const Paragraph = forwardRef<HTMLElement, ParagraphProps>(
   (
     {
-      size = "md",
-      weight = "regular",
+      size = "medium",
       color = "color-text-default",
       truncate = false,
       as: Component = "p",
@@ -48,13 +39,12 @@ const Paragraph = forwardRef<HTMLElement, ParagraphProps>(
     ref,
   ) => {
     const scaleToken = SIZE_TOKEN_MAP[size];
-    const weightToken = WEIGHT_TOKEN_MAP[weight];
 
     const cssVars: CSSProperties & Record<string, string> = {
       "--paragraph-font-size": `var(--${scaleToken}-font-size)`,
       "--paragraph-line-height": `var(--${scaleToken}-line-height)`,
       "--paragraph-letter-spacing": `var(--${scaleToken}-letter-spacing)`,
-      "--paragraph-font-weight": `var(--${weightToken})`,
+      "--paragraph-font-weight": `var(--${scaleToken}-font-weight)`,
       "--paragraph-color": `var(--${color})`,
     };
 
