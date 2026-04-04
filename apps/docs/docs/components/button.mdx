@@ -29,8 +29,8 @@ export const DoDont = ({doText, dontText, doLabel = 'Do', dontLabel = "Don't", c
 );
 
 export const Section = ({children, gray}) => (
-  <div style={{background: gray ? '#F3F3F3' : 'transparent', padding: gray ? '48px 0' : '0', margin: gray ? '32px -16px' : '0'}}>
-    <div style={{maxWidth: '800px', margin: '0 auto', padding: '0 24px'}}>
+  <div style={{background: gray ? '#F3F3F3' : 'transparent', padding: gray ? '48px 24px' : '0', margin: gray ? '32px calc(-1 * (50vw - 50%))' : '0', width: gray ? '100vw' : 'auto', position: gray ? 'relative' : 'static', left: gray ? '50%' : 'auto', transform: gray ? 'translateX(-50%)' : 'none'}}>
+    <div style={{maxWidth: '800px', margin: '0 auto'}}>
       {children}
     </div>
   </div>
@@ -77,7 +77,7 @@ export const ButtonPreview = ({label, variant = 'primary', shape = 'default', ic
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#F9F9F9', borderRadius: '12px', padding: '40px', margin: '24px 0'}}>
+<Section gray>
 
 ## Principles
 
@@ -90,7 +90,7 @@ Buttons work with other elements on a screen to surface the most important actio
 ### Incisive
 Buttons capture user intent concisely, distilling the action a user wants to take into an inclusive word or phrase.
 
-</div>
+</Section>
 
 ---
 
@@ -176,13 +176,13 @@ Pill buttons are more commonly in line with other content and controls.
 
 ---
 
-<div style={{background: '#F9F9F9', borderRadius: '12px', padding: '40px', margin: '24px 0'}}>
+<Section gray>
 
 ## Usage
 
 Use buttons to let users take action, make choices, and move forward. Buttons can navigate to other pages while completing an action like purchasing or submitting a form.
 
-</div>
+</Section>
 
 ## Hierarchy
 
