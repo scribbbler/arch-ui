@@ -12,6 +12,7 @@ const meta = {
   component: Pagination,
   argTypes: {
     size: { control: 'select', options: ['mini', 'compact', 'default', 'large'] },
+    shape: { control: 'radio', options: ['default', 'pill', 'circle', 'square'] },
   },
   render: (args) => <PaginationDemo {...args} />,
 } satisfies Meta<typeof Pagination>;
@@ -47,6 +48,20 @@ export const SizeDefault: Story = {
 
 export const Large: Story = {
   args: { totalPages: 10, size: 'large' },
+};
+
+/* ─── Shapes ─────────────────────────────────────────────────────────────────── */
+
+export const Pill: Story = {
+  args: { totalPages: 10, shape: 'pill' },
+};
+
+export const Circle: Story = {
+  args: { totalPages: 10, shape: 'circle' },
+};
+
+export const SquareShape: Story = {
+  args: { totalPages: 10, shape: 'square' },
 };
 
 export const FewPages: Story = {

@@ -1,12 +1,13 @@
 import React, { forwardRef, useMemo } from 'react';
-import { IconButton, type IconButtonSize } from '../IconButton';
-import { Button, type ButtonSize } from '../Button';
+import { IconButton, type IconButtonSize, type IconButtonShape } from '../IconButton';
+import { Button, type ButtonSize, type ButtonShape } from '../Button';
 import { DEFAULT_LABELS, type PaginationLabels } from './Pagination.labels';
 import './Pagination.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
 export type PaginationSize = 'mini' | 'compact' | 'default' | 'large';
+export type PaginationShape = 'default' | 'pill' | 'circle' | 'square';
 
 export interface PaginationProps {
   /** Total number of pages. */
@@ -17,6 +18,8 @@ export interface PaginationProps {
   onChange: (page: number) => void;
   /** Size of the pagination buttons. Defaults to 'compact'. */
   size?: PaginationSize;
+  /** Shape of the pagination buttons. Defaults to 'default'. */
+  shape?: PaginationShape;
   /** When true, renders buttons to jump to the first and last pages. */
   showFirstLast?: boolean;
   /** Number of page buttons to show on each side of the current page. Defaults to 1. */
@@ -100,6 +103,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
     currentPage,
     onChange,
     size = 'compact',
+    shape = 'default',
     showFirstLast = false,
     siblingCount = 1,
     labels,
@@ -119,6 +123,10 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
   const btnSize = size as ButtonSize;
   const iconBtnSize = size as IconButtonSize;
 
+  // Map pagination shape to Button/IconButton shape props
+  const btnShape = shape === 'circle' ? 'pill' : shape === 'square' ? 'default' : shape as ButtonShape;
+  const iconBtnShape = (shape === 'default' ? 'square' : shape === 'pill' ? 'circle' : shape) as IconButtonShape;
+
   const classes = ['arch-pagination', sizeClassMap[size], className].filter(Boolean).join(' ');
 
   return (
@@ -130,6 +138,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             <IconButton
               kind="tertiary"
               size={iconBtnSize}
+              shape={iconBtnShape}
               aria-label={mergedLabels.firstPage}
               disabled={isPrevDisabled}
               onClick={() => {
@@ -173,6 +182,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
               <Button
                 kind={isCurrent ? 'primary' : 'tertiary'}
                 size={btnSize}
+                shape={btnShape}
                 aria-label={mergedLabels.goToPage(page)}
                 aria-current={isCurrent ? 'page' : undefined}
                 onClick={() => {
@@ -205,6 +215,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             <IconButton
               kind="tertiary"
               size={iconBtnSize}
+              shape={iconBtnShape}
               aria-label={mergedLabels.lastPage}
               disabled={isNextDisabled}
               onClick={() => {
@@ -220,7 +231,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
 });
 
 export { Pagination };
-export type { PaginationSize };
+export type { PaginationSize, PaginationShape };
 export type { PaginationLabels } from './Pagination.labels';
 export { DEFAULT_LABELS as DEFAULT_PAGINATION_LABELS } from './Pagination.labels';
 export default Pagination;
