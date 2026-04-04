@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "A polymorphic button component supporting multiple variants, sizes, and states including loading. Always renders a <button> element by default, but accepts an `as` prop to render as any element type (e.g., an anchor for link-styled buttons).",
   "status": "stable",
+  "anatomy": {
+    "description": "A button is composed of a label with optional leading and trailing icons. For icon-only buttons, use shape 'circle' or 'square' with leftIcon and no children.",
+    "parts": [
+      { "name": "leftIcon", "description": "Optional icon before the label", "required": false },
+      { "name": "label", "description": "Text content via children", "required": true },
+      { "name": "rightIcon", "description": "Optional icon after the label", "required": false }
+    ]
+  },
   "accessibility": {
     "role": "button",
     "keyboardInteraction": ["Enter", "Space"],

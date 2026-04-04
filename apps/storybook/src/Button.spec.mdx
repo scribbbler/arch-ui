@@ -1,7 +1,117 @@
 import { Meta } from '@storybook/blocks';
 import { Spec } from './spec/Spec';
+import { Button } from '@arch-ui/components';
 import manifest from '../../../packages/components/src/Button/Button.manifest.json';
 
 <Meta title="Buttons/Button/Spec" />
 
-<Spec manifest={manifest} />
+export const AnatomyDiagram = () => (
+  <div
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 24,
+      padding: '16px 24px',
+      border: '2px dashed #94a3b8',
+      borderRadius: 8,
+      background: '#fff',
+      position: 'relative',
+    }}
+  >
+    <div style={{ textAlign: 'center' }}>
+      <div
+        style={{
+          width: 20,
+          height: 20,
+          background: '#dbeafe',
+          border: '1px solid #3b82f6',
+          borderRadius: 4,
+          margin: '0 auto 6px',
+        }}
+      />
+      <div style={{ fontSize: 11, color: '#3b82f6', fontFamily: 'ui-monospace, monospace' }}>
+        leftIcon
+      </div>
+    </div>
+    <div style={{ textAlign: 'center' }}>
+      <div
+        style={{
+          padding: '4px 12px',
+          background: '#dcfce7',
+          border: '1px solid #22c55e',
+          borderRadius: 4,
+          fontSize: 13,
+          fontWeight: 500,
+          marginBottom: 6,
+        }}
+      >
+        Label
+      </div>
+      <div style={{ fontSize: 11, color: '#22c55e', fontFamily: 'ui-monospace, monospace' }}>
+        children
+      </div>
+    </div>
+    <div style={{ textAlign: 'center' }}>
+      <div
+        style={{
+          width: 20,
+          height: 20,
+          background: '#fef3c7',
+          border: '1px solid #f59e0b',
+          borderRadius: 4,
+          margin: '0 auto 6px',
+        }}
+      />
+      <div style={{ fontSize: 11, color: '#f59e0b', fontFamily: 'ui-monospace, monospace' }}>
+        rightIcon
+      </div>
+    </div>
+  </div>
+);
+
+export const Examples = () => (
+  <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+    <Button kind="primary">Primary</Button>
+    <Button kind="secondary">Secondary</Button>
+    <Button kind="tertiary">Tertiary</Button>
+    <Button kind="dangerPrimary">Delete</Button>
+    <Button kind="primary" disabled>Disabled</Button>
+    <Button kind="primary" isLoading>Loading</Button>
+  </div>
+);
+
+<Spec
+  manifest={manifest}
+  anatomyDiagram={<AnatomyDiagram />}
+  examples={<Examples />}
+  visualDos={[
+    {
+      label: 'One primary button per section.',
+      example: (
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Button kind="primary">Save</Button>
+          <Button kind="tertiary">Cancel</Button>
+        </div>
+      ),
+    },
+    {
+      label: 'Use dangerPrimary for destructive actions.',
+      example: <Button kind="dangerPrimary">Delete account</Button>,
+    },
+  ]}
+  visualDonts={[
+    {
+      label: 'Never use two primary buttons in the same group.',
+      example: (
+        <div style={{ display: 'flex', gap: 8 }}>
+          <Button kind="primary">Save</Button>
+          <Button kind="primary">Cancel</Button>
+        </div>
+      ),
+    },
+    {
+      label: "Don't use dangerPrimary for non-destructive actions.",
+      example: <Button kind="dangerPrimary">Continue</Button>,
+    },
+  ]}
+/>

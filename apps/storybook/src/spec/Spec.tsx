@@ -1,11 +1,21 @@
 import * as React from 'react';
 import './Spec.css';
 
+type AnatomyPart = {
+  name: string;
+  description: string;
+  required?: boolean;
+};
+
 type Manifest = {
   name: string;
   version: string;
   description: string;
   status: string;
+  anatomy?: {
+    description?: string;
+    parts: AnatomyPart[];
+  };
   accessibility: {
     role: string;
     keyboardInteraction: string[];
@@ -21,7 +31,26 @@ type Manifest = {
   tokens: string[];
 };
 
-export function Spec({ manifest }: { manifest: Manifest }) {
+type VisualExample = {
+  label: string;
+  example: React.ReactNode;
+};
+
+type SpecProps = {
+  manifest: Manifest;
+  anatomyDiagram?: React.ReactNode;
+  examples?: React.ReactNode;
+  visualDos?: VisualExample[];
+  visualDonts?: VisualExample[];
+};
+
+export function Spec({
+  manifest,
+  anatomyDiagram,
+  examples,
+  visualDos,
+  visualDonts,
+}: SpecProps) {
   return (
     <div className="arch-spec">
       <header className="arch-spec__header">
@@ -39,6 +68,47 @@ export function Spec({ manifest }: { manifest: Manifest }) {
           <span className="arch-spec__version">v{manifest.version}</span>
         </div>
       </header>
+
+      {manifest.anatomy && (
+        <Section title="Anatomy">
+          {manifest.anatomy.description && (
+            <p className="arch-spec__lead">{manifest.anatomy.description}</p>
+          )}
+          {anatomyDiagram && (
+            <div className="arch-spec__anatomy-diagram">{anatomyDiagram}</div>
+          )}
+          <table className="arch-spec__table">
+            <thead>
+              <tr>
+                <th>Part</th>
+                <th>Required</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {manifest.anatomy.parts.map((part) => (
+                <tr key={part.name}>
+                  <td>
+                    <code>{part.name}</code>
+                  </td>
+                  <td>
+                    {part.required ? (
+                      <span className="arch-spec__badge" data-tone="required">
+                        required
+                      </span>
+                    ) : (
+                      <span className="arch-spec__muted">optional</span>
+                    )}
+                  </td>
+                  <td>{part.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Section>
+      )}
+
+      {examples && <Section title="Examples">{examples}</Section>}
 
       <Section title="API">
         <table className="arch-spec__table">
@@ -128,26 +198,51 @@ export function Spec({ manifest }: { manifest: Manifest }) {
         )}
       </Section>
 
-      {manifest.usage && (
+      {(manifest.usage || visualDos || visualDonts) && (
         <Section title="Usage">
-          <div className="arch-spec__usage">
-            <div className="arch-spec__usage-col" data-kind="do">
-              <h3>Do</h3>
-              <ul>
-                {manifest.usage.do.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
+          {manifest.usage && (
+            <div className="arch-spec__usage">
+              <div className="arch-spec__usage-col" data-kind="do">
+                <h3>Do</h3>
+                <ul>
+                  {manifest.usage.do.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="arch-spec__usage-col" data-kind="dont">
+                <h3>Don't</h3>
+                <ul>
+                  {manifest.usage.dont.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="arch-spec__usage-col" data-kind="dont">
-              <h3>Don't</h3>
-              <ul>
-                {manifest.usage.dont.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
+          )}
+          {(visualDos || visualDonts) && (
+            <div
+              className="arch-spec__visual-usage"
+              style={{ marginTop: manifest.usage ? '24px' : '0' }}
+            >
+              {visualDos?.map((item, i) => (
+                <VisualExampleCard
+                  key={`do-${i}`}
+                  tone="do"
+                  label={item.label}
+                  example={item.example}
+                />
+              ))}
+              {visualDonts?.map((item, i) => (
+                <VisualExampleCard
+                  key={`dont-${i}`}
+                  tone="dont"
+                  label={item.label}
+                  example={item.example}
+                />
+              ))}
             </div>
-          </div>
+          )}
         </Section>
       )}
 
@@ -176,5 +271,25 @@ function Section({
       <h2 className="arch-spec__section-title">{title}</h2>
       {children}
     </section>
+  );
+}
+
+function VisualExampleCard({
+  tone,
+  label,
+  example,
+}: {
+  tone: 'do' | 'dont';
+  label: string;
+  example: React.ReactNode;
+}) {
+  return (
+    <div className="arch-spec__visual-card" data-tone={tone}>
+      <div className="arch-spec__visual-card-tag">
+        {tone === 'do' ? 'Do' : "Don't"}
+      </div>
+      <div className="arch-spec__visual-card-stage">{example}</div>
+      <div className="arch-spec__visual-card-label">{label}</div>
+    </div>
   );
 }

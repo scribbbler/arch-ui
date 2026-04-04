@@ -218,6 +218,92 @@
   gap: 6px;
 }
 
+.arch-spec__lead {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #555);
+  margin: 0 0 16px 0;
+}
+
+.arch-spec__anatomy-diagram {
+  padding: 32px 24px;
+  background: var(--color-background-subtle, #fafafa);
+  border: 1px solid var(--color-border-subtle, #e5e5e5);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arch-spec__badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.arch-spec__visual-usage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.arch-spec__visual-card {
+  border: 1px solid var(--color-border-subtle, #e5e5e5);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-spec__visual-card[data-tone='do'] {
+  border-top: 3px solid #22c55e;
+}
+
+.arch-spec__visual-card[data-tone='dont'] {
+  border-top: 3px solid #ef4444;
+}
+
+.arch-spec__visual-card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 12px 4px;
+}
+
+.arch-spec__visual-card[data-tone='do'] .arch-spec__visual-card-tag {
+  color: #166534;
+}
+
+.arch-spec__visual-card[data-tone='dont'] .arch-spec__visual-card-tag {
+  color: #991b1b;
+}
+
+.arch-spec__visual-card-stage {
+  padding: 24px 16px;
+  background: var(--color-background-subtle, #fafafa);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.arch-spec__visual-card-label {
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #555);
+  border-top: 1px solid var(--color-border-subtle, #e5e5e5);
+}
+
 .arch-spec__tokens code {
   font-size: 12px;
   font-family: var(--typography-family-mono, ui-monospace, monospace);
