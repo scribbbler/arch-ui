@@ -5,6 +5,64 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+export const DoDont = ({doText, dontText, doLabel = 'Do', dontLabel = "Don't", cautionText, cautionLabel = 'Caution'}) => (
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0'}}>
+    <div>
+      <div style={{background: '#E6F2ED', borderRadius: '12px', padding: '32px', minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px'}}>
+        <div style={{background: 'white', borderRadius: '12px', padding: '24px', width: '100%', textAlign: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}>
+          {doText}
+        </div>
+      </div>
+      <span style={{display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#E6F2ED', padding: '4px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 600}}>✓ {doLabel}</span>
+    </div>
+    <div>
+      <div style={{background: dontLabel === 'Caution' ? '#FFF1E1' : '#FFF0EE', borderRadius: '12px', padding: '32px', minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px'}}>
+        <div style={{background: 'white', borderRadius: '12px', padding: '24px', width: '100%', textAlign: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}>
+          {dontText || cautionText}
+        </div>
+      </div>
+      <span style={{display: 'inline-flex', alignItems: 'center', gap: '6px', background: dontLabel === 'Caution' ? '#FFF1E1' : '#FFF0EE', padding: '4px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 600}}>
+        {dontLabel === 'Caution' ? '!' : '✕'} {cautionText ? cautionLabel : dontLabel}
+      </span>
+    </div>
+  </div>
+);
+
+export const Section = ({children, gray}) => (
+  <div style={{background: gray ? '#F3F3F3' : 'transparent', padding: gray ? '48px 0' : '0', margin: gray ? '32px -16px' : '0'}}>
+    <div style={{maxWidth: '800px', margin: '0 auto', padding: '0 24px'}}>
+      {children}
+    </div>
+  </div>
+);
+
+export const ButtonPreview = ({label, variant = 'primary', shape = 'default', icon, style = {}}) => {
+  const bgMap = {primary: '#282828', secondary: '#E8E8E8', tertiary: 'transparent', dangerPrimary: '#DE1135', dangerSecondary: '#FFF0EE'};
+  const colorMap = {primary: 'white', secondary: '#282828', tertiary: '#282828', dangerPrimary: 'white', dangerSecondary: '#DE1135'};
+  const radiusMap = {default: '8px', pill: '9999px', circle: '50%', square: '8px'};
+  const isCircleOrSquare = shape === 'circle' || shape === 'square';
+  return (
+    <div style={{
+      background: bgMap[variant] || '#282828',
+      color: colorMap[variant] || 'white',
+      padding: isCircleOrSquare ? '0' : '14px 32px',
+      borderRadius: radiusMap[shape],
+      fontWeight: 500,
+      fontSize: '16px',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '8px',
+      width: isCircleOrSquare ? '48px' : 'auto',
+      height: isCircleOrSquare ? '48px' : 'auto',
+      border: variant === 'dangerSecondary' ? '1px solid #FFD2CD' : 'none',
+      ...style,
+    }}>
+      {icon}{label}
+    </div>
+  );
+};
+
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Buttons</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
@@ -19,8 +77,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#F3F3F3', padding: '48px 0', margin: '0 -16px 48px'}}>
-<div style={{maxWidth: '800px', margin: '0 auto', padding: '0 24px'}}>
+<Section gray>
 
 ## Principles
 
@@ -33,8 +90,7 @@ Buttons work with other elements on a screen to surface the most important actio
 ### Incisive
 Buttons capture user intent concisely, distilling the action a user wants to take into an inclusive word or phrase.
 
-</div>
-</div>
+</Section>
 
 ---
 
@@ -43,28 +99,22 @@ Buttons capture user intent concisely, distilling the action a user wants to tak
 The most basic setup of a button includes only a single label or icon. Still, a button can also be customized to include a label with a leading icon and a trailing icon. Circle buttons can also support an additional label below the button's container.
 
 <div style={{background: '#F9F9F9', borderRadius: '12px', padding: '40px', margin: '24px 0'}}>
-<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center'}}>
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px'}}>
 <div style={{textAlign: 'center'}}>
-  <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#282828', color: 'white', padding: '12px 24px', borderRadius: '8px', fontSize: '16px', fontWeight: 500}}>Label</div>
-  <div style={{marginTop: '16px'}}>
-    <span style={{color: '#DE1135', fontSize: '13px', fontWeight: 500}}>Label</span><br/>
-    <span style={{color: '#DE1135', fontSize: '12px'}}>(recommended)</span>
-  </div>
-  <div style={{marginTop: '8px'}}>
-    <span style={{color: '#DE1135', fontSize: '13px', fontWeight: 500}}>Container</span><br/>
-    <span style={{color: '#DE1135', fontSize: '12px'}}>(required)</span>
+  <ButtonPreview label="Label" />
+  <div style={{marginTop: '16px', fontSize: '13px'}}>
+    <div style={{color: '#DE1135', fontWeight: 600}}>Label <span style={{fontWeight: 400}}>(recommended)</span></div>
+    <div style={{color: '#DE1135', fontWeight: 600, marginTop: '4px'}}>Container <span style={{fontWeight: 400}}>(required)</span></div>
   </div>
 </div>
 <div style={{textAlign: 'center'}}>
-  <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#282828', color: 'white', padding: '12px 24px', borderRadius: '8px', fontSize: '16px', fontWeight: 500}}>
-    <span>♥</span> Label <span>▸</span>
-  </div>
-  <div style={{marginTop: '16px'}}>
-    <span style={{color: '#DE1135', fontSize: '13px', fontWeight: 500}}>Leading Icon</span>
-    <span style={{color: '#DE1135', fontSize: '12px'}}> (optional)</span>
-    {' · '}
-    <span style={{color: '#DE1135', fontSize: '13px', fontWeight: 500}}>Trailing Icon</span>
-    <span style={{color: '#DE1135', fontSize: '12px'}}> (optional)</span>
+  <ButtonPreview label="Label" icon={<span>♥</span>} style={{paddingRight: '24px'}} />
+  <div style={{marginTop: '16px', fontSize: '13px'}}>
+    <span style={{color: '#DE1135', fontWeight: 600}}>Leading Icon</span>
+    <span style={{color: '#DE1135'}}> (optional)</span>
+    <span> · </span>
+    <span style={{color: '#DE1135', fontWeight: 600}}>Trailing Icon</span>
+    <span style={{color: '#DE1135'}}> (optional)</span>
   </div>
 </div>
 </div>
@@ -79,7 +129,7 @@ Buttons come in rectangular, circle, square, and pill shapes.
 <div style={{display: 'grid', gridTemplateColumns: '200px 1fr', gap: '32px', alignItems: 'start', margin: '32px 0'}}>
 
 <div style={{display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#282828', color: 'white', padding: '14px 48px', borderRadius: '8px', fontSize: '16px', fontWeight: 500, textAlign: 'center'}}>Label</div>
+  <ButtonPreview label="Label" style={{padding: '14px 64px'}} />
 </div>
 <div>
 
@@ -90,7 +140,7 @@ Rectangular buttons are typically used at fixed widths, 100% and 50% width on mo
 </div>
 
 <div style={{display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#E8E8E8', width: '48px', height: '48px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}>♥</div>
+  <ButtonPreview icon="♥" shape="circle" variant="secondary" />
 </div>
 <div>
 
@@ -101,7 +151,7 @@ Circular buttons can include a text label or an icon. An optional label below is
 </div>
 
 <div style={{display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#E8E8E8', width: '48px', height: '48px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 500}}>01</div>
+  <ButtonPreview label="01" shape="square" variant="secondary" />
 </div>
 <div>
 
@@ -112,7 +162,7 @@ Square buttons, similar to circle buttons, can include a text label or an icon. 
 </div>
 
 <div style={{display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#E8E8E8', padding: '10px 20px', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 500}}>♥ Label</div>
+  <ButtonPreview label="Label" icon="♥" variant="secondary" shape="pill" />
 </div>
 <div>
 
@@ -126,15 +176,13 @@ Pill buttons are more commonly in line with other content and controls.
 
 ---
 
-<div style={{background: '#F3F3F3', padding: '48px 0', margin: '0 -16px 48px'}}>
-<div style={{maxWidth: '800px', margin: '0 auto', padding: '0 24px'}}>
+<Section gray>
 
 ## Usage
 
 Use buttons to let users take action, make choices, and move forward. Buttons can navigate to other pages while completing an action like purchasing or submitting a form.
 
-</div>
-</div>
+</Section>
 
 ## Hierarchy
 
@@ -142,87 +190,144 @@ Button hierarchy emphasizes which button is more important in the context so the
 
 <div style={{background: '#F9F9F9', borderRadius: '12px', padding: '40px', margin: '24px 0'}}>
 <div style={{display: 'flex', flexDirection: 'column', gap: '24px'}}>
-  <div style={{display: 'flex', alignItems: 'center', gap: '24px'}}>
-    <div style={{width: '200px'}}>
+  <div style={{display: 'flex', alignItems: 'center', gap: '32px'}}>
+    <div style={{width: '240px'}}>
       <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Highest emphasis</div>
       <div style={{color: '#727272', fontSize: '12px'}}>primary container color</div>
     </div>
-    <div style={{background: '#282828', color: 'white', padding: '14px 32px', borderRadius: '8px', fontWeight: 500}}>Save</div>
+    <ButtonPreview label="Save" />
   </div>
-  <div style={{display: 'flex', alignItems: 'center', gap: '24px'}}>
-    <div style={{width: '200px'}}>
+  <div style={{display: 'flex', alignItems: 'center', gap: '32px'}}>
+    <div style={{width: '240px'}}>
       <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Medium emphasis</div>
       <div style={{color: '#727272', fontSize: '12px'}}>secondary container color</div>
     </div>
-    <div style={{background: '#E8E8E8', color: '#282828', padding: '14px 32px', borderRadius: '8px', fontWeight: 500}}>Edit</div>
+    <ButtonPreview label="Edit" variant="secondary" />
   </div>
-  <div style={{display: 'flex', alignItems: 'center', gap: '24px'}}>
-    <div style={{width: '200px'}}>
+  <div style={{display: 'flex', alignItems: 'center', gap: '32px'}}>
+    <div style={{width: '240px'}}>
       <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Low emphasis</div>
       <div style={{color: '#727272', fontSize: '12px'}}>transparent container color</div>
     </div>
-    <div style={{color: '#282828', padding: '14px 32px', fontWeight: 500}}>Cancel</div>
+    <ButtonPreview label="Cancel" variant="tertiary" />
   </div>
 </div>
 </div>
 
-In general, follow these guidelines for choosing the hierarchy of a button:
+Buttons use color and contrast to create three levels of emphasis and hierarchy. The buttons with the strongest emphasis are primary, followed by secondary, then tertiary.
 
 | Hierarchy | Emphasis | # per context | Use for |
 |-----------|----------|---------------|---------|
 | Primary | High | 1 | **The most important action** to move forward in a flow, acknowledge and dismiss, or finish a task. |
 | Secondary | Medium | Many | **Most actions** are in line with other content. |
-| Tertiary | Low | A few | **Dismissive actions** give users a way out of something, letting them cancel, do nothing, dismiss, or skip. |
+| Tertiary | Low | A few | **Dismissive actions** give users a way out — cancel, do nothing, dismiss, or skip. |
 
-**Primary**
+---
+
+### Primary
 
 Use one primary button per context to allow users to take a specific action, move forward in a flow, acknowledge and dismiss, or finish a task.
 
-**Secondary**
+<DoDont
+  doText={<div><ButtonPreview label="Secondary" variant="secondary" style={{width: '100%', marginBottom: '8px'}} /><ButtonPreview label="Primary" style={{width: '100%', marginBottom: '8px'}} /><ButtonPreview label="Tertiary" variant="tertiary" style={{width: '100%'}} /></div>}
+  dontText={<div><ButtonPreview label="Primary" style={{width: '100%', marginBottom: '8px'}} /><ButtonPreview label="Primary" style={{width: '100%', marginBottom: '8px'}} /><ButtonPreview label="Tertiary" variant="tertiary" style={{width: '100%'}} /></div>}
+/>
 
-Secondary buttons are used for most actions that are in line with other content. They can be paired with a primary button.
+Use one primary button per context to highlight the action the user will most likely take.
 
-**Tertiary**
-
-Tertiary buttons are for dismissive or low-emphasis actions. Use them for cancel, back, skip, or learn more.
-
----
-
-## Danger Variants
-
-For destructive actions, use the danger kinds to communicate risk.
-
-| Kind | Emphasis | Use for |
-|------|----------|---------|
-| `dangerPrimary` | High | Irreversible destructive actions (delete account) |
-| `dangerSecondary` | Medium | Destructive with confirmation step (remove item) |
-| `dangerTertiary` | Low | Dismissive destructive (unsubscribe) |
+Avoid using multiple primary buttons on a screen.
 
 ---
 
-## Sizes
+### Secondary
 
-| Size | Height | Font | Use case |
-|------|--------|------|----------|
-| `mini` | 28px | 12px / Label XSmall | Dense UI, table row actions |
-| `compact` | 36px | 14px / Label Small | Toolbars, compact forms |
-| `default` | 48px | 16px / Label Medium | Standard forms and pages |
-| `large` | 56px | 18px / Label Large | Hero CTAs, prominent actions |
+Secondary buttons are the bread and butter of the button world. Lean into them whenever possible. The gray background protection provides higher visibility, making them more accessible than tertiary buttons.
 
-:::tip Do
-- Use `primary` for the single most important action on the page
-- Pair with `secondary` or `tertiary` for supporting actions
-- Always provide visible text label — icon-only buttons need `aria-label`
-- Use `isLoading` with `loadingText` so users know what's happening
-:::
+<DoDont
+  doText={<div><ButtonPreview label="Change" variant="secondary" /><div style={{marginTop: '16px'}}><ButtonPreview label="Edit" variant="secondary" style={{width: '100%'}} /></div></div>}
+  dontText={<div><ButtonPreview label="Change address" variant="primary" style={{borderRadius: '9999px'}} /><div style={{marginTop: '16px', fontSize: '13px', color: '#727272'}}>Avoid using primary buttons in the middle of the page</div></div>}
+  dontLabel="Caution"
+/>
 
-:::danger Don't
-- Don't use multiple `primary` buttons in the same section
-- Don't use `dangerPrimary` for non-destructive actions
-- Don't disable buttons without explaining why
-- Don't put interactive elements inside a button
-- Don't use `shape="circle"` with text content — it will overflow
-:::
+Do use secondary buttons inline with list items and other elements.
+
+Avoid using primary buttons in the middle of the page (use secondary buttons instead). Primary actions usually should be pinned at the bottom.
+
+---
+
+### Tertiary
+
+Tertiary buttons are mainly used for **dismissive actions** that give users a way out of something, letting them do nothing, dismiss, or skip.
+
+<DoDont
+  doText={<div><ButtonPreview label="Save" style={{width: '100%', marginBottom: '8px'}} /><ButtonPreview label="Cancel" variant="tertiary" style={{width: '100%'}} /></div>}
+  dontText={<div><ButtonPreview label="Save" style={{width: '100%', marginBottom: '8px'}} /><ButtonPreview label="Cancel" variant="secondary" style={{width: '100%'}} /></div>}
+/>
+
+Do treat buttons with a dismissive behavior similar to "Cancel" with the tertiary style.
+
+Avoid using secondary-style buttons for dismissive actions.
+
+---
+
+## Destructive buttons
+
+Destructive buttons are actions that permanently cause data loss. Because these actions can not be undone, using button hierarchy is essential to reduce errors. Two levels of destructive buttons are typically used together: secondary destructive and primary destructive.
+
+<div style={{background: '#F9F9F9', borderRadius: '12px', padding: '32px', margin: '24px 0'}}>
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px', textAlign: 'center'}}>
+  <div style={{fontSize: '13px', color: '#727272', fontWeight: 500}}>Primary</div>
+  <div style={{fontSize: '13px', color: '#727272', fontWeight: 500}}>Secondary</div>
+  <div style={{fontSize: '13px', color: '#727272', fontWeight: 500}}>Tertiary</div>
+  <div><ButtonPreview label="Delete" variant="dangerPrimary" /></div>
+  <div><ButtonPreview label="Delete" variant="dangerSecondary" /></div>
+  <div style={{color: '#727272'}}>N/A</div>
+</div>
+</div>
+
+**Provide additional friction to prevent user error**
+
+If a flow includes an action that could be destructive, it's important to give users a chance to double-check before it's completed. The initial action should be designed in a way that suggests caution, using a secondary destructive button, and then a final confirmation dialog should appear with a more obvious warning, using a primary destructive button.
+
+<DoDont
+  doText={<div><ButtonPreview label="Logout" variant="secondary" icon="→" style={{width: '100%', marginBottom: '16px'}} /><ButtonPreview label="Choose from library" style={{width: '100%', marginBottom: '8px'}} /><ButtonPreview label="Cancel" variant="tertiary" style={{width: '100%'}} /></div>}
+  dontText={<div><ButtonPreview label="Logout" variant="dangerSecondary" icon="→" style={{width: '100%', marginBottom: '16px'}} /><ButtonPreview label="Choose from library" style={{width: '100%', marginBottom: '8px'}} /><ButtonPreview label="Cancel" variant="dangerSecondary" style={{width: '100%'}} /></div>}
+/>
+
+Do use standard buttons for actions that don't cause data loss.
+
+Don't use destructive actions for actions that don't cause data loss, like logging out or canceling a task.
+
+---
+
+## Best practices
+
+### Everything is a button
+
+In principle, try to think of the most actionable elements as buttons. Thinking and building this way ensures we have the right touch target areas and user feedback. It also makes our experiences easier to localize and friendlier for people using screen readers.
+
+### Avoid disabled buttons
+
+Disabled buttons can be confusing and frustrating for many users and can be difficult to spot for those with low vision. To make things easier, try to enable the button so users can tap it, and provide an error message if any information is missing or incorrect. If you must use a disabled button, include clarifying text, an error message, or a tooltip to explain why.
+
+### Leading icons convey meaning, trailing icons indicate affordance
+
+Use leading icons to reinforce the button label's meaning and trailing icons as an affordance of what will happen when you interact with the button.
+
+<div style={{background: '#F9F9F9', borderRadius: '12px', padding: '32px', margin: '24px 0', textAlign: 'center'}}>
+<div style={{display: 'inline-flex', alignItems: 'center', gap: '4px'}}>
+  <div style={{textAlign: 'right', fontSize: '13px'}}>
+    <div style={{color: '#DE1135', fontWeight: 600}}>Leading Icon</div>
+    <div style={{color: '#DE1135'}}>Reinforces meaning of label</div>
+  </div>
+  <div style={{display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#E8E8E8', padding: '10px 16px', borderRadius: '8px', fontWeight: 500}}>♥ Favorites ▾</div>
+  <div style={{textAlign: 'left', fontSize: '13px'}}>
+    <div style={{color: '#DE1135', fontWeight: 600}}>Trailing Icon</div>
+    <div style={{color: '#DE1135'}}>Affordance for what happens</div>
+    <div style={{color: '#DE1135'}}>after I interact, e.g. opens a menu</div>
+  </div>
+</div>
+</div>
 
 **Common alternative names:** Action, call to action, CTA
 
@@ -261,7 +366,7 @@ For destructive actions, use the danger kinds to communicate risk.
 | Default | Base background | — |
 | Hover | One shade darker | — |
 | Active/Pressed | Two shades darker | — |
-| Focus | Inset 2px ring (`--color-border-focus`) | — |
+| Focus | Inset 2px ring | — |
 | Disabled | 50% opacity | `disabled` attribute |
 | Loading | Spinner + optional text | `aria-busy="true"` |
 | Selected | Active shade background | `aria-pressed="true"` |
@@ -285,7 +390,6 @@ For destructive actions, use the danger kinds to communicate risk.
 | `--color-border-focus` | Focus ring |
 | `--typography-scale-label-*-font-size` | Font per size |
 | `--radius-md`, `--radius-sm`, `--radius-full` | Border radius per shape |
-| `--motion-duration-fast` | Transition speed |
 
 </TabItem>
 <TabItem value="content" label="Content">
@@ -310,7 +414,12 @@ When `isLoading` is true, replace the label with a present participle:
 - Icons should reinforce the label, not replace it (except icon-only buttons)
 - Use `startEnhancer` for action icons (add, search, download)
 - Use `endEnhancer` for directional icons (arrow right, external link, chevron)
-- Keep icons at 16–24px depending on button size
+
+## Related vs Opposite Actions
+
+**Related actions** share a common goal (e.g., "End ride" / "Unlock"). Use the same hierarchy level.
+
+**Opposite actions** conflict (e.g., "Cancel order" / "Continue order"). Use different hierarchy levels — primary for the forward action, tertiary for the dismissive action.
 
 </TabItem>
 <TabItem value="changelog" label="Status & Changelog">
