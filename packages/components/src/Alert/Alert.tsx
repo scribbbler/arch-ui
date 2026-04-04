@@ -137,8 +137,8 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
       </span>
       {showClose && (
         <IconButton
-          variant="ghost"
-          size="sm"
+          kind="tertiary"
+          size="compact"
           className="arch-alert__close"
           aria-label={mergedLabels.dismiss}
           onClick={onClose}

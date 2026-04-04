@@ -193,8 +193,8 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
       </span>
       {closeable && (
         <IconButton
-          variant="ghost"
-          size="sm"
+          kind="tertiary"
+          size="compact"
           className="arch-toast__close"
           aria-label={mergedLabels.dismiss}
           onClick={dismiss}

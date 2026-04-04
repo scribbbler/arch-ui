@@ -111,8 +111,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
         {showFirstLast && (
           <li className="arch-pagination__item">
             <IconButton
-              variant="ghost"
-              size="sm"
+              kind="tertiary"
+              size="compact"
               className="arch-pagination__btn"
               aria-label={mergedLabels.firstPage}
               aria-disabled={isPrevDisabled ? 'true' : undefined}
@@ -128,8 +128,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
         {/* Previous page */}
         <li className="arch-pagination__item">
           <IconButton
-            variant="ghost"
-            size="sm"
+            kind="tertiary"
+            size="compact"
             className="arch-pagination__btn"
             aria-label={mergedLabels.previousPage}
             aria-disabled={isPrevDisabled ? 'true' : undefined}
@@ -158,8 +158,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           return (
             <li key={`page-${page}-${index}`} className="arch-pagination__item">
               <Button
-                variant={isCurrent ? 'primary' : 'ghost'}
-                size="sm"
+                kind={isCurrent ? 'primary' : 'tertiary'}
+                size="compact"
                 className="arch-pagination__btn"
                 aria-label={mergedLabels.goToPage(page)}
                 aria-current={isCurrent ? 'page' : undefined}
@@ -176,8 +176,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
         {/* Next page */}
         <li className="arch-pagination__item">
           <IconButton
-            variant="ghost"
-            size="sm"
+            kind="tertiary"
+            size="compact"
             className="arch-pagination__btn"
             aria-label={mergedLabels.nextPage}
             aria-disabled={isNextDisabled ? 'true' : undefined}
@@ -193,8 +193,8 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
         {showFirstLast && (
           <li className="arch-pagination__item">
             <IconButton
-              variant="ghost"
-              size="sm"
+              kind="tertiary"
+              size="compact"
               className="arch-pagination__btn"
               aria-label={mergedLabels.lastPage}
               aria-disabled={isNextDisabled ? 'true' : undefined}

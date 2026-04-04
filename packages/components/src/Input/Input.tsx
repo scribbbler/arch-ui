@@ -186,8 +186,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
       {showClear && !rightElement && (
         <IconButton
-          variant="ghost"
-          size="sm"
+          kind="tertiary"
+          size="compact"
           className="arch-input__clear"
           onClick={handleClear}
           aria-label="Clear input"

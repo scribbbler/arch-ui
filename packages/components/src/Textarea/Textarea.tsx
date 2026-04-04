@@ -184,8 +184,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         />
         {showClear && (
           <IconButton
-            variant="ghost"
-            size="sm"
+            kind="tertiary"
+            size="compact"
             className="arch-textarea__clear"
             onClick={handleClear}
             aria-label="Clear textarea"

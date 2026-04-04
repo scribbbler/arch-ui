@@ -3,8 +3,8 @@ import './IconButton.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
-export type IconButtonVariant = 'primary' | 'secondary' | 'ghost' | 'destructive' | 'link';
-export type IconButtonSize = 'sm' | 'md' | 'lg';
+export type IconButtonKind = 'primary' | 'secondary' | 'tertiary' | 'dangerPrimary' | 'dangerSecondary' | 'dangerTertiary';
+export type IconButtonSize = 'mini' | 'compact' | 'default' | 'large';
 
 export interface IconButtonProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
@@ -16,16 +16,34 @@ export interface IconButtonProps
   /** The icon to render inside the button. */
   icon?: React.ReactNode;
   /** Visual style. Defaults to 'primary'. */
-  variant?: IconButtonVariant;
-  /** Size. Defaults to 'md'. */
+  kind?: IconButtonKind;
+  /** Size. Defaults to 'default'. */
   size?: IconButtonSize;
   /** Disables the button. */
   disabled?: boolean;
   /** Shows a spinner and disables the button. Sets aria-busy. */
-  loading?: boolean;
+  isLoading?: boolean;
   /** Additional class names. */
   className?: string;
 }
+
+/* ─── Kind/size → CSS class maps ─────────────────────────────────────────────── */
+
+const kindClassMap: Record<IconButtonKind, string> = {
+  primary: 'arch-icon-button--primary',
+  secondary: 'arch-icon-button--secondary',
+  tertiary: 'arch-icon-button--tertiary',
+  dangerPrimary: 'arch-icon-button--danger-primary',
+  dangerSecondary: 'arch-icon-button--danger-secondary',
+  dangerTertiary: 'arch-icon-button--danger-tertiary',
+};
+
+const sizeClassMap: Record<IconButtonSize, string> = {
+  mini: 'arch-icon-button--mini',
+  compact: 'arch-icon-button--compact',
+  default: 'arch-icon-button--default',
+  large: 'arch-icon-button--large',
+};
 
 /* ─── Component ──────────────────────────────────────────────────────────────── */
 
@@ -37,18 +55,18 @@ export interface IconButtonProps
  * omitted, because without it the button has no accessible name.
  *
  * @example
- * <IconButton aria-label="Close dialog" icon={<CloseIcon />} variant="ghost" />
- * <IconButton aria-label="Delete item" icon={<TrashIcon />} variant="destructive" />
+ * <IconButton aria-label="Close dialog" icon={<CloseIcon />} kind="tertiary" />
+ * <IconButton aria-label="Delete item" icon={<TrashIcon />} kind="dangerPrimary" />
  */
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(
     {
       'aria-label': ariaLabel,
       icon,
-      variant = 'primary',
-      size = 'md',
+      kind = 'primary',
+      size = 'default',
       disabled = false,
-      loading = false,
+      isLoading = false,
       className,
       onClick,
       type = 'button',
@@ -67,13 +85,13 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       }
     }
 
-    const isDisabled = disabled || loading;
+    const isDisabled = disabled || isLoading;
 
     const classes = [
       'arch-icon-button',
-      `arch-icon-button--${variant}`,
-      `arch-icon-button--${size}`,
-      loading && 'arch-icon-button--loading',
+      kindClassMap[kind],
+      sizeClassMap[size],
+      isLoading && 'arch-icon-button--loading',
       className,
     ]
       .filter(Boolean)
@@ -87,26 +105,24 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         className={classes}
         disabled={isDisabled}
         aria-label={ariaLabel}
-        aria-busy={loading ? true : undefined}
+        aria-busy={isLoading ? true : undefined}
         onClick={isDisabled ? undefined : onClick}
       >
-        {loading ? (
+        {isLoading ? (
           <span
             className="arch-icon-button__spinner"
             role="presentation"
             aria-hidden="true"
           />
         ) : (
-          icon && (
-            <span className="arch-icon-button__icon" aria-hidden="true">
-              {icon}
-            </span>
-          )
+          icon
         )}
       </button>
     );
   }
 );
+
+IconButton.displayName = 'IconButton';
 
 export { IconButton };
 export default IconButton;

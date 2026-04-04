@@ -81,8 +81,8 @@ const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function ModalHead
       </h2>
       {onClose && (
         <IconButton
-          variant="ghost"
-          size="sm"
+          kind="tertiary"
+          size="compact"
           className="arch-modal__close"
           aria-label={mergedLabels.close}
           onClick={onClose}
@@ -137,7 +137,7 @@ const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(function ModalFoot
  *   <ModalBody>…content…</ModalBody>
  *   <ModalFooter>
  *     <Button onClick={onClose}>Cancel</Button>
- *     <Button variant="primary" onClick={handleSave}>Save</Button>
+ *     <Button kind="primary" onClick={handleSave}>Save</Button>
  *   </ModalFooter>
  * </Modal>
  */

@@ -3,8 +3,15 @@ import './Button.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'destructive' | 'link';
-export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
+export type ButtonKind =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'dangerPrimary'
+  | 'dangerSecondary'
+  | 'dangerTertiary';
+
+export type ButtonSize = 'mini' | 'compact' | 'default' | 'large';
 export type ButtonShape = 'default' | 'pill' | 'circle' | 'square';
 
 /**
@@ -18,8 +25,8 @@ type PolymorphicRef<E extends ElementType> = ComponentPropsWithRef<E>['ref'];
  */
 export interface BaseButtonProps {
   /** Visual style. Defaults to 'primary'. */
-  variant?: ButtonVariant;
-  /** Size. Defaults to 'md'. */
+  kind?: ButtonKind;
+  /** Size. Defaults to 'default'. */
   size?: ButtonSize;
   /** Shape of the button. Defaults to 'default'. */
   shape?: ButtonShape;
@@ -28,13 +35,13 @@ export interface BaseButtonProps {
   /** Disables the button. */
   disabled?: boolean;
   /** Shows a spinner and disables the button. Sets aria-busy. */
-  loading?: boolean;
+  isLoading?: boolean;
   /** Visible label to display while loading. Replaces children. */
   loadingText?: string;
-  /** Node rendered to the inline-start of the label. */
-  leftIcon?: React.ReactNode;
-  /** Node rendered to the inline-end of the label. */
-  rightIcon?: React.ReactNode;
+  /** A helper rendered at the start of the button. */
+  startEnhancer?: React.ReactNode;
+  /** A helper rendered at the end of the button. */
+  endEnhancer?: React.ReactNode;
   /** Stretches button to 100% container width. */
   fullWidth?: boolean;
   /** HTML button type. Defaults to 'button'. */
@@ -56,6 +63,24 @@ export type ButtonProps<E extends ElementType = 'button'> = BaseButtonProps & {
   as?: E;
 } & Omit<ComponentPropsWithRef<E>, keyof BaseButtonProps | 'as'>;
 
+/* ─── Kind → CSS class mapping ───────────────────────────────────────────────── */
+
+const kindClassMap: Record<ButtonKind, string> = {
+  primary: 'arch-button--primary',
+  secondary: 'arch-button--secondary',
+  tertiary: 'arch-button--tertiary',
+  dangerPrimary: 'arch-button--danger-primary',
+  dangerSecondary: 'arch-button--danger-secondary',
+  dangerTertiary: 'arch-button--danger-tertiary',
+};
+
+const sizeClassMap: Record<ButtonSize, string> = {
+  mini: 'arch-button--mini',
+  compact: 'arch-button--compact',
+  default: 'arch-button--default',
+  large: 'arch-button--large',
+};
+
 /* ─── Component ──────────────────────────────────────────────────────────────── */
 
 type ButtonComponent = <E extends ElementType = 'button'>(
@@ -70,24 +95,24 @@ type ButtonComponent = <E extends ElementType = 'button'>(
  * while keeping the visual style.
  *
  * @example
- * <Button variant="primary" size="md" onClick={handleSave}>Save</Button>
- * <Button as="a" href="/profile" variant="link">View profile</Button>
- * <Button loading loadingText="Saving…">Save</Button>
+ * <Button kind="primary" size="default" onClick={handleSave}>Save</Button>
+ * <Button as="a" href="/profile" kind="tertiary">View profile</Button>
+ * <Button isLoading loadingText="Saving…">Save</Button>
  */
 const Button: ButtonComponent = forwardRef(function Button<
   E extends ElementType = 'button'
 >(
   {
     as,
-    variant = 'primary',
-    size = 'md',
+    kind = 'primary',
+    size = 'default',
     shape = 'default',
     isSelected = false,
     disabled = false,
-    loading = false,
+    isLoading = false,
     loadingText,
-    leftIcon,
-    rightIcon,
+    startEnhancer,
+    endEnhancer,
     fullWidth = false,
     type = 'button',
     className,
@@ -98,15 +123,15 @@ const Button: ButtonComponent = forwardRef(function Button<
   ref: PolymorphicRef<E>
 ) {
   const Tag = (as ?? 'button') as ElementType;
-  const isDisabled = disabled || loading;
+  const isDisabled = disabled || isLoading;
 
   const classes = [
     'arch-button',
-    `arch-button--${variant}`,
-    `arch-button--${size}`,
+    kindClassMap[kind],
+    sizeClassMap[size],
     shape !== 'default' && `arch-button--shape-${shape}`,
     isSelected && 'arch-button--selected',
-    loading && 'arch-button--loading',
+    isLoading && 'arch-button--loading',
     fullWidth && 'arch-button--full-width',
     className,
   ]
@@ -116,7 +141,7 @@ const Button: ButtonComponent = forwardRef(function Button<
   /* Only pass `type` when rendering a <button> element to avoid invalid HTML. */
   const typeAttr = Tag === 'button' ? type : undefined;
 
-  const label = loading && loadingText ? loadingText : children;
+  const label = isLoading && loadingText ? loadingText : children;
 
   return (
     <Tag
@@ -126,11 +151,11 @@ const Button: ButtonComponent = forwardRef(function Button<
       className={classes}
       disabled={Tag === 'button' ? isDisabled : undefined}
       aria-disabled={Tag !== 'button' && isDisabled ? true : undefined}
-      aria-busy={loading ? true : undefined}
+      aria-busy={isLoading ? true : undefined}
       aria-pressed={isSelected ? true : undefined}
       onClick={isDisabled ? undefined : onClick}
     >
-      {loading ? (
+      {isLoading ? (
         <>
           <span
             className="arch-button__spinner"
@@ -143,17 +168,17 @@ const Button: ButtonComponent = forwardRef(function Button<
         </>
       ) : (
         <>
-          {leftIcon && (
-            <span className="arch-button__icon arch-button__icon--left" aria-hidden="true">
-              {leftIcon}
+          {startEnhancer && (
+            <span className="arch-button__enhancer arch-button__enhancer--start" aria-hidden="true">
+              {startEnhancer}
             </span>
           )}
           {label && (
             <span className="arch-button__label">{label}</span>
           )}
-          {rightIcon && (
-            <span className="arch-button__icon arch-button__icon--right" aria-hidden="true">
-              {rightIcon}
+          {endEnhancer && (
+            <span className="arch-button__enhancer arch-button__enhancer--end" aria-hidden="true">
+              {endEnhancer}
             </span>
           )}
         </>

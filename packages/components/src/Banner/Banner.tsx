@@ -79,8 +79,8 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
       <span className="arch-banner__content">{children}</span>
       {actionText && onAction && (
         <Button
-          variant="ghost"
-          size="sm"
+          kind="tertiary"
+          size="compact"
           className="arch-banner__action"
           onClick={onAction}
         >
@@ -89,8 +89,8 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
       )}
       {onClose && (
         <IconButton
-          variant="ghost"
-          size="sm"
+          kind="tertiary"
+          size="compact"
           className="arch-banner__close"
           aria-label="Dismiss banner"
           onClick={onClose}

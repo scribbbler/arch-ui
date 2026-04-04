@@ -119,8 +119,8 @@ const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag(
       <span className="arch-tag__label">{children}</span>
       {showRemove && (
         <IconButton
-          variant="ghost"
-          size="sm"
+          kind="tertiary"
+          size="compact"
           className="arch-tag__remove"
           aria-label={removeLabel}
           onClick={onRemove}
