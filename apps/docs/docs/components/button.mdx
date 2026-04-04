@@ -762,7 +762,7 @@ For screens wider than 600px the Button will be in its original size and aligned
 </TabItem>
 <TabItem value="specs" label="Specs">
 
-## Props
+<h2>Props</h2>
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -778,7 +778,7 @@ For screens wider than 600px the Button will be in its original size and aligned
 | `fullWidth` | `boolean` | `false` | Stretches to 100% width |
 | `as` | `ElementType` | `'button'` | Polymorphic root element |
 
-## Spacing
+<h2>Spacing</h2>
 
 | Size | Padding Y | Padding X | Min Height | Icon Size |
 |------|-----------|-----------|------------|-----------|
@@ -787,7 +787,7 @@ For screens wider than 600px the Button will be in its original size and aligned
 | default | 14px | 16px | 48px | 20px |
 | large | 16px | 20px | 56px | 24px |
 
-## States
+<h2>States</h2>
 
 | State | Visual | ARIA |
 |-------|--------|------|
@@ -799,7 +799,7 @@ For screens wider than 600px the Button will be in its original size and aligned
 | Loading | Spinner + optional text | `aria-busy="true"` |
 | Selected | Active shade background | `aria-pressed="true"` |
 
-## Keyboard
+<h2>Keyboard</h2>
 
 | Key | Action |
 |-----|--------|
@@ -807,7 +807,7 @@ For screens wider than 600px the Button will be in its original size and aligned
 | `Enter` | Activate button |
 | `Space` | Activate button |
 
-## Tokens
+<h2>Tokens</h2>
 
 | Token | Purpose |
 |-------|---------|
@@ -822,14 +822,14 @@ For screens wider than 600px the Button will be in its original size and aligned
 </TabItem>
 <TabItem value="content" label="Content">
 
-## Writing Button Labels
+<h2>Writing Button Labels</h2>
 
 - **Use verbs** — "Save changes", not "Changes"
 - **Be specific** — "Delete account" instead of just "Delete"
 - **Stay concise** — 1–3 words for primary, up to 5 for secondary
 - **Use sentence case** — "Save changes", not "Save Changes"
 
-## Loading Text
+<h2>Loading Text</h2>
 
 When `isLoading` is true, replace the label with a present participle:
 
@@ -837,13 +837,13 @@ When `isLoading` is true, replace the label with a present participle:
 - "Delete" → "Deleting…"
 - "Submit" → "Submitting…"
 
-## Icon Guidelines
+<h2>Icon Guidelines</h2>
 
 - Icons should reinforce the label, not replace it (except icon-only buttons)
 - Use `startEnhancer` for action icons (add, search, download)
 - Use `endEnhancer` for directional icons (arrow right, external link, chevron)
 
-## Related vs Opposite Actions
+<h2>Related vs Opposite Actions</h2>
 
 **Related actions** share a common goal (e.g., "End ride" / "Unlock"). Use the same hierarchy level.
 
@@ -852,13 +852,13 @@ When `isLoading` is true, replace the label with a present participle:
 </TabItem>
 <TabItem value="changelog" label="Status & Changelog">
 
-## Status
+<h2>Status</h2>
 
 **Stable** — This component is production-ready and covered by semantic versioning.
 
-## Changelog
+<h2>Changelog</h2>
 
-### v0.2.0 (2026-04-04)
+<h3>v0.2.0 (2026-04-04)</h3>
 
 - Renamed `variant` to `kind`
 - Renamed `leftIcon`/`rightIcon` to `startEnhancer`/`endEnhancer`
@@ -869,7 +869,7 @@ When `isLoading` is true, replace the label with a present participle:
 - Added kinds: tertiary, dangerSecondary, dangerTertiary
 - Removed IconButton — use `Button shape="circle"` instead
 
-### v0.1.0 (2026-04-02)
+<h3>v0.1.0 (2026-04-02)</h3>
 
 - Initial release
 
