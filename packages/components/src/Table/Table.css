@@ -15,7 +15,7 @@
   border-collapse: collapse;
   background-color: var(--color-background-default);
   color: var(--color-text-default);
-  font-size: var(--typography-scale-text-md);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
 }
 
 /* ─── Caption ────────────────────────────────────────────────────────────────── */
@@ -24,7 +24,7 @@
   caption-side: top;
   text-align: start;
   padding-block-end: var(--spacing-component-xs);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
   color: var(--color-text-subtle);
   font-weight: var(--typography-weight-semibold);
 }
@@ -49,7 +49,7 @@
   text-align: start;
   font-weight: var(--typography-weight-semibold);
   color: var(--color-text-subtle);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
   border-block-end: var(--border-width-default) solid var(--color-border-default);
   white-space: nowrap;
 }

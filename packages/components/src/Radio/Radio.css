@@ -126,7 +126,7 @@
 /* ─── Label ──────────────────────────────────────────────────────────────────── */
 
 .arch-radio__label {
-  font-size: var(--typography-scale-text-md);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
   font-weight: var(--typography-weight-regular);
   color: var(--color-text-default);
   line-height: 1.5;

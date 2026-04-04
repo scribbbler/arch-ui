@@ -9,7 +9,7 @@
   padding-block: var(--spacing-component-sm);
   padding-inline: var(--spacing-component-sm);
   border-radius: var(--radius-component-sm);
-  font: var(--typography-scale-text-sm);
+  font: var(--typography-scale-paragraph-small-font-size);
   pointer-events: none;
   white-space: nowrap;
   max-inline-size: 20rem;

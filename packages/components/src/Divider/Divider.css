@@ -45,7 +45,7 @@
 .arch-divider__label {
   flex-shrink: 0;
   font-family: inherit;
-  font-size: var(--typography-scale-text-xs);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-subtle);
   white-space: nowrap;

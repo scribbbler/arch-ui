@@ -42,7 +42,7 @@
 
   font-family: inherit;
   font-weight: var(--typography-weight-medium);
-  font-size: var(--typography-scale-text-xs);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
   user-select: none;
 }
 
@@ -50,30 +50,30 @@
 
 .arch-avatar-group--xs .arch-avatar-group__overflow {
   --arch-avatar-size: 1.5rem;
-  font-size: var(--typography-scale-text-xs);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
 }
 
 .arch-avatar-group--sm .arch-avatar-group__overflow {
   --arch-avatar-size: 2rem;
-  font-size: var(--typography-scale-text-xs);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
 }
 
 .arch-avatar-group--md .arch-avatar-group__overflow {
   --arch-avatar-size: 2.5rem;
-  font-size: var(--typography-scale-text-xs);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
 }
 
 .arch-avatar-group--lg .arch-avatar-group__overflow {
   --arch-avatar-size: 3rem;
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
 .arch-avatar-group--xl .arch-avatar-group__overflow {
   --arch-avatar-size: 4rem;
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
 .arch-avatar-group--2xl .arch-avatar-group__overflow {
   --arch-avatar-size: 6rem;
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }

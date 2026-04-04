@@ -15,8 +15,8 @@
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-component-xs);
-  font-size: var(--typography-scale-text-sm-font-size);
-  line-height: var(--typography-scale-text-sm-line-height);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-default);
   margin-block-end: var(--spacing-component-xs);
@@ -38,8 +38,8 @@
 /* ─── FormHelperText ──────────────────────────────────────────────────────────── */
 
 .arch-form-helper-text {
-  font-size: var(--typography-scale-text-sm-font-size);
-  line-height: var(--typography-scale-text-sm-line-height);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
   color: var(--color-text-subtle);
   margin-block-start: var(--spacing-component-xs);
 }
@@ -47,8 +47,8 @@
 /* ─── FormErrorMessage ───────────────────────────────────────────────────────── */
 
 .arch-form-error-message {
-  font-size: var(--typography-scale-text-sm-font-size);
-  line-height: var(--typography-scale-text-sm-line-height);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
   color: var(--color-text-danger);
   margin-block-start: var(--spacing-component-xs);
 }

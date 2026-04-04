@@ -22,13 +22,13 @@
 .arch-badge--sm {
   padding-block: var(--spacing-inline-xs);
   padding-inline: var(--spacing-component-xs);
-  font-size: var(--typography-scale-text-xs);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
 }
 
 .arch-badge--md {
   padding-block: var(--spacing-component-xs);
   padding-inline: var(--spacing-component-sm);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
 /* ─── Variant: neutral ───────────────────────────────────────────────────────── */

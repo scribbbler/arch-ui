@@ -96,31 +96,31 @@
 .arch-textarea--xs {
   padding-block: 2px;
   padding-inline: var(--spacing-component-xs);
-  font-size: var(--typography-scale-text-xs-font-size);
-  line-height: var(--typography-scale-text-xs-line-height);
+  font-size: var(--typography-scale-label-xsmall-font-size);
+  line-height: var(--typography-scale-label-xsmall-line-height);
   border-radius: var(--radius-component-sm);
 }
 
 .arch-textarea--sm {
   padding-block: var(--spacing-component-xs);
   padding-inline: var(--spacing-component-sm);
-  font-size: var(--typography-scale-text-sm-font-size);
-  line-height: var(--typography-scale-text-sm-line-height);
+  font-size: var(--typography-scale-label-small-font-size);
+  line-height: var(--typography-scale-label-small-line-height);
   border-radius: var(--radius-component-sm);
 }
 
 .arch-textarea--md {
   padding-block: var(--spacing-component-sm);
   padding-inline: var(--spacing-component-md);
-  font-size: var(--typography-scale-text-md-font-size);
-  line-height: var(--typography-scale-text-md-line-height);
+  font-size: var(--typography-scale-label-medium-font-size);
+  line-height: var(--typography-scale-label-medium-line-height);
 }
 
 .arch-textarea--lg {
   padding-block: var(--spacing-component-md);
   padding-inline: var(--spacing-component-md);
-  font-size: var(--typography-scale-text-lg-font-size);
-  line-height: var(--typography-scale-text-lg-line-height);
+  font-size: var(--typography-scale-label-large-font-size);
+  line-height: var(--typography-scale-label-large-line-height);
 }
 
 /* ─── Resize modifiers ────────────────────────────────────────────────────────── */

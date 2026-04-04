@@ -59,20 +59,20 @@
   /* Minimum 44×44 touch target via token composition */
   inline-size: var(--spacing-component-lg);
   block-size: var(--spacing-component-lg);
-  font-size: var(--typography-scale-text-sm-font-size, var(--typography-scale-text-sm));
+  font-size: var(--typography-scale-label-small-font-size, var(--typography-scale-label-small-font-size));
   border-radius: var(--radius-component-sm);
 }
 
 .arch-icon-button--md {
   inline-size: calc(var(--spacing-component-lg) + var(--spacing-component-xs));
   block-size: calc(var(--spacing-component-lg) + var(--spacing-component-xs));
-  font-size: var(--typography-scale-text-md-font-size, var(--typography-scale-text-md));
+  font-size: var(--typography-scale-label-medium-font-size, var(--typography-scale-label-medium-font-size));
 }
 
 .arch-icon-button--lg {
   inline-size: calc(var(--spacing-component-lg) + var(--spacing-component-md));
   block-size: calc(var(--spacing-component-lg) + var(--spacing-component-md));
-  font-size: var(--typography-scale-text-lg-font-size, var(--typography-scale-text-lg));
+  font-size: var(--typography-scale-label-large-font-size, var(--typography-scale-label-large-font-size));
 }
 
 /* ─── Variant: primary ───────────────────────────────────────────────────────── */

@@ -41,7 +41,7 @@
   border: none;
   cursor: pointer;
   font-family: inherit;
-  font-size: var(--typography-scale-text-md);
+  font-size: var(--typography-scale-label-medium-font-size);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-subtle);
   padding-block: var(--spacing-component-sm);

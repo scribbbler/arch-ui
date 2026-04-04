@@ -108,8 +108,8 @@
 .arch-select--xs {
   padding-block: 2px;
   padding-inline-start: var(--spacing-component-xs);
-  font-size: var(--typography-scale-text-xs-font-size);
-  line-height: var(--typography-scale-text-xs-line-height);
+  font-size: var(--typography-scale-label-xsmall-font-size);
+  line-height: var(--typography-scale-label-xsmall-line-height);
   min-block-size: 1.5rem; /* 24px */
   border-radius: var(--radius-component-sm);
 }
@@ -117,8 +117,8 @@
 .arch-select--sm {
   padding-block: var(--spacing-component-xs);
   padding-inline-start: var(--spacing-component-sm);
-  font-size: var(--typography-scale-text-sm-font-size);
-  line-height: var(--typography-scale-text-sm-line-height);
+  font-size: var(--typography-scale-label-small-font-size);
+  line-height: var(--typography-scale-label-small-line-height);
   min-block-size: 2rem; /* 32px */
   border-radius: var(--radius-component-sm);
 }
@@ -126,15 +126,15 @@
 .arch-select--md {
   padding-block: var(--spacing-component-sm);
   padding-inline-start: var(--spacing-component-md);
-  font-size: var(--typography-scale-text-md-font-size);
-  line-height: var(--typography-scale-text-md-line-height);
+  font-size: var(--typography-scale-label-medium-font-size);
+  line-height: var(--typography-scale-label-medium-line-height);
   min-block-size: 2.75rem; /* 44px touch target */
 }
 
 .arch-select--lg {
   padding-block: var(--spacing-component-md);
   padding-inline-start: var(--spacing-component-md);
-  font-size: var(--typography-scale-text-md-font-size);
-  line-height: var(--typography-scale-text-md-line-height);
+  font-size: var(--typography-scale-label-medium-font-size);
+  line-height: var(--typography-scale-label-medium-line-height);
   min-block-size: 3rem; /* 48px */
 }

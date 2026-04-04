@@ -115,14 +115,14 @@
 
 .arch-toast__title {
   display: block;
-  font-size: var(--typography-scale-text-md);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
   font-weight: var(--typography-weight-semibold);
   color: var(--color-text-default);
 }
 
 .arch-toast__description {
   display: block;
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
   color: var(--color-text-subtle);
   margin-block-start: var(--spacing-component-xs, 0.25em);
 }

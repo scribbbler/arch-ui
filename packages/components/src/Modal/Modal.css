@@ -80,7 +80,7 @@
 }
 
 .arch-modal__title {
-  font: var(--typography-scale-text-md);
+  font: var(--typography-scale-paragraph-medium-font-size);
   color: var(--color-text-default);
   margin: 0;
 }

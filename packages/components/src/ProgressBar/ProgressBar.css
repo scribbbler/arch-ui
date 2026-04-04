@@ -81,7 +81,7 @@
 }
 
 .arch-progressbar__label {
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-default);
   white-space: nowrap;

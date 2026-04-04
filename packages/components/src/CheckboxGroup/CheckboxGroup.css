@@ -15,7 +15,7 @@
 .arch-checkbox-group__legend {
   padding: 0;
   margin-block-end: var(--spacing-component-sm);
-  font-size: var(--typography-scale-text-md);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-default);
   float: none;

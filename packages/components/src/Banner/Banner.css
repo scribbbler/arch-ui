@@ -13,7 +13,7 @@
   padding-inline: var(--spacing-component-md);
   border-block-end-width: var(--border-width-default);
   border-block-end-style: solid;
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
   position: relative;
 }
 
@@ -60,7 +60,7 @@
   padding: var(--spacing-component-xs) var(--spacing-component-sm);
   border-radius: var(--radius-component-sm);
   color: inherit;
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
   font-weight: var(--typography-weight-semibold);
   white-space: nowrap;
   text-decoration: underline;

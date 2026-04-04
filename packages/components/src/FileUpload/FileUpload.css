@@ -27,8 +27,8 @@
   cursor: pointer;
   text-align: center;
   color: var(--color-text-subtle);
-  font-size: var(--typography-scale-text-md-font-size);
-  line-height: var(--typography-scale-text-md-line-height);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 
   transition:
     background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
@@ -95,8 +95,8 @@
 
 .arch-file-upload__error {
   color: var(--color-text-danger);
-  font-size: var(--typography-scale-text-sm-font-size);
-  line-height: var(--typography-scale-text-sm-line-height);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
   margin-block-start: var(--spacing-component-xs);
 }
 
@@ -104,8 +104,8 @@
 
 .arch-file-upload__progress {
   color: var(--color-text-subtle);
-  font-size: var(--typography-scale-text-sm-font-size);
-  line-height: var(--typography-scale-text-sm-line-height);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
 }
 
 /* ─── Reduce motion ──────────────────────────────────────────────────────────── */

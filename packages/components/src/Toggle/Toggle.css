@@ -138,8 +138,8 @@
 
 .arch-toggle__label {
   color: var(--color-text-default);
-  font-size: var(--typography-scale-text-md-font-size);
-  line-height: var(--typography-scale-text-md-line-height);
+  font-size: var(--typography-scale-label-medium-font-size);
+  line-height: var(--typography-scale-label-medium-line-height);
   font-weight: var(--typography-weight-regular);
 }
 

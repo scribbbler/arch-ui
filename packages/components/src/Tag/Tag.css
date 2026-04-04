@@ -12,7 +12,7 @@
   padding-inline: var(--spacing-component-sm);
 
   font-family: inherit;
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
   font-weight: var(--typography-weight-medium);
   white-space: nowrap;
   vertical-align: middle;

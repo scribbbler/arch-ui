@@ -43,7 +43,7 @@
   cursor: pointer;
   text-align: start;
   font-family: inherit;
-  font-size: var(--typography-scale-text-md);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
   font-weight: var(--typography-weight-semibold);
   color: var(--color-text-default);
   transition: background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
@@ -118,7 +118,7 @@
   padding-inline: var(--spacing-component-md);
   padding-block-start: 0;
   color: var(--color-text-default);
-  font-size: var(--typography-scale-text-md);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
 }
 
 @media (prefers-reduced-motion: reduce) {
