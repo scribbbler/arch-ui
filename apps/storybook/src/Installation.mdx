@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Installation" />
+
+# Installation
+
+## Install packages
+
+```bash
+pnpm add @arch-ui/components @arch-ui/tokens
+```
+
+## Import tokens
+
+Import the token CSS at your app's entry point:
+
+```ts
+import '@arch-ui/tokens/css';
+```
+
+This exposes all tokens as CSS variables on the `:root` element.
+
+## Use components
+
+```tsx
+import { Button } from '@arch-ui/components';
+
+export function App() {
+  return <Button kind="primary">Click me</Button>;
+}
+```
+
+## Theming
+
+Arch UI supports light and dark themes out of the box. Toggle via the `data-theme` attribute:
+
+```ts
+document.documentElement.setAttribute('data-theme', 'dark');
+```

@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guides/Intro" />
+
+# Arch UI
+
+A design system built on semantic tokens, component manifests, and an MCP server that makes the library legible to both humans and agents.
+
+## What is Arch UI?
+
+Arch UI is a monorepo design system with:
+
+- **Tokens** — a layered system (primitive → semantic → component) exported as CSS variables, JSON, and TypeScript
+- **Components** — React components with JSON manifests describing their API, accessibility, and usage rules
+- **MCP server** — a Model Context Protocol server that exposes manifests so AI agents can reason about the system
+- **Docs** — auto-generated from manifests
+
+## Why manifests?
+
+Every component ships with a manifest JSON alongside its TSX and CSS. The manifest is the single source of truth for the component's API, accessibility requirements, and usage guidelines. Documentation, MCP server responses, and agent tools all read from the same manifest.
+
+## Packages
+
+| Package | Purpose |
+|---|---|
+| `@arch-ui/tokens` | Design tokens and build outputs |
+| `@arch-ui/components` | React components and manifests |
+| `@arch-ui/icons` | SVG icon set |
+| `@arch-ui/mcp-server` | MCP tools for agent integration |
+
+## Next steps
+
+- **Installation** — set up Arch UI in your project
+- **Tokens** — explore the token system
+- **Components** — browse the component library
