@@ -17,5 +17,8 @@
   "sideEffects": [
     "*.css"
   ],
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@mdi/svg": "^7.4.47"
+  }
 }

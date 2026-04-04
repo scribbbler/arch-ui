@@ -3,7 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const ChevronLeftIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} rtl {...props}>
-    <polyline points="13,15 8,10 13,5"/>
+    <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
   </Icon>
 ));
 

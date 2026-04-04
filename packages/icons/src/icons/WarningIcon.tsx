@@ -3,9 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const WarningIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <path d="M10,2 L18.66,17 H1.34 Z"/>
-  <line x1="10" y1="7" x2="10" y2="12"/>
-  <line x1="10" y1="14.5" x2="10.01" y2="14.5"/>
+    <path d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
   </Icon>
 ));
 

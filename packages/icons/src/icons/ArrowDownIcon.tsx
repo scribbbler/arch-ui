@@ -3,9 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const ArrowDownIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <line x1="10" y1="5" x2="10" y2="15"/>
-  <line x1="10" y1="15" x2="6" y2="11"/>
-  <line x1="10" y1="15" x2="14" y2="11"/>
+    <path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" />
   </Icon>
 ));
 

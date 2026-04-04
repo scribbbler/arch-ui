@@ -3,9 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const MoreHorizontalIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <circle cx="4" cy="10" r="1.25" fill="currentColor" stroke="none"/>
-  <circle cx="10" cy="10" r="1.25" fill="currentColor" stroke="none"/>
-  <circle cx="16" cy="10" r="1.25" fill="currentColor" stroke="none"/>
+    <path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" />
   </Icon>
 ));
 

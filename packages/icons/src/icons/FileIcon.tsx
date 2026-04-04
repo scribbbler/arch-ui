@@ -3,8 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const FileIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <path d="M12,2 H5.5 A1.5,1.5,0,0,0,4,3.5 V16.5 A1.5,1.5,0,0,0,5.5,18 H14.5 A1.5,1.5,0,0,0,16,16.5 V6 Z"/>
-  <polyline points="12,2 12,6 16,6"/>
+    <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z" />
   </Icon>
 ));
 

@@ -3,9 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const ClockIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <circle cx="10" cy="10" r="8"/>
-  <line x1="10" y1="5" x2="10" y2="10"/>
-  <line x1="10" y1="10" x2="13" y2="13"/>
+    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z" />
   </Icon>
 ));
 

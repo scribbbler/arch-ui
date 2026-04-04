@@ -3,11 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const TrashIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <polyline points="3,6 5,6 17,6"/>
-  <path d="M5,6v11a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2V6"/>
-  <line x1="8" y1="10" x2="8" y2="15"/>
-  <line x1="12" y1="10" x2="12" y2="15"/>
-  <path d="M7,6V4a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1v2"/>
+    <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
   </Icon>
 ));
 

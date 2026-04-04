@@ -1,4 +1,4 @@
-// @arch-ui/icons — auto-generated barrel export
+// @arch-ui/icons — auto-generated from Material Design Icons (@mdi/svg)
 // Do not edit manually. Run "pnpm generate" to regenerate.
 
 export { Icon, type IconProps, type IconSize } from "./Icon";

@@ -3,10 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const CalendarIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <rect x="3" y="4" width="14" height="14" rx="1.5"/>
-  <line x1="3" y1="9" x2="17" y2="9"/>
-  <line x1="7" y1="2" x2="7" y2="6"/>
-  <line x1="13" y1="2" x2="13" y2="6"/>
+    <path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,12H12V17H17V12Z" />
   </Icon>
 ));
 

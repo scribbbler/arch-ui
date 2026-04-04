@@ -3,9 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const ArrowRightIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} rtl {...props}>
-    <line x1="5" y1="10" x2="15" y2="10"/>
-  <line x1="15" y1="10" x2="11" y2="6"/>
-  <line x1="15" y1="10" x2="11" y2="14"/>
+    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
   </Icon>
 ));
 

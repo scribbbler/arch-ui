@@ -1,16 +1,83 @@
 /**
- * Generates React icon components from SVG files in src/svg/.
+ * Generates React icon components from Material Design Icons (@mdi/svg).
+ * Maps Arch icon names to MDI icon names.
  * Outputs to src/icons/ and regenerates src/index.ts barrel export.
  */
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync } from "node:fs";
-import { resolve, dirname, basename } from "node:path";
+import { readFileSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const svgDir = resolve(__dirname, "../src/svg");
 const iconsDir = resolve(__dirname, "../src/icons");
 const indexPath = resolve(__dirname, "../src/index.ts");
+
+// Find @mdi/svg in node_modules
+function findMdiSvgDir(): string {
+  const paths = [
+    resolve(__dirname, "../node_modules/@mdi/svg/svg"),
+    resolve(__dirname, "../../../node_modules/@mdi/svg/svg"),
+    resolve(__dirname, "../../../node_modules/.pnpm/@mdi+svg@7.4.47/node_modules/@mdi/svg/svg"),
+  ];
+  for (const p of paths) {
+    try {
+      readFileSync(resolve(p, "check.svg"));
+      return p;
+    } catch { /* try next */ }
+  }
+  // Glob fallback
+  const { execSync } = require("node:child_process");
+  const found = execSync(`find ${resolve(__dirname, "../../..")} -path "*/@mdi/svg/svg/check.svg" 2>/dev/null | head -1`, { encoding: "utf-8" }).trim();
+  if (found) return dirname(found);
+  throw new Error("Could not find @mdi/svg package");
+}
+
+// Arch icon name → MDI icon name mapping
+const ICON_MAP: Record<string, string> = {
+  "alert-triangle": "alert",
+  "arrow-down": "arrow-down",
+  "arrow-left": "arrow-left",
+  "arrow-right": "arrow-right",
+  "arrow-up": "arrow-up",
+  "bookmark": "bookmark",
+  "calendar": "calendar",
+  "check-circle": "check-circle",
+  "check": "check",
+  "chevron-down": "chevron-down",
+  "chevron-left": "chevron-left",
+  "chevron-right": "chevron-right",
+  "chevron-up": "chevron-up",
+  "clock": "clock",
+  "copy": "content-copy",
+  "download": "download",
+  "edit": "pencil",
+  "external-link": "open-in-new",
+  "eye-off": "eye-off",
+  "eye": "eye",
+  "file": "file-document",
+  "filter": "filter",
+  "folder": "folder",
+  "heart": "heart",
+  "image": "image",
+  "info": "information",
+  "lock": "lock",
+  "menu": "menu",
+  "minus": "minus",
+  "more-horizontal": "dots-horizontal",
+  "more-vertical": "dots-vertical",
+  "plus": "plus",
+  "search": "magnify",
+  "settings": "cog",
+  "star": "star",
+  "trash": "delete",
+  "unlock": "lock-open",
+  "upload": "upload",
+  "user": "account",
+  "users": "account-multiple",
+  "warning": "alert-circle",
+  "x-circle": "close-circle",
+  "x": "close",
+};
 
 // Icons that should flip in RTL layouts
 const RTL_ICONS = new Set([
@@ -28,43 +95,37 @@ function kebabToPascal(str: string): string {
     .join("");
 }
 
-function extractSvgContent(svgString: string): string {
-  // Extract the inner content between <svg> tags
-  const match = svgString.match(/<svg[^>]*>([\s\S]*)<\/svg>/);
-  return match ? match[1].trim() : "";
+function extractSvgPath(svgString: string): string {
+  // Extract <path> elements from MDI SVG
+  const paths = svgString.match(/<path[^/]*\/>/g);
+  if (!paths) return "";
+  return paths.join("\n    ");
 }
 
-function svgAttrToJsx(content: string): string {
-  return content
-    .replace(/stroke-width=/g, "strokeWidth=")
-    .replace(/stroke-linecap=/g, "strokeLinecap=")
-    .replace(/stroke-linejoin=/g, "strokeLinejoin=")
-    .replace(/fill-rule=/g, "fillRule=")
-    .replace(/clip-rule=/g, "clipRule=")
-    .replace(/stroke-dasharray=/g, "strokeDasharray=")
-    .replace(/stroke-dashoffset=/g, "strokeDashoffset=");
-}
+// ─── Main ──────────────────────────────────────────────────────────────────────
 
-// Ensure output directory exists
+const mdiSvgDir = findMdiSvgDir();
+
+// Clean and recreate output directory
+rmSync(iconsDir, { recursive: true, force: true });
 mkdirSync(iconsDir, { recursive: true });
 
-const svgFiles = readdirSync(svgDir).filter((f) => f.endsWith(".svg"));
 const exports: string[] = [];
 
-for (const file of svgFiles) {
-  const iconName = basename(file, ".svg");
-  const componentName = kebabToPascal(iconName) + "Icon";
-  const isRtl = RTL_ICONS.has(iconName);
+for (const [archName, mdiName] of Object.entries(ICON_MAP)) {
+  const componentName = kebabToPascal(archName) + "Icon";
+  const isRtl = RTL_ICONS.has(archName);
 
-  const svgContent = readFileSync(resolve(svgDir, file), "utf-8");
-  const innerContent = svgAttrToJsx(extractSvgContent(svgContent));
+  const svgPath = resolve(mdiSvgDir, `${mdiName}.svg`);
+  const svgContent = readFileSync(svgPath, "utf-8");
+  const pathElements = extractSvgPath(svgContent);
 
   const component = `import { forwardRef } from "react";
 import { Icon, type IconProps } from "../Icon";
 
 const ${componentName} = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref}${isRtl ? " rtl" : ""} {...props}>
-    ${innerContent}
+    ${pathElements}
   </Icon>
 ));
 
@@ -80,7 +141,7 @@ export { ${componentName} };
 }
 
 // Generate barrel export
-const indexContent = `// @arch-ui/icons — auto-generated barrel export
+const indexContent = `// @arch-ui/icons — auto-generated from Material Design Icons (@mdi/svg)
 // Do not edit manually. Run "pnpm generate" to regenerate.
 
 export { Icon, type IconProps, type IconSize } from "./Icon";
@@ -90,4 +151,4 @@ ${exports.sort().join("\n")}
 writeFileSync(indexPath, indexContent);
 
 // eslint-disable-next-line no-console
-console.log(`✓ Generated ${svgFiles.length} icon components`);
+console.log(`✓ Generated ${Object.keys(ICON_MAP).length} icon components from MDI`);

@@ -1,9 +1,10 @@
 import { forwardRef, type SVGProps } from "react";
+import "./icons.css";
 
 export type IconSize = 16 | 20 | 24;
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
-  /** Icon size in pixels. Default 20. */
+  /** Icon size in pixels. Default 24. */
   size?: IconSize;
   /** Icon color. Defaults to currentColor. */
   color?: string;
@@ -15,11 +16,12 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 
 /**
  * Base Icon wrapper. Individual icon components compose this.
+ * Uses Material Design Icons (MDI) with viewBox 0 0 24 24 and fill.
  */
 const Icon = forwardRef<SVGSVGElement, IconProps & { children: React.ReactNode }>(
   (
     {
-      size = 20,
+      size = 24,
       color = "currentColor",
       "aria-label": ariaLabel,
       rtl = false,
@@ -34,14 +36,10 @@ const Icon = forwardRef<SVGSVGElement, IconProps & { children: React.ReactNode }
       <svg
         ref={ref}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
+        viewBox="0 0 24 24"
         width={size}
         height={size}
-        fill="none"
-        stroke={color}
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        fill={color}
         aria-hidden={ariaLabel ? undefined : true}
         aria-label={ariaLabel}
         role={ariaLabel ? "img" : undefined}

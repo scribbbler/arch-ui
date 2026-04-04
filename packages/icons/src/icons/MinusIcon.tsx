@@ -3,7 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const MinusIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <line x1="4" y1="10" x2="16" y2="10"/>
+    <path d="M19,13H5V11H19V13Z" />
   </Icon>
 ));
 

@@ -3,9 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const ExternalLinkIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} rtl {...props}>
-    <path d="M11,3h6v6"/>
-  <line x1="17" y1="3" x2="9" y2="11"/>
-  <path d="M15,11v5.5a1.5,1.5,0,0,1-1.5,1.5H3.5A1.5,1.5,0,0,1,2,16.5V6.5A1.5,1.5,0,0,1,3.5,5H9"/>
+    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
   </Icon>
 ));
 

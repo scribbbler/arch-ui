@@ -3,9 +3,7 @@ import { Icon, type IconProps } from "../Icon";
 
 const MenuIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
   <Icon ref={ref} {...props}>
-    <line x1="3" y1="5" x2="17" y2="5"/>
-  <line x1="3" y1="10" x2="17" y2="10"/>
-  <line x1="3" y1="15" x2="17" y2="15"/>
+    <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
   </Icon>
 ));
 
