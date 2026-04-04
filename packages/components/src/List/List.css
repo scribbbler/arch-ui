@@ -1,41 +1,199 @@
 /* List — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   Matches Base Web ListItem pattern: artwork | content | endEnhancer */
 
-/* ─── Base ───────────────────────────────────────────────────────────────────── */
+/* ─── List container ─────────────────────────────────────────────────────────── */
 
 .arch-list {
   display: flex;
   flex-direction: column;
-  gap: var(--arch-list-spacing, var(--spacing-4));
   margin: 0;
-  padding-inline-start: var(--spacing-16);
+  padding: 0;
   color: var(--color-text-default);
   font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 }
-
-/* ─── Variants ───────────────────────────────────────────────────────────────── */
 
 .arch-list--bullet {
   list-style-type: disc;
+  padding-inline-start: var(--spacing-16);
 }
 
 .arch-list--number {
   list-style-type: decimal;
+  padding-inline-start: var(--spacing-16);
 }
 
 .arch-list--none {
   list-style-type: none;
-  padding-inline-start: 0;
 }
 
-/* ─── List item ──────────────────────────────────────────────────────────────── */
+/* ─── ListItem ───────────────────────────────────────────────────────────────── */
 
 .arch-list-item {
-  display: list-item;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-14) var(--spacing-16);
+  border-bottom: 1px solid var(--color-border-default);
+  list-style: none;
+}
+
+.arch-list-item:last-child {
+  border-bottom: none;
+}
+
+.arch-list-item--sublist {
+  padding-inline-start: var(--spacing-48);
+}
+
+.arch-list-item--interactive {
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: start;
+  font: inherit;
+  color: inherit;
+}
+
+.arch-list-item--interactive:hover {
+  background-color: var(--color-background-subtle);
+}
+
+.arch-list-item--interactive:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--color-border-focus);
+  outline: none;
+}
+
+/* ─── Artwork ────────────────────────────────────────────────────────────────── */
+
+.arch-list-item__artwork {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   color: var(--color-text-default);
 }
 
-/* ─── Description List ───────────────────────────────────────────────────────── */
+.arch-list-item__artwork--small {
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+}
+
+.arch-list-item__artwork--medium {
+  width: var(--spacing-36);
+  height: var(--spacing-36);
+}
+
+.arch-list-item__artwork--large {
+  width: var(--spacing-48);
+  height: var(--spacing-48);
+}
+
+.arch-list-item__artwork--round {
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.arch-list-item__artwork svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Content ────────────────────────────────────────────────────────────────── */
+
+.arch-list-item__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.arch-list-item__content--sublist {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+}
+
+/* ─── End enhancer ───────────────────────────────────────────────────────────── */
+
+.arch-list-item__end-enhancer {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-text-subtle);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+}
+
+/* ─── ListItemLabel ──────────────────────────────────────────────────────────── */
+
+.arch-list-item-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.arch-list-item-label__content {
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  line-height: var(--typography-scale-label-medium-line-height);
+  color: var(--color-text-default);
+}
+
+.arch-list-item-label__description {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  color: var(--color-text-subtle);
+}
+
+.arch-list-item-label--sublist .arch-list-item-label__content {
+  font-size: var(--typography-scale-label-small-font-size);
+  font-weight: var(--typography-scale-label-small-font-weight);
+}
+
+/* ─── ListHeading ────────────────────────────────────────────────────────────── */
+
+.arch-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-16);
+  list-style: none;
+}
+
+.arch-list-heading__start {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.arch-list-heading__heading {
+  font-size: var(--typography-scale-heading-xsmall-font-size);
+  font-weight: var(--typography-scale-heading-xsmall-font-weight);
+  line-height: var(--typography-scale-heading-xsmall-line-height);
+  color: var(--color-text-default);
+}
+
+.arch-list-heading__heading--clamp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arch-list-heading__subheading {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-subtle);
+}
+
+.arch-list-heading__end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-2);
+}
+
+.arch-list-heading__end-description {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-subtle);
+}
+
+/* ─── DescriptionList ────────────────────────────────────────────────────────── */
 
 .arch-description-list {
   display: grid;
@@ -47,15 +205,11 @@
   font-size: var(--typography-scale-paragraph-medium-font-size);
 }
 
-/* ─── Description Term ───────────────────────────────────────────────────────── */
-
 .arch-description-term {
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-subtle);
   margin: 0;
 }
-
-/* ─── Description Detail ─────────────────────────────────────────────────────── */
 
 .arch-description-detail {
   margin-inline-start: 0;
