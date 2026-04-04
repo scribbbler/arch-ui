@@ -25,9 +25,9 @@
   border-radius: var(--radius-md);
 
   transition:
-    background-color var(--motion-duration-fast) var(--motion-easing-default),
-    color var(--motion-duration-fast) var(--motion-easing-default),
-    box-shadow var(--motion-duration-fast) var(--motion-easing-default);
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
 @media (prefers-reduced-motion: reduce) {
