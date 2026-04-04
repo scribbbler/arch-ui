@@ -1,4 +1,5 @@
 @import '../../../../packages/tokens/build/css/tokens.css';
+@import '../../../../packages/components/src/Button/Button.css';
 
 :root {
   --ifm-color-primary: #266EF1;
