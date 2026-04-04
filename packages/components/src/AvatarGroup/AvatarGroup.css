@@ -7,14 +7,25 @@
   display: inline-flex;
   align-items: center;
   flex-direction: row;
+  --arch-avatar-group-size: 48px;
 }
+
+/* ─── Size variants ──────────────────────────────────────────────────────────── */
+
+.arch-avatar-group--xsmall { --arch-avatar-group-size: var(--spacing-24); }
+.arch-avatar-group--small { --arch-avatar-group-size: var(--spacing-36); }
+.arch-avatar-group--medium { --arch-avatar-group-size: var(--spacing-48); }
+.arch-avatar-group--large { --arch-avatar-group-size: var(--spacing-64); }
+.arch-avatar-group--xlarge { --arch-avatar-group-size: var(--spacing-80); }
+.arch-avatar-group--xxlarge { --arch-avatar-group-size: var(--spacing-112); }
 
 /* ─── Individual items ───────────────────────────────────────────────────────── */
 
 .arch-avatar-group__item {
-  margin-inline-start: calc(var(--arch-avatar-size, 48px) * -0.25);
-  outline: 2px solid var(--color-surface-base);
+  display: inline-flex;
+  margin-inline-start: calc(var(--arch-avatar-group-size) * -0.2);
   border-radius: var(--radius-full);
+  box-shadow: 0 0 0 2px var(--color-surface-base);
 }
 
 .arch-avatar-group__item:first-child {
@@ -29,10 +40,10 @@
   justify-content: center;
   flex-shrink: 0;
 
-  inline-size: var(--arch-avatar-size, 48px);
-  block-size: var(--arch-avatar-size, 48px);
-  margin-inline-start: calc(var(--arch-avatar-size, 48px) * -0.25);
-  outline: 2px solid var(--color-surface-base);
+  inline-size: var(--arch-avatar-group-size);
+  block-size: var(--arch-avatar-group-size);
+  margin-inline-start: calc(var(--arch-avatar-group-size) * -0.2);
+  box-shadow: 0 0 0 2px var(--color-surface-base);
 
   border-radius: var(--radius-full);
   background-color: var(--color-background-muted);
@@ -42,40 +53,34 @@
   user-select: none;
 }
 
-/* ─── Size variants ──────────────────────────────────────────────────────────── */
+/* ─── Overflow badge font per size ───────────────────────────────────────────── */
 
 .arch-avatar-group--xsmall .arch-avatar-group__overflow {
-  --arch-avatar-size: var(--spacing-24);
   font-size: var(--typography-scale-label-xsmall-font-size);
   font-weight: var(--typography-scale-label-xsmall-font-weight);
 }
 
 .arch-avatar-group--small .arch-avatar-group__overflow {
-  --arch-avatar-size: var(--spacing-36);
   font-size: var(--typography-scale-label-medium-font-size);
   font-weight: var(--typography-scale-label-medium-font-weight);
 }
 
 .arch-avatar-group--medium .arch-avatar-group__overflow {
-  --arch-avatar-size: var(--spacing-48);
   font-size: var(--typography-scale-heading-xsmall-font-size);
   font-weight: var(--typography-scale-heading-xsmall-font-weight);
 }
 
 .arch-avatar-group--large .arch-avatar-group__overflow {
-  --arch-avatar-size: var(--spacing-64);
   font-size: var(--typography-scale-heading-medium-font-size);
   font-weight: var(--typography-scale-heading-medium-font-weight);
 }
 
 .arch-avatar-group--xlarge .arch-avatar-group__overflow {
-  --arch-avatar-size: var(--spacing-80);
   font-size: var(--typography-scale-heading-xlarge-font-size);
   font-weight: var(--typography-scale-heading-xlarge-font-weight);
 }
 
 .arch-avatar-group--xxlarge .arch-avatar-group__overflow {
-  --arch-avatar-size: var(--spacing-112);
   font-size: var(--typography-scale-display-medium-font-size);
   font-weight: var(--typography-scale-display-medium-font-weight);
 }
