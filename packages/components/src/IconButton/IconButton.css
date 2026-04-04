@@ -75,17 +75,17 @@
 
 /* ─── Shapes ─────────────────────────────────────────────────────────────────── */
 
-.arch-icon-button.arch-icon-button--square {
+.arch-icon-button--shape-square {
   border-radius: var(--radius-md);
 }
 
-.arch-icon-button.arch-icon-button--circle {
+.arch-icon-button--shape-circle {
   border-radius: var(--radius-full);
 }
 
 /* Smaller radius for mini/compact square */
-.arch-icon-button--mini.arch-icon-button--square,
-.arch-icon-button--compact.arch-icon-button--square {
+.arch-icon-button--mini.arch-icon-button--shape-square,
+.arch-icon-button--compact.arch-icon-button--shape-square {
   border-radius: var(--radius-sm);
 }
 

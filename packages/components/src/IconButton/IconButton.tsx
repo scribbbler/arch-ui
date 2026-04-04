@@ -91,11 +91,13 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 
     const isDisabled = disabled || isLoading;
 
+    const resolvedShape = shape ?? 'square';
+
     const classes = [
       'arch-icon-button',
       kindClassMap[kind],
       sizeClassMap[size],
-      `arch-icon-button--${shape}`,
+      `arch-icon-button--shape-${resolvedShape}`,
       isLoading && 'arch-icon-button--loading',
       className,
     ]
