@@ -212,6 +212,12 @@
   color: inherit;
 }
 
+/* Icon sizes per button size — matches IconButton */
+.arch-button--mini .arch-button__enhancer svg { width: 16px; height: 16px; }
+.arch-button--compact .arch-button__enhancer svg { width: 16px; height: 16px; }
+.arch-button--default .arch-button__enhancer svg { width: 20px; height: 20px; }
+.arch-button--large .arch-button__enhancer svg { width: 24px; height: 24px; }
+
 .arch-button__label { display: inline; }
 
 /* ─── Shapes ─────────────────────────────────────────────────────────────────── */

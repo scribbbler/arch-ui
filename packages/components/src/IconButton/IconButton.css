@@ -1,17 +1,13 @@
 /* IconButton — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours.
-   Extends Button token usage; does not import Button.css — duplicates only
-   what IconButton needs so it can be used independently. */
+   Square button matching Button height scale. Icon sizes match Button enhancers. */
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-icon-button {
-  /* Layout — square, centred */
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  /* Reset */
   appearance: none;
   border: none;
   background: none;
@@ -21,27 +17,22 @@
   user-select: none;
   flex-shrink: 0;
 
-  /* Shape */
-  border-radius: var(--radius-component-md);
+  border-radius: var(--radius-md);
 
-  /* Transition — respects reduced-motion */
   transition:
     background-color var(--motion-duration-fast) var(--motion-easing-default),
     color var(--motion-duration-fast) var(--motion-easing-default),
-    opacity var(--motion-duration-fast) var(--motion-easing-default);
+    box-shadow var(--motion-duration-fast) var(--motion-easing-default);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arch-icon-button {
-    transition: none;
-  }
+  .arch-icon-button { transition: none; }
 }
 
 /* ─── Focus ─────────────────────────────────────────────────────────────────── */
 
 .arch-icon-button:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: inset 0 0 0 2px var(--color-border-focus);
 }
 
 /* ─── Disabled ───────────────────────────────────────────────────────────────── */
@@ -53,116 +44,121 @@
   pointer-events: none;
 }
 
-/* ─── Sizes — square, matches Button height scale ────────────────────────────
-   mini:    28×28  font=LabelXSmall
-   sm:      36×36  font=LabelSmall
-   md:      48×48  font=LabelMedium
-   lg:      56×56  font=LabelLarge
+/* ─── Sizes — square, matches Button height. Icon sizes match enhancers. ─────
+   mini:    28×28  icon=16px
+   compact: 36×36  icon=16px
+   default: 48×48  icon=20px
+   large:   56×56  icon=24px
    ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-icon-button--mini {
   inline-size: var(--spacing-28);
   block-size: var(--spacing-28);
-  font-size: var(--typography-scale-label-xsmall-font-size);
   border-radius: var(--radius-sm);
 }
+.arch-icon-button--mini svg { width: 16px; height: 16px; }
 
-.arch-icon-button--sm {
+.arch-icon-button--compact {
   inline-size: var(--spacing-36);
   block-size: var(--spacing-36);
-  font-size: var(--typography-scale-label-small-font-size);
   border-radius: var(--radius-sm);
 }
+.arch-icon-button--compact svg { width: 16px; height: 16px; }
 
-.arch-icon-button--md {
+.arch-icon-button--default {
   inline-size: var(--spacing-48);
   block-size: var(--spacing-48);
-  font-size: var(--typography-scale-label-medium-font-size);
 }
+.arch-icon-button--default svg { width: 20px; height: 20px; }
 
-.arch-icon-button--lg {
+.arch-icon-button--large {
   inline-size: var(--spacing-56);
   block-size: var(--spacing-56);
-  font-size: var(--typography-scale-label-large-font-size);
 }
+.arch-icon-button--large svg { width: 24px; height: 24px; }
 
-/* ─── Variant: primary ───────────────────────────────────────────────────────── */
+/* ─── Kind: primary ─────────────────────────────────────────────────────────── */
 
 .arch-icon-button--primary {
   background-color: var(--color-action-primary);
   color: var(--color-action-primary-text);
 }
-
 .arch-icon-button--primary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-primary-hover);
 }
-
 .arch-icon-button--primary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-primary-active);
 }
 
-/* ─── Variant: secondary ─────────────────────────────────────────────────────── */
+/* ─── Kind: secondary ───────────────────────────────────────────────────────── */
 
 .arch-icon-button--secondary {
   background-color: var(--color-action-secondary);
   color: var(--color-action-secondary-text);
 }
-
 .arch-icon-button--secondary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-secondary-hover);
 }
-
 .arch-icon-button--secondary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-secondary-active);
 }
 
-/* ─── Variant: ghost ─────────────────────────────────────────────────────────── */
+/* ─── Kind: tertiary ────────────────────────────────────────────────────────── */
 
-.arch-icon-button--ghost {
+.arch-icon-button--tertiary {
   background-color: var(--color-action-ghost);
   color: var(--color-action-ghost-text);
 }
-
-.arch-icon-button--ghost:hover:not(:disabled):not([aria-disabled="true"]) {
+.arch-icon-button--tertiary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-ghost-hover);
 }
-
-.arch-icon-button--ghost:active:not(:disabled):not([aria-disabled="true"]) {
+.arch-icon-button--tertiary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-ghost-active);
 }
 
-/* ─── Variant: destructive ───────────────────────────────────────────────────── */
+/* ─── Kind: dangerPrimary ───────────────────────────────────────────────────── */
 
-.arch-icon-button--destructive {
+.arch-icon-button--danger-primary {
+  background-color: var(--color-action-destructive);
+  color: var(--color-action-destructive-text);
+}
+.arch-icon-button--danger-primary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-action-destructive-hover);
+}
+.arch-icon-button--danger-primary:active:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-action-destructive-active);
+}
+
+/* ─── Kind: dangerSecondary ─────────────────────────────────────────────────── */
+
+.arch-icon-button--danger-secondary {
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+}
+.arch-icon-button--danger-secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-action-destructive);
+  color: var(--color-action-destructive-text);
+}
+.arch-icon-button--danger-secondary:active:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-action-destructive-active);
+  color: var(--color-action-destructive-text);
+}
+
+/* ─── Kind: dangerTertiary ──────────────────────────────────────────────────── */
+
+.arch-icon-button--danger-tertiary {
+  background-color: transparent;
+  color: var(--color-feedback-danger-text);
+}
+.arch-icon-button--danger-tertiary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-feedback-danger-bg);
+}
+.arch-icon-button--danger-tertiary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-destructive);
   color: var(--color-action-destructive-text);
 }
 
-.arch-icon-button--destructive:hover:not(:disabled):not([aria-disabled="true"]) {
-  background-color: var(--color-action-destructive-hover);
-}
-
-.arch-icon-button--destructive:active:not(:disabled):not([aria-disabled="true"]) {
-  background-color: var(--color-action-destructive-active);
-}
-
-/* ─── Variant: link ──────────────────────────────────────────────────────────── */
-
-.arch-icon-button--link {
-  background-color: transparent;
-  color: var(--color-text-link);
-  border-radius: var(--radius-component-sm);
-}
-
-.arch-icon-button--link:hover:not(:disabled):not([aria-disabled="true"]) {
-  color: var(--color-text-link-hover);
-}
-
-.arch-icon-button--link:active:not(:disabled):not([aria-disabled="true"]) {
-  color: var(--color-text-link-hover);
-}
-
-/* ─── Loading state ──────────────────────────────────────────────────────────── */
+/* ─── Loading ────────────────────────────────────────────────────────────────── */
 
 .arch-icon-button--loading {
   cursor: wait;
@@ -181,26 +177,9 @@
 }
 
 @keyframes arch-icon-button-spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arch-icon-button__spinner {
-    animation: none;
-    opacity: 0.5;
-  }
-}
-
-/* ─── Icon slot ──────────────────────────────────────────────────────────────── */
-
-.arch-icon-button__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: inherit;
-  /* Fill the available space so the icon scales with the button */
-  inline-size: 1em;
-  block-size: 1em;
+  .arch-icon-button__spinner { animation: none; opacity: 0.5; }
 }
