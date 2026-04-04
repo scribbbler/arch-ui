@@ -1,5 +1,5 @@
 /* AvatarGroup — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   Sizes match Avatar: xsmall=24, small=36, medium=48, large=64, xlarge=80, xxlarge=112 */
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
@@ -9,14 +9,12 @@
   flex-direction: row;
 }
 
-/* ─── Individual items in the group ─────────────────────────────────────────── */
+/* ─── Individual items ───────────────────────────────────────────────────────── */
 
 .arch-avatar-group__item {
-  /* Negative margin creates the overlap */
-  margin-inline-start: calc(var(--arch-avatar-size, 2.5rem) * -0.25);
-  /* First item has no negative margin */
+  margin-inline-start: calc(var(--arch-avatar-size, 48px) * -0.25);
   outline: 2px solid var(--color-surface-base);
-  border-radius: var(--radius-component-full);
+  border-radius: var(--radius-full);
 }
 
 .arch-avatar-group__item:first-child {
@@ -31,49 +29,53 @@
   justify-content: center;
   flex-shrink: 0;
 
-  inline-size: var(--arch-avatar-size, 2.5rem);
-  block-size: var(--arch-avatar-size, 2.5rem);
-  margin-inline-start: calc(var(--arch-avatar-size, 2.5rem) * -0.25);
+  inline-size: var(--arch-avatar-size, 48px);
+  block-size: var(--arch-avatar-size, 48px);
+  margin-inline-start: calc(var(--arch-avatar-size, 48px) * -0.25);
   outline: 2px solid var(--color-surface-base);
 
-  border-radius: var(--radius-component-full);
+  border-radius: var(--radius-full);
   background-color: var(--color-background-muted);
   color: var(--color-text-default);
 
   font-family: inherit;
-  font-weight: var(--typography-weight-medium);
-  font-size: var(--typography-scale-paragraph-xsmall-font-size);
   user-select: none;
 }
 
-/* ─── Size variants for overflow badge ──────────────────────────────────────── */
+/* ─── Size variants ──────────────────────────────────────────────────────────── */
 
-.arch-avatar-group--xs .arch-avatar-group__overflow {
-  --arch-avatar-size: 1.5rem;
-  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+.arch-avatar-group--xsmall .arch-avatar-group__overflow {
+  --arch-avatar-size: var(--spacing-24);
+  font-size: var(--typography-scale-label-xsmall-font-size);
+  font-weight: var(--typography-scale-label-xsmall-font-weight);
 }
 
-.arch-avatar-group--sm .arch-avatar-group__overflow {
-  --arch-avatar-size: 2rem;
-  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+.arch-avatar-group--small .arch-avatar-group__overflow {
+  --arch-avatar-size: var(--spacing-36);
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
 }
 
-.arch-avatar-group--md .arch-avatar-group__overflow {
-  --arch-avatar-size: 2.5rem;
-  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+.arch-avatar-group--medium .arch-avatar-group__overflow {
+  --arch-avatar-size: var(--spacing-48);
+  font-size: var(--typography-scale-heading-xsmall-font-size);
+  font-weight: var(--typography-scale-heading-xsmall-font-weight);
 }
 
-.arch-avatar-group--lg .arch-avatar-group__overflow {
-  --arch-avatar-size: 3rem;
-  font-size: var(--typography-scale-paragraph-small-font-size);
+.arch-avatar-group--large .arch-avatar-group__overflow {
+  --arch-avatar-size: var(--spacing-64);
+  font-size: var(--typography-scale-heading-medium-font-size);
+  font-weight: var(--typography-scale-heading-medium-font-weight);
 }
 
-.arch-avatar-group--xl .arch-avatar-group__overflow {
-  --arch-avatar-size: 4rem;
-  font-size: var(--typography-scale-paragraph-small-font-size);
+.arch-avatar-group--xlarge .arch-avatar-group__overflow {
+  --arch-avatar-size: var(--spacing-80);
+  font-size: var(--typography-scale-heading-xlarge-font-size);
+  font-weight: var(--typography-scale-heading-xlarge-font-weight);
 }
 
-.arch-avatar-group--2xl .arch-avatar-group__overflow {
-  --arch-avatar-size: 6rem;
-  font-size: var(--typography-scale-paragraph-small-font-size);
+.arch-avatar-group--xxlarge .arch-avatar-group__overflow {
+  --arch-avatar-size: var(--spacing-112);
+  font-size: var(--typography-scale-display-medium-font-size);
+  font-weight: var(--typography-scale-display-medium-font-weight);
 }

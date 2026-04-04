@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { AvatarGroup, Avatar } from '@arch-ui/components';
+import { AvatarGroup, Avatar, type AvatarSize } from '@arch-ui/components';
 
 const meta = {
   title: 'Content Display/AvatarGroup',
@@ -10,7 +10,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const avatars = (size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' = 'md') => (
+const avatars = (size: AvatarSize = 'medium') => (
   <>
     <Avatar name="Alice Smith" src="https://i.pravatar.cc/150?u=alice" size={size} />
     <Avatar name="Bob Jones" size={size} />
@@ -21,36 +21,25 @@ const avatars = (size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' = 'md') => (
 );
 
 export const Default: Story = {
-  render: () => <AvatarGroup size="md">{avatars('md')}</AvatarGroup>,
+  render: () => <AvatarGroup size="medium">{avatars('medium')}</AvatarGroup>,
 };
 
 export const WithMax: Story = {
-  render: () => <AvatarGroup max={3} size="md">{avatars('md')}</AvatarGroup>,
+  render: () => <AvatarGroup max={3} size="medium">{avatars('medium')}</AvatarGroup>,
 };
 
 export const MaxOfOne: Story = {
-  render: () => <AvatarGroup max={1} size="md">{avatars('md')}</AvatarGroup>,
+  render: () => <AvatarGroup max={1} size="medium">{avatars('medium')}</AvatarGroup>,
 };
 
 export const SizeSmall: Story = {
-  render: () => <AvatarGroup max={3} size="sm">{avatars('sm')}</AvatarGroup>,
+  render: () => <AvatarGroup max={3} size="small">{avatars('small')}</AvatarGroup>,
 };
 
 export const SizeLarge: Story = {
-  render: () => <AvatarGroup max={3} size="lg">{avatars('lg')}</AvatarGroup>,
+  render: () => <AvatarGroup max={3} size="large">{avatars('large')}</AvatarGroup>,
 };
 
 export const SizeExtraLarge: Story = {
-  render: () => <AvatarGroup max={4} size="xl">{avatars('xl')}</AvatarGroup>,
-};
-
-export const Accessibility: Story = {
-  render: () => <AvatarGroup max={2} size="md">{avatars('md')}</AvatarGroup>,
-  parameters: {
-    docs: {
-      description: {
-        story: 'The root element has role="group". Each Avatar retains its own accessible name. The overflow badge has aria-label="N more" and role="img".',
-      },
-    },
-  },
+  render: () => <AvatarGroup max={4} size="xlarge">{avatars('xlarge')}</AvatarGroup>,
 };

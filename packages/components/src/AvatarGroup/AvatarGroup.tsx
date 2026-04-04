@@ -3,7 +3,7 @@ import './AvatarGroup.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
-export type AvatarGroupSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type AvatarGroupSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 
 export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -11,7 +11,7 @@ export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
    * When undefined, all children are shown.
    */
   max?: number;
-  /** Size forwarded to all contained avatars and the overflow badge. Defaults to 'md'. */
+  /** Size forwarded to all contained avatars and the overflow badge. Defaults to 'medium'. */
   size?: AvatarGroupSize;
   /** Avatar components to display. */
   children?: React.ReactNode;
@@ -39,7 +39,7 @@ const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
   function AvatarGroup(
     {
       max,
-      size = 'md',
+      size = 'medium',
       children,
       className,
       ...rest
