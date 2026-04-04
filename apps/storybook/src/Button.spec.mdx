@@ -1,6 +1,5 @@
 import { Meta, Canvas } from '@storybook/blocks';
 import { Spec } from './spec/Spec';
-import { Button } from '@arch-ui/components';
 import * as ButtonStories from './Button.stories';
 import manifest from '../../../packages/components/src/Button/Button.manifest.json';
 
@@ -85,31 +84,21 @@ export const AnatomyDiagram = () => (
   visualDos={[
     {
       label: 'One primary button per section, paired with a tertiary cancel.',
-      example: (
-        <div style={{ display: 'flex', gap: 8 }}>
-          <Button kind="primary">Save</Button>
-          <Button kind="tertiary">Cancel</Button>
-        </div>
-      ),
+      example: <Canvas of={ButtonStories.DoPrimaryWithCancel} />,
     },
     {
       label: 'Use dangerPrimary for destructive actions.',
-      example: <Button kind="dangerPrimary">Delete account</Button>,
+      example: <Canvas of={ButtonStories.DoDangerForDestructive} />,
     },
   ]}
   visualDonts={[
     {
       label: 'Never use two primary buttons in the same group.',
-      example: (
-        <div style={{ display: 'flex', gap: 8 }}>
-          <Button kind="primary">Save</Button>
-          <Button kind="primary">Cancel</Button>
-        </div>
-      ),
+      example: <Canvas of={ButtonStories.DontTwoPrimaries} />,
     },
     {
       label: "Don't use dangerPrimary for non-destructive actions.",
-      example: <Button kind="dangerPrimary">Continue</Button>,
+      example: <Canvas of={ButtonStories.DontDangerForContinue} />,
     },
   ]}
 />
