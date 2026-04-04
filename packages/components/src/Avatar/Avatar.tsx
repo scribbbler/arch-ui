@@ -3,7 +3,7 @@ import './Avatar.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
-export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+export type AvatarSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 export type AvatarShape = 'circle' | 'square';
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -11,7 +11,7 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
   src?: string;
   /** Full name of the person. Drives alt text and initials. */
   name: string;
-  /** Rendered size. Defaults to 'md'. */
+  /** Rendered size. Defaults to 'medium'. */
   size?: AvatarSize;
   /** Shape of the avatar. Defaults to 'circle'. */
   shape?: AvatarShape;
@@ -44,7 +44,7 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar(
   {
     src,
     name,
-    size = 'md',
+    size = 'medium',
     shape = 'circle',
     className,
     ...rest

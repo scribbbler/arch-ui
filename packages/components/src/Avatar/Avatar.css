@@ -1,5 +1,5 @@
 /* Avatar — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   Sizes and font scales match Uber Base. */
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
@@ -13,56 +13,61 @@
   inline-size: var(--arch-avatar-size);
   block-size: var(--arch-avatar-size);
 
-  background-color: var(--color-background-muted);
-  color: var(--color-text-default);
+  background-color: var(--color-action-primary);
+  color: var(--color-action-primary-text);
 
   font-family: inherit;
-  font-weight: var(--typography-weight-medium);
+  font-weight: var(--typography-weight-bold);
   user-select: none;
 }
 
-/* ─── Shape: circle ──────────────────────────────────────────────────────────── */
+/* ─── Shape ──────────────────────────────────────────────────────────────────── */
 
 .arch-avatar--circle {
-  border-radius: var(--radius-component-full);
+  border-radius: var(--radius-full);
 }
-
-/* ─── Shape: square ──────────────────────────────────────────────────────────── */
 
 .arch-avatar--square {
-  border-radius: var(--radius-component-md);
+  border-radius: var(--radius-md);
 }
 
-/* ─── Sizes — map size prop to CSS custom property ───────────────────────────── */
+/* ─── Sizes — matches Uber Base exactly ──────────────────────────────────────
+   xsmall:  24px  LabelXSmall (12px)
+   small:   36px  LabelMedium (16px)
+   medium:  48px  HeadingXSmall (20px)
+   large:   64px  HeadingMedium (28px)
+   xlarge:  80px  HeadingXLarge (36px)
+   xxlarge: 112px DisplayMedium (52px)
+   ──────────────────────────────────────────────────────────────────────────── */
 
-.arch-avatar--xs {
+.arch-avatar--xsmall {
   --arch-avatar-size: var(--spacing-24);
-  font-size: var(--typography-scale-text-xs);
+  font-size: var(--typography-scale-label-xsmall-font-size);
 }
 
-.arch-avatar--sm {
-  --arch-avatar-size: var(--spacing-32);
-  font-size: var(--typography-scale-text-xs);
+.arch-avatar--small {
+  --arch-avatar-size: var(--spacing-36);
+  font-size: var(--typography-scale-label-medium-font-size);
 }
 
-.arch-avatar--md {
-  --arch-avatar-size: var(--spacing-40);
-  font-size: var(--typography-scale-text-sm);
-}
-
-.arch-avatar--lg {
+.arch-avatar--medium {
   --arch-avatar-size: var(--spacing-48);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-heading-xsmall-font-size);
 }
 
-.arch-avatar--xl {
+.arch-avatar--large {
   --arch-avatar-size: var(--spacing-64);
-  font-size: var(--typography-scale-text-md);
+  font-size: var(--typography-scale-heading-medium-font-size);
 }
 
-.arch-avatar--2xl {
-  --arch-avatar-size: var(--spacing-96);
-  font-size: var(--typography-scale-text-md);
+.arch-avatar--xlarge {
+  --arch-avatar-size: var(--spacing-80);
+  font-size: var(--typography-scale-heading-xlarge-font-size);
+}
+
+.arch-avatar--xxlarge {
+  --arch-avatar-size: var(--spacing-112);
+  font-size: var(--typography-scale-display-medium-font-size);
 }
 
 /* ─── Image ──────────────────────────────────────────────────────────────────── */
@@ -79,5 +84,4 @@
 .arch-avatar__initials {
   line-height: 1;
   text-transform: uppercase;
-  letter-spacing: 0.025em;
 }
