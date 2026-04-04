@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 const config: StorybookConfig = {
   stories: [
     '../src/**/*.stories.@(ts|tsx)',
+    '../src/**/*.mdx',
   ],
   addons: [
     '@storybook/addon-essentials',

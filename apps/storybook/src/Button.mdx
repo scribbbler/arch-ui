@@ -1,0 +1,126 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+A polymorphic button component for triggering actions. Supports 6 visual kinds, 4 sizes, 4 shapes, loading state, and icon enhancers.
+
+## When to use
+
+- Triggering an action (save, submit, delete)
+- Navigating when styled as a link (`as="a"`)
+- Toggle selection in a ButtonGroup
+
+## Anatomy
+
+```
+┌─────────────────────────────────────────┐
+│  [startEnhancer]  [label]  [endEnhancer] │
+└─────────────────────────────────────────┘
+```
+
+- **startEnhancer** — optional icon before the label
+- **label** — text content via `children`
+- **endEnhancer** — optional icon after the label
+- For icon-only buttons, use `shape="circle"` or `shape="square"` with only `startEnhancer` and no children
+
+## Kinds
+
+| Kind | Use for |
+|------|---------|
+| `primary` | Main action on the page. One per section. |
+| `secondary` | Supporting actions alongside a primary. |
+| `tertiary` | Low-emphasis actions: cancel, dismiss, back. |
+| `dangerPrimary` | Destructive actions: delete, remove. |
+| `dangerSecondary` | Destructive but less prominent. |
+| `dangerTertiary` | Destructive, minimal emphasis. |
+
+<Canvas of={ButtonStories.Primary} />
+<Canvas of={ButtonStories.Secondary} />
+<Canvas of={ButtonStories.Tertiary} />
+<Canvas of={ButtonStories.DangerPrimary} />
+
+## Sizes
+
+| Size | Height | Font | Use case |
+|------|--------|------|----------|
+| `mini` | 28px | Label XSmall (12px) | Dense UI, table actions |
+| `compact` | 36px | Label Small (14px) | Toolbars, inline actions |
+| `default` | 48px | Label Medium (16px) | Standard forms and pages |
+| `large` | 56px | Label Large (18px) | Hero CTAs, prominent actions |
+
+<Canvas of={ButtonStories.Mini} />
+<Canvas of={ButtonStories.Compact} />
+<Canvas of={ButtonStories.Default} />
+<Canvas of={ButtonStories.Large} />
+
+## Shapes
+
+| Shape | Border radius | Use case |
+|-------|--------------|----------|
+| `default` | 8px | Standard buttons |
+| `pill` | 9999px | Softer, rounded style |
+| `circle` | 50% | Icon-only, fixed square dimensions |
+| `square` | 4px | Icon-only, sharp corners |
+
+<Canvas of={ButtonStories.Pill} />
+<Canvas of={ButtonStories.CircleIcon} />
+<Canvas of={ButtonStories.SquareIcon} />
+
+## States
+
+| State | Behavior |
+|-------|----------|
+| **Default** | Ready for interaction |
+| **Hover** | Background darkens one shade |
+| **Active/Pressed** | Background darkens two shades |
+| **Focus** | Inset 2px ring using `--color-border-focus` |
+| **Disabled** | 50% opacity, `cursor: not-allowed`, no pointer events |
+| **Loading** | Spinner replaces content, `aria-busy="true"`, pointer disabled |
+| **Selected** | Active background shade, `aria-pressed="true"` |
+
+<Canvas of={ButtonStories.Disabled} />
+<Canvas of={ButtonStories.Loading} />
+<Canvas of={ButtonStories.LoadingWithText} />
+<Canvas of={ButtonStories.Selected} />
+
+## With Enhancers
+
+<Canvas of={ButtonStories.StartEnhancer} />
+<Canvas of={ButtonStories.EndEnhancer} />
+<Canvas of={ButtonStories.BothEnhancers} />
+
+## Do
+
+- Use `primary` for the single most important action on the page
+- Use `secondary` or `tertiary` for all other actions
+- Always provide visible text label — icon-only buttons need `aria-label`
+- Use `startEnhancer` for icons that reinforce the label meaning
+- Use `isLoading` with `loadingText` so users know what's happening
+
+## Don't
+
+- Don't use multiple `primary` buttons in the same section
+- Don't use `dangerPrimary` for non-destructive actions
+- Don't disable buttons without explaining why (use a tooltip or helper text)
+- Don't put interactive elements inside a button
+- Don't use `shape="circle"` with text content — it will overflow
+
+## Keyboard
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Move focus to/from button |
+| `Enter` | Activate button |
+| `Space` | Activate button |
+
+## Tokens Used
+
+- `--color-action-primary`, `--color-action-primary-hover`, `--color-action-primary-active`
+- `--color-action-secondary-*`, `--color-action-ghost-*`, `--color-action-destructive-*`
+- `--color-border-focus`
+- `--typography-scale-label-*-font-size`
+- `--radius-md`, `--radius-sm`, `--radius-full`
+- `--motion-duration-fast`, `--motion-easing-default`
