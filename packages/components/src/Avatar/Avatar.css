@@ -17,7 +17,6 @@
   color: var(--color-action-primary-text);
 
   font-family: inherit;
-  font-weight: var(--typography-weight-bold);
   user-select: none;
 }
 
@@ -43,31 +42,37 @@
 .arch-avatar--xsmall {
   --arch-avatar-size: var(--spacing-24);
   font-size: var(--typography-scale-label-xsmall-font-size);
+  font-weight: var(--typography-scale-label-xsmall-font-weight);
 }
 
 .arch-avatar--small {
   --arch-avatar-size: var(--spacing-36);
   font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
 }
 
 .arch-avatar--medium {
   --arch-avatar-size: var(--spacing-48);
   font-size: var(--typography-scale-heading-xsmall-font-size);
+  font-weight: var(--typography-scale-heading-xsmall-font-weight);
 }
 
 .arch-avatar--large {
   --arch-avatar-size: var(--spacing-64);
   font-size: var(--typography-scale-heading-medium-font-size);
+  font-weight: var(--typography-scale-heading-medium-font-weight);
 }
 
 .arch-avatar--xlarge {
   --arch-avatar-size: var(--spacing-80);
   font-size: var(--typography-scale-heading-xlarge-font-size);
+  font-weight: var(--typography-scale-heading-xlarge-font-weight);
 }
 
 .arch-avatar--xxlarge {
   --arch-avatar-size: var(--spacing-112);
   font-size: var(--typography-scale-display-medium-font-size);
+  font-weight: var(--typography-scale-display-medium-font-weight);
 }
 
 /* ─── Image ──────────────────────────────────────────────────────────────────── */
