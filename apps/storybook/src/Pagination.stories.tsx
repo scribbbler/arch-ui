@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Pagination } from '@arch-ui/components';
+import { Pagination, type PaginationProps } from '@arch-ui/components';
 
-const meta = {
+function ControlledPagination(props: PaginationProps) {
+  const [page, setPage] = useState(props.currentPage ?? 1);
+  return <Pagination {...props} currentPage={page} onChange={(p) => { setPage(p); props.onChange?.(p); }} />;
+}
+
+const meta: Meta<typeof Pagination> = {
   title: 'Navigation/Pagination',
   component: Pagination,
   argTypes: {
@@ -14,14 +19,13 @@ const meta = {
   },
   args: {
     totalPages: 10,
+    currentPage: 1,
+    onChange: () => {},
     size: 'compact',
     shape: 'default',
   },
-  render: (args) => {
-    const [page, setPage] = useState(1);
-    return <Pagination {...args} currentPage={page} onChange={setPage} />;
-  },
-} satisfies Meta<typeof Pagination>;
+  render: (args) => <ControlledPagination {...args} />,
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -35,8 +39,6 @@ export const WithFirstLast: Story = {
 export const SiblingCountTwo: Story = {
   args: { totalPages: 20, siblingCount: 2 },
 };
-
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 export const Mini: Story = {
   args: { size: 'mini' },
@@ -54,14 +56,16 @@ export const Large: Story = {
   args: { size: 'large' },
 };
 
-/* ─── Shapes ─────────────────────────────────────────────────────────────────── */
-
 export const Pill: Story = {
   args: { shape: 'pill' },
 };
 
 export const Circle: Story = {
   args: { shape: 'circle' },
+  render: () => {
+    const [page, setPage] = useState(1);
+    return <Pagination totalPages={10} currentPage={page} onChange={setPage} shape="circle" size="compact" />;
+  },
 };
 
 export const SquareShape: Story = {
