@@ -224,17 +224,36 @@
 
 .arch-button--shape-pill { border-radius: var(--radius-full); }
 
+.arch-button--shape-circle,
+.arch-button--shape-square {
+  padding: 0;
+  aspect-ratio: 1;
+  inline-size: auto;
+  min-inline-size: unset;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .arch-button--shape-circle {
   border-radius: var(--radius-full);
-  padding-inline: 0;
-  aspect-ratio: 1;
 }
 
 .arch-button--shape-square {
   border-radius: var(--radius-sm);
-  padding-inline: 0;
-  aspect-ratio: 1;
 }
+
+/* Lock circle/square to exact height per size */
+.arch-button--mini.arch-button--shape-circle,
+.arch-button--mini.arch-button--shape-square { inline-size: 28px; }
+
+.arch-button--compact.arch-button--shape-circle,
+.arch-button--compact.arch-button--shape-square { inline-size: 36px; }
+
+.arch-button--default.arch-button--shape-circle,
+.arch-button--default.arch-button--shape-square { inline-size: 48px; }
+
+.arch-button--large.arch-button--shape-circle,
+.arch-button--large.arch-button--shape-square { inline-size: 56px; }
 
 /* ─── Selected ───────────────────────────────────────────────────────────────── */
 
