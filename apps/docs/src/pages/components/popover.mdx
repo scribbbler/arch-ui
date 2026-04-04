@@ -17,6 +17,11 @@ An interactive overlay panel triggered by clicking a reference element. Closes o
 | `position` | `'top' \| 'bottom' \| 'start' \| 'end'` | `bottom` | Preferred position of the popover relative to the trigger. |
 | `isOpen` | `boolean` | `—` | Controls whether the popover is visible. |
 | `onClose` | `() =&gt; void` | `—` | Called when the popover should close (Escape, outside click). |
+| `onOpen` | `() =&gt; void` | `—` | Called when the popover should open. Used with triggerType='hover' to control visibility. |
+| `triggerType` | `'click' \| 'hover'` | `click` | How the popover is triggered. 'click' shows on click with an overlay for dismiss. 'hover' shows on mouse enter with configurable delays. |
+| `showArrow` | `boolean` | `false` | When true, renders a small arrow element pointing toward the trigger. |
+| `onMouseEnterDelay` | `number` | `200` | Delay in ms before showing the popover on mouse enter. Only applies when triggerType='hover'. |
+| `onMouseLeaveDelay` | `number` | `200` | Delay in ms before hiding the popover on mouse leave. Only applies when triggerType='hover'. |
 | `children` | `ReactElement` | `—` | The trigger element. Must be a single focusable React element. |
 ## Accessibility
 
@@ -59,4 +64,7 @@ An interactive overlay panel triggered by clicking a reference element. Closes o
 - `var(--z-semantic-popover)`
 - `var(--motion-duration-fast)`
 - `var(--motion-semantic-easing-default)`
+- `var(--spacing-4)`
+- `var(--spacing-8)`
+- `var(--border-width-default)`
 

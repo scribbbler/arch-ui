@@ -1,0 +1,116 @@
+/* PinCode — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Container ─────────────────────────────────────────────────────────────── */
+
+.arch-pincode {
+  display: inline-flex;
+  flex-direction: row;
+  gap: var(--spacing-8);
+}
+
+/* ─── Individual input ──────────────────────────────────────────────────────── */
+
+.arch-pincode__input {
+  /* Layout */
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  aspect-ratio: 1;
+
+  /* Appearance */
+  appearance: none;
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  color: var(--color-text-default);
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+
+  /* Reset */
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+/* ─── Placeholder ───────────────────────────────────────────────────────────── */
+
+.arch-pincode__input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+/* ─── Hover ─────────────────────────────────────────────────────────────────── */
+
+.arch-pincode__input:hover:not(:disabled):not([aria-invalid="true"]):not(:focus-visible) {
+  border-color: var(--color-border-strong);
+}
+
+/* ─── Focus ─────────────────────────────────────────────────────────────────── */
+
+.arch-pincode__input:focus-visible {
+  border-color: var(--color-border-focus);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Error state ───────────────────────────────────────────────────────────── */
+
+.arch-pincode--error .arch-pincode__input {
+  border-color: var(--color-border-danger);
+}
+
+.arch-pincode--error .arch-pincode__input:focus-visible {
+  border-color: var(--color-border-danger);
+  outline-color: var(--color-border-danger);
+}
+
+/* ─── Disabled ──────────────────────────────────────────────────────────────── */
+
+.arch-pincode__input:disabled {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.arch-pincode__input:disabled::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Sizes — square inputs matching Button size scale ──────────────────────
+   mini:    28px
+   compact: 36px
+   default: 48px
+   large:   56px
+   ──────────────────────────────────────────────────────────────────────────── */
+
+.arch-pincode--mini .arch-pincode__input {
+  inline-size: var(--spacing-28);
+  block-size: var(--spacing-28);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+  border-radius: var(--radius-sm);
+}
+
+.arch-pincode--compact .arch-pincode__input {
+  inline-size: var(--spacing-36);
+  block-size: var(--spacing-36);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  border-radius: var(--radius-sm);
+}
+
+.arch-pincode--default .arch-pincode__input {
+  inline-size: var(--spacing-48);
+  block-size: var(--spacing-48);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+}
+
+.arch-pincode--large .arch-pincode__input {
+  inline-size: var(--spacing-56);
+  block-size: var(--spacing-56);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+}

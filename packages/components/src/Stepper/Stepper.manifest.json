@@ -1,0 +1,97 @@
+{
+  "name": "Stepper",
+  "version": "1.0.0",
+  "description": "A numeric input with increment/decrement buttons. Renders a flex row with a minus button, a centered value display, and a plus button. Uses the Button component internally for the controls.",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "Enter/Space on buttons"],
+    "ariaAttributes": [
+      "aria-label (on container)",
+      "aria-label (on buttons)",
+      "aria-live (on value display)"
+    ],
+    "notes": [
+      "Container has role='group' with aria-label='Stepper'.",
+      "Minus button is disabled when value <= min, plus button is disabled when value >= max.",
+      "Value display uses aria-live='polite' so screen readers announce changes.",
+      "Each button has a descriptive aria-label ('Decrease value', 'Increase value').",
+      "Focus indicator uses box-shadow with var(--color-border-focus) via the Button component."
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "number",
+      "required": true,
+      "description": "Current numeric value."
+    },
+    "onChange": {
+      "type": "(value: number) => void",
+      "required": true,
+      "description": "Called when the value changes."
+    },
+    "min": {
+      "type": "number",
+      "default": 0,
+      "description": "Minimum allowed value."
+    },
+    "max": {
+      "type": "number",
+      "default": "Infinity",
+      "description": "Maximum allowed value."
+    },
+    "step": {
+      "type": "number",
+      "default": 1,
+      "description": "Step increment/decrement amount."
+    },
+    "size": {
+      "type": "'mini' | 'compact' | 'default' | 'large'",
+      "default": "default",
+      "description": "Size variant controlling height and font size."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables both increment and decrement buttons."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the outer wrapper."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for numeric values that change in fixed increments (quantity selectors, settings).",
+      "Provide min and max constraints when the value has logical bounds.",
+      "Use a visible label adjacent to the Stepper to clarify what the value represents."
+    ],
+    "dont": [
+      "Do not use for free-form numeric input — use Input with type='number' instead.",
+      "Do not use for very large ranges — consider Slider for continuous ranges.",
+      "Do not omit a label — if a visible label is not possible, provide aria-label on the container."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-border-default",
+    "color-text-default",
+    "border-width-default",
+    "radius-component-md",
+    "spacing-28",
+    "spacing-36",
+    "spacing-40",
+    "spacing-48",
+    "spacing-56",
+    "spacing-64",
+    "typography-scale-paragraph-xsmall-font-size",
+    "typography-scale-paragraph-xsmall-line-height",
+    "typography-scale-paragraph-small-font-size",
+    "typography-scale-paragraph-small-line-height",
+    "typography-scale-paragraph-medium-font-size",
+    "typography-scale-paragraph-medium-line-height",
+    "typography-scale-paragraph-large-font-size",
+    "typography-scale-paragraph-large-line-height"
+  ]
+}

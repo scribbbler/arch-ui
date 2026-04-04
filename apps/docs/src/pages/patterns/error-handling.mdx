@@ -33,7 +33,7 @@ function UserSettings({ error, onDismiss }) {
     <Stack gap="var(--spacing-4)">
       {error && (
         <Alert
-          variant="danger"
+          kind="dangerPrimary"
           title="Failed to save settings"
           description={error.message || 'An unexpected error occurred. Please try again.'}
           onClose={onDismiss}
@@ -66,7 +66,7 @@ The `danger` and `warning` variants use `role="alert"` for assertive screen read
 
 {/* Danger */}
 <Alert
-  variant="danger"
+  kind="dangerPrimary"
   title="Connection lost"
   description="Unable to reach the server. Changes will not be saved."
 />
@@ -121,7 +121,7 @@ function LoginForm() {
           <FormErrorMessage>{errors.password}</FormErrorMessage>
         </FormControl>
 
-        <Button type="submit" variant="primary">
+        <Button type="submit" kind="primary">
           Sign in
         </Button>
       </Stack>
@@ -138,7 +138,7 @@ For form submissions that fail server-side, show both a page-level `Alert` and f
 <Stack gap="var(--spacing-4)">
   {serverError && (
     <Alert
-      variant="danger"
+      kind="dangerPrimary"
       title="Could not create account"
       description="Please fix the errors below and try again."
     />

@@ -16,6 +16,8 @@ An inline label used to communicate status, count, or categorical information at
 | `variant` | `'neutral' \| 'info' \| 'success' \| 'warning' \| 'danger'` | `neutral` | Controls the colour palette of the badge. Maps to feedback colour tokens, except neutral which uses muted background. |
 | `size` | `'sm' \| 'md'` | `md` | Controls the padding and font size of the badge. |
 | `dot` | `boolean` | `false` | When true, renders a small circular indicator instead of text content. Requires aria-label when children are absent. |
+| `placement` | `'topRight' \| 'topLeft' \| 'bottomRight' \| 'bottomLeft'` | `undefined` | Positions the badge as an overlay at the specified corner of a parent element. The parent must have position: relative. |
+| `content` | `ReactNode` | `undefined` | Content to display inside the badge. Alternative to children (Base Web pattern). When both content and children are provided, content takes precedence. |
 | `children` | `ReactNode` | `—` | Label content displayed inside the badge. |
 | `className` | `string` | `undefined` | Additional CSS class names to apply to the root element. |
 | `aria-label` | `string` | `undefined` | Required when dot=true and no children are provided, to give screen readers a textual description. |
@@ -63,4 +65,5 @@ An inline label used to communicate status, count, or categorical information at
 - `var(--typography-scale-text-xs)`
 - `var(--typography-scale-text-sm)`
 - `var(--typography-weight-medium)`
+- `var(--z-raised)`
 

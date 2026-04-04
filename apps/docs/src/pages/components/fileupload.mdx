@@ -19,6 +19,7 @@ A file upload drop zone with drag-and-drop support. A visually styled &lt;label&
 | `disabled` | `boolean` | `false` | Disables the drop zone and prevents file selection. |
 | `onDrop` | `(files: File[]) =&gt; void` | `undefined` | Callback fired when files are selected (via dialog or drag-and-drop) and pass validation. |
 | `labels` | `Partial&lt;FileUploadLabels&gt;` | `&#123; fileSizeError: (count, limit) =&gt; `$&#123;count&#125; file(s) exceed(s) the $&#123;limit&#125; limit.` &#125;` | Override default labels for internationalisation. FileUploadLabels: &#123; fileSizeError: (count: number, limit: string) =&gt; string &#125;. |
+| `progressMessage` | `string` | `undefined` | Text to display for upload progress (e.g. 'Uploading 3 of 5 files…'). Rendered as a role='status' element inside the drop zone. |
 | `className` | `string` | `undefined` | Additional CSS class names applied to the root wrapper div. |
 ## Accessibility
 
@@ -62,6 +63,7 @@ A file upload drop zone with drag-and-drop support. A visually styled &lt;label&
 - `var(--color-feedback-danger-bg)`
 - `var(--color-feedback-danger-border)`
 - `var(--color-border-default)`
+- `var(--color-border-strong)`
 - `var(--color-border-focus)`
 - `var(--color-border-danger)`
 - `var(--color-border-disabled)`

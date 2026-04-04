@@ -18,10 +18,12 @@ A full-overlay dialog component with scroll lock, focus management, and configur
 | `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `md` | Controls the max-width of the modal panel. |
 | `closeOnOverlayClick` | `boolean` | `true` | When true, clicking the backdrop closes the modal. |
 | `closeOnEscape` | `boolean` | `true` | When true, pressing Escape closes the modal. |
+| `role` | `'dialog' \| 'alertdialog'` | `dialog` | ARIA role for the dialog element. Use 'alertdialog' for confirmation dialogs that require user acknowledgement. |
+| `animate` | `boolean` | `true` | When true, the modal animates in on mount. Set to false for instant appearance. |
 | `children` | `ReactNode` | `—` | Modal content. Typically composed of ModalHeader, ModalBody, and ModalFooter. |
 ## Accessibility
 
-**Role:** `dialog`
+**Role:** `dialog | alertdialog`
 
 **ARIA attributes:** `aria-modal`, `aria-labelledby`
 
@@ -67,4 +69,6 @@ A full-overlay dialog component with scroll lock, focus management, and configur
 - `var(--motion-duration-normal)`
 - `var(--motion-semantic-easing-enter)`
 - `var(--motion-semantic-easing-exit)`
+- `var(--spacing-8)`
+- `var(--motion-semantic-duration-normal)`
 

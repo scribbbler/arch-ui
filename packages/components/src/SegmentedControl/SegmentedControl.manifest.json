@@ -1,0 +1,106 @@
+{
+  "name": "SegmentedControl",
+  "version": "1.0.0",
+  "description": "A horizontal set of options where one is always selected, functioning as a compact alternative to tabs. Keyboard navigation follows the ARIA radiogroup pattern.",
+  "status": "stable",
+  "accessibility": {
+    "role": "radiogroup",
+    "keyboardInteraction": [
+      "ArrowLeft / ArrowRight — navigate between segments",
+      "ArrowUp / ArrowDown — navigate between segments",
+      "Home — move focus to first segment",
+      "End — move focus to last segment"
+    ],
+    "ariaAttributes": [
+      "aria-checked"
+    ],
+    "notes": [
+      "Each segment is a button with role=\"radio\" and aria-checked for the active state.",
+      "Only the active segment has tabIndex=0; inactive segments have tabIndex=-1.",
+      "Arrow keys wrap around from last to first and vice versa.",
+      "When disabled, all segments are disabled and pointer-events are removed."
+    ]
+  },
+  "props": {
+    "options": {
+      "type": "Array<{ label: string; id: string }>",
+      "description": "Array of segment options. Each option provides a visible label and a unique id."
+    },
+    "activeId": {
+      "type": "string",
+      "description": "The id of the currently active segment. This is a controlled prop."
+    },
+    "onChange": {
+      "type": "(id: string) => void",
+      "description": "Called when the user activates a segment. Receives the segment id."
+    },
+    "size": {
+      "type": "'mini' | 'compact' | 'default' | 'large'",
+      "default": "default",
+      "description": "Size of the control, matching Button size scale (mini=28, compact=36, default=48, large=56)."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the entire control."
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false,
+      "description": "Stretches the control to fill its container width. Each segment gets equal width."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use SegmentedControl for switching between views or filtering content.",
+      "Keep the number of options between 2 and 5.",
+      "Ensure one option is always active — this is not a toggle.",
+      "Use short, concise labels (1-2 words)."
+    ],
+    "dont": [
+      "Do not use for form input — use RadioGroup instead.",
+      "Do not use for navigation between pages — use Tabs instead.",
+      "Do not use more than 5 options — consider a Select for larger sets.",
+      "Do not leave the control without a selected option."
+    ]
+  },
+  "tokens": [
+    "color-background-muted",
+    "color-background-default",
+    "color-text-default",
+    "color-text-subtle",
+    "color-action-ghost-hover",
+    "color-border-focus",
+    "radius-md",
+    "radius-sm",
+    "shadow-xs",
+    "spacing-2",
+    "spacing-4",
+    "spacing-8",
+    "spacing-10",
+    "spacing-12",
+    "spacing-16",
+    "spacing-20",
+    "spacing-28",
+    "spacing-36",
+    "spacing-48",
+    "spacing-56",
+    "typography-scale-label-xsmall-font-size",
+    "typography-scale-label-xsmall-line-height",
+    "typography-scale-label-small-font-size",
+    "typography-scale-label-small-line-height",
+    "typography-scale-label-medium-font-size",
+    "typography-scale-label-medium-line-height",
+    "typography-scale-label-large-font-size",
+    "typography-scale-label-large-line-height",
+    "typography-weight-medium",
+    "typography-weight-semibold",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

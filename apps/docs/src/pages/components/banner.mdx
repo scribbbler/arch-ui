@@ -15,6 +15,8 @@ A full-width top-of-page announcement bar. Use for site-wide or page-level statu
 |---|---|---|---|
 | `variant` | `'info' \| 'success' \| 'warning' \| 'danger'` | `info` | Semantic variant controlling color. |
 | `children` | `ReactNode` | `—` | Banner content. May include text, links, or inline elements. |
+| `actionText` | `string` | `undefined` | Text for an inline action button rendered alongside the message. Requires onAction. |
+| `onAction` | `() =&gt; void` | `undefined` | Callback fired when the action button is clicked. |
 | `onClose` | `() =&gt; void` | `undefined` | When provided, a dismiss button is rendered at the inline-end. |
 | `className` | `string` | `undefined` | Additional CSS class names. |
 ## Accessibility
@@ -66,4 +68,9 @@ A full-width top-of-page announcement bar. Use for site-wide or page-level statu
 - `var(--typography-scale-text-sm)`
 - `var(--typography-scale-text-md)`
 - `var(--border-width-default)`
+- `var(--color-background-subtle)`
+- `var(--color-border-focus)`
+- `var(--radius-component-sm)`
+- `var(--spacing-component-xs)`
+- `var(--typography-weight-semibold)`
 

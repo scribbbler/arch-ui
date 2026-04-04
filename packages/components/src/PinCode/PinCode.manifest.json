@@ -1,0 +1,116 @@
+{
+  "name": "PinCode",
+  "version": "1.0.0",
+  "description": "Multi-digit code input with auto-advance between fields. Each input accepts a single digit character. Supports paste distribution, backspace navigation, and masked display for password/PIN scenarios.",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "keyboardInteraction": [
+      "Tab/Shift+Tab to move between inputs",
+      "Digit keys to enter a value and auto-advance",
+      "Backspace to clear current or move to previous",
+      "ArrowLeft/ArrowRight to navigate between inputs",
+      "Paste to distribute digits across inputs"
+    ],
+    "ariaAttributes": [
+      "aria-label (on container and each input)",
+      "aria-invalid (on inputs when error is true)"
+    ],
+    "notes": [
+      "Container has role='group' with aria-label='Pin code input'.",
+      "Each input has an aria-label like 'Digit 1 of 4' for screen reader context.",
+      "Error state is communicated via aria-invalid on each input.",
+      "inputMode='numeric' ensures mobile devices show a numeric keyboard.",
+      "First input has autocomplete='one-time-code' for SMS autofill support.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus) and a 2px offset."
+    ]
+  },
+  "props": {
+    "length": {
+      "type": "number",
+      "default": 4,
+      "description": "Number of digit fields."
+    },
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Current value string (e.g. '1234' or '12')."
+    },
+    "onChange": {
+      "type": "(value: string) => void",
+      "required": true,
+      "description": "Called when the value changes."
+    },
+    "error": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows error state with red border."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables all inputs."
+    },
+    "size": {
+      "type": "'mini' | 'compact' | 'default' | 'large'",
+      "default": "default",
+      "description": "Size variant controlling input dimensions. Matches Button square sizes."
+    },
+    "mask": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows dots instead of digits (for passwords)."
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "○",
+      "description": "Placeholder character for empty inputs."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the outer wrapper."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for verification codes, PINs, and one-time passwords.",
+      "Set mask=true when the input is a secret (e.g. PIN entry).",
+      "Increase length for 6-digit verification codes.",
+      "Pair with a visible label to clarify what code is expected."
+    ],
+    "dont": [
+      "Do not use for general text input — use Input instead.",
+      "Do not use for credit card numbers — use a formatted Input instead.",
+      "Do not omit a label — if a visible label is not possible, provide aria-label on the container."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-strong",
+    "color-border-focus",
+    "color-border-danger",
+    "color-border-disabled",
+    "color-text-default",
+    "color-text-placeholder",
+    "color-text-disabled",
+    "border-width-default",
+    "radius-component-md",
+    "radius-sm",
+    "spacing-8",
+    "spacing-28",
+    "spacing-36",
+    "spacing-48",
+    "spacing-56",
+    "typography-scale-paragraph-xsmall-font-size",
+    "typography-scale-paragraph-xsmall-line-height",
+    "typography-scale-paragraph-small-font-size",
+    "typography-scale-paragraph-small-line-height",
+    "typography-scale-paragraph-medium-font-size",
+    "typography-scale-paragraph-medium-line-height",
+    "typography-scale-paragraph-large-font-size",
+    "typography-scale-paragraph-large-line-height"
+  ]
+}

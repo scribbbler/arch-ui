@@ -1,0 +1,62 @@
+{
+  "name": "ButtonDock",
+  "version": "1.0.0",
+  "description": "A fixed-position bottom action bar for primary and secondary actions. Commonly used at the bottom of forms, modals, or pages to dock action buttons.",
+  "status": "stable",
+  "accessibility": {
+    "role": "contentinfo",
+    "keyboardInteraction": [
+      "Tab — navigate between action buttons"
+    ],
+    "ariaAttributes": [],
+    "notes": [
+      "The primary action button should be the first in tab order.",
+      "Actions are passed as ReactNode so consumers control the button semantics."
+    ]
+  },
+  "props": {
+    "primaryAction": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "The primary action button (typically a full-width Button)."
+    },
+    "secondaryAction": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "A secondary action button rendered below the primary action."
+    },
+    "dismissAction": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "A dismiss/cancel link rendered below the secondary action."
+    },
+    "position": {
+      "type": "'fixed' | 'sticky'",
+      "default": "'fixed'",
+      "description": "Controls whether the dock is fixed to the viewport or sticky within its scroll container."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for forms with a submit and cancel action at the bottom.",
+      "Use sticky when the dock should scroll with a container.",
+      "Ensure the primary action is always provided."
+    ],
+    "dont": [
+      "Do not nest multiple ButtonDocks on the same page.",
+      "Do not use for navigation — use a toolbar or nav bar instead."
+    ]
+  },
+  "tokens": [
+    "color-surface-base",
+    "shadow-shallow-above",
+    "spacing-16",
+    "spacing-12",
+    "z-semantic-sticky"
+  ]
+}

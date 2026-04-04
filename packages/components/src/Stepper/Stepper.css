@@ -1,0 +1,75 @@
+/* Stepper — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Container ─────────────────────────────────────────────────────────────── */
+
+.arch-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  overflow: hidden;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+
+.arch-stepper__button {
+  border-radius: 0;
+  border: none;
+  flex-shrink: 0;
+}
+
+.arch-stepper__button:focus-visible {
+  z-index: 1;
+}
+
+/* ─── Value display ─────────────────────────────────────────────────────────── */
+
+.arch-stepper__value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-default);
+  background-color: var(--color-background-default);
+  border-inline-start: var(--border-width-default) solid var(--color-border-default);
+  border-inline-end: var(--border-width-default) solid var(--color-border-default);
+  user-select: none;
+}
+
+/* ─── Sizes — value display dimensions match button sizes ───────────────────
+   mini:    28px height, paragraph-xsmall
+   compact: 36px height, paragraph-small
+   default: 48px height, paragraph-medium
+   large:   56px height, paragraph-large
+   ──────────────────────────────────────────────────────────────────────────── */
+
+.arch-stepper--mini .arch-stepper__value {
+  min-inline-size: var(--spacing-40);
+  min-block-size: var(--spacing-28);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+}
+
+.arch-stepper--compact .arch-stepper__value {
+  min-inline-size: var(--spacing-48);
+  min-block-size: var(--spacing-36);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+}
+
+.arch-stepper--default .arch-stepper__value {
+  min-inline-size: var(--spacing-56);
+  min-block-size: var(--spacing-48);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+}
+
+.arch-stepper--large .arch-stepper__value {
+  min-inline-size: var(--spacing-64);
+  min-block-size: var(--spacing-56);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+}

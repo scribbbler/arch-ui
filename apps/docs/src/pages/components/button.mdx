@@ -14,7 +14,9 @@ A polymorphic button component supporting multiple variants, sizes, and states i
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `variant` | `'primary' \| 'secondary' \| 'ghost' \| 'destructive' \| 'link'` | `primary` | Visual style of the button. Maps directly to action color tokens. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `md` | Size of the button, controlling padding and font-size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `md` | Size of the button, controlling padding and font-size. xs is a compact size for dense UIs. |
+| `shape` | `'default' \| 'pill' \| 'circle' \| 'square'` | `default` | Shape of the button. pill uses full radius. circle and square use equal aspect ratio (ideal for icon-only buttons). |
+| `isSelected` | `boolean` | `false` | Indicates the button is in a selected/pressed state. Useful for toggle button groups. Sets aria-pressed. |
 | `disabled` | `boolean` | `false` | Disables the button. Applies reduced opacity and prevents interaction. |
 | `loading` | `boolean` | `false` | Shows a loading spinner and disables the button. Sets aria-busy=true. |
 | `loadingText` | `string` | `undefined` | Optional text to display while loading. Replaces children visually and for screen readers. |
@@ -87,6 +89,9 @@ A polymorphic button component supporting multiple variants, sizes, and states i
 - `var(--spacing-component-lg)`
 - `var(--radius-component-sm)`
 - `var(--radius-component-md)`
+- `var(--radius-component-full)`
+- `var(--typography-scale-text-xs-font-size)`
+- `var(--typography-scale-text-xs-line-height)`
 - `var(--typography-scale-text-sm)`
 - `var(--typography-scale-text-md)`
 - `var(--typography-scale-text-lg)`

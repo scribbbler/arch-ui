@@ -16,7 +16,9 @@ A multi-line text input component. Mirrors the ARIA integration of Input: when p
 | `rows` | `number` | `3` | The initial visible number of text lines. Has no effect when autoResize is true and the content is taller. |
 | `resize` | `'none' \| 'vertical' \| 'both'` | `vertical` | Controls the CSS resize handle. Set to 'none' when autoResize is true. |
 | `autoResize` | `boolean` | `false` | When true, the textarea grows to fit its content on every input event by setting its height to its scrollHeight. Automatically overrides resize to 'none' in CSS. Does not shrink below the initial rows height. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `md` | Controls padding and font size. Mirrors the Input size tokens. |
+| `clearable` | `boolean` | `false` | When true, shows a clear button (×) when the textarea has content. |
+| `positive` | `boolean` | `false` | Shows a positive (success/valid) border style using color-border-success. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `md` | Controls padding and font size. Mirrors the Input size tokens. |
 | `disabled` | `boolean` | `false` | Disables the textarea. Also inherited from FormControl context. |
 | `readOnly` | `boolean` | `false` | Makes the textarea read-only. |
 | `className` | `string` | `undefined` | Additional CSS class names applied to the textarea element. |
@@ -65,15 +67,20 @@ A multi-line text input component. Mirrors the ARIA integration of Input: when p
 - `var(--color-border-default)`
 - `var(--color-border-focus)`
 - `var(--color-border-danger)`
+- `var(--color-border-success)`
 - `var(--color-border-disabled)`
 - `var(--color-text-default)`
 - `var(--color-text-placeholder)`
+- `var(--color-text-default)`
+- `var(--color-text-subtle)`
 - `var(--color-text-disabled)`
 - `var(--spacing-component-xs)`
 - `var(--spacing-component-sm)`
 - `var(--spacing-component-md)`
 - `var(--radius-component-sm)`
 - `var(--radius-component-md)`
+- `var(--typography-scale-text-xs-font-size)`
+- `var(--typography-scale-text-xs-line-height)`
 - `var(--typography-scale-text-sm-font-size)`
 - `var(--typography-scale-text-sm-line-height)`
 - `var(--typography-scale-text-md-font-size)`

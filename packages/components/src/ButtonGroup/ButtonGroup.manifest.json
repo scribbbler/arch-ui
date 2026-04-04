@@ -1,0 +1,92 @@
+{
+  "name": "ButtonGroup",
+  "version": "1.0.0",
+  "description": "A group of mutually exclusive (radio) or multi-select (checkbox) buttons. Clones each Button child, injecting shared sizing, kind, and selection props for consistent visual grouping.",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "keyboardInteraction": [
+      "Tab — moves focus between buttons in the group",
+      "Enter / Space — activates the focused button"
+    ],
+    "ariaAttributes": [
+      "aria-pressed (on each child Button via isSelected)"
+    ],
+    "notes": [
+      "Each child Button receives isSelected which sets aria-pressed.",
+      "When disabled is true on the group, all child buttons are disabled.",
+      "The root element has role=\"group\" to associate the buttons semantically."
+    ]
+  },
+  "props": {
+    "mode": {
+      "type": "'radio' | 'checkbox'",
+      "default": "radio",
+      "description": "Selection mode. 'radio' for single selection, 'checkbox' for multi-selection."
+    },
+    "selected": {
+      "type": "number | number[]",
+      "description": "Currently selected index (radio mode) or array of selected indices (checkbox mode)."
+    },
+    "onChange": {
+      "type": "(event: React.MouseEvent, index: number) => void",
+      "description": "Called when the user clicks a button. Receives the click event and the button index."
+    },
+    "size": {
+      "type": "'mini' | 'compact' | 'default' | 'large'",
+      "default": "default",
+      "description": "Size applied to all child buttons."
+    },
+    "shape": {
+      "type": "'default' | 'pill' | 'circle' | 'square'",
+      "default": "default",
+      "description": "Shape applied to all child buttons. First and last children get appropriate border-radius."
+    },
+    "kind": {
+      "type": "'primary' | 'secondary' | 'tertiary' | 'dangerPrimary' | 'dangerSecondary' | 'dangerTertiary'",
+      "default": "secondary",
+      "description": "Visual kind applied to all child buttons."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables all buttons in the group."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Button elements to render inside the group."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use ButtonGroup for toggle-style selection between a small set of options.",
+      "Keep the number of options between 2 and 5 for best usability.",
+      "Use radio mode for mutually exclusive choices, checkbox mode for multi-select.",
+      "Pass Button components as children."
+    ],
+    "dont": [
+      "Do not mix different component types as children — only use Button.",
+      "Do not use for navigation — use Tabs or SegmentedControl instead.",
+      "Do not use more than 5 options — consider a Select for larger sets."
+    ]
+  },
+  "tokens": [
+    "color-border-subtle",
+    "color-border-focus",
+    "color-action-secondary",
+    "color-action-secondary-hover",
+    "color-action-secondary-active",
+    "color-action-secondary-text",
+    "radius-md",
+    "radius-full",
+    "border-width-default",
+    "spacing-4",
+    "motion-duration-fast",
+    "motion-easing-default"
+  ]
+}

@@ -1,0 +1,151 @@
+/* PhoneInput — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-phone-input {
+  display: inline-flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* ─── Country code button ────────────────────────────────────────────────────── */
+
+.arch-phone-input__country-btn {
+  border-start-end-radius: var(--radius-none) !important;
+  border-end-end-radius: var(--radius-none) !important;
+  flex-shrink: 0;
+  border-inline-end: none !important;
+}
+
+/* ─── Phone number input ─────────────────────────────────────────────────────── */
+
+.arch-phone-input__input {
+  /* Layout */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 0;
+
+  /* Appearance */
+  appearance: none;
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-start-start-radius: var(--radius-none);
+  border-end-start-radius: var(--radius-none);
+  border-start-end-radius: var(--radius-component-md);
+  border-end-end-radius: var(--radius-component-md);
+  color: var(--color-text-default);
+  font-family: inherit;
+
+  /* Reset */
+  margin: 0;
+  outline: none;
+}
+
+/* ─── Placeholder ────────────────────────────────────────────────────────────── */
+
+.arch-phone-input__input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+
+.arch-phone-input__input:hover:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
+  border-color: var(--color-border-strong);
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────────── */
+
+.arch-phone-input__input:focus-visible {
+  border-color: var(--color-border-focus);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Error ──────────────────────────────────────────────────────────────────── */
+
+.arch-phone-input--error .arch-phone-input__input {
+  border-color: var(--color-border-danger);
+}
+
+.arch-phone-input--error .arch-phone-input__input:focus-visible {
+  border-color: var(--color-border-danger);
+  outline-color: var(--color-border-danger);
+}
+
+/* ─── Positive ───────────────────────────────────────────────────────────────── */
+
+.arch-phone-input--positive .arch-phone-input__input {
+  border-color: var(--color-border-success);
+}
+
+.arch-phone-input--positive .arch-phone-input__input:focus-visible {
+  border-color: var(--color-border-success);
+  outline-color: var(--color-border-success);
+}
+
+/* ─── Disabled ───────────────────────────────────────────────────────────────── */
+
+.arch-phone-input--disabled .arch-phone-input__input {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.arch-phone-input--disabled .arch-phone-input__input::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-phone-input__input--mini {
+  padding-block: var(--spacing-6);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+  min-block-size: var(--spacing-28);
+}
+
+.arch-phone-input--mini .arch-phone-input__country-btn {
+  min-block-size: var(--spacing-28);
+}
+
+.arch-phone-input__input--compact {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  min-block-size: var(--spacing-36);
+}
+
+.arch-phone-input--compact .arch-phone-input__country-btn {
+  min-block-size: var(--spacing-36);
+}
+
+.arch-phone-input__input--default {
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+  min-block-size: var(--spacing-48);
+}
+
+.arch-phone-input--default .arch-phone-input__country-btn {
+  min-block-size: var(--spacing-48);
+}
+
+.arch-phone-input__input--large {
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+  min-block-size: var(--spacing-56);
+}
+
+.arch-phone-input--large .arch-phone-input__country-btn {
+  min-block-size: var(--spacing-56);
+}

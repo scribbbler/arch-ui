@@ -34,7 +34,7 @@ function EmptySearchResults({ query, onClear }) {
           Your search for "{query}" did not match any items.
           Try adjusting your search terms or clearing the filter.
         </Paragraph>
-        <Button variant="secondary" onClick={onClear}>
+        <Button kind="secondary" onClick={onClear}>
           Clear search
         </Button>
       </Stack>
@@ -66,7 +66,7 @@ function EmptyProjectList({ onCreate }) {
           Projects you create will appear here. Get started by
           creating your first project.
         </Paragraph>
-        <Button variant="primary" onClick={onCreate}>
+        <Button kind="primary" onClick={onCreate}>
           Create project
         </Button>
       </Stack>
@@ -99,7 +99,7 @@ function WelcomeEmptyState({ onGetStarted }) {
           recent updates, and quick actions. Complete your profile
           to get personalized recommendations.
         </Paragraph>
-        <Button variant="primary" onClick={onGetStarted}>
+        <Button kind="primary" onClick={onGetStarted}>
           Complete your profile
         </Button>
       </Stack>

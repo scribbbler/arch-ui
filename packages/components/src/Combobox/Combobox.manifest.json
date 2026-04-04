@@ -1,0 +1,153 @@
+{
+  "name": "Combobox",
+  "version": "1.0.0",
+  "description": "A searchable dropdown select that replaces the native select for complex use cases. Supports single and multi-select, creatable options, and keyboard navigation. Uses Portal for the dropdown to avoid overflow clipping.",
+  "status": "stable",
+  "accessibility": {
+    "role": "combobox",
+    "keyboardInteraction": [
+      "Tab — focus the input",
+      "ArrowDown — open listbox / move to next option",
+      "ArrowUp — move to previous option",
+      "Enter — select focused option / create new option",
+      "Escape — close the listbox",
+      "Backspace — remove last selected tag in multi mode when input is empty"
+    ],
+    "ariaAttributes": [
+      "role=\"combobox\" on the input",
+      "aria-expanded",
+      "aria-autocomplete=\"list\"",
+      "aria-controls (references the listbox id)",
+      "aria-activedescendant (references the focused option id)",
+      "role=\"listbox\" on the dropdown",
+      "role=\"option\" on each option",
+      "aria-selected on options"
+    ],
+    "notes": [
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus) and a 2px offset.",
+      "Disabled options are not focusable via arrow keys.",
+      "Screen readers announce the focused option via aria-activedescendant."
+    ]
+  },
+  "props": {
+    "options": {
+      "type": "Array<{ id: string; label: string; disabled?: boolean }>",
+      "default": "[]",
+      "description": "The list of selectable options."
+    },
+    "value": {
+      "type": "string | string[]",
+      "default": "undefined",
+      "description": "The currently selected option id(s)."
+    },
+    "onChange": {
+      "type": "(value: string | string[]) => void",
+      "default": "undefined",
+      "description": "Called when the selection changes."
+    },
+    "onInputChange": {
+      "type": "(inputValue: string) => void",
+      "default": "undefined",
+      "description": "Called when the search input text changes."
+    },
+    "inputValue": {
+      "type": "string",
+      "default": "''",
+      "description": "Controlled search text value."
+    },
+    "multi": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enables multi-select mode. Selected items render as tags."
+    },
+    "creatable": {
+      "type": "boolean",
+      "default": false,
+      "description": "Allows creating new options that are not in the list."
+    },
+    "onCreate": {
+      "type": "(value: string) => void",
+      "default": "undefined",
+      "description": "Called when a new option is created (creatable mode)."
+    },
+    "clearable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a clear button to reset the selection."
+    },
+    "searchable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Allows typing to filter options."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the combobox."
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "'Select...'",
+      "description": "Placeholder text shown when no value is selected."
+    },
+    "size": {
+      "type": "'mini' | 'compact' | 'default' | 'large'",
+      "default": "'default'",
+      "description": "Controls the combobox height, padding, and font size."
+    },
+    "positive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a positive (success/valid) border style."
+    },
+    "error": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows an error border style."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for lists with more than ~10 options where search is helpful.",
+      "Use multi mode when users need to select multiple items.",
+      "Use creatable when users should be able to add custom values.",
+      "Provide a meaningful placeholder to guide users."
+    ],
+    "dont": [
+      "Do not use for simple lists with fewer than 5 options — use Select instead.",
+      "Do not use without an accessible label.",
+      "Do not use creatable without an onCreate handler."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-danger",
+    "color-border-success",
+    "color-border-strong",
+    "color-border-disabled",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-disabled",
+    "color-surface-base",
+    "border-width-default",
+    "radius-component-md",
+    "radius-component-sm",
+    "shadow-shallow-above",
+    "z-semantic-dropdown",
+    "spacing-4",
+    "spacing-6",
+    "spacing-8",
+    "spacing-12",
+    "spacing-14",
+    "spacing-16"
+  ]
+}

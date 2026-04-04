@@ -16,7 +16,8 @@ An inline feedback message component that communicates status or important infor
 | `variant` | `'info' \| 'success' \| 'warning' \| 'danger'` | `info` | Semantic variant controlling color and icon. |
 | `title` | `string` | `undefined` | Bold heading text for the alert. |
 | `description` | `string \| ReactNode` | `undefined` | Body content of the alert. |
-| `onClose` | `() =&gt; void` | `undefined` | When provided, a dismiss button is rendered. |
+| `onClose` | `() =&gt; void` | `undefined` | When provided, a dismiss button is rendered (unless closeable is false). |
+| `closeable` | `boolean` | `true (when onClose provided)` | Whether the close button is visible. Defaults to true when onClose is provided. Set to false to hide the close button even when onClose is provided. |
 | `icon` | `ReactNode` | `variant default icon` | Override the default variant icon. Pass null to suppress. |
 | `labels` | `Partial&lt;AlertLabels&gt;` | `&#123; dismiss: 'Dismiss alert' &#125;` | Override default labels for internationalisation. AlertLabels: &#123; dismiss: string &#125;. |
 | `className` | `string` | `undefined` | Additional CSS class names. |
@@ -77,4 +78,5 @@ An inline feedback message component that communicates status or important infor
 - `var(--typography-scale-text-sm)`
 - `var(--typography-weight-semibold)`
 - `var(--border-width-default)`
+- `var(--color-background-subtle)`
 

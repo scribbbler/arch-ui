@@ -23,44 +23,54 @@ Add this import once at the root of your application, before any component CSS:
 import '@arch-ui/tokens/css';
 ```
 
-This injects all CSS custom properties (`--color-*`, `--space-*`, `--font-*`, etc.) into `:root`.
+This injects all CSS custom properties (`--color-*`, `--spacing-*`, `--typography-*`, etc.) into `:root`.
 
-## 3. Use a component
+## 3. Load the Inter font
 
-```tsx
-import { Button } from '@arch-ui/components';
+Add to your HTML `&lt;head&gt;` or use fontsource:
 
-function App() {
-  return (
-    <Button variant="primary" onClick={() => alert('It works!')}>
-      Get started
-    </Button>
-  );
-}
+```html
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 ```
 
-## 4. Optional: install icons
+## 4. Use a component
+
+```tsx
+import &#123; Button &#125; from '@arch-ui/components';
+
+function App() &#123;
+  return (
+    &lt;Button kind="primary" onClick=&#123;() =&gt; alert('It works!')&#125;&gt;
+      Get started
+    &lt;/Button&gt;
+  );
+&#125;
+```
+
+## 5. Optional: install icons
 
 ```bash
 pnpm add @arch-ui/icons
 ```
 
-```tsx
-import { IconCheck } from '@arch-ui/icons';
+Icons are sourced from Material Design Icons (MDI).
 
-<Button iconStart={<IconCheck />}>Confirm</Button>
+```tsx
+import &#123; CheckIcon &#125; from '@arch-ui/icons';
+
+&lt;Button kind="primary" startEnhancer=&#123;&lt;CheckIcon /&gt;&#125;&gt;Confirm&lt;/Button&gt;
 ```
 
 ## What you get
 
 | Package | Contents |
 |---|---|
-| `@arch-ui/tokens` | 336 CSS custom properties across primitive, semantic, and component layers |
-| `@arch-ui/components` | 51 React components with full a11y and RTL support |
-| `@arch-ui/icons` | 43 SVG icons with React wrappers |
+| `@arch-ui/tokens` | 400+ CSS custom properties — colors (Uber Base palette), typography, spacing, shadows |
+| `@arch-ui/components` | 50 React components with full a11y and RTL support |
+| `@arch-ui/icons` | 43 Material Design Icons with React wrappers |
 
 ## Next steps
 
-- [Theming](/getting-started/theming) -- apply your brand in 10 minutes
-- [Dark mode](/getting-started/dark-mode) -- flip a single attribute
-- [Agent usage](/getting-started/agent-usage) -- query the design system from AI agents
+- [Theming](/getting-started/theming) — apply your brand in 10 minutes
+- [Dark mode](/getting-started/dark-mode) — flip a single attribute
+- [Agent usage](/getting-started/agent-usage) — query the design system from AI agents

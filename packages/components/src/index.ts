@@ -25,6 +25,13 @@ export {
   type FormControlContextValue,
 } from "./FormControl";
 export { Button, type ButtonProps, type ButtonKind, type ButtonSize, type ButtonShape } from "./Button";
+export { ButtonGroup, type ButtonGroupProps, type ButtonGroupMode } from "./ButtonGroup";
+export {
+  SegmentedControl,
+  type SegmentedControlProps,
+  type SegmentedControlOption,
+  type SegmentedControlSize,
+} from "./SegmentedControl";
 export { Input, type InputProps, type InputType, type InputSize } from "./Input";
 export {
   Textarea,
@@ -142,6 +149,8 @@ export {
   type ThProps,
   type TdProps,
 } from "./Table";
+export { PhoneInput, type PhoneInputProps, type PhoneInputSize, COUNTRY_DIAL_CODES } from "./PhoneInput";
+export { PaymentCard, type PaymentCardProps, type PaymentCardSize, type CardType } from "./PaymentCard";
 export { Alert, type AlertProps, type AlertVariant } from "./Alert";
 export { Banner, type BannerProps, type BannerVariant } from "./Banner";
 export {
@@ -155,3 +164,16 @@ export {
   type ToastPosition,
   type ToastProviderProps,
 } from "./Toast";
+export { Stepper, type StepperProps, type StepperSize } from "./Stepper";
+export { PinCode, type PinCodeProps, type PinCodeSize } from "./PinCode";
+export {
+  Combobox,
+  type ComboboxProps,
+  type ComboboxOption,
+  type ComboboxSize,
+} from "./Combobox";
+export {
+  ButtonDock,
+  type ButtonDockProps,
+  type ButtonDockPosition,
+} from "./ButtonDock";

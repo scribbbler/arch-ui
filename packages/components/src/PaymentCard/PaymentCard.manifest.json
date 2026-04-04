@@ -1,0 +1,97 @@
+{
+  "name": "PaymentCard",
+  "version": "1.0.0",
+  "description": "A credit card number input that auto-formats with spaces and detects the card type (Visa, Mastercard, Amex, Discover) from the first digits. Displays a card type indicator label at the start of the input.",
+  "status": "stable",
+  "accessibility": {
+    "role": "textbox",
+    "keyboardInteraction": ["Tab", "Shift+Tab"],
+    "ariaAttributes": [
+      "aria-label",
+      "aria-invalid",
+      "aria-disabled"
+    ],
+    "notes": [
+      "The input has aria-label='Credit card number' for screen readers.",
+      "The card type indicator is aria-hidden so it does not pollute the accessible name.",
+      "autocomplete='cc-number' is set for browser autofill support.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus) and a 2px offset."
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "string",
+      "default": "''",
+      "description": "Card number value (digits only)."
+    },
+    "onChange": {
+      "type": "(value: string) => void",
+      "default": "undefined",
+      "description": "Called when the card number changes. Receives digits only."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the input."
+    },
+    "size": {
+      "type": "'mini' | 'compact' | 'default' | 'large'",
+      "default": "'default'",
+      "description": "Controls the input height, padding, and font size."
+    },
+    "error": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows an error (invalid) border style using color-border-danger."
+    },
+    "positive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a positive (success/valid) border style using color-border-success."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the outer wrapper div."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use with a FormLabel to provide an accessible name.",
+      "Use the onChange callback to receive digits-only values.",
+      "The component handles formatting — do not pre-format the value."
+    ],
+    "dont": [
+      "Do not use inline styles to adjust appearance — add a token and use var(--token-name) in the CSS.",
+      "Do not pass a pre-formatted value with spaces — pass digits only."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-danger",
+    "color-border-success",
+    "color-border-strong",
+    "color-border-disabled",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-placeholder",
+    "color-text-disabled",
+    "radius-sm",
+    "radius-component-md",
+    "spacing-4",
+    "spacing-6",
+    "spacing-8",
+    "spacing-12",
+    "spacing-14",
+    "spacing-16",
+    "spacing-28",
+    "spacing-32",
+    "spacing-36",
+    "spacing-48",
+    "spacing-56",
+    "border-width-default"
+  ]
+}

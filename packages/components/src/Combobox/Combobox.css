@@ -1,0 +1,256 @@
+/* Combobox — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Root container ─────────────────────────────────────────────────────────── */
+
+.arch-combobox {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ─── Control (input area) ───────────────────────────────────────────────────── */
+
+.arch-combobox__control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-4);
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.arch-combobox__control:hover:not(.arch-combobox__control--disabled) {
+  border-color: var(--color-border-strong);
+}
+
+/* ─── Focus state ────────────────────────────────────────────────────────────── */
+
+.arch-combobox__control--focused {
+  border-color: var(--color-border-focus);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Error state ────────────────────────────────────────────────────────────── */
+
+.arch-combobox__control--error {
+  border-color: var(--color-border-danger);
+}
+
+.arch-combobox__control--error.arch-combobox__control--focused {
+  border-color: var(--color-border-danger);
+  outline-color: var(--color-border-danger);
+}
+
+/* ─── Positive state ─────────────────────────────────────────────────────────── */
+
+.arch-combobox__control--positive {
+  border-color: var(--color-border-success);
+}
+
+.arch-combobox__control--positive.arch-combobox__control--focused {
+  border-color: var(--color-border-success);
+  outline-color: var(--color-border-success);
+}
+
+/* ─── Disabled state ─────────────────────────────────────────────────────────── */
+
+.arch-combobox__control--disabled {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ─── Input ──────────────────────────────────────────────────────────────────── */
+
+.arch-combobox__input {
+  flex: 1;
+  min-width: var(--spacing-48);
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text-default);
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.arch-combobox__input::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.arch-combobox__input:disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ─── Icons area (clear + chevron) ───────────────────────────────────────────── */
+
+.arch-combobox__icons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}
+
+.arch-combobox__clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: var(--spacing-2);
+  color: var(--color-text-subtle);
+  border-radius: var(--radius-component-sm);
+}
+
+.arch-combobox__clear-btn:hover {
+  color: var(--color-text-default);
+}
+
+.arch-combobox__clear-btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.arch-combobox__chevron {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-subtle);
+  pointer-events: none;
+}
+
+/* ─── Dropdown (listbox) ─────────────────────────────────────────────────────── */
+
+.arch-combobox__listbox {
+  position: absolute;
+  z-index: var(--z-semantic-dropdown);
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: var(--color-surface-base);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  box-shadow: var(--shadow-shallow-above);
+  margin-block-start: var(--spacing-4);
+  padding-block: var(--spacing-4);
+  list-style: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+/* ─── Option ─────────────────────────────────────────────────────────────────── */
+
+.arch-combobox__option {
+  display: flex;
+  align-items: center;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-14);
+  cursor: pointer;
+  color: var(--color-text-default);
+  font-family: inherit;
+}
+
+.arch-combobox__option--focused {
+  background-color: var(--color-background-muted);
+}
+
+.arch-combobox__option--selected {
+  font-weight: 600;
+}
+
+.arch-combobox__option--disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.arch-combobox__option--create {
+  color: var(--color-text-subtle);
+}
+
+/* ─── Empty state ────────────────────────────────────────────────────────────── */
+
+.arch-combobox__empty {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-14);
+  color: var(--color-text-subtle);
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-combobox--mini .arch-combobox__control {
+  padding-block: var(--spacing-6);
+  padding-inline: var(--spacing-14);
+  min-block-size: var(--spacing-28);
+}
+
+.arch-combobox--mini .arch-combobox__input {
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+}
+
+.arch-combobox--mini .arch-combobox__option {
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+}
+
+.arch-combobox--compact .arch-combobox__control {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-14);
+  min-block-size: var(--spacing-36);
+}
+
+.arch-combobox--compact .arch-combobox__input {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+}
+
+.arch-combobox--compact .arch-combobox__option {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+}
+
+.arch-combobox--default .arch-combobox__control {
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-14);
+  min-block-size: var(--spacing-48);
+}
+
+.arch-combobox--default .arch-combobox__input {
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+}
+
+.arch-combobox--default .arch-combobox__option {
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+}
+
+.arch-combobox--large .arch-combobox__control {
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-14);
+  min-block-size: var(--spacing-56);
+}
+
+.arch-combobox--large .arch-combobox__input {
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+}
+
+.arch-combobox--large .arch-combobox__option {
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+}

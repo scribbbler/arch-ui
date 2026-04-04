@@ -1,0 +1,52 @@
+/* ButtonDock — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-button-dock {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  background-color: var(--color-surface-base);
+  box-shadow: var(--shadow-shallow-above);
+  inset-inline: 0;
+  inset-block-end: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ─── Position variants ──────────────────────────────────────────────────────── */
+
+.arch-button-dock--fixed {
+  position: fixed;
+  z-index: var(--z-semantic-sticky);
+}
+
+.arch-button-dock--sticky {
+  position: sticky;
+  z-index: var(--z-semantic-sticky);
+}
+
+/* ─── Action slots ───────────────────────────────────────────────────────────── */
+
+.arch-button-dock__primary {
+  display: flex;
+  width: 100%;
+}
+
+.arch-button-dock__primary > * {
+  flex: 1;
+}
+
+.arch-button-dock__secondary {
+  display: flex;
+  justify-content: center;
+}
+
+.arch-button-dock__dismiss {
+  display: flex;
+  justify-content: center;
+}

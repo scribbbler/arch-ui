@@ -13,15 +13,17 @@ A vertically stacked set of interactive headings that expand or collapse associa
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `items` | `Array&lt;&#123; title: string; content: ReactNode &#125;&gt;` | `—` | Array of accordion sections. Each item must have a title string and content ReactNode. |
+| `items` | `Array&lt;&#123; title: ReactNode; content: ReactNode; disabled?: boolean &#125;&gt;` | `—` | Array of accordion sections. Each item must have a title (string or ReactNode), content ReactNode, and an optional disabled flag. |
 | `allowMultiple` | `boolean` | `false` | When true, multiple sections can be open simultaneously. |
 | `defaultExpanded` | `number[]` | `[]` | Indices of sections that are expanded by default on first render. |
+| `disabled` | `boolean` | `false` | When true, all accordion panels are disabled and cannot be toggled. |
+| `onChange` | `(expandedItems: string[]) =&gt; void` | `—` | Called when the set of expanded items changes. Receives indices of expanded items as string array. |
 | `className` | `string` | `undefined` | Additional CSS class names to apply to the root element. |
 ## Accessibility
 
 **Role:** `none`
 
-**ARIA attributes:** `aria-expanded`, `aria-controls`, `aria-labelledby`
+**ARIA attributes:** `aria-expanded`, `aria-controls`, `aria-labelledby`, `aria-disabled`
 
 **Keyboard interaction:**
 

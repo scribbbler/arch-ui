@@ -14,9 +14,11 @@ A single-line text input component. Integrates with FormControl context to recei
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `type` | `'text' \| 'email' \| 'password' \| 'number' \| 'search' \| 'url' \| 'tel'` | `text` | The HTML input type. |
-| `size` | `'sm' \| 'md' \| 'lg'` | `md` | Controls the input height, padding, and font size. md and lg meet the 44px minimum touch target. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `md` | Controls the input height, padding, and font size. xs is a compact size for dense UIs. md and lg meet the 44px minimum touch target. |
 | `leftElement` | `ReactNode` | `undefined` | An element (icon, text, etc.) placed in the leading slot of the input. The input receives additional inline-start padding to avoid text overlap. |
 | `rightElement` | `ReactNode` | `undefined` | An element placed in the trailing slot. The input receives additional inline-end padding to avoid text overlap. |
+| `clearable` | `boolean` | `false` | When true, shows a clear button (×) when the input has a value. Fires onChange with an empty value on clear. |
+| `positive` | `boolean` | `false` | Shows a positive (success/valid) border style using color-border-success. |
 | `disabled` | `boolean` | `false` | Disables the input. Also inherited from FormControl context if not explicitly set. |
 | `readOnly` | `boolean` | `false` | Makes the input read-only. |
 | `className` | `string` | `undefined` | Additional CSS class names applied to the outer wrapper div. |
@@ -63,8 +65,10 @@ A single-line text input component. Integrates with FormControl context to recei
 - `var(--color-border-default)`
 - `var(--color-border-focus)`
 - `var(--color-border-danger)`
+- `var(--color-border-success)`
 - `var(--color-border-disabled)`
 - `var(--color-text-default)`
+- `var(--color-text-subtle)`
 - `var(--color-text-placeholder)`
 - `var(--color-text-disabled)`
 - `var(--spacing-component-xs)`
@@ -72,6 +76,8 @@ A single-line text input component. Integrates with FormControl context to recei
 - `var(--spacing-component-md)`
 - `var(--radius-component-sm)`
 - `var(--radius-component-md)`
+- `var(--typography-scale-text-xs-font-size)`
+- `var(--typography-scale-text-xs-line-height)`
 - `var(--typography-scale-text-sm-font-size)`
 - `var(--typography-scale-text-sm-line-height)`
 - `var(--typography-scale-text-md-font-size)`

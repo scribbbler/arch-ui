@@ -57,8 +57,8 @@ import { Button } from '@arch-ui/components';
 function SaveButton({ isSaving, onSave }) {
   return (
     <Button
-      variant="primary"
-      loading={isSaving}
+      kind="primary"
+      isLoading={isSaving}
       loadingText="Saving..."
       onClick={onSave}
     >

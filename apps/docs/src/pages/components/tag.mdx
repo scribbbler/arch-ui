@@ -14,7 +14,10 @@ A removable, categorisation label. Supports an optional leading icon slot and an
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `variant` | `'neutral' \| 'primary' \| 'info' \| 'success' \| 'warning' \| 'danger'` | `neutral` | Colour palette variant of the tag. |
-| `onRemove` | `() =&gt; void` | `undefined` | When provided, renders a close button that triggers this callback. The button receives aria-label='Remove &#123;children&#125;'. |
+| `onRemove` | `() =&gt; void` | `undefined` | When provided, renders a close button that triggers this callback (unless closeable is false). The button receives aria-label='Remove &#123;children&#125;'. |
+| `closeable` | `boolean` | `true (when onRemove provided)` | Whether the close button is visible when onRemove is provided. Set to false to hide the close button. |
+| `clickable` | `boolean` | `false` | When true, the tag behaves as a toggle chip. The tag becomes clickable and receives role='option' and tabIndex=0. |
+| `isChecked` | `boolean` | `false` | Whether the tag is currently in a checked/selected state. Only relevant when clickable is true. Controls aria-selected and visual checked style. |
 | `icon` | `ReactNode` | `undefined` | An optional icon rendered at the inline-start of the label. |
 | `children` | `ReactNode` | `—` | The label content of the tag. |
 | `className` | `string` | `undefined` | Additional CSS class names to apply to the root element. |
@@ -74,4 +77,7 @@ A removable, categorisation label. Supports an optional leading icon slot and an
 - `var(--radius-component-full)`
 - `var(--typography-scale-text-sm)`
 - `var(--typography-weight-medium)`
+- `var(--border-width-strong)`
+- `var(--motion-semantic-duration-fast)`
+- `var(--motion-semantic-easing-default)`
 

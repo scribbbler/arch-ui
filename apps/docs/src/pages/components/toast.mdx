@@ -17,6 +17,8 @@ A transient notification system. Individual Toast items stack in a fixed portal 
 | `title` | `string` | `—` | Bold heading of the toast notification. |
 | `description` | `string` | `undefined` | Optional supporting text beneath the title. |
 | `duration` | `number` | `5000` | Auto-dismiss delay in milliseconds. Pass 0 for persistent toast. |
+| `closeable` | `boolean` | `true` | Whether the close button is visible. Set to false to hide the close button. |
+| `pauseOnHover` | `boolean` | `true` | Whether to pause the auto-dismiss timer when the user hovers over the toast. |
 | `onClose` | `() =&gt; void` | `—` | Called when the toast is dismissed (auto or manual). |
 | `labels` | `Partial&lt;ToastLabels&gt;` | `&#123; dismiss: 'Dismiss notification' &#125;` | Override default labels for internationalisation. ToastLabels: &#123; dismiss: string &#125;. |
 | `className` | `string` | `undefined` | Additional CSS class names. |

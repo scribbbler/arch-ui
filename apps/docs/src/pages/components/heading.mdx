@@ -7,14 +7,14 @@ title: "Heading"
 
 <span class="status-badge status-badge--stable">stable</span>
 
-Semantic heading component rendering h1-h6 with independent typographic sizing. Level controls HTML semantics; size controls visual appearance from the display scale.
+Semantic heading component rendering h1-h6 with independent typographic sizing. Level controls HTML semantics; size controls visual appearance from the heading scale.
 
 ## Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `level` | `1 \| 2 \| 3 \| 4 \| 5 \| 6` | `1` | Semantic heading level. Controls the rendered HTML element (h1-h6). Does not control visual size. |
-| `size` | `'display-2xl' \| 'display-xl' \| 'display-lg' \| 'display-md' \| 'display-sm' \| 'text-xl'` | `—` | Visual typography scale size. Independent of level. Defaults follow convention: level 1 → display-2xl, 2 → display-xl, 3 → display-lg, 4 → display-md, 5 → display-sm, 6 → text-xl. |
+| `size` | `'xxlarge' \| 'xlarge' \| 'large' \| 'medium' \| 'small' \| 'xsmall'` | `—` | Visual typography scale size. Independent of level. Defaults follow convention: level 1 → xxlarge, 2 → xlarge, 3 → large, 4 → medium, 5 → small, 6 → xsmall. |
 | `weight` | `'semibold' \| 'bold' \| 'extrabold'` | `bold` | Font weight. Maps to typography-weight-* tokens. |
 | `color` | `string` | `color-text-default` | Semantic text color token name (e.g. 'color-text-default'). Must be a valid design system token. |
 | `children` | `React.ReactNode` | `—` | Heading content. |
