@@ -12,59 +12,67 @@ const meta = {
   title: 'Buttons/IconButton',
   component: IconButton,
   argTypes: {
-    variant: {
+    kind: {
       control: 'select',
-      options: ['primary', 'secondary', 'ghost', 'destructive', 'link'],
+      options: ['primary', 'secondary', 'tertiary', 'dangerPrimary', 'dangerSecondary', 'dangerTertiary'],
     },
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    size: { control: 'select', options: ['mini', 'compact', 'default', 'large'] },
     disabled: { control: 'boolean' },
-    loading: { control: 'boolean' },
+    isLoading: { control: 'boolean' },
   },
   args: {
     'aria-label': 'Close',
     icon: <CloseIcon />,
+    kind: 'primary',
+    size: 'default',
   },
 } satisfies Meta<typeof IconButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/* ─── Kinds ─────────────────────────────────────────────────────────────────── */
+
 export const Primary: Story = {
-  args: { variant: 'primary' },
+  args: { kind: 'primary' },
 };
 
 export const Secondary: Story = {
-  args: { variant: 'secondary' },
+  args: { kind: 'secondary' },
 };
 
-export const Ghost: Story = {
-  args: { variant: 'ghost' },
+export const Tertiary: Story = {
+  args: { kind: 'tertiary' },
 };
 
-export const Destructive: Story = {
-  args: { variant: 'destructive', 'aria-label': 'Delete' },
+export const DangerPrimary: Story = {
+  args: { kind: 'dangerPrimary', 'aria-label': 'Delete' },
 };
 
-export const LinkVariant: Story = {
-  args: { variant: 'link' },
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+export const Mini: Story = {
+  args: { size: 'mini' },
 };
 
-export const SizeSmall: Story = {
-  args: { size: 'sm' },
+export const Compact: Story = {
+  args: { size: 'compact' },
 };
 
-export const SizeMedium: Story = {
-  args: { size: 'md' },
+export const Default: Story = {
+  args: { size: 'default' },
 };
 
-export const SizeLarge: Story = {
-  args: { size: 'lg' },
+export const Large: Story = {
+  args: { size: 'large' },
 };
+
+/* ─── States ─────────────────────────────────────────────────────────────────── */
 
 export const Disabled: Story = {
   args: { disabled: true },
 };
 
 export const Loading: Story = {
-  args: { loading: true },
+  args: { isLoading: true },
 };

@@ -2,81 +2,6 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@arch-ui/components';
 
-const meta = {
-  title: 'Buttons/Button',
-  component: Button,
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'ghost', 'destructive', 'link'],
-    },
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
-    disabled: { control: 'boolean' },
-    loading: { control: 'boolean' },
-    fullWidth: { control: 'boolean' },
-  },
-  args: {
-    children: 'Button',
-    variant: 'primary',
-    size: 'md',
-  },
-} satisfies Meta<typeof Button>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-/* ─── Variants ───────────────────────────────────────────────────────────────── */
-
-export const Primary: Story = {
-  args: { variant: 'primary', children: 'Primary' },
-};
-
-export const Secondary: Story = {
-  args: { variant: 'secondary', children: 'Secondary' },
-};
-
-export const Ghost: Story = {
-  args: { variant: 'ghost', children: 'Ghost' },
-};
-
-export const Destructive: Story = {
-  args: { variant: 'destructive', children: 'Delete' },
-};
-
-export const Link: Story = {
-  args: { variant: 'link', children: 'Link action' },
-};
-
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
-
-export const SizeSmall: Story = {
-  args: { size: 'sm', children: 'Small' },
-};
-
-export const SizeMedium: Story = {
-  args: { size: 'md', children: 'Medium' },
-};
-
-export const SizeLarge: Story = {
-  args: { size: 'lg', children: 'Large' },
-};
-
-/* ─── States ─────────────────────────────────────────────────────────────────── */
-
-export const Disabled: Story = {
-  args: { disabled: true, children: 'Disabled' },
-};
-
-export const Loading: Story = {
-  args: { loading: true, children: 'Save' },
-};
-
-export const LoadingWithText: Story = {
-  args: { loading: true, loadingText: 'Saving…', children: 'Save' },
-};
-
-/* ─── With Icons ─────────────────────────────────────────────────────────────── */
-
 const PlusIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
     <path d="M8 2a.75.75 0 0 1 .75.75v4.5h4.5a.75.75 0 0 1 0 1.5h-4.5v4.5a.75.75 0 0 1-1.5 0v-4.5h-4.5a.75.75 0 0 1 0-1.5h4.5v-4.5A.75.75 0 0 1 8 2Z" />
@@ -89,16 +14,119 @@ const ArrowIcon = () => (
   </svg>
 );
 
-export const WithLeftIcon: Story = {
-  args: { leftIcon: <PlusIcon />, children: 'Add item' },
+const meta = {
+  title: 'Buttons/Button',
+  component: Button,
+  argTypes: {
+    kind: {
+      control: 'select',
+      options: ['primary', 'secondary', 'tertiary', 'dangerPrimary', 'dangerSecondary', 'dangerTertiary'],
+    },
+    size: { control: 'select', options: ['mini', 'compact', 'default', 'large'] },
+    shape: { control: 'radio', options: ['default', 'pill', 'circle', 'square'] },
+    isSelected: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    isLoading: { control: 'boolean' },
+    fullWidth: { control: 'boolean' },
+  },
+  args: {
+    children: 'Button',
+    kind: 'primary',
+    size: 'default',
+  },
+} satisfies Meta<typeof Button>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+/* ─── Kinds ─────────────────────────────────────────────────────────────────── */
+
+export const Primary: Story = {
+  args: { kind: 'primary', children: 'Primary' },
 };
 
-export const WithRightIcon: Story = {
-  args: { rightIcon: <ArrowIcon />, children: 'Continue' },
+export const Secondary: Story = {
+  args: { kind: 'secondary', children: 'Secondary' },
 };
 
-export const WithBothIcons: Story = {
-  args: { leftIcon: <PlusIcon />, rightIcon: <ArrowIcon />, children: 'Next' },
+export const Tertiary: Story = {
+  args: { kind: 'tertiary', children: 'Tertiary' },
+};
+
+export const DangerPrimary: Story = {
+  args: { kind: 'dangerPrimary', children: 'Delete' },
+};
+
+export const DangerSecondary: Story = {
+  args: { kind: 'dangerSecondary', children: 'Delete' },
+};
+
+export const DangerTertiary: Story = {
+  args: { kind: 'dangerTertiary', children: 'Delete' },
+};
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+export const Mini: Story = {
+  args: { size: 'mini', children: 'Mini' },
+};
+
+export const Compact: Story = {
+  args: { size: 'compact', children: 'Compact' },
+};
+
+export const Default: Story = {
+  args: { size: 'default', children: 'Default' },
+};
+
+export const Large: Story = {
+  args: { size: 'large', children: 'Large' },
+};
+
+/* ─── Shapes ─────────────────────────────────────────────────────────────────── */
+
+export const Pill: Story = {
+  args: { shape: 'pill', children: 'Pill' },
+};
+
+export const Circle: Story = {
+  args: { shape: 'circle', startEnhancer: <PlusIcon />, children: undefined },
+};
+
+export const Square: Story = {
+  args: { shape: 'square', startEnhancer: <PlusIcon />, children: undefined },
+};
+
+/* ─── States ─────────────────────────────────────────────────────────────────── */
+
+export const Disabled: Story = {
+  args: { disabled: true, children: 'Disabled' },
+};
+
+export const Loading: Story = {
+  args: { isLoading: true, children: 'Save' },
+};
+
+export const LoadingWithText: Story = {
+  args: { isLoading: true, loadingText: 'Saving…', children: 'Save' },
+};
+
+export const Selected: Story = {
+  args: { kind: 'secondary', isSelected: true, children: 'Selected' },
+};
+
+/* ─── With Enhancers ─────────────────────────────────────────────────────────── */
+
+export const StartEnhancer: Story = {
+  args: { startEnhancer: <PlusIcon />, children: 'Add item' },
+};
+
+export const EndEnhancer: Story = {
+  args: { endEnhancer: <ArrowIcon />, children: 'Continue' },
+};
+
+export const BothEnhancers: Story = {
+  args: { startEnhancer: <PlusIcon />, endEnhancer: <ArrowIcon />, children: 'Next' },
 };
 
 /* ─── Full Width ─────────────────────────────────────────────────────────────── */
@@ -115,10 +143,9 @@ export const Accessibility: Story = {
     docs: {
       description: {
         story:
-          'Keyboard: `Tab` to focus, `Enter` or `Space` to activate. ' +
-          'Focus is indicated by a 2px outline using `var(--color-border-focus)`. ' +
-          'When loading, `aria-busy="true"` is set and the button is disabled. ' +
-          'Disabled state uses both `disabled` attribute and `aria-disabled`.',
+          'Tab to focus, Enter or Space to activate. ' +
+          'When loading, aria-busy="true" is set. ' +
+          'Disabled uses both disabled attribute and aria-disabled.',
       },
     },
   },
