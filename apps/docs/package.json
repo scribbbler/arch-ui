@@ -2,21 +2,19 @@
   "name": "@arch-ui/docs",
   "version": "0.0.0",
   "private": true,
-  "description": "Astro documentation site for the Arch Design System",
-  "type": "module",
+  "description": "Docusaurus documentation site for the Arch Design System",
   "scripts": {
-    "generate": "npx tsx src/scripts/generate-component-pages.ts",
-    "build": "npx tsx src/scripts/generate-component-pages.ts && astro build",
-    "dev": "npx tsx src/scripts/generate-component-pages.ts && astro dev",
-    "test": "echo 'No tests yet'",
-    "lint": "echo 'No lint yet'"
+    "build": "docusaurus build",
+    "dev": "docusaurus start",
+    "start": "docusaurus start",
+    "clear": "docusaurus clear",
+    "test": "echo 'No tests yet'"
   },
   "license": "ISC",
   "dependencies": {
-    "@astrojs/mdx": "^5.0.3",
-    "@astrojs/react": "^5.0.2",
-    "astro": "^6.1.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

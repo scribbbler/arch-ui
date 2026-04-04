@@ -1,0 +1,3 @@
+# slider
+
+Documentation coming soon.

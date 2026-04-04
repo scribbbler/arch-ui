@@ -1,0 +1,23 @@
+{
+  "id": "getting-started/theming",
+  "title": "theming",
+  "description": "Documentation coming soon.",
+  "source": "@site/docs/getting-started/theming.md",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/theming",
+  "permalink": "/getting-started/theming",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "Installation",
+    "permalink": "/getting-started/installation"
+  },
+  "next": {
+    "title": "dark mode",
+    "permalink": "/getting-started/dark-mode"
+  }
+}

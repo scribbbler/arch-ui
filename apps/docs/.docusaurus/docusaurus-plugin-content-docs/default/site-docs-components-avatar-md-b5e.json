@@ -1,0 +1,23 @@
+{
+  "id": "components/avatar",
+  "title": "avatar",
+  "description": "Documentation coming soon.",
+  "source": "@site/docs/components/avatar.md",
+  "sourceDirName": "components",
+  "slug": "/components/avatar",
+  "permalink": "/components/avatar",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "accordion",
+    "permalink": "/components/accordion"
+  },
+  "next": {
+    "title": "taule",
+    "permalink": "/components/table"
+  }
+}

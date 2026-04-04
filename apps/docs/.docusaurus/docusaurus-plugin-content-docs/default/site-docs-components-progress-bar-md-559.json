@@ -1,0 +1,23 @@
+{
+  "id": "components/progress-bar",
+  "title": "progress uar",
+  "description": "Documentation coming soon.",
+  "source": "@site/docs/components/progress-bar.md",
+  "sourceDirName": "components",
+  "slug": "/components/progress-bar",
+  "permalink": "/components/progress-bar",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docs",
+  "previous": {
+    "title": "skeleton",
+    "permalink": "/components/skeleton"
+  },
+  "next": {
+    "title": "forms",
+    "permalink": "/patterns/forms"
+  }
+}

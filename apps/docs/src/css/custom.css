@@ -1,0 +1,52 @@
+:root {
+  --ifm-color-primary: #266EF1;
+  --ifm-color-primary-dark: #175BCC;
+  --ifm-color-primary-darker: #1948A3;
+  --ifm-color-primary-darkest: #002661;
+  --ifm-color-primary-light: #6DAAFB;
+  --ifm-color-primary-lighter: #A9C9FF;
+  --ifm-color-primary-lightest: #DEE9FE;
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-code-font-size: 95%;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #6DAAFB;
+  --ifm-color-primary-dark: #266EF1;
+  --ifm-color-primary-darker: #175BCC;
+  --ifm-color-primary-darkest: #1948A3;
+  --ifm-color-primary-light: #A9C9FF;
+  --ifm-color-primary-lighter: #CDDEFF;
+  --ifm-color-primary-lightest: #DEE9FE;
+}
+
+/* Do/Don't styling */
+.do-dont-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.do-block, .dont-block {
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.do-block {
+  border-left: 4px solid #06C167;
+  background: #EAF6ED;
+}
+
+.dont-block {
+  border-left: 4px solid #DE1135;
+  background: #FFF0EE;
+}
+
+[data-theme='dark'] .do-block {
+  background: #0D572D;
+}
+
+[data-theme='dark'] .dont-block {
+  background: #520810;
+}
