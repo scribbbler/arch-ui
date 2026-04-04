@@ -183,6 +183,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           <IconButton
             kind="tertiary"
             size={iconBtnSize}
+            shape={iconBtnShape}
             aria-label={mergedLabels.previousPage}
             disabled={isPrevDisabled}
             onClick={() => {
@@ -229,6 +230,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           <IconButton
             kind="tertiary"
             size={iconBtnSize}
+            shape={iconBtnShape}
             aria-label={mergedLabels.nextPage}
             disabled={isNextDisabled}
             onClick={() => {
