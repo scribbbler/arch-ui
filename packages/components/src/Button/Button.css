@@ -1,16 +1,14 @@
 /* Button — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   Spacing matches Base Web sizing scale exactly. */
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-button {
-  /* Layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-component-xs);
+  gap: var(--spacing-inline-md);
 
-  /* Reset */
   appearance: none;
   border: none;
   background: none;
@@ -22,39 +20,29 @@
   white-space: nowrap;
   vertical-align: middle;
 
-  /* Typography */
   font-family: inherit;
-  font-weight: var(--typography-weight-semibold);
-
-  /* Shape */
+  font-weight: var(--typography-weight-medium);
   border-radius: var(--radius-md);
 
-  /* Transition */
   transition:
     background-color var(--motion-duration-fast) var(--motion-easing-default),
     color var(--motion-duration-fast) var(--motion-easing-default),
-    border-color var(--motion-duration-fast) var(--motion-easing-default),
-    opacity var(--motion-duration-fast) var(--motion-easing-default);
+    box-shadow var(--motion-duration-fast) var(--motion-easing-default);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arch-button {
-    transition: none;
-  }
+  .arch-button { transition: none; }
 }
 
 /* ─── Focus ─────────────────────────────────────────────────────────────────── */
 
 .arch-button:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: inset 0 0 0 2px var(--color-border-focus);
 }
 
 /* ─── Full width ─────────────────────────────────────────────────────────────── */
 
-.arch-button--full-width {
-  width: 100%;
-}
+.arch-button--full-width { width: 100%; }
 
 /* ─── Disabled ───────────────────────────────────────────────────────────────── */
 
@@ -65,44 +53,45 @@
   pointer-events: none;
 }
 
-/* ─── Sizes (Base Web: mini, compact, default, large) ───────────────────────── */
+/* ─── Sizes — matches Base Web scale exactly ─────────────────────────────────
+   mini:    paddingY=6   paddingX=8   minH=28  font=LabelXSmall
+   compact: paddingY=10  paddingX=12  minH=36  font=LabelSmall
+   default: paddingY=14  paddingX=16  minH=48  font=LabelMedium
+   large:   paddingY=16  paddingX=20  minH=56  font=LabelLarge
+   ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-button--mini {
-  padding-block: 2px;
-  padding-inline: var(--spacing-component-xs);
+  padding-block: var(--spacing-6);
+  padding-inline: var(--spacing-8);
   font-size: var(--typography-scale-label-xsmall-font-size);
   line-height: var(--typography-scale-label-xsmall-line-height);
-  min-block-size: var(--spacing-component-md);
-  min-inline-size: var(--spacing-component-md);
+  min-block-size: var(--spacing-28);
   border-radius: var(--radius-sm);
 }
 
 .arch-button--compact {
-  padding-block: var(--spacing-component-xs);
-  padding-inline: var(--spacing-component-sm);
+  padding-block: var(--spacing-10);
+  padding-inline: var(--spacing-12);
   font-size: var(--typography-scale-label-small-font-size);
   line-height: var(--typography-scale-label-small-line-height);
-  min-block-size: var(--spacing-component-lg);
-  min-inline-size: var(--spacing-component-lg);
+  min-block-size: var(--spacing-36);
   border-radius: var(--radius-sm);
 }
 
 .arch-button--default {
-  padding-block: var(--spacing-component-sm);
-  padding-inline: var(--spacing-component-md);
+  padding-block: var(--spacing-14);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-label-medium-font-size);
   line-height: var(--typography-scale-label-medium-line-height);
-  min-block-size: calc(var(--spacing-component-lg) + var(--spacing-component-xs));
-  min-inline-size: calc(var(--spacing-component-lg) + var(--spacing-component-xs));
+  min-block-size: var(--spacing-48);
 }
 
 .arch-button--large {
-  padding-block: var(--spacing-component-md);
-  padding-inline: var(--spacing-component-lg);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-20);
   font-size: var(--typography-scale-label-large-font-size);
   line-height: var(--typography-scale-label-large-line-height);
-  min-block-size: calc(var(--spacing-component-lg) + var(--spacing-component-md));
-  min-inline-size: calc(var(--spacing-component-lg) + var(--spacing-component-md));
+  min-block-size: var(--spacing-56);
 }
 
 /* ─── Kind: primary ─────────────────────────────────────────────────────────── */
@@ -111,11 +100,9 @@
   background-color: var(--color-action-primary);
   color: var(--color-action-primary-text);
 }
-
 .arch-button--primary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-primary-hover);
 }
-
 .arch-button--primary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-primary-active);
 }
@@ -126,11 +113,9 @@
   background-color: var(--color-action-secondary);
   color: var(--color-action-secondary-text);
 }
-
 .arch-button--secondary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-secondary-hover);
 }
-
 .arch-button--secondary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-secondary-active);
 }
@@ -141,11 +126,9 @@
   background-color: var(--color-action-ghost);
   color: var(--color-action-ghost-text);
 }
-
 .arch-button--tertiary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-ghost-hover);
 }
-
 .arch-button--tertiary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-ghost-active);
 }
@@ -156,11 +139,9 @@
   background-color: var(--color-action-destructive);
   color: var(--color-action-destructive-text);
 }
-
 .arch-button--danger-primary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-destructive-hover);
 }
-
 .arch-button--danger-primary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-destructive-active);
 }
@@ -171,12 +152,10 @@
   background-color: var(--color-feedback-danger-bg);
   color: var(--color-feedback-danger-text);
 }
-
 .arch-button--danger-secondary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-destructive);
   color: var(--color-action-destructive-text);
 }
-
 .arch-button--danger-secondary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-destructive-active);
   color: var(--color-action-destructive-text);
@@ -188,17 +167,15 @@
   background-color: transparent;
   color: var(--color-feedback-danger-text);
 }
-
 .arch-button--danger-tertiary:hover:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-feedback-danger-bg);
 }
-
 .arch-button--danger-tertiary:active:not(:disabled):not([aria-disabled="true"]) {
   background-color: var(--color-action-destructive);
   color: var(--color-action-destructive-text);
 }
 
-/* ─── Loading state ──────────────────────────────────────────────────────────── */
+/* ─── Loading ────────────────────────────────────────────────────────────────── */
 
 .arch-button--loading {
   position: relative;
@@ -218,19 +195,14 @@
 }
 
 @keyframes arch-button-spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arch-button__spinner {
-    animation: none;
-    opacity: 0.5;
-  }
+  .arch-button__spinner { animation: none; opacity: 0.5; }
 }
 
-/* ─── Enhancer slots ─────────────────────────────────────────────────────────── */
+/* ─── Enhancers ──────────────────────────────────────────────────────────────── */
 
 .arch-button__enhancer {
   display: inline-flex;
@@ -240,15 +212,11 @@
   color: inherit;
 }
 
-.arch-button__label {
-  display: inline;
-}
+.arch-button__label { display: inline; }
 
 /* ─── Shapes ─────────────────────────────────────────────────────────────────── */
 
-.arch-button--shape-pill {
-  border-radius: var(--radius-full);
-}
+.arch-button--shape-pill { border-radius: var(--radius-full); }
 
 .arch-button--shape-circle {
   border-radius: var(--radius-full);
@@ -262,20 +230,9 @@
   aspect-ratio: 1;
 }
 
-/* ─── Selected state ─────────────────────────────────────────────────────────── */
+/* ─── Selected ───────────────────────────────────────────────────────────────── */
 
-.arch-button--selected.arch-button--primary {
-  background-color: var(--color-action-primary-active);
-}
-
-.arch-button--selected.arch-button--secondary {
-  background-color: var(--color-action-secondary-active);
-}
-
-.arch-button--selected.arch-button--tertiary {
-  background-color: var(--color-action-ghost-active);
-}
-
-.arch-button--selected.arch-button--danger-primary {
-  background-color: var(--color-action-destructive-active);
-}
+.arch-button--selected.arch-button--primary { background-color: var(--color-action-primary-active); }
+.arch-button--selected.arch-button--secondary { background-color: var(--color-action-secondary-active); }
+.arch-button--selected.arch-button--tertiary { background-color: var(--color-action-ghost-active); }
+.arch-button--selected.arch-button--danger-primary { background-color: var(--color-action-destructive-active); }
