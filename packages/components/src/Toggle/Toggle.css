@@ -7,7 +7,7 @@
 .arch-toggle {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-component-sm);
+  gap: var(--spacing-8);
   cursor: pointer;
   /* Ensure the overall touch target is accessible */
   min-block-size: 2.75rem; /* 44px */
@@ -80,58 +80,58 @@
   transition: transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
-/* ─── Size: md (default) ─────────────────────────────────────────────────────── */
+/* ─── Size: md (default) — Base Web: track 44×24, thumb 20px ────────────────── */
 
 .arch-toggle--md .arch-toggle__track {
-  inline-size: 2.75rem;  /* 44px */
-  block-size: 1.5rem;    /* 24px */
-  padding-inline: var(--spacing-component-xs);
+  inline-size: calc(var(--spacing-24) + var(--spacing-20)); /* 44px */
+  block-size: var(--spacing-24);   /* 24px */
+  padding-inline: var(--spacing-2);
 }
 
 .arch-toggle--md .arch-toggle__thumb {
-  inline-size: 1.125rem; /* 18px */
-  block-size: 1.125rem;  /* 18px */
-  inset-inline-start: var(--spacing-component-xs);
+  inline-size: var(--spacing-20);  /* 20px */
+  block-size: var(--spacing-20);   /* 20px */
+  inset-inline-start: var(--spacing-2);
 }
 
 .arch-toggle--md .arch-toggle__input:checked ~ .arch-toggle__track .arch-toggle__thumb {
-  transform: translateX(1.25rem); /* move thumb to inline-end */
+  transform: translateX(var(--spacing-20)); /* move thumb to inline-end */
 }
 
-/* ─── Size: sm ───────────────────────────────────────────────────────────────── */
+/* ─── Size: sm (compact) — Base Web: track 38×20, thumb 16px ────────────────── */
 
 .arch-toggle--sm .arch-toggle__track {
-  inline-size: 2rem;    /* 32px */
-  block-size: 1.125rem; /* 18px */
-  padding-inline: 2px;
+  inline-size: calc(var(--spacing-18) + var(--spacing-20)); /* 38px */
+  block-size: var(--spacing-20);   /* 20px */
+  padding-inline: var(--spacing-2);
 }
 
 .arch-toggle--sm .arch-toggle__thumb {
-  inline-size: 0.875rem; /* 14px */
-  block-size: 0.875rem;  /* 14px */
-  inset-inline-start: 2px;
+  inline-size: var(--spacing-16);  /* 16px */
+  block-size: var(--spacing-16);   /* 16px */
+  inset-inline-start: var(--spacing-2);
 }
 
 .arch-toggle--sm .arch-toggle__input:checked ~ .arch-toggle__track .arch-toggle__thumb {
-  transform: translateX(0.875rem); /* move thumb to inline-end */
+  transform: translateX(var(--spacing-18)); /* move thumb to inline-end */
 }
 
-/* ─── Size: xs ───────────────────────────────────────────────────────────────── */
+/* ─── Size: xs — track 28×14, thumb 10px ─────────────────────────────────────── */
 
 .arch-toggle--xs .arch-toggle__track {
-  inline-size: 1.5rem;    /* 24px */
-  block-size: 0.875rem;   /* 14px */
-  padding-inline: 1px;
+  inline-size: var(--spacing-28);  /* 28px */
+  block-size: var(--spacing-14);   /* 14px */
+  padding-inline: var(--spacing-2);
 }
 
 .arch-toggle--xs .arch-toggle__thumb {
-  inline-size: 0.625rem;  /* 10px */
-  block-size: 0.625rem;   /* 10px */
-  inset-inline-start: 1px;
+  inline-size: var(--spacing-10);  /* 10px */
+  block-size: var(--spacing-10);   /* 10px */
+  inset-inline-start: var(--spacing-2);
 }
 
 .arch-toggle--xs .arch-toggle__input:checked ~ .arch-toggle__track .arch-toggle__thumb {
-  transform: translateX(0.625rem); /* move thumb to inline-end */
+  transform: translateX(var(--spacing-14)); /* move thumb to inline-end */
 }
 
 /* ─── Label text ─────────────────────────────────────────────────────────────── */

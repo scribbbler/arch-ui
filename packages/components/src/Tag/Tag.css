@@ -6,10 +6,10 @@
 .arch-tag {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-inline-xs);
+  gap: var(--spacing-4);
 
-  padding-block: var(--spacing-component-xs);
-  padding-inline: var(--spacing-component-sm);
+  padding-block: var(--spacing-2);
+  padding-inline: var(--spacing-8);
 
   font-family: inherit;
   font-size: var(--typography-scale-paragraph-small-font-size);
@@ -76,7 +76,7 @@
   background: none;
   border: none;
   padding: 0;
-  margin-inline-start: var(--spacing-inline-xs);
+  margin-inline-start: var(--spacing-4);
   cursor: pointer;
   color: inherit;
   opacity: 0.7;

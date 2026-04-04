@@ -6,8 +6,8 @@
   background-color: var(--color-surface-overlay);
   color: var(--color-text-default);
   box-shadow: var(--shadow-overlay);
-  padding-block: var(--spacing-component-sm);
-  padding-inline: var(--spacing-component-sm);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-12);
   border-radius: var(--radius-component-sm);
   font: var(--typography-scale-paragraph-small-font-size);
   pointer-events: none;

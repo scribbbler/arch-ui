@@ -50,19 +50,19 @@
 /* ─── Sub-components ─────────────────────────────────────────────────────────── */
 
 .arch-card__header {
-  padding-inline: var(--spacing-component-md);
-  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-16);
+  padding-block: var(--spacing-12);
   border-block-end: var(--border-width-default) solid var(--color-border-default);
 }
 
 .arch-card__body {
   flex: 1;
-  padding-inline: var(--spacing-component-md);
-  padding-block: var(--spacing-component-md);
+  padding-inline: var(--spacing-16);
+  padding-block: var(--spacing-16);
 }
 
 .arch-card__footer {
-  padding-inline: var(--spacing-component-md);
-  padding-block: var(--spacing-component-sm);
+  padding-inline: var(--spacing-16);
+  padding-block: var(--spacing-12);
   border-block-start: var(--border-width-default) solid var(--color-border-default);
 }

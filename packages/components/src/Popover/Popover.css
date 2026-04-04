@@ -6,8 +6,8 @@
   background-color: var(--color-surface-raised);
   border: var(--border-width-default) solid var(--color-border-default);
   box-shadow: var(--shadow-component-md);
-  padding-block: var(--spacing-component-md);
-  padding-inline: var(--spacing-component-lg);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
   border-radius: var(--radius-component-md);
   min-inline-size: 12rem;
   outline: none;

@@ -9,7 +9,7 @@
   border-block-start: 1px solid var(--color-border-subtle);
   block-size: 0;
   inline-size: 100%;
-  margin-block: var(--spacing-component-sm);
+  margin-block: var(--spacing-8);
 }
 
 /* ─── Vertical ───────────────────────────────────────────────────────────────── */
@@ -20,7 +20,7 @@
   border-inline-start: 1px solid var(--color-border-subtle);
   inline-size: 0;
   block-size: 1em;
-  margin-inline: var(--spacing-inline-sm);
+  margin-inline: var(--spacing-8);
   vertical-align: middle;
 }
 
@@ -29,10 +29,10 @@
 .arch-divider--with-label {
   display: flex;
   align-items: center;
-  gap: var(--spacing-inline-sm);
+  gap: var(--spacing-8);
   border: none;
   block-size: auto;
-  margin-block: var(--spacing-component-sm);
+  margin-block: var(--spacing-8);
 }
 
 .arch-divider__line {

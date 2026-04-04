@@ -36,32 +36,32 @@
 /* ─── Sizes — map size prop to CSS custom property ───────────────────────────── */
 
 .arch-avatar--xs {
-  --arch-avatar-size: 1.5rem;
+  --arch-avatar-size: var(--spacing-24);
   font-size: var(--typography-scale-text-xs);
 }
 
 .arch-avatar--sm {
-  --arch-avatar-size: 2rem;
+  --arch-avatar-size: var(--spacing-32);
   font-size: var(--typography-scale-text-xs);
 }
 
 .arch-avatar--md {
-  --arch-avatar-size: 2.5rem;
+  --arch-avatar-size: var(--spacing-40);
   font-size: var(--typography-scale-text-sm);
 }
 
 .arch-avatar--lg {
-  --arch-avatar-size: 3rem;
+  --arch-avatar-size: var(--spacing-48);
   font-size: var(--typography-scale-text-sm);
 }
 
 .arch-avatar--xl {
-  --arch-avatar-size: 4rem;
+  --arch-avatar-size: var(--spacing-64);
   font-size: var(--typography-scale-text-md);
 }
 
 .arch-avatar--2xl {
-  --arch-avatar-size: 6rem;
+  --arch-avatar-size: var(--spacing-96);
   font-size: var(--typography-scale-text-md);
 }
 

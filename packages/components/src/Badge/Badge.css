@@ -7,7 +7,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-inline-xs);
+  gap: var(--spacing-4);
 
   font-family: inherit;
   font-weight: var(--typography-weight-medium);
@@ -20,14 +20,14 @@
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 .arch-badge--sm {
-  padding-block: var(--spacing-inline-xs);
-  padding-inline: var(--spacing-component-xs);
+  padding-block: var(--spacing-2);
+  padding-inline: var(--spacing-8);
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
 }
 
 .arch-badge--md {
-  padding-block: var(--spacing-component-xs);
-  padding-inline: var(--spacing-component-sm);
+  padding-block: var(--spacing-2);
+  padding-inline: var(--spacing-8);
   font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
@@ -69,7 +69,7 @@
 /* ─── Dot mode ───────────────────────────────────────────────────────────────── */
 
 .arch-badge--dot {
-  padding: var(--spacing-component-xs);
+  padding: var(--spacing-4);
 }
 
 .arch-badge__dot {
@@ -79,13 +79,13 @@
 }
 
 .arch-badge--sm .arch-badge__dot {
-  inline-size: var(--spacing-inline-xs);
-  block-size: var(--spacing-inline-xs);
+  inline-size: var(--spacing-4);
+  block-size: var(--spacing-4);
 }
 
 .arch-badge--md .arch-badge__dot {
-  inline-size: var(--spacing-component-xs);
-  block-size: var(--spacing-component-xs);
+  inline-size: var(--spacing-6);
+  block-size: var(--spacing-6);
 }
 
 .arch-badge__dot {

@@ -14,12 +14,12 @@
 .arch-form-label {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-component-xs);
+  gap: var(--spacing-4);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-default);
-  margin-block-end: var(--spacing-component-xs);
+  margin-block-end: var(--spacing-4);
 }
 
 /* Required asterisk injected via data attribute so it never enters the DOM as
@@ -41,7 +41,7 @@
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
   color: var(--color-text-subtle);
-  margin-block-start: var(--spacing-component-xs);
+  margin-block-start: var(--spacing-4);
 }
 
 /* ─── FormErrorMessage ───────────────────────────────────────────────────────── */
@@ -50,5 +50,5 @@
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
   color: var(--color-text-danger);
-  margin-block-start: var(--spacing-component-xs);
+  margin-block-start: var(--spacing-4);
 }

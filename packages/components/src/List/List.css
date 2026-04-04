@@ -6,9 +6,9 @@
 .arch-list {
   display: flex;
   flex-direction: column;
-  gap: var(--arch-list-spacing, var(--spacing-component-xs));
+  gap: var(--arch-list-spacing, var(--spacing-4));
   margin: 0;
-  padding-inline-start: var(--spacing-inline-md);
+  padding-inline-start: var(--spacing-16);
   color: var(--color-text-default);
   font-size: var(--typography-scale-paragraph-medium-font-size);
 }
@@ -40,7 +40,7 @@
 .arch-description-list {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: var(--spacing-component-xs) var(--spacing-inline-md);
+  gap: var(--spacing-4) var(--spacing-16);
   margin: 0;
   padding: 0;
   color: var(--color-text-default);

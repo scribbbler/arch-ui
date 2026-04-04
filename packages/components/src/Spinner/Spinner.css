@@ -28,8 +28,8 @@
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 .arch-spinner--xs {
-  inline-size: var(--spacing-component-md);
-  block-size: var(--spacing-component-md);
+  inline-size: var(--spacing-16);
+  block-size: var(--spacing-16);
   border-width: 0.125rem;
 }
 

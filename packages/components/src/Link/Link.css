@@ -75,7 +75,7 @@
 /* External indicator */
 .arch-link__external-icon {
   display: inline-block;
-  margin-inline-start: var(--spacing-inline-xs);
+  margin-inline-start: var(--spacing-4);
   vertical-align: middle;
   width: 0.85em;
   height: 0.85em;

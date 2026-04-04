@@ -6,9 +6,9 @@
 .arch-alert {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-inline-sm);
-  padding-block: var(--spacing-component-sm);
-  padding-inline: var(--spacing-component-md);
+  gap: var(--spacing-8);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
   border-radius: var(--radius-component-sm);
   border-width: var(--border-width-default);
   border-style: solid;
@@ -36,7 +36,7 @@
 .arch-alert__title {
   display: block;
   font-weight: var(--typography-weight-semibold);
-  margin-block-end: var(--spacing-component-xs, 0.25em);
+  margin-block-end: var(--spacing-4);
 }
 
 /* ─── Description ────────────────────────────────────────────────────────────── */
@@ -56,12 +56,12 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--spacing-component-xs, 0.25em);
+  padding: var(--spacing-4);
   border-radius: var(--radius-component-sm);
   color: inherit;
   opacity: 0.7;
   margin-block-start: -0.125em;
-  margin-inline-end: calc(-1 * var(--spacing-component-xs, 0.25em));
+  margin-inline-end: calc(-1 * var(--spacing-4));
 }
 
 .arch-alert__close:hover {

@@ -33,11 +33,11 @@
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 .arch-progressbar--sm {
-  block-size: var(--spacing-component-xs);
+  block-size: var(--spacing-4);
 }
 
 .arch-progressbar--md {
-  block-size: var(--spacing-component-sm);
+  block-size: var(--spacing-8);
 }
 
 /* ─── Fill bar ───────────────────────────────────────────────────────────────── */
@@ -73,7 +73,7 @@
 .arch-progressbar__wrapper {
   display: flex;
   align-items: center;
-  gap: var(--spacing-inline-sm);
+  gap: var(--spacing-8);
 }
 
 .arch-progressbar__wrapper .arch-progressbar {

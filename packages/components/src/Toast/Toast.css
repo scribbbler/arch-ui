@@ -8,45 +8,45 @@
   z-index: var(--z-semantic-toast);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-component-sm);
+  gap: var(--spacing-8);
   pointer-events: none;
-  max-inline-size: min(calc(100vw - var(--spacing-component-lg, 2rem) * 2), 24rem);
+  max-inline-size: min(calc(100vw - var(--spacing-24) * 2), 24rem);
 }
 
 /* ─── Position variants ──────────────────────────────────────────────────────── */
 
 .arch-toast-container--top-left {
-  inset-block-start: var(--spacing-component-lg, 1.5rem);
-  inset-inline-start: var(--spacing-component-lg, 1.5rem);
+  inset-block-start: var(--spacing-24);
+  inset-inline-start: var(--spacing-24);
 }
 
 .arch-toast-container--top-center {
-  inset-block-start: var(--spacing-component-lg, 1.5rem);
+  inset-block-start: var(--spacing-24);
   inset-inline-start: 50%;
   transform: translateX(-50%);
 }
 
 .arch-toast-container--top-right {
-  inset-block-start: var(--spacing-component-lg, 1.5rem);
-  inset-inline-end: var(--spacing-component-lg, 1.5rem);
+  inset-block-start: var(--spacing-24);
+  inset-inline-end: var(--spacing-24);
 }
 
 .arch-toast-container--bottom-left {
-  inset-block-end: var(--spacing-component-lg, 1.5rem);
-  inset-inline-start: var(--spacing-component-lg, 1.5rem);
+  inset-block-end: var(--spacing-24);
+  inset-inline-start: var(--spacing-24);
   flex-direction: column-reverse;
 }
 
 .arch-toast-container--bottom-center {
-  inset-block-end: var(--spacing-component-lg, 1.5rem);
+  inset-block-end: var(--spacing-24);
   inset-inline-start: 50%;
   transform: translateX(-50%);
   flex-direction: column-reverse;
 }
 
 .arch-toast-container--bottom-right {
-  inset-block-end: var(--spacing-component-lg, 1.5rem);
-  inset-inline-end: var(--spacing-component-lg, 1.5rem);
+  inset-block-end: var(--spacing-24);
+  inset-inline-end: var(--spacing-24);
   flex-direction: column-reverse;
 }
 
@@ -55,9 +55,9 @@
 .arch-toast {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-inline-sm);
-  padding-block: var(--spacing-component-sm);
-  padding-inline: var(--spacing-component-md);
+  gap: var(--spacing-8);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
   background-color: var(--color-surface-raised);
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-component-md);
@@ -124,7 +124,7 @@
   display: block;
   font-size: var(--typography-scale-paragraph-small-font-size);
   color: var(--color-text-subtle);
-  margin-block-start: var(--spacing-component-xs, 0.25em);
+  margin-block-start: var(--spacing-4);
 }
 
 /* ─── Close button ───────────────────────────────────────────────────────────── */
@@ -136,12 +136,12 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--spacing-component-xs, 0.25em);
+  padding: var(--spacing-4);
   border-radius: var(--radius-component-sm);
   color: var(--color-text-subtle);
   flex-shrink: 0;
   margin-block-start: -0.125em;
-  margin-inline-end: calc(-1 * var(--spacing-component-xs, 0.25em));
+  margin-inline-end: calc(-1 * var(--spacing-4));
 }
 
 .arch-toast__close:hover {

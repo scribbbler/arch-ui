@@ -44,8 +44,8 @@
   font-size: var(--typography-scale-label-medium-font-size);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-subtle);
-  padding-block: var(--spacing-component-sm);
-  padding-inline: var(--spacing-component-md);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-8);
   white-space: nowrap;
   transition:
     color var(--motion-duration-fast) var(--motion-semantic-easing-default),
@@ -102,8 +102,8 @@
 /* ─── Enclosed variant ───────────────────────────────────────────────────────── */
 
 .arch-tabs--enclosed.arch-tabs--horizontal .arch-tabs__tablist {
-  gap: var(--spacing-inline-xs);
-  padding-inline: var(--spacing-inline-sm);
+  gap: var(--spacing-4);
+  padding-inline: var(--spacing-8);
   border-block-end: var(--border-width-default) solid var(--color-border-default);
 }
 
@@ -122,8 +122,8 @@
 }
 
 .arch-tabs--enclosed.arch-tabs--vertical .arch-tabs__tablist {
-  gap: var(--spacing-inline-xs);
-  padding-block: var(--spacing-component-sm);
+  gap: var(--spacing-4);
+  padding-block: var(--spacing-8);
   border-inline-end: var(--border-width-default) solid var(--color-border-default);
 }
 
@@ -147,7 +147,7 @@
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  margin-inline-end: var(--spacing-inline-xs);
+  margin-inline-end: var(--spacing-4);
 }
 
 /* ─── Fill — fixed (equal width tabs) ────────────────────────────────────────── */
@@ -162,7 +162,7 @@
 
 .arch-tabs__panel {
   flex: 1;
-  padding: var(--spacing-component-md);
+  padding: var(--spacing-16);
   color: var(--color-text-default);
 }
 

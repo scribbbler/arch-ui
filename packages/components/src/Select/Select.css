@@ -31,9 +31,9 @@
   /* Custom chevron via background-image (encoded SVG — token-coloured via currentColor) */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right var(--spacing-component-sm) center;
+  background-position: right var(--spacing-8) center;
   /* Extra inline-end padding so text doesn't overlap the chevron */
-  padding-inline-end: calc(var(--spacing-component-md) + 1.25rem);
+  padding-inline-end: calc(var(--spacing-12) + 1.25rem);
 
   /* Reset */
   margin: 0;
@@ -88,7 +88,7 @@
 .arch-select[multiple] {
   /* No chevron for multi-select listbox */
   background-image: none;
-  padding-inline-end: var(--spacing-component-md);
+  padding-inline-end: var(--spacing-12);
   block-size: auto;
 }
 
@@ -103,38 +103,43 @@
   outline-color: var(--color-border-success);
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+/* ─── Sizes — matches Base Web Input scale ───────────────────────────────────
+   mini:    paddingY=6   paddingX=14  minH=28  font=ParagraphXSmall (12px)
+   compact: paddingY=8   paddingX=14  minH=36  font=ParagraphSmall  (14px)
+   default: paddingY=12  paddingX=14  minH=48  font=ParagraphMedium (16px)
+   large:   paddingY=16  paddingX=14  minH=56  font=ParagraphLarge  (18px)
+   ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-select--xs {
-  padding-block: 2px;
-  padding-inline-start: var(--spacing-component-xs);
-  font-size: var(--typography-scale-label-xsmall-font-size);
-  line-height: var(--typography-scale-label-xsmall-line-height);
-  min-block-size: 1.5rem; /* 24px */
-  border-radius: var(--radius-component-sm);
+  padding-block: var(--spacing-6);
+  padding-inline-start: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+  min-block-size: var(--spacing-28);
+  border-radius: var(--radius-sm);
 }
 
 .arch-select--sm {
-  padding-block: var(--spacing-component-xs);
-  padding-inline-start: var(--spacing-component-sm);
-  font-size: var(--typography-scale-label-small-font-size);
-  line-height: var(--typography-scale-label-small-line-height);
-  min-block-size: 2rem; /* 32px */
-  border-radius: var(--radius-component-sm);
+  padding-block: var(--spacing-8);
+  padding-inline-start: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  min-block-size: var(--spacing-36);
+  border-radius: var(--radius-sm);
 }
 
 .arch-select--md {
-  padding-block: var(--spacing-component-sm);
-  padding-inline-start: var(--spacing-component-md);
-  font-size: var(--typography-scale-label-medium-font-size);
-  line-height: var(--typography-scale-label-medium-line-height);
-  min-block-size: 2.75rem; /* 44px touch target */
+  padding-block: var(--spacing-12);
+  padding-inline-start: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+  min-block-size: var(--spacing-48);
 }
 
 .arch-select--lg {
-  padding-block: var(--spacing-component-md);
-  padding-inline-start: var(--spacing-component-md);
-  font-size: var(--typography-scale-label-medium-font-size);
-  line-height: var(--typography-scale-label-medium-line-height);
-  min-block-size: 3rem; /* 48px */
+  padding-block: var(--spacing-16);
+  padding-inline-start: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+  min-block-size: var(--spacing-56);
 }
