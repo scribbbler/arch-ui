@@ -66,6 +66,15 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      toc: true,
+    },
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: ['*', ['Docs', '*']],
+      },
+    },
   },
 };
 
