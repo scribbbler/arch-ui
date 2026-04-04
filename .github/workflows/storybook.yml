@@ -27,7 +27,10 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - run: pnpm tokens:build
       - run: pnpm --filter @arch-ui/storybook build
+        env:
+          STORYBOOK_BASE_PATH: /arch-ui/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/storybook/storybook-static

@@ -24,6 +24,9 @@ const config: StorybookConfig = {
       '@arch-ui/icons': resolve(__dirname, '../../../packages/icons/src'),
       '@arch-ui/tokens': resolve(__dirname, '../../../packages/tokens'),
     };
+    if (process.env.STORYBOOK_BASE_PATH) {
+      config.base = process.env.STORYBOOK_BASE_PATH;
+    }
     return config;
   },
 };
