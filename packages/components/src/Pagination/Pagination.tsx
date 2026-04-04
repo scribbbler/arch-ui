@@ -1,5 +1,4 @@
 import React, { forwardRef, useMemo } from 'react';
-import { IconButton, type IconButtonSize, type IconButtonShape } from '../IconButton';
 import { Button, type ButtonSize, type ButtonShape } from '../Button';
 import { DEFAULT_LABELS, type PaginationLabels } from './Pagination.labels';
 import './Pagination.css';
@@ -146,15 +145,9 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
   const isPrevDisabled = currentPage <= 1;
   const isNextDisabled = currentPage >= totalPages;
 
+  // PaginationSize and ButtonSize have identical values; cast for type compatibility.
   const btnSize = size as ButtonSize;
-  const iconBtnSize = size as IconButtonSize;
-
-  // Map pagination shape to Button/IconButton shape props
-  // Button has: default, pill, circle, square
-  // IconButton has: square, circle
-  // Map pagination shape to both consistently
-  const btnShape: ButtonShape = shape === 'circle' ? 'circle' : shape === 'pill' ? 'pill' : shape === 'square' ? 'square' : 'default';
-  const iconBtnShape: IconButtonShape = (shape === 'circle' || shape === 'pill') ? 'circle' : 'square';
+  const btnShape = shape as ButtonShape;
 
   const classes = ['arch-pagination', sizeClassMap[size], className].filter(Boolean).join(' ');
 
@@ -164,32 +157,32 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
         {/* First page */}
         {showFirstLast && (
           <li className="arch-pagination__item">
-            <IconButton
+            <Button
               kind="tertiary"
-              size={iconBtnSize}
-              shape={iconBtnShape}
+              size={btnSize}
+              shape={btnShape}
               aria-label={mergedLabels.firstPage}
               disabled={isPrevDisabled}
               onClick={() => {
                 if (!isPrevDisabled) onChange(1);
               }}
-              icon={<ChevronDoubleLeftSvg />}
+              startEnhancer={<ChevronDoubleLeftSvg />}
             />
           </li>
         )}
 
         {/* Previous page */}
         <li className="arch-pagination__item">
-          <IconButton
+          <Button
             kind="tertiary"
-            size={iconBtnSize}
-            shape={iconBtnShape}
+            size={btnSize}
+            shape={btnShape}
             aria-label={mergedLabels.previousPage}
             disabled={isPrevDisabled}
             onClick={() => {
               if (!isPrevDisabled) onChange(currentPage - 1);
             }}
-            icon={<ChevronLeftSvg />}
+            startEnhancer={<ChevronLeftSvg />}
           />
         </li>
 
@@ -208,7 +201,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
           const isCurrent = page === currentPage;
 
           return (
-            <li key={`page-${page}-${index}`} className="arch-pagination__item">
+            <li key={page} className="arch-pagination__item">
               <Button
                 kind={isCurrent ? 'primary' : 'tertiary'}
                 size={btnSize}
@@ -227,32 +220,32 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
 
         {/* Next page */}
         <li className="arch-pagination__item">
-          <IconButton
+          <Button
             kind="tertiary"
-            size={iconBtnSize}
-            shape={iconBtnShape}
+            size={btnSize}
+            shape={btnShape}
             aria-label={mergedLabels.nextPage}
             disabled={isNextDisabled}
             onClick={() => {
               if (!isNextDisabled) onChange(currentPage + 1);
             }}
-            icon={<ChevronRightSvg />}
+            startEnhancer={<ChevronRightSvg />}
           />
         </li>
 
         {/* Last page */}
         {showFirstLast && (
           <li className="arch-pagination__item">
-            <IconButton
+            <Button
               kind="tertiary"
-              size={iconBtnSize}
-              shape={iconBtnShape}
+              size={btnSize}
+              shape={btnShape}
               aria-label={mergedLabels.lastPage}
               disabled={isNextDisabled}
               onClick={() => {
                 if (!isNextDisabled) onChange(totalPages);
               }}
-              icon={<ChevronDoubleRightSvg />}
+              startEnhancer={<ChevronDoubleRightSvg />}
             />
           </li>
         )}

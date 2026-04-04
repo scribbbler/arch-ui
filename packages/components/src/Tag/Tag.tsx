@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { IconButton } from '../IconButton';
+import { Button } from '../Button';
 import './Tag.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -118,13 +118,14 @@ const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag(
       )}
       <span className="arch-tag__label">{children}</span>
       {showRemove && (
-        <IconButton
+        <Button
           kind="tertiary"
           size="compact"
+          shape="square"
           className="arch-tag__remove"
           aria-label={removeLabel}
           onClick={onRemove}
-          icon={<CloseIcon />}
+          startEnhancer={<CloseIcon />}
         />
       )}
     </span>

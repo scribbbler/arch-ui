@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useRef, useState } from 'react';
-import { IconButton } from '../IconButton';
+import { Button } from '../Button';
 import { useFormControl } from '../FormControl/index';
 import './Textarea.css';
 
@@ -183,14 +183,15 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           onChange={handleChange}
         />
         {showClear && (
-          <IconButton
+          <Button
             kind="tertiary"
             size="compact"
+            shape="square"
             className="arch-textarea__clear"
             onClick={handleClear}
             aria-label="Clear textarea"
             tabIndex={-1}
-            icon={<span aria-hidden="true">&times;</span>}
+            startEnhancer={<span aria-hidden="true">&times;</span>}
           />
         )}
       </div>

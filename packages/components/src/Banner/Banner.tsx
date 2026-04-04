@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { IconButton } from '../IconButton';
 import { Button } from '../Button';
 import './Banner.css';
 
@@ -88,13 +87,14 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
         </Button>
       )}
       {onClose && (
-        <IconButton
+        <Button
           kind="tertiary"
           size="compact"
+          shape="square"
           className="arch-banner__close"
           aria-label="Dismiss banner"
           onClick={onClose}
-          icon={<CloseIcon />}
+          startEnhancer={<CloseIcon />}
         />
       )}
     </div>

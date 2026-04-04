@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useId } from 'react';
 import { Portal } from '../Portal';
 import { Overlay } from '../Overlay';
 import { FocusTrap } from '../FocusTrap';
-import { IconButton } from '../IconButton';
+import { Button } from '../Button';
 import { DEFAULT_LABELS, type ModalLabels } from './Modal.labels';
 import './Modal.css';
 
@@ -80,13 +80,14 @@ const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function ModalHead
         {children}
       </h2>
       {onClose && (
-        <IconButton
+        <Button
           kind="tertiary"
           size="compact"
+          shape="square"
           className="arch-modal__close"
           aria-label={mergedLabels.close}
           onClick={onClose}
-          icon={<span aria-hidden="true">&#x2715;</span>}
+          startEnhancer={<span aria-hidden="true">&#x2715;</span>}
         />
       )}
     </header>

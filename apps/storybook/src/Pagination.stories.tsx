@@ -62,10 +62,6 @@ export const Pill: Story = {
 
 export const Circle: Story = {
   args: { shape: 'circle' },
-  render: () => {
-    const [page, setPage] = useState(1);
-    return <Pagination totalPages={10} currentPage={page} onChange={setPage} shape="circle" size="compact" />;
-  },
 };
 
 export const SquareShape: Story = {

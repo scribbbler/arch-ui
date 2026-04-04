@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useRef } from 'react';
-import { IconButton } from '../IconButton';
+import { Button } from '../Button';
 import { useFormControl } from '../FormControl/index';
 import './Input.css';
 
@@ -185,14 +185,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       />
 
       {showClear && !rightElement && (
-        <IconButton
+        <Button
           kind="tertiary"
           size="compact"
+          shape="square"
           className="arch-input__clear"
           onClick={handleClear}
           aria-label="Clear input"
           tabIndex={-1}
-          icon={<span aria-hidden="true">&times;</span>}
+          startEnhancer={<span aria-hidden="true">&times;</span>}
         />
       )}
 

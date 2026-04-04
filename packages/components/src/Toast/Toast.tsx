@@ -9,7 +9,7 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
-import { IconButton } from '../IconButton';
+import { Button } from '../Button';
 import {
   DEFAULT_TOAST_LABELS,
   DEFAULT_PROVIDER_LABELS,
@@ -192,13 +192,14 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
         )}
       </span>
       {closeable && (
-        <IconButton
+        <Button
           kind="tertiary"
           size="compact"
+          shape="square"
           className="arch-toast__close"
           aria-label={mergedLabels.dismiss}
           onClick={dismiss}
-          icon={<CloseIcon />}
+          startEnhancer={<CloseIcon />}
         />
       )}
     </div>

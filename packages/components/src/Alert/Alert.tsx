@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { IconButton } from '../IconButton';
+import { Button } from '../Button';
 import { DEFAULT_LABELS, type AlertLabels } from './Alert.labels';
 import './Alert.css';
 
@@ -136,13 +136,14 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
         )}
       </span>
       {showClose && (
-        <IconButton
+        <Button
           kind="tertiary"
           size="compact"
+          shape="square"
           className="arch-alert__close"
           aria-label={mergedLabels.dismiss}
           onClick={onClose}
-          icon={<CloseIcon />}
+          startEnhancer={<CloseIcon />}
         />
       )}
     </div>
