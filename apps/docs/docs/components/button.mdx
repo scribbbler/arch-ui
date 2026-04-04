@@ -58,9 +58,9 @@ export const B = ({children, label, kind = 'primary', variant, shape = 'default'
 <div style={{background: '#F9F9F9', borderRadius: '12px', padding: '32px', margin: '24px 0', textAlign: 'center'}}>
   <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
     <div style={{background: 'white', borderRadius: '12px', padding: '24px', width: '280px'}}>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #E8E8E8'}}><span>Color</span><B kind="secondary" style={{padding: '8px 16px', fontSize: '14px'}} /></div>
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #E8E8E8'}}><span>Text</span><B kind="secondary" style={{padding: '8px 16px', fontSize: '14px'}} /></div>
-      <div style={{marginTop: '16px'}}><B kind="primary" style={{width: '100%', padding: '14px'}} /></div>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #E8E8E8'}}><span>Color</span><B label="Change" kind="secondary" style={{padding: '8px 16px', fontSize: '14px'}} /></div>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #E8E8E8'}}><span>Text</span><B label="Change" kind="secondary" style={{padding: '8px 16px', fontSize: '14px'}} /></div>
+      <div style={{marginTop: '16px'}}><B label="Preview" kind="primary" style={{width: '100%', padding: '14px'}} /></div>
     </div>
   </div>
 </div>
@@ -91,14 +91,14 @@ The most basic setup of a button includes only a single label or icon. Still, a 
 <div style={{background: '#F9F9F9', borderRadius: '12px', padding: '40px', margin: '24px 0'}}>
 <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px'}}>
 <div style={{textAlign: 'center'}}>
-  <B kind="primary" />
+  <B label="Label" kind="primary" />
   <div style={{marginTop: '16px', fontSize: '13px'}}>
     <div style={{color: '#DE1135', fontWeight: 600}}>Label <span style={{fontWeight: 400}}>(recommended)</span></div>
     <div style={{color: '#DE1135', fontWeight: 600, marginTop: '4px'}}>Container <span style={{fontWeight: 400}}>(required)</span></div>
   </div>
 </div>
 <div style={{textAlign: 'center'}}>
-  <B kind="primary" icon={<span>♥</span>} style={{paddingRight: '24px'}} />
+  <B label="Label" kind="primary" icon={<span>♥</span>} style={{paddingRight: '24px'}} />
   <div style={{marginTop: '16px', fontSize: '13px'}}>
     <span style={{color: '#DE1135', fontWeight: 600}}>Leading Icon</span>
     <span style={{color: '#DE1135'}}> (optional)</span>
@@ -119,7 +119,7 @@ Buttons come in rectangular, circle, square, and pill shapes.
 <div style={{display: 'grid', gridTemplateColumns: '200px 1fr', gap: '32px', alignItems: 'start', margin: '32px 0'}}>
 
 <div style={{display: 'flex', justifyContent: 'center'}}>
-  <B kind="primary" style={{padding: '14px 64px'}} />
+  <B label="Label" kind="primary" style={{padding: '14px 64px'}} />
 </div>
 <div>
 
@@ -141,7 +141,7 @@ Circular buttons can include a text label or an icon. An optional label below is
 </div>
 
 <div style={{display: 'flex', justifyContent: 'center'}}>
-  <B kind="primary" shape="square" variant="secondary" />
+  <B label="01" kind="secondary" shape="square" />
 </div>
 <div>
 
@@ -152,7 +152,7 @@ Square buttons, similar to circle buttons, can include a text label or an icon. 
 </div>
 
 <div style={{display: 'flex', justifyContent: 'center'}}>
-  <B kind="primary" icon="♥" variant="secondary" shape="pill" />
+  <B label="Label" kind="secondary" icon="♥" shape="pill" />
 </div>
 <div>
 
@@ -181,21 +181,21 @@ Button hierarchy emphasizes which button is more important in the context so the
       <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Highest emphasis</div>
       <div style={{color: '#727272', fontSize: '12px'}}>primary container color</div>
     </div>
-    <B kind="primary" />
+    <B label="Label" kind="primary" />
   </div>
   <div style={{display: 'flex', alignItems: 'center', gap: '32px'}}>
     <div style={{width: '240px'}}>
       <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Medium emphasis</div>
       <div style={{color: '#727272', fontSize: '12px'}}>secondary container color</div>
     </div>
-    <B kind="secondary" />
+    <B label="Label" kind="secondary" />
   </div>
   <div style={{display: 'flex', alignItems: 'center', gap: '32px'}}>
     <div style={{width: '240px'}}>
       <div style={{color: '#DE1135', fontWeight: 600, fontSize: '14px'}}>Low emphasis</div>
       <div style={{color: '#727272', fontSize: '12px'}}>transparent container color</div>
     </div>
-    <B kind="tertiary" />
+    <B label="Cancel" kind="tertiary" />
   </div>
 </div>
 </div>
@@ -215,8 +215,8 @@ Buttons use color and contrast to create three levels of emphasis and hierarchy.
 Use one primary button per context to allow users to take a specific action, move forward in a flow, acknowledge and dismiss, or finish a task.
 
 <DoDont
-  doText={<div><B kind="secondary" style={{width: '100%', marginBottom: '8px'}} /><B kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="tertiary" style={{width: '100%'}} /></div>}
-  dontText={<div><B kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="tertiary" style={{width: '100%'}} /></div>}
+  doText={<div><B label="Secondary" kind="secondary" style={{width: '100%', marginBottom: '8px'}} /><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Tertiary" kind="tertiary" style={{width: '100%'}} /></div>}
+  dontText={<div><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Tertiary" kind="tertiary" style={{width: '100%'}} /></div>}
 />
 
 Use one primary button per context to highlight the action the user will most likely take.
@@ -230,8 +230,8 @@ Avoid using multiple primary buttons on a screen.
 Secondary buttons are the bread and butter of the button world. Lean into them whenever possible. The gray background protection provides higher visibility, making them more accessible than tertiary buttons.
 
 <DoDont
-  doText={<div><B kind="secondary" /><div style={{marginTop: '16px'}}><B kind="secondary" style={{width: '100%'}} /></div></div>}
-  dontText={<div><B kind="primary" style={{borderRadius: '9999px'}} /><div style={{marginTop: '16px', fontSize: '13px', color: '#727272'}}>Avoid using primary buttons in the middle of the page</div></div>}
+  doText={<div><B label="Label" kind="secondary" /><div style={{marginTop: '16px'}}><B label="Secondary" kind="secondary" style={{width: '100%'}} /></div></div>}
+  dontText={<div><B label="Change address" kind="primary" style={{borderRadius: '9999px'}} /><div style={{marginTop: '16px', fontSize: '13px', color: '#727272'}}>Avoid using primary buttons in the middle of the page</div></div>}
   dontLabel="Caution"
 />
 
@@ -246,8 +246,8 @@ Avoid using primary buttons in the middle of the page (use secondary buttons ins
 Tertiary buttons are mainly used for **dismissive actions** that give users a way out of something, letting them do nothing, dismiss, or skip.
 
 <DoDont
-  doText={<div><B kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="tertiary" style={{width: '100%'}} /></div>}
-  dontText={<div><B kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="secondary" style={{width: '100%'}} /></div>}
+  doText={<div><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Tertiary" kind="tertiary" style={{width: '100%'}} /></div>}
+  dontText={<div><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Secondary" kind="secondary" style={{width: '100%'}} /></div>}
 />
 
 Do treat buttons with a dismissive behavior similar to "Cancel" with the tertiary style.
@@ -265,8 +265,8 @@ Destructive buttons are actions that permanently cause data loss. Because these 
   <div style={{fontSize: '13px', color: '#727272', fontWeight: 500}}>Primary</div>
   <div style={{fontSize: '13px', color: '#727272', fontWeight: 500}}>Secondary</div>
   <div style={{fontSize: '13px', color: '#727272', fontWeight: 500}}>Tertiary</div>
-  <div><B kind="dangerPrimary" /></div>
-  <div><B kind="dangerSecondary" /></div>
+  <div><B label="Delete" kind="dangerPrimary" /></div>
+  <div><B label="Delete" kind="dangerSecondary" /></div>
   <div style={{color: '#727272'}}>N/A</div>
 </div>
 </div>
@@ -276,8 +276,8 @@ Destructive buttons are actions that permanently cause data loss. Because these 
 If a flow includes an action that could be destructive, it's important to give users a chance to double-check before it's completed. The initial action should be designed in a way that suggests caution, using a secondary destructive button, and then a final confirmation dialog should appear with a more obvious warning, using a primary destructive button.
 
 <DoDont
-  doText={<div><B kind="secondary" icon="→" style={{width: '100%', marginBottom: '16px'}} /><B kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="tertiary" style={{width: '100%'}} /></div>}
-  dontText={<div><B kind="dangerSecondary" icon="→" style={{width: '100%', marginBottom: '16px'}} /><B kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="dangerSecondary" style={{width: '100%'}} /></div>}
+  doText={<div><B label="Logout" kind="secondary" icon="→" style={{width: '100%', marginBottom: '16px'}} /><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Tertiary" kind="tertiary" style={{width: '100%'}} /></div>}
+  dontText={<div><B label="Logout" kind="dangerSecondary" icon="→" style={{width: '100%', marginBottom: '16px'}} /><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="dangerSecondary" style={{width: '100%'}} /></div>}
 />
 
 Do use standard buttons for actions that don't cause data loss.
