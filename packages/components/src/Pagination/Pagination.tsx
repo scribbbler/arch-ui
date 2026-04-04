@@ -32,7 +32,7 @@ const ChevronDoubleRightSvg = () => (
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
 export type PaginationSize = 'mini' | 'compact' | 'default' | 'large';
-export type PaginationShape = 'default' | 'pill' | 'circle' | 'square';
+export type PaginationShape = 'circle' | 'square';
 
 export interface PaginationProps {
   /** Total number of pages. */
@@ -43,7 +43,7 @@ export interface PaginationProps {
   onChange: (page: number) => void;
   /** Size of the pagination buttons. Defaults to 'compact'. */
   size?: PaginationSize;
-  /** Shape of the pagination buttons. Defaults to 'default'. */
+  /** Shape of the pagination buttons. Defaults to 'circle'. */
   shape?: PaginationShape;
   /** When true, renders buttons to jump to the first and last pages. */
   showFirstLast?: boolean;
@@ -128,7 +128,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
     currentPage,
     onChange,
     size = 'compact',
-    shape = 'default',
+    shape = 'circle',
     showFirstLast = false,
     siblingCount = 1,
     labels,

@@ -12,7 +12,7 @@ const meta: Meta<typeof Pagination> = {
   component: Pagination,
   argTypes: {
     size: { control: 'select', options: ['mini', 'compact', 'default', 'large'] },
-    shape: { control: 'radio', options: ['default', 'pill', 'circle', 'square'] },
+    shape: { control: 'radio', options: ['circle', 'square'] },
     totalPages: { control: 'number' },
     showFirstLast: { control: 'boolean' },
     siblingCount: { control: 'number' },
@@ -22,7 +22,7 @@ const meta: Meta<typeof Pagination> = {
     currentPage: 1,
     onChange: () => {},
     size: 'compact',
-    shape: 'default',
+    shape: 'circle',
   },
   render: (args) => <ControlledPagination {...args} />,
 };
@@ -32,6 +32,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+export const Square: Story = {
+  args: { shape: 'square' },
+};
+
 export const WithFirstLast: Story = {
   args: { totalPages: 20, showFirstLast: true },
 };
@@ -39,6 +43,8 @@ export const WithFirstLast: Story = {
 export const SiblingCountTwo: Story = {
   args: { totalPages: 20, siblingCount: 2 },
 };
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 export const Mini: Story = {
   args: { size: 'mini' },
@@ -54,18 +60,6 @@ export const SizeDefault: Story = {
 
 export const Large: Story = {
   args: { size: 'large' },
-};
-
-export const Pill: Story = {
-  args: { shape: 'pill' },
-};
-
-export const Circle: Story = {
-  args: { shape: 'circle' },
-};
-
-export const SquareShape: Story = {
-  args: { shape: 'square' },
 };
 
 export const FewPages: Story = {
