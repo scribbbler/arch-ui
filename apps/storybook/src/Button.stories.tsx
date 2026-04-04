@@ -17,6 +17,7 @@ const ArrowIcon = () => (
 const meta = {
   title: 'Buttons/Button',
   component: Button,
+  tags: ['autodocs'],
   argTypes: {
     kind: {
       control: 'select',
