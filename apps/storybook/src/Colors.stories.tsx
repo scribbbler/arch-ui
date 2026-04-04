@@ -16,7 +16,8 @@ const colorScales: Record<string, string[]> = {
 };
 
 function Swatch({ color, name }: { color: string; name: string }) {
-  const isDark = parseInt(name.split('-').pop() || '0') >= 500;
+  const shade = parseInt(name.split('-').pop() || '0');
+  const isDark = name === 'black' || shade >= 500;
   return (
     <div
       style={{
