@@ -15,9 +15,19 @@ const colorScales: Record<string, string[]> = {
   amber: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'],
 };
 
+const DARK_SEMANTIC = new Set([
+  'background-inverse', 'background-overlay',
+  'text-default', 'text-subtle', 'text-placeholder', 'text-disabled',
+  'text-link', 'text-danger', 'text-success', 'text-warning', 'text-info',
+  'action-primary', 'action-primary-hover', 'action-primary-active',
+  'action-destructive', 'action-destructive-hover', 'action-destructive-active',
+  'border-strong', 'border-focus', 'border-danger', 'border-success', 'border-warning',
+  'feedback-danger-text', 'feedback-success-text', 'feedback-warning-text', 'feedback-info-text',
+]);
+
 function Swatch({ color, name }: { color: string; name: string }) {
   const shade = parseInt(name.split('-').pop() || '0');
-  const isDark = name === 'black' || shade >= 500;
+  const isDark = name === 'black' || shade >= 500 || DARK_SEMANTIC.has(name);
   return (
     <div
       style={{
