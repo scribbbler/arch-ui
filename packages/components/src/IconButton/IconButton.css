@@ -75,15 +75,15 @@
 
 /* ─── Shapes ─────────────────────────────────────────────────────────────────── */
 
-.arch-icon-button--square {
+.arch-icon-button.arch-icon-button--square {
   border-radius: var(--radius-md);
 }
 
-.arch-icon-button--circle {
+.arch-icon-button.arch-icon-button--circle {
   border-radius: var(--radius-full);
 }
 
-/* Override border-radius for mini/compact square */
+/* Smaller radius for mini/compact square */
 .arch-icon-button--mini.arch-icon-button--square,
 .arch-icon-button--compact.arch-icon-button--square {
   border-radius: var(--radius-sm);
