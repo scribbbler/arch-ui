@@ -1,6 +1,7 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Canvas } from '@storybook/blocks';
 import { Spec } from './spec/Spec';
 import { Button } from '@arch-ui/components';
+import * as ButtonStories from './Button.stories';
 import manifest from '../../../packages/components/src/Button/Button.manifest.json';
 
 <Meta title="Buttons/Button/Spec" />
@@ -15,7 +16,6 @@ export const AnatomyDiagram = () => (
       border: '2px dashed #94a3b8',
       borderRadius: 8,
       background: '#fff',
-      position: 'relative',
     }}
   >
     <div style={{ textAlign: 'center' }}>
@@ -69,24 +69,22 @@ export const AnatomyDiagram = () => (
   </div>
 );
 
-export const Examples = () => (
-  <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-    <Button kind="primary">Primary</Button>
-    <Button kind="secondary">Secondary</Button>
-    <Button kind="tertiary">Tertiary</Button>
-    <Button kind="dangerPrimary">Delete</Button>
-    <Button kind="primary" disabled>Disabled</Button>
-    <Button kind="primary" isLoading>Loading</Button>
-  </div>
-);
-
 <Spec
   manifest={manifest}
   anatomyDiagram={<AnatomyDiagram />}
-  examples={<Examples />}
+  examples={
+    <>
+      <Canvas of={ButtonStories.Primary} />
+      <Canvas of={ButtonStories.Secondary} />
+      <Canvas of={ButtonStories.Tertiary} />
+      <Canvas of={ButtonStories.DangerPrimary} />
+      <Canvas of={ButtonStories.Disabled} />
+      <Canvas of={ButtonStories.Loading} />
+    </>
+  }
   visualDos={[
     {
-      label: 'One primary button per section.',
+      label: 'One primary button per section, paired with a tertiary cancel.',
       example: (
         <div style={{ display: 'flex', gap: 8 }}>
           <Button kind="primary">Save</Button>
