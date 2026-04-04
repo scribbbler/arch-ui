@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback, useRef } from 'react';
+import { IconButton } from '../IconButton';
 import { useFormControl } from '../FormControl/index';
 import './Input.css';
 
@@ -13,7 +14,7 @@ export type InputType =
   | 'url'
   | 'tel';
 
-export type InputSize = 'sm' | 'md' | 'lg';
+export type InputSize = 'xs' | 'sm' | 'md' | 'lg';
 
 export interface InputProps
   extends Omit<
@@ -28,6 +29,10 @@ export interface InputProps
   leftElement?: React.ReactNode;
   /** Node rendered in the trailing (inline-end) slot — typically an icon or action. */
   rightElement?: React.ReactNode;
+  /** Shows a clear button when the input has a value. Fires onChange with an empty value on clear. */
+  clearable?: boolean;
+  /** Shows a positive (success/valid) border style. */
+  positive?: boolean;
   /** Disables the input. Also picked up from nearest FormControl context. */
   disabled?: boolean;
   /** Makes the input read-only. */
@@ -63,16 +68,33 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     size = 'md',
     leftElement,
     rightElement,
+    clearable = false,
+    positive = false,
     disabled: disabledProp,
     readOnly,
     className,
     id: idProp,
     'aria-describedby': ariaDescribedByProp,
     'aria-invalid': ariaInvalidProp,
+    value,
+    onChange,
     ...rest
   },
   ref
 ) {
+  const internalRef = useRef<HTMLInputElement>(null);
+
+  const setRef = useCallback(
+    (node: HTMLInputElement | null) => {
+      (internalRef as React.MutableRefObject<HTMLInputElement | null>).current = node;
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref) {
+        (ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
+      }
+    },
+    [ref]
+  );
   const ctx = useFormControl();
 
   /* Merge props with context — explicit props take priority */
@@ -94,18 +116,45 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   const ariaDescribedBy =
     describedByParts.length > 0 ? describedByParts.join(' ') : undefined;
 
+  const showClear = clearable && !disabled && !readOnly && value !== undefined && value !== '';
+  const hasRight = rightElement || showClear;
+
   const wrapperClasses = [
     'arch-input-wrapper',
     leftElement ? 'arch-input-wrapper--has-left' : '',
-    rightElement ? 'arch-input-wrapper--has-right' : '',
+    hasRight ? 'arch-input-wrapper--has-right' : '',
     className,
   ]
     .filter(Boolean)
     .join(' ');
 
-  const inputClasses = ['arch-input', `arch-input--${size}`]
+  const inputClasses = [
+    'arch-input',
+    `arch-input--${size}`,
+    positive && !invalid ? 'arch-input--positive' : '',
+  ]
     .filter(Boolean)
     .join(' ');
+
+  function handleClear() {
+    if (internalRef.current) {
+      const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+        window.HTMLInputElement.prototype,
+        'value'
+      )?.set;
+      nativeInputValueSetter?.call(internalRef.current, '');
+      const event = new Event('input', { bubbles: true });
+      internalRef.current.dispatchEvent(event);
+    }
+    if (onChange) {
+      const syntheticEvent = {
+        target: { ...internalRef.current, value: '' },
+        currentTarget: { ...internalRef.current, value: '' },
+      } as React.ChangeEvent<HTMLInputElement>;
+      onChange(syntheticEvent);
+    }
+    internalRef.current?.focus();
+  }
 
   return (
     <div className={wrapperClasses}>
@@ -120,9 +169,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
       <input
         {...rest}
-        ref={ref}
+        ref={setRef}
         id={id}
         type={type}
+        value={value}
+        onChange={onChange}
         disabled={disabled}
         readOnly={readOnly}
         required={required}
@@ -132,6 +183,18 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         aria-describedby={ariaDescribedBy}
         className={inputClasses}
       />
+
+      {showClear && !rightElement && (
+        <IconButton
+          variant="ghost"
+          size="sm"
+          className="arch-input__clear"
+          onClick={handleClear}
+          aria-label="Clear input"
+          tabIndex={-1}
+          icon={<span aria-hidden="true">&times;</span>}
+        />
+      )}
 
       {rightElement && (
         <span

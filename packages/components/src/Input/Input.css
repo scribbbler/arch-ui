@@ -38,6 +38,12 @@
   color: var(--color-text-placeholder);
 }
 
+/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+
+.arch-input:hover:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
+  border-color: var(--color-border-strong);
+}
+
 /* ─── Focus ──────────────────────────────────────────────────────────────────── */
 
 .arch-input:focus-visible {
@@ -79,7 +85,27 @@
   cursor: default;
 }
 
+/* ─── Positive (valid) ────────────────────────────────────────────────────────── */
+
+.arch-input--positive {
+  border-color: var(--color-border-success);
+}
+
+.arch-input--positive:focus-visible {
+  border-color: var(--color-border-success);
+  outline-color: var(--color-border-success);
+}
+
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-input--xs {
+  padding-block: 2px;
+  padding-inline: var(--spacing-component-xs);
+  font-size: var(--typography-scale-text-xs-font-size);
+  line-height: var(--typography-scale-text-xs-line-height);
+  min-block-size: 1.5rem; /* 24px — compact */
+  border-radius: var(--radius-component-sm);
+}
 
 .arch-input--sm {
   padding-block: var(--spacing-component-xs);
@@ -137,4 +163,26 @@
   padding-inline-end: calc(
     var(--spacing-component-sm) + 1.25em + var(--spacing-component-xs)
   );
+}
+
+/* ─── Clear button ───────────────────────────────────────────────────────────── */
+
+.arch-input__clear {
+  position: absolute;
+  inset-inline-end: var(--spacing-component-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  block-size: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-text-subtle);
+  font-size: 1.125em;
+  line-height: 1;
+}
+
+.arch-input__clear:hover {
+  color: var(--color-text-default);
 }

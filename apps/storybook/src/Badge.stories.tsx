@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Badge } from '@arch-ui/components';
 
 const meta = {
-  title: 'Data Display/Badge',
+  title: 'Indicators and Status/Badge',
   component: Badge,
   args: {
     children: 'Badge',

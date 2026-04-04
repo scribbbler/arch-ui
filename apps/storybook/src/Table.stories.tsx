@@ -42,7 +42,7 @@ function SampleTable(props: React.ComponentProps<typeof Table>) {
 }
 
 const meta = {
-  title: 'Data Display/Table',
+  title: 'Content Display/Table',
   component: Table,
   render: (args) => <SampleTable {...args} />,
 } satisfies Meta<typeof Table>;

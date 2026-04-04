@@ -9,7 +9,7 @@ const sampleItems = [
 ];
 
 const meta = {
-  title: 'Disclosure/Accordion',
+  title: 'Content Display/Accordion',
   component: Accordion,
 } satisfies Meta<typeof Accordion>;
 

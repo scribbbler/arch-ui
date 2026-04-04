@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Alert } from '@arch-ui/components';
 
 const meta = {
-  title: 'Feedback/Alert',
+  title: 'Messaging/Alert',
   component: Alert,
   args: {
     description: 'This is an alert message.',

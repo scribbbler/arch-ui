@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Slider } from '@arch-ui/components';
+import { Slider, FormControl, FormLabel } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/Slider',
+  title: 'Input and Selection/Slider',
   component: Slider,
+  render: (args) => (
+    <FormControl>
+      <FormLabel>Volume</FormLabel>
+      <Slider {...args} />
+    </FormControl>
+  ),
   argTypes: {
     min: { control: 'number' },
     max: { control: 'number' },
@@ -12,7 +18,6 @@ const meta = {
     disabled: { control: 'boolean' },
   },
   args: {
-    'aria-label': 'Volume',
     min: 0,
     max: 100,
     step: 1,
@@ -31,19 +36,25 @@ export const Default: Story = {
 /* ─── Custom Range ───────────────────────────────────────────────────────────── */
 
 export const CustomMinMaxStep: Story = {
-  args: {
-    min: 0,
-    max: 1000,
-    step: 50,
-    defaultValue: 500,
-    'aria-label': 'Price',
-  },
+  args: { min: 0, max: 1000, step: 50, defaultValue: 500 },
+  render: (args) => (
+    <FormControl>
+      <FormLabel>Price</FormLabel>
+      <Slider {...args} />
+    </FormControl>
+  ),
 };
 
 /* ─── Disabled ───────────────────────────────────────────────────────────────── */
 
 export const Disabled: Story = {
   args: { disabled: true, defaultValue: 30 },
+  render: (args) => (
+    <FormControl disabled>
+      <FormLabel>Volume</FormLabel>
+      <Slider {...args} />
+    </FormControl>
+  ),
 };
 
 /* ─── Controlled with Value Display ──────────────────────────────────────────── */
@@ -52,10 +63,10 @@ export const Controlled: Story = {
   render: () => {
     const [value, setValue] = useState(50);
     return (
-      <div>
-        <Slider aria-label="Brightness" value={value} onChange={setValue} />
-        <p style={{ marginTop: '8px' }}>Value: {value}</p>
-      </div>
+      <FormControl>
+        <FormLabel>Brightness: {value}%</FormLabel>
+        <Slider value={value} onChange={setValue} />
+      </FormControl>
     );
   },
 };
@@ -63,13 +74,13 @@ export const Controlled: Story = {
 /* ─── Fine-grained Steps ─────────────────────────────────────────────────────── */
 
 export const FineGrainedSteps: Story = {
-  args: {
-    min: 0,
-    max: 1,
-    step: 0.01,
-    defaultValue: 0.5,
-    'aria-label': 'Opacity',
-  },
+  args: { min: 0, max: 1, step: 0.01, defaultValue: 0.5 },
+  render: (args) => (
+    <FormControl>
+      <FormLabel>Opacity</FormLabel>
+      <Slider {...args} />
+    </FormControl>
+  ),
 };
 
 /* ─── Accessibility ──────────────────────────────────────────────────────────── */
@@ -82,10 +93,7 @@ export const Accessibility: Story = {
         story:
           'Keyboard: `Arrow Left/Down` decreases by step, `Arrow Right/Up` increases by step, ' +
           '`Home` jumps to min, `End` jumps to max. ' +
-          '`aria-valuemin`, `aria-valuemax`, and `aria-valuenow` are provided natively by the range input. ' +
-          'Always provide `aria-label` or associate with a visible label. ' +
-          'Focus indicator uses a 2px outline with `var(--color-border-focus)`. ' +
-          'Thumb meets 44x44px minimum touch target.',
+          'Always associate with a visible label via FormControl and FormLabel.',
       },
     },
   },

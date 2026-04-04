@@ -22,6 +22,12 @@
       "required": false,
       "default": "default"
     },
+    "animateUnderline": {
+      "type": "boolean",
+      "description": "When true, the underline animates in from the left on hover instead of showing a static underline.",
+      "required": false,
+      "default": false
+    },
     "children": {
       "type": "React.ReactNode",
       "description": "Link label content.",
@@ -56,7 +62,11 @@
       "color-text-link-visited",
       "color-text-subtle",
       "color-text-inverse",
-      "color-border-focus"
+      "color-border-focus",
+      "radius-xs",
+      "border-width-default",
+      "motion-semantic-duration-fast",
+      "motion-semantic-easing-default"
     ]
   }
 }

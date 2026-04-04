@@ -9,7 +9,7 @@ import {
 } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/List',
+  title: 'Content Display/List',
   component: List,
   argTypes: {
     variant: { control: 'select', options: ['bullet', 'number', 'none'] },

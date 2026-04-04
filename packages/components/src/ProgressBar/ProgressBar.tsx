@@ -14,6 +14,10 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: ProgressBarSize;
   /** Accessible label applied as aria-label. Required for screen readers. */
   label?: string;
+  /** Value at which the bar shows a success state. Defaults to 100. */
+  successValue?: number;
+  /** When true, renders a percentage label alongside the bar. */
+  showLabel?: boolean;
   /** Additional CSS class names applied to the root element. */
   className?: string;
 }
@@ -36,39 +40,50 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(function Progre
     indeterminate = false,
     size = 'md',
     label,
+    successValue = 100,
+    showLabel = false,
     className,
     ...rest
   },
   ref
 ) {
   const clamped = Math.min(100, Math.max(0, value));
+  const isSuccess = !indeterminate && clamped >= successValue;
 
   const classes = [
     'arch-progressbar',
     `arch-progressbar--${size}`,
     indeterminate ? 'arch-progressbar--indeterminate' : '',
+    isSuccess ? 'arch-progressbar--success' : '',
     className,
   ]
     .filter(Boolean)
     .join(' ');
 
   return (
-    <div
-      {...rest}
-      ref={ref}
-      role="progressbar"
-      aria-label={label}
-      aria-valuemin={0}
-      aria-valuemax={100}
-      aria-valuenow={indeterminate ? undefined : clamped}
-      className={classes}
-      style={
-        indeterminate
-          ? undefined
-          : { '--arch-progress-value': `${clamped}%` } as React.CSSProperties
-      }
-    >
-      <div className="arch-progressbar__fill" />
+    <div className={showLabel ? 'arch-progressbar__wrapper' : undefined}>
+      <div
+        {...rest}
+        ref={ref}
+        role="progressbar"
+        aria-label={label}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={indeterminate ? undefined : clamped}
+        className={classes}
+        style={
+          indeterminate
+            ? undefined
+            : { '--arch-progress-value': `${clamped}%` } as React.CSSProperties
+        }
+      >
+        <div className="arch-progressbar__fill" />
+      </div>
+      {showLabel && !indeterminate && (
+        <span className="arch-progressbar__label" aria-hidden="true">
+          {Math.round(clamped)}%
+        </span>
+      )}
     </div>
   );
 });

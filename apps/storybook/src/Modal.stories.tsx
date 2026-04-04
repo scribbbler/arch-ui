@@ -22,7 +22,7 @@ function ModalDemo(props: React.ComponentProps<typeof Modal>) {
 }
 
 const meta = {
-  title: 'Overlay/Modal',
+  title: 'Containers and Layout/Modal',
   component: Modal,
   render: (args) => <ModalDemo {...args} />,
 } satisfies Meta<typeof Modal>;

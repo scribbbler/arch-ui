@@ -6,7 +6,7 @@
   "accessibility": {
     "role": "none",
     "keyboardInteraction": ["Enter", "Space", "ArrowDown", "ArrowUp", "Home", "End"],
-    "ariaAttributes": ["aria-expanded", "aria-controls", "aria-labelledby"],
+    "ariaAttributes": ["aria-expanded", "aria-controls", "aria-labelledby", "aria-disabled"],
     "notes": [
       "Each section header is a <button> element with aria-expanded and aria-controls.",
       "Each panel has role='region' and aria-labelledby pointing to its trigger button.",
@@ -17,8 +17,8 @@
   },
   "props": {
     "items": {
-      "type": "Array<{ title: string; content: ReactNode }>",
-      "description": "Array of accordion sections. Each item must have a title string and content ReactNode."
+      "type": "Array<{ title: ReactNode; content: ReactNode; disabled?: boolean }>",
+      "description": "Array of accordion sections. Each item must have a title (string or ReactNode), content ReactNode, and an optional disabled flag."
     },
     "allowMultiple": {
       "type": "boolean",
@@ -29,6 +29,15 @@
       "type": "number[]",
       "default": "[]",
       "description": "Indices of sections that are expanded by default on first render."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, all accordion panels are disabled and cannot be toggled."
+    },
+    "onChange": {
+      "type": "(expandedItems: string[]) => void",
+      "description": "Called when the set of expanded items changes. Receives indices of expanded items as string array."
     },
     "className": {
       "type": "string",

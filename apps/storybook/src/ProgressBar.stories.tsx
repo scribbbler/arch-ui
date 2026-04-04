@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ProgressBar } from '@arch-ui/components';
 
 const meta = {
-  title: 'Feedback/ProgressBar',
+  title: 'Indicators and Status/ProgressBar',
   component: ProgressBar,
   args: {
     label: 'Progress',

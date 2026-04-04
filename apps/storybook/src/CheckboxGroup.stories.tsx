@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CheckboxGroup, Checkbox } from '@arch-ui/components';
 
 const meta = {
-  title: 'Forms/CheckboxGroup',
+  title: 'Input and Selection/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
     direction: { control: 'select', options: ['vertical', 'horizontal'] },

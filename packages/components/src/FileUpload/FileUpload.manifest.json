@@ -51,6 +51,11 @@
       "default": "{ fileSizeError: (count, limit) => `${count} file(s) exceed(s) the ${limit} limit.` }",
       "description": "Override default labels for internationalisation. FileUploadLabels: { fileSizeError: (count: number, limit: string) => string }."
     },
+    "progressMessage": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Text to display for upload progress (e.g. 'Uploading 3 of 5 files…'). Rendered as a role='status' element inside the drop zone."
+    },
     "className": {
       "type": "string",
       "default": "undefined",
@@ -59,6 +64,7 @@
   },
   "states": {
     "default": "Dashed border, subtle background.",
+    "hover": "Dashed border using color-border-strong, muted background.",
     "dragover": "Solid border using color-border-focus, muted background highlight.",
     "error": "Solid border using color-border-danger, danger background tint.",
     "disabled": "Reduced opacity, cursor: not-allowed, drag events blocked."
@@ -82,6 +88,7 @@
     "color-feedback-danger-bg",
     "color-feedback-danger-border",
     "color-border-default",
+    "color-border-strong",
     "color-border-focus",
     "color-border-danger",
     "color-border-disabled",

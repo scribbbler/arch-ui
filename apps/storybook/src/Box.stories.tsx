@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Box } from '@arch-ui/components';
 
 const meta = {
-  title: 'Layout/Box',
+  title: 'Containers and Layout/Box',
   component: Box,
 } satisfies Meta<typeof Box>;
 

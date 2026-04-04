@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AvatarGroup, Avatar } from '@arch-ui/components';
 
 const meta = {
-  title: 'Data Display/AvatarGroup',
+  title: 'Content Display/AvatarGroup',
   component: AvatarGroup,
 } satisfies Meta<typeof AvatarGroup>;
 

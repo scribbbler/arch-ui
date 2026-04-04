@@ -66,6 +66,7 @@
 
 .arch-alert__close:hover {
   opacity: 1;
+  background-color: var(--color-background-subtle);
 }
 
 .arch-alert__close:focus-visible {

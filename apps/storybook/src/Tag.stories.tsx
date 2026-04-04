@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Tag } from '@arch-ui/components';
 
 const meta = {
-  title: 'Data Display/Tag',
+  title: 'Indicators and Status/Tag',
   component: Tag,
   args: {
     children: 'Tag',

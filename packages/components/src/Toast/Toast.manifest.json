@@ -36,6 +36,16 @@
       "default": 5000,
       "description": "Auto-dismiss delay in milliseconds. Pass 0 for persistent toast."
     },
+    "closeable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the close button is visible. Set to false to hide the close button."
+    },
+    "pauseOnHover": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether to pause the auto-dismiss timer when the user hovers over the toast."
+    },
     "onClose": {
       "type": "() => void",
       "description": "Called when the toast is dismissed (auto or manual)."
@@ -57,9 +67,9 @@
   },
   "toastProviderProps": {
     "position": {
-      "type": "'top-right' | 'top-center' | 'bottom-right' | 'bottom-center'",
+      "type": "'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right'",
       "default": "top-right",
-      "description": "Screen position for the toast stack."
+      "description": "Screen position for the toast stack. All 6 corner and center positions are supported."
     },
     "labels": {
       "type": "Partial<ToastProviderLabels>",

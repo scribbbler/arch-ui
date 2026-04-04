@@ -19,7 +19,7 @@ function DrawerDemo(props: React.ComponentProps<typeof Drawer>) {
 }
 
 const meta = {
-  title: 'Overlay/Drawer',
+  title: 'Containers and Layout/Drawer',
   component: Drawer,
   render: (args) => <DrawerDemo {...args} />,
 } satisfies Meta<typeof Drawer>;

@@ -80,6 +80,11 @@
   transform: scale(1.1);
 }
 
+.arch-slider:not(:disabled)::-webkit-slider-thumb:active {
+  background-color: var(--color-action-primary-active);
+  transform: scale(1.15);
+}
+
 /* ─── Firefox — Track ────────────────────────────────────────────────────────── */
 
 .arch-slider::-moz-range-track {
@@ -106,6 +111,11 @@
 .arch-slider:not(:disabled)::-moz-range-thumb:hover {
   background-color: var(--color-action-primary-hover);
   transform: scale(1.1);
+}
+
+.arch-slider:not(:disabled)::-moz-range-thumb:active {
+  background-color: var(--color-action-primary-active);
+  transform: scale(1.15);
 }
 
 /* ─── Firefox — Progress fill ────────────────────────────────────────────────── */

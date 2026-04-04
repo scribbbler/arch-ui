@@ -3,6 +3,7 @@ import React, {
   useEffect,
   useCallback,
   useId,
+  useState,
 } from 'react';
 import { Portal } from '../Portal';
 import { Overlay } from '../Overlay';
@@ -12,6 +13,7 @@ import './Popover.css';
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
 export type PopoverPosition = 'top' | 'bottom' | 'start' | 'end';
+export type PopoverTriggerType = 'click' | 'hover';
 
 export interface PopoverProps {
   /** The interactive content rendered inside the popover panel. */
@@ -25,6 +27,16 @@ export interface PopoverProps {
   isOpen: boolean;
   /** Called when the popover should close (Escape, outside click). */
   onClose: () => void;
+  /** Called when the popover should open (used with triggerType='hover'). */
+  onOpen?: () => void;
+  /** How the popover is triggered. Defaults to 'click'. */
+  triggerType?: PopoverTriggerType;
+  /** When true, renders an arrow element pointing toward the trigger. Defaults to false. */
+  showArrow?: boolean;
+  /** Delay in ms before showing the popover on mouse enter (hover trigger only). */
+  onMouseEnterDelay?: number;
+  /** Delay in ms before hiding the popover on mouse leave (hover trigger only). */
+  onMouseLeaveDelay?: number;
   /** The trigger element. Must be a single focusable React element. */
   children: React.ReactElement;
 }
@@ -94,13 +106,58 @@ function Popover({
   position = 'bottom',
   isOpen,
   onClose,
+  onOpen,
+  triggerType = 'click',
+  showArrow = false,
+  onMouseEnterDelay = 200,
+  onMouseLeaveDelay = 200,
   children,
 }: PopoverProps) {
   const popoverId = useId();
   const popoverRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLElement | null>(null);
   const coordsRef = useRef<Coords>({ top: 0, left: 0 });
-  const [coords, setCoords] = React.useState<Coords>({ top: 0, left: 0 });
+  const [coords, setCoords] = useState<Coords>({ top: 0, left: 0 });
+  const enterTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearHoverTimers = useCallback(() => {
+    if (enterTimerRef.current !== null) {
+      clearTimeout(enterTimerRef.current);
+      enterTimerRef.current = null;
+    }
+    if (leaveTimerRef.current !== null) {
+      clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = null;
+    }
+  }, []);
+
+  /* Clean up hover timers on unmount. */
+  useEffect(() => {
+    return () => clearHoverTimers();
+  }, [clearHoverTimers]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (triggerType !== 'hover') return;
+    if (leaveTimerRef.current !== null) {
+      clearTimeout(leaveTimerRef.current);
+      leaveTimerRef.current = null;
+    }
+    enterTimerRef.current = setTimeout(() => {
+      onOpen?.();
+    }, onMouseEnterDelay);
+  }, [triggerType, onOpen, onMouseEnterDelay]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (triggerType !== 'hover') return;
+    if (enterTimerRef.current !== null) {
+      clearTimeout(enterTimerRef.current);
+      enterTimerRef.current = null;
+    }
+    leaveTimerRef.current = setTimeout(() => {
+      onClose();
+    }, onMouseLeaveDelay);
+  }, [triggerType, onClose, onMouseLeaveDelay]);
 
   const updatePosition = useCallback(() => {
     if (!triggerRef.current || !popoverRef.current) return;
@@ -141,7 +198,7 @@ function Popover({
       React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }
     >;
 
-    return React.cloneElement(child, {
+    const closedProps: Record<string, unknown> = {
       ref: (node: HTMLElement | null) => {
         triggerRef.current = node;
         const existingRef = (child as { ref?: React.Ref<HTMLElement> }).ref;
@@ -152,14 +209,27 @@ function Popover({
       },
       'aria-expanded': false,
       'aria-haspopup': 'dialog',
-    } as React.HTMLAttributes<HTMLElement>);
+    };
+
+    if (triggerType === 'hover') {
+      closedProps.onMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
+        handleMouseEnter();
+        child.props.onMouseEnter?.(e);
+      };
+      closedProps.onMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+        handleMouseLeave();
+        child.props.onMouseLeave?.(e);
+      };
+    }
+
+    return React.cloneElement(child, closedProps as React.HTMLAttributes<HTMLElement>);
   }
 
   const child = React.Children.only(children) as React.ReactElement<
     React.HTMLAttributes<HTMLElement> & { ref?: React.Ref<HTMLElement> }
   >;
 
-  const clonedTrigger = React.cloneElement(child, {
+  const openProps: Record<string, unknown> = {
     ref: (node: HTMLElement | null) => {
       triggerRef.current = node;
       const existingRef = (child as { ref?: React.Ref<HTMLElement> }).ref;
@@ -171,23 +241,47 @@ function Popover({
     'aria-expanded': true,
     'aria-haspopup': 'dialog',
     'aria-controls': popoverId,
-  } as React.HTMLAttributes<HTMLElement>);
+  };
+
+  if (triggerType === 'hover') {
+    openProps.onMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
+      handleMouseEnter();
+      child.props.onMouseEnter?.(e);
+    };
+    openProps.onMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+      handleMouseLeave();
+      child.props.onMouseLeave?.(e);
+    };
+  }
+
+  const clonedTrigger = React.cloneElement(child, openProps as React.HTMLAttributes<HTMLElement>);
+
+  const popoverClasses = [
+    'arch-popover',
+    showArrow ? `arch-popover--arrow-${position}` : '',
+  ].filter(Boolean).join(' ');
+
+  const hoverProps = triggerType === 'hover'
+    ? { onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave }
+    : {};
 
   return (
     <>
       {clonedTrigger}
       <Portal>
         {/* Transparent overlay for click-outside detection */}
-        <Overlay transparent onClick={onClose} />
+        {triggerType === 'click' && <Overlay transparent onClick={onClose} />}
         <FocusTrap active={isOpen} restoreFocus>
           <div
             id={popoverId}
             ref={popoverRef}
             role="dialog"
             aria-modal="true"
-            className="arch-popover"
+            className={popoverClasses}
             style={{ top: coords.top, left: coords.left, position: 'absolute' }}
+            {...hoverProps}
           >
+            {showArrow && <div className="arch-popover__arrow" />}
             {content}
           </div>
         </FocusTrap>

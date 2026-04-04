@@ -4,7 +4,7 @@ import './Select.css';
 
 /* ─── Types ───────────────────────────────────────────────────────────────────── */
 
-export type SelectSize = 'sm' | 'md' | 'lg';
+export type SelectSize = 'xs' | 'sm' | 'md' | 'lg';
 
 export interface SelectProps
   extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
@@ -18,6 +18,8 @@ export interface SelectProps
   disabled?: boolean;
   /** Puts the select into an error visual state. Also triggered by FormControl invalid. */
   isError?: boolean;
+  /** Shows a positive (success/valid) border style. */
+  positive?: boolean;
   /** <option> and <optgroup> elements. */
   children?: React.ReactNode;
   /** Additional CSS class names applied to the wrapper div. */
@@ -57,6 +59,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select(
     multiple = false,
     disabled: disabledProp,
     isError = false,
+    positive = false,
     children,
     className,
     id: idProp,
@@ -96,6 +99,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select(
     'arch-select',
     `arch-select--${size}`,
     invalid ? 'arch-select--error' : '',
+    positive && !invalid ? 'arch-select--positive' : '',
   ]
     .filter(Boolean)
     .join(' ');

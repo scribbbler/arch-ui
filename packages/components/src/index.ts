@@ -65,7 +65,7 @@ export {
   type ProgressStep,
   type ProgressStepsOrientation,
 } from "./ProgressSteps";
-export { Badge, type BadgeProps, type BadgeVariant, type BadgeSize } from "./Badge";
+export { Badge, type BadgeProps, type BadgeVariant, type BadgeSize, type BadgePlacement } from "./Badge";
 export { Tag, type TagProps, type TagVariant } from "./Tag";
 export { Avatar, type AvatarProps, type AvatarSize, type AvatarShape } from "./Avatar";
 export { AvatarGroup, type AvatarGroupProps, type AvatarGroupSize } from "./AvatarGroup";
@@ -74,7 +74,7 @@ export { Portal, type PortalProps } from "./Portal";
 export { FocusTrap, type FocusTrapProps } from "./FocusTrap";
 export { Overlay, type OverlayProps } from "./Overlay";
 export { Tooltip, type TooltipProps, type TooltipPosition } from "./Tooltip";
-export { Popover, type PopoverProps, type PopoverPosition } from "./Popover";
+export { Popover, type PopoverProps, type PopoverPosition, type PopoverTriggerType } from "./Popover";
 export {
   Modal,
   ModalHeader,
@@ -82,6 +82,7 @@ export {
   ModalFooter,
   type ModalProps,
   type ModalSize,
+  type ModalRole,
   type ModalHeaderProps,
   type ModalBodyProps,
   type ModalFooterProps,
@@ -98,6 +99,7 @@ export {
   type TabItem,
   type TabsVariant,
   type TabsOrientation,
+  type TabsFill,
 } from "./Tabs";
 export { Pagination, type PaginationProps } from "./Pagination";
 export {

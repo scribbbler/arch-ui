@@ -1,59 +1,73 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from '@arch-ui/components';
+import { Input, FormControl, FormLabel, FormHelperText, FormErrorMessage } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/Input',
+  title: 'Input and Selection/Input',
   component: Input,
-  argTypes: {
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
-    type: { control: 'select', options: ['text', 'email', 'password', 'number', 'search', 'url', 'tel'] },
-    disabled: { control: 'boolean' },
-    readOnly: { control: 'boolean' },
-  },
   args: {
     placeholder: 'Enter text…',
     size: 'md',
     type: 'text',
   },
+  render: (args) => (
+    <FormControl>
+      <FormLabel>Label</FormLabel>
+      <Input {...args} />
+    </FormControl>
+  ),
 } satisfies Meta<typeof Input>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
-
-export const SizeSmall: Story = {
-  args: { size: 'sm', placeholder: 'Small input' },
-};
-
-export const SizeMedium: Story = {
-  args: { size: 'md', placeholder: 'Medium input' },
-};
-
-export const SizeLarge: Story = {
-  args: { size: 'lg', placeholder: 'Large input' },
-};
-
-/* ─── States ─────────────────────────────────────────────────────────────────── */
+export const SizeSmall: Story = { args: { size: 'sm', placeholder: 'Small input' } };
+export const SizeMedium: Story = { args: { size: 'md', placeholder: 'Medium input' } };
+export const SizeLarge: Story = { args: { size: 'lg', placeholder: 'Large input' } };
 
 export const Disabled: Story = {
-  args: { disabled: true, placeholder: 'Disabled input' },
+  render: (args) => (
+    <FormControl disabled>
+      <FormLabel>Disabled field</FormLabel>
+      <Input {...args} />
+    </FormControl>
+  ),
 };
 
 export const Error: Story = {
-  args: { 'aria-invalid': true, placeholder: 'Invalid input' },
+  args: { placeholder: 'Invalid input', type: 'email' },
+  render: (args) => (
+    <FormControl invalid>
+      <FormLabel>Email</FormLabel>
+      <Input {...args} />
+      <FormErrorMessage>Please enter a valid email address.</FormErrorMessage>
+    </FormControl>
+  ),
 };
 
 export const Required: Story = {
-  args: { required: true, placeholder: 'Required field', 'aria-label': 'Required field' },
+  render: (args) => (
+    <FormControl required>
+      <FormLabel>Required field</FormLabel>
+      <Input {...args} />
+    </FormControl>
+  ),
+};
+
+export const WithHelperText: Story = {
+  args: { placeholder: 'Choose a username' },
+  render: (args) => (
+    <FormControl>
+      <FormLabel>Username</FormLabel>
+      <Input {...args} />
+      <FormHelperText>Must be 3-20 characters.</FormHelperText>
+    </FormControl>
+  ),
 };
 
 export const ReadOnly: Story = {
   args: { readOnly: true, value: 'Read-only value' },
 };
-
-/* ─── With Elements ──────────────────────────────────────────────────────────── */
 
 const SearchIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
@@ -66,34 +80,19 @@ export const WithLeftElement: Story = {
 };
 
 export const WithRightElement: Story = {
-  args: {
-    rightElement: <span style={{ fontSize: '12px', color: 'var(--color-text-subtle)' }}>kg</span>,
-    placeholder: 'Weight',
-    type: 'number',
-  },
+  args: { rightElement: <span>kg</span>, placeholder: 'Weight', type: 'number' },
 };
 
 export const WithBothElements: Story = {
-  args: {
-    leftElement: <span>$</span>,
-    rightElement: <span>.00</span>,
-    placeholder: '0',
-    type: 'number',
-  },
+  args: { leftElement: <span>$</span>, rightElement: <span>.00</span>, placeholder: '0', type: 'number' },
 };
 
-/* ─── Accessibility ──────────────────────────────────────────────────────────── */
-
 export const Accessibility: Story = {
-  args: { 'aria-label': 'Demo input', placeholder: 'Focus me with Tab' },
+  args: { placeholder: 'Focus me with Tab' },
   parameters: {
     docs: {
       description: {
-        story:
-          'Keyboard: `Tab`/`Shift+Tab` to move focus in and out. ' +
-          'Focus is indicated by a 2px outline using `var(--color-border-focus)`. ' +
-          'When inside a FormControl, `aria-describedby`, `aria-required`, and `aria-invalid` are wired automatically. ' +
-          '`leftElement` and `rightElement` are `aria-hidden` so decorative content does not pollute the accessible name.',
+        story: 'Tab/Shift+Tab to move focus. FormControl wires aria-describedby, aria-required, aria-invalid automatically.',
       },
     },
   },

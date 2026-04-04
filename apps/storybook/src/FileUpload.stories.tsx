@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FileUpload } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/FileUpload',
+  title: 'Input and Selection/FileUpload',
   component: FileUpload,
   argTypes: {
     accept: { control: 'text' },

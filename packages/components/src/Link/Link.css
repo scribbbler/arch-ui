@@ -3,7 +3,7 @@
   text-decoration: underline;
   text-underline-offset: 0.2em;
   cursor: pointer;
-  transition: color 0.15s ease;
+  transition: color var(--motion-semantic-duration-fast) var(--motion-semantic-easing-default);
 }
 
 .arch-link:hover {
@@ -17,7 +17,7 @@
 .arch-link:focus-visible {
   outline: 2px solid var(--color-border-focus);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
 }
 
 /* Default variant */
@@ -43,6 +43,33 @@
 
 .arch-link--inverse:visited {
   color: var(--color-text-inverse);
+}
+
+/* Animated underline variant */
+.arch-link--animate-underline {
+  text-decoration: none;
+  position: relative;
+}
+
+.arch-link--animate-underline::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inline-size: 0;
+  block-size: var(--border-width-default);
+  background-color: currentColor;
+  transition: inline-size var(--motion-semantic-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-link--animate-underline:hover::after {
+  inline-size: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-link--animate-underline::after {
+    transition: none;
+  }
 }
 
 /* External indicator */

@@ -25,7 +25,7 @@
     "action": {
       "primary": { "$value": "{color.blue.600}", "$type": "color" },
       "primary-hover": { "$value": "{color.blue.700}", "$type": "color" },
-      "primary-active": { "$value": "{color.blue.800}", "$type": "color" },
+      "primary-active": { "$value": "{color.blue.700}", "$type": "color" },
       "primary-text": { "$value": "{color.white}", "$type": "color" },
       "secondary": { "$value": "{color.gray.100}", "$type": "color" },
       "secondary-hover": { "$value": "{color.gray.200}", "$type": "color" },

@@ -1,9 +1,13 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Checkbox } from '@arch-ui/components';
+import {
+  Checkbox,
+  FormControl,
+  FormErrorMessage,
+} from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/Checkbox',
+  title: 'Input and Selection/Checkbox',
   component: Checkbox,
   argTypes: {
     checked: { control: 'boolean' },
@@ -44,6 +48,14 @@ export const DisabledChecked: Story = {
 };
 
 export const ErrorState: Story = {
+  decorators: [
+    (Story) => (
+      <FormControl id="checkbox-error" invalid>
+        <Story />
+        <FormErrorMessage>You must accept the terms.</FormErrorMessage>
+      </FormControl>
+    ),
+  ],
   args: { isError: true, children: 'You must accept the terms' },
 };
 

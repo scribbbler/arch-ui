@@ -9,7 +9,7 @@ const CloseIcon = () => (
 );
 
 const meta = {
-  title: 'Components/IconButton',
+  title: 'Buttons/IconButton',
   component: IconButton,
   argTypes: {
     variant: {

@@ -23,6 +23,8 @@ export interface DrawerProps {
    * Defaults to '20rem'.
    */
   size?: string;
+  /** When true, the drawer uses slide-in/out animations. Defaults to true. */
+  animate?: boolean;
   /** Drawer content. */
   children?: React.ReactNode;
   /** Accessible label for the drawer dialog. */
@@ -48,6 +50,7 @@ const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
     onClose,
     position = 'end',
     size = '20rem',
+    animate = true,
     children,
     'aria-label': ariaLabel,
   },
@@ -89,7 +92,8 @@ const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer(
     'arch-drawer',
     `arch-drawer--${position}`,
     isOpen ? 'arch-drawer--open' : 'arch-drawer--closed',
-  ].join(' ');
+    !animate ? 'arch-drawer--no-animate' : '',
+  ].filter(Boolean).join(' ');
 
   if (!isOpen) return null;
 

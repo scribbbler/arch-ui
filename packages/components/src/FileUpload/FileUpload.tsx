@@ -26,6 +26,8 @@ export interface FileUploadProps {
   className?: string;
   /** Override default labels for internationalisation. */
   labels?: Partial<{ fileSizeError: (count: number, limit: string) => string }>;
+  /** Text to display for upload progress (e.g. "Uploading 3 of 5 files…"). */
+  progressMessage?: string;
   /** Content rendered inside the drop zone (instructions, icon, etc.). */
   children?: React.ReactNode;
 }
@@ -61,6 +63,7 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(function FileUp
     disabled = false,
     onDrop,
     labels,
+    progressMessage,
     className,
     children,
   },
@@ -182,6 +185,11 @@ const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(function FileUp
         onDrop={handleDrop}
       >
         {children}
+        {progressMessage && (
+          <span className="arch-file-upload__progress" role="status" aria-live="polite">
+            {progressMessage}
+          </span>
+        )}
       </label>
       {errorMessage && (
         <div

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Buttons/Button',
   component: Button,
   argTypes: {
     variant: {

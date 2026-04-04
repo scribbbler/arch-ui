@@ -67,6 +67,16 @@
 
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
+.arch-button--xs {
+  padding-block: 2px;
+  padding-inline: var(--spacing-component-xs);
+  font-size: var(--typography-scale-text-xs-font-size);
+  line-height: var(--typography-scale-text-xs-line-height);
+  min-block-size: var(--spacing-component-md); /* ~24px compact */
+  min-inline-size: var(--spacing-component-md);
+  border-radius: var(--radius-component-sm);
+}
+
 .arch-button--sm {
   padding-block: var(--spacing-component-xs);
   padding-inline: var(--spacing-component-sm);
@@ -223,4 +233,40 @@
 .arch-button__label {
   /* Isolate the label so it can be targeted separately if needed */
   display: inline;
+}
+
+/* ─── Shapes ─────────────────────────────────────────────────────────────────── */
+
+.arch-button--shape-pill {
+  border-radius: var(--radius-component-full);
+}
+
+.arch-button--shape-circle {
+  border-radius: var(--radius-component-full);
+  padding-inline: 0;
+  aspect-ratio: 1;
+}
+
+.arch-button--shape-square {
+  border-radius: var(--radius-component-sm);
+  padding-inline: 0;
+  aspect-ratio: 1;
+}
+
+/* ─── Selected state (toggle button groups) ──────────────────────────────────── */
+
+.arch-button--selected.arch-button--primary {
+  background-color: var(--color-action-primary-active);
+}
+
+.arch-button--selected.arch-button--secondary {
+  background-color: var(--color-action-secondary-active);
+}
+
+.arch-button--selected.arch-button--ghost {
+  background-color: var(--color-action-ghost-active);
+}
+
+.arch-button--selected.arch-button--destructive {
+  background-color: var(--color-action-destructive-active);
 }

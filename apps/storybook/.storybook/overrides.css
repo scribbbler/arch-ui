@@ -1,3 +1,8 @@
+/* Apply design system font globally */
+body {
+  font-family: var(--typography-family-sans);
+}
+
 /* Reduced motion override for Storybook toolbar toggle */
 .reduce-motion,
 .reduce-motion * {

@@ -40,6 +40,16 @@
       "default": "undefined",
       "description": "Accessible label applied as aria-label. Always required for screen-reader users."
     },
+    "successValue": {
+      "type": "number",
+      "default": 100,
+      "description": "Value at which the bar switches to a success state (green fill). Defaults to 100."
+    },
+    "showLabel": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, renders a percentage label alongside the progress bar. Hidden for indeterminate mode."
+    },
     "className": {
       "type": "string",
       "default": "undefined",
@@ -64,6 +74,11 @@
     "radius-component-full",
     "spacing-component-xs",
     "motion-duration-slow",
-    "motion-semantic-easing-default"
+    "motion-semantic-easing-default",
+    "color-feedback-success-text",
+    "color-text-default",
+    "spacing-inline-sm",
+    "typography-scale-text-sm",
+    "typography-weight-medium"
   ]
 }

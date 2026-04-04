@@ -91,3 +91,37 @@
 .arch-badge__dot {
   background-color: currentColor;
 }
+
+/* ─── Placement (positioned overlay on anchor) ──────────────────────────────── */
+
+.arch-badge--topRight,
+.arch-badge--topLeft,
+.arch-badge--bottomRight,
+.arch-badge--bottomLeft {
+  position: absolute;
+  z-index: var(--z-raised);
+}
+
+.arch-badge--topRight {
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  transform: translate(50%, -50%);
+}
+
+.arch-badge--topLeft {
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  transform: translate(-50%, -50%);
+}
+
+.arch-badge--bottomRight {
+  inset-block-end: 0;
+  inset-inline-end: 0;
+  transform: translate(50%, 50%);
+}
+
+.arch-badge--bottomLeft {
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  transform: translate(-50%, 50%);
+}

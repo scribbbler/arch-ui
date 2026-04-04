@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Divider } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/Divider',
+  title: 'Containers and Layout/Divider',
   component: Divider,
   argTypes: {
     orientation: { control: 'select', options: ['horizontal', 'vertical'] },

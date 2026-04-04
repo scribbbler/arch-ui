@@ -4,7 +4,8 @@ import './Button.css';
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'destructive' | 'link';
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
+export type ButtonShape = 'default' | 'pill' | 'circle' | 'square';
 
 /**
  * PolymorphicRef — resolves the ref type for the rendered element.
@@ -20,6 +21,10 @@ export interface BaseButtonProps {
   variant?: ButtonVariant;
   /** Size. Defaults to 'md'. */
   size?: ButtonSize;
+  /** Shape of the button. Defaults to 'default'. */
+  shape?: ButtonShape;
+  /** Indicates that the button is selected (for toggle button groups). */
+  isSelected?: boolean;
   /** Disables the button. */
   disabled?: boolean;
   /** Shows a spinner and disables the button. Sets aria-busy. */
@@ -76,6 +81,8 @@ const Button: ButtonComponent = forwardRef(function Button<
     as,
     variant = 'primary',
     size = 'md',
+    shape = 'default',
+    isSelected = false,
     disabled = false,
     loading = false,
     loadingText,
@@ -97,6 +104,8 @@ const Button: ButtonComponent = forwardRef(function Button<
     'arch-button',
     `arch-button--${variant}`,
     `arch-button--${size}`,
+    shape !== 'default' && `arch-button--shape-${shape}`,
+    isSelected && 'arch-button--selected',
     loading && 'arch-button--loading',
     fullWidth && 'arch-button--full-width',
     className,
@@ -118,6 +127,7 @@ const Button: ButtonComponent = forwardRef(function Button<
       disabled={Tag === 'button' ? isDisabled : undefined}
       aria-disabled={Tag !== 'button' && isDisabled ? true : undefined}
       aria-busy={loading ? true : undefined}
+      aria-pressed={isSelected ? true : undefined}
       onClick={isDisabled ? undefined : onClick}
     >
       {loading ? (

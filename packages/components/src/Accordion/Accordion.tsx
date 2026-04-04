@@ -4,10 +4,12 @@ import './Accordion.css';
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
 export interface AccordionItem {
-  /** The header title text for this section. */
-  title: string;
+  /** The header title for this section. Can be a string or ReactNode. */
+  title: React.ReactNode;
   /** The content rendered inside the expanded panel. */
   content: React.ReactNode;
+  /** When true, this individual item is disabled and cannot be toggled. */
+  disabled?: boolean;
 }
 
 export interface AccordionProps {
@@ -17,6 +19,10 @@ export interface AccordionProps {
   allowMultiple?: boolean;
   /** Indices of sections expanded on first render. */
   defaultExpanded?: number[];
+  /** When true, all accordion panels are disabled and cannot be toggled. Defaults to false. */
+  disabled?: boolean;
+  /** Called when expanded items change. Receives indices of currently expanded items as strings. */
+  onChange?: (expandedItems: string[]) => void;
   /** Additional CSS class names. */
   className?: string;
 }
@@ -63,7 +69,7 @@ function ChevronDownIcon() {
  * />
  */
 const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion(
-  { items, allowMultiple = false, defaultExpanded = [], className },
+  { items, allowMultiple = false, defaultExpanded = [], disabled = false, onChange, className },
   ref
 ) {
   const uid = useId();
@@ -84,10 +90,13 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion(
           }
           next.add(index);
         }
+        if (onChange) {
+          onChange(Array.from(next).map(String));
+        }
         return next;
       });
     },
-    [allowMultiple]
+    [allowMultiple, onChange]
   );
 
   const handleKeyDown = useCallback(
@@ -113,7 +122,7 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion(
     [items.length]
   );
 
-  const classes = ['arch-accordion', className].filter(Boolean).join(' ');
+  const classes = ['arch-accordion', disabled ? 'arch-accordion--disabled' : '', className].filter(Boolean).join(' ');
 
   return (
     <div ref={ref} className={classes}>
@@ -121,9 +130,10 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion(
         const isOpen = openIndices.has(index);
         const triggerId = `${uid}-trigger-${index}`;
         const panelId = `${uid}-panel-${index}`;
+        const isItemDisabled = disabled || item.disabled === true;
 
         return (
-          <div key={index} className="arch-accordion__item">
+          <div key={index} className={`arch-accordion__item${isItemDisabled ? ' arch-accordion__item--disabled' : ''}`}>
             <h3 className="arch-accordion__header">
               <button
                 id={triggerId}
@@ -134,7 +144,10 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion(
                 className="arch-accordion__trigger"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                onClick={() => toggle(index)}
+                aria-disabled={isItemDisabled ? 'true' : undefined}
+                onClick={() => {
+                  if (!isItemDisabled) toggle(index);
+                }}
                 onKeyDown={(e) => handleKeyDown(e, index)}
               >
                 <span>{item.title}</span>

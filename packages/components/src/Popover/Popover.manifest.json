@@ -31,6 +31,30 @@
       "type": "() => void",
       "description": "Called when the popover should close (Escape, outside click)."
     },
+    "onOpen": {
+      "type": "() => void",
+      "description": "Called when the popover should open. Used with triggerType='hover' to control visibility."
+    },
+    "triggerType": {
+      "type": "'click' | 'hover'",
+      "default": "click",
+      "description": "How the popover is triggered. 'click' shows on click with an overlay for dismiss. 'hover' shows on mouse enter with configurable delays."
+    },
+    "showArrow": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, renders a small arrow element pointing toward the trigger."
+    },
+    "onMouseEnterDelay": {
+      "type": "number",
+      "default": 200,
+      "description": "Delay in ms before showing the popover on mouse enter. Only applies when triggerType='hover'."
+    },
+    "onMouseLeaveDelay": {
+      "type": "number",
+      "default": 200,
+      "description": "Delay in ms before hiding the popover on mouse leave. Only applies when triggerType='hover'."
+    },
     "children": {
       "type": "ReactElement",
       "description": "The trigger element. Must be a single focusable React element."
@@ -57,6 +81,9 @@
     "radius-component-md",
     "z-semantic-popover",
     "motion-duration-fast",
-    "motion-semantic-easing-default"
+    "motion-semantic-easing-default",
+    "spacing-4",
+    "spacing-8",
+    "border-width-default"
   ]
 }

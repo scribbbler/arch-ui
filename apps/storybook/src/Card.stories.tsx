@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Card, CardHeader, CardBody, CardFooter } from '@arch-ui/components';
 
 const meta = {
-  title: 'Data Display/Card',
+  title: 'Containers and Layout/Card',
   component: Card,
 } satisfies Meta<typeof Card>;
 

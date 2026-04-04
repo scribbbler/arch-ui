@@ -47,9 +47,9 @@
       "description": "Label content rendered next to the checkbox."
     },
     "labelPlacement": {
-      "type": "'end' | 'start'",
+      "type": "'end' | 'start' | 'top' | 'bottom'",
       "default": "end",
-      "description": "Position of the label relative to the checkbox visual. 'end' places the label after the checkbox (inline-end); 'start' places it before."
+      "description": "Position of the label relative to the checkbox visual. 'end' places the label after the checkbox (inline-end); 'start' places it before; 'top' places it above; 'bottom' places it below."
     },
     "className": {
       "type": "string",

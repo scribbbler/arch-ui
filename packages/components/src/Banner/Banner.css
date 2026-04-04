@@ -46,6 +46,33 @@
 
 .arch-banner__close:hover {
   opacity: 1;
+  background-color: var(--color-background-subtle);
+}
+
+/* ─── Action button ─────────────────────────────────────────────────────────── */
+
+.arch-banner__action {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-component-xs) var(--spacing-component-sm);
+  border-radius: var(--radius-component-sm);
+  color: inherit;
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-semibold);
+  white-space: nowrap;
+  text-decoration: underline;
+}
+
+.arch-banner__action:hover {
+  opacity: 0.8;
+}
+
+.arch-banner__action:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
 }
 
 .arch-banner__close:focus-visible {

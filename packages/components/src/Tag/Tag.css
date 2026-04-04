@@ -20,6 +20,34 @@
   border-radius: var(--radius-component-full);
 }
 
+/* ─── Hover state ───────────────────────────────────────────────────────────── */
+
+.arch-tag:hover {
+  opacity: 0.85;
+}
+
+/* ─── Clickable (toggle chip) ───────────────────────────────────────────────── */
+
+.arch-tag--clickable {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--motion-semantic-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-tag--clickable:hover {
+  opacity: 1;
+  filter: brightness(0.95);
+}
+
+.arch-tag--clickable:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.arch-tag--checked {
+  border: var(--border-width-strong) solid currentColor;
+}
+
 /* ─── Icon slot ──────────────────────────────────────────────────────────────── */
 
 .arch-tag__icon {

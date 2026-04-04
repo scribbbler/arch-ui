@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Grid, Box } from '@arch-ui/components';
 
 const meta = {
-  title: 'Layout/Grid',
+  title: 'Containers and Layout/Grid',
   component: Grid,
 } satisfies Meta<typeof Grid>;
 

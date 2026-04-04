@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Link } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/Link',
+  title: 'Navigation/Link',
   component: Link,
   argTypes: {
     variant: { control: 'select', options: ['default', 'subtle', 'inverse'] },

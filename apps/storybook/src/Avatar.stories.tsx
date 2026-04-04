@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Avatar } from '@arch-ui/components';
 
 const meta = {
-  title: 'Data Display/Avatar',
+  title: 'Content Display/Avatar',
   component: Avatar,
   args: {
     name: 'Jane Doe',

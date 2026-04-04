@@ -9,6 +9,7 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { IconButton } from '../IconButton';
 import {
   DEFAULT_TOAST_LABELS,
   DEFAULT_PROVIDER_LABELS,
@@ -21,10 +22,12 @@ import './Toast.css';
 
 export type ToastVariant = 'default' | 'success' | 'warning' | 'danger';
 export type ToastPosition =
-  | 'top-right'
+  | 'top-left'
   | 'top-center'
-  | 'bottom-right'
-  | 'bottom-center';
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-center'
+  | 'bottom-right';
 
 export interface ToastOptions {
   /** Bold notification heading. */
@@ -38,6 +41,8 @@ export interface ToastOptions {
    * Defaults to 5000.
    */
   duration?: number;
+  /** Whether the close button is visible. Defaults to true. */
+  closeable?: boolean;
 }
 
 export interface ToastItem extends ToastOptions {
@@ -47,6 +52,8 @@ export interface ToastItem extends ToastOptions {
 export interface ToastProps extends ToastOptions {
   /** Called when the toast is dismissed. */
   onClose: () => void;
+  /** Whether to pause the auto-dismiss timer when hovering. Defaults to true. */
+  pauseOnHover?: boolean;
   /** Override default labels for internationalisation. */
   labels?: Partial<ToastLabels>;
   /** Additional CSS class names. */
@@ -107,6 +114,8 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
     title,
     description,
     duration = 5000,
+    closeable = true,
+    pauseOnHover = true,
     onClose,
     labels,
     className,
@@ -116,6 +125,8 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
   const mergedLabels = { ...DEFAULT_TOAST_LABELS, ...labels };
   const [exiting, setExiting] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const remainingRef = useRef(duration);
+  const startTimeRef = useRef(Date.now());
   const exitDuration = 200; // ms — matches motion-duration-fast approximately
 
   const dismiss = useCallback(() => {
@@ -127,7 +138,10 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
 
   useEffect(() => {
     if (duration === 0) return;
+    remainingRef.current = duration;
+    startTimeRef.current = Date.now();
     const id = setTimeout(dismiss, duration);
+    timerRef.current = id;
     return () => {
       clearTimeout(id);
       if (timerRef.current !== null) {
@@ -135,6 +149,20 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
       }
     };
   }, [duration, dismiss]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (!pauseOnHover || duration === 0) return;
+    if (timerRef.current !== null) {
+      clearTimeout(timerRef.current);
+    }
+    remainingRef.current = remainingRef.current - (Date.now() - startTimeRef.current);
+  }, [pauseOnHover, duration]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (!pauseOnHover || duration === 0 || remainingRef.current <= 0) return;
+    startTimeRef.current = Date.now();
+    timerRef.current = setTimeout(dismiss, remainingRef.current);
+  }, [pauseOnHover, duration, dismiss]);
 
   const ariaLive = variant === 'danger' ? 'assertive' : 'polite';
 
@@ -154,6 +182,8 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
       role={variant === 'danger' ? 'alert' : 'status'}
       aria-live={ariaLive}
       aria-atomic="true"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <span className="arch-toast__body">
         <strong className="arch-toast__title">{title}</strong>
@@ -161,14 +191,16 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
           <span className="arch-toast__description">{description}</span>
         )}
       </span>
-      <button
-        type="button"
-        className="arch-toast__close"
-        aria-label={mergedLabels.dismiss}
-        onClick={dismiss}
-      >
-        <CloseIcon />
-      </button>
+      {closeable && (
+        <IconButton
+          variant="ghost"
+          size="sm"
+          className="arch-toast__close"
+          aria-label={mergedLabels.dismiss}
+          onClick={dismiss}
+          icon={<CloseIcon />}
+        />
+      )}
     </div>
   );
 });
@@ -226,6 +258,7 @@ function ToastProvider({ position = 'top-right', labels, children }: ToastProvid
                 title={item.title}
                 description={item.description}
                 duration={item.duration}
+                closeable={item.closeable}
                 onClose={() => removeToast(item.id)}
               />
             ))}

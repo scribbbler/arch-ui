@@ -28,8 +28,8 @@
   },
   "props": {
     "tabs": {
-      "type": "Array<{ label: string; value: string; content: ReactNode; disabled?: boolean }>",
-      "description": "Array of tab definitions. Each item provides a label, a unique value, panel content, and an optional disabled flag."
+      "type": "Array<{ label: string; value: string; content: ReactNode; disabled?: boolean; artwork?: ReactNode }>",
+      "description": "Array of tab definitions. Each item provides a label, a unique value, panel content, an optional disabled flag, and an optional artwork (icon) slot rendered before the label."
     },
     "activeValue": {
       "type": "string",
@@ -48,6 +48,16 @@
       "type": "'horizontal' | 'vertical'",
       "default": "horizontal",
       "description": "Layout direction. Affects arrow-key navigation and visual layout."
+    },
+    "fill": {
+      "type": "'fixed' | 'intrinsic'",
+      "default": "intrinsic",
+      "description": "Tab width behaviour. 'intrinsic' sizes tabs to their content. 'fixed' makes all tabs equal width."
+    },
+    "renderAll": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, all tab panels are rendered in the DOM (inactive panels hidden with CSS) for SEO purposes."
     },
     "className": {
       "type": "string",
@@ -98,6 +108,7 @@
     "typography-weight-semibold",
     "border-width-default",
     "border-width-medium",
+    "spacing-inline-xs",
     "motion-duration-fast",
     "motion-semantic-easing-default"
   ]

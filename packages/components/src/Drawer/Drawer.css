@@ -82,6 +82,12 @@
   transform: translateY(100%);
 }
 
+/* ─── No animation ───────────────────────────────────────────────────────────── */
+
+.arch-drawer--no-animate {
+  transition: none;
+}
+
 /* ─── Reduced motion ──────────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

@@ -19,7 +19,7 @@ function PopoverDemo(props: Omit<React.ComponentProps<typeof Popover>, 'children
 }
 
 const meta = {
-  title: 'Overlay/Popover',
+  title: 'Containers and Layout/Popover',
   component: Popover,
   render: (args) => <PopoverDemo {...args} />,
 } satisfies Meta<typeof Popover>;

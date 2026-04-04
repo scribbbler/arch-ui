@@ -62,6 +62,33 @@
   animation: arch-progressbar-indeterminate var(--motion-duration-slow) var(--motion-semantic-easing-default) infinite;
 }
 
+/* ─── Success state ──────────────────────────────────────────────────────────── */
+
+.arch-progressbar--success .arch-progressbar__fill {
+  background-color: var(--color-feedback-success-text);
+}
+
+/* ─── Label wrapper ──────────────────────────────────────────────────────────── */
+
+.arch-progressbar__wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-inline-sm);
+}
+
+.arch-progressbar__wrapper .arch-progressbar {
+  flex: 1;
+}
+
+.arch-progressbar__label {
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-default);
+  white-space: nowrap;
+  min-inline-size: 2.5em;
+  text-align: end;
+}
+
 /* ─── Reduced motion ─────────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

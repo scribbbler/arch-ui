@@ -1,4 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
+import { IconButton } from '../IconButton';
+import { Button } from '../Button';
 import { DEFAULT_LABELS, type PaginationLabels } from './Pagination.labels';
 import './Pagination.css';
 
@@ -108,33 +110,35 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
         {/* First page */}
         {showFirstLast && (
           <li className="arch-pagination__item">
-            <button
-              type="button"
+            <IconButton
+              variant="ghost"
+              size="sm"
               className="arch-pagination__btn"
               aria-label={mergedLabels.firstPage}
               aria-disabled={isPrevDisabled ? 'true' : undefined}
+              disabled={isPrevDisabled}
               onClick={() => {
                 if (!isPrevDisabled) onChange(1);
               }}
-            >
-              «
-            </button>
+              icon={<span aria-hidden="true">«</span>}
+            />
           </li>
         )}
 
         {/* Previous page */}
         <li className="arch-pagination__item">
-          <button
-            type="button"
+          <IconButton
+            variant="ghost"
+            size="sm"
             className="arch-pagination__btn"
             aria-label={mergedLabels.previousPage}
             aria-disabled={isPrevDisabled ? 'true' : undefined}
+            disabled={isPrevDisabled}
             onClick={() => {
               if (!isPrevDisabled) onChange(currentPage - 1);
             }}
-          >
-            ‹
-          </button>
+            icon={<span aria-hidden="true">‹</span>}
+          />
         </li>
 
         {/* Page numbers and ellipses */}
@@ -153,8 +157,9 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
 
           return (
             <li key={`page-${page}-${index}`} className="arch-pagination__item">
-              <button
-                type="button"
+              <Button
+                variant={isCurrent ? 'primary' : 'ghost'}
+                size="sm"
                 className="arch-pagination__btn"
                 aria-label={mergedLabels.goToPage(page)}
                 aria-current={isCurrent ? 'page' : undefined}
@@ -163,40 +168,42 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
                 }}
               >
                 {page}
-              </button>
+              </Button>
             </li>
           );
         })}
 
         {/* Next page */}
         <li className="arch-pagination__item">
-          <button
-            type="button"
+          <IconButton
+            variant="ghost"
+            size="sm"
             className="arch-pagination__btn"
             aria-label={mergedLabels.nextPage}
             aria-disabled={isNextDisabled ? 'true' : undefined}
+            disabled={isNextDisabled}
             onClick={() => {
               if (!isNextDisabled) onChange(currentPage + 1);
             }}
-          >
-            ›
-          </button>
+            icon={<span aria-hidden="true">›</span>}
+          />
         </li>
 
         {/* Last page */}
         {showFirstLast && (
           <li className="arch-pagination__item">
-            <button
-              type="button"
+            <IconButton
+              variant="ghost"
+              size="sm"
               className="arch-pagination__btn"
               aria-label={mergedLabels.lastPage}
               aria-disabled={isNextDisabled ? 'true' : undefined}
+              disabled={isNextDisabled}
               onClick={() => {
                 if (!isNextDisabled) onChange(totalPages);
               }}
-            >
-              »
-            </button>
+              icon={<span aria-hidden="true">»</span>}
+            />
           </li>
         )}
       </ol>

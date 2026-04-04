@@ -4,6 +4,8 @@ interface Props {
   description?: string;
 }
 
+import '../../../packages/tokens/build/css/tokens.css';
+
 const { title, description } = Astro.props;
 ---
 
@@ -12,14 +14,17 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>{title} — Arch Design System</title>
     {description && <meta name="description" content={description} />}
     <style>
       :root {
         --docs-max-width: 72rem;
         --docs-sidebar-width: 16rem;
-        --docs-font-sans: system-ui, -apple-system, sans-serif;
-        --docs-font-mono: ui-monospace, 'SFMono-Regular', monospace;
+        --docs-font-sans: var(--typography-family-sans, 'Inter', system-ui, -apple-system, sans-serif);
+        --docs-font-mono: var(--typography-family-mono, ui-monospace, 'SFMono-Regular', monospace);
       }
       * { margin: 0; box-sizing: border-box; }
       body {

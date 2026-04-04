@@ -5,6 +5,7 @@ import './Badge.css';
 
 export type BadgeVariant = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 export type BadgeSize = 'sm' | 'md';
+export type BadgePlacement = 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Colour palette variant. Defaults to 'neutral'. */
@@ -16,6 +17,14 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
    * Requires aria-label when no children are provided.
    */
   dot?: boolean;
+  /**
+   * Positions the badge as an overlay on an anchor element.
+   * When set, the badge is rendered with position: absolute at the specified corner.
+   * The parent element must have position: relative.
+   */
+  placement?: BadgePlacement;
+  /** Content to display inside the badge. Alternative to children (Base Web pattern). */
+  content?: React.ReactNode;
   /** Label content displayed inside the badge. */
   children?: React.ReactNode;
   /** Additional CSS class names. */
@@ -41,33 +50,38 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
     variant = 'neutral',
     size = 'md',
     dot = false,
+    placement,
+    content,
     children,
     className,
     ...rest
   },
   ref
 ) {
+  const resolvedContent = content ?? children;
+
   const classes = [
     'arch-badge',
     `arch-badge--${variant}`,
     `arch-badge--${size}`,
     dot && 'arch-badge--dot',
+    placement && `arch-badge--${placement}`,
     className,
   ]
     .filter(Boolean)
     .join(' ');
 
-  // When dot=true with no children, aria-label is provided by the caller.
+  // When dot=true with no content, aria-label is provided by the caller.
   // A <span> cannot accept aria-label without a role, so we set role="img".
   const hasAriaLabel = Boolean(rest['aria-label']);
-  const roleAttr = dot && hasAriaLabel && !children ? 'img' : undefined;
+  const roleAttr = dot && hasAriaLabel && !resolvedContent ? 'img' : undefined;
 
   return (
     <span ref={ref} className={classes} role={roleAttr} {...rest}>
       {dot && (
-        <span className="arch-badge__dot" aria-hidden={children ? true : undefined} />
+        <span className="arch-badge__dot" aria-hidden={resolvedContent ? true : undefined} />
       )}
-      {children}
+      {resolvedContent}
     </span>
   );
 });

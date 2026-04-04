@@ -116,6 +116,24 @@
   transform: translateX(0.875rem); /* move thumb to inline-end */
 }
 
+/* ─── Size: xs ───────────────────────────────────────────────────────────────── */
+
+.arch-toggle--xs .arch-toggle__track {
+  inline-size: 1.5rem;    /* 24px */
+  block-size: 0.875rem;   /* 14px */
+  padding-inline: 1px;
+}
+
+.arch-toggle--xs .arch-toggle__thumb {
+  inline-size: 0.625rem;  /* 10px */
+  block-size: 0.625rem;   /* 10px */
+  inset-inline-start: 1px;
+}
+
+.arch-toggle--xs .arch-toggle__input:checked ~ .arch-toggle__track .arch-toggle__thumb {
+  transform: translateX(0.625rem); /* move thumb to inline-end */
+}
+
 /* ─── Label text ─────────────────────────────────────────────────────────────── */
 
 .arch-toggle__label {

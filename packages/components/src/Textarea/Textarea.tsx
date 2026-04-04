@@ -1,11 +1,12 @@
-import React, { forwardRef, useCallback, useRef } from 'react';
+import React, { forwardRef, useCallback, useRef, useState } from 'react';
+import { IconButton } from '../IconButton';
 import { useFormControl } from '../FormControl/index';
 import './Textarea.css';
 
 /* ─── Types ───────────────────────────────────────────────────────────────────── */
 
 export type TextareaResize = 'none' | 'vertical' | 'both';
-export type TextareaSize = 'sm' | 'md' | 'lg';
+export type TextareaSize = 'xs' | 'sm' | 'md' | 'lg';
 
 export interface TextareaProps
   extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> {
@@ -21,6 +22,10 @@ export interface TextareaProps
    * scrollHeight on every input event. resize is forced to 'none'.
    */
   autoResize?: boolean;
+  /** Shows a clear button when the textarea has content. */
+  clearable?: boolean;
+  /** Shows a positive (success/valid) border style. */
+  positive?: boolean;
   /** Size variant — controls padding and font size. Defaults to 'md'. */
   size?: TextareaSize;
   /** Disables the textarea. Also inherited from FormControl context. */
@@ -57,6 +62,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       rows = 3,
       resize = 'vertical',
       autoResize = false,
+      clearable = false,
+      positive = false,
       size = 'md',
       disabled: disabledProp,
       readOnly,
@@ -105,8 +112,13 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       [ref]
     );
 
+    /* Track value internally for clearable display */
+    const [internalValue, setInternalValue] = useState('');
+    const currentValue = rest.value !== undefined ? String(rest.value) : internalValue;
+
     const handleChange = useCallback(
       (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setInternalValue(event.target.value);
         if (autoResize && internalRef.current) {
           const el = internalRef.current;
           /* Reset height first so scrollHeight reports the natural content height */
@@ -118,11 +130,26 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       [autoResize, onChange]
     );
 
+    const showClear = clearable && !disabled && !readOnly && currentValue !== '';
+
+    function handleClear() {
+      setInternalValue('');
+      if (onChange) {
+        const syntheticEvent = {
+          target: { ...internalRef.current, value: '' },
+          currentTarget: { ...internalRef.current, value: '' },
+        } as React.ChangeEvent<HTMLTextAreaElement>;
+        onChange(syntheticEvent);
+      }
+      internalRef.current?.focus();
+    }
+
     const effectiveResize = autoResize ? 'none' : resize;
 
     const classes = [
       'arch-textarea',
       `arch-textarea--${size}`,
+      positive && !invalid ? 'arch-textarea--positive' : '',
       autoResize
         ? 'arch-textarea--auto-resize'
         : `arch-textarea--resize-${effectiveResize}`,
@@ -131,22 +158,42 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       .filter(Boolean)
       .join(' ');
 
+    const wrapperClasses = [
+      'arch-textarea-wrapper',
+      showClear && 'arch-textarea-wrapper--clearable',
+    ]
+      .filter(Boolean)
+      .join(' ');
+
     return (
-      <textarea
-        {...rest}
-        ref={setRef}
-        id={id}
-        rows={rows}
-        disabled={disabled}
-        readOnly={readOnly}
-        required={required}
-        aria-required={required ? true : undefined}
-        aria-invalid={invalid ? true : undefined}
-        aria-disabled={disabled ? true : undefined}
-        aria-describedby={ariaDescribedBy}
-        className={classes}
-        onChange={handleChange}
-      />
+      <div className={wrapperClasses}>
+        <textarea
+          {...rest}
+          ref={setRef}
+          id={id}
+          rows={rows}
+          disabled={disabled}
+          readOnly={readOnly}
+          required={required}
+          aria-required={required ? true : undefined}
+          aria-invalid={invalid ? true : undefined}
+          aria-disabled={disabled ? true : undefined}
+          aria-describedby={ariaDescribedBy}
+          className={classes}
+          onChange={handleChange}
+        />
+        {showClear && (
+          <IconButton
+            variant="ghost"
+            size="sm"
+            className="arch-textarea__clear"
+            onClick={handleClear}
+            aria-label="Clear textarea"
+            tabIndex={-1}
+            icon={<span aria-hidden="true">&times;</span>}
+          />
+        )}
+      </div>
     );
   }
 );

@@ -1,4 +1,6 @@
 import React, { forwardRef } from 'react';
+import { IconButton } from '../IconButton';
+import { Button } from '../Button';
 import './Banner.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -10,6 +12,10 @@ export interface BannerProps {
   variant?: BannerVariant;
   /** Banner content. Keep brief — one or two sentences. */
   children?: React.ReactNode;
+  /** Text for an inline action button rendered alongside the message. */
+  actionText?: string;
+  /** Callback fired when the action button is clicked. */
+  onAction?: () => void;
   /** When provided, a dismiss button is rendered. */
   onClose?: () => void;
   /** Additional CSS class names. */
@@ -54,7 +60,7 @@ function CloseIcon() {
  * </Banner>
  */
 const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
-  { variant = 'info', children, onClose, className },
+  { variant = 'info', children, actionText, onAction, onClose, className },
   ref
 ) {
   const role =
@@ -71,15 +77,25 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
   return (
     <div ref={ref} role={role} className={classes}>
       <span className="arch-banner__content">{children}</span>
+      {actionText && onAction && (
+        <Button
+          variant="ghost"
+          size="sm"
+          className="arch-banner__action"
+          onClick={onAction}
+        >
+          {actionText}
+        </Button>
+      )}
       {onClose && (
-        <button
-          type="button"
+        <IconButton
+          variant="ghost"
+          size="sm"
           className="arch-banner__close"
           aria-label="Dismiss banner"
           onClick={onClose}
-        >
-          <CloseIcon />
-        </button>
+          icon={<CloseIcon />}
+        />
       )}
     </div>
   );

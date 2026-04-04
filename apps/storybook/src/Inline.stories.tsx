@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Inline, Box } from '@arch-ui/components';
 
 const meta = {
-  title: 'Layout/Inline',
+  title: 'Containers and Layout/Inline',
   component: Inline,
   argTypes: {
     align: { control: 'select', options: ['start', 'center', 'end', 'stretch', 'baseline'] },

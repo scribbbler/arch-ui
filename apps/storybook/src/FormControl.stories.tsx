@@ -9,7 +9,7 @@ import {
 } from '@arch-ui/components';
 
 const meta = {
-  title: 'Forms/FormControl',
+  title: 'Input and Selection/FormControl',
   component: FormControl,
   argTypes: {
     required: { control: 'boolean' },

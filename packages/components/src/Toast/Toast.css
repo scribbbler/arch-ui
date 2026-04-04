@@ -15,9 +15,9 @@
 
 /* ─── Position variants ──────────────────────────────────────────────────────── */
 
-.arch-toast-container--top-right {
+.arch-toast-container--top-left {
   inset-block-start: var(--spacing-component-lg, 1.5rem);
-  inset-inline-end: var(--spacing-component-lg, 1.5rem);
+  inset-inline-start: var(--spacing-component-lg, 1.5rem);
 }
 
 .arch-toast-container--top-center {
@@ -26,9 +26,14 @@
   transform: translateX(-50%);
 }
 
-.arch-toast-container--bottom-right {
-  inset-block-end: var(--spacing-component-lg, 1.5rem);
+.arch-toast-container--top-right {
+  inset-block-start: var(--spacing-component-lg, 1.5rem);
   inset-inline-end: var(--spacing-component-lg, 1.5rem);
+}
+
+.arch-toast-container--bottom-left {
+  inset-block-end: var(--spacing-component-lg, 1.5rem);
+  inset-inline-start: var(--spacing-component-lg, 1.5rem);
   flex-direction: column-reverse;
 }
 
@@ -36,6 +41,12 @@
   inset-block-end: var(--spacing-component-lg, 1.5rem);
   inset-inline-start: 50%;
   transform: translateX(-50%);
+  flex-direction: column-reverse;
+}
+
+.arch-toast-container--bottom-right {
+  inset-block-end: var(--spacing-component-lg, 1.5rem);
+  inset-inline-end: var(--spacing-component-lg, 1.5rem);
   flex-direction: column-reverse;
 }
 

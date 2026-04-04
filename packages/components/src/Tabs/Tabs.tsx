@@ -12,10 +12,13 @@ export interface TabItem {
   content: React.ReactNode;
   /** When true the tab is non-interactive and skipped during keyboard navigation. */
   disabled?: boolean;
+  /** Optional icon or artwork rendered before the tab label. */
+  artwork?: React.ReactNode;
 }
 
 export type TabsVariant = 'line' | 'enclosed';
 export type TabsOrientation = 'horizontal' | 'vertical';
+export type TabsFill = 'fixed' | 'intrinsic';
 
 export interface TabsProps {
   /** Array of tab definitions. */
@@ -28,6 +31,16 @@ export interface TabsProps {
   variant?: TabsVariant;
   /** Layout direction. Defaults to 'horizontal'. */
   orientation?: TabsOrientation;
+  /**
+   * Tab width behaviour. 'intrinsic' sizes tabs to their content.
+   * 'fixed' makes all tabs equal width. Defaults to 'intrinsic'.
+   */
+  fill?: TabsFill;
+  /**
+   * When true, all tab panels are rendered in the DOM (hidden ones via CSS)
+   * so their content is available for SEO. Defaults to false.
+   */
+  renderAll?: boolean;
   /** Additional class names applied to the root element. */
   className?: string;
 }
@@ -59,6 +72,8 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
     onChange,
     variant = 'line',
     orientation = 'horizontal',
+    fill = 'intrinsic',
+    renderAll = false,
     className,
   },
   ref
@@ -133,6 +148,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
     'arch-tabs',
     `arch-tabs--${variant}`,
     `arch-tabs--${orientation}`,
+    fill === 'fixed' ? 'arch-tabs--fill-fixed' : '',
     className,
   ]
     .filter(Boolean)
@@ -171,6 +187,11 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
               onKeyDown={(e) => handleKeyDown(e, index)}
               type="button"
             >
+              {tab.artwork && (
+                <span className="arch-tabs__artwork" aria-hidden="true">
+                  {tab.artwork}
+                </span>
+              )}
               {tab.label}
             </button>
           );
@@ -182,18 +203,21 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
         const panelId = `arch-tabpanel-${tab.value}`;
         const isActive = tab.value === activeValue;
 
-        return isActive ? (
+        if (!renderAll && !isActive) return null;
+
+        return (
           <div
             key={tab.value}
             id={panelId}
             role="tabpanel"
             aria-labelledby={tabId}
             tabIndex={0}
-            className="arch-tabs__panel"
+            className={`arch-tabs__panel${!isActive ? ' arch-tabs__panel--hidden' : ''}`}
+            hidden={!isActive && !renderAll ? true : undefined}
           >
             {tab.content}
           </div>
-        ) : null;
+        );
       })}
     </div>
   );

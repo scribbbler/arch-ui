@@ -17,7 +17,7 @@ export interface CheckboxProps {
   /** Label content rendered next to the checkbox. */
   children?: React.ReactNode;
   /** Position of the label relative to the checkbox. Defaults to 'end'. */
-  labelPlacement?: 'end' | 'start';
+  labelPlacement?: 'end' | 'start' | 'top' | 'bottom';
   /** Additional CSS class names for the wrapper. */
   className?: string;
   /** id forwarded to the native input. Auto-generated if not provided. */
@@ -73,6 +73,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
   const wrapperClasses = [
     'arch-checkbox',
     labelPlacement === 'start' && 'arch-checkbox--label-start',
+    labelPlacement === 'top' && 'arch-checkbox--label-top',
+    labelPlacement === 'bottom' && 'arch-checkbox--label-bottom',
     checked && !indeterminate && 'arch-checkbox--checked',
     indeterminate && 'arch-checkbox--indeterminate',
     disabled && 'arch-checkbox--disabled',

@@ -10,6 +10,8 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   external?: boolean;
   /** Color variant. Default: 'default'. */
   variant?: LinkVariant;
+  /** When true, the underline animates in on hover. Defaults to false. */
+  animateUnderline?: boolean;
   /** Link label content. */
   children?: ReactNode;
   /** Additional CSS class names. */
@@ -22,6 +24,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       href,
       external = false,
       variant = "default",
+      animateUnderline = false,
       className,
       children,
       "aria-label": ariaLabel,
@@ -32,6 +35,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     const classes = [
       "arch-link",
       `arch-link--${variant}`,
+      animateUnderline ? "arch-link--animate-underline" : "",
       className,
     ]
       .filter(Boolean)

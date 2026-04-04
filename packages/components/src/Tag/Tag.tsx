@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { IconButton } from '../IconButton';
 import './Tag.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -13,6 +14,21 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
    * The button receives aria-label="Remove {children}".
    */
   onRemove?: () => void;
+  /**
+   * Whether the close button is visible when onRemove is provided.
+   * Defaults to true when onRemove is provided.
+   */
+  closeable?: boolean;
+  /**
+   * When true, makes the tag behave like a toggle chip.
+   * The entire tag becomes clickable (via onClick).
+   */
+  clickable?: boolean;
+  /**
+   * Whether the tag is currently in a checked/selected state.
+   * Only relevant when clickable is true.
+   */
+  isChecked?: boolean;
   /** Optional icon rendered at the inline-start of the label. */
   icon?: React.ReactNode;
   /** Label content. */
@@ -61,6 +77,9 @@ const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag(
   {
     variant = 'neutral',
     onRemove,
+    closeable,
+    clickable = false,
+    isChecked,
     icon,
     children,
     className,
@@ -68,9 +87,13 @@ const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag(
   },
   ref
 ) {
+  const showRemove = onRemove != null && closeable !== false;
+
   const classes = [
     'arch-tag',
     `arch-tag--${variant}`,
+    clickable && 'arch-tag--clickable',
+    clickable && isChecked && 'arch-tag--checked',
     className,
   ]
     .filter(Boolean)
@@ -80,22 +103,29 @@ const Tag = forwardRef<HTMLSpanElement, TagProps>(function Tag(
     typeof children === 'string' ? `Remove ${children}` : 'Remove';
 
   return (
-    <span ref={ref} className={classes} {...rest}>
+    <span
+      ref={ref}
+      className={classes}
+      role={clickable ? 'option' : undefined}
+      aria-selected={clickable ? Boolean(isChecked) : undefined}
+      tabIndex={clickable ? 0 : undefined}
+      {...rest}
+    >
       {icon && (
         <span className="arch-tag__icon" aria-hidden="true">
           {icon}
         </span>
       )}
       <span className="arch-tag__label">{children}</span>
-      {onRemove && (
-        <button
-          type="button"
+      {showRemove && (
+        <IconButton
+          variant="ghost"
+          size="sm"
           className="arch-tag__remove"
           aria-label={removeLabel}
           onClick={onRemove}
-        >
-          <CloseIcon />
-        </button>
+          icon={<CloseIcon />}
+        />
       )}
     </span>
   );

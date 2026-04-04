@@ -24,6 +24,16 @@
       "type": "ReactNode",
       "description": "Banner content. May include text, links, or inline elements."
     },
+    "actionText": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Text for an inline action button rendered alongside the message. Requires onAction."
+    },
+    "onAction": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Callback fired when the action button is clicked."
+    },
     "onClose": {
       "type": "() => void",
       "default": "undefined",
@@ -67,6 +77,11 @@
     "spacing-inline-sm",
     "typography-scale-text-sm",
     "typography-scale-text-md",
-    "border-width-default"
+    "border-width-default",
+    "color-background-subtle",
+    "color-border-focus",
+    "radius-component-sm",
+    "spacing-component-xs",
+    "typography-weight-semibold"
   ]
 }

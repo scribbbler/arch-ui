@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { RadioGroup, Radio } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/RadioGroup',
+  title: 'Input and Selection/RadioGroup',
   component: RadioGroup,
   argTypes: {
     direction: { control: 'select', options: ['vertical', 'horizontal'] },

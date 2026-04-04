@@ -16,7 +16,7 @@ const simpleSteps = [
 ];
 
 const meta = {
-  title: 'Feedback/ProgressSteps',
+  title: 'Indicators and Status/ProgressSteps',
   component: ProgressSteps,
   args: {
     steps: simpleSteps,

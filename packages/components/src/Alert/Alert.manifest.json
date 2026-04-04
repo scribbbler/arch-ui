@@ -34,7 +34,12 @@
     "onClose": {
       "type": "() => void",
       "default": "undefined",
-      "description": "When provided, a dismiss button is rendered."
+      "description": "When provided, a dismiss button is rendered (unless closeable is false)."
+    },
+    "closeable": {
+      "type": "boolean",
+      "default": "true (when onClose provided)",
+      "description": "Whether the close button is visible. Defaults to true when onClose is provided. Set to false to hide the close button even when onClose is provided."
     },
     "icon": {
       "type": "ReactNode",
@@ -91,6 +96,7 @@
     "typography-scale-text-md",
     "typography-scale-text-sm",
     "typography-weight-semibold",
-    "border-width-default"
+    "border-width-default",
+    "color-background-subtle"
   ]
 }

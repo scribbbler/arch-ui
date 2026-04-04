@@ -23,9 +23,9 @@
   },
   "props": {
     "size": {
-      "type": "'sm' | 'md' | 'lg'",
+      "type": "'xs' | 'sm' | 'md' | 'lg'",
       "default": "md",
-      "description": "Controls the select height, padding, and font size. md and lg meet the 44px minimum touch target."
+      "description": "Controls the select height, padding, and font size. xs is a compact size for dense UIs. md and lg meet the 44px minimum touch target."
     },
     "placeholder": {
       "type": "string",
@@ -47,6 +47,11 @@
       "default": false,
       "description": "Explicitly puts the select into an error visual state. Also triggered when FormControl invalid is true."
     },
+    "positive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a positive (success/valid) border style using color-border-success."
+    },
     "children": {
       "type": "ReactNode",
       "default": "undefined",
@@ -59,6 +64,7 @@
     }
   },
   "sizes": {
+    "xs": "min-block-size 24px — very compact, for dense UIs. Does not meet touch target.",
     "sm": "min-block-size 32px — suitable for dense UIs. Does not meet 44px touch target; avoid on touch-primary interfaces.",
     "md": "min-block-size 40px — default. Meets 44px touch target.",
     "lg": "min-block-size 48px — for prominent or standalone fields."
@@ -82,6 +88,7 @@
     "color-border-default",
     "color-border-focus",
     "color-border-danger",
+    "color-border-success",
     "color-border-disabled",
     "color-text-default",
     "color-text-subtle",

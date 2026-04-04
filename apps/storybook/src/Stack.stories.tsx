@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Stack, Box } from '@arch-ui/components';
 
 const meta = {
-  title: 'Layout/Stack',
+  title: 'Containers and Layout/Stack',
   component: Stack,
   argTypes: {
     align: { control: 'select', options: ['start', 'center', 'end', 'stretch'] },

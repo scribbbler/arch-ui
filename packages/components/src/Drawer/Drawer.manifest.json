@@ -34,6 +34,11 @@
       "default": "20rem",
       "description": "Inline-size (for start/end) or block-size (for top/bottom) of the drawer panel."
     },
+    "animate": {
+      "type": "boolean",
+      "default": true,
+      "description": "When true, the drawer uses slide-in/out animations. Set to false for instant appearance."
+    },
     "children": {
       "type": "ReactNode",
       "description": "Drawer content."

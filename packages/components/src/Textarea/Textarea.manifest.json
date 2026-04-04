@@ -39,8 +39,18 @@
       "default": false,
       "description": "When true, the textarea grows to fit its content on every input event by setting its height to its scrollHeight. Automatically overrides resize to 'none' in CSS. Does not shrink below the initial rows height."
     },
+    "clearable": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, shows a clear button (×) when the textarea has content."
+    },
+    "positive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a positive (success/valid) border style using color-border-success."
+    },
     "size": {
-      "type": "'sm' | 'md' | 'lg'",
+      "type": "'xs' | 'sm' | 'md' | 'lg'",
       "default": "md",
       "description": "Controls padding and font size. Mirrors the Input size tokens."
     },
@@ -61,6 +71,7 @@
     }
   },
   "sizes": {
+    "xs": "Very compact, text-xs tokens. For dense UIs.",
     "sm": "padding uses spacing-component-xs / spacing-component-sm, text-sm tokens.",
     "md": "padding uses spacing-component-sm / spacing-component-md, text-md tokens. Default.",
     "lg": "padding uses spacing-component-md, text-lg tokens."
@@ -85,15 +96,20 @@
     "color-border-default",
     "color-border-focus",
     "color-border-danger",
+    "color-border-success",
     "color-border-disabled",
     "color-text-default",
     "color-text-placeholder",
+    "color-text-default",
+    "color-text-subtle",
     "color-text-disabled",
     "spacing-component-xs",
     "spacing-component-sm",
     "spacing-component-md",
     "radius-component-sm",
     "radius-component-md",
+    "typography-scale-text-xs-font-size",
+    "typography-scale-text-xs-line-height",
     "typography-scale-text-sm-font-size",
     "typography-scale-text-sm-line-height",
     "typography-scale-text-md-font-size",

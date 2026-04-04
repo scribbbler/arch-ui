@@ -22,7 +22,22 @@
     "onRemove": {
       "type": "() => void",
       "default": "undefined",
-      "description": "When provided, renders a close button that triggers this callback. The button receives aria-label='Remove {children}'."
+      "description": "When provided, renders a close button that triggers this callback (unless closeable is false). The button receives aria-label='Remove {children}'."
+    },
+    "closeable": {
+      "type": "boolean",
+      "default": "true (when onRemove provided)",
+      "description": "Whether the close button is visible when onRemove is provided. Set to false to hide the close button."
+    },
+    "clickable": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, the tag behaves as a toggle chip. The tag becomes clickable and receives role='option' and tabIndex=0."
+    },
+    "isChecked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the tag is currently in a checked/selected state. Only relevant when clickable is true. Controls aria-selected and visual checked style."
     },
     "icon": {
       "type": "ReactNode",
@@ -79,6 +94,9 @@
     "spacing-inline-sm",
     "radius-component-full",
     "typography-scale-text-sm",
-    "typography-weight-medium"
+    "typography-weight-medium",
+    "border-width-strong",
+    "motion-semantic-duration-fast",
+    "motion-semantic-easing-default"
   ]
 }

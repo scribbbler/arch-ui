@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Skeleton } from '@arch-ui/components';
 
 const meta = {
-  title: 'Feedback/Skeleton',
+  title: 'Indicators and Status/Skeleton',
   component: Skeleton,
 } satisfies Meta<typeof Skeleton>;
 

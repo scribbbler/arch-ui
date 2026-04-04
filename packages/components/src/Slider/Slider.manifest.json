@@ -85,6 +85,7 @@
   "tokens": [
     "color-action-primary",
     "color-action-primary-hover",
+    "color-action-primary-active",
     "color-background-muted",
     "color-background-disabled",
     "color-border-focus",

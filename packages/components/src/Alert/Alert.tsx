@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { IconButton } from '../IconButton';
 import { DEFAULT_LABELS, type AlertLabels } from './Alert.labels';
 import './Alert.css';
 
@@ -13,8 +14,13 @@ export interface AlertProps {
   title?: string;
   /** Body content of the alert. */
   description?: React.ReactNode;
-  /** Callback to dismiss the alert. When provided, a close button is rendered. */
+  /** Callback to dismiss the alert. When provided, a close button is rendered (unless closeable is false). */
   onClose?: () => void;
+  /**
+   * Whether the close button is visible. Defaults to true when onClose is provided.
+   * Set to false to hide the close button even when onClose is provided.
+   */
+  closeable?: boolean;
   /**
    * Override the default variant icon. Pass null to suppress the icon entirely.
    * When undefined, the default icon for the variant is used.
@@ -95,9 +101,10 @@ const defaultIcons: Record<AlertVariant, React.ReactNode> = {
  * <Alert variant="danger" title="Error" description="Something went wrong." onClose={() => setOpen(false)} />
  */
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  { variant = 'info', title, description, onClose, icon, labels, className },
+  { variant = 'info', title, description, onClose, closeable, icon, labels, className },
   ref
 ) {
+  const showClose = onClose != null && closeable !== false;
   const mergedLabels = { ...DEFAULT_LABELS, ...labels };
   const role =
     variant === 'danger' || variant === 'warning' ? 'alert' : 'status';
@@ -128,15 +135,15 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
           <span className="arch-alert__description">{description}</span>
         )}
       </span>
-      {onClose && (
-        <button
-          type="button"
+      {showClose && (
+        <IconButton
+          variant="ghost"
+          size="sm"
           className="arch-alert__close"
           aria-label={mergedLabels.dismiss}
           onClick={onClose}
-        >
-          <CloseIcon />
-        </button>
+          icon={<CloseIcon />}
+        />
       )}
     </div>
   );

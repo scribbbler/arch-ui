@@ -17,7 +17,7 @@
   position: relative;
   z-index: var(--z-semantic-modal);
   background-color: var(--color-surface-base);
-  border: 1px solid var(--color-border-default);
+  border: var(--border-width-default) solid var(--color-border-default);
   box-shadow: var(--shadow-overlay);
   border-radius: var(--radius-component-lg);
   inline-size: 100%;
@@ -44,6 +44,29 @@
   border-radius: 0;
 }
 
+/* ─── Modal — enter animation ────────────────────────────────────────────────── */
+
+@keyframes arch-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--spacing-8));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.arch-modal--animate {
+  animation: arch-modal-enter var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-modal--animate {
+    animation: none;
+  }
+}
+
 /* ─── Modal — header ─────────────────────────────────────────────────────────── */
 
 .arch-modal__header {
@@ -52,7 +75,7 @@
   justify-content: space-between;
   padding-block: var(--spacing-component-md);
   padding-inline: var(--spacing-component-lg);
-  border-block-end: 1px solid var(--color-border-default);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
   flex-shrink: 0;
 }
 
@@ -99,6 +122,6 @@
   gap: var(--spacing-component-md);
   padding-block: var(--spacing-component-md);
   padding-inline: var(--spacing-component-lg);
-  border-block-start: 1px solid var(--color-border-default);
+  border-block-start: var(--border-width-default) solid var(--color-border-default);
   flex-shrink: 0;
 }

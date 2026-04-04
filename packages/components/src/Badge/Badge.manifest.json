@@ -28,6 +28,16 @@
       "default": false,
       "description": "When true, renders a small circular indicator instead of text content. Requires aria-label when children are absent."
     },
+    "placement": {
+      "type": "'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'",
+      "default": "undefined",
+      "description": "Positions the badge as an overlay at the specified corner of a parent element. The parent must have position: relative."
+    },
+    "content": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "Content to display inside the badge. Alternative to children (Base Web pattern). When both content and children are provided, content takes precedence."
+    },
     "children": {
       "type": "ReactNode",
       "description": "Label content displayed inside the badge."
@@ -78,6 +88,7 @@
     "radius-component-full",
     "typography-scale-text-xs",
     "typography-scale-text-sm",
-    "typography-weight-medium"
+    "typography-weight-medium",
+    "z-raised"
   ]
 }

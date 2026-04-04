@@ -141,12 +141,33 @@
   border-inline-end-color: var(--color-surface-base);
 }
 
+/* ─── Artwork (icon slot) ────────────────────────────────────────────────────── */
+
+.arch-tabs__artwork {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-inline-end: var(--spacing-inline-xs);
+}
+
+/* ─── Fill — fixed (equal width tabs) ────────────────────────────────────────── */
+
+.arch-tabs--fill-fixed .arch-tabs__tab {
+  flex: 1 1 0%;
+  text-align: center;
+  justify-content: center;
+}
+
 /* ─── Panel ──────────────────────────────────────────────────────────────────── */
 
 .arch-tabs__panel {
   flex: 1;
   padding: var(--spacing-component-md);
   color: var(--color-text-default);
+}
+
+.arch-tabs__panel--hidden {
+  display: none;
 }
 
 .arch-tabs__panel:focus-visible {

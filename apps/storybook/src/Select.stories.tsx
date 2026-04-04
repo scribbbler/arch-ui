@@ -1,27 +1,33 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Select } from '@arch-ui/components';
+import { Select, FormControl, FormLabel, FormErrorMessage } from '@arch-ui/components';
+
+const options = (
+  <>
+    <option value="us">United States</option>
+    <option value="ca">Canada</option>
+    <option value="uk">United Kingdom</option>
+    <option value="de">Germany</option>
+  </>
+);
 
 const meta = {
-  title: 'Components/Select',
+  title: 'Input and Selection/Select',
   component: Select,
+  render: (args) => (
+    <FormControl>
+      <FormLabel>Country</FormLabel>
+      <Select {...args} />
+    </FormControl>
+  ),
   argTypes: {
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
     disabled: { control: 'boolean' },
-    isError: { control: 'boolean' },
   },
   args: {
     size: 'md',
-    'aria-label': 'Country',
     placeholder: 'Select a country',
-    children: (
-      <>
-        <option value="us">United States</option>
-        <option value="ca">Canada</option>
-        <option value="uk">United Kingdom</option>
-        <option value="de">Germany</option>
-      </>
-    ),
+    children: options,
   },
 } satisfies Meta<typeof Select>;
 
@@ -30,26 +36,29 @@ type Story = StoryObj<typeof meta>;
 
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
-export const SizeSmall: Story = {
-  args: { size: 'sm' },
-};
-
-export const SizeMedium: Story = {
-  args: { size: 'md' },
-};
-
-export const SizeLarge: Story = {
-  args: { size: 'lg' },
-};
+export const SizeSmall: Story = { args: { size: 'sm' } };
+export const SizeMedium: Story = { args: { size: 'md' } };
+export const SizeLarge: Story = { args: { size: 'lg' } };
 
 /* ─── States ─────────────────────────────────────────────────────────────────── */
 
 export const Disabled: Story = {
-  args: { disabled: true },
+  render: (args) => (
+    <FormControl disabled>
+      <FormLabel>Country</FormLabel>
+      <Select {...args} />
+    </FormControl>
+  ),
 };
 
 export const Error: Story = {
-  args: { isError: true },
+  render: (args) => (
+    <FormControl invalid>
+      <FormLabel>Country</FormLabel>
+      <Select {...args} />
+      <FormErrorMessage>Please select a country.</FormErrorMessage>
+    </FormControl>
+  ),
 };
 
 export const WithPlaceholder: Story = {
@@ -59,11 +68,10 @@ export const WithPlaceholder: Story = {
 /* ─── Optgroup ───────────────────────────────────────────────────────────────── */
 
 export const WithOptgroup: Story = {
-  args: {
-    placeholder: 'Select a city',
-    'aria-label': 'City',
-    children: (
-      <>
+  render: (args) => (
+    <FormControl>
+      <FormLabel>City</FormLabel>
+      <Select {...args}>
         <optgroup label="North America">
           <option value="nyc">New York</option>
           <option value="sf">San Francisco</option>
@@ -73,9 +81,9 @@ export const WithOptgroup: Story = {
           <option value="lon">London</option>
           <option value="ber">Berlin</option>
         </optgroup>
-      </>
-    ),
-  },
+      </Select>
+    </FormControl>
+  ),
 };
 
 /* ─── Accessibility ──────────────────────────────────────────────────────────── */
@@ -86,9 +94,7 @@ export const Accessibility: Story = {
       description: {
         story:
           'Keyboard: `Tab`/`Shift+Tab` to focus, `Arrow Up/Down` to navigate options, `Space`/`Enter` to open and select. ' +
-          'Uses a native `<select>` so keyboard and screen reader behaviour is handled by the browser. ' +
-          'When inside a FormControl, `aria-describedby`, `aria-required`, and `aria-invalid` are wired automatically. ' +
-          'Focus indicator uses a 2px outline with `var(--color-border-focus)`.',
+          'Uses a native `<select>` so keyboard and screen reader behaviour is handled by the browser.',
       },
     },
   },

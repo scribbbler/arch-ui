@@ -4,7 +4,7 @@
   "description": "A full-overlay dialog component with scroll lock, focus management, and configurable size. Composed from Portal, Overlay, and FocusTrap. Includes ModalHeader, ModalBody, and ModalFooter sub-components.",
   "status": "stable",
   "accessibility": {
-    "role": "dialog",
+    "role": "dialog | alertdialog",
     "ariaAttributes": ["aria-modal", "aria-labelledby"],
     "keyboardInteraction": ["Escape (close, if closeOnEscape=true)", "Tab / Shift+Tab (cycle within)"],
     "notes": [
@@ -38,6 +38,16 @@
       "type": "boolean",
       "default": true,
       "description": "When true, pressing Escape closes the modal."
+    },
+    "role": {
+      "type": "'dialog' | 'alertdialog'",
+      "default": "dialog",
+      "description": "ARIA role for the dialog element. Use 'alertdialog' for confirmation dialogs that require user acknowledgement."
+    },
+    "animate": {
+      "type": "boolean",
+      "default": true,
+      "description": "When true, the modal animates in on mount. Set to false for instant appearance."
     },
     "children": {
       "type": "ReactNode",
@@ -91,6 +101,8 @@
     "z-semantic-modal",
     "motion-duration-normal",
     "motion-semantic-easing-enter",
-    "motion-semantic-easing-exit"
+    "motion-semantic-easing-exit",
+    "spacing-8",
+    "motion-semantic-duration-normal"
   ]
 }

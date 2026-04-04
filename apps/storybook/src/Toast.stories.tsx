@@ -5,7 +5,7 @@ import { Toast, ToastProvider, useToast } from '@arch-ui/components';
 /* --- Standalone Toast stories --- */
 
 const meta = {
-  title: 'Feedback/Toast',
+  title: 'Messaging/Toast',
   component: Toast,
   args: {
     title: 'Notification',

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Radio, RadioGroup } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/Radio',
+  title: 'Input and Selection/Radio',
   component: Radio,
   decorators: [
     (Story) => (

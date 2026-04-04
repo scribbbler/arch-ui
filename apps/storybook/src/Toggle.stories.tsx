@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Toggle } from '@arch-ui/components';
+import { Toggle, FormControl } from '@arch-ui/components';
 
 const meta = {
-  title: 'Components/Toggle',
+  title: 'Input and Selection/Toggle',
   component: Toggle,
   argTypes: {
     size: { control: 'select', options: ['sm', 'md'] },
@@ -40,10 +40,24 @@ export const Checked: Story = {
 };
 
 export const Disabled: Story = {
+  decorators: [
+    (Story) => (
+      <FormControl id="toggle-disabled" disabled>
+        <Story />
+      </FormControl>
+    ),
+  ],
   args: { disabled: true, children: 'Disabled toggle' },
 };
 
 export const DisabledChecked: Story = {
+  decorators: [
+    (Story) => (
+      <FormControl id="toggle-disabled-checked" disabled>
+        <Story />
+      </FormControl>
+    ),
+  ],
   args: { disabled: true, checked: true, children: 'Disabled on' },
 };
 

@@ -58,6 +58,20 @@
   outline-offset: -2px;
 }
 
+/* ─── Disabled state ─────────────────────────────────────────────────────────── */
+
+.arch-accordion__trigger[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.arch-accordion__item--disabled .arch-accordion__trigger {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* ─── Icon ───────────────────────────────────────────────────────────────────── */
 
 .arch-accordion__icon {

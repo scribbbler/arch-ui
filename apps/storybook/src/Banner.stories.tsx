@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Banner } from '@arch-ui/components';
 
 const meta = {
-  title: 'Feedback/Banner',
+  title: 'Messaging/Banner',
   component: Banner,
   args: {
     children: 'This is a banner message.',

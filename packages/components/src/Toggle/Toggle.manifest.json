@@ -49,9 +49,9 @@
       "description": "Optional label text rendered beside the track."
     },
     "size": {
-      "type": "'sm' | 'md'",
+      "type": "'xs' | 'sm' | 'md'",
       "default": "md",
-      "description": "Size variant. sm renders a narrower track; md meets the 44px touch-target minimum."
+      "description": "Size variant. xs renders the smallest track for very dense UIs; sm renders a narrower track; md meets the 44px touch-target minimum."
     },
     "className": {
       "type": "string",
@@ -60,6 +60,7 @@
     }
   },
   "sizes": {
+    "xs": "track is 24px wide × 14px tall — very compact, for dense UIs. Well below 44px touch target.",
     "sm": "track is 32px wide × 18px tall — suitable for dense UIs. Below 44px touch target; avoid on touch-primary interfaces.",
     "md": "track is 44px wide × 24px tall — default. Wrapper meets 44px touch target via min-block-size."
   },

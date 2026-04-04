@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Tooltip } from '@arch-ui/components';
 
 const meta = {
-  title: 'Overlay/Tooltip',
+  title: 'Messaging/Tooltip',
   component: Tooltip,
   decorators: [
     (Story) => (

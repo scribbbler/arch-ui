@@ -32,6 +32,12 @@
   color: var(--color-text-placeholder);
 }
 
+/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+
+.arch-textarea:hover:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
+  border-color: var(--color-border-strong);
+}
+
 /* ─── Focus ──────────────────────────────────────────────────────────────────── */
 
 .arch-textarea:focus-visible {
@@ -74,7 +80,26 @@
   cursor: default;
 }
 
+/* ─── Positive (valid) ────────────────────────────────────────────────────────── */
+
+.arch-textarea--positive {
+  border-color: var(--color-border-success);
+}
+
+.arch-textarea--positive:focus-visible {
+  border-color: var(--color-border-success);
+  outline-color: var(--color-border-success);
+}
+
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-textarea--xs {
+  padding-block: 2px;
+  padding-inline: var(--spacing-component-xs);
+  font-size: var(--typography-scale-text-xs-font-size);
+  line-height: var(--typography-scale-text-xs-line-height);
+  border-radius: var(--radius-component-sm);
+}
 
 .arch-textarea--sm {
   padding-block: var(--spacing-component-xs);
@@ -116,4 +141,34 @@
 .arch-textarea--auto-resize {
   resize: none;
   overflow: hidden;
+}
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-textarea-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+/* ─── Clear button ───────────────────────────────────────────────────────────── */
+
+.arch-textarea__clear {
+  position: absolute;
+  inset-block-start: var(--spacing-component-xs);
+  inset-inline-end: var(--spacing-component-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-text-subtle);
+  font-size: 1.125em;
+  line-height: 1;
+}
+
+.arch-textarea__clear:hover {
+  color: var(--color-text-default);
 }

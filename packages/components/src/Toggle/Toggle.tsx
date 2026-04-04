@@ -4,7 +4,7 @@ import './Toggle.css';
 
 /* ─── Types ───────────────────────────────────────────────────────────────────── */
 
-export type ToggleSize = 'sm' | 'md';
+export type ToggleSize = 'xs' | 'sm' | 'md';
 
 export interface ToggleProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {

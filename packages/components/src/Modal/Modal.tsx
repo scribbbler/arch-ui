@@ -2,12 +2,15 @@ import React, { forwardRef, useEffect, useId } from 'react';
 import { Portal } from '../Portal';
 import { Overlay } from '../Overlay';
 import { FocusTrap } from '../FocusTrap';
+import { IconButton } from '../IconButton';
 import { DEFAULT_LABELS, type ModalLabels } from './Modal.labels';
 import './Modal.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
 export type ModalSize = 'sm' | 'md' | 'lg' | 'xl' | 'full';
+
+export type ModalRole = 'dialog' | 'alertdialog';
 
 export interface ModalProps {
   /** Controls modal visibility. */
@@ -20,6 +23,10 @@ export interface ModalProps {
   closeOnOverlayClick?: boolean;
   /** When true, pressing Escape closes the modal. Defaults to true. */
   closeOnEscape?: boolean;
+  /** ARIA role for the dialog element. Use 'alertdialog' for confirmation dialogs. Defaults to 'dialog'. */
+  role?: ModalRole;
+  /** When true, the modal animates in and out. Defaults to true. */
+  animate?: boolean;
   /** Modal content — typically ModalHeader, ModalBody, ModalFooter. */
   children?: React.ReactNode;
 }
@@ -73,15 +80,14 @@ const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function ModalHead
         {children}
       </h2>
       {onClose && (
-        <button
-          type="button"
+        <IconButton
+          variant="ghost"
+          size="sm"
           className="arch-modal__close"
           aria-label={mergedLabels.close}
           onClick={onClose}
-        >
-          {/* Simple × glyph — no external icon dependency */}
-          <span aria-hidden="true">&#x2715;</span>
-        </button>
+          icon={<span aria-hidden="true">&#x2715;</span>}
+        />
       )}
     </header>
   );
@@ -141,6 +147,8 @@ function Modal({
   size = 'md',
   closeOnOverlayClick = true,
   closeOnEscape = true,
+  role = 'dialog',
+  animate = true,
   children,
 }: ModalProps) {
   const titleId = useId();
@@ -176,7 +184,8 @@ function Modal({
   const panelClasses = [
     'arch-modal',
     `arch-modal--${size}`,
-  ].join(' ');
+    animate ? 'arch-modal--animate' : '',
+  ].filter(Boolean).join(' ');
 
   return (
     <Portal>
@@ -185,7 +194,7 @@ function Modal({
         <FocusTrap active={isOpen} restoreFocus>
           <ModalContext.Provider value={{ titleId }}>
             <div
-              role="dialog"
+              role={role}
               aria-modal="true"
               aria-labelledby={titleId}
               className={panelClasses}

@@ -21,9 +21,19 @@
       "description": "Visual style of the button. Maps directly to action color tokens."
     },
     "size": {
-      "type": "'sm' | 'md' | 'lg'",
+      "type": "'xs' | 'sm' | 'md' | 'lg'",
       "default": "md",
-      "description": "Size of the button, controlling padding and font-size."
+      "description": "Size of the button, controlling padding and font-size. xs is a compact size for dense UIs."
+    },
+    "shape": {
+      "type": "'default' | 'pill' | 'circle' | 'square'",
+      "default": "default",
+      "description": "Shape of the button. pill uses full radius. circle and square use equal aspect ratio (ideal for icon-only buttons)."
+    },
+    "isSelected": {
+      "type": "boolean",
+      "default": false,
+      "description": "Indicates the button is in a selected/pressed state. Useful for toggle button groups. Sets aria-pressed."
     },
     "disabled": {
       "type": "boolean",
@@ -127,6 +137,9 @@
     "spacing-component-lg",
     "radius-component-sm",
     "radius-component-md",
+    "radius-component-full",
+    "typography-scale-text-xs-font-size",
+    "typography-scale-text-xs-line-height",
     "typography-scale-text-sm",
     "typography-scale-text-md",
     "typography-scale-text-lg",
