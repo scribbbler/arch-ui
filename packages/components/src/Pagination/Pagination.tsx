@@ -4,6 +4,32 @@ import { Button, type ButtonSize, type ButtonShape } from '../Button';
 import { DEFAULT_LABELS, type PaginationLabels } from './Pagination.labels';
 import './Pagination.css';
 
+/* ─── Nav icons (inline SVG for zero-dependency) ─────────────────────────────── */
+
+const ChevronLeftSvg = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+  </svg>
+);
+
+const ChevronRightSvg = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+  </svg>
+);
+
+const ChevronDoubleLeftSvg = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z" />
+  </svg>
+);
+
+const ChevronDoubleRightSvg = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z" />
+  </svg>
+);
+
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
 
 export type PaginationSize = 'mini' | 'compact' | 'default' | 'large';
@@ -144,7 +170,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
               onClick={() => {
                 if (!isPrevDisabled) onChange(1);
               }}
-              icon={<span aria-hidden="true">«</span>}
+              icon={<ChevronDoubleLeftSvg />}
             />
           </li>
         )}
@@ -159,7 +185,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             onClick={() => {
               if (!isPrevDisabled) onChange(currentPage - 1);
             }}
-            icon={<span aria-hidden="true">‹</span>}
+            icon={<ChevronLeftSvg />}
           />
         </li>
 
@@ -205,7 +231,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
             onClick={() => {
               if (!isNextDisabled) onChange(currentPage + 1);
             }}
-            icon={<span aria-hidden="true">›</span>}
+            icon={<ChevronRightSvg />}
           />
         </li>
 
@@ -221,7 +247,7 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
               onClick={() => {
                 if (!isNextDisabled) onChange(totalPages);
               }}
-              icon={<span aria-hidden="true">»</span>}
+              icon={<ChevronDoubleRightSvg />}
             />
           </li>
         )}
