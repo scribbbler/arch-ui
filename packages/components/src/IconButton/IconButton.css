@@ -17,8 +17,6 @@
   user-select: none;
   flex-shrink: 0;
 
-  border-radius: var(--radius-md);
-
   transition:
     background-color var(--motion-duration-fast) var(--motion-easing-default),
     color var(--motion-duration-fast) var(--motion-easing-default),
@@ -54,7 +52,6 @@
 .arch-icon-button--mini {
   inline-size: var(--spacing-28);
   block-size: var(--spacing-28);
-  border-radius: var(--radius-sm);
 }
 .arch-icon-button--mini svg { width: 16px; height: 16px; }
 
@@ -76,6 +73,22 @@
   block-size: var(--spacing-56);
 }
 .arch-icon-button--large svg { width: 24px; height: 24px; }
+
+/* ─── Shapes ─────────────────────────────────────────────────────────────────── */
+
+.arch-icon-button--square {
+  border-radius: var(--radius-md);
+}
+
+.arch-icon-button--circle {
+  border-radius: var(--radius-full);
+}
+
+/* Override border-radius for mini/compact square */
+.arch-icon-button--mini.arch-icon-button--square,
+.arch-icon-button--compact.arch-icon-button--square {
+  border-radius: var(--radius-sm);
+}
 
 /* ─── Kind: primary ─────────────────────────────────────────────────────────── */
 

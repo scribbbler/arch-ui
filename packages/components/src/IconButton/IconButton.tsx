@@ -5,6 +5,7 @@ import './IconButton.css';
 
 export type IconButtonKind = 'primary' | 'secondary' | 'tertiary' | 'dangerPrimary' | 'dangerSecondary' | 'dangerTertiary';
 export type IconButtonSize = 'mini' | 'compact' | 'default' | 'large';
+export type IconButtonShape = 'square' | 'circle';
 
 export interface IconButtonProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
@@ -19,6 +20,8 @@ export interface IconButtonProps
   kind?: IconButtonKind;
   /** Size. Defaults to 'default'. */
   size?: IconButtonSize;
+  /** Shape of the button. Defaults to 'square'. */
+  shape?: IconButtonShape;
   /** Disables the button. */
   disabled?: boolean;
   /** Shows a spinner and disables the button. Sets aria-busy. */
@@ -56,7 +59,7 @@ const sizeClassMap: Record<IconButtonSize, string> = {
  *
  * @example
  * <IconButton aria-label="Close dialog" icon={<CloseIcon />} kind="tertiary" />
- * <IconButton aria-label="Delete item" icon={<TrashIcon />} kind="dangerPrimary" />
+ * <IconButton aria-label="Delete item" icon={<TrashIcon />} kind="dangerPrimary" shape="circle" />
  */
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   function IconButton(
@@ -65,6 +68,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       icon,
       kind = 'primary',
       size = 'default',
+      shape = 'square',
       disabled = false,
       isLoading = false,
       className,
@@ -91,6 +95,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       'arch-icon-button',
       kindClassMap[kind],
       sizeClassMap[size],
+      `arch-icon-button--${shape}`,
       isLoading && 'arch-icon-button--loading',
       className,
     ]

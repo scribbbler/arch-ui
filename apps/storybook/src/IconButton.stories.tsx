@@ -17,6 +17,7 @@ const meta = {
       options: ['primary', 'secondary', 'tertiary', 'dangerPrimary', 'dangerSecondary', 'dangerTertiary'],
     },
     size: { control: 'select', options: ['mini', 'compact', 'default', 'large'] },
+    shape: { control: 'radio', options: ['square', 'circle'] },
     disabled: { control: 'boolean' },
     isLoading: { control: 'boolean' },
   },
@@ -25,6 +26,7 @@ const meta = {
     icon: <CloseIcon />,
     kind: 'primary',
     size: 'default',
+    shape: 'square',
   },
 } satisfies Meta<typeof IconButton>;
 
@@ -73,6 +75,16 @@ export const Default: Story = {
 
 export const Large: Story = {
   args: { size: 'large' },
+};
+
+/* ─── Shapes ─────────────────────────────────────────────────────────────────── */
+
+export const Square: Story = {
+  args: { shape: 'square' },
+};
+
+export const Circle: Story = {
+  args: { shape: 'circle' },
 };
 
 /* ─── States ─────────────────────────────────────────────────────────────────── */
