@@ -1,282 +1,239 @@
 {
-  "/__docusaurus/debug-5ff": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/config-5ba": {
-    "__comp": "__comp---theme-debug-config-23-a-2ff",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/content-a2b": {
-    "__comp": "__comp---theme-debug-contentba-8-ce7",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    },
-    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
-  },
-  "/__docusaurus/debug/globalData-c3c": {
-    "__comp": "__comp---theme-debug-global-dataede-0fa",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/metadata-156": {
-    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/registry-88c": {
-    "__comp": "__comp---theme-debug-registry-679-501",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
-  "/__docusaurus/debug/routes-000": {
-    "__comp": "__comp---theme-debug-routes-946-699",
-    "__context": {
-      "plugin": "plugin---docusaurus-debugb-38-ad3"
-    }
-  },
   "/-7c0": {
-    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__comp": "5e95c892",
     "__context": {
-      "plugin": "plugin---aba-d70"
+      "plugin": "aba21aa0"
     }
   },
   "/-883": {
-    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---22-d-307"
+    "__comp": "a7bd4aaa",
+    "__props": "22dd74f7"
   },
   "/-4bd": {
-    "__comp": "__comp---theme-doc-roota-94-67a"
+    "__comp": "a94703ab"
   },
   "/changelog-da8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---changelog-9-be-13d"
+    "__comp": "17896441",
+    "content": "9beb87c2"
   },
   "/components/accordion-aef": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-accordion-326-fd8"
+    "__comp": "17896441",
+    "content": "326d05d8"
   },
   "/components/alert-fdc": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-alerta-46-45b"
+    "__comp": "17896441",
+    "content": "a46d4728"
   },
   "/components/avatar-b23": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-avatarb-5-e-dcc"
+    "__comp": "17896441",
+    "content": "b5eb131b"
   },
   "/components/badge-51f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-badge-8-ea-83a"
+    "__comp": "17896441",
+    "content": "8ea2467a"
   },
   "/components/banner-a51": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-banner-28-e-acc"
+    "__comp": "17896441",
+    "content": "28eba48d"
   },
   "/components/breadcrumbs-866": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-breadcrumbs-083-dca"
+    "__comp": "17896441",
+    "content": "0831a3b9"
   },
   "/components/button-e38": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-button-074-cb1"
+    "__comp": "17896441",
+    "content": "0743e332"
   },
   "/components/button-dock-291": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-button-dock-386-912"
+    "__comp": "17896441",
+    "content": "386736f2"
   },
   "/components/button-group-a28": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-button-group-6-c-5-fcd"
+    "__comp": "17896441",
+    "content": "6c57cdf0"
   },
   "/components/card-4a6": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-card-0-d-8-ff2"
+    "__comp": "17896441",
+    "content": "0d8bf7e4"
   },
   "/components/checkbox-67e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-checkbox-878-769"
+    "__comp": "17896441",
+    "content": "87878b99"
   },
   "/components/combobox-09a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-combobox-4-b-7-f08"
+    "__comp": "17896441",
+    "content": "4b7be44e"
   },
   "/components/divider-b09": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-divider-076-f3b"
+    "__comp": "17896441",
+    "content": "0768a46b"
   },
   "/components/drawer-690": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-drawer-017-187"
+    "__comp": "17896441",
+    "content": "017e1775"
   },
   "/components/file-upload-701": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-file-uploadaa-0-592"
+    "__comp": "17896441",
+    "content": "aa0468fc"
   },
   "/components/input-2c7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-inputfff-2ae"
+    "__comp": "17896441",
+    "content": "fff5a06e"
   },
   "/components/link-a91": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-linkd-15-822"
+    "__comp": "17896441",
+    "content": "d1549048"
   },
   "/components/list-bfe": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-list-61-f-c93"
+    "__comp": "17896441",
+    "content": "61f7269f"
   },
   "/components/modal-e99": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-modalfb-8-5f3"
+    "__comp": "17896441",
+    "content": "fb87031d"
   },
   "/components/pagination-b3d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-pagination-37-c-fe7"
+    "__comp": "17896441",
+    "content": "37cd99f7"
   },
   "/components/payment-card-421": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-payment-carddb-7-923"
+    "__comp": "17896441",
+    "content": "db78b12b"
   },
   "/components/phone-input-aa5": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-phone-inputa-0-f-24b"
+    "__comp": "17896441",
+    "content": "a0fe8b46"
   },
   "/components/pin-code-a89": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-pin-code-8-eb-b4e"
+    "__comp": "17896441",
+    "content": "8eb824b9"
   },
   "/components/popover-1e2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-popover-867-f2e"
+    "__comp": "17896441",
+    "content": "86797727"
   },
   "/components/progress-bar-71c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-progress-bar-559-b45"
+    "__comp": "17896441",
+    "content": "559b7fc6"
   },
   "/components/radio-eba": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-radioeae-7d1"
+    "__comp": "17896441",
+    "content": "eae48648"
   },
   "/components/segmented-control-0c0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-segmented-controlcec-734"
+    "__comp": "17896441",
+    "content": "cec13672"
   },
   "/components/select-2f2": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-select-499-9ca"
+    "__comp": "17896441",
+    "content": "49928cf1"
   },
   "/components/skeleton-e8c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-skeleton-25-e-17a"
+    "__comp": "17896441",
+    "content": "25ec9a28"
   },
   "/components/slider-6cb": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-slidere-97-ea7"
+    "__comp": "17896441",
+    "content": "e97f9a74"
   },
   "/components/spinner-9b0": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-spinnerc-1-e-259"
+    "__comp": "17896441",
+    "content": "c1ec0396"
   },
   "/components/stepper-223": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-stepper-92-d-0e1"
+    "__comp": "17896441",
+    "content": "92d9a6d0"
   },
   "/components/table-cbf": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-table-45-d-79c"
+    "__comp": "17896441",
+    "content": "45d81aa5"
   },
   "/components/tabs-d98": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-tabs-00-a-905"
+    "__comp": "17896441",
+    "content": "00a19709"
   },
   "/components/tag-14d": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-tag-593-68b"
+    "__comp": "17896441",
+    "content": "593850f7"
   },
   "/components/textarea-f67": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-textarea-056-f98"
+    "__comp": "17896441",
+    "content": "05694904"
   },
   "/components/toast-f17": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-toast-250-caf"
+    "__comp": "17896441",
+    "content": "250499b1"
   },
   "/components/toggle-e6c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-toggle-0-af-67b"
+    "__comp": "17896441",
+    "content": "0af63eba"
   },
   "/components/tooltip-e29": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---components-tooltip-5-af-2e3"
+    "__comp": "17896441",
+    "content": "5afe8a11"
   },
   "/foundations/accessibility-8f1": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---foundations-accessibility-805-3e1"
+    "__comp": "17896441",
+    "content": "805e2ffc"
   },
   "/foundations/color-99c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---foundations-color-3-df-a88"
+    "__comp": "17896441",
+    "content": "3dfe6e8e"
   },
   "/foundations/icons-d66": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---foundations-icons-85-c-753"
+    "__comp": "17896441",
+    "content": "85c53b1f"
   },
   "/foundations/spacing-61a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---foundations-spacing-98-d-b6e"
+    "__comp": "17896441",
+    "content": "98d6cecf"
   },
   "/foundations/tokens-72b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---foundations-tokensb-38-40b"
+    "__comp": "17896441",
+    "content": "b38903a0"
   },
   "/foundations/typography-272": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---foundations-typographya-3-c-059"
+    "__comp": "17896441",
+    "content": "a3cf9fa3"
   },
   "/getting-started/agent-usage-2e9": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---getting-started-agent-usage-5-d-9-ae8"
+    "__comp": "17896441",
+    "content": "5d93af21"
   },
   "/getting-started/dark-mode-e84": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---getting-started-dark-modef-48-b3a"
+    "__comp": "17896441",
+    "content": "f4827911"
   },
   "/getting-started/installation-e0c": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---getting-started-installation-54-f-988"
+    "__comp": "17896441",
+    "content": "54f44165"
   },
   "/getting-started/rtl-a28": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---getting-started-rtla-66-8f1"
+    "__comp": "17896441",
+    "content": "a66f810b"
   },
   "/getting-started/theming-90b": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---getting-started-themingd-1-c-0c8"
+    "__comp": "17896441",
+    "content": "d1cc1946"
   },
   "/patterns/data-tables-dff": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---patterns-data-tablesd-3-f-82b"
+    "__comp": "17896441",
+    "content": "d3ff3f1d"
   },
   "/patterns/error-handling-c31": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---patterns-error-handlingd-62-89c"
+    "__comp": "17896441",
+    "content": "d6299fb7"
   },
   "/patterns/forms-824": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---patterns-forms-2-cb-5fa"
+    "__comp": "17896441",
+    "content": "2cb89217"
   },
   "/patterns/loading-states-ae4": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---patterns-loading-statesd-22-675"
+    "__comp": "17896441",
+    "content": "d2270b70"
   },
   "/-7da": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---0-e-3-279"
+    "__comp": "17896441",
+    "content": "0e384e19"
   }
 }

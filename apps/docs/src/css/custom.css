@@ -1,3 +1,5 @@
+@import '../../../../packages/tokens/build/css/tokens.css';
+
 :root {
   --ifm-color-primary: #266EF1;
   --ifm-color-primary-dark: #175BCC;
