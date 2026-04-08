@@ -1,3 +1,189 @@
+---
+sidebar_label: Building A11y First
+---
+
+<span className="foundation-header__label">Accessibility</span>
+
 # Building A11y First
 
-Documentation coming soon.
+Accessibility is cheapest when it is built in from the start. Retrofitting access into a finished feature costs 10x more in developer time, QA effort, and user frustration. This page outlines the Arch UI approach to designing and building with accessibility as a first-class constraint, not a remediation task.
+
+---
+
+## The cost of retrofitting
+
+When accessibility is treated as a final checkpoint, teams encounter predictable problems:
+
+- **Structural rewrites** — a custom dropdown built with `<div>` elements needs to be rebuilt with proper `<select>` or listbox semantics
+- **Focus order chaos** — visually reordered layouts that do not match DOM order confuse keyboard users
+- **Missing announcements** — dynamic content changes that were never wired to ARIA live regions
+- **Lost sprint time** — accessibility bugs filed late in the cycle compete with feature work
+
+Building a11y first eliminates these categories of rework entirely.
+
+---
+
+## The a11y-first process
+
+### 1. Start with the interaction model
+
+Before opening a design tool, define how the component will be operated:
+
+- What happens when a keyboard user presses `Tab`? `Enter`? `Escape`? Arrow keys?
+- What does a screen reader announce when the component receives focus?
+- What changes when the component's state updates — and how is that change communicated?
+
+Write these answers down. They are the accessibility specification, and they should exist before any visual design begins.
+
+### 2. Choose the right HTML element
+
+Select the semantic HTML element that matches your interaction model. If you need a button, use `<button>`. If you need a link, use `<a>`. If you need a group of mutually exclusive options, use `<fieldset>` with `<input type="radio">`.
+
+The right element gives you keyboard behaviour, focus management, and screen reader semantics without writing a single line of JavaScript.
+
+```html
+<!-- Interaction: user selects one option from a group -->
+<!-- Right choice: radio group -->
+<fieldset>
+  <legend>Shipping speed</legend>
+  <label><input type="radio" name="shipping" value="standard" /> Standard (5-7 days)</label>
+  <label><input type="radio" name="shipping" value="express" /> Express (2-3 days)</label>
+  <label><input type="radio" name="shipping" value="overnight" /> Overnight</label>
+</fieldset>
+
+<!-- Wrong choice: clickable divs -->
+<div>
+  <div className="option selected" onClick={...}>Standard</div>
+  <div className="option" onClick={...}>Express</div>
+  <div className="option" onClick={...}>Overnight</div>
+</div>
+```
+
+### 3. Layer ARIA only when HTML falls short
+
+There are cases where native HTML does not provide the semantics you need — tabs, comboboxes, tree views, and other composite widgets. In those cases, use ARIA roles, states, and properties to fill the gap.
+
+The rule is: **add ARIA to describe what you have built, never to replace what HTML already provides**.
+
+```jsx
+// A tab interface has no native HTML equivalent, so ARIA is appropriate
+<div role="tablist" aria-label="Account settings">
+  <button role="tab" aria-selected={activeTab === 'profile'} aria-controls="panel-profile">
+    Profile
+  </button>
+  <button role="tab" aria-selected={activeTab === 'security'} aria-controls="panel-security">
+    Security
+  </button>
+</div>
+<div role="tabpanel" id="panel-profile" aria-labelledby="tab-profile">
+  {/* panel content */}
+</div>
+```
+
+### 4. Test with the keyboard before the mouse
+
+After implementing a component, put your mouse away. Navigate through the entire interaction using only the keyboard:
+
+- Can you reach every interactive element with `Tab`?
+- Can you activate buttons and links with `Enter` or `Space`?
+- Can you dismiss overlays with `Escape`?
+- Is the focus indicator always visible?
+- Does focus move logically through the interface?
+
+If any of these fail, fix them before moving on to visual polish.
+
+### 5. Verify with a screen reader
+
+Turn on VoiceOver (macOS: `Cmd + F5`) or NVDA (Windows) and navigate the component:
+
+- Does the screen reader announce the element's role, name, and state?
+- When state changes (e.g., a checkbox is checked), is the change announced?
+- Are dynamic updates — loading states, error messages, success confirmations — announced via live regions?
+
+See the [Screen Readers](/foundations/screen-readers) page for detailed testing instructions.
+
+---
+
+## Understanding disability
+
+Building a11y first requires understanding that disability is not a narrow category. The spectrum includes:
+
+### Permanent disabilities
+People who are blind, deaf, or have motor impairments that are lifelong conditions. These users rely on assistive technology daily.
+
+### Temporary disabilities
+A broken arm, an eye infection, or a migraine. These conditions are short-lived but create the same barriers as permanent disabilities during their duration.
+
+### Situational disabilities
+Bright sunlight washing out a screen, holding a baby in one arm, or working in a noisy environment. These are context-dependent and affect everyone at some point.
+
+Designing for permanent disabilities creates benefits that cascade to temporary and situational users. Captions help deaf users, but they also help someone in a loud airport. High contrast helps low-vision users, but it also helps someone using their phone outdoors.
+
+---
+
+## Design checklist
+
+Use this checklist during design reviews to catch accessibility issues before implementation:
+
+- [ ] **Color contrast** — Does all text meet 4.5:1 (normal) or 3:1 (large) contrast ratios?
+- [ ] **Color independence** — Is information conveyed through means other than color alone?
+- [ ] **Touch targets** — Are all interactive elements at least 44x44px?
+- [ ] **Text alternatives** — Do all non-text elements have appropriate alt text or are marked decorative?
+- [ ] **Heading hierarchy** — Do headings follow a logical order (h1, h2, h3) without skipping levels?
+- [ ] **Error identification** — Are form errors described in text, not just indicated by color?
+- [ ] **Motion** — Can animations be paused or disabled? Do they respect `prefers-reduced-motion`?
+- [ ] **Keyboard flow** — Does the visual layout match the expected tab order?
+
+---
+
+## Development checklist
+
+Use this checklist during code review:
+
+- [ ] **Semantic HTML** — Are native elements used where possible (`<button>`, `<a>`, `<input>`)?
+- [ ] **Labels** — Does every form control have a visible `<label>` or `aria-label`?
+- [ ] **Focus visible** — Does every interactive element show `:focus-visible` using `var(--color-border-focus)`?
+- [ ] **Focus management** — Do modals trap focus? Does focus return on close?
+- [ ] **ARIA correctness** — Are ARIA roles, states, and properties used correctly (not redundantly)?
+- [ ] **Live regions** — Are dynamic content changes announced via `aria-live`?
+- [ ] **Zoom** — Does the layout work at 200% browser zoom without horizontal scrolling?
+- [ ] **axe-core** — Does the component pass automated accessibility checks with zero violations?
+
+---
+
+## Common mistakes
+
+### Using `aria-label` when a visible label exists
+
+If a form field already has a `<label>` element, adding `aria-label` overrides the visible label for screen reader users. This creates a disconnect between what sighted and non-sighted users perceive.
+
+### Disabling focus outlines globally
+
+```css
+/* Never do this */
+*:focus { outline: none; }
+```
+
+This removes the only way keyboard users can track their position on the page. Arch UI's `var(--color-border-focus)` provides a consistent, visible focus ring that should never be overridden.
+
+### Using `tabIndex` values greater than 0
+
+Positive `tabIndex` values create an unpredictable focus order that is nearly impossible to maintain as the page grows. Use `tabIndex={0}` to add an element to the natural tab order, or `tabIndex={-1}` to make it programmatically focusable without being in the tab sequence.
+
+### Hiding content with `display: none` when it should be accessible
+
+Content hidden with `display: none` is removed from both the visual display and the accessibility tree. If content should be visually hidden but still announced by screen readers, use a visually-hidden utility class instead.
+
+```css
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+```
