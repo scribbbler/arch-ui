@@ -23,7 +23,7 @@ const categories = [
     title: 'Components',
     description:
       'Review specs, guidelines, behaviors, and proper usage for all 58 components in the Arch UI library.',
-    href: '/components/button',
+    href: '/components',
     icon: (
       <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="10" y="25" width="100" height="30" rx="6" stroke="currentColor" strokeWidth="2" />
