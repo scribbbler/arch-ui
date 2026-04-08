@@ -3,6 +3,9 @@ sidebar_label: Divider
 hide_title: true
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTAINERS AND LAYOUT</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
@@ -13,6 +16,41 @@ hide_title: true
     A semantic separator used to divide sections of content or inline elements.
   </p>
 </div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Separator, rule, horizontal rule
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & Changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
 
 ## Usage
 
@@ -71,3 +109,6 @@ When `label` is provided on a horizontal divider, the component renders as a `<d
 - Renders with `role="separator"` and the appropriate `aria-orientation` value.
 - When a label is present, the decorative line spans are marked `aria-hidden="true"` so screen readers only announce the label text.
 - The plain horizontal variant renders as a native `<hr>` element; the labelled variant uses a `<div>` to allow the three-part layout.
+
+</TabItem>
+</Tabs>

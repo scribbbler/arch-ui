@@ -3,6 +3,9 @@ sidebar_label: Tree view
 hide_title: true
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>NAVIGATION</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
@@ -13,6 +16,41 @@ hide_title: true
     A hierarchical list component that displays nested data in an expandable and collapsible tree structure.
   </p>
 </div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Tree, file browser, nested list
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & Changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
 
 ## Usage
 
@@ -91,3 +129,6 @@ function FileExplorer() {
 - Keyboard navigation follows the WAI-ARIA TreeView pattern: Arrow Up/Down moves between visible nodes, Arrow Right expands a collapsed branch or moves to its first child, Arrow Left collapses an expanded branch or moves to its parent, Home/End jump to the first/last visible node.
 - Multi-select mode uses `aria-multiselectable="true"` on the tree and `aria-selected` on each node.
 - Disabled nodes have `aria-disabled="true"`.
+
+</TabItem>
+</Tabs>

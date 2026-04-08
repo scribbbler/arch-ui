@@ -3,6 +3,9 @@ sidebar_label: Card
 hide_title: true
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTAINERS AND LAYOUT</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
@@ -13,6 +16,41 @@ hide_title: true
     A surface container for grouping related content and actions with optional header, body, and footer regions.
   </p>
 </div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Container, panel, surface
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & Changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
 
 ## Usage
 
@@ -89,3 +127,6 @@ All three sub-components are optional; you can use any combination.
 - Clickable cards without `href` render as `<div role="button" tabIndex={0}>` with Enter and Space key handling.
 - Focus is indicated with a `var(--color-border-focus)` outline via `:focus-visible`.
 - Transitions respect `prefers-reduced-motion`.
+
+</TabItem>
+</Tabs>

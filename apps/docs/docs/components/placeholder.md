@@ -3,6 +3,9 @@ sidebar_label: Placeholder
 hide_title: true
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INDICATORS AND STATUS</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
@@ -13,6 +16,41 @@ hide_title: true
     A decorative loading placeholder displayed while content is being fetched, reducing perceived wait time and preventing layout shifts.
   </p>
 </div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Skeleton, Loading placeholder, Shimmer
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & Changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
 
 Placeholder is the design-facing name for the `Skeleton` component in Arch UI. They share the same implementation.
 
@@ -119,3 +157,6 @@ Combine multiple Placeholder shapes to mirror the layout of the content being lo
 - Skeleton is always `aria-hidden="true"`. It is purely decorative and invisible to screen readers.
 - Set `aria-busy="true"` on the parent container while content is loading. This tells assistive technology that the region is being updated.
 - When loading completes, remove `aria-busy` or set it to `false` so the loaded content is announced.
+
+</TabItem>
+</Tabs>

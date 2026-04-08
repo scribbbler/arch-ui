@@ -3,6 +3,9 @@ sidebar_label: Side navigation
 hide_title: true
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>NAVIGATION</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
@@ -13,6 +16,41 @@ hide_title: true
     A vertical navigation panel for sidebar layouts with nested items, collapsible groups, and active-state highlighting.
   </p>
 </div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Sidebar, nav rail, side menu
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & Changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
 
 ## Usage
 
@@ -92,3 +130,6 @@ When `collapsed` is true, the sidebar narrows to show only icons. Hovering or fo
 - The active item carries `aria-current="page"`.
 - In collapsed (rail) mode, each icon-only item needs a tooltip or `aria-label` providing the full label text.
 - Keyboard users can navigate items with Tab and expand/collapse groups with Enter or Space.
+
+</TabItem>
+</Tabs>

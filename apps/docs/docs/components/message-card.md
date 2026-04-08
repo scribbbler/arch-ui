@@ -3,6 +3,9 @@ sidebar_label: Message card
 hide_title: true
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>MESSAGING</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
@@ -14,9 +17,40 @@ hide_title: true
   </p>
 </div>
 
-**Common alternative names:** Chat preview, Conversation card, Inbox item
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Chat bubble, Message bubble, Conversation item
 
 ---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & Changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
 
 ## Usage
 
@@ -77,3 +111,6 @@ import { MessageCard } from '@arch-ui/components';
 - The unread state should be conveyed to screen readers, e.g. via `aria-label` that includes "unread" or a visually hidden status text.
 - The timestamp should use a `<time>` element with a `datetime` attribute for machine-readable dates.
 - Ensure sufficient colour contrast between read and unread states.
+
+</TabItem>
+</Tabs>
