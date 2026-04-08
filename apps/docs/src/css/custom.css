@@ -592,6 +592,40 @@
   background: #1e1e1e;
 }
 
+/* Line height demo */
+.type-line-height-demo {
+  background: #f3f3f3;
+  border-radius: 12px;
+  padding: 32px;
+  margin: 24px 0;
+  max-width: 480px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(1.45em - 1px),
+    #d9d9d9 calc(1.45em - 1px),
+    #d9d9d9 1.45em
+  );
+}
+
+[data-theme='dark'] .type-line-height-demo {
+  background-color: #1e1e1e;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(1.45em - 1px),
+    #333 calc(1.45em - 1px),
+    #333 1.45em
+  );
+}
+
+.type-line-height-demo__text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 .type-naming-diagram {
   background: #f3f3f3;
   border-radius: 8px;

@@ -102,27 +102,22 @@ Type styles are defined based on four roles — Display, Heading, Label, and Par
 
 **Modular scale**
 
-Our type sizes create a visual rhythm and harmony. The scale provides a set of harmonious and hierarchical type sizes, starting with a base of 14px. We've chosen a key set of sizes from this scale that work well across interfaces.
+Much like notes written in this key on a music scale, our type sizes create a visual rhythm and harmony that is as pleasing to the eyes as music is to the ears.
+
+Our scale is modeled after the intervals in a major second musical scale (ratio of 8:9). Songs created with the major second musical scale are upbeat and happy — the feelings we want our design system to evoke.
+
+Arch UI leverages a modular scale to define a set of harmonious and hierarchical type sizes. It starts with a base font size of 14 and scales by multiplying 1.125 at each interval. We've chosen a key set of sizes from this scale that work well across interfaces.
+
+---
 
 **Line height**
 
-Proper line height is achieved by pairing each font size with a specific line height value. This ensures all type aligns with our 4px baseline grid.
+Proper line height is achieved by multiplying the type size by 1.45 and rounding to the nearest interval of 4. This ensures all type aligns with our 4 baseline grid.
 
-<div className="type-scale-visual">
-  <span style={{fontSize: '12px'}}>12</span>
-  <span style={{fontSize: '14px'}}>14</span>
-  <span style={{fontSize: '16px'}}>16</span>
-  <span style={{fontSize: '18px'}}>18</span>
-  <span style={{fontSize: '20px', fontWeight: 700}}>20</span>
-  <span style={{fontSize: '24px', fontWeight: 700}}>24</span>
-  <span style={{fontSize: '28px', fontWeight: 700}}>28</span>
-  <span style={{fontSize: '32px', fontWeight: 700}}>32</span>
-  <span style={{fontSize: '36px', fontWeight: 700}}>36</span>
-  <span style={{fontSize: '40px', fontWeight: 700}}>40</span>
-  <span style={{fontSize: '44px', fontWeight: 700}}>44</span>
-  <span style={{fontSize: '52px', fontWeight: 700}}>52</span>
-  <span style={{fontSize: '64px', fontWeight: 700}}>…</span>
-  <span style={{fontSize: '80px', fontWeight: 700}}>96</span>
+<div className="type-line-height-demo">
+  <div className="type-line-height-demo__text">
+    We build interfaces that work for everyone
+  </div>
 </div>
 
 ---
