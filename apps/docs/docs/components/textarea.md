@@ -4,4 +4,120 @@ sidebar_label: Textarea
 
 # Textarea
 
-Documentation coming soon.
+A multi-line text input for collecting longer-form content such as comments, descriptions, and messages. Supports auto-resize, clearable mode, multiple sizes, and integrates with FormControl for label and error wiring.
+
+**Status:** Stable
+
+**Common alternative names:** Text area, multi-line input, comment box
+
+---
+
+## Usage
+
+```jsx
+import { Textarea } from '@arch-ui/components';
+
+<Textarea rows={5} placeholder="Leave a comment..." aria-label="Comment" />
+```
+
+### Inside FormControl
+
+```jsx
+import { FormControl, FormLabel, FormHelperText, Textarea } from '@arch-ui/components';
+
+<FormControl id="bio" required>
+  <FormLabel>Bio</FormLabel>
+  <Textarea rows={4} autoResize />
+  <FormHelperText>Tell us a little about yourself.</FormHelperText>
+</FormControl>
+```
+
+### Auto-resize
+
+When `autoResize` is enabled, the textarea grows to fit its content. The manual resize handle is hidden.
+
+```jsx
+<Textarea autoResize placeholder="Start typing..." />
+```
+
+### Clearable
+
+Show a clear button in the top-right corner when the textarea has content.
+
+```jsx
+<Textarea
+  clearable
+  value={text}
+  onChange={(e) => setText(e.target.value)}
+  placeholder="Write a message..."
+/>
+```
+
+---
+
+## Sizes
+
+| Size | Font scale |
+|---|---|
+| `xs` | Paragraph XSmall |
+| `sm` | Paragraph Small |
+| `md` (default) | Paragraph Medium |
+| `lg` | Paragraph Large |
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `rows` | `number` | `3` | Initial visible number of text lines. |
+| `resize` | `'none' \| 'vertical' \| 'both'` | `'vertical'` | CSS resize behaviour. Overridden to `'none'` when `autoResize` is true. |
+| `autoResize` | `boolean` | `false` | Grows the textarea to fit content by setting height to `scrollHeight`. |
+| `clearable` | `boolean` | `false` | Shows a clear button when the textarea has content. |
+| `positive` | `boolean` | `false` | Shows a positive (success) border style. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Size variant controlling padding and font size. |
+| `disabled` | `boolean` | `false` | Disables the textarea. Also inherited from FormControl. |
+| `readOnly` | `boolean` | `false` | Makes the textarea read-only. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the textarea element. |
+
+All standard `TextareaHTMLAttributes` (except `size`) are also forwarded.
+
+---
+
+## Accessibility
+
+- Inherits `id`, `aria-invalid`, `aria-required`, and `aria-describedby` from the nearest FormControl.
+- Focus is indicated with `color-border-focus` and a 2px outline.
+- The clear button uses `aria-label="Clear textarea"` and is excluded from the tab order.
+- Disabled state sets `cursor: not-allowed` and disables resize.
+- The component is `forwardRef` compatible.
+
+---
+
+## Best practices
+
+**Do:**
+- Use Textarea for multi-line content entry (comments, descriptions, messages).
+- Use `autoResize` for chat-style inputs where the field should grow with content.
+- Pair with FormControl for proper labelling and validation.
+
+**Don't:**
+- Do not use Textarea for single-line fields -- use Input instead.
+- Do not set `rows` to 1 -- use Input for single-line input.
+- Do not combine `autoResize` with a manual `resize` value -- `autoResize` forces `resize: none`.
+
+---
+
+## Design tokens
+
+| Token | Role |
+|---|---|
+| `color-background-default` | Textarea background |
+| `color-border-default` | Default border |
+| `color-border-focus` | Focus border and outline |
+| `color-border-danger` | Invalid state border |
+| `color-border-success` | Positive state border |
+| `color-text-placeholder` | Placeholder text |
+| `color-background-disabled` | Disabled background |
+| `radius-component-md` | Border radius (md, lg sizes) |
+| `radius-sm` | Border radius (xs, sm sizes) |

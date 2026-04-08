@@ -4,4 +4,120 @@ sidebar_label: Tag
 
 # Tag
 
-Documentation coming soon.
+A removable categorisation label with optional icon support. Tags represent user-generated metadata such as filters, categories, or selections. They can be static labels, removable chips, or toggle-style selectable options.
+
+---
+
+## Usage
+
+```jsx
+import { Tag } from '@arch-ui/components';
+
+function Example() {
+  return <Tag variant="info">Design</Tag>;
+}
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'neutral' \| 'primary' \| 'info' \| 'success' \| 'warning' \| 'danger'` | `'neutral'` | Colour palette variant. |
+| `onRemove` | `() => void` | `undefined` | Callback invoked when the close button is clicked. When provided, a remove button is rendered. |
+| `closeable` | `boolean` | `true` (when `onRemove` is set) | Controls whether the close button is visible. Set to `false` to hide it even when `onRemove` is provided. |
+| `clickable` | `boolean` | `false` | Makes the tag behave like a toggle chip. The entire tag becomes clickable via `onClick`. |
+| `isChecked` | `boolean` | `undefined` | Whether the tag is in a selected state. Only relevant when `clickable` is true. |
+| `icon` | `ReactNode` | `undefined` | Optional icon rendered at the inline-start of the label. |
+| `children` | `ReactNode` | `undefined` | Label content. |
+| `className` | `string` | `undefined` | Additional CSS class names. |
+
+All standard `span` HTML attributes are also supported via rest props.
+
+---
+
+## Variants
+
+Each variant maps to a feedback colour palette, giving tags a distinct visual weight.
+
+```jsx
+<Tag variant="neutral">Default</Tag>
+<Tag variant="primary">Primary</Tag>
+<Tag variant="info">Info</Tag>
+<Tag variant="success">Active</Tag>
+<Tag variant="warning">Pending</Tag>
+<Tag variant="danger">Critical</Tag>
+```
+
+---
+
+## Removable tags
+
+Provide `onRemove` to render a close button. The button automatically receives `aria-label="Remove {children}"` when children is a string.
+
+```jsx
+function TagList() {
+  const [tags, setTags] = useState(['React', 'TypeScript', 'CSS']);
+
+  return (
+    <div>
+      {tags.map((tag) => (
+        <Tag
+          key={tag}
+          variant="info"
+          onRemove={() => setTags((prev) => prev.filter((t) => t !== tag))}
+        >
+          {tag}
+        </Tag>
+      ))}
+    </div>
+  );
+}
+```
+
+Set `closeable={false}` to suppress the remove button while still handling the `onRemove` callback programmatically.
+
+---
+
+## With icon
+
+Pass an `icon` element to render it before the label. The icon slot is decorative (`aria-hidden`).
+
+```jsx
+<Tag icon={<StarIcon />} variant="warning">Starred</Tag>
+<Tag icon={<ClockIcon />}>Recent</Tag>
+```
+
+---
+
+## Clickable (toggle chip)
+
+Set `clickable` to make the entire tag act as a selectable option. Use `isChecked` to control the selected state and `onClick` to toggle it.
+
+```jsx
+function FilterChips() {
+  const [selected, setSelected] = useState(false);
+
+  return (
+    <Tag
+      clickable
+      isChecked={selected}
+      onClick={() => setSelected(!selected)}
+    >
+      On sale
+    </Tag>
+  );
+}
+```
+
+When `clickable` is true, the tag receives `role="option"`, `aria-selected`, and `tabIndex={0}` for keyboard accessibility. The checked state adds a visible border.
+
+---
+
+## Accessibility
+
+- Removable tags include a close button with `aria-label="Remove {label}"`.
+- The close button is keyboard-focusable with a visible `:focus-visible` ring.
+- Clickable tags use `role="option"` and `aria-selected` so screen readers announce the selection state.
+- When using clickable tags as a group, wrap them in a container with `role="listbox"` for proper semantics.

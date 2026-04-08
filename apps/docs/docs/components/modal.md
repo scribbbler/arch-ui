@@ -4,4 +4,117 @@ sidebar_label: Modal
 
 # Modal
 
-Documentation coming soon.
+A full-overlay dialog that interrupts the user's workflow to present critical information or collect a response. Modal provides scroll lock, focus trapping, and configurable dismissal behaviour. It is composed from Portal, Overlay, and FocusTrap internally.
+
+## Usage
+
+```jsx
+import { Modal, ModalHeader, ModalBody, ModalFooter } from '@arch-ui/components';
+import { Button } from '@arch-ui/components';
+
+function EditProfileModal({ isOpen, onClose, onSave }) {
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} size="md">
+      <ModalHeader onClose={onClose}>Edit profile</ModalHeader>
+      <ModalBody>
+        <p>Profile form fields go here.</p>
+      </ModalBody>
+      <ModalFooter>
+        <Button onClick={onClose}>Cancel</Button>
+        <Button kind="primary" onClick={onSave}>Save</Button>
+      </ModalFooter>
+    </Modal>
+  );
+}
+```
+
+## Props
+
+### Modal
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `isOpen` | `boolean` | -- | Controls modal visibility. Required. |
+| `onClose` | `() => void` | -- | Called when the modal should close. Required. |
+| `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'full'` | `'md'` | Controls the max-width of the modal panel. |
+| `closeOnOverlayClick` | `boolean` | `true` | When true, clicking the backdrop closes the modal. |
+| `closeOnEscape` | `boolean` | `true` | When true, pressing Escape closes the modal. |
+| `role` | `'dialog' \| 'alertdialog'` | `'dialog'` | ARIA role. Use `'alertdialog'` for confirmation dialogs that require an explicit response. |
+| `animate` | `boolean` | `true` | When true, the modal animates in and out. |
+| `children` | `ReactNode` | -- | Modal content -- typically ModalHeader, ModalBody, ModalFooter. |
+
+### ModalHeader
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `ReactNode` | -- | Title content. Required. |
+| `onClose` | `() => void` | -- | Handler for the close button. When provided, a close button renders in the header. |
+| `labels` | `Partial<ModalLabels>` | `{ close: 'Close' }` | Override default labels for internationalisation. |
+
+### ModalBody
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `ReactNode` | -- | Body content. |
+| `className` | `string` | -- | Additional class names. |
+
+### ModalFooter
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `ReactNode` | -- | Footer content, usually action buttons. |
+| `className` | `string` | -- | Additional class names. |
+
+ModalHeader, ModalBody, and ModalFooter all support `ref` forwarding.
+
+## Size variants
+
+The `size` prop controls the max-width of the modal panel.
+
+```jsx
+<Modal isOpen={isOpen} onClose={onClose} size="sm">...</Modal>  // Narrow
+<Modal isOpen={isOpen} onClose={onClose} size="lg">...</Modal>  // Wide
+<Modal isOpen={isOpen} onClose={onClose} size="full">...</Modal> // Full viewport
+```
+
+## Confirmation dialog
+
+For destructive actions that require explicit confirmation, set `role="alertdialog"` and disable overlay dismiss.
+
+```jsx
+<Modal
+  isOpen={isOpen}
+  onClose={onClose}
+  role="alertdialog"
+  closeOnOverlayClick={false}
+  size="sm"
+>
+  <ModalHeader>Delete account?</ModalHeader>
+  <ModalBody>
+    <p>This action cannot be undone.</p>
+  </ModalBody>
+  <ModalFooter>
+    <Button onClick={onClose}>Cancel</Button>
+    <Button kind="primary" onClick={handleDelete}>Delete</Button>
+  </ModalFooter>
+</Modal>
+```
+
+## Internationalisation
+
+Override the default close button label via the `labels` prop on ModalHeader.
+
+```jsx
+<ModalHeader onClose={onClose} labels={{ close: 'Fermer' }}>
+  Modifier le profil
+</ModalHeader>
+```
+
+## Accessibility
+
+- Renders with `role="dialog"` (or `role="alertdialog"`) and `aria-modal="true"`.
+- The modal panel is labelled via `aria-labelledby` pointing at the ModalHeader title.
+- Focus is trapped inside the modal while it is open.
+- Pressing Escape closes the modal (configurable via `closeOnEscape`).
+- Body scroll is locked while the modal is visible.
+- The close button in ModalHeader has an `aria-label` defaulting to "Close".

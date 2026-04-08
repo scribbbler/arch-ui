@@ -4,4 +4,82 @@ sidebar_label: Tree view
 
 # Tree View
 
-Documentation coming soon.
+A hierarchical list component that displays nested data in an expandable/collapsible tree structure. Tree View is suited for file browsers, category hierarchies, organisational charts, or any data with parent-child relationships. Each node can be expanded to reveal its children or collapsed to hide them.
+
+## Usage
+
+```jsx
+import { TreeView } from '@arch-ui/components';
+
+function FileExplorer() {
+  return (
+    <TreeView
+      data={[
+        {
+          label: 'src',
+          children: [
+            {
+              label: 'components',
+              children: [
+                { label: 'Button.tsx' },
+                { label: 'Card.tsx' },
+              ],
+            },
+            { label: 'index.ts' },
+          ],
+        },
+        { label: 'package.json' },
+      ]}
+    />
+  );
+}
+```
+
+## Expected props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `data` | `TreeNode[]` | -- | The hierarchical data to display. |
+| `onSelect` | `(node: TreeNode) => void` | -- | Called when the user selects a leaf or branch node. |
+| `defaultExpanded` | `string[]` | `[]` | Array of node IDs that should be expanded on initial render. |
+| `multiSelect` | `boolean` | `false` | When true, multiple nodes can be selected simultaneously. |
+| `className` | `string` | -- | Additional class names. |
+
+### TreeNode
+
+| Prop | Type | Description |
+|---|---|---|
+| `id` | `string` | Unique identifier for the node. |
+| `label` | `string` | Visible text for the node. |
+| `icon` | `ReactNode` | Optional icon rendered before the label (e.g., folder or file icon). |
+| `children` | `TreeNode[]` | Child nodes. When present, the node is expandable. |
+| `disabled` | `boolean` | When true, the node is non-interactive. |
+
+## States
+
+- **Expanded** -- a branch node whose children are visible. The expand/collapse chevron points downward.
+- **Collapsed** -- a branch node whose children are hidden. The chevron points to the end (right in LTR).
+- **Selected** -- the node the user has chosen. Highlighted with an accent background.
+- **Focused** -- the node that currently has keyboard focus, indicated by a focus ring.
+- **Disabled** -- a node that cannot be selected or expanded.
+
+## When to use
+
+- File system browsers or project explorers.
+- Category or taxonomy selectors with deeply nested structures.
+- Settings panels organised in a hierarchy.
+- Organisational charts or permission trees.
+
+## When not to use
+
+- Flat lists with no hierarchy. Use a standard list or menu.
+- Navigation between pages. Use Side Navigation.
+- Shallow option sets. Use a select, radio group, or checkbox group.
+
+## Accessibility
+
+- The root element uses `role="tree"` and child nodes use `role="treeitem"`.
+- Branch nodes that contain children use `aria-expanded` to communicate their open/closed state.
+- Keyboard navigation follows the WAI-ARIA TreeView pattern: Arrow Up/Down moves between visible nodes, Arrow Right expands a collapsed branch or moves to its first child, Arrow Left collapses an expanded branch or moves to its parent, Home/End jump to the first/last visible node.
+- Multi-select mode uses `aria-multiselectable="true"` on the tree and `aria-selected` on each node.
+- Disabled nodes have `aria-disabled="true"`.

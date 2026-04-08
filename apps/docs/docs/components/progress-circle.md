@@ -1,7 +1,106 @@
 ---
-sidebar_label: Progress circle
+sidebar_label: Progress Circle
 ---
 
 # Progress Circle
 
-Documentation coming soon.
+A circular progress indicator that communicates completion percentage in a compact, radial format. Use Progress Circle when vertical space is limited or when pairing a progress value with an icon or label inside the ring.
+
+---
+
+## Usage
+
+```jsx
+import { ProgressCircle } from '@arch-ui/components';
+
+function Example() {
+  return (
+    <ProgressCircle value={72} label="Profile completeness" />
+  );
+}
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `number` | `0` | Current progress from 0 to 100. Ignored when `indeterminate` is true. |
+| `indeterminate` | `boolean` | `false` | Displays a continuously spinning ring for operations of unknown duration. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Diameter of the circle. |
+| `label` | `string` | `undefined` | Accessible label applied as `aria-label`. Required for screen readers. |
+| `showValue` | `boolean` | `false` | Renders the numeric percentage inside the circle. |
+| `children` | `ReactNode` | `undefined` | Custom content rendered inside the circle, such as an icon. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the root element. |
+
+---
+
+## Determinate
+
+Set `value` between 0 and 100. The ring fills clockwise from the top.
+
+```jsx
+<ProgressCircle value={25} label="25% complete" />
+<ProgressCircle value={75} label="75% complete" />
+<ProgressCircle value={100} label="Complete" />
+```
+
+---
+
+## Indeterminate
+
+Use `indeterminate` for operations where the total duration is unknown. The ring animates continuously.
+
+```jsx
+<ProgressCircle indeterminate label="Processing" />
+```
+
+---
+
+## Sizes
+
+```jsx
+<ProgressCircle value={50} size="sm" label="Small" />
+<ProgressCircle value={50} size="md" label="Medium" />
+<ProgressCircle value={50} size="lg" label="Large" />
+```
+
+---
+
+## Showing the value
+
+Set `showValue` to display the percentage number inside the ring.
+
+```jsx
+<ProgressCircle value={68} showValue label="Storage used" />
+```
+
+---
+
+## Custom inner content
+
+Pass `children` to render an icon or custom element inside the circle instead of the numeric value.
+
+```jsx
+<ProgressCircle value={100} label="Upload complete">
+  <CheckIcon />
+</ProgressCircle>
+```
+
+---
+
+## Guidelines
+
+- Prefer Progress Bar for inline or full-width indicators. Use Progress Circle when the radial shape fits the layout better, such as in dashboards or cards.
+- Avoid placing too many Progress Circles in a single view. They work best as focal points, not repeated inline indicators.
+- When both `showValue` and `children` are provided, `children` takes precedence.
+
+---
+
+## Accessibility
+
+- The component uses `role="progressbar"` with `aria-valuemin`, `aria-valuemax`, and `aria-valuenow`.
+- Always provide a `label` prop so screen readers can identify the purpose of the indicator.
+- In indeterminate mode, `aria-valuenow` is omitted.
+- The circle animation respects `prefers-reduced-motion`.

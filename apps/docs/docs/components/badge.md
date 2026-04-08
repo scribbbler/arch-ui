@@ -4,4 +4,98 @@ sidebar_label: Badge
 
 # Badge
 
-Documentation coming soon.
+An inline label for communicating status, count, or category. Badge supports multiple colour variants and can render as a compact dot indicator for minimal status signals. It can also be positioned as an overlay on an anchor element using the `placement` prop.
+
+---
+
+## Usage
+
+```jsx
+import { Badge } from '@arch-ui/components';
+
+function Example() {
+  return (
+    <Badge variant="success">Active</Badge>
+  );
+}
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'neutral' \| 'info' \| 'success' \| 'warning' \| 'danger'` | `'neutral'` | Colour palette variant. |
+| `size` | `'sm' \| 'md'` | `'md'` | Size of the badge. |
+| `dot` | `boolean` | `false` | Renders a small circular dot indicator instead of text. Requires `aria-label` when no children are provided. |
+| `placement` | `'topRight' \| 'topLeft' \| 'bottomRight' \| 'bottomLeft'` | `undefined` | Positions the badge as an absolute overlay at the specified corner. The parent element must have `position: relative`. |
+| `content` | `ReactNode` | `undefined` | Content to display inside the badge. Alternative to `children`. |
+| `children` | `ReactNode` | `undefined` | Label content displayed inside the badge. |
+| `className` | `string` | `undefined` | Additional CSS class names. |
+
+All standard `span` HTML attributes are also supported via rest props.
+
+---
+
+## Variants
+
+Each variant applies a distinct background and text colour from the feedback token palette.
+
+```jsx
+<Badge variant="neutral">Default</Badge>
+<Badge variant="info">Info</Badge>
+<Badge variant="success">Active</Badge>
+<Badge variant="warning">Pending</Badge>
+<Badge variant="danger">Error</Badge>
+```
+
+---
+
+## Sizes
+
+```jsx
+<Badge size="sm">Small</Badge>
+<Badge size="md">Medium</Badge>
+```
+
+Both sizes use the same padding tokens but differ in font size: `sm` uses `paragraph-xsmall`, `md` uses `paragraph-small`.
+
+---
+
+## Dot mode
+
+Use `dot` for a compact status indicator without text. When there is no visible label, provide `aria-label` so screen readers can announce the status.
+
+```jsx
+{/* Dot with visible label */}
+<Badge variant="success" dot>Online</Badge>
+
+{/* Dot without visible label — aria-label required */}
+<Badge variant="danger" dot aria-label="Error status" />
+```
+
+When `dot` is true and no children are provided, the component sets `role="img"` so the `aria-label` is announced correctly.
+
+---
+
+## Positioned overlay
+
+Use `placement` to anchor the badge on a parent element. The parent must set `position: relative`.
+
+```jsx
+<div style={{ position: 'relative', display: 'inline-block' }}>
+  <Avatar name="Jane" />
+  <Badge variant="success" dot placement="topRight" aria-label="Online" />
+</div>
+```
+
+Available placements: `topRight`, `topLeft`, `bottomRight`, `bottomLeft`. The badge is absolutely positioned and translated to sit on the corner of the anchor.
+
+---
+
+## Accessibility
+
+- When using `dot` mode without visible text, always provide `aria-label`.
+- The component automatically adds `role="img"` to dot-only badges that have an `aria-label`, ensuring assistive technology announces the label.
+- `content` and `children` are interchangeable; `content` takes precedence when both are provided.

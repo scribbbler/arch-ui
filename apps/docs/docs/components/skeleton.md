@@ -4,4 +4,106 @@ sidebar_label: Skeleton
 
 # Skeleton
 
-Documentation coming soon.
+A decorative placeholder rendered while content is loading. Skeleton mimics the shape of the content it replaces, reducing perceived wait time and preventing layout shift. Three shape variants cover common content types: text lines, avatars, and rectangular media blocks.
+
+---
+
+## Usage
+
+```jsx
+import { Skeleton } from '@arch-ui/components';
+
+function Example() {
+  return (
+    <div aria-busy="true">
+      <Skeleton variant="text" />
+      <Skeleton variant="text" width="80%" />
+      <Skeleton variant="rectangular" width="100%" height="200px" />
+    </div>
+  );
+}
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'text' \| 'circular' \| 'rectangular'` | `'text'` | Shape of the skeleton. |
+| `width` | `string` | `undefined` | Inline size override. Accepts any CSS length (e.g. `'100%'`, `'200px'`). |
+| `height` | `string` | `undefined` | Block size override. For `circular`, height matches `width` when omitted. |
+| `animated` | `boolean` | `true` | Whether to show the shimmer animation. Automatically disabled when `prefers-reduced-motion` is active. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the root element. |
+
+All standard `span` HTML attributes are also supported via rest props.
+
+---
+
+## Variants
+
+### Text
+
+The default variant. Full-width with a height matching `--typography-scale-paragraph-small-font-size` and small rounded corners. Stack multiple instances to represent paragraphs.
+
+```jsx
+<Skeleton variant="text" />
+<Skeleton variant="text" />
+<Skeleton variant="text" width="60%" />
+```
+
+### Circular
+
+A fully rounded shape. Ideal for avatar or icon placeholders. When only `width` is set, `height` is automatically mirrored to keep the element square.
+
+```jsx
+<Skeleton variant="circular" width="40px" />
+<Skeleton variant="circular" width="64px" height="64px" />
+```
+
+### Rectangular
+
+A block-level shape with small rounded corners. Use it for images, cards, media thumbnails, or any rectangular content area.
+
+```jsx
+<Skeleton variant="rectangular" width="100%" height="180px" />
+<Skeleton variant="rectangular" width="320px" height="200px" />
+```
+
+---
+
+## Animation
+
+The default shimmer sweeps a gradient from `--color-background-muted` through `--color-background-subtle` and back, using the `--motion-duration-slow` token for timing.
+
+Disable the shimmer by setting `animated={false}`:
+
+```jsx
+<Skeleton animated={false} variant="rectangular" width="100%" height="80px" />
+```
+
+When the user has `prefers-reduced-motion: reduce` enabled in their OS settings, the shimmer is automatically suppressed and Skeleton falls back to a flat `--color-background-muted` fill.
+
+---
+
+## Composing loading layouts
+
+Combine variants to mirror the shape of the content being loaded:
+
+```jsx
+<div aria-busy="true" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+  <Skeleton variant="circular" width="48px" />
+  <div style={{ flex: 1 }}>
+    <Skeleton variant="text" width="40%" />
+    <Skeleton variant="text" width="70%" />
+  </div>
+</div>
+```
+
+---
+
+## Accessibility
+
+- Skeleton always renders with `aria-hidden="true"`. It is invisible to screen readers.
+- Set `aria-busy="true"` on the parent container during loading. Remove it (or set to `false`) once content has loaded so assistive technology announces the update.
+- Skeleton does not accept interactive props. It is a purely visual indicator.

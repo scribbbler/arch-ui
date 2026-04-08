@@ -4,4 +4,84 @@ sidebar_label: Link
 
 # Link
 
-Documentation coming soon.
+An accessible anchor element for inline and standalone navigation. Link supports colour variants, an external link indicator with an appended icon, and an optional animated underline on hover. It extends the native HTML anchor, so all standard anchor attributes are available.
+
+## Usage
+
+```jsx
+import { Link } from '@arch-ui/components';
+
+function Footer() {
+  return (
+    <p>
+      Read our <Link href="/privacy">Privacy Policy</Link> for details.
+    </p>
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `href` | `string` | -- | The URL the link points to. Required. |
+| `external` | `boolean` | `false` | When true, appends "(opens in new tab)" to the accessible label and renders an external link icon. Does not auto-set `target`. |
+| `variant` | `'default' \| 'subtle' \| 'inverse'` | `'default'` | Colour variant. |
+| `animateUnderline` | `boolean` | `false` | When true, the underline animates in on hover instead of being always visible. |
+| `children` | `ReactNode` | -- | Link label content. |
+| `className` | `string` | -- | Additional CSS class names. |
+
+Link also accepts all native `AnchorHTMLAttributes` and supports `ref` forwarding.
+
+## Variants
+
+### Default
+
+The standard link colour, suited for body text and inline navigation.
+
+```jsx
+<Link href="/about">About us</Link>
+```
+
+### Subtle
+
+A muted colour that blends with secondary text. Useful for footnotes, metadata, or dense link lists.
+
+```jsx
+<Link href="/terms" variant="subtle">Terms of service</Link>
+```
+
+### Inverse
+
+A light colour designed for use on dark backgrounds.
+
+```jsx
+<Link href="/contact" variant="inverse">Contact us</Link>
+```
+
+## External links
+
+Setting `external` renders a small arrow-box icon after the link text and adjusts the accessible label so screen readers announce "(opens in new tab)".
+
+```jsx
+<Link href="https://github.com" external target="_blank" rel="noopener noreferrer">
+  GitHub
+</Link>
+```
+
+Note: `external` does not set `target="_blank"` automatically. Set it yourself when you want the link to open in a new tab.
+
+## Animated underline
+
+When `animateUnderline` is enabled, the underline slides in from the left on hover rather than being present at rest.
+
+```jsx
+<Link href="/features" animateUnderline>Explore features</Link>
+```
+
+## Accessibility
+
+- Renders as a native `<a>` element with full keyboard and screen reader support.
+- When `external` is true and the children are a string, the component sets `aria-label` to `"{children} (opens in new tab)"`.
+- When `external` is true and children are not a plain string, it falls back to `aria-description="(opens in new tab)"`.
+- The external icon is marked `aria-hidden="true"` and `focusable="false"` so it does not interfere with assistive technology.

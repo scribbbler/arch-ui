@@ -4,4 +4,68 @@ sidebar_label: Bottom navigation
 
 # Bottom Navigation
 
-Documentation coming soon.
+A fixed navigation bar anchored to the bottom of the viewport, designed for mobile and small-screen layouts. Bottom Navigation provides quick access to three to five top-level destinations using icon-and-label items. It is the primary wayfinding pattern on touch devices where a sidebar or top navigation bar would consume too much vertical space.
+
+## Usage
+
+```jsx
+import { BottomNavigation } from '@arch-ui/components';
+
+function AppShell() {
+  const [active, setActive] = useState('home');
+
+  return (
+    <BottomNavigation
+      items={[
+        { label: 'Home', value: 'home', icon: <HomeIcon /> },
+        { label: 'Search', value: 'search', icon: <SearchIcon /> },
+        { label: 'Profile', value: 'profile', icon: <ProfileIcon /> },
+      ]}
+      activeValue={active}
+      onChange={setActive}
+    />
+  );
+}
+```
+
+## Expected props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `items` | `BottomNavItem[]` | -- | Array of navigation items (three to five recommended). |
+| `activeValue` | `string` | -- | Value of the currently active item. |
+| `onChange` | `(value: string) => void` | -- | Called when the user taps a navigation item. |
+| `className` | `string` | -- | Additional class names. |
+
+### BottomNavItem
+
+| Prop | Type | Description |
+|---|---|---|
+| `label` | `string` | Short text label displayed below the icon. |
+| `value` | `string` | Unique identifier for this destination. |
+| `icon` | `ReactNode` | Icon rendered above the label. |
+| `badge` | `number \| boolean` | Optional badge indicator for unread counts or notifications. |
+
+## States
+
+- **Active** -- the selected destination is highlighted with an accent colour and bolder weight.
+- **Inactive** -- unselected items use a muted colour.
+- **Badge** -- a small dot or count overlays the icon to indicate new content.
+
+## When to use
+
+- Mobile-first applications with three to five primary destinations.
+- Apps where the main navigation must remain visible at all times on small screens.
+
+## When not to use
+
+- Desktop layouts where a sidebar or top navigation provides better information density.
+- More than five destinations. Consider grouping secondary items under a "More" overflow menu.
+- Single-page flows or wizards that do not require persistent navigation.
+
+## Accessibility
+
+- Renders inside a `<nav>` landmark with a descriptive `aria-label` (e.g., "Main navigation").
+- The active item should carry `aria-current="page"` or `aria-current="true"`.
+- Each item is a focusable button or link so keyboard users can navigate with Tab.
+- Icons must be decorative (`aria-hidden="true"`) since each item has a visible text label.
