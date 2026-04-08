@@ -64,6 +64,11 @@ const sidebars = {
 
   components: [
     {
+      type: 'doc',
+      id: 'components/index',
+      label: 'Overview',
+    },
+    {
       type: 'category',
       label: 'Buttons',
       items: ['components/button', 'components/button-group', 'components/button-dock'],
