@@ -489,6 +489,131 @@
   color: var(--ifm-color-primary);
 }
 
+/* ─── Typography page ────────────────────────────────────────────────────────── */
+
+.type-hero {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 32px 0;
+  margin: 24px 0;
+}
+
+[data-theme='dark'] .type-hero {
+  background: transparent;
+  border-color: #333;
+}
+
+.type-hero__sample {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 12px 0;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+[data-theme='dark'] .type-hero__sample {
+  border-color: #333;
+}
+
+.type-hero__sample:last-child {
+  border-bottom: none;
+}
+
+.type-roles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+@media (max-width: 640px) {
+  .type-roles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.type-role-card__preview {
+  background: #f3f3f3;
+  border-radius: 12px;
+  padding: 48px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  min-height: 180px;
+}
+
+[data-theme='dark'] .type-role-card__preview {
+  background: #1e1e1e;
+}
+
+.type-role-card__preview > div {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', system-ui, sans-serif;
+  max-width: 320px;
+}
+
+[data-theme='dark'] .type-role-card__preview > div {
+  background: #2a2a2a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.type-role-card__label {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.type-role-card__desc {
+  font-size: 14px;
+  color: #727272;
+  line-height: 1.5;
+  margin: 0;
+}
+
+[data-theme='dark'] .type-role-card__desc {
+  color: #a6a6a6;
+}
+
+.type-scale-visual {
+  background: #f3f3f3;
+  border-radius: 8px;
+  padding: 32px 24px;
+  margin: 24px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+[data-theme='dark'] .type-scale-visual {
+  background: #1e1e1e;
+}
+
+.type-naming-diagram {
+  background: #f3f3f3;
+  border-radius: 8px;
+  padding: 48px 24px 32px;
+  margin: 24px 0;
+  text-align: center;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+[data-theme='dark'] .type-naming-diagram {
+  background: #1e1e1e;
+}
+
+.type-naming-diagram__labels {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
 .token-anatomy__swatch {
   display: inline-block;
   width: 14px;
