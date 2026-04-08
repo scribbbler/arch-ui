@@ -32,7 +32,7 @@ const config = {
         title: 'Arch UI',
         items: [
           { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Docs' },
-          { href: 'http://localhost:6006', label: 'Storybook', position: 'right' },
+          { href: 'https://scribbbler.github.io/arch-ui/storybook/', label: 'Storybook', position: 'right' },
           { href: 'https://github.com/your-org/arch-ui', label: 'GitHub', position: 'right' },
         ],
       },
