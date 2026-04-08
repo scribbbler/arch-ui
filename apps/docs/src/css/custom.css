@@ -384,6 +384,111 @@
   color: #a6a6a6;
 }
 
+/* ─── Token tier diagram ─────────────────────────────────────────────────────── */
+
+.token-tier-diagram {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  padding: 48px 32px 32px;
+  margin: 24px 0;
+  overflow-x: auto;
+}
+
+.token-tier-diagram__content {
+  min-width: 500px;
+}
+
+.token-tier-diagram__tree {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+
+.token-tier-diagram__node {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  white-space: nowrap;
+  margin: 4px 0;
+}
+
+[data-theme='dark'] .token-tier-diagram__node {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+.token-tier-diagram__node code {
+  background: none;
+  padding: 0;
+  font-size: 13px;
+}
+
+.token-tier-diagram__swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.token-tier-diagram__branches {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-left: 2px solid #ccc;
+  padding-left: 24px;
+  margin-left: 8px;
+}
+
+[data-theme='dark'] .token-tier-diagram__branches {
+  border-color: #555;
+}
+
+.token-tier-diagram__branch {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.token-tier-diagram__leaves {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 2px solid var(--ifm-color-primary);
+  padding-left: 20px;
+  margin-left: 8px;
+}
+
+.token-tier-diagram__labels {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding-top: 16px;
+  border-top: 2px solid #ccc;
+}
+
+[data-theme='dark'] .token-tier-diagram__labels {
+  border-color: #555;
+}
+
+.token-tier-diagram__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #727272;
+  text-transform: lowercase;
+}
+
+.token-tier-diagram__label--component {
+  color: var(--ifm-color-primary);
+}
+
 .token-anatomy__swatch {
   display: inline-block;
   width: 14px;

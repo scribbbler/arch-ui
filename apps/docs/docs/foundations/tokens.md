@@ -287,5 +287,204 @@ These styles have been defined with a system in mind; the moment you deviate fro
 - **Never** create a token that is only used once — use the semantic token directly
 - **Never** use camelCase or underscores in token names
 
+---
+
+## Supported types
+
+<div className="foundation-grid" style={{marginBottom: '48px'}}>
+
+<a href="/foundations/color" className="foundation-card">
+<div className="foundation-card__icon">
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="40" cy="35" r="20" stroke="currentColor" strokeWidth="2" />
+<circle cx="60" cy="35" r="20" stroke="currentColor" strokeWidth="2" />
+<circle cx="50" cy="52" r="20" stroke="currentColor" strokeWidth="2" />
+</svg>
+</div>
+<div className="foundation-card__title">Color</div>
+</a>
+
+<a href="/foundations/typography" className="foundation-card">
+<div className="foundation-card__icon">
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<text x="15" y="35" fill="currentColor" fontSize="28" fontWeight="700" fontFamily="system-ui">Aa</text>
+<line x1="15" y1="50" x2="105" y2="50" stroke="currentColor" strokeWidth="2" />
+<line x1="15" y1="60" x2="80" y2="60" stroke="currentColor" strokeWidth="2" />
+<line x1="15" y1="70" x2="95" y2="70" stroke="currentColor" strokeWidth="2" />
+</svg>
+</div>
+<div className="foundation-card__title">Typography</div>
+</a>
+
+<a href="/foundations/layout-grids" className="foundation-card">
+<div className="foundation-card__icon">
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="30" y1="5" x2="30" y2="75" stroke="currentColor" strokeWidth="2" />
+<line x1="60" y1="5" x2="60" y2="75" stroke="currentColor" strokeWidth="2" />
+<line x1="90" y1="5" x2="90" y2="75" stroke="currentColor" strokeWidth="2" />
+<line x1="10" y1="20" x2="110" y2="20" stroke="currentColor" strokeWidth="2" />
+<line x1="10" y1="40" x2="110" y2="40" stroke="currentColor" strokeWidth="2" />
+<line x1="10" y1="60" x2="110" y2="60" stroke="currentColor" strokeWidth="2" />
+</svg>
+</div>
+<div className="foundation-card__title">Layout Grids</div>
+</a>
+
+<a href="/foundations/spacing" className="foundation-card">
+<div className="foundation-card__icon">
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="20" y1="15" x2="20" y2="65" stroke="currentColor" strokeWidth="2" />
+<line x1="15" y1="15" x2="25" y2="15" stroke="currentColor" strokeWidth="2" />
+<line x1="15" y1="65" x2="25" y2="65" stroke="currentColor" strokeWidth="2" />
+<line x1="40" y1="15" x2="40" y2="65" stroke="currentColor" strokeWidth="2" />
+<line x1="35" y1="15" x2="45" y2="15" stroke="currentColor" strokeWidth="2" />
+<line x1="35" y1="65" x2="45" y2="65" stroke="currentColor" strokeWidth="2" />
+<rect x="55" y="15" width="50" height="50" rx="4" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
+<rect x="65" y="25" width="30" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
+</svg>
+</div>
+<div className="foundation-card__title">Dimensions</div>
+</a>
+
+<a href="/foundations/corner-radius" className="foundation-card">
+<div className="foundation-card__icon">
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="10" y="10" width="40" height="30" rx="0" stroke="currentColor" strokeWidth="2" />
+<rect x="60" y="10" width="40" height="30" rx="6" stroke="currentColor" strokeWidth="2" />
+<rect x="10" y="48" width="40" height="24" rx="12" stroke="currentColor" strokeWidth="2" />
+<circle cx="80" cy="60" r="12" stroke="currentColor" strokeWidth="2" />
+</svg>
+</div>
+<div className="foundation-card__title">Corner Radius</div>
+</a>
+
+<a href="/foundations/elevation" className="foundation-card">
+<div className="foundation-card__icon">
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="22" y="22" width="50" height="36" rx="4" fill="currentColor" opacity="0.15" />
+<rect x="18" y="18" width="50" height="36" rx="4" stroke="currentColor" strokeWidth="2" />
+<rect x="62" y="42" width="36" height="26" rx="4" fill="currentColor" opacity="0.15" />
+<rect x="58" y="38" width="36" height="26" rx="4" stroke="currentColor" strokeWidth="2" />
+</svg>
+</div>
+<div className="foundation-card__title">Elevation</div>
+</a>
+
+<a href="/foundations/motion" className="foundation-card">
+<div className="foundation-card__icon">
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="30" cy="40" r="15" stroke="currentColor" strokeWidth="2" />
+<circle cx="70" cy="40" r="15" stroke="currentColor" strokeWidth="2" />
+<path d="M45 40 C50 25, 55 25, 55 40 C55 55, 50 55, 45 40" stroke="currentColor" strokeWidth="2" />
+<path d="M85 40 Q95 20 105 40 Q95 60 85 40" stroke="currentColor" strokeWidth="2" />
+</svg>
+</div>
+<div className="foundation-card__title">Motion</div>
+</a>
+
+<a href="/foundations/icons" className="foundation-card">
+<div className="foundation-card__icon">
+<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 15 L65 45 L35 45 Z" stroke="currentColor" strokeWidth="2" />
+<circle cx="80" cy="30" r="15" stroke="currentColor" strokeWidth="2" />
+<rect x="25" y="52" width="25" height="20" rx="3" stroke="currentColor" strokeWidth="2" />
+<path d="M70 52 L95 52 L82 72 Z" stroke="currentColor" strokeWidth="2" />
+</svg>
+</div>
+<div className="foundation-card__title">Icons</div>
+</a>
+
+</div>
+
+---
+
+## Tiers
+
+Design tokens follow a 3 tier model based on whether the token stores an option or a decision. Each tier is referenced by the one above it (refer to as aliasing).
+
+<div className="token-tier-diagram">
+  <div className="token-tier-diagram__content">
+    <div className="token-tier-diagram__tree">
+      <div className="token-tier-diagram__node token-tier-diagram__node--primitive">
+        <span className="token-tier-diagram__swatch" style={{background: '#000'}}></span>
+        <code>black</code>
+      </div>
+      <div className="token-tier-diagram__branches">
+        <div className="token-tier-diagram__branch">
+          <div className="token-tier-diagram__node token-tier-diagram__node--semantic">
+            <code>color-text-default</code>
+          </div>
+          <div className="token-tier-diagram__leaves">
+            <div className="token-tier-diagram__node token-tier-diagram__node--component">
+              <code>button-text-default</code>
+            </div>
+            <div className="token-tier-diagram__node token-tier-diagram__node--component">
+              <code>input-text-default</code>
+            </div>
+          </div>
+        </div>
+        <div className="token-tier-diagram__branch">
+          <div className="token-tier-diagram__node token-tier-diagram__node--semantic">
+            <code>color-border-strong</code>
+          </div>
+          <div className="token-tier-diagram__leaves">
+            <div className="token-tier-diagram__node token-tier-diagram__node--component">
+              <code>input-border-active</code>
+            </div>
+            <div className="token-tier-diagram__node token-tier-diagram__node--component">
+              <code>card-border-selected</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="token-tier-diagram__labels">
+      <span className="token-tier-diagram__label">primitive layer</span>
+      <span className="token-tier-diagram__label">semantic layer</span>
+      <span className="token-tier-diagram__label token-tier-diagram__label--component">component layer</span>
+    </div>
+  </div>
+</div>
+
+### Primitive tokens
+
+Primitive tokens store all the raw data in a platform and usage-agnostic way. In most cases, this level of tokens is not intended for standalone usage and serves as a foundational level of abstraction.
+
+```
+color-gray-50        → #f3f3f3
+color-blue-600       → #266ef1
+spacing-4            → 4px
+radius-sm            → 4px
+```
+
+---
+
+### Semantic tokens
+
+A semantic token, also known as an alias token, is an abstraction layer that reflects the usage of a value in the UI instead of the literal value.
+
+```
+color-text-default       → {color-gray-900}      → #282828
+color-action-primary     → {color-blue-600}       → #266ef1
+color-background-subtle  → {color-gray-50}        → #f3f3f3
+color-border-focus       → {color-blue-500}       → #068bee
+```
+
+---
+
+### Component-specific tokens
+
+Component-specific tokens are primarily found in our codebases and not so much in Figma. Their primary role is to represent the properties associated with a component.
+
+Unlike the previous two tiers, these tokens are self-contained, meaning modifying the underlying value of the token will not affect anything outside the component it's used in.
+
+```
+button-bg-default    → {color-action-primary}
+button-bg-hover      → {color-action-primary-hover}
+button-text-default  → {color-action-primary-text}
+input-border-default → {color-border-default}
+input-border-focus   → {color-border-focus}
+```
+
 </TabItem>
 </Tabs>
