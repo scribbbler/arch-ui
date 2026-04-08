@@ -2,8 +2,8 @@
 const config = {
   title: 'Arch Design System',
   tagline: '58 components, Uber Base aligned, with MCP server for AI agents',
-  url: 'https://arch-ui.dev',
-  baseUrl: '/',
+  url: process.env.DOCS_URL || 'https://arch-ui.dev',
+  baseUrl: process.env.DOCS_BASE_URL || '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',

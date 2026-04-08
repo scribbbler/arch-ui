@@ -1,4 +1,4 @@
-name: Deploy Storybook
+name: Deploy Docs & Storybook
 
 on:
   push:
@@ -28,11 +28,27 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm tokens:build
-      - run: pnpm --filter @arch-ui/storybook build
+
+      - name: Build docs
+        run: pnpm --filter @arch-ui/docs build
         env:
-          STORYBOOK_BASE_PATH: /arch-ui/
+          DOCS_URL: https://scribbbler.github.io
+          DOCS_BASE_URL: /arch-ui/
+
+      - name: Build storybook
+        run: pnpm --filter @arch-ui/storybook build
+        env:
+          STORYBOOK_BASE_PATH: /arch-ui/storybook/
+
+      - name: Combine outputs
+        run: |
+          mkdir -p _site
+          cp -r apps/docs/build/* _site/
+          mkdir -p _site/storybook
+          cp -r apps/storybook/storybook-static/* _site/storybook/
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: apps/storybook/storybook-static
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
