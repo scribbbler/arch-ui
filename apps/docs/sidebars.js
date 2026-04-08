@@ -2,11 +2,19 @@
 const sidebars = {
   foundations: [
     {
-      type: 'doc',
-      id: 'foundations/index',
-      label: 'Overview',
+      type: 'category',
+      label: 'About Arch UI',
+      collapsed: false,
+      items: [
+        {
+          type: 'doc',
+          id: 'foundations/index',
+          label: 'Welcome',
+        },
+        'intro',
+        'foundations/faqs',
+      ],
     },
-    'intro',
     {
       type: 'category',
       label: 'Getting Started',
@@ -21,15 +29,37 @@ const sidebars = {
     {
       type: 'category',
       label: 'Styles',
+      collapsed: false,
       items: [
         'foundations/tokens',
         'foundations/color',
         'foundations/typography',
         'foundations/spacing',
-        'foundations/icons',
+        'foundations/layout-grids',
+        'foundations/corner-radius',
+        'foundations/border',
+        'foundations/elevation',
       ],
     },
-    'foundations/accessibility',
+    {
+      type: 'category',
+      label: 'Expression',
+      items: [
+        'foundations/icons',
+        'foundations/motion',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Accessibility',
+      items: [
+        'foundations/accessibility',
+        'foundations/alt-text',
+        'foundations/a11y-first',
+        'foundations/screen-readers',
+        'foundations/text-resizing',
+      ],
+    },
   ],
 
   components: [
