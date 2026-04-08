@@ -10,6 +10,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Foundations',
+      link: { type: 'doc', id: 'foundations/index' },
       items: ['foundations/tokens', 'foundations/color', 'foundations/typography', 'foundations/spacing', 'foundations/icons', 'foundations/accessibility'],
     },
     {
