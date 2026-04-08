@@ -31,9 +31,11 @@ const config = {
       navbar: {
         title: 'Arch UI',
         items: [
-          { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Docs' },
+          { type: 'docSidebar', sidebarId: 'foundations', position: 'left', label: 'Foundations' },
+          { type: 'docSidebar', sidebarId: 'components', position: 'left', label: 'Components' },
+          { type: 'docSidebar', sidebarId: 'patterns', position: 'left', label: 'Patterns' },
           { href: 'https://scribbbler.github.io/arch-ui/storybook/', label: 'Storybook', position: 'right' },
-          { href: 'https://github.com/your-org/arch-ui', label: 'GitHub', position: 'right' },
+          { href: 'https://github.com/scribbbler/arch-ui', label: 'GitHub', position: 'right' },
         ],
       },
       colorMode: {
