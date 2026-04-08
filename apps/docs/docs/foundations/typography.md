@@ -98,7 +98,7 @@ Type styles are defined based on four roles — Display, Heading, Label, and Par
 
 ---
 
-## Scale
+### Scale
 
 **Modular scale**
 
@@ -127,7 +127,32 @@ Proper line height is achieved by pairing each font size with a specific line he
 
 ---
 
-## Size
+### Spacing
+
+Calculate the space below a text box by subtracting the font size from the line height and round the result to a 4-interval. Add an extra line height for spaces below Paragraphs.
+
+`Spacing = (Fontsize − lineheight) rounded to nearest 4.`
+
+<div className="type-scale-visual">
+  <span style={{fontSize: '12px'}}>12</span>
+  <span style={{fontSize: '14px'}}>14</span>
+  <span style={{fontSize: '16px'}}>16</span>
+  <span style={{fontSize: '18px'}}>18</span>
+  <span style={{fontSize: '20px', fontWeight: 700}}>20</span>
+  <span style={{fontSize: '24px', fontWeight: 700}}>24</span>
+  <span style={{fontSize: '28px', fontWeight: 700}}>28</span>
+  <span style={{fontSize: '32px', fontWeight: 700}}>32</span>
+  <span style={{fontSize: '36px', fontWeight: 700}}>36</span>
+  <span style={{fontSize: '40px', fontWeight: 700}}>40</span>
+  <span style={{fontSize: '44px', fontWeight: 700}}>44</span>
+  <span style={{fontSize: '52px', fontWeight: 700}}>52</span>
+  <span style={{fontSize: '64px', fontWeight: 700}}>…</span>
+  <span style={{fontSize: '80px', fontWeight: 700}}>96</span>
+</div>
+
+---
+
+### Size
 
 Within our roles, we use four key sizes to ensure a clear typographic scale and rhythm. We also support additional sizes exclusively for creating more visual emphasis on an interface.
 
@@ -150,7 +175,7 @@ Within our roles, we use four key sizes to ensure a clear typographic scale and 
 
 ---
 
-## Fonts
+### Fonts
 
 The default font family that Arch UI uses is **Inter**. It comes with three distinct typeface stacks — **Sans**, **Serif**, and **Mono**.
 
@@ -189,7 +214,7 @@ Looking for our font files? You can download Inter from [Google Fonts](https://f
 
 ---
 
-### Monospace
+#### Monospace
 
 We've created a sister version of our main typographic styles, which solely uses our monospace stack. It is designed specifically for money, numbers, and code-related use cases.
 
@@ -218,7 +243,7 @@ This makes it perfect for displaying numbers such as the price of a product or a
 
 ---
 
-## Ramps
+### Ramps
 
 The design system currently supports two typographical ramps — `standard` and `monospaced`. While both ramps leverage the same core sizes to ensure harmony between the styles when displayed alongside each other, they are not meant to be used interchangeably.
 
@@ -264,7 +289,7 @@ Typography is a powerful tool that can be used to create this architecture, by v
 
 ---
 
-### Content hierarchy
+#### Content hierarchy
 
 Combining the same sizes from each class creates a simple, beautiful hierarchy.
 
@@ -574,7 +599,7 @@ In some cases, it can be used in cases where the legibility of every character i
 
 ---
 
-## Weights
+<h2>Weights</h2>
 
 | Token | Value | Use case |
 |---|---|---|
