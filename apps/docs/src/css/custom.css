@@ -53,3 +53,152 @@
 [data-theme='dark'] .dont-block {
   background: #520810;
 }
+
+/* ─── Landing page ──────────────────────────────────────────────────────────── */
+
+.arch-hero {
+  position: relative;
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 120px 48px 100px;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.arch-hero__grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.arch-hero__grid-line {
+  border: 1px solid #ffffff;
+}
+
+.arch-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.arch-hero__title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+}
+
+.arch-hero__version {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.arch-hero__description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 480px;
+}
+
+.arch-categories {
+  padding: 64px 48px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.arch-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .arch-categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .arch-categories__grid {
+    grid-template-columns: 1fr;
+  }
+  .arch-hero {
+    padding: 80px 24px 60px;
+  }
+  .arch-hero__title {
+    font-size: 36px;
+  }
+  .arch-categories {
+    padding: 40px 24px 60px;
+  }
+}
+
+.arch-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.arch-card:hover {
+  border-color: #bbbbbb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .arch-card {
+  border-color: #333;
+}
+
+[data-theme='dark'] .arch-card:hover {
+  border-color: #555;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.arch-card__icon {
+  background: #0a0a0a;
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.arch-card__icon svg {
+  width: 120px;
+  height: 80px;
+}
+
+.arch-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding: 16px 16px 8px;
+}
+
+.arch-card__description {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #727272;
+  margin: 0;
+  padding: 0 16px 16px;
+}
+
+[data-theme='dark'] .arch-card__description {
+  color: #a6a6a6;
+}
