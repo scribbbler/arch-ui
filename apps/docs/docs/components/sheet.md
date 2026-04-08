@@ -1,10 +1,18 @@
 ---
 sidebar_label: Sheet
+hide_title: true
 ---
 
-# Sheet
-
-A panel overlay that slides in from the bottom or side of the viewport, typically used for supplementary content, filters, or detail views on mobile and responsive layouts. Sheet differs from Drawer in its visual treatment -- it features rounded top corners, optional drag-to-dismiss, and snap points that let users resize the panel by dragging.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTAINERS AND LAYOUT</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Sheet</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A panel overlay that slides in from the bottom or side of the viewport with drag-to-dismiss and snap points.
+  </p>
+</div>
 
 ## Usage
 

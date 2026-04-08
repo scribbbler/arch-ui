@@ -1,10 +1,18 @@
 ---
 sidebar_label: Snackbar
+hide_title: true
 ---
 
-# Snackbar
-
-A brief, auto-dismissing notification that appears at the bottom of the screen to confirm an action or provide lightweight feedback. Snackbars are less intrusive than toasts and disappear without user interaction.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>MESSAGING</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Snackbar</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A brief, auto-dismissing notification that appears at the bottom of the screen to confirm an action.
+  </p>
+</div>
 
 **Common alternative names:** Bottom notification, Action feedback, Inline toast
 

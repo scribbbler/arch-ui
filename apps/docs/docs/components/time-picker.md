@@ -1,14 +1,18 @@
 ---
 sidebar_label: Time picker
+hide_title: true
 ---
 
-# Time Picker
-
-A time selection input that allows users to pick a time of day. Typically renders as a dropdown of time slots at configurable intervals, or as a set of hour/minute/period inputs.
-
-**Status:** Planned
-
-**Common alternative names:** Time selector, time input, time dropdown
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Time Picker</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A time selection input for picking a time of day via a dropdown of time slots at configurable intervals.
+  </p>
+</div>
 
 ---
 

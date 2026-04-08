@@ -1,15 +1,20 @@
 ---
 sidebar_label: Color
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Color
-
-Arch UI's color system is built on two tiers: a fixed primitive palette that defines every available hue and shade, and a semantic layer that maps those primitives to interface roles like background, text, border, and feedback. Components never reference hex values directly — they consume semantic tokens, so switching between light and dark themes requires zero code changes.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Color</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A two-tier system of primitive palettes and semantic tokens that keeps every surface, text, and border themeable without touching component code.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

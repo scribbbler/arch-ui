@@ -1,10 +1,18 @@
 ---
 sidebar_label: Drawer
+hide_title: true
 ---
 
-# Drawer
-
-A panel that slides in from one edge of the viewport, overlaying the main content. Drawers are suited for secondary tasks, navigation menus, filters, or detail views that the user can dismiss without losing context. The component handles body scroll lock, focus trapping, and Escape key dismissal automatically.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTAINERS AND LAYOUT</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Drawer</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A panel that slides in from one edge of the viewport, overlaying the main content.
+  </p>
+</div>
 
 ## Usage
 

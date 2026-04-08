@@ -1,10 +1,18 @@
 ---
 sidebar_label: Alert
+hide_title: true
 ---
 
-# Alert
-
-An inline feedback message for communicating status or important context within a page. Alerts persist until the user dismisses them or the triggering condition resolves. Use them for form validation summaries, action confirmations, or contextual warnings.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>MESSAGING</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Alert</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    An inline feedback message for communicating status or important context within a page.
+  </p>
+</div>
 
 **Common alternative names:** Notification, Inline message, Callout
 

@@ -1,15 +1,20 @@
 ---
 sidebar_label: Spacing
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Spacing
-
-Arch UI spacing tokens create consistent rhythm and density across every layout and component. The system is built on a compact primitive scale and a set of semantic aliases that encode where and how space is applied.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Spacing</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A compact primitive scale and semantic aliases that create consistent rhythm and density across every layout and component.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

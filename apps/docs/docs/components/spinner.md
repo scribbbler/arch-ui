@@ -1,10 +1,18 @@
 ---
 sidebar_label: Spinner
+hide_title: true
 ---
 
-# Spinner
-
-A circular loading indicator for indeterminate async operations. Spinner is rendered as a rotating partial ring and announces its loading state to screen readers via `role="status"`. It respects `prefers-reduced-motion` by stopping the animation and showing a static partial ring.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INDICATORS AND STATUS</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Spinner</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A circular loading indicator for indeterminate async operations, rendered as a rotating partial ring.
+  </p>
+</div>
 
 ---
 

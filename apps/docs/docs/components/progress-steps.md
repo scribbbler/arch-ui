@@ -1,10 +1,18 @@
 ---
 sidebar_label: Progress Steps
+hide_title: true
 ---
 
-# Progress Steps
-
-A step indicator for multi-step flows such as checkout, onboarding, or form wizards. Progress Steps renders an ordered list with visual states for completed, current, and upcoming steps, connected by lines that fill as the user advances.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INDICATORS AND STATUS</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Progress Steps</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A step indicator for multi-step flows with visual states for completed, current, and upcoming steps.
+  </p>
+</div>
 
 ---
 

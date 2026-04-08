@@ -1,10 +1,18 @@
 ---
 sidebar_label: Bottom navigation
+hide_title: true
 ---
 
-# Bottom Navigation
-
-A fixed navigation bar anchored to the bottom of the viewport, designed for mobile and small-screen layouts. Bottom Navigation provides quick access to three to five top-level destinations using icon-and-label items. It is the primary wayfinding pattern on touch devices where a sidebar or top navigation bar would consume too much vertical space.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>NAVIGATION</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Bottom Navigation</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A fixed navigation bar anchored to the bottom of the viewport for mobile and small-screen layouts.
+  </p>
+</div>
 
 ## Usage
 

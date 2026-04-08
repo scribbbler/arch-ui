@@ -1,14 +1,18 @@
 ---
 sidebar_label: Button dock
+hide_title: true
 ---
 
-# Button Dock
-
-A fixed-position bottom action bar for primary and secondary actions. Commonly used at the bottom of forms, modals, or pages to dock action buttons in a consistent layout.
-
-**Status:** Stable
-
-**Common alternative names:** Action bar, sticky footer, bottom bar, action dock
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Buttons</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Button Dock</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A fixed-position bottom action bar for primary and secondary actions.
+  </p>
+</div>
 
 ---
 

@@ -1,10 +1,18 @@
 ---
 sidebar_label: Data table
+hide_title: true
 ---
 
-# Data Table
-
-An enhanced table component for working with large, interactive data sets. Data Table extends the base Table with built-in column sorting, filtering, row selection, pagination, and optional column resizing. It is designed for admin dashboards, reporting tools, and any interface where users need to explore, compare, and act on tabular data.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>DATA AND TABLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Data Table</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    An enhanced table component with built-in sorting, filtering, row selection, and pagination.
+  </p>
+</div>
 
 ## Usage
 

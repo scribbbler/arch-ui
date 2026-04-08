@@ -1,10 +1,18 @@
 ---
 sidebar_label: Section heading
+hide_title: true
 ---
 
-# Section Heading
-
-A typographic heading used to label and separate sections of content within a page or panel. Section headings establish visual hierarchy and help users scan the interface.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTENT DISPLAY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Section Heading</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A typographic heading used to label and separate sections of content within a page or panel.
+  </p>
+</div>
 
 **Common alternative names:** Section title, Group header, Category heading
 

@@ -1,10 +1,17 @@
 ---
 sidebar_label: Version 8
+hide_title: true
 ---
 
-# Version 8 Migration Guide
-
-Version 8 is the current major release of Arch UI. This guide covers breaking changes, new additions, and the steps required to migrate from Version 7.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>COMPONENTS</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Version 8 Migration Guide</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Breaking changes, new additions, and migration steps from Version 7 to Version 8.
+  </p>
+</div>
 
 ---
 

@@ -1,14 +1,18 @@
 ---
 sidebar_label: Combobox
+hide_title: true
 ---
 
-# Combobox
-
-A searchable dropdown select for complex use cases. Supports single and multi-select, creatable options, keyboard navigation, and a portal-rendered dropdown listbox.
-
-**Status:** Stable
-
-**Common alternative names:** Autocomplete, typeahead, searchable select, multi-select
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Combobox</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A searchable dropdown select supporting single and multi-select, creatable options, and keyboard navigation.
+  </p>
+</div>
 
 ---
 

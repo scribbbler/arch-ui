@@ -1,15 +1,20 @@
 ---
 sidebar_label: Corner Radius
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Corner Radius
-
-Corner radius controls the roundness of element edges. A consistent radius scale creates visual cohesion, reinforces hierarchy, and helps users distinguish between interactive and static surfaces.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Corner Radius</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A consistent radius scale that controls edge roundness, creates visual cohesion, and helps users distinguish interactive from static surfaces.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

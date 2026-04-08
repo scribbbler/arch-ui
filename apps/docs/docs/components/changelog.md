@@ -1,10 +1,17 @@
 ---
 sidebar_label: Changelog
+hide_title: true
 ---
 
-# Changelog
-
-All notable changes to Arch UI components are documented here. Each release follows [Semantic Versioning](https://semver.org/) and entries are grouped by change type.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>COMPONENTS</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Changelog</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    All notable changes to Arch UI components, grouped by release and change type.
+  </p>
+</div>
 
 ---
 

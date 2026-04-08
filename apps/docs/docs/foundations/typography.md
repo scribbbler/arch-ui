@@ -1,15 +1,20 @@
 ---
 sidebar_label: Typography
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Typography
-
-Arch UI typography is flexible and modular. It defines four semantic roles, a harmonious modular scale, and two typographic ramps so every interface communicates clearly without decision paralysis.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Typography</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Four semantic roles, a modular scale, and two typographic ramps so every interface communicates clearly without decision paralysis.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

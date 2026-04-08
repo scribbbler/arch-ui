@@ -1,14 +1,18 @@
 ---
 sidebar_label: Textarea
+hide_title: true
 ---
 
-# Textarea
-
-A multi-line text input for collecting longer-form content such as comments, descriptions, and messages. Supports auto-resize, clearable mode, multiple sizes, and integrates with FormControl for label and error wiring.
-
-**Status:** Stable
-
-**Common alternative names:** Text area, multi-line input, comment box
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Textarea</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A multi-line text input with auto-resize, clearable mode, and FormControl integration.
+  </p>
+</div>
 
 ---
 

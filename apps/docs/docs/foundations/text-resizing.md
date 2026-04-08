@@ -1,12 +1,17 @@
 ---
 sidebar_label: Text Resizing
+hide_title: true
 ---
 
-<span className="foundation-header__label">Accessibility</span>
-
-# Text Resizing
-
-WCAG Success Criterion 1.4.4 requires that text can be resized up to 200% without loss of content or functionality. Many users — including people with low vision, cognitive disabilities, and aging eyesight — increase their browser's default font size or use zoom to read comfortably. Arch UI is designed to support this out of the box.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ACCESSIBILITY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Text Resizing</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Support text resizing up to 200% without loss of content or functionality, as required by WCAG 1.4.4.
+  </p>
+</div>
 
 ---
 

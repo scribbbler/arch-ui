@@ -1,14 +1,18 @@
 ---
 sidebar_label: Sliding button
+hide_title: true
 ---
 
-# Sliding Button
-
-A confirmation button that requires the user to slide a handle across a track to complete an action. Sliding buttons are used for high-stakes, irreversible actions where a simple tap would be too easy to trigger accidentally.
-
-**Status:** Planned
-
-**Common alternative names:** Slide to confirm, swipe button, slide to unlock
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Buttons</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Sliding Button</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A confirmation button that requires the user to slide a handle across a track to complete an action.
+  </p>
+</div>
 
 ---
 

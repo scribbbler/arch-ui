@@ -1,15 +1,20 @@
 ---
 sidebar_label: Motion
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Motion
-
-Motion in Arch UI communicates relationships, provides feedback, and guides attention. Our motion system is built on tokenised duration and easing values so that every animation feels cohesive across the product.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>EXPRESSION</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Motion</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Tokenised duration and easing values that communicate relationships, provide feedback, and guide attention cohesively.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

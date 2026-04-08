@@ -1,14 +1,18 @@
 ---
 sidebar_label: Select
+hide_title: true
 ---
 
-# Select
-
-A native `<select>` element styled consistently with Input. The browser's default arrow is replaced with a custom chevron. Supports placeholder options, multi-select listbox mode, and automatic FormControl integration.
-
-**Status:** Stable
-
-**Common alternative names:** Dropdown, picker, choice list
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Select</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A styled native select element with placeholder options, multi-select listbox mode, and FormControl integration.
+  </p>
+</div>
 
 ---
 

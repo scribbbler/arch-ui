@@ -1,14 +1,18 @@
 ---
 sidebar_label: Stepper
+hide_title: true
 ---
 
-# Stepper
-
-A numeric input with increment and decrement buttons for adjusting a value by discrete steps. Renders a minus button, a value display, and a plus button in a horizontal row.
-
-**Status:** Stable
-
-**Common alternative names:** Number stepper, quantity selector, counter, spin button
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Stepper</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A numeric input with increment and decrement buttons for adjusting a value by discrete steps.
+  </p>
+</div>
 
 ---
 

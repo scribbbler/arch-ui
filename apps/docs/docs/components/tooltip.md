@@ -1,10 +1,18 @@
 ---
 sidebar_label: Tooltip
+hide_title: true
 ---
 
-# Tooltip
-
-Non-interactive supplementary text that appears on hover and focus to describe or label a UI element. Tooltips are rendered via a portal and positioned relative to their trigger element.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>MESSAGING</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Tooltip</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Non-interactive supplementary text that appears on hover and focus to describe or label a UI element.
+  </p>
+</div>
 
 **Common alternative names:** Hint, Info tip, Helper text
 

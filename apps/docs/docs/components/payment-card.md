@@ -1,14 +1,18 @@
 ---
 sidebar_label: Payment card
+hide_title: true
 ---
 
-# Payment Card
-
-A credit card number input that auto-formats with spaces and detects the card type from the first digits. Displays a card type indicator (Visa, MC, Amex, Discover) at the start of the field.
-
-**Status:** Stable
-
-**Common alternative names:** Credit card input, card number field
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Payment Card</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A credit card number input that auto-formats with spaces and detects the card type from the first digits.
+  </p>
+</div>
 
 ---
 

@@ -1,12 +1,17 @@
 ---
 sidebar_label: Alternative Text
+hide_title: true
 ---
 
-<span className="foundation-header__label">Accessibility</span>
-
-# Alternative Text
-
-Alternative text makes visual content accessible to people who cannot see it. Screen readers announce alt text in place of images, and it displays when images fail to load. Writing effective alt text is a skill — it requires understanding the image's purpose, not just its appearance.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ACCESSIBILITY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Alternative Text</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    How to write effective alt text that conveys an image's purpose, not just its appearance.
+  </p>
+</div>
 
 ---
 

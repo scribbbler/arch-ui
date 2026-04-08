@@ -1,10 +1,18 @@
 ---
 sidebar_label: System banner
+hide_title: true
 ---
 
-# System Banner
-
-A persistent, full-width banner anchored to the very top of the viewport for system-level announcements such as maintenance windows, outages, or mandatory updates. Unlike a regular Banner, System Banner sits above all other content including navigation and cannot be scrolled away.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>MESSAGING</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>System Banner</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A persistent, full-width banner anchored to the top of the viewport for system-level announcements.
+  </p>
+</div>
 
 **Common alternative names:** Global banner, Critical alert bar, Site-wide notice
 

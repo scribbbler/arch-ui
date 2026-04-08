@@ -1,10 +1,18 @@
 ---
 sidebar_label: Modal full screen
+hide_title: true
 ---
 
-# Modal Full Screen
-
-A full-viewport modal variant designed for immersive tasks that require the user's complete attention, such as multi-step forms, media viewers, or complex editors. Modal Full Screen occupies the entire screen, removing all surrounding UI distractions.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTAINERS AND LAYOUT</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Modal Full Screen</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A full-viewport modal variant designed for immersive tasks that require the user's complete attention.
+  </p>
+</div>
 
 ## Usage
 

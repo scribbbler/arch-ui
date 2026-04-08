@@ -1,10 +1,18 @@
 ---
 sidebar_label: List
+hide_title: true
 ---
 
-# List
-
-A semantic list component for rendering structured rows of content. Use List as the container and compose it with ListItem, ListItemLabel, ListHeading, and the DescriptionList family for different list patterns.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTENT DISPLAY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>List</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A semantic list component for rendering structured rows of content with support for headings, descriptions, and artwork.
+  </p>
+</div>
 
 **Common alternative names:** ListView, Collection
 

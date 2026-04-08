@@ -1,10 +1,18 @@
 ---
 sidebar_label: Draggable list
+hide_title: true
 ---
 
-# Draggable List
-
-A list whose items can be reordered via drag-and-drop. Useful for prioritisation, ordering steps, or any interface where the user needs to rearrange items manually.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTENT DISPLAY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Draggable List</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A list whose items can be reordered via drag-and-drop for prioritisation or manual arrangement.
+  </p>
+</div>
 
 **Common alternative names:** Sortable list, Reorderable list, Drag-and-drop list
 

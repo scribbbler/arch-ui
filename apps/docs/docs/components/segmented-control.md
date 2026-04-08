@@ -1,14 +1,18 @@
 ---
 sidebar_label: Segmented control
+hide_title: true
 ---
 
-# Segmented Control
-
-A horizontal set of mutually exclusive options where exactly one is always selected. Functions like a compact tab bar for switching between views or modes.
-
-**Status:** Stable
-
-**Common alternative names:** Tab bar, toggle group, pill selector, button group
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Segmented Control</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A horizontal set of mutually exclusive options for switching between views or modes.
+  </p>
+</div>
 
 ---
 

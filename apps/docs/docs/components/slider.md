@@ -1,14 +1,18 @@
 ---
 sidebar_label: Slider
+hide_title: true
 ---
 
-# Slider
-
-A range input for selecting a numeric value within a defined min/max range. Built on the native `<input type="range">` with custom-styled track and thumb for visual consistency.
-
-**Status:** Stable
-
-**Common alternative names:** Range slider, range input, scrubber
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Slider</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A range input for selecting a numeric value within a defined min/max range with custom-styled track and thumb.
+  </p>
+</div>
 
 ---
 

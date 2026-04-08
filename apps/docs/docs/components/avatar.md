@@ -1,10 +1,18 @@
 ---
 sidebar_label: Avatar
+hide_title: true
 ---
 
-# Avatar
-
-Displays a user's profile image with a graceful initials fallback. Always provide `name` -- it powers the alt text and the initials that appear when no image is available or the image fails to load.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTENT DISPLAY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Avatar</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Displays a user's profile image with a graceful initials fallback when no image is available.
+  </p>
+</div>
 
 **Common alternative names:** Profile picture, User icon, Thumbnail
 

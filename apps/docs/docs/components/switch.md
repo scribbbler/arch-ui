@@ -1,16 +1,18 @@
 ---
 sidebar_label: Switch
+hide_title: true
 ---
 
-# Switch
-
-A binary on/off toggle rendered as a styled checkbox with `role="switch"`. The thumb slides between two positions to communicate state without relying on colour alone. Integrates with FormControl for disabled and required state inheritance.
-
-**Status:** Stable
-
-**Common alternative names:** Toggle, toggle switch, on/off switch
-
-**Arch UI source component:** `Toggle`
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Switch</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A binary on/off toggle that slides between two positions to communicate state without relying on colour alone.
+  </p>
+</div>
 
 ---
 

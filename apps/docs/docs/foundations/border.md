@@ -1,15 +1,20 @@
 ---
 sidebar_label: Border
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Border
-
-Borders define the edges and boundaries of interface elements. They provide visual structure, separate content areas, and communicate interactivity. Our border system uses a constrained set of width and color tokens to keep interfaces consistent and accessible.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Border</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A constrained set of width and color tokens that define element edges, separate content areas, and communicate interactivity.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

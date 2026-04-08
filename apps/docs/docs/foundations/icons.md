@@ -1,15 +1,20 @@
 ---
 sidebar_label: Icons
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Icons
-
-Arch UI ships a curated set of 43 icons sourced from Material Design Icons. Every icon is a `forwardRef`-compatible React component that inherits color from its parent and supports three deliberate sizes.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>EXPRESSION</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Icons</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A curated set of 43 forwardRef-compatible React icons that inherit color and support three deliberate sizes.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

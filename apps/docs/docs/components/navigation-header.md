@@ -1,10 +1,18 @@
 ---
 sidebar_label: Navigation header
+hide_title: true
 ---
 
-# Navigation Header
-
-A top-level header bar that spans the full width of the viewport, providing brand identity, primary navigation links, and utility actions. Navigation Header is the main entry point for site-wide navigation on desktop and tablet layouts, and typically collapses into a hamburger menu on mobile.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>NAVIGATION</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Navigation Header</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A top-level header bar providing brand identity, primary navigation links, and utility actions.
+  </p>
+</div>
 
 ## Usage
 

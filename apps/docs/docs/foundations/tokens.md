@@ -1,15 +1,20 @@
 ---
 sidebar_label: Design Tokens
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Design Tokens
-
-Design tokens are the smallest units of design decisions in Arch UI. They capture choices like color, spacing, and typography as named, reusable values that stay consistent across platforms, tools, and codebases.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Design Tokens</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Design tokens are the smallest units of design decisions in Arch UI — named, reusable values for color, spacing, and typography that stay consistent across platforms and codebases.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

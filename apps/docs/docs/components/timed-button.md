@@ -1,14 +1,18 @@
 ---
 sidebar_label: Timed button
+hide_title: true
 ---
 
-# Timed Button
-
-A button that becomes actionable only after a countdown timer completes. Timed buttons add a deliberate delay before a high-impact action can be confirmed, giving users time to read context and reconsider.
-
-**Status:** Planned
-
-**Common alternative names:** Countdown button, delayed button, wait-to-confirm button
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Buttons</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Timed Button</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A button that becomes actionable only after a countdown timer completes, giving users time to reconsider.
+  </p>
+</div>
 
 ---
 

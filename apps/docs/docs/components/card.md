@@ -1,10 +1,18 @@
 ---
 sidebar_label: Card
+hide_title: true
 ---
 
-# Card
-
-A surface container for grouping related content and actions. Card renders a bordered, elevated panel with optional header, body, and footer regions. It can be static or interactive -- when `clickable` is set, the entire card becomes a tappable surface that renders as a link or a button.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTAINERS AND LAYOUT</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Card</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A surface container for grouping related content and actions with optional header, body, and footer regions.
+  </p>
+</div>
 
 ## Usage
 

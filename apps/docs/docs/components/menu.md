@@ -1,14 +1,18 @@
 ---
 sidebar_label: Menu
+hide_title: true
 ---
 
-# Menu
-
-A dropdown list of actions or options triggered by a button. Commonly used for overflow actions, context menus, and navigation dropdowns.
-
-**Status:** Planned
-
-**Common alternative names:** Dropdown menu, context menu, action menu, popup menu
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Menu</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A dropdown list of actions or options triggered by a button for overflow actions and context menus.
+  </p>
+</div>
 
 ---
 

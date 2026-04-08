@@ -1,10 +1,18 @@
 ---
 sidebar_label: List item
+hide_title: true
 ---
 
-# List Item
-
-A structured row within a List, supporting optional artwork on the left, a content area in the middle, and an end enhancer on the right. Use ListItem for rich, interactive list rows -- for example contact lists, settings menus, or notification feeds.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTENT DISPLAY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>List Item</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A structured row within a List, supporting artwork, content, and end enhancer slots.
+  </p>
+</div>
 
 **Common alternative names:** Row, List cell, List tile
 

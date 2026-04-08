@@ -1,12 +1,17 @@
 ---
 sidebar_label: Screen Readers
+hide_title: true
 ---
 
-<span className="foundation-header__label">Accessibility</span>
-
-# Screen Readers
-
-Screen readers convert on-screen content into speech or braille output, allowing blind and low-vision users to navigate software. Building for screen readers is not about adding a separate experience — it is about ensuring the existing experience is accurately represented in the accessibility tree.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ACCESSIBILITY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Screen Readers</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Ensure your interface is accurately represented in the accessibility tree so screen readers convey the same meaning as the visual design.
+  </p>
+</div>
 
 ---
 

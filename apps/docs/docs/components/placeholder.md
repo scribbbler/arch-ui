@@ -1,10 +1,18 @@
 ---
 sidebar_label: Placeholder
+hide_title: true
 ---
 
-# Placeholder
-
-A decorative loading placeholder (also known as Skeleton) displayed while content is being fetched. Placeholder conveys that content is on its way, reducing perceived wait time and preventing layout shifts.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INDICATORS AND STATUS</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Placeholder</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A decorative loading placeholder displayed while content is being fetched, reducing perceived wait time and preventing layout shifts.
+  </p>
+</div>
 
 Placeholder is the design-facing name for the `Skeleton` component in Arch UI. They share the same implementation.
 

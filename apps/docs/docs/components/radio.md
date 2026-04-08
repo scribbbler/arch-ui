@@ -1,14 +1,18 @@
 ---
 sidebar_label: Radio
+hide_title: true
 ---
 
-# Radio
-
-A single option within a mutually exclusive group. Renders a native radio input with a custom visual circle. Must be used inside a RadioGroup, which provides the group name, selected value, and change handler via context.
-
-**Status:** Stable
-
-**Common alternative names:** Radio button, option button
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Radio</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A single option within a mutually exclusive group, rendered as a native radio input with a custom visual.
+  </p>
+</div>
 
 ---
 

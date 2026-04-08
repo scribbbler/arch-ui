@@ -1,10 +1,18 @@
 ---
 sidebar_label: Banner
+hide_title: true
 ---
 
-# Banner
-
-A full-width announcement bar for site-wide or page-level status messages. Banners sit at the top of a page or section and remain visible until the user dismisses them or takes action.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>MESSAGING</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Banner</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A full-width announcement bar for site-wide or page-level status messages.
+  </p>
+</div>
 
 **Common alternative names:** Announcement bar, Notice bar, Page banner
 

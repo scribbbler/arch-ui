@@ -1,15 +1,20 @@
 ---
 sidebar_label: Elevation
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Elevation
-
-Elevation uses shadow and z-index to create a sense of depth, directing attention and communicating hierarchy between surfaces. Arch UI provides a structured set of elevation tokens so every layer in your interface has a clear, predictable position.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Elevation</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Shadow and z-index tokens that create depth, direct attention, and communicate hierarchy between surfaces.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>

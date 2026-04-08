@@ -1,14 +1,18 @@
 ---
 sidebar_label: PIN code
+hide_title: true
 ---
 
-# PIN Code
-
-A multi-digit code input with auto-advance between fields. Each input accepts a single character. Supports paste distribution, backspace navigation, and masked display for sensitive codes.
-
-**Status:** Stable
-
-**Common alternative names:** OTP input, verification code, code input, one-time password
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>PIN Code</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A multi-digit code input with auto-advance between fields, paste distribution, and masked display.
+  </p>
+</div>
 
 ---
 

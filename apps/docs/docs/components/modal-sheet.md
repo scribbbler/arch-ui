@@ -1,8 +1,18 @@
 ---
 sidebar_label: Modal sheet
+hide_title: true
 ---
 
-# Modal Sheet [Deprecated]
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTAINERS AND LAYOUT</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Modal Sheet</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A mobile-first overlay that combined modal dialog behaviour with a bottom sheet presentation.
+  </p>
+</div>
 
 :::caution Deprecated
 Modal Sheet is deprecated. Use [Sheet](/docs/components/sheet) for bottom or side panel overlays, or [Modal](/docs/components/modal) for centred dialogs. Modal Sheet will be removed in a future major release.

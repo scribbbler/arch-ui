@@ -1,14 +1,18 @@
 ---
 sidebar_label: File upload
+hide_title: true
 ---
 
-# File Upload
-
-A drop zone for selecting files via drag-and-drop or the native file dialog. Validates file size, displays error and progress states, and announces status changes to assistive technology.
-
-**Status:** Stable
-
-**Common alternative names:** Dropzone, file picker, upload area
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Input and selection</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>File Upload</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A drop zone for selecting files via drag-and-drop or the native file dialog with validation and progress states.
+  </p>
+</div>
 
 ---
 

@@ -1,10 +1,18 @@
 ---
 sidebar_label: Table
+hide_title: true
 ---
 
-# Table
-
-A semantic, accessible data table for presenting structured information in rows and columns. Table provides a required caption for accessibility, optional striped rows, bordered cells, and two density sizes. It is composed from sub-components that map directly to native HTML table elements.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>DATA AND TABLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Table</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A semantic, accessible data table for presenting structured information in rows and columns.
+  </p>
+</div>
 
 ## Usage
 

@@ -1,12 +1,17 @@
 ---
 sidebar_label: Building A11y First
+hide_title: true
 ---
 
-<span className="foundation-header__label">Accessibility</span>
-
-# Building A11y First
-
-Accessibility is cheapest when it is built in from the start. Retrofitting access into a finished feature costs 10x more in developer time, QA effort, and user frustration. This page outlines the Arch UI approach to designing and building with accessibility as a first-class constraint, not a remediation task.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ACCESSIBILITY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Building A11y First</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Build accessibility in from the start — it costs 10x less than retrofitting and eliminates entire categories of rework.
+  </p>
+</div>
 
 ---
 

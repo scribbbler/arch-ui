@@ -1,15 +1,20 @@
 ---
 sidebar_label: Layout Grids
+hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<span className="foundation-header__label">Styles</span>
-
-# Layout Grids
-
-Layout grids provide the structural scaffolding that keeps interfaces consistent across screen sizes. They define how content is organized horizontally through columns, gutters, and margins — giving every page a predictable rhythm.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Layout Grids</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    Structural scaffolding of columns, gutters, and margins that keeps interfaces consistent across screen sizes.
+  </p>
+</div>
 
 <Tabs>
 <TabItem value="overview" label="Overview" default>
