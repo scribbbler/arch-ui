@@ -126,20 +126,6 @@ While all increments of 4 are available, designers will use a set of five archet
 
 Use **padding** to create space inside a container — the breathing room around content. Use **margin** (or `gap`) to create space between sibling elements. In Arch UI components, prefer CSS `gap` on flex and grid containers over margin; it avoids collapsed-margin surprises and is easier to override with a single token.
 
-```css
-/* Padding inside a card */
-.card {
-  padding: var(--spacing-component-lg);          /* 16px */
-}
-
-/* Gap between stacked cards */
-.card-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-layout-content-gap);         /* 24px */
-}
-```
-
 ### Component spacing
 
 Semantic component tokens (`--spacing-component-*`) control the internal padding and gaps of individual components — buttons, inputs, cards, and dialogs. They follow a t-shirt size progression:
@@ -172,24 +158,6 @@ Layout tokens control page-level structure — the gutter around content, the ga
 | `--spacing-layout-page-gutter` | 16 px | Left/right page margin on mobile-first layouts |
 | `--spacing-layout-content-gap` | 24 px | Gap between content blocks within a section |
 | `--spacing-layout-section-gap` | 48 px | Gap between major page sections |
-
-```css
-.page {
-  padding-inline: var(--spacing-layout-page-gutter);
-}
-
-.page__sections {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-layout-section-gap);
-}
-
-.section__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-layout-content-gap);
-}
-```
 
 ### Phone layout
 
@@ -341,6 +309,45 @@ Spacing tokens follow the same two-tier alias pattern as all Arch UI tokens:
 </div>
 
 To change the density of every component in the system, update the semantic-to-primitive mapping — no component CSS needs to change.
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+<h2>Padding vs margin</h2>
+
+```css
+/* Padding inside a card */
+.card {
+  padding: var(--spacing-component-lg);          /* 16px */
+}
+
+/* Gap between stacked cards */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-layout-content-gap);         /* 24px */
+}
+```
+
+<h2>Layout spacing</h2>
+
+```css
+.page {
+  padding-inline: var(--spacing-layout-page-gutter);
+}
+
+.page__sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-layout-section-gap);
+}
+
+.section__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-layout-content-gap);
+}
+```
 
 </TabItem>
 <TabItem value="changelog" label="Status & changelog">

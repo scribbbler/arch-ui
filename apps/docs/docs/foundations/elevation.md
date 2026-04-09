@@ -154,19 +154,6 @@ An inset shadow used for pressed states, input fields, or recessed surfaces.
 
 ### Shadow and motion
 
-When an element changes elevation — for example a card lifting on hover — transition the `box-shadow` property to make the change feel physical.
-
-```css
-.card {
-  box-shadow: var(--shadow-component-sm);
-  transition: box-shadow 200ms ease-out;
-}
-
-.card:hover {
-  box-shadow: var(--shadow-component-md);
-}
-```
-
 Avoid animating shadows on elements that do not change elevation. Shadow transitions have a rendering cost and should only fire when the depth relationship genuinely changes.
 
 ---
@@ -347,6 +334,29 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 | z-semantic-popover | `--z-semantic-popover` | `{z.popover}` (500) | `Popover`, `FloatingPanel` |
 | z-semantic-toast | `--z-semantic-toast` | `{z.toast}` (600) | `Toast`, `Snackbar` |
 | z-semantic-tooltip | `--z-semantic-tooltip` | `{z.tooltip}` (700) | `Tooltip` |
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+<h2>Shadow transitions</h2>
+
+When an element changes elevation — for example a card lifting on hover — transition the `box-shadow` property to make the change feel physical.
+
+```css
+.card {
+  box-shadow: var(--shadow-component-sm);
+  transition: box-shadow 200ms ease-out;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-component-md);
+}
+```
+
+</TabItem>
+<TabItem value="status" label="Status & changelog">
+
+Status & changelog coming soon.
 
 </TabItem>
 </Tabs>
