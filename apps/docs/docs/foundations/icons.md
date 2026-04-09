@@ -199,7 +199,7 @@ Icon-only buttons must meet a 44 &times; 44 px minimum touch target (WCAG 2.5.8)
 </div>
 
 </TabItem>
-<TabItem value="specs" label="Specs">
+<TabItem value="tokens" label="Tokens">
 
 <h2>Component API</h2>
 

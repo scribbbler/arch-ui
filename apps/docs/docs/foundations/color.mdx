@@ -146,32 +146,11 @@ Choose tokens that match the semantic role of the element. A background should u
 
 ### Action token patterns
 
-Interactive elements follow a consistent three-state pattern: rest, hover, and active. Each variant (primary, secondary, ghost, destructive) provides all three plus a text color.
-
-```css
-.button--primary {
-  background: var(--color-action-primary);
-  color: var(--color-action-primary-text);
-}
-.button--primary:hover {
-  background: var(--color-action-primary-hover);
-}
-.button--primary:active {
-  background: var(--color-action-primary-active);
-}
-```
+Interactive elements follow a consistent three-state pattern: rest, hover, and active. Each variant (primary, secondary, ghost, destructive) provides all three plus a text color. See the **Code** tab for implementation examples.
 
 ### Feedback tokens come in sets
 
-Each feedback category (danger, success, warning, info) provides a background, text, and border token designed to work together. Always use the complete set.
-
-```css
-.alert--danger {
-  background: var(--color-feedback-danger-bg);
-  color: var(--color-feedback-danger-text);
-  border-color: var(--color-feedback-danger-border);
-}
-```
+Each feedback category (danger, success, warning, info) provides a background, text, and border token designed to work together. Always use the complete set. See the **Code** tab for implementation examples.
 
 ---
 
@@ -251,14 +230,7 @@ Color should reinforce meaning, not be the sole indicator. Combine color with te
 
 ### Focus visibility
 
-All interactive elements must show a visible focus indicator using `--color-border-focus`. This token maps to `--color-blue-500` (#068BEE) in light mode and `--color-blue-400` (#6DAAFB) in dark mode, both providing strong contrast against their respective background colors.
-
-```css
-:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
-}
-```
+All interactive elements must show a visible focus indicator using `--color-border-focus`. This token maps to `--color-blue-500` (#068BEE) in light mode and `--color-blue-400` (#6DAAFB) in dark mode, both providing strong contrast against their respective background colors. See the **Code** tab for the recommended focus style.
 
 </TabItem>
 <TabItem value="tokens" label="Tokens">
@@ -294,8 +266,8 @@ All semantic tokens used by Arch UI components. These tokens change values betwe
 <h3>Icon</h3>
 
 <SemanticTokenTable category="icon" />
-</TabItem>
-<TabItem value="specs" label="Specs">
+
+---
 
 <h2>Primitive color palette</h2>
 
@@ -304,6 +276,54 @@ The primitive palette defines every available color value in the system. These t
 Each hue provides a ramp from 50 (lightest) through 900 (darkest). The neutral gray ramp is used most heavily in both themes.
 
 <AllColorRamps />
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+## Action token patterns
+
+Interactive elements follow a consistent three-state pattern: rest, hover, and active. Each variant (primary, secondary, ghost, destructive) provides all three plus a text color.
+
+```css
+.button--primary {
+  background: var(--color-action-primary);
+  color: var(--color-action-primary-text);
+}
+.button--primary:hover {
+  background: var(--color-action-primary-hover);
+}
+.button--primary:active {
+  background: var(--color-action-primary-active);
+}
+```
+
+## Feedback token sets
+
+Each feedback category (danger, success, warning, info) provides a background, text, and border token designed to work together. Always use the complete set.
+
+```css
+.alert--danger {
+  background: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+  border-color: var(--color-feedback-danger-border);
+}
+```
+
+## Focus visibility
+
+All interactive elements must show a visible focus indicator using `--color-border-focus`.
+
+```css
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+```
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
 
 </TabItem>
 </Tabs>

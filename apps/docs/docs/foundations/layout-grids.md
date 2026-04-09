@@ -309,6 +309,66 @@ On large screens (1240px and above), the grid stops expanding. Content locks to 
 
 ---
 
+## Do / Don't
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Use semantic layout tokens for all grid spacing. This keeps your layout in sync with the rest of the system when token values are updated.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Hardcode pixel values for gutters, margins, or section gaps. Values like <code>padding: 0 16px</code> bypass the token system and will drift over time.</p>
+  </div>
+</div>
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Use a mobile-first approach: start with 4 columns and layer on complexity at wider breakpoints.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Design desktop-first and try to cram 12 columns of content into a 4-column mobile layout as an afterthought.</p>
+  </div>
+</div>
+
+</TabItem>
+<TabItem value="tokens" label="Tokens">
+
+<h2>Layout spacing tokens</h2>
+
+These are the layout-related spacing tokens available in the system. All are defined in `packages/tokens/src/semantic/spacing.json`.
+
+### Semantic tokens
+
+| Token | CSS variable | Value | Purpose |
+|---|---|---|---|
+| spacing-layout-page-gutter | `--spacing-layout-page-gutter` | 16px | Page-edge margins on mobile; small-screen gutters |
+| spacing-layout-content-gap | `--spacing-layout-content-gap` | 24px | Gap between content blocks; desktop gutters |
+| spacing-layout-section-gap | `--spacing-layout-section-gap` | 48px | Vertical space between major page sections |
+
+### Primitive tokens used by the grid
+
+| Token | CSS variable | Value | Grid role |
+|---|---|---|---|
+| spacing-16 | `--spacing-16` | 16px | Mobile gutter and margin |
+| spacing-24 | `--spacing-24` | 24px | Desktop gutter, tablet margin |
+| spacing-32 | `--spacing-32` | 32px | Tablet landscape margin |
+| spacing-48 | `--spacing-48` | 48px | Section gap between page regions |
+
+<h2>Breakpoint reference</h2>
+
+| Name | Min width | Max width | Columns | Gutter | Margin |
+|---|---|---|---|---|---|
+| xs | 0px | 599px | 4 | 16px | 16px |
+| sm | 600px | 904px | 8 | 16px | 24px |
+| md | 905px | 1239px | 12 | 24px | 32px |
+| lg | 1240px | — | 12 | 24px | auto |
+
+</TabItem>
+<TabItem value="code" label="Code">
+
 ## Implementation
 
 Arch UI layout grids are implemented using CSS Grid. The token-backed approach means you never hardcode pixel values for gutters or margins.
@@ -349,64 +409,10 @@ Arch UI layout grids are implemented using CSS Grid. The token-backed approach m
 }
 ```
 
----
-
-## Do / Don't
-
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use semantic layout tokens for all grid spacing. This keeps your layout in sync with the rest of the system when token values are updated.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Hardcode pixel values for gutters, margins, or section gaps. Values like <code>padding: 0 16px</code> bypass the token system and will drift over time.</p>
-  </div>
-</div>
-
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use a mobile-first approach: start with 4 columns and layer on complexity at wider breakpoints.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Design desktop-first and try to cram 12 columns of content into a 4-column mobile layout as an afterthought.</p>
-  </div>
-</div>
-
 </TabItem>
-<TabItem value="token-mapping" label="Token mapping">
+<TabItem value="status-changelog" label="Status & changelog">
 
-<h2>Layout spacing tokens</h2>
-
-These are the layout-related spacing tokens available in the system. All are defined in `packages/tokens/src/semantic/spacing.json`.
-
-### Semantic tokens
-
-| Token | CSS variable | Value | Purpose |
-|---|---|---|---|
-| spacing-layout-page-gutter | `--spacing-layout-page-gutter` | 16px | Page-edge margins on mobile; small-screen gutters |
-| spacing-layout-content-gap | `--spacing-layout-content-gap` | 24px | Gap between content blocks; desktop gutters |
-| spacing-layout-section-gap | `--spacing-layout-section-gap` | 48px | Vertical space between major page sections |
-
-### Primitive tokens used by the grid
-
-| Token | CSS variable | Value | Grid role |
-|---|---|---|---|
-| spacing-16 | `--spacing-16` | 16px | Mobile gutter and margin |
-| spacing-24 | `--spacing-24` | 24px | Desktop gutter, tablet margin |
-| spacing-32 | `--spacing-32` | 32px | Tablet landscape margin |
-| spacing-48 | `--spacing-48` | 48px | Section gap between page regions |
-
-<h2>Breakpoint reference</h2>
-
-| Name | Min width | Max width | Columns | Gutter | Margin |
-|---|---|---|---|---|---|
-| xs | 0px | 599px | 4 | 16px | 16px |
-| sm | 600px | 904px | 8 | 16px | 24px |
-| md | 905px | 1239px | 12 | 24px | 32px |
-| lg | 1240px | — | 12 | 24px | auto |
+Status & changelog coming soon.
 
 </TabItem>
 </Tabs>

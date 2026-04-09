@@ -170,8 +170,74 @@ Easing curves define the acceleration profile of an animation. They are the diff
 }
 `}</style>
 
+---
+
+## Do and Don't
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Use semantic tokens (<code>--motion-semantic-easing-enter</code>) in components so intent is clear and changes propagate automatically.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Hard-code <code>cubic-bezier()</code> values or raw millisecond durations in component CSS. These bypass the token system and break reduced-motion support.</p>
+  </div>
+</div>
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Prefer <code>transform</code> and <code>opacity</code> for animations. These properties are GPU-composited and do not trigger layout recalculation.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Animate <code>width</code>, <code>height</code>, <code>top</code>, <code>left</code>, or <code>margin</code>. These trigger expensive layout reflows on every frame.</p>
+  </div>
+</div>
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Keep exit animations faster than enter animations. Users want departing UI to get out of the way quickly.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Use <code>--motion-duration-slower</code> for simple hover states. A 500ms delay on a button hover feels sluggish.</p>
+  </div>
+</div>
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Test with <code>prefers-reduced-motion: reduce</code> enabled. Verify that the interface is still fully usable without any animation.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Rely on animation as the only feedback mechanism. Always pair motion with a visible state change (colour, icon, text) so reduced-motion users are not left guessing.</p>
+  </div>
+</div>
+
+---
+
+## Performance checklist
+
+1. **Animate composited properties only** — `transform`, `opacity`, and `filter` are cheap. Everything else triggers layout or paint.
+2. **Use `will-change` sparingly** — Add it right before an animation starts and remove it after. Permanent `will-change` wastes GPU memory.
+3. **Avoid animating during scroll** — If you must, use `IntersectionObserver` to trigger animations only when elements enter the viewport.
+4. **Cap concurrent animations** — More than three simultaneous animated elements on screen can cause frame drops on lower-end devices.
+
+---
+
+## Accessibility requirements
+
+- All animations must be disabled when `prefers-reduced-motion: reduce` is active. This is handled automatically by the token system.
+- No animation should flash more than three times per second (WCAG 2.3.1).
+- Content must not require animation to be understood. Animation supplements meaning but never replaces it.
+- Auto-playing animations (loading spinners excluded) should pause after 5 seconds or provide a way to stop them (WCAG 2.2.2).
+
 </TabItem>
-<TabItem value="semantic" label="Semantic tokens">
+<TabItem value="tokens" label="Tokens">
 
 <h2>Semantic motion tokens</h2>
 
@@ -220,7 +286,7 @@ This is intentional and follows a physical model:
 </div>
 
 </TabItem>
-<TabItem value="implementation" label="Implementation">
+<TabItem value="code" label="Code">
 
 <h2>Using motion tokens in CSS</h2>
 
@@ -314,67 +380,9 @@ Arch UI automatically respects `prefers-reduced-motion`. When the user has reduc
 Because the tokens themselves change, every component that uses them inherits reduced-motion behaviour with zero additional code.
 
 </TabItem>
-<TabItem value="guidelines" label="Guidelines">
+<TabItem value="status" label="Status & changelog">
 
-<h2>Do and Don't</h2>
-
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use semantic tokens (<code>--motion-semantic-easing-enter</code>) in components so intent is clear and changes propagate automatically.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Hard-code <code>cubic-bezier()</code> values or raw millisecond durations in component CSS. These bypass the token system and break reduced-motion support.</p>
-  </div>
-</div>
-
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Prefer <code>transform</code> and <code>opacity</code> for animations. These properties are GPU-composited and do not trigger layout recalculation.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Animate <code>width</code>, <code>height</code>, <code>top</code>, <code>left</code>, or <code>margin</code>. These trigger expensive layout reflows on every frame.</p>
-  </div>
-</div>
-
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Keep exit animations faster than enter animations. Users want departing UI to get out of the way quickly.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Use <code>--motion-duration-slower</code> for simple hover states. A 500ms delay on a button hover feels sluggish.</p>
-  </div>
-</div>
-
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Test with <code>prefers-reduced-motion: reduce</code> enabled. Verify that the interface is still fully usable without any animation.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Rely on animation as the only feedback mechanism. Always pair motion with a visible state change (colour, icon, text) so reduced-motion users are not left guessing.</p>
-  </div>
-</div>
-
-<h2>Performance checklist</h2>
-
-1. **Animate composited properties only** — `transform`, `opacity`, and `filter` are cheap. Everything else triggers layout or paint.
-2. **Use `will-change` sparingly** — Add it right before an animation starts and remove it after. Permanent `will-change` wastes GPU memory.
-3. **Avoid animating during scroll** — If you must, use `IntersectionObserver` to trigger animations only when elements enter the viewport.
-4. **Cap concurrent animations** — More than three simultaneous animated elements on screen can cause frame drops on lower-end devices.
-
-<h2>Accessibility requirements</h2>
-
-- All animations must be disabled when `prefers-reduced-motion: reduce` is active. This is handled automatically by the token system.
-- No animation should flash more than three times per second (WCAG 2.3.1).
-- Content must not require animation to be understood. Animation supplements meaning but never replaces it.
-- Auto-playing animations (loading spinners excluded) should pause after 5 seconds or provide a way to stop them (WCAG 2.2.2).
+Status & changelog coming soon.
 
 </TabItem>
 </Tabs>

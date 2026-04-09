@@ -339,7 +339,143 @@ Tokens are how themes work. When Arch UI switches from light to dark mode, your 
 
 </TabItem>
 
-<TabItem value="implementation" label="Implementation">
+<TabItem value="tokens" label="Tokens">
+
+<h2>Token inventory</h2>
+
+Arch UI ships tokens across 8 categories. The table below shows the token count for each category and links to its detailed foundation page.
+
+| Category | Tokens | Primitive file | Semantic file | Foundation page |
+|---|---|---|---|---|
+| **Color** | 240 | `primitive/color.json` | `semantic/color.json` | [Color](/foundations/color) |
+| **Typography** | 129 | `primitive/typography.json` | `semantic/typography.json` | [Typography](/foundations/typography) |
+| **Spacing** | 37 | `primitive/spacing.json` | `semantic/spacing.json` | [Spacing](/foundations/spacing) |
+| **Motion** | 19 | `primitive/motion.json` | `semantic/motion.json` | [Motion](/foundations/motion) |
+| **Z-index** | 17 | `primitive/z-index.json` | `semantic/z-index.json` | -- |
+| **Shadow** | 14 | `primitive/shadow.json` | `semantic/shadow.json` | [Elevation](/foundations/elevation) |
+| **Radius** | 12 | `primitive/radius.json` | `semantic/radius.json` | [Corner Radius](/foundations/corner-radius) |
+| **Border** | 6 | `primitive/border-width.json` | `semantic/border-width.json` | [Border](/foundations/border) |
+
+---
+
+<h2>Color tokens</h2>
+
+**Primitive** -- 12 color scales (gray, blue, red, green, yellow, orange, purple, teal, magenta, lime, amber) plus `white` and `black`. Each scale runs from `50` (lightest) to `900` (darkest).
+
+**Semantic** -- organized into 7 groups:
+
+| Group | Purpose | Examples |
+|---|---|---|
+| `color-background-*` | Surface and page backgrounds | `default`, `subtle`, `muted`, `inverse`, `disabled`, `overlay` |
+| `color-text-*` | Text and label colors | `default`, `subtle`, `placeholder`, `disabled`, `inverse`, `link`, `danger`, `success`, `warning`, `info` |
+| `color-action-*` | Interactive element fills | `primary`, `primary-hover`, `secondary`, `ghost`, `destructive` (each with `-hover`, `-active`, `-text` variants) |
+| `color-border-*` | Border and divider colors | `default`, `subtle`, `strong`, `focus`, `danger`, `success`, `warning`, `disabled` |
+| `color-feedback-*` | Status and alert backgrounds | `danger-bg`, `danger-text`, `danger-border`, `success-*`, `warning-*`, `info-*` |
+| `color-surface-*` | Elevation layers | `base`, `raised`, `overlay`, `sunken` |
+| `color-icon-*` | Icon fill colors | `default`, `subtle`, `disabled`, `inverse`, `danger`, `success`, `warning`, `info` |
+
+See [Color foundation page](/foundations/color) for full swatches and values.
+
+---
+
+<h2>Typography tokens</h2>
+
+**Primitive** -- individual scales for `family` (sans, mono, serif), `size` (11px--96px), `weight` (regular--extrabold), `line-height` (1--112px), and `letter-spacing` (tighter--wider).
+
+**Semantic** -- a type scale with composite tokens for each style:
+
+| Scale | Sizes available |
+|---|---|
+| Display | `large`, `medium`, `small`, `xsmall` |
+| Heading | `xxlarge`, `xlarge`, `large`, `medium`, `small`, `xsmall` |
+| Label | `large`, `medium`, `small`, `xsmall` |
+| Paragraph | `large`, `medium`, `small`, `xsmall` |
+| Code | `md`, `sm` |
+
+Each scale entry includes `font-size`, `line-height`, `font-weight`, and `letter-spacing`.
+
+See [Typography foundation page](/foundations/typography) for the full type scale.
+
+---
+
+<h2>Spacing tokens</h2>
+
+**Primitive** -- a linear scale from `0` to `128`: `0`, `1`, `2`, `4`, `6`, `8`, `10`, `12`, `14`, `16`, `18`, `20`, `22`, `24`, `28`, `32`, `36`, `40`, `48`, `56`, `64`, `80`, `96`, `112`, `128`.
+
+**Semantic** -- three groups:
+
+| Group | Tokens | Purpose |
+|---|---|---|
+| `spacing-layout-*` | `page-gutter`, `section-gap`, `content-gap` | Page-level spacing |
+| `spacing-component-*` | `xs`, `sm`, `md`, `lg`, `xl` | Padding and gap inside components |
+| `spacing-inline-*` | `xs`, `sm`, `md`, `lg` | Small gaps between inline elements |
+
+See [Spacing foundation page](/foundations/spacing) for the full scale.
+
+---
+
+<h2>Radius tokens</h2>
+
+**Primitive** -- `none` (0px), `xs` (2px), `sm` (4px), `md` (8px), `lg` (12px), `xl` (16px), `2xl` (24px), `full` (9999px).
+
+**Semantic** -- `radius-component-sm`, `radius-component-md`, `radius-component-lg`, `radius-component-full`.
+
+See [Corner Radius foundation page](/foundations/corner-radius).
+
+---
+
+<h2>Shadow tokens</h2>
+
+**Primitive** -- `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `inner`, `shallow-above`, `shallow-below`, `deep-above`, `deep-below`.
+
+**Semantic** -- `shadow-component-sm`, `shadow-component-md`, `shadow-overlay`.
+
+See [Elevation foundation page](/foundations/elevation).
+
+---
+
+<h2>Motion tokens</h2>
+
+**Primitive** -- durations (`instant`, `fast`, `normal`, `slow`, `slower`) and easings (`linear`, `ease-in`, `ease-out`, `ease-in-out`, `spring`, `bounce`).
+
+**Semantic** -- `motion-semantic-duration-instant` through `duration-slower`, plus `easing-default`, `easing-enter`, `easing-exit`.
+
+See [Motion foundation page](/foundations/motion).
+
+---
+
+<h2>Border tokens</h2>
+
+**Primitive** -- `border-width-none` (0px), `border-width-thin` (1px), `border-width-medium` (2px), `border-width-thick` (4px).
+
+**Semantic** -- `border-width-default` (aliases `thin`), `border-width-strong` (aliases `medium`).
+
+See [Border foundation page](/foundations/border).
+
+---
+
+<h2>Z-index tokens</h2>
+
+**Primitive** -- a stepped scale for stacking context:
+
+| Token | Value | Use case |
+|---|---|---|
+| `z-hide` | -1 | Hidden elements |
+| `z-base` | 0 | Default stacking |
+| `z-raised` | 10 | Slightly elevated content |
+| `z-dropdown` | 100 | Dropdown menus |
+| `z-sticky` | 200 | Sticky headers |
+| `z-overlay` | 300 | Overlay backdrops |
+| `z-modal` | 400 | Modal dialogs |
+| `z-popover` | 500 | Popovers and tooltips |
+| `z-toast` | 600 | Toast notifications |
+| `z-tooltip` | 700 | Tooltip overlays |
+
+**Semantic** -- `z-semantic-dropdown`, `z-semantic-sticky`, `z-semantic-overlay`, `z-semantic-modal`, `z-semantic-popover`, `z-semantic-toast`, `z-semantic-tooltip`.
+
+</TabItem>
+
+<TabItem value="code" label="Code">
 
 <h2>How to use tokens in CSS</h2>
 
@@ -534,139 +670,26 @@ gap: 7px;
 
 </TabItem>
 
-<TabItem value="reference" label="Reference">
+<TabItem value="status" label="Status & changelog">
 
-<h2>Token inventory</h2>
+<h2>Current status</h2>
 
-Arch UI ships tokens across 8 categories. The table below shows the token count for each category and links to its detailed foundation page.
-
-| Category | Tokens | Primitive file | Semantic file | Foundation page |
-|---|---|---|---|---|
-| **Color** | 240 | `primitive/color.json` | `semantic/color.json` | [Color](/foundations/color) |
-| **Typography** | 129 | `primitive/typography.json` | `semantic/typography.json` | [Typography](/foundations/typography) |
-| **Spacing** | 37 | `primitive/spacing.json` | `semantic/spacing.json` | [Spacing](/foundations/spacing) |
-| **Motion** | 19 | `primitive/motion.json` | `semantic/motion.json` | [Motion](/foundations/motion) |
-| **Z-index** | 17 | `primitive/z-index.json` | `semantic/z-index.json` | -- |
-| **Shadow** | 14 | `primitive/shadow.json` | `semantic/shadow.json` | [Elevation](/foundations/elevation) |
-| **Radius** | 12 | `primitive/radius.json` | `semantic/radius.json` | [Corner Radius](/foundations/corner-radius) |
-| **Border** | 6 | `primitive/border-width.json` | `semantic/border-width.json` | [Border](/foundations/border) |
-
----
-
-<h2>Color tokens</h2>
-
-**Primitive** -- 12 color scales (gray, blue, red, green, yellow, orange, purple, teal, magenta, lime, amber) plus `white` and `black`. Each scale runs from `50` (lightest) to `900` (darkest).
-
-**Semantic** -- organized into 7 groups:
-
-| Group | Purpose | Examples |
-|---|---|---|
-| `color-background-*` | Surface and page backgrounds | `default`, `subtle`, `muted`, `inverse`, `disabled`, `overlay` |
-| `color-text-*` | Text and label colors | `default`, `subtle`, `placeholder`, `disabled`, `inverse`, `link`, `danger`, `success`, `warning`, `info` |
-| `color-action-*` | Interactive element fills | `primary`, `primary-hover`, `secondary`, `ghost`, `destructive` (each with `-hover`, `-active`, `-text` variants) |
-| `color-border-*` | Border and divider colors | `default`, `subtle`, `strong`, `focus`, `danger`, `success`, `warning`, `disabled` |
-| `color-feedback-*` | Status and alert backgrounds | `danger-bg`, `danger-text`, `danger-border`, `success-*`, `warning-*`, `info-*` |
-| `color-surface-*` | Elevation layers | `base`, `raised`, `overlay`, `sunken` |
-| `color-icon-*` | Icon fill colors | `default`, `subtle`, `disabled`, `inverse`, `danger`, `success`, `warning`, `info` |
-
-See [Color foundation page](/foundations/color) for full swatches and values.
-
----
-
-<h2>Typography tokens</h2>
-
-**Primitive** -- individual scales for `family` (sans, mono, serif), `size` (11px--96px), `weight` (regular--extrabold), `line-height` (1--112px), and `letter-spacing` (tighter--wider).
-
-**Semantic** -- a type scale with composite tokens for each style:
-
-| Scale | Sizes available |
+| Item | Status |
 |---|---|
-| Display | `large`, `medium`, `small`, `xsmall` |
-| Heading | `xxlarge`, `xlarge`, `large`, `medium`, `small`, `xsmall` |
-| Label | `large`, `medium`, `small`, `xsmall` |
-| Paragraph | `large`, `medium`, `small`, `xsmall` |
-| Code | `md`, `sm` |
-
-Each scale entry includes `font-size`, `line-height`, `font-weight`, and `letter-spacing`.
-
-See [Typography foundation page](/foundations/typography) for the full type scale.
+| Primitive tokens | Stable |
+| Semantic tokens | Stable |
+| Component tokens | Stable |
+| Dark mode theme | Stable |
+| CSS custom properties output | Stable |
+| JSON output | Stable |
 
 ---
 
-<h2>Spacing tokens</h2>
+<h2>Changelog</h2>
 
-**Primitive** -- a linear scale from `0` to `128`: `0`, `1`, `2`, `4`, `6`, `8`, `10`, `12`, `14`, `16`, `18`, `20`, `22`, `24`, `28`, `32`, `36`, `40`, `48`, `56`, `64`, `80`, `96`, `112`, `128`.
-
-**Semantic** -- three groups:
-
-| Group | Tokens | Purpose |
+| Version | Date | Change |
 |---|---|---|
-| `spacing-layout-*` | `page-gutter`, `section-gap`, `content-gap` | Page-level spacing |
-| `spacing-component-*` | `xs`, `sm`, `md`, `lg`, `xl` | Padding and gap inside components |
-| `spacing-inline-*` | `xs`, `sm`, `md`, `lg` | Small gaps between inline elements |
-
-See [Spacing foundation page](/foundations/spacing) for the full scale.
-
----
-
-<h2>Radius tokens</h2>
-
-**Primitive** -- `none` (0px), `xs` (2px), `sm` (4px), `md` (8px), `lg` (12px), `xl` (16px), `2xl` (24px), `full` (9999px).
-
-**Semantic** -- `radius-component-sm`, `radius-component-md`, `radius-component-lg`, `radius-component-full`.
-
-See [Corner Radius foundation page](/foundations/corner-radius).
-
----
-
-<h2>Shadow tokens</h2>
-
-**Primitive** -- `xs`, `sm`, `md`, `lg`, `xl`, `2xl`, `inner`, `shallow-above`, `shallow-below`, `deep-above`, `deep-below`.
-
-**Semantic** -- `shadow-component-sm`, `shadow-component-md`, `shadow-overlay`.
-
-See [Elevation foundation page](/foundations/elevation).
-
----
-
-<h2>Motion tokens</h2>
-
-**Primitive** -- durations (`instant`, `fast`, `normal`, `slow`, `slower`) and easings (`linear`, `ease-in`, `ease-out`, `ease-in-out`, `spring`, `bounce`).
-
-**Semantic** -- `motion-semantic-duration-instant` through `duration-slower`, plus `easing-default`, `easing-enter`, `easing-exit`.
-
-See [Motion foundation page](/foundations/motion).
-
----
-
-<h2>Border tokens</h2>
-
-**Primitive** -- `border-width-none` (0px), `border-width-thin` (1px), `border-width-medium` (2px), `border-width-thick` (4px).
-
-**Semantic** -- `border-width-default` (aliases `thin`), `border-width-strong` (aliases `medium`).
-
-See [Border foundation page](/foundations/border).
-
----
-
-<h2>Z-index tokens</h2>
-
-**Primitive** -- a stepped scale for stacking context:
-
-| Token | Value | Use case |
-|---|---|---|
-| `z-hide` | -1 | Hidden elements |
-| `z-base` | 0 | Default stacking |
-| `z-raised` | 10 | Slightly elevated content |
-| `z-dropdown` | 100 | Dropdown menus |
-| `z-sticky` | 200 | Sticky headers |
-| `z-overlay` | 300 | Overlay backdrops |
-| `z-modal` | 400 | Modal dialogs |
-| `z-popover` | 500 | Popovers and tooltips |
-| `z-toast` | 600 | Toast notifications |
-| `z-tooltip` | 700 | Tooltip overlays |
-
-**Semantic** -- `z-semantic-dropdown`, `z-semantic-sticky`, `z-semantic-overlay`, `z-semantic-modal`, `z-semantic-popover`, `z-semantic-toast`, `z-semantic-tooltip`.
+| 1.0.0 | -- | Initial token system with 474 tokens across 8 categories |
 
 </TabItem>
 </Tabs>

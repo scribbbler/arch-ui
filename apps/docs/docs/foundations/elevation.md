@@ -273,7 +273,7 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 </div>
 
 </TabItem>
-<TabItem value="token-mapping" label="Token mapping">
+<TabItem value="tokens" label="Tokens">
 
 <h2>Shadow tokens</h2>
 

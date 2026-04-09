@@ -81,42 +81,17 @@ Border style is always `solid` in Arch UI. We do not provide tokens for dashed o
 
 Use `--border-width-default` with `--color-border-default` to create subtle dividers between content areas — for example, between list items, table rows, or sidebar and main content.
 
-```css
-.list-item {
-  border-bottom: var(--border-width-default) solid var(--color-border-default);
-}
-```
-
 ### Defining container boundaries
 
 Use `--border-width-default` with `--color-border-subtle` for card and container outlines. The subtle color keeps the border from competing with the content inside.
-
-```css
-.card {
-  border: var(--border-width-default) solid var(--color-border-subtle);
-}
-```
 
 ### Communicating emphasis
 
 Use `--border-width-strong` with `--color-border-strong` when a border needs to stand out — for example, an active tab indicator, a selected state, or a section header underline.
 
-```css
-.tab--active {
-  border-bottom: var(--border-width-strong) solid var(--color-border-strong);
-}
-```
-
 ### Focus indicators
 
 Every interactive element must have a visible focus ring. Use `--color-border-focus` for focus outlines to ensure accessibility compliance.
-
-```css
-.button:focus-visible {
-  outline: var(--border-width-strong) solid var(--color-border-focus);
-  outline-offset: 2px;
-}
-```
 
 ### Feedback states
 
@@ -127,12 +102,6 @@ Use semantic border color tokens to communicate validation states:
 | Danger | `--color-border-danger` | Validation errors, destructive action boundaries |
 | Success | `--color-border-success` | Confirmed inputs, success states |
 | Warning | `--color-border-warning` | Caution indicators, partial validation |
-
-```css
-.input--error {
-  border: var(--border-width-default) solid var(--color-border-danger);
-}
-```
 
 ---
 
@@ -253,6 +222,55 @@ The border width system follows the same two-tier architecture as all Arch UI to
     </div>
   </div>
 </div>
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+<h2>Separating content regions</h2>
+
+```css
+.list-item {
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+}
+```
+
+<h2>Defining container boundaries</h2>
+
+```css
+.card {
+  border: var(--border-width-default) solid var(--color-border-subtle);
+}
+```
+
+<h2>Communicating emphasis</h2>
+
+```css
+.tab--active {
+  border-bottom: var(--border-width-strong) solid var(--color-border-strong);
+}
+```
+
+<h2>Focus indicators</h2>
+
+```css
+.button:focus-visible {
+  outline: var(--border-width-strong) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+```
+
+<h2>Feedback states</h2>
+
+```css
+.input--error {
+  border: var(--border-width-default) solid var(--color-border-danger);
+}
+```
+
+</TabItem>
+<TabItem value="status" label="Status & changelog">
+
+Status & changelog coming soon.
 
 </TabItem>
 </Tabs>

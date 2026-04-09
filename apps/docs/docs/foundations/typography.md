@@ -649,8 +649,7 @@ Each prefix expands to four tokens: `font-size`, `line-height`, `font-weight`, a
 
 Code tokens use `--typography-family-mono` as their font family.
 
-</TabItem>
-<TabItem value="specs" label="Specs">
+---
 
 <h2>Primitive size tokens</h2>
 
@@ -736,6 +735,11 @@ Fixed line-height values (in px) are used by semantic scale tokens. Named multip
 | `--typography-family-sans` | 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif |
 | `--typography-family-serif` | Georgia, Cambria, 'Times New Roman', Times, serif |
 | `--typography-family-mono` | ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace |
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
 
 </TabItem>
 </Tabs>

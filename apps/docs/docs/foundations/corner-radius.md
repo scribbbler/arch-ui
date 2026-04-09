@@ -157,7 +157,7 @@ For components with a default corner radius of 12px, their corner radius can be 
 The radius value of 4 is primarily used on small components like badges.
 
 </TabItem>
-<TabItem value="token-mapping" label="Token mapping">
+<TabItem value="tokens" label="Tokens">
 
 <h2>Primitives</h2>
 

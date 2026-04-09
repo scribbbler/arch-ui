@@ -215,7 +215,7 @@ margin-top: var(--spacing-2);</code>
 </div>
 
 </TabItem>
-<TabItem value="token-mapping" label="Token mapping">
+<TabItem value="tokens" label="Tokens">
 
 <h2>Primitive tokens</h2>
 
