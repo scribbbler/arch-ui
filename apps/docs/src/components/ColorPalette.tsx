@@ -128,8 +128,9 @@ export function AllColorRamps() {
             }}
           >
             <div>black</div>
-            <div style={{ opacity: 0.8 }}>{colors.black.$value}</div>
-            <div style={{ fontSize: '9px', marginTop: '2px' }}>21.0:1</div>
+            <div>{colors.black.$value}</div>
+            <div style={{ fontSize: '9px', marginTop: '1px' }}>21.0:1</div>
+            <div style={{ fontSize: '9px', marginTop: '1px', color: '#000000' }}>1.0:1</div>
           </div>
         </div>
         <div style={{ textAlign: 'center', flex: '0 0 84px' }}>
@@ -151,8 +152,9 @@ export function AllColorRamps() {
             }}
           >
             <div>white</div>
-            <div style={{ opacity: 0.8 }}>{colors.white.$value}</div>
-            <div style={{ fontSize: '9px', marginTop: '2px' }}>21.0:1</div>
+            <div>{colors.white.$value}</div>
+            <div style={{ fontSize: '9px', marginTop: '1px' }}>21.0:1</div>
+            <div style={{ fontSize: '9px', marginTop: '1px', color: '#FFFFFF' }}>1.0:1</div>
           </div>
         </div>
       </div>
