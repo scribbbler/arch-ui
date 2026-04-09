@@ -1,8 +1,12 @@
 name: Publish
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (no actual publish)'
+        required: false
+        default: 'false'
 
 concurrency:
   group: publish-${{ github.ref }}
@@ -39,22 +43,14 @@ jobs:
       - name: Test
         run: pnpm test
 
-      - name: Build
-        run: pnpm build
+      - name: Build packages
+        run: pnpm --filter @arch-ui/tokens --filter @arch-ui/components --filter @arch-ui/icons --filter @arch-ui/mcp-server build
 
       - name: Version and publish
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           pnpm changeset version
           pnpm publish -r --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build docs
-        run: pnpm --filter @arch-ui/docs build
-
-      - name: Deploy docs
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./apps/docs/dist
