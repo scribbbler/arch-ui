@@ -45,6 +45,7 @@ const sidebars = {
       type: 'category',
       label: 'Expression',
       items: [
+        'foundations/illicons',
         'foundations/icons',
         'foundations/motion',
       ],
