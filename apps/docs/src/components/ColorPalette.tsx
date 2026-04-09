@@ -93,21 +93,9 @@ export function ColorRamp({ hue }: { hue: string }) {
             >
               <div>{hue}{step}</div>
               <div>{value}</div>
-              {ratio && <div style={{ fontSize: '9px', marginTop: '2px' }}>{ratio}</div>}
+              {ratio && <div style={{ fontSize: '9px', marginTop: '1px' }}>{ratio}</div>}
+              {altRatio && <div style={{ fontSize: '9px', marginTop: '1px', color: altFg }}>{altRatio}</div>}
             </div>
-            {altRatio && (
-              <div
-                style={{
-                  color: altFg,
-                  fontSize: '9px',
-                  fontWeight: 500,
-                  fontFamily: 'ui-monospace, monospace',
-                  marginTop: '2px',
-                }}
-              >
-                {altRatio}
-              </div>
-            )}
           </div>
         );
       })}
