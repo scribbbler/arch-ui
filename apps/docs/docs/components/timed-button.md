@@ -259,7 +259,9 @@ By using the "Updates frequently" trait, VoiceOver will continuously announce th
 | Role | Button |
 | Action | Tap to accept |
 
----
+
+</TabItem>
+<TabItem value="code" label="Code">
 
 <h2>Expected props</h2>
 
@@ -278,6 +280,36 @@ By using the "Updates frequently" trait, VoiceOver will continuously announce th
 | `size` | `'default' \| 'large' \| 'compact'` | `'default'` | Button size |
 | `autoStart` | `boolean` | `true` | Start countdown immediately on mount |
 
+<h2>Basic usage</h2>
+
+```tsx
+import { TimedButton } from "@arch-ui/components";
+
+<TimedButton
+  duration={30}
+  onTimeout={() => handleAutoAdvance()}
+  onClick={() => handleConfirm()}
+>
+  Confirm
+</TimedButton>
+```
+
+<h2>With icons</h2>
+
+```tsx
+import { TimedButton } from "@arch-ui/components";
+import { CheckIcon, ArrowRightIcon } from "@arch-ui/icons";
+
+<TimedButton
+  duration={30}
+  startEnhancer={<CheckIcon size={20} />}
+  endEnhancer={<ArrowRightIcon size={20} />}
+  onTimeout={() => handleAutoAdvance()}
+>
+  Accept offer
+</TimedButton>
+```
+
 <h2>Keyboard interaction</h2>
 
 | Key | Action |
@@ -285,6 +317,13 @@ By using the "Updates frequently" trait, VoiceOver will continuously announce th
 | `Enter` / `Space` | Trigger the button action immediately (proactive) |
 | `Escape` | Cancel the timer if a cancel handler is provided |
 | `Tab` | Move focus to the next focusable element |
+
+<h2>Accessibility implementation</h2>
+
+- The countdown text must be announced to screen readers via `aria-live="polite"` at regular intervals (every 5 seconds for longer timers, every second for the last 3 seconds).
+- The button must include `role="timer"` on the countdown element.
+- Users must be able to extend or disable timers via preferences (WCAG 2.2.1 Timing Adjustable).
+- The timer progress overlay is purely decorative — the numerical countdown is the accessible indicator.
 
 </TabItem>
 <TabItem value="changelog" label="Status & changelog">
