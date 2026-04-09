@@ -1,5 +1,5 @@
 ---
-sidebar_label: Layout Grids
+sidebar_label: Layout grids
 hide_title: true
 ---
 
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Layout Grids</h1>
+    <h1 style={{margin: 0}}>Layout grids</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     Structural scaffolding of columns, gutters, and margins that keeps interfaces consistent across screen sizes.

@@ -4,9 +4,9 @@ hide_title: true
 ---
 
 <div style={{marginBottom: '2rem'}}>
-  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>RESOURCES</span>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ABOUT ARCH UI</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Frequently Asked Questions</h1>
+    <h1 style={{margin: 0}}>FAQs</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     Answers to the most common questions about working with Arch UI.

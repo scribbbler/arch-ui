@@ -1,4 +1,5 @@
 ---
+sidebar_label: Forms
 hide_title: true
 ---
 

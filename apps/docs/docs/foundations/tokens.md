@@ -1,5 +1,5 @@
 ---
-sidebar_label: Design Tokens
+sidebar_label: Design tokens
 hide_title: true
 ---
 
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Design Tokens</h1>
+    <h1 style={{margin: 0}}>Design tokens</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     Design tokens are the smallest units of design decisions in Arch UI — named, reusable values for color, spacing, and typography that stay consistent across platforms and codebases.

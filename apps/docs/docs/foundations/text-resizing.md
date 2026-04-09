@@ -1,12 +1,12 @@
 ---
-sidebar_label: Text Resizing
+sidebar_label: Text resizing
 hide_title: true
 ---
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ACCESSIBILITY</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Text Resizing</h1>
+    <h1 style={{margin: 0}}>Text resizing</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     Support text resizing up to 200% without loss of content or functionality, as required by WCAG 1.4.4.

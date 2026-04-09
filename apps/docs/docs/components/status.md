@@ -6,7 +6,7 @@ hide_title: true
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>COMPONENTS</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Component Status</h1>
+    <h1 style={{margin: 0}}>Status</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     Current status of every component in Arch UI -- what is available, what is coming next, and what is being phased out.

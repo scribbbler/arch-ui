@@ -1,12 +1,12 @@
 ---
-sidebar_label: Screen Readers
+sidebar_label: Screen readers
 hide_title: true
 ---
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ACCESSIBILITY</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Screen Readers</h1>
+    <h1 style={{margin: 0}}>Screen readers</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     Ensure your interface is accurately represented in the accessibility tree so screen readers convey the same meaning as the visual design.

@@ -1,5 +1,5 @@
 ---
-sidebar_label: Corner Radius
+sidebar_label: Corner radius
 hide_title: true
 ---
 
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Corner Radius</h1>
+    <h1 style={{margin: 0}}>Corner radius</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     A consistent radius scale that controls edge roundness, creates visual cohesion, and helps users distinguish interactive from static surfaces.

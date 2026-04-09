@@ -1,12 +1,12 @@
 ---
-sidebar_label: Alternative Text
+sidebar_label: Alternative text
 hide_title: true
 ---
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ACCESSIBILITY</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Alternative Text</h1>
+    <h1 style={{margin: 0}}>Alternative text</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     How to write effective alt text that conveys an image's purpose, not just its appearance.
