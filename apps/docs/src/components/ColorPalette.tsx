@@ -44,13 +44,13 @@ export function ColorRamp({ hue }: { hue: string }) {
       {steps.map(({ step, value }) => {
         const isBase = step === baseStep;
         return (
-          <div key={step} style={{ textAlign: 'center', flex: '0 0 80px' }}>
+          <div key={step} style={{ textAlign: 'center', flex: '0 0 84px' }}>
             <div
               style={{
                 background: value,
                 borderRadius: isBase ? '9999px' : '8px',
-                width: '80px',
-                height: '80px',
+                width: '84px',
+                height: '84px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
