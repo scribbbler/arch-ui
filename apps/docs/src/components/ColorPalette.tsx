@@ -33,7 +33,7 @@ function contrastColor(hex: string): string {
   const lum = relativeLuminance(hex);
   const whiteContrast = contrastRatio(1, lum);
   const blackContrast = contrastRatio(lum, 0);
-  return whiteContrast >= blackContrast ? '#fff' : '#000000';
+  return whiteContrast >= blackContrast ? '#FFFFFF' : '#000000';
 }
 
 function getContrastInfo(hex: string): { fg: string; ratio: string; altFg: string; altRatio: string } {
