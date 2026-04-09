@@ -277,7 +277,7 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 
 <h2>Shadow tokens</h2>
 
-### Primitive shadow scale
+<h3>Primitive shadow scale</h3>
 
 | Token | CSS variable | Value |
 |---|---|---|
@@ -288,7 +288,7 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 | shadow-xl | `--shadow-xl` | `0 8px 24px hsla(0, 0%, 0%, 0.16)` |
 | shadow-2xl | `--shadow-2xl` | `0 16px 48px hsla(0, 0%, 0%, 0.22)` |
 
-### Directional and special shadows
+<h3>Directional and special shadows</h3>
 
 | Token | CSS variable | Value |
 |---|---|---|
@@ -298,7 +298,7 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 | shadow-deep-above | `--shadow-deep-above` | `0px -16px 48px rgba(0, 0, 0, 0.22)` |
 | shadow-deep-below | `--shadow-deep-below` | `0px 16px 48px rgba(0, 0, 0, 0.22)` |
 
-### Semantic shadow tokens
+<h3>Semantic shadow tokens</h3>
 
 | Token | CSS variable | Resolves to |
 |---|---|---|
@@ -308,7 +308,7 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 
 <h2>Z-index tokens</h2>
 
-### Primitive z-index
+<h3>Primitive z-index</h3>
 
 | Token | CSS variable | Value |
 |---|---|---|
@@ -323,7 +323,7 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 | z-toast | `--z-toast` | `600` |
 | z-tooltip | `--z-tooltip` | `700` |
 
-### Semantic z-index
+<h3>Semantic z-index</h3>
 
 | Token | CSS variable | Resolves to | Use in component CSS |
 |---|---|---|---|

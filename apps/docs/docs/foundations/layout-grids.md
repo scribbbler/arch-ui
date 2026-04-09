@@ -340,7 +340,7 @@ On large screens (1240px and above), the grid stops expanding. Content locks to 
 
 These are the layout-related spacing tokens available in the system. All are defined in `packages/tokens/src/semantic/spacing.json`.
 
-### Semantic tokens
+<h3>Semantic tokens</h3>
 
 | Token | CSS variable | Value | Purpose |
 |---|---|---|---|
@@ -348,7 +348,7 @@ These are the layout-related spacing tokens available in the system. All are def
 | spacing-layout-content-gap | `--spacing-layout-content-gap` | 24px | Gap between content blocks; desktop gutters |
 | spacing-layout-section-gap | `--spacing-layout-section-gap` | 48px | Vertical space between major page sections |
 
-### Primitive tokens used by the grid
+<h3>Primitive tokens used by the grid</h3>
 
 | Token | CSS variable | Value | Grid role |
 |---|---|---|---|
@@ -369,7 +369,7 @@ These are the layout-related spacing tokens available in the system. All are def
 </TabItem>
 <TabItem value="code" label="Code">
 
-## Implementation
+<h2>Implementation</h2>
 
 Arch UI layout grids are implemented using CSS Grid. The token-backed approach means you never hardcode pixel values for gutters or margins.
 
