@@ -37,7 +37,7 @@ export function ColorRamp({ hue }: { hue: string }) {
     .map(([step, token]: [string, any]) => ({ step, value: token.$value }))
     .sort((a, b) => Number(b.step) - Number(a.step));
 
-  const baseStep = '500';
+  const baseStep = '600';
 
   return (
     <div style={{ display: 'flex', gap: '4px', margin: '16px 0', flexWrap: 'wrap' }}>
