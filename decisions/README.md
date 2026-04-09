@@ -54,6 +54,7 @@ For now, all records live at the root. Categorise when the count exceeds 15.
 | 0007 | `0007-use-astro-for-docs.md` | Use Astro for the documentation site | Accepted |
 | 0008 | `0008-use-storybook-for-component-explorer.md` | Use Storybook for the component explorer | Accepted |
 | 0009 | `0009-use-labels-prop-for-internationalisation.md` | Use a `labels` prop for component string internationalisation | Accepted |
+| 0010 | `0010-use-full-word-tshirt-sizing.md` | Use full-word t-shirt sizing for token names | Accepted |
 
 ---
 
