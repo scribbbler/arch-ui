@@ -44,7 +44,7 @@ export function ColorRamp({ hue }: { hue: string }) {
           <div
             style={{
               background: value,
-              borderRadius: '8px',
+              borderRadius: '9999px',
               padding: '24px 8px',
               color: contrastColor(value),
               fontSize: '11px',
@@ -72,7 +72,7 @@ export function AllColorRamps() {
           <div
             style={{
               background: colors.black.$value,
-              borderRadius: '8px',
+              borderRadius: '9999px',
               padding: '24px 8px',
               color: '#fff',
               fontSize: '11px',
@@ -89,7 +89,7 @@ export function AllColorRamps() {
           <div
             style={{
               background: colors.white.$value,
-              borderRadius: '8px',
+              borderRadius: '9999px',
               padding: '24px 8px',
               color: '#282828',
               fontSize: '11px',
