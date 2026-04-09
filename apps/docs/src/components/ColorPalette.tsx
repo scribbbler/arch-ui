@@ -98,14 +98,14 @@ export function ColorRamp({ hue }: { hue: string }) {
             {altRatio && (
               <div
                 style={{
-                  background: altFg,
+                  background: value,
                   borderRadius: isBase ? '0 0 9999px 9999px' : '0 0 8px 8px',
                   width: '84px',
                   height: '24px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: value,
+                  color: altFg,
                   fontSize: '9px',
                   fontWeight: 500,
                   fontFamily: 'ui-monospace, monospace',
