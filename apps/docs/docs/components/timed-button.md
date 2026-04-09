@@ -207,10 +207,10 @@ Timed buttons should follow the same button breakpoint rules defined in the Butt
 
 ## Related components
 
-- [Button](/docs/components/button) — Standard rectangle button
-- [Button group](/docs/components/button-group) — Group of related buttons
-- [Button dock](/docs/components/button-dock) — Fixed bottom container for primary actions
-- [Sliding button](/docs/components/sliding-button) — Swipe-to-confirm interaction
+- [Button](/components/button) — Standard rectangle button
+- [Button group](/components/button-group) — Group of related buttons
+- [Button dock](/components/button-dock) — Fixed bottom container for primary actions
+- [Sliding button](/components/sliding-button) — Swipe-to-confirm interaction
 
 </TabItem>
 <TabItem value="specs" label="Specs">
