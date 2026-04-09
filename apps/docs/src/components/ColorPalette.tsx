@@ -92,8 +92,8 @@ export function ColorRamp({ hue }: { hue: string }) {
               }}
             >
               <div>{hue}{step}</div>
-              <div style={{ opacity: 0.8 }}>{value}</div>
-              {ratio && <div style={{ opacity: 0.6, fontSize: '9px', marginTop: '2px' }}>{ratio}</div>}
+              <div style={{ }}>{value}</div>
+              {ratio && <div style={{ fontSize: '9px', marginTop: '2px' }}>{ratio}</div>}
             </div>
           </div>
         );
@@ -128,7 +128,7 @@ export function AllColorRamps() {
           >
             <div>black</div>
             <div style={{ opacity: 0.8 }}>{colors.black.$value}</div>
-            <div style={{ opacity: 0.6, fontSize: '9px', marginTop: '2px' }}>21.0:1</div>
+            <div style={{ fontSize: '9px', marginTop: '2px' }}>21.0:1</div>
           </div>
         </div>
         <div style={{ textAlign: 'center', flex: '0 0 84px' }}>
@@ -151,7 +151,7 @@ export function AllColorRamps() {
           >
             <div>white</div>
             <div style={{ opacity: 0.8 }}>{colors.white.$value}</div>
-            <div style={{ opacity: 0.6, fontSize: '9px', marginTop: '2px' }}>21.0:1</div>
+            <div style={{ fontSize: '9px', marginTop: '2px' }}>21.0:1</div>
           </div>
         </div>
       </div>
