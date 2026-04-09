@@ -66,47 +66,50 @@ export function AllColorRamps() {
   const hues = Object.keys(colors).filter((k) => typeof colors[k] === 'object' && !colors[k].$value);
   return (
     <>
+      <h3>Black & White</h3>
+      <div style={{ display: 'flex', gap: '4px', margin: '16px 0' }}>
+        <div style={{ flex: '1 1 0', minWidth: '60px' }}>
+          <div
+            style={{
+              background: colors.black.$value,
+              borderRadius: '8px',
+              padding: '24px 8px',
+              color: '#fff',
+              fontSize: '11px',
+              fontWeight: 500,
+              fontFamily: 'ui-monospace, monospace',
+              textAlign: 'center',
+            }}
+          >
+            <div>black</div>
+            <div style={{ opacity: 0.8 }}>{colors.black.$value}</div>
+          </div>
+        </div>
+        <div style={{ flex: '1 1 0', minWidth: '60px' }}>
+          <div
+            style={{
+              background: colors.white.$value,
+              borderRadius: '8px',
+              padding: '24px 8px',
+              color: '#282828',
+              fontSize: '11px',
+              fontWeight: 500,
+              fontFamily: 'ui-monospace, monospace',
+              textAlign: 'center',
+              border: '1px solid #e8e8e8',
+            }}
+          >
+            <div>white</div>
+            <div style={{ opacity: 0.8 }}>{colors.white.$value}</div>
+          </div>
+        </div>
+      </div>
       {hues.map((hue) => (
         <div key={hue}>
           <h3>{hue.charAt(0).toUpperCase() + hue.slice(1)}</h3>
           <ColorRamp hue={hue} />
         </div>
       ))}
-      <div style={{ display: 'flex', gap: '16px', margin: '16px 0' }}>
-        <div style={{ textAlign: 'center' }}>
-          <div
-            style={{
-              background: '#000000',
-              borderRadius: '8px',
-              padding: '24px 16px',
-              color: '#fff',
-              fontSize: '11px',
-              fontWeight: 500,
-              fontFamily: 'ui-monospace, monospace',
-            }}
-          >
-            <div>black</div>
-            <div style={{ opacity: 0.8 }}>#000000</div>
-          </div>
-        </div>
-        <div style={{ textAlign: 'center' }}>
-          <div
-            style={{
-              background: '#FFFFFF',
-              borderRadius: '8px',
-              padding: '24px 16px',
-              color: '#282828',
-              fontSize: '11px',
-              fontWeight: 500,
-              fontFamily: 'ui-monospace, monospace',
-              border: '1px solid #e8e8e8',
-            }}
-          >
-            <div>white</div>
-            <div style={{ opacity: 0.8 }}>#FFFFFF</div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }
