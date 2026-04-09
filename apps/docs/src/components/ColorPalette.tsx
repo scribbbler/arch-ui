@@ -9,13 +9,42 @@ function isHex(val: string): boolean {
   return /^#[0-9A-Fa-f]{6}$/.test(val);
 }
 
+function srgbToLinear(c: number): number {
+  const s = c / 255;
+  return s <= 0.04045 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+}
+
+function relativeLuminance(hex: string): number {
+  if (!isHex(hex)) return 0;
+  const r = srgbToLinear(parseInt(hex.slice(1, 3), 16));
+  const g = srgbToLinear(parseInt(hex.slice(3, 5), 16));
+  const b = srgbToLinear(parseInt(hex.slice(5, 7), 16));
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+function contrastRatio(l1: number, l2: number): number {
+  const lighter = Math.max(l1, l2);
+  const darker = Math.min(l1, l2);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
 function contrastColor(hex: string): string {
   if (!isHex(hex)) return '#282828';
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  return luminance > 0.5 ? '#282828' : '#fff';
+  const lum = relativeLuminance(hex);
+  const whiteContrast = contrastRatio(1, lum);
+  const blackContrast = contrastRatio(lum, 0);
+  return whiteContrast >= blackContrast ? '#fff' : '#000000';
+}
+
+function getContrastInfo(hex: string): { fg: string; ratio: string } {
+  if (!isHex(hex)) return { fg: '#282828', ratio: '' };
+  const lum = relativeLuminance(hex);
+  const whiteContrast = contrastRatio(1, lum);
+  const blackContrast = contrastRatio(lum, 0);
+  if (whiteContrast >= blackContrast) {
+    return { fg: '#fff', ratio: whiteContrast.toFixed(1) + ':1' };
+  }
+  return { fg: '#000000', ratio: blackContrast.toFixed(1) + ':1' };
 }
 
 function resolveRef(ref: string): string {
@@ -43,6 +72,7 @@ export function ColorRamp({ hue }: { hue: string }) {
     <div style={{ display: 'flex', gap: '4px', margin: '16px 0', flexWrap: 'wrap' }}>
       {steps.map(({ step, value }) => {
         const isBase = step === baseStep;
+        const { fg, ratio } = getContrastInfo(value);
         return (
           <div key={step} style={{ textAlign: 'center', flex: '0 0 84px' }}>
             <div
@@ -55,7 +85,7 @@ export function ColorRamp({ hue }: { hue: string }) {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: contrastColor(value),
+                color: fg,
                 fontSize: '11px',
                 fontWeight: isBase ? 700 : 500,
                 fontFamily: 'ui-monospace, monospace',
@@ -63,6 +93,7 @@ export function ColorRamp({ hue }: { hue: string }) {
             >
               <div>{hue}{step}</div>
               <div style={{ opacity: 0.8 }}>{value}</div>
+              {ratio && <div style={{ opacity: 0.6, fontSize: '9px', marginTop: '2px' }}>{ratio}</div>}
             </div>
           </div>
         );
