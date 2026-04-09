@@ -63,7 +63,7 @@ export function ColorRamp({ hue }: { hue: string }) {
 
 /** Renders all primitive color ramps */
 export function AllColorRamps() {
-  const hues = Object.keys(colors).filter((k) => typeof colors[k] === 'object');
+  const hues = Object.keys(colors).filter((k) => typeof colors[k] === 'object' && !colors[k].$value);
   return (
     <>
       {hues.map((hue) => (
