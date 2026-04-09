@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Arch Design System',
-  tagline: '58 components, Uber Base aligned, with MCP server for AI agents',
+  tagline: '58 components, with MCP server for AI agents',
   url: process.env.DOCS_URL || 'https://arch-ui.dev',
   baseUrl: process.env.DOCS_BASE_URL || '/',
   onBrokenLinks: 'warn',

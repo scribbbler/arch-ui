@@ -11,7 +11,7 @@ hide_title: true
     <h1 style={{margin: 0}}>Arch Design System</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    A React component library with 58 components, aligned with Uber Base Web. Built for teams that want accessible, themeable UI primitives with first-class AI agent support.
+    A React component library with 58 components. Built for teams that want accessible, themeable UI primitives with first-class AI agent support.
   </p>
 </div>
 

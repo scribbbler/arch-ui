@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { COMPONENT_COUNT } from '../constants';
 
 const categories = [
   {
@@ -22,7 +23,7 @@ const categories = [
   {
     title: 'Components',
     description:
-      'Review specs, guidelines, behaviors, and proper usage for all 58 components in the Arch UI library.',
+      `Review specs, guidelines, behaviors, and proper usage for all ${COMPONENT_COUNT} components in the Arch UI library.`,
     href: '/components',
     icon: (
       <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,7 +83,7 @@ export default function Home(): React.ReactElement {
           <h1 className="arch-hero__title">Arch Design System</h1>
           <p className="arch-hero__version">Work in progress</p>
           <p className="arch-hero__description">
-            A token-driven, accessible React component library with 58 components.
+            A token-driven, accessible React component library with {COMPONENT_COUNT} components.
             Built for teams that want consistent UI primitives with first-class
             AI agent support via MCP server and component manifests.
           </p>
