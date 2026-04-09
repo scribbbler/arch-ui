@@ -7,73 +7,114 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <div style={{marginBottom: '2rem'}}>
-  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Styles</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
     <h1 style={{margin: 0}}>Spacing</h1>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    A compact primitive scale and semantic aliases that create consistent rhythm and density across every layout and component.
+    Arch UI uses standard sizes and spacing created from increments of 4. This provides consistent sizing and components that snap into place.
   </p>
 </div>
 
 <Tabs>
-<TabItem value="overview" label="Overview" default>
+<TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', alignItems: 'flex-end', gap: '8px', flexWrap: 'wrap'}}>
-  <div style={{width: '4px', height: '4px', background: '#266EF1', borderRadius: '2px'}} title="4px" />
-  <div style={{width: '8px', height: '8px', background: '#266EF1', borderRadius: '2px'}} title="8px" />
-  <div style={{width: '12px', height: '12px', background: '#266EF1', borderRadius: '2px'}} title="12px" />
-  <div style={{width: '16px', height: '16px', background: '#266EF1', borderRadius: '2px'}} title="16px" />
-  <div style={{width: '24px', height: '24px', background: '#266EF1', borderRadius: '3px'}} title="24px" />
-  <div style={{width: '32px', height: '32px', background: '#266EF1', borderRadius: '3px'}} title="32px" />
-  <div style={{width: '48px', height: '48px', background: '#266EF1', borderRadius: '4px'}} title="48px" />
-  <div style={{width: '64px', height: '64px', background: '#266EF1', borderRadius: '4px'}} title="64px" />
-  <div style={{width: '96px', height: '96px', background: '#266EF1', borderRadius: '4px'}} title="96px" />
-  <div style={{width: '128px', height: '128px', background: '#266EF1', borderRadius: '4px'}} title="128px" />
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', alignItems: 'flex-end', gap: '16px', justifyContent: 'center', flexWrap: 'wrap'}}>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{width: '16px', height: '16px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '2px'}} />
+    <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>16</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{width: '24px', height: '24px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '2px'}} />
+    <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>24</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{width: '36px', height: '36px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '2px'}} />
+    <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>36</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{width: '48px', height: '48px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '2px'}} />
+    <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>48</span>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+    <div style={{width: '64px', height: '64px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '2px'}} />
+    <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>64</span>
+  </div>
 </div>
 
 **Common alternative names**
 
-Whitespace, padding, margin, gap, gutters
+Spacers, sizing units
 
 ---
 
-## Principles
+## Anatomy
 
-### Consistency over creativity
+### Spacing interval
 
-Every spacing decision should come from the token scale, not from eyeballing. When every element shares the same increments, layouts feel cohesive even when built by different teams or agents.
+We use an incremental spacing scale with a root of 4 based on a modular scale with a major second ratio (1.125).
 
-### Density is intentional
+All grids, typography, and component constructions leverage this scale to produce a pixel-fitted and harmonious structure. Use this scale to create space between objects in product layouts.
 
-Tighter spacing communicates grouping; looser spacing communicates separation. The scale provides enough granularity for compact data-rich UIs and enough range for open editorial layouts.
-
-### Semantic over primitive
-
-Whenever possible, use a semantic spacing token (`--spacing-component-*`, `--spacing-inline-*`, `--spacing-layout-*`) instead of a raw primitive. Semantic tokens encode intent, making future density changes possible without touching every component.
-
----
-
-## Scale
-
-The primitive scale starts at 0 and progresses through 25 fixed values up to 128px. Steps are tighter at the small end (where single-pixel differences matter inside components) and wider at the large end (where layout-level gaps don't need fine granularity).
-
-| Range | Steps | Purpose |
-|-------|-------|---------|
-| 0 -- 2 px | 0, 1, 2 | Hairline adjustments, borders, optical corrections |
-| 4 -- 14 px | 4, 6, 8, 10, 12, 14 | Inner component padding, icon-to-label gaps |
-| 16 -- 24 px | 16, 18, 20, 22, 24 | Standard component padding, field heights |
-| 28 -- 48 px | 28, 32, 36, 40, 48 | Card padding, section separators |
-| 56 -- 128 px | 56, 64, 80, 96, 112, 128 | Page-level layout spacing |
-
-<div style={{background: '#f3f3f3', borderRadius: '8px', padding: '24px', margin: '24px 0', overflowX: 'auto'}}>
-  <div style={{display: 'flex', alignItems: 'flex-end', gap: '12px'}}>
-    {[0,1,2,4,6,8,10,12,14,16,18,20,22,24,28,32,36,40,48,56,64,80,96,112,128].map(v => (
-      <div key={v} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px'}}>
-        <div style={{width: '16px', height: `${Math.max(v, 2)}px`, background: v === 0 ? 'transparent' : '#266EF1', borderRadius: '2px', border: v === 0 ? '1px dashed #999' : 'none'}} />
-        <span style={{fontSize: '11px', color: '#727272', fontWeight: 600}}>{v}</span>
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', margin: '24px 0', overflowX: 'auto'}}>
+  <div style={{display: 'flex', justifyContent: 'center', marginBottom: '8px'}}>
+    <span style={{fontSize: '13px', fontWeight: 700, color: '#06C167'}}>16</span>
+    <span style={{fontSize: '13px', fontWeight: 700, color: '#DE1135', marginLeft: '12px'}}>Core sizes</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'flex-end', gap: '6px', justifyContent: 'center'}}>
+    {[4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 56, 64, 96, 128].map(v => (
+      <div key={v} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px'}}>
+        <span style={{fontSize: '11px', fontWeight: [16, 24, 36, 48, 64].includes(v) ? 700 : 400, color: [16, 24, 36, 48, 64].includes(v) ? '#DE1135' : '#727272'}}>{v}</span>
+        <div style={{width: '16px', height: `${Math.min(v, 80)}px`, background: [16, 24, 36, 48, 64].includes(v) ? 'rgba(222, 17, 53, 0.25)' : 'rgba(222, 17, 53, 0.12)', borderRadius: '2px'}} />
       </div>
     ))}
+  </div>
+  <div style={{display: 'flex', justifyContent: 'center', marginTop: '8px'}}>
+    <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 600}}>Units</span>
+    <span style={{fontSize: '11px', color: '#727272', marginLeft: '16px'}}>1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5x &nbsp; 6x &nbsp; 7x &nbsp; 8x &nbsp; 9x &nbsp; 10x &nbsp; 12x &nbsp; 14x &nbsp; 16x &nbsp; 24x &nbsp; 32x</span>
+  </div>
+</div>
+
+### Baseline grid
+
+Built off the 4 spacing scale, the vertical grid provides a flexible structure that allows text to flow vertically along its baseline. This creates a consistent vertical rhythm across all product screens. Use multiples of 4 when defining measurements, spacing, and positioning elements.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px', margin: '24px 0'}}>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '0px'}}>
+    {[0, 1, 2, 3, 4, 5, 6, 7].map(i => (
+      <div key={i} style={{height: '16px', borderTop: '1px solid rgba(222, 17, 53, 0.3)', width: '100%'}} />
+    ))}
+  </div>
+</div>
+
+### Core sizes
+
+While all increments of 4 are available, designers will use a set of five archetype sizes that will cover 90% of their layouts.
+
+> Note that not every asset should be displayed in all sizes. We don't show an xsmall avatar in this example, as its readability would be compromised.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0'}}>
+  <div style={{display: 'flex', gap: '24px', justifyContent: 'center', alignItems: 'flex-start', flexWrap: 'wrap'}}>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+      <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>64</span>
+      <div style={{width: '64px', height: '64px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '4px'}} />
+    </div>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+      <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>48</span>
+      <div style={{width: '48px', height: '48px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '4px'}} />
+    </div>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+      <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>36</span>
+      <div style={{width: '36px', height: '36px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '3px'}} />
+    </div>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+      <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>24</span>
+      <div style={{width: '24px', height: '24px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '2px'}} />
+    </div>
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+      <span style={{fontSize: '14px', fontWeight: 700, color: '#DE1135'}}>16</span>
+      <div style={{width: '16px', height: '16px', background: 'rgba(222, 17, 53, 0.2)', borderRadius: '2px'}} />
+    </div>
   </div>
 </div>
 
@@ -83,7 +124,7 @@ The primitive scale starts at 0 and progresses through 25 fixed values up to 128
 
 ### Padding vs margin
 
-Use **padding** to create space inside a container -- the breathing room around content. Use **margin** (or `gap`) to create space between sibling elements. In Arch UI components, prefer CSS `gap` on flex and grid containers over margin; it avoids collapsed-margin surprises and is easier to override with a single token.
+Use **padding** to create space inside a container — the breathing room around content. Use **margin** (or `gap`) to create space between sibling elements. In Arch UI components, prefer CSS `gap` on flex and grid containers over margin; it avoids collapsed-margin surprises and is easier to override with a single token.
 
 ```css
 /* Padding inside a card */
@@ -101,10 +142,10 @@ Use **padding** to create space inside a container -- the breathing room around 
 
 ### Component spacing
 
-Semantic component tokens (`--spacing-component-*`) control the internal padding and gaps of individual components -- buttons, inputs, cards, and dialogs. They follow a t-shirt size progression:
+Semantic component tokens (`--spacing-component-*`) control the internal padding and gaps of individual components — buttons, inputs, cards, and dialogs. They follow a t-shirt size progression:
 
 | Token | Value | Typical use |
-|-------|-------|-------------|
+|---|---|---|
 | `--spacing-component-xs` | 4 px | Tight icon padding, badge insets |
 | `--spacing-component-sm` | 8 px | Compact button padding, input padding-inline |
 | `--spacing-component-md` | 12 px | Default internal padding |
@@ -113,10 +154,10 @@ Semantic component tokens (`--spacing-component-*`) control the internal padding
 
 ### Inline spacing
 
-Inline tokens (`--spacing-inline-*`) handle the horizontal gaps between elements that sit on the same line -- icon + label, avatar + name, tag + tag.
+Inline tokens (`--spacing-inline-*`) handle the horizontal gaps between elements that sit on the same line — icon + label, avatar + name, tag + tag.
 
 | Token | Value | Typical use |
-|-------|-------|-------------|
+|---|---|---|
 | `--spacing-inline-xs` | 2 px | Sub-pixel optical gaps |
 | `--spacing-inline-sm` | 4 px | Icon-to-label gap (small) |
 | `--spacing-inline-md` | 8 px | Icon-to-label gap (default), chip gap |
@@ -124,10 +165,10 @@ Inline tokens (`--spacing-inline-*`) handle the horizontal gaps between elements
 
 ### Layout spacing
 
-Layout tokens control page-level structure -- the gutter around content, the gap between major sections, and the gap between content blocks within a section.
+Layout tokens control page-level structure — the gutter around content, the gap between major sections, and the gap between content blocks within a section.
 
 | Token | Value | Typical use |
-|-------|-------|-------------|
+|---|---|---|
 | `--spacing-layout-page-gutter` | 16 px | Left/right page margin on mobile-first layouts |
 | `--spacing-layout-content-gap` | 24 px | Gap between content blocks within a section |
 | `--spacing-layout-section-gap` | 48 px | Gap between major page sections |
@@ -150,9 +191,20 @@ Layout tokens control page-level structure -- the gutter around content, the gap
 }
 ```
 
+### Phone layout
+
+All mobile devices, both Android and iOS, follow the same grid system. The only variable height will be the status bar, which changes depending on OS and device.
+
+|  | iOS | Android |
+|---|---|---|
+| Status bar height | Variable by device | Variable by device |
+| Nav bar height | 44 | 48 |
+| Left & right margin | 16 | 16 |
+| Artwork column (centered in) | 64 | 64 |
+
 ---
 
-## Best practices
+## Do / Don't
 
 <div className="do-dont-grid">
   <div className="do-block">
@@ -195,14 +247,14 @@ margin-top: var(--spacing-2);</code>
 </div>
 
 </TabItem>
-<TabItem value="tokens" label="Tokens">
+<TabItem value="token-mapping" label="Token mapping">
 
 <h2>Primitive tokens</h2>
 
 Primitive spacing tokens map directly to fixed pixel values. They form the raw scale that semantic tokens reference. Use primitives only when no semantic token matches your use case.
 
 | Token | Value | Preview |
-|-------|-------|---------|
+|---|---|---|
 | `--spacing-0` | 0 px | <div style={{display:'inline-block', width:'0px', height:'16px', background:'#266EF1'}} /> |
 | `--spacing-1` | 1 px | <div style={{display:'inline-block', width:'1px', height:'16px', background:'#266EF1'}} /> |
 | `--spacing-2` | 2 px | <div style={{display:'inline-block', width:'2px', height:'16px', background:'#266EF1'}} /> |
@@ -229,35 +281,35 @@ Primitive spacing tokens map directly to fixed pixel values. They form the raw s
 | `--spacing-112` | 112 px | <div style={{display:'inline-block', width:'112px', height:'16px', background:'#266EF1'}} /> |
 | `--spacing-128` | 128 px | <div style={{display:'inline-block', width:'128px', height:'16px', background:'#266EF1'}} /> |
 
-<h2>Semantic tokens -- Component</h2>
+<h2>Semantic tokens — Component</h2>
 
 Component tokens define the internal spacing of UI elements. They alias to primitives so a global density change only requires updating these mappings.
 
 | Token | Value | Resolves to | Preview |
-|-------|-------|-------------|---------|
+|---|---|---|---|
 | `--spacing-component-xs` | 4 px | `--spacing-4` | <div style={{display:'inline-block', width:'4px', height:'16px', background:'#06C167'}} /> |
 | `--spacing-component-sm` | 8 px | `--spacing-8` | <div style={{display:'inline-block', width:'8px', height:'16px', background:'#06C167'}} /> |
 | `--spacing-component-md` | 12 px | `--spacing-12` | <div style={{display:'inline-block', width:'12px', height:'16px', background:'#06C167'}} /> |
 | `--spacing-component-lg` | 16 px | `--spacing-16` | <div style={{display:'inline-block', width:'16px', height:'16px', background:'#06C167'}} /> |
 | `--spacing-component-xl` | 24 px | `--spacing-24` | <div style={{display:'inline-block', width:'24px', height:'16px', background:'#06C167'}} /> |
 
-<h2>Semantic tokens -- Inline</h2>
+<h2>Semantic tokens — Inline</h2>
 
 Inline tokens control horizontal gaps between adjacent elements on the same line.
 
 | Token | Value | Resolves to | Preview |
-|-------|-------|-------------|---------|
+|---|---|---|---|
 | `--spacing-inline-xs` | 2 px | `--spacing-2` | <div style={{display:'inline-block', width:'2px', height:'16px', background:'#F5A623'}} /> |
 | `--spacing-inline-sm` | 4 px | `--spacing-4` | <div style={{display:'inline-block', width:'4px', height:'16px', background:'#F5A623'}} /> |
 | `--spacing-inline-md` | 8 px | `--spacing-8` | <div style={{display:'inline-block', width:'8px', height:'16px', background:'#F5A623'}} /> |
 | `--spacing-inline-lg` | 12 px | `--spacing-12` | <div style={{display:'inline-block', width:'12px', height:'16px', background:'#F5A623'}} /> |
 
-<h2>Semantic tokens -- Layout</h2>
+<h2>Semantic tokens — Layout</h2>
 
 Layout tokens govern page-level structure: gutters, section gaps, and content gaps.
 
 | Token | Value | Resolves to | Preview |
-|-------|-------|-------------|---------|
+|---|---|---|---|
 | `--spacing-layout-page-gutter` | 16 px | `--spacing-16` | <div style={{display:'inline-block', width:'16px', height:'16px', background:'#7B61FF'}} /> |
 | `--spacing-layout-content-gap` | 24 px | `--spacing-24` | <div style={{display:'inline-block', width:'24px', height:'16px', background:'#7B61FF'}} /> |
 | `--spacing-layout-section-gap` | 48 px | `--spacing-48` | <div style={{display:'inline-block', width:'48px', height:'16px', background:'#7B61FF'}} /> |
@@ -288,7 +340,12 @@ Spacing tokens follow the same two-tier alias pattern as all Arch UI tokens:
   </div>
 </div>
 
-To change the density of every component in the system, update the semantic-to-primitive mapping -- no component CSS needs to change.
+To change the density of every component in the system, update the semantic-to-primitive mapping — no component CSS needs to change.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
 
 </TabItem>
 </Tabs>
