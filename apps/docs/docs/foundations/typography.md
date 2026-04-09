@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 </div>
 
 <Tabs>
-<TabItem value="overview" label="Overview" default>
+<TabItem value="usage" label="Usage" default>
 
 <div className="type-hero">
   <div className="type-hero__sample" style={{fontSize: '96px', fontWeight: 700, lineHeight: 1, letterSpacing: '-0.05em'}}>

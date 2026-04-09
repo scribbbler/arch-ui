@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 </div>
 
 <Tabs>
-<TabItem value="overview" label="Overview" default>
+<TabItem value="usage" label="Usage" default>
 
 <div style={{background: '#000', borderRadius: '12px', padding: '48px 40px', margin: '24px 0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '32px', flexWrap: 'wrap'}}>
   <div style={{width: '48px', height: '48px', borderRadius: '8px', background: 'var(--ifm-color-primary)', animation: 'arch-motion-demo-slide 2s var(--motion-easing-ease-in-out) infinite'}}>
@@ -220,7 +220,7 @@ This is intentional and follows a physical model:
 </div>
 
 </TabItem>
-<TabItem value="usage" label="Usage">
+<TabItem value="implementation" label="Implementation">
 
 <h2>Using motion tokens in CSS</h2>
 

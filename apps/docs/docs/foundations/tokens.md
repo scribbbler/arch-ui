@@ -17,7 +17,33 @@ import TabItem from '@theme/TabItem';
 </div>
 
 <Tabs>
-<TabItem value="overview" label="Overview" default>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0'}}>
+  <div style={{maxWidth: '520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '12px'}}>
+    <div style={{background: '#fff', borderRadius: '8px', padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '16px', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}>
+      <div style={{width: '24px', height: '24px', borderRadius: '4px', background: '#266EF1', flexShrink: 0}} />
+      <div>
+        <div style={{fontSize: '13px', fontWeight: 600}}>--color-action-primary</div>
+        <div style={{fontSize: '12px', color: '#727272'}}>&#123;color.blue.600&#125; → #266EF1</div>
+      </div>
+    </div>
+    <div style={{background: '#fff', borderRadius: '8px', padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '16px', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}>
+      <div style={{width: '24px', height: '24px', borderRadius: '4px', background: '#282828', flexShrink: 0}} />
+      <div>
+        <div style={{fontSize: '13px', fontWeight: 600}}>--color-text-default</div>
+        <div style={{fontSize: '12px', color: '#727272'}}>&#123;color.gray.900&#125; → #282828</div>
+      </div>
+    </div>
+    <div style={{background: '#fff', borderRadius: '8px', padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '16px', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}>
+      <div style={{width: '24px', height: '24px', borderRadius: '8px', background: '#fff', border: '2px solid #266EF1', flexShrink: 0}} />
+      <div>
+        <div style={{fontSize: '13px', fontWeight: 600}}>--radius-component-medium</div>
+        <div style={{fontSize: '12px', color: '#727272'}}>&#123;radius.medium&#125; → 8px</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## What are design tokens?
 
@@ -313,7 +339,7 @@ Tokens are how themes work. When Arch UI switches from light to dark mode, your 
 
 </TabItem>
 
-<TabItem value="usage" label="Usage">
+<TabItem value="implementation" label="Implementation">
 
 <h2>How to use tokens in CSS</h2>
 

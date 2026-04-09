@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 </div>
 
 <Tabs>
-<TabItem value="overview" label="Overview" default>
+<TabItem value="usage" label="Usage" default>
 
 <div className="border-hero">
   <div className="border-hero__sample" style={{borderBottom: '1px solid #dddddd', padding: '16px 0'}}>
