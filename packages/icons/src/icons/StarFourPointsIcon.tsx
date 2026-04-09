@@ -1,0 +1,12 @@
+import { forwardRef } from "react";
+import { Icon, type IconProps } from "../Icon";
+
+const StarFourPointsIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
+  <Icon ref={ref} {...props}>
+    <path d="M12,1L9,9L1,12L9,15L12,23L15,15L23,12L15,9L12,1Z" />
+  </Icon>
+));
+
+StarFourPointsIcon.displayName = "StarFourPointsIcon";
+
+export { StarFourPointsIcon };

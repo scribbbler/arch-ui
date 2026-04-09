@@ -1,0 +1,12 @@
+import { forwardRef } from "react";
+import { Icon, type IconProps } from "../Icon";
+
+const TabletIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
+  <Icon ref={ref} {...props}>
+    <path d="M19,18H5V6H19M21,4H3C1.89,4 1,4.89 1,6V18A2,2 0 0,0 3,20H21A2,2 0 0,0 23,18V6C23,4.89 22.1,4 21,4Z" />
+  </Icon>
+));
+
+TabletIcon.displayName = "TabletIcon";
+
+export { TabletIcon };

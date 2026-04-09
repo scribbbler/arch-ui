@@ -83,7 +83,7 @@ Iconography, glyphs, pictograms, symbols
 
 ## Icon set
 
-Arch UI includes **43 icons** from the `@mdi/svg` library, wrapped as typed React components in the `@arch-ui/icons` package. Each icon follows the naming pattern `{Name}Icon` — for example, `SearchIcon`, `ChevronDownIcon`, or `AlertTriangleIcon`.
+Arch UI includes **474 icons** from the `@mdi/svg` library, wrapped as typed React components in the `@arch-ui/icons` package. Each icon follows the naming pattern `{Name}Icon` — for example, `SearchIcon`, `ChevronDownIcon`, or `AlertTriangleIcon`.
 
 The set covers five broad categories:
 

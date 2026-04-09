@@ -1,0 +1,12 @@
+import { forwardRef } from "react";
+import { Icon, type IconProps } from "../Icon";
+
+const OctagonIcon = forwardRef<SVGSVGElement, IconProps>((props, ref) => (
+  <Icon ref={ref} {...props}>
+    <path d="M15.73,3H8.27L3,8.27V15.73L8.27,21H15.73L21,15.73V8.27" />
+  </Icon>
+));
+
+OctagonIcon.displayName = "OctagonIcon";
+
+export { OctagonIcon };
