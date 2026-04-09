@@ -108,40 +108,50 @@ export function AllColorRamps() {
   return (
     <>
       <h3>Black & White</h3>
-      <div style={{ display: 'flex', gap: '4px', margin: '16px 0' }}>
-        <div style={{ flex: '1 1 0', minWidth: '60px' }}>
+      <div style={{ display: 'flex', gap: '4px', margin: '16px 0', flexWrap: 'wrap' }}>
+        <div style={{ textAlign: 'center', flex: '0 0 84px' }}>
           <div
             style={{
               background: colors.black.$value,
               borderRadius: '8px',
-              padding: '24px 8px',
+              width: '84px',
+              height: '84px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
               color: '#fff',
               fontSize: '11px',
               fontWeight: 500,
               fontFamily: 'ui-monospace, monospace',
-              textAlign: 'center',
             }}
           >
             <div>black</div>
             <div style={{ opacity: 0.8 }}>{colors.black.$value}</div>
+            <div style={{ opacity: 0.6, fontSize: '9px', marginTop: '2px' }}>21.0:1</div>
           </div>
         </div>
-        <div style={{ flex: '1 1 0', minWidth: '60px' }}>
+        <div style={{ textAlign: 'center', flex: '0 0 84px' }}>
           <div
             style={{
               background: colors.white.$value,
               borderRadius: '8px',
-              padding: '24px 8px',
-              color: '#282828',
+              width: '84px',
+              height: '84px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#000000',
               fontSize: '11px',
               fontWeight: 500,
               fontFamily: 'ui-monospace, monospace',
-              textAlign: 'center',
               border: '1px solid #e8e8e8',
             }}
           >
             <div>white</div>
             <div style={{ opacity: 0.8 }}>{colors.white.$value}</div>
+            <div style={{ opacity: 0.6, fontSize: '9px', marginTop: '2px' }}>21.0:1</div>
           </div>
         </div>
       </div>
