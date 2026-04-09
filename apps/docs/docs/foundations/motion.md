@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center', gap: '32px'}}>
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', height: '240px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '32px'}}>
   <div style={{width: '48px', height: '48px', borderRadius: '8px', background: '#266EF1', animation: 'arch-motion-demo-slide 2s ease-in-out infinite'}}>
   </div>
   <div style={{width: '48px', height: '48px', borderRadius: '50%', background: '#6DAAFB', animation: 'arch-motion-demo-pulse 2s ease-out infinite'}}>

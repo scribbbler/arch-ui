@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', flexDirection: 'column', overflow: 'hidden'}}>
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', height: '240px', display: 'flex', flexDirection: 'column', overflow: 'hidden'}}>
   <div style={{display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '16px', maxWidth: '720px', margin: '0 auto', marginBottom: '24px'}}>
     {Array.from({length: 12}).map((_, i) => (
       <div key={i} style={{background: 'rgba(38, 110, 241, 0.12)', borderLeft: '1px solid rgba(38, 110, 241, 0.25)', borderRight: '1px solid rgba(38, 110, 241, 0.25)', height: '120px', borderRadius: '2px'}} />
