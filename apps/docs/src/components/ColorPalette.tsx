@@ -37,26 +37,38 @@ export function ColorRamp({ hue }: { hue: string }) {
     .map(([step, token]: [string, any]) => ({ step, value: token.$value }))
     .sort((a, b) => Number(b.step) - Number(a.step));
 
+  const baseStep = '500';
+
   return (
     <div style={{ display: 'flex', gap: '4px', margin: '16px 0', flexWrap: 'wrap' }}>
-      {steps.map(({ step, value }) => (
-        <div key={step} style={{ textAlign: 'center', flex: '1 1 0', minWidth: '60px' }}>
-          <div
-            style={{
-              background: value,
-              borderRadius: '9999px',
-              padding: '24px 8px',
-              color: contrastColor(value),
-              fontSize: '11px',
-              fontWeight: 500,
-              fontFamily: 'ui-monospace, monospace',
-            }}
-          >
-            <div>{hue}{step}</div>
-            <div style={{ opacity: 0.8 }}>{value}</div>
+      {steps.map(({ step, value }) => {
+        const isBase = step === baseStep;
+        return (
+          <div key={step} style={{ textAlign: 'center', flex: '1 1 0', minWidth: '60px' }}>
+            <div
+              style={{
+                background: value,
+                borderRadius: isBase ? '9999px' : '8px',
+                width: isBase ? '80px' : 'auto',
+                height: isBase ? '80px' : 'auto',
+                padding: isBase ? '0' : '24px 8px',
+                display: isBase ? 'flex' : 'block',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: isBase ? '0 auto' : '0',
+                color: contrastColor(value),
+                fontSize: '11px',
+                fontWeight: isBase ? 700 : 500,
+                fontFamily: 'ui-monospace, monospace',
+              }}
+            >
+              <div>{hue}{step}</div>
+              <div style={{ opacity: 0.8 }}>{value}</div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -72,7 +84,7 @@ export function AllColorRamps() {
           <div
             style={{
               background: colors.black.$value,
-              borderRadius: '9999px',
+              borderRadius: '8px',
               padding: '24px 8px',
               color: '#fff',
               fontSize: '11px',
@@ -89,7 +101,7 @@ export function AllColorRamps() {
           <div
             style={{
               background: colors.white.$value,
-              borderRadius: '9999px',
+              borderRadius: '8px',
               padding: '24px 8px',
               color: '#282828',
               fontSize: '11px',
