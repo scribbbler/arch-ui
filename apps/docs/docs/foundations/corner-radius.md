@@ -19,17 +19,11 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#000', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
-  <div style={{width: '280px', height: '280px', border: '1px solid #555', borderRadius: '16px', position: 'relative'}}>
-    <div style={{position: 'absolute', top: '20px', left: '20px', width: '8px', height: '8px', border: '1px solid #fff', borderRadius: '50%'}} />
-    <div style={{position: 'absolute', top: '20px', right: '20px', width: '8px', height: '8px', border: '1px solid #fff', borderRadius: '50%'}} />
-    <div style={{position: 'absolute', bottom: '20px', left: '20px', width: '8px', height: '8px', border: '1px solid #fff', borderRadius: '50%'}} />
-    <div style={{position: 'absolute', bottom: '20px', right: '20px', width: '8px', height: '8px', border: '1px solid #fff', borderRadius: '50%'}} />
-    <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', gap: '24px'}}>
-      <div style={{width: '60px', height: '60px', border: '1px solid #555', borderRadius: '12px'}} />
-      <div style={{width: '60px', height: '60px', border: '1px solid #555', borderRadius: '50%'}} />
-    </div>
-  </div>
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center', gap: '24px', alignItems: 'center'}}>
+  <div style={{width: '120px', height: '120px', background: '#fff', borderRadius: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}} />
+  <div style={{width: '100px', height: '100px', background: '#fff', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}} />
+  <div style={{width: '80px', height: '80px', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}} />
+  <div style={{width: '60px', height: '60px', background: '#fff', borderRadius: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}} />
 </div>
 
 **Common alternative names**
