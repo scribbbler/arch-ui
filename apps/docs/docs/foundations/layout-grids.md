@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#0a0a0a', borderRadius: '12px', padding: '48px 40px', margin: '24px 0', overflow: 'hidden'}}>
+<div className="doc-hero doc-hero--dark" style={{overflow: 'hidden', flexDirection: 'column'}}>
   <div style={{display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '16px', maxWidth: '720px', margin: '0 auto', marginBottom: '24px'}}>
     {Array.from({length: 12}).map((_, i) => (
       <div key={i} style={{background: 'rgba(106, 170, 251, 0.15)', borderLeft: '1px solid rgba(106, 170, 251, 0.3)', borderRight: '1px solid rgba(106, 170, 251, 0.3)', height: '120px', borderRadius: '2px'}} />

@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center', gap: '32px', alignItems: 'flex-end', flexWrap: 'wrap'}}>
+<div className="doc-hero">
   <div style={{width: '120px', height: '120px', background: '#fff', borderRadius: '8px', boxShadow: '0px -4px 16px rgba(0, 0, 0, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 600}}>Shallow</div>
   <div style={{width: '120px', height: '120px', background: '#fff', borderRadius: '8px', boxShadow: '0px -16px 48px rgba(0, 0, 0, 0.22)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 600}}>Deep</div>
 </div>

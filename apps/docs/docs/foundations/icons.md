@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px', margin: '24px 0'}}>
+<div className="doc-hero">
   <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, 36px)', gap: '12px', justifyContent: 'center'}}>
     {[
       'M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z',

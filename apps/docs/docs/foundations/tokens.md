@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0'}}>
+<div className="doc-hero" style={{flexDirection: 'column'}}>
   <div style={{maxWidth: '520px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '12px'}}>
     <div style={{background: '#fff', borderRadius: '8px', padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '16px', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}>
       <div style={{width: '24px', height: '24px', borderRadius: '4px', background: '#266EF1', flexShrink: 0}} />

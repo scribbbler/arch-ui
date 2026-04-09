@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#282828', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+<div className="doc-hero doc-hero--dark">
   <div style={{width: '280px', background: '#fff', borderRadius: '16px', padding: '24px', textAlign: 'center'}}>
     <div style={{fontSize: '14px', fontWeight: 600, marginBottom: '8px'}}>Confirm action</div>
     <div style={{fontSize: '13px', color: '#727272', marginBottom: '20px'}}>This action will proceed automatically when the timer expires.</div>

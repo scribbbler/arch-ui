@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '64px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+<div className="doc-hero">
   <p style={{fontSize: '16px', color: '#727272', margin: 0}}>Illicon set coming soon.</p>
 </div>
 
