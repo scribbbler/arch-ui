@@ -74,13 +74,13 @@ export function ColorRamp({ hue }: { hue: string }) {
         const isBase = step === baseStep;
         const { fg, ratio, altFg, altRatio } = getContrastInfo(value);
         return (
-          <div key={step} style={{ textAlign: 'center', flex: '0 0 84px', marginBottom: '4px' }}>
+          <div key={step} style={{ textAlign: 'center', flex: '0 0 84px' }}>
             <div
               style={{
                 background: value,
-                borderRadius: isBase ? '9999px 9999px 0 0' : '8px 8px 0 0',
+                borderRadius: isBase ? '9999px' : '8px',
                 width: '84px',
-                height: '72px',
+                height: '84px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -98,17 +98,11 @@ export function ColorRamp({ hue }: { hue: string }) {
             {altRatio && (
               <div
                 style={{
-                  background: value,
-                  borderRadius: isBase ? '0 0 9999px 9999px' : '0 0 8px 8px',
-                  width: '84px',
-                  height: '24px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                   color: altFg,
                   fontSize: '9px',
                   fontWeight: 500,
                   fontFamily: 'ui-monospace, monospace',
+                  marginTop: '2px',
                 }}
               >
                 {altRatio}
