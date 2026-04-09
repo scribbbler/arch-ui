@@ -1107,6 +1107,7 @@
   padding: 48px 32px;
   margin: 24px 0;
   height: 360px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
