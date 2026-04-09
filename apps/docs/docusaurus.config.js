@@ -38,6 +38,12 @@ const config = {
           { href: 'https://github.com/scribbbler/arch-ui', label: 'GitHub', position: 'right' },
         ],
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+        breadcrumbs: false,
+      },
       colorMode: {
         defaultMode: 'light',
         respectPrefersColorScheme: true,

@@ -1,11 +1,19 @@
 ---
 slug: /intro
+sidebar_label: Arch Design System
 sidebar_position: 1
+hide_title: true
 ---
 
-# Arch Design System
-
-A React component library with 58 components, aligned with Uber Base Web. Built for teams that want accessible, themeable UI primitives with first-class AI agent support.
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>About Arch UI</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Arch Design System</h1>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A React component library with 58 components, aligned with Uber Base Web. Built for teams that want accessible, themeable UI primitives with first-class AI agent support.
+  </p>
+</div>
 
 ## Quick Start
 
