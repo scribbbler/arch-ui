@@ -36,15 +36,15 @@ function contrastColor(hex: string): string {
   return whiteContrast >= blackContrast ? '#fff' : '#000000';
 }
 
-function getContrastInfo(hex: string): { fg: string; ratio: string } {
-  if (!isHex(hex)) return { fg: '#282828', ratio: '' };
+function getContrastInfo(hex: string): { fg: string; ratio: string; altFg: string; altRatio: string } {
+  if (!isHex(hex)) return { fg: '#282828', ratio: '', altFg: '#fff', altRatio: '' };
   const lum = relativeLuminance(hex);
   const whiteContrast = contrastRatio(1, lum);
   const blackContrast = contrastRatio(lum, 0);
   if (whiteContrast >= blackContrast) {
-    return { fg: '#fff', ratio: whiteContrast.toFixed(1) + ':1' };
+    return { fg: '#FFFFFF', ratio: whiteContrast.toFixed(1) + ':1', altFg: '#000000', altRatio: blackContrast.toFixed(1) + ':1' };
   }
-  return { fg: '#000000', ratio: blackContrast.toFixed(1) + ':1' };
+  return { fg: '#000000', ratio: blackContrast.toFixed(1) + ':1', altFg: '#FFFFFF', altRatio: whiteContrast.toFixed(1) + ':1' };
 }
 
 function resolveRef(ref: string): string {
@@ -72,15 +72,15 @@ export function ColorRamp({ hue }: { hue: string }) {
     <div style={{ display: 'flex', gap: '4px', margin: '16px 0', flexWrap: 'wrap' }}>
       {steps.map(({ step, value }) => {
         const isBase = step === baseStep;
-        const { fg, ratio } = getContrastInfo(value);
+        const { fg, ratio, altFg, altRatio } = getContrastInfo(value);
         return (
-          <div key={step} style={{ textAlign: 'center', flex: '0 0 84px' }}>
+          <div key={step} style={{ textAlign: 'center', flex: '0 0 84px', marginBottom: '4px' }}>
             <div
               style={{
                 background: value,
-                borderRadius: isBase ? '9999px' : '8px',
+                borderRadius: isBase ? '9999px 9999px 0 0' : '8px 8px 0 0',
                 width: '84px',
-                height: '84px',
+                height: '72px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -92,9 +92,28 @@ export function ColorRamp({ hue }: { hue: string }) {
               }}
             >
               <div>{hue}{step}</div>
-              <div style={{ }}>{value}</div>
+              <div>{value}</div>
               {ratio && <div style={{ fontSize: '9px', marginTop: '2px' }}>{ratio}</div>}
             </div>
+            {altRatio && (
+              <div
+                style={{
+                  background: altFg,
+                  borderRadius: isBase ? '0 0 9999px 9999px' : '0 0 8px 8px',
+                  width: '84px',
+                  height: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: value,
+                  fontSize: '9px',
+                  fontWeight: 500,
+                  fontFamily: 'ui-monospace, monospace',
+                }}
+              >
+                {altRatio}
+              </div>
+            )}
           </div>
         );
       })}
