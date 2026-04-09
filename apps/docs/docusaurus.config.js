@@ -16,6 +16,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
+          breadcrumbs: false,
         },
         blog: false,
         theme: {
@@ -37,12 +38,6 @@ const config = {
           { href: 'https://scribbbler.github.io/arch-ui/storybook/', label: 'Storybook', position: 'right' },
           { href: 'https://github.com/scribbbler/arch-ui', label: 'GitHub', position: 'right' },
         ],
-      },
-      docs: {
-        sidebar: {
-          hideable: true,
-        },
-        breadcrumbs: false,
       },
       colorMode: {
         defaultMode: 'light',
