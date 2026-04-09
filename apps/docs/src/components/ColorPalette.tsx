@@ -44,19 +44,17 @@ export function ColorRamp({ hue }: { hue: string }) {
       {steps.map(({ step, value }) => {
         const isBase = step === baseStep;
         return (
-          <div key={step} style={{ textAlign: 'center', flex: '1 1 0', minWidth: '60px' }}>
+          <div key={step} style={{ textAlign: 'center', flex: '0 0 80px' }}>
             <div
               style={{
                 background: value,
                 borderRadius: isBase ? '9999px' : '8px',
-                width: isBase ? '80px' : 'auto',
-                height: isBase ? '80px' : 'auto',
-                padding: isBase ? '0' : '24px 8px',
-                display: isBase ? 'flex' : 'block',
+                width: '80px',
+                height: '80px',
+                display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: isBase ? '0 auto' : '0',
                 color: contrastColor(value),
                 fontSize: '11px',
                 fontWeight: isBase ? 700 : 500,
