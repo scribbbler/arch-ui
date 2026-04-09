@@ -215,6 +215,52 @@ Timed buttons should follow the same button breakpoint rules defined in the Butt
 </TabItem>
 <TabItem value="specs" label="Specs">
 
+<h2>Metrics</h2>
+
+| Property | Value |
+|---|---|
+| Corner radius | 8px (`--radius-component-medium`) |
+| Padding (horizontal) | 16px (`--spacing-component-large`) |
+| Padding (vertical) | 16px (`--spacing-component-large`) |
+| Text alignment | Centre-aligned |
+| Timer progress height | 3px, bottom-aligned |
+
+<h2>Type and color</h2>
+
+| Element | Token |
+|---|---|
+| Label text | `label-large` / `--color-content-inverse-primary` |
+| Container (enabled) | `--color-background-inverse-primary` |
+| Container (pressed) | `--color-background-inverse-primary` + 20% `--color-background-primary` overlay |
+| Container (disabled) | `--color-background-state-disabled` |
+| Text (disabled) | `--color-content-state-disabled` |
+| Timer progress bar | `--color-background-primary` at 20% opacity |
+
+<h2>Screen readers</h2>
+
+### VoiceOver
+
+By using the "Updates frequently" trait, VoiceOver will continuously announce the remaining time, increasing announcement frequency as the timer gets closer to 0.
+
+| Property | Value |
+|---|---|
+| **Voiced preview** | "Label, [time] seconds remaining, Button." |
+| Label | Button label text |
+| Value | `[time] seconds remaining` |
+| Trait | Button, Updates frequently |
+| Hint | n/a |
+
+### TalkBack
+
+| Property | Value |
+|---|---|
+| **Voiced preview** | "Label, Button. Tap to accept" |
+| contentDescription | Button label text |
+| Role | Button |
+| Action | Tap to accept |
+
+---
+
 <h2>Expected props</h2>
 
 | Prop | Type | Default | Description |
@@ -231,13 +277,6 @@ Timed buttons should follow the same button breakpoint rules defined in the Butt
 | `endEnhancer` | `ReactNode` | — | Trailing icon |
 | `size` | `'default' \| 'large' \| 'compact'` | `'default'` | Button size |
 | `autoStart` | `boolean` | `true` | Start countdown immediately on mount |
-
-<h2>Accessibility</h2>
-
-- The countdown text must be announced to screen readers via `aria-live="polite"` at regular intervals (every 5 seconds for longer timers, every second for the last 3 seconds).
-- The button must include `role="timer"` on the countdown element.
-- Users must be able to extend or disable timers via preferences (WCAG 2.2.1 Timing Adjustable).
-- The timer progress overlay is purely decorative — the numerical countdown is the accessible indicator.
 
 <h2>Keyboard interaction</h2>
 
