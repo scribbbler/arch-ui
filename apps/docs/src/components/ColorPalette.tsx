@@ -5,7 +5,12 @@ import semanticColorsDark from '../../../../packages/tokens/src/semantic/color-d
 
 const colors = primitiveColors.color;
 
+function isHex(val: string): boolean {
+  return /^#[0-9A-Fa-f]{6}$/.test(val);
+}
+
 function contrastColor(hex: string): string {
+  if (!isHex(hex)) return '#282828';
   const r = parseInt(hex.slice(1, 3), 16);
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
