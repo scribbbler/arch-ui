@@ -450,7 +450,7 @@ Links embedded inside a sentence can be unfriendly to screen readers and localiz
 
 See also [Link versus button](/foundations/accessibility).
 
-<div className="docs-callout">
+<div className="docs-callout docs-callout--warning">
   Avoid using text color alone because an underline is a more visible, accessible option. Links should use label weight inside paragraph weight blocks of text.
 </div>
 
