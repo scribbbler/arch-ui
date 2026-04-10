@@ -27,6 +27,10 @@ type PreviewGridProps = {
 type PreviewCardProps = {
   label?: React.ReactNode;
   description?: React.ReactNode;
+  /** When true, removes the white inner card background so the demo sits
+   *  directly on the gray surface. Useful for annotated specs where the
+   *  demo component (sheet, dialog) provides its own background. */
+  bare?: boolean;
   children: React.ReactNode;
 };
 
@@ -42,13 +46,26 @@ export function PreviewGrid({
 export function PreviewCard({
   label,
   description,
+  bare,
   children,
 }: PreviewCardProps): React.ReactElement {
   const hasText = label != null || description != null;
+  const cardClass = [
+    'preview-card',
+    hasText ? '' : 'preview-card--no-text',
+  ]
+    .filter(Boolean)
+    .join(' ');
+  const innerClass = [
+    'preview-card__inner',
+    bare ? 'preview-card__inner--bare' : '',
+  ]
+    .filter(Boolean)
+    .join(' ');
   return (
-    <div className={`preview-card${hasText ? '' : ' preview-card--no-text'}`}>
+    <div className={cardClass}>
       <div className="preview-card__surface">
-        <div className="preview-card__inner">{children}</div>
+        <div className={innerClass}>{children}</div>
       </div>
       {label != null && <div className="preview-card__label">{label}</div>}
       {description != null && <p className="preview-card__desc">{description}</p>}

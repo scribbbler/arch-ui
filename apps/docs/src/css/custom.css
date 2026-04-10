@@ -165,6 +165,18 @@
 .preview-grid--cols-1 .preview-card__inner {
   max-width: 560px;
 }
+/* Bare inner: demo sits directly on the gray surface, no white card wrapper.
+   Used for annotated specs and component demos that provide their own
+   background (e.g. a sheet or dialog). */
+.preview-card__inner--bare {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  max-width: none;
+}
+.preview-grid--cols-1 .preview-card__inner--bare {
+  max-width: none;
+}
 .preview-card__label {
   font-size: 16px;
   font-weight: 700;
