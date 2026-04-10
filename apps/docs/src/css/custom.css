@@ -94,15 +94,16 @@
   padding: 0 0 0 8px !important;
 }
 
-/* Footer — rendered at Layout level but visually sits inside the content column.
-   Top border and content are constrained to 800px and offset past the sidebar on doc pages
-   so it looks like part of the main content block. Sidebar stays full-height (default). */
+/* Footer — consistent divider and spacing across all pages.
+   The border lives on .footer itself so it always renders, whether the footer
+   is at Layout level (landing) or moved inside .docItemCol (doc pages). */
 .footer {
   background: #fff;
   padding: 0;
+  border-top: 1px solid #E2E2E2;
+  margin-top: 48px;
 }
 .footer .container {
-  border-top: 1px solid #E2E2E2;
   padding: 32px var(--ifm-spacing-horizontal) 48px;
   max-width: var(--ifm-container-width) !important;
   margin: 0 auto;
