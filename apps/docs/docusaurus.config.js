@@ -43,6 +43,20 @@ const config = {
         defaultMode: 'light',
         respectPrefersColorScheme: true,
       },
+      footer: {
+        style: 'light',
+        links: [
+          {
+            items: [
+              { label: 'Arch UI', href: '/' },
+              { label: 'Accessibility', to: '/foundations/accessibility' },
+              { label: 'GitHub', href: 'https://github.com/scribbbler/arch-ui' },
+              { label: 'Storybook', href: 'https://scribbbler.github.io/arch-ui/storybook/' },
+            ],
+          },
+        ],
+        copyright: `© ${new Date().getFullYear()} Arch UI`,
+      },
     }),
 };
 
