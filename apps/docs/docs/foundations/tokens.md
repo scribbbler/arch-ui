@@ -180,6 +180,32 @@ input-border-focus   →  {color-border-focus}
 
 ---
 
+## Principles
+
+### Shared language
+
+Design tokens provide a common language between designers and developers.
+
+### Consistency
+
+Remember that it takes a long time to cement a consistent "feel" with our users, but it takes very little to break it. Design tokens ensure consistency in our design system, connecting each element to a predefined style and, therefore, a design token.
+
+### Reusability
+
+Design tokens provide a predefined set of options that can be applied to multiple use cases across our system, driving system adoption on the subcomponent level.
+
+Using raw values directly in code is poor practice for maintenance and future changes, mainly because we support themes and accessibility features like Dark Mode. Proper tokens allow themes to work seamlessly across multiple platforms -- iOS, Android, and the Web.
+
+---
+
+These styles have been defined with a system in mind; the moment you deviate from them, you break this system. By adhering to this system instead, you help consolidate a distinctive look & feel driven by our brand guidelines.
+
+<div style={{background: '#F3F3F3', padding: '20px 24px', borderRadius: '4px', margin: '16px 0'}}>
+  <strong>It's your job as a designer to reinforce the consolidation of a single voice in every detail of your work.</strong>
+</div>
+
+---
+
 ## Supported types
 
 Arch UI defines tokens across 8 categories. Each category has its own foundation page with detailed values and usage guidance.
@@ -287,22 +313,6 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 </a>
 
 </div>
-
----
-
-## Principles
-
-### Shared language
-
-When a designer says `color-action-primary` and a developer writes `var(--color-action-primary)`, they are referencing the exact same decision. Tokens eliminate ambiguity between disciplines by giving every value a name that both sides understand.
-
-### Consistency
-
-It takes sustained effort to build a coherent visual identity, but a single hard-coded hex value can break it. Tokens enforce consistency by connecting every element to a predefined style. When you change a token, every surface that uses it updates in lockstep.
-
-### Scalability
-
-Tokens are how themes work. When Arch UI switches from light to dark mode, your component code does not change -- the semantic tokens silently remap to different primitives. This same mechanism supports future themes, brand variations, and accessibility modes without touching component files.
 
 </TabItem>
 
