@@ -61,7 +61,7 @@ Our semantic groupings give you guidance on how the style can be used while not 
 
 ### Roles
 
-Type styles are organized into four roles. Each role carries its own weight, size range, and intended purpose.
+Type styles are defined based on four roles: Display, Heading, Label, and Paragraph.
 
 <div className="type-roles-grid">
   <div className="type-role-card">
@@ -71,7 +71,7 @@ Type styles are organized into four roles. Each role carries its own weight, siz
       </div>
     </div>
     <div className="type-role-card__label">Display</div>
-    <p className="type-role-card__desc">The largest text on the screen, reserved for short, impactful text or numerals. Bold weight, tight letter-spacing.</p>
+    <p className="type-role-card__desc">The largest text on the screen is reserved for short, important text or numerals.</p>
   </div>
   <div className="type-role-card">
     <div className="type-role-card__preview">
@@ -80,7 +80,7 @@ Type styles are organized into four roles. Each role carries its own weight, siz
       </div>
     </div>
     <div className="type-role-card__label">Heading</div>
-    <p className="type-role-card__desc">Breaks content into sections, establishing a clear information hierarchy. Bold weight, neutral letter-spacing.</p>
+    <p className="type-role-card__desc">Used to break up content into sections and provide a clear hierarchy of information.</p>
   </div>
   <div className="type-role-card">
     <div className="type-role-card__preview">
@@ -89,7 +89,7 @@ Type styles are organized into four roles. Each role carries its own weight, siz
       </div>
     </div>
     <div className="type-role-card__label">Label</div>
-    <p className="type-role-card__desc">Short phrases that provide context — buttons, form fields, navigation items. Medium weight for compact readability.</p>
+    <p className="type-role-card__desc">A short phrase or sentence that provides context or information about a specific block of text.</p>
   </div>
   <div className="type-role-card">
     <div className="type-role-card__preview">
@@ -98,7 +98,7 @@ Type styles are organized into four roles. Each role carries its own weight, siz
       </div>
     </div>
     <div className="type-role-card__label">Paragraph</div>
-    <p className="type-role-card__desc">Longer blocks of running text — descriptions, articles, help content. Regular weight with generous line-height.</p>
+    <p className="type-role-card__desc">Longer blocks of text, used for mostly text-based content.</p>
   </div>
 </div>
 
@@ -108,9 +108,11 @@ Type styles are organized into four roles. Each role carries its own weight, siz
 
 **Modular scale**
 
-Much like notes written on a musical scale, our type sizes create a visual rhythm and harmony that is as pleasing to the eye as music is to the ear.
+Much like notes written in this key on a music scale, our type sizes create a visual rhythm and harmony that is as pleasing to the eyes as music is to the ears.
 
-Our scale is modelled after the intervals in a major second musical scale (ratio of 8:9). It starts with a base font size of 14 and scales by multiplying 1.125 at each interval. We have selected a key set of sizes from this scale that work well across interfaces.
+Our scale is modeled after the intervals in a major second musical scale (ratio of 8:9). Songs created with the major second musical scale are upbeat and happy, the feelings we want our design system to evoke. Some common examples are "Happy Birthday" and "Frère Jacques."
+
+Arch UI leverages a modular scale to define a set of harmonious and hierarchical type sizes. It starts with a base font size of 14 and scales by multiplying 1.125 at each interval. We've chosen a key set of sizes from this scale that work well across interfaces.
 
 <div className="type-scale-visual">
   <span style={{fontSize: '12px'}}>12</span>
@@ -153,7 +155,9 @@ Calculate the space below a text box by subtracting the font size from the line 
 
 ### Size
 
-Within each role we use four key sizes — XSmall, Small, Medium, and Large — to ensure a clear typographic scale. Heading additionally supports XLarge and XXLarge for greater visual emphasis.
+Within our roles, we use four key sizes to ensure a clear typographic scale and rhythm:
+
+We also support additional sizes exclusively for creating more visual emphasis on an interface.
 
 <div className="type-naming-diagram">
   <span style={{fontSize: '36px', fontWeight: 700}}>Display &bull; Small</span>
@@ -165,37 +169,39 @@ Within each role we use four key sizes — XSmall, Small, Medium, and Large — 
 
 | Size | Paragraph | Label | Heading | Display |
 |---|---|---|---|---|
-| XSmall | 12 / 20 | 12 / 16 | 20 / 28 | 36 / 44 |
-| Small | 14 / 20 | 14 / 16 | 24 / 32 | 44 / 52 |
-| Medium | 16 / 24 | 16 / 20 | 28 / 36 | 52 / 64 |
-| Large | 18 / 28 | 18 / 24 | 32 / 40 | 96 / 112 |
-| XLarge | -- | -- | 36 / 44 | -- |
-| XXLarge | -- | -- | 40 / 52 | -- |
+| XSmall | Yes | Yes | Yes | Yes |
+| Small | Yes | Yes | Yes | Yes |
+| Medium | Yes | Yes | Yes | Yes |
+| Large | Yes | Yes | Yes | Yes |
+| X Large | No | No | Yes | No |
+| XX Large | No | No | Yes | No |
 
 ---
 
 ### Fonts
 
-The default font family in Arch UI is **Inter**. The system provides three distinct typeface stacks — **Sans**, **Serif**, and **Mono** — each used in different sizes and weights throughout our typography tokens.
+The default font family that Arch UI uses is **Inter**. It comes with three distinct typefaces: **Display**, **Text**, and **Mono**.
+
+They are all used in different sizes and weights throughout our [typography tokens](/foundations/tokens).
 
 <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', margin: '24px 0'}}>
   <div>
     <div style={{background: '#f3f3f3', borderRadius: '8px', padding: '32px 16px', textAlign: 'center', marginBottom: '8px'}}>
-      <span style={{fontSize: '20px', fontWeight: 500, fontFamily: "'Inter', system-ui, sans-serif"}}>Inter Sans</span>
+      <span style={{fontSize: '20px', fontWeight: 700, fontFamily: "'Inter', system-ui, sans-serif"}}>Inter Display</span>
     </div>
-    <strong>Inter (Sans)</strong>
+    <strong>Inter Display</strong>
   </div>
   <div>
     <div style={{background: '#f3f3f3', borderRadius: '8px', padding: '32px 16px', textAlign: 'center', marginBottom: '8px'}}>
-      <span style={{fontSize: '20px', fontWeight: 500, fontFamily: "Georgia, Cambria, serif"}}>Georgia Serif</span>
+      <span style={{fontSize: '20px', fontWeight: 400, fontFamily: "'Inter', system-ui, sans-serif"}}>Inter Text</span>
     </div>
-    <strong>Georgia (Serif)</strong>
+    <strong>Inter Text</strong>
   </div>
   <div>
     <div style={{background: '#f3f3f3', borderRadius: '8px', padding: '32px 16px', textAlign: 'center', marginBottom: '8px'}}>
-      <span style={{fontSize: '20px', fontWeight: 500, fontFamily: "ui-monospace, SFMono-Regular, monospace"}}>SF Mono</span>
+      <span style={{fontSize: '20px', fontWeight: 500, fontFamily: "ui-monospace, SFMono-Regular, monospace"}}>Inter Mono</span>
     </div>
-    <strong>Monospace</strong>
+    <strong>Inter Mono</strong>
   </div>
 </div>
 
@@ -211,26 +217,28 @@ Looking for our font files? You can download Inter from [Google Fonts](https://f
 
 ---
 
-#### Monospace
+#### Inter Mono
 
-We maintain a dedicated monospace ramp for money, numbers, and code-related use cases where precise character alignment matters.
+We've created a sister version of our main typographic styles, which solely uses Inter Mono. It is designed specifically for money and number-related use cases.
 
 <div className="type-mono-hero">
   <span style={{fontFamily: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace", fontSize: '64px', fontWeight: 700, letterSpacing: '-0.025em'}}>$1,234,567,890</span>
 </div>
 
-**Monospaced vs proportional typefaces**
+**Monospaced vs Regular typefaces**
 
-A monospaced font allocates equal horizontal space to every character. This produces better vertical alignment than proportional numbers, making it ideal for displaying prices, payment balances, and tabular data.
+A monospaced font is designed in a way that each character occupies the same amount of space on a horizontal line of text and offers better vertical alignment than proportional numbers.
+
+This makes it perfect for displaying numbers such as the price of a product or a payment balance.
 
 <div className="type-mono-comparison">
   <div className="type-mono-comparison__col">
-    <div className="type-mono-comparison__label">Inter (Proportional)</div>
+    <div className="type-mono-comparison__label">Inter</div>
     <div style={{fontFamily: "'Inter', system-ui, sans-serif", fontSize: '32px', fontWeight: 700}}>$11,111</div>
     <div style={{fontFamily: "'Inter', system-ui, sans-serif", fontSize: '32px', fontWeight: 700}}>$99,999</div>
   </div>
   <div className="type-mono-comparison__col">
-    <div className="type-mono-comparison__label">Monospace</div>
+    <div className="type-mono-comparison__label">Inter Mono</div>
     <div style={{fontFamily: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace", fontSize: '32px', fontWeight: 700}}>$11,111</div>
     <div style={{fontFamily: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace", fontSize: '32px', fontWeight: 700}}>$99,999</div>
   </div>
