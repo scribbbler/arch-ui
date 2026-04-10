@@ -45,15 +45,15 @@ Type styles, labels, text styles, type, font
 
 ### Go big
 
-We prioritize larger font sizes because legibility and accessibility matter. Our type scale starts at 12 px and reaches up to 96 px for display text, giving content the space to breathe and ensuring readability across every device.
+We prioritize larger font sizes because the Uber experience values legibility and accessibility. We love our new font and aren't afraid to let it shine.
 
 ### Less is more
 
-We optimize for fewer style options so there is no decision paralysis when choosing a type style. A focused set of roles and sizes provides the right balance of control and creative freedom.
+We optimize for fewer style options, so there's no decision paralysis when choosing the right type of style. We include a simple set of text styles to provide the right balance of control and creative freedom.
 
 ### Simple semantics
 
-Our semantic groupings guide how each style should be used without being overly prescriptive. Four roles — Display, Heading, Label, and Paragraph — cover every use case you will encounter in a product interface.
+Our semantic groupings give you guidance on how the style can be used while not being overly prescriptive.
 
 ---
 
