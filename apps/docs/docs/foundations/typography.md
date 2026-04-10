@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
     <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    Four semantic roles, a modular scale, and two typographic ramps so every interface communicates clearly without decision paralysis.
+    Base typography is flexible and modular and can be used in various ways. Below are the principles behind how our type system was created and examples of how it can be used.
   </p>
 </div>
 
