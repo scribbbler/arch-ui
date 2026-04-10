@@ -112,6 +112,14 @@
 body:has(.theme-doc-sidebar-container) .footer {
   padding-left: var(--doc-sidebar-width);
 }
+
+/* Sidebar extends full viewport height below the navbar regardless of doc content height */
+.theme-doc-sidebar-container {
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  height: calc(100vh - var(--ifm-navbar-height));
+  min-height: calc(100vh - var(--ifm-navbar-height));
+}
 .footer__links {
   margin-bottom: 16px;
 }
