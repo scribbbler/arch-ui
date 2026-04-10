@@ -94,57 +94,33 @@
   padding: 0 0 0 8px !important;
 }
 
-/* Footer — consistent divider and spacing across all pages.
-   The border lives on .footer itself so it always renders, whether the footer
-   is at Layout level (landing) or moved inside .docItemCol (doc pages). */
-.footer {
-  background: #fff;
-  padding: 0;
+/* Custom site footer — rendered inside the main content column on doc pages
+   (via swizzled DocItem/Layout) and directly on the landing page. */
+.site-footer {
   border-top: 1px solid #E2E2E2;
   margin-top: 48px;
+  padding: 32px 0 48px;
 }
-.footer .container {
-  padding: 32px var(--ifm-spacing-horizontal) 48px;
-  max-width: var(--ifm-container-width) !important;
-  margin: 0 auto;
-}
-/* The footer is physically moved inside the doc content column by
-   src/clientModules/relocateFooter.js, so no positional CSS is needed here.
-   The container max-width (800px) from --ifm-container-width keeps it aligned
-   with the rest of the doc body. */
-.footer__links {
-  margin-bottom: 16px;
-}
-.footer__col {
-  flex: 0 0 auto;
-}
-.footer__items {
+.site-footer__links {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 32px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+  margin-bottom: 24px;
 }
-.footer__item {
-  margin: 0;
-}
-.footer__link-item {
+.site-footer__link {
   color: #000;
   font-weight: 700;
   font-size: 15px;
   text-decoration: underline;
 }
-.footer__link-item:hover {
+.site-footer__link:hover {
   color: #000;
   text-decoration: underline;
 }
-.footer__copyright {
+.site-footer__copyright {
   color: #5E5E5E;
   font-size: 14px;
-  text-align: left;
-  margin-top: 24px;
 }
 
 /* Landing page — large category cards */

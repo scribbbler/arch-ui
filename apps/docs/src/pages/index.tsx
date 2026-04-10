@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { COMPONENT_COUNT } from '../constants';
+import SiteFooter from '../components/SiteFooter';
 
 const categories = [
   {
@@ -98,6 +99,7 @@ export default function Home(): React.ReactElement {
             </Link>
           ))}
         </div>
+        <SiteFooter />
       </main>
     </Layout>
   );
