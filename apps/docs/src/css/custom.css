@@ -380,7 +380,7 @@ ul.tabs .tabs__item:hover {
 }
 
 .arch-categories {
-  padding: 64px 48px 80px;
+  padding: 64px 0 80px;
   max-width: var(--ifm-container-width);
   margin: 0 auto;
 }
