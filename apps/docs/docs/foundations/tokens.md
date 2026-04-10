@@ -280,19 +280,19 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 
 <div className="foundation-grid" style={{marginBottom: '48px'}}>
 
-<a href="/foundations/color" className="foundation-card">
-<div className="foundation-card__icon">
+<a href="/foundations/color" className="docs-category-card">
+<div className="docs-category-card__icon">
 <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="40" cy="35" r="20" stroke="currentColor" strokeWidth="2" />
 <circle cx="60" cy="35" r="20" stroke="currentColor" strokeWidth="2" />
 <circle cx="50" cy="52" r="20" stroke="currentColor" strokeWidth="2" />
 </svg>
 </div>
-<div className="foundation-card__title">Color</div>
+<div className="docs-category-card__title">Color</div>
 </a>
 
-<a href="/foundations/typography" className="foundation-card">
-<div className="foundation-card__icon">
+<a href="/foundations/typography" className="docs-category-card">
+<div className="docs-category-card__icon">
 <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <text x="15" y="35" fill="currentColor" fontSize="28" fontWeight="700" fontFamily="system-ui">Aa</text>
 <line x1="15" y1="50" x2="105" y2="50" stroke="currentColor" strokeWidth="2" />
@@ -300,11 +300,11 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 <line x1="15" y1="70" x2="95" y2="70" stroke="currentColor" strokeWidth="2" />
 </svg>
 </div>
-<div className="foundation-card__title">Typography</div>
+<div className="docs-category-card__title">Typography</div>
 </a>
 
-<a href="/foundations/spacing" className="foundation-card">
-<div className="foundation-card__icon">
+<a href="/foundations/spacing" className="docs-category-card">
+<div className="docs-category-card__icon">
 <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <line x1="20" y1="15" x2="20" y2="65" stroke="currentColor" strokeWidth="2" />
 <line x1="15" y1="15" x2="25" y2="15" stroke="currentColor" strokeWidth="2" />
@@ -316,22 +316,22 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 <rect x="65" y="25" width="30" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
 </svg>
 </div>
-<div className="foundation-card__title">Spacing</div>
+<div className="docs-category-card__title">Spacing</div>
 </a>
 
-<a href="/foundations/border" className="foundation-card">
-<div className="foundation-card__icon">
+<a href="/foundations/border" className="docs-category-card">
+<div className="docs-category-card__icon">
 <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="15" y="10" width="90" height="60" rx="6" stroke="currentColor" strokeWidth="1" />
 <rect x="25" y="20" width="70" height="40" rx="4" stroke="currentColor" strokeWidth="2" />
 <rect x="38" y="32" width="44" height="16" rx="3" stroke="currentColor" strokeWidth="4" />
 </svg>
 </div>
-<div className="foundation-card__title">Border</div>
+<div className="docs-category-card__title">Border</div>
 </a>
 
-<a href="/foundations/corner-radius" className="foundation-card">
-<div className="foundation-card__icon">
+<a href="/foundations/corner-radius" className="docs-category-card">
+<div className="docs-category-card__icon">
 <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="10" y="10" width="40" height="30" rx="0" stroke="currentColor" strokeWidth="2" />
 <rect x="60" y="10" width="40" height="30" rx="6" stroke="currentColor" strokeWidth="2" />
@@ -339,11 +339,11 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 <circle cx="80" cy="60" r="12" stroke="currentColor" strokeWidth="2" />
 </svg>
 </div>
-<div className="foundation-card__title">Corner Radius</div>
+<div className="docs-category-card__title">Corner Radius</div>
 </a>
 
-<a href="/foundations/elevation" className="foundation-card">
-<div className="foundation-card__icon">
+<a href="/foundations/elevation" className="docs-category-card">
+<div className="docs-category-card__icon">
 <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="22" y="22" width="50" height="36" rx="4" fill="currentColor" opacity="0.15" />
 <rect x="18" y="18" width="50" height="36" rx="4" stroke="currentColor" strokeWidth="2" />
@@ -351,11 +351,11 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 <rect x="58" y="38" width="36" height="26" rx="4" stroke="currentColor" strokeWidth="2" />
 </svg>
 </div>
-<div className="foundation-card__title">Elevation</div>
+<div className="docs-category-card__title">Elevation</div>
 </a>
 
-<a href="/foundations/motion" className="foundation-card">
-<div className="foundation-card__icon">
+<a href="/foundations/motion" className="docs-category-card">
+<div className="docs-category-card__icon">
 <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="30" cy="40" r="15" stroke="currentColor" strokeWidth="2" />
 <circle cx="70" cy="40" r="15" stroke="currentColor" strokeWidth="2" />
@@ -363,11 +363,11 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 <path d="M85 40 Q95 20 105 40 Q95 60 85 40" stroke="currentColor" strokeWidth="2" />
 </svg>
 </div>
-<div className="foundation-card__title">Motion</div>
+<div className="docs-category-card__title">Motion</div>
 </a>
 
-<a href="/foundations/layout-grids" className="foundation-card">
-<div className="foundation-card__icon">
+<a href="/foundations/layout-grids" className="docs-category-card">
+<div className="docs-category-card__icon">
 <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <line x1="30" y1="5" x2="30" y2="75" stroke="currentColor" strokeWidth="2" />
 <line x1="60" y1="5" x2="60" y2="75" stroke="currentColor" strokeWidth="2" />
@@ -377,7 +377,7 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 <line x1="10" y1="60" x2="110" y2="60" stroke="currentColor" strokeWidth="2" />
 </svg>
 </div>
-<div className="foundation-card__title">Layout Grids</div>
+<div className="docs-category-card__title">Layout Grids</div>
 </a>
 
 </div>

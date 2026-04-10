@@ -91,10 +91,10 @@ export default function Home(): React.ReactElement {
       <main className="arch-categories">
         <div className="arch-categories__grid">
           {categories.map((cat) => (
-            <Link key={cat.title} to={useBaseUrl(cat.href)} className="arch-card">
-              <div className="arch-card__icon">{cat.icon}</div>
-              <h3 className="arch-card__title">{cat.title}</h3>
-              <p className="arch-card__description">{cat.description}</p>
+            <Link key={cat.title} to={useBaseUrl(cat.href)} className="docs-category-card">
+              <div className="docs-category-card__icon">{cat.icon}</div>
+              <h3 className="docs-category-card__title">{cat.title}</h3>
+              <p className="docs-category-card__description">{cat.description}</p>
             </Link>
           ))}
         </div>

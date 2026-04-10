@@ -412,8 +412,9 @@ ul.tabs .tabs__item:hover {
   }
 }
 
-.arch-card,
-.foundation-card {
+/* Docs category card — used on landing and foundations index.
+   Named to avoid collision with the .arch-card component class. */
+.docs-category-card {
   display: flex;
   flex-direction: column;
   border: 1px solid #e5e5e5;
@@ -424,25 +425,21 @@ ul.tabs .tabs__item:hover {
   transition: box-shadow 0.15s, border-color 0.15s;
 }
 
-.arch-card:hover,
-.foundation-card:hover {
+.docs-category-card:hover {
   border-color: #bbbbbb;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-[data-theme='dark'] .arch-card,
-[data-theme='dark'] .foundation-card {
+[data-theme='dark'] .docs-category-card {
   border-color: #333;
 }
 
-[data-theme='dark'] .arch-card:hover,
-[data-theme='dark'] .foundation-card:hover {
+[data-theme='dark'] .docs-category-card:hover {
   border-color: #555;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-.arch-card__icon,
-.foundation-card__icon {
+.docs-category-card__icon {
   background: #0a0a0a;
   padding: 32px 24px;
   display: flex;
@@ -451,21 +448,19 @@ ul.tabs .tabs__item:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.arch-card__icon svg,
-.foundation-card__icon svg {
+.docs-category-card__icon svg {
   width: 120px;
   height: 80px;
 }
 
-.arch-card__title,
-.foundation-card__title {
+.docs-category-card__title {
   font-size: 16px;
   font-weight: 600;
   margin: 0;
   padding: 16px 16px 8px;
 }
 
-.arch-card__description {
+.docs-category-card__description {
   font-size: 13px;
   line-height: 1.5;
   color: #727272;
@@ -473,7 +468,7 @@ ul.tabs .tabs__item:hover {
   padding: 0 16px 16px;
 }
 
-[data-theme='dark'] .arch-card__description {
+[data-theme='dark'] .docs-category-card__description {
   color: #a6a6a6;
 }
 
