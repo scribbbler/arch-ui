@@ -264,22 +264,9 @@ ul.tabs .tabs__item:hover {
   --ifm-color-primary-lightest: #DEE9FE;
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
   --ifm-code-font-size: 95%;
-  --doc-max-width: 800px;
-}
-
-/* Global max-width for doc page content */
-.theme-doc-markdown,
-.markdown,
-article {
-  max-width: var(--doc-max-width);
-}
-
-/* Constrain navbar and footer to the same max-width, centered */
-.navbar__inner,
-.footer .container {
-  max-width: var(--doc-max-width);
-  margin-left: auto;
-  margin-right: auto;
+  /* Single source of truth: every content band on the site is capped here */
+  --ifm-container-width: 800px;
+  --ifm-container-width-xl: 800px;
 }
 
 [data-theme='dark'] {
