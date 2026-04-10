@@ -16,9 +16,9 @@ hide_title: true
 
 ---
 
-## v1.0.0 — 2026-04-01
+## v0.10.0 — 2026-04-01
 
-The first stable release of Arch UI. All components listed as Beta in previous releases have been promoted to Stable after completing accessibility audits and cross-browser testing.
+Adds three new utility components and expands Button's variant set. All components remain in Beta until the public 1.0.0 release.
 
 ### Added
 

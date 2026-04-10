@@ -57,8 +57,8 @@ hide_title: true
 | Drawer | Beta | 0.9.0 |
 | Empty State | Planned | — |
 | File Upload | Beta | 0.9.0 |
-| Focus Trap | Beta | 1.0.0 |
-| Form Control | Beta | 1.0.0 |
+| Focus Trap | Beta | 0.10.0 |
+| Form Control | Beta | 0.10.0 |
 | Grid | Beta | 0.9.0 |
 | Heading | Beta | 0.9.0 |
 | Inline | Beta | 0.9.0 |
@@ -117,7 +117,7 @@ hide_title: true
 | Tooltip | Beta | 0.9.0 |
 | Top Navigation | Planned | — |
 | Tree View | Planned | — |
-| Visually Hidden | Beta | 1.0.0 |
+| Visually Hidden | Beta | 0.10.0 |
 
 ---
 

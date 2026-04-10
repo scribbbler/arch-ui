@@ -761,7 +761,7 @@ gap: 7px;
 
 | Version | Date | Change |
 |---|---|---|
-| 1.0.0 | -- | Initial token system with 474 tokens across 8 categories |
+| 0.9.0 | -- | Initial token system with 474 tokens across 8 categories |
 
 </TabItem>
 </Tabs>
