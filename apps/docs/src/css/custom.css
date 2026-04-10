@@ -839,6 +839,11 @@ ul.tabs .tabs__item:hover {
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   margin: 24px 0;
+  align-items: stretch;
+}
+.type-role-card {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 640px) {
@@ -856,6 +861,7 @@ ul.tabs .tabs__item:hover {
   justify-content: center;
   margin-bottom: 12px;
   min-height: 180px;
+  flex: 1;
 }
 
 [data-theme='dark'] .type-role-card__preview {
