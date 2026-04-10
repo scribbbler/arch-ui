@@ -274,6 +274,14 @@ article {
   max-width: var(--doc-max-width);
 }
 
+/* Constrain navbar and footer to the same max-width, centered */
+.navbar__inner,
+.footer .container {
+  max-width: var(--doc-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 [data-theme='dark'] {
   --ifm-color-primary: #6DAAFB;
   --ifm-color-primary-dark: #266EF1;
