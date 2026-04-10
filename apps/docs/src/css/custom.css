@@ -331,6 +331,37 @@
   margin: 0;
 }
 
+/* Every inline link across the documentation is black with an underline.
+   Exclusions: sidebar nav, navbar, card wrappers, tab items — those keep
+   their own styling. */
+a {
+  color: #000;
+  text-decoration: underline;
+}
+a:hover,
+a:focus {
+  color: #000;
+  text-decoration: underline;
+}
+/* Keep card wrappers and navigation elements unstyled (no underline, inherit color) */
+.arch-card,
+.home-card,
+.foundation-card,
+.docs-category-card,
+.menu__link,
+.navbar__link,
+.navbar__brand,
+.tabs__item,
+.pagination-nav__link {
+  text-decoration: none !important;
+}
+.arch-card,
+.home-card,
+.foundation-card,
+.docs-category-card {
+  color: inherit !important;
+}
+
 /* Docusaurus Tabs — add a full-width bottom border to the tab row */
 ul.tabs {
   border-bottom: 1px solid #E2E2E2;
