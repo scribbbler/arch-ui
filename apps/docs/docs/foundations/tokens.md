@@ -53,9 +53,9 @@ Each design token has a unique name and its corresponding value. This name/value
 
 The most integral part of a design token is its name — it is how it will be known and referenced across all platforms.
 
-:::note
-Naming is inherently complex — you can always reference the naming convention of each token type on its respective documentation page for more details.
-:::
+<div className="docs-callout">
+  Naming is inherently complex — you can always reference the naming convention of each token type on its respective documentation page for more details.
+</div>
 
 There are two main properties when thinking of how we construct the name of a design token, its [Tier](#tiers) and [Type](#type-optional).
 
@@ -133,9 +133,9 @@ Beyond name and value, a design token can have a description property to provide
 
 "Design tokens are a methodology for expressing design decisions in a platform-agnostic way so that they can be shared across different disciplines, tools, and technologies. They help establish a common vocabulary across organizations." — [W3C Design Tokens](https://www.w3.org/community/design-tokens/)
 
-:::note
-We aim to be as close to the proposed W3C design token format and follow best practices, however, we will be holding off on doing a migration to achieve full compliance until its official release.
-:::
+<div className="docs-callout">
+  We aim to be as close to the proposed W3C design token format and follow best practices, however, we will be holding off on doing a migration to achieve full compliance until its official release.
+</div>
 
 #### Resources
 
@@ -268,7 +268,7 @@ Using raw values directly in code is poor practice for maintenance and future ch
 
 These styles have been defined with a system in mind; the moment you deviate from them, you break this system. By adhering to this system instead, you help consolidate a distinctive look & feel driven by our brand guidelines.
 
-<div style={{background: '#F3F3F3', padding: '20px 24px', borderRadius: '4px', margin: '16px 0'}}>
+<div className="docs-callout">
   <strong>It's your job as a designer to reinforce the consolidation of a single voice in every detail of your work.</strong>
 </div>
 

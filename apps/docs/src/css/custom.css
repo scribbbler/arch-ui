@@ -94,6 +94,27 @@
   padding: 0 0 0 8px !important;
 }
 
+/* Docs callout — standardized gray note/info box.
+   Use <div className="docs-callout"> for any inline note, disclaimer,
+   or aside. Never use :::note or inline styled divs. */
+.docs-callout {
+  background: #F3F3F3;
+  padding: 20px 24px;
+  border-radius: 4px;
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.docs-callout p {
+  margin: 0;
+}
+.docs-callout p + p {
+  margin-top: 12px;
+}
+.docs-callout strong {
+  font-weight: 700;
+}
+
 /* Anatomy annotation labels */
 .anatomy-label {
   font-size: 13px !important;
