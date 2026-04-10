@@ -6,6 +6,7 @@ hide_title: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Guidance from '@site/src/components/Guidance';
+import Preview from '@site/src/components/PreviewCard';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
@@ -64,44 +65,28 @@ Our semantic groupings give you guidance on how the style can be used while not 
 
 Type styles are defined based on four roles: Display, Heading, Label, and Paragraph.
 
-<div className="type-roles-grid">
-  <div className="type-role-card">
-    <div className="type-role-card__preview">
-      <div style={{fontSize: '24px', fontWeight: 700, lineHeight: 1.3}}>
-        We build interfaces that work for everyone. 0123456789
-      </div>
+<Preview.Grid columns={2}>
+  <Preview.Card label="Display" description="The largest text on the screen is reserved for short, important text or numerals.">
+    <div style={{fontSize: '24px', fontWeight: 700, lineHeight: 1.3}}>
+      We build interfaces that work for everyone. 0123456789
     </div>
-    <div className="type-role-card__label">Display</div>
-    <p className="type-role-card__desc">The largest text on the screen is reserved for short, important text or numerals.</p>
-  </div>
-  <div className="type-role-card">
-    <div className="type-role-card__preview">
-      <div style={{fontSize: '20px', fontWeight: 700, lineHeight: 1.4}}>
-        We build interfaces that work for everyone. 0123456789
-      </div>
+  </Preview.Card>
+  <Preview.Card label="Heading" description="Used to break up content into sections and provide a clear hierarchy of information.">
+    <div style={{fontSize: '20px', fontWeight: 700, lineHeight: 1.4}}>
+      We build interfaces that work for everyone. 0123456789
     </div>
-    <div className="type-role-card__label">Heading</div>
-    <p className="type-role-card__desc">Used to break up content into sections and provide a clear hierarchy of information.</p>
-  </div>
-  <div className="type-role-card">
-    <div className="type-role-card__preview">
-      <div style={{fontSize: '16px', fontWeight: 500, lineHeight: 1.4}}>
-        We build interfaces that work for everyone. 0123456789
-      </div>
+  </Preview.Card>
+  <Preview.Card label="Label" description="A short phrase or sentence that provides context or information about a specific block of text.">
+    <div style={{fontSize: '16px', fontWeight: 500, lineHeight: 1.4}}>
+      We build interfaces that work for everyone. 0123456789
     </div>
-    <div className="type-role-card__label">Label</div>
-    <p className="type-role-card__desc">A short phrase or sentence that provides context or information about a specific block of text.</p>
-  </div>
-  <div className="type-role-card">
-    <div className="type-role-card__preview">
-      <div style={{fontSize: '16px', fontWeight: 400, lineHeight: 1.5}}>
-        We build interfaces that work for everyone. 0123456789
-      </div>
+  </Preview.Card>
+  <Preview.Card label="Paragraph" description="Longer blocks of text, used for mostly text-based content.">
+    <div style={{fontSize: '16px', fontWeight: 400, lineHeight: 1.5}}>
+      We build interfaces that work for everyone. 0123456789
     </div>
-    <div className="type-role-card__label">Paragraph</div>
-    <p className="type-role-card__desc">Longer blocks of text, used for mostly text-based content.</p>
-  </div>
-</div>
+  </Preview.Card>
+</Preview.Grid>
 
 ---
 

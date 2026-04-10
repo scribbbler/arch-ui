@@ -94,6 +94,71 @@
   padding: 0 0 0 8px !important;
 }
 
+/* Reusable preview card grid — used via src/components/PreviewCard.tsx.
+   Cards always stretch to equal height inside a row. Never duplicate the
+   classes elsewhere; import Preview from the component and reuse. */
+.preview-grid {
+  display: grid;
+  gap: 24px;
+  margin: 24px 0;
+  align-items: stretch;
+}
+.preview-grid--cols-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.preview-grid--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.preview-grid--cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 768px) {
+  .preview-grid--cols-3,
+  .preview-grid--cols-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .preview-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+.preview-card {
+  display: flex;
+  flex-direction: column;
+}
+.preview-card__surface {
+  background: #F3F3F3;
+  border-radius: 12px;
+  padding: 48px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.preview-card__inner {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 340px;
+}
+.preview-card__label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+.preview-card__desc {
+  font-size: 14px;
+  color: #5E5E5E;
+  line-height: 1.5;
+  margin: 0;
+}
+
 /* Shared Do / Don't / Caution guidance blocks — used across every doc page
    via src/components/Guidance.tsx. Never inline these styles or duplicate
    them elsewhere; always import Guidance and reuse. */
