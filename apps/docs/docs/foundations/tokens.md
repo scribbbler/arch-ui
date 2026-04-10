@@ -80,7 +80,7 @@ In CSS output, tokens become custom properties prefixed with `--` and hyphen-sep
 
 ## Tiers
 
-Design tokens are organized into three tiers. Each tier builds on the one below it through aliasing -- a semantic token references a primitive, never a raw value.
+Design tokens follow a 3 tier model based on whether the token stores an option or a decision. Each tier is referenced by the one above it (refer to as aliasing).
 
 <div className="token-tier-diagram">
   <div className="token-tier-diagram__content">
@@ -128,7 +128,7 @@ Design tokens are organized into three tiers. Each tier builds on the one below 
 
 ### Primitive tokens
 
-Primitive tokens are the raw materials. They store absolute values and are named by their literal scale position, never by intent. You should rarely use primitive tokens directly in component code -- they exist to feed the semantic layer.
+Primitive tokens store all the raw data in a platform and usage-agnostic way. In most cases, this level of tokens is not intended for standalone usage and serves as a foundational level of abstraction.
 
 **File location:** `packages/tokens/src/primitive/`
 
@@ -146,7 +146,7 @@ motion-duration-fast →  100ms
 
 ### Semantic tokens
 
-Semantic tokens describe **intent**. They answer "what is this used for?" rather than "what does it look like?". This is the primary layer you consume in component CSS. When a theme changes (e.g. dark mode), semantic tokens remap to different primitives while your component code stays untouched.
+A semantic token, also known as an alias token, is an abstraction layer that reflects the usage of a value in the UI instead of the literal value.
 
 **File location:** `packages/tokens/src/semantic/`
 
@@ -164,9 +164,11 @@ radius-component-md          →  {radius.md}          →  8px
 shadow-component-sm          →  {shadow.sm}          →  0 1px 4px ...
 ```
 
-### Component tokens
+### Component-specific tokens
 
-Component tokens are scoped to a single component. They reference semantic tokens, never primitives directly. Changing a component token affects only that component -- nothing else in the system.
+Component-specific tokens are primarily found in our codebases and not so much in Figma. Their primary role is to represent the properties associated with a component.
+
+Unlike the previous two tiers, these tokens are self-contained, meaning modifying the underlying value of the token will not affect anything outside the component it's used in.
 
 **File location:** `packages/tokens/src/component/`
 

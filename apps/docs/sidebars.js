@@ -18,6 +18,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Getting Started',
+      collapsed: false,
       items: [
         'getting-started/installation',
         'getting-started/theming',
@@ -44,6 +45,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Expression',
+      collapsed: false,
       items: [
         'foundations/illicons',
         'foundations/icons',
@@ -53,6 +55,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Accessibility',
+      collapsed: false,
       items: [
         'foundations/accessibility',
         'foundations/alt-text',
@@ -74,11 +77,13 @@ const sidebars = {
     {
       type: 'category',
       label: 'Version guides',
+      collapsed: false,
       items: ['components/version-guides'],
     },
     {
       type: 'category',
       label: 'Buttons',
+      collapsed: false,
       items: [
         'components/button',
         'components/button-dock',
@@ -90,6 +95,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Input and selection',
+      collapsed: false,
       items: [
         'components/check',
         'components/date-picker',
@@ -106,6 +112,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Form fields',
+          collapsed: false,
           items: [
             'components/select',
             'components/input',
@@ -122,6 +129,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Indicators and status',
+      collapsed: false,
       items: [
         'components/badge',
         'components/empty-state',
@@ -137,6 +145,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Content display',
+      collapsed: false,
       items: [
         'components/accordion',
         'components/avatar',
@@ -150,6 +159,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Messaging',
+      collapsed: false,
       items: [
         'components/alert',
         'components/banner',
@@ -164,6 +174,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Containers and layout',
+      collapsed: false,
       items: [
         'components/card',
         'components/divider',
@@ -178,6 +189,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Navigation',
+      collapsed: false,
       items: [
         'components/breadcrumbs',
         'components/bottom-navigation',
@@ -194,6 +206,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Data and tables',
+      collapsed: false,
       items: [
         'components/charts',
         'components/data-table',
