@@ -51,33 +51,6 @@ Every token has a **name** and a **value**. Optionally, it carries a **type** (f
 
 ---
 
-## Naming convention
-
-All tokens follow a consistent pattern that reads left to right, from broad category to specific variant:
-
-```
-[category]-[concept]-[variant?]-[state?]
-```
-
-| Segment | Purpose | Examples |
-|---|---|---|
-| **Category** | What kind of value | `color`, `spacing`, `radius`, `shadow` |
-| **Concept** | What role it plays | `action`, `background`, `component`, `text` |
-| **Variant** | Which variation | `primary`, `subtle`, `sm`, `lg` |
-| **State** | Interactive state | `hover`, `active`, `disabled` |
-
-In CSS output, tokens become custom properties prefixed with `--` and hyphen-separated:
-
-```css
---color-action-primary
---color-action-primary-hover
---spacing-component-md
---radius-component-sm
---shadow-component-md
-```
-
----
-
 ## Tiers
 
 Design tokens follow a 3 tier model based on whether the token stores an option or a decision. Each tier is referenced by the one above it (refer to as aliasing).
@@ -319,6 +292,33 @@ Arch UI defines tokens across 8 categories. Each category has its own foundation
 </TabItem>
 
 <TabItem value="tokens" label="Tokens">
+
+<h2>Naming convention</h2>
+
+All tokens follow a consistent pattern that reads left to right, from broad category to specific variant:
+
+```
+[category]-[concept]-[variant?]-[state?]
+```
+
+| Segment | Purpose | Examples |
+|---|---|---|
+| **Category** | What kind of value | `color`, `spacing`, `radius`, `shadow` |
+| **Concept** | What role it plays | `action`, `background`, `component`, `text` |
+| **Variant** | Which variation | `primary`, `subtle`, `sm`, `lg` |
+| **State** | Interactive state | `hover`, `active`, `disabled` |
+
+In CSS output, tokens become custom properties prefixed with `--` and hyphen-separated:
+
+```css
+--color-action-primary
+--color-action-primary-hover
+--spacing-component-md
+--radius-component-sm
+--shadow-component-md
+```
+
+---
 
 <h2>Token inventory</h2>
 
