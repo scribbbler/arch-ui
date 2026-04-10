@@ -526,10 +526,10 @@ Use the Mono ramp when designing data-intensive views, tables, and dashboard ove
 </div>
 
 <Guidance.Grid>
-  <Guidance.Do description="Use Mono when displaying a number or amount in isolation, such as prices, percentages, and metrics.">
+  <Guidance.Do description="Use Inter Mono only when displaying a number or amount in isolation. Use the regular Inter font when the value is part of a string.">
     <div style={{fontFamily: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace", fontSize: '28px', fontWeight: 700}}>$1,234.56</div>
   </Guidance.Do>
-  <Guidance.Dont description="Do not use Mono for nominal numbers that identify something, such as phone numbers or street addresses.">
+  <Guidance.Dont description="Do not use Mono for nominal numbers where the number is used to identify something such as a phone number or an address.">
     <div style={{fontFamily: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace", fontSize: '20px', fontWeight: 500}}>+1 (555) 123-4567</div>
   </Guidance.Dont>
 </Guidance.Grid>
