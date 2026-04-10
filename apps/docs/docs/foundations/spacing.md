@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
     <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    Arch UI uses standard sizes and spacing created from increments of 4. This provides consistent sizing and components that snap into place.
+    Arch UI leverages standard sizes and spacing created from increments of 4. This provides consistent sizing and components that snap into place.
   </p>
 </div>
 
