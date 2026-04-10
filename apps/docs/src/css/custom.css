@@ -94,26 +94,23 @@
   padding: 0 0 0 8px !important;
 }
 
-/* Footer — full viewport width band with top border, centered 800px content inside.
-   Rendered outside the docPage wrapper so the sidebar sits ABOVE it, not alongside it. */
+/* Footer — rendered at Layout level but visually sits inside the content column.
+   Top border and content are constrained to 800px and offset past the sidebar on doc pages
+   so it looks like part of the main content block. Sidebar stays full-height (default). */
 .footer {
   background: #fff;
   padding: 0;
-  border-top: 1px solid #E2E2E2;
-  margin-top: 48px;
-  position: relative;
-  z-index: 10;
 }
 .footer .container {
+  border-top: 1px solid #E2E2E2;
+  padding: 32px 0 48px;
   max-width: var(--ifm-container-width) !important;
-  padding: 32px 24px 48px;
   margin: 0 auto;
 }
-
-/* Ensure doc sidebar stops at the footer instead of extending below it */
-.theme-doc-sidebar-container {
-  height: auto !important;
-  max-height: calc(100vh - var(--ifm-navbar-height));
+/* On doc pages (with sidebar), shift the footer right by the sidebar width so its
+   800px band aligns with the content column instead of the viewport center. */
+body:has(.theme-doc-sidebar-container) .footer {
+  padding-left: var(--doc-sidebar-width);
 }
 .footer__links {
   margin-bottom: 16px;
