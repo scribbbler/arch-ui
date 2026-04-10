@@ -412,7 +412,8 @@ ul.tabs .tabs__item:hover {
   }
 }
 
-.arch-card {
+.arch-card,
+.foundation-card {
   display: flex;
   flex-direction: column;
   border: 1px solid #e5e5e5;
@@ -423,21 +424,25 @@ ul.tabs .tabs__item:hover {
   transition: box-shadow 0.15s, border-color 0.15s;
 }
 
-.arch-card:hover {
+.arch-card:hover,
+.foundation-card:hover {
   border-color: #bbbbbb;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-[data-theme='dark'] .arch-card {
+[data-theme='dark'] .arch-card,
+[data-theme='dark'] .foundation-card {
   border-color: #333;
 }
 
-[data-theme='dark'] .arch-card:hover {
+[data-theme='dark'] .arch-card:hover,
+[data-theme='dark'] .foundation-card:hover {
   border-color: #555;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-.arch-card__icon {
+.arch-card__icon,
+.foundation-card__icon {
   background: #0a0a0a;
   padding: 32px 24px;
   display: flex;
@@ -446,12 +451,14 @@ ul.tabs .tabs__item:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.arch-card__icon svg {
+.arch-card__icon svg,
+.foundation-card__icon svg {
   width: 120px;
   height: 80px;
 }
 
-.arch-card__title {
+.arch-card__title,
+.foundation-card__title {
   font-size: 16px;
   font-weight: 600;
   margin: 0;
@@ -521,52 +528,6 @@ ul.tabs .tabs__item:hover {
   .foundation-grid {
     grid-template-columns: 1fr;
   }
-}
-
-.foundation-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  overflow: hidden;
-  text-decoration: none !important;
-  color: inherit !important;
-  transition: box-shadow 0.15s, border-color 0.15s;
-}
-
-.foundation-card:hover {
-  border-color: #bbbbbb;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-[data-theme='dark'] .foundation-card {
-  border-color: #333;
-}
-
-[data-theme='dark'] .foundation-card:hover {
-  border-color: #555;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-}
-
-.foundation-card__icon {
-  background: #0a0a0a;
-  padding: 32px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.foundation-card__icon svg {
-  width: 120px;
-  height: 80px;
-}
-
-.foundation-card__title {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
-  padding: 16px 16px 8px;
 }
 
 /* ─── Token anatomy card ────────────────────────────────────────────────────── */
