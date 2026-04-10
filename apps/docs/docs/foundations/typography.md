@@ -248,7 +248,7 @@ This makes it perfect for displaying numbers such as the price of a product or a
 
 ### Ramps
 
-The design system supports two typographic ramps — **Standard** and **Monospaced**. Both leverage the same core sizes to ensure harmony when displayed alongside each other, but they are not interchangeable.
+The design system currently supports two typographical ramps, `standard` and `monospaced`. While both ramps leverage the same core sizes to ensure harmony between the styles when displayed alongside each other, they are not meant to be used interchangeably.
 
 <div className="type-ramps-grid">
   <div className="type-ramp-card">
@@ -271,7 +271,9 @@ The design system supports two typographic ramps — **Standard** and **Monospac
 
 ### Clear typographic hierarchy
 
-A clear, logical information architecture improves readability and scannability. Typography is a powerful tool for creating this architecture — visually emphasizing and drawing attention to the elements that matter most.
+A clear, logical information architecture enhances the readability and scannability of an interface, which can enable users to find important content more quickly.
+
+Typography is a powerful tool that can be used to create this architecture, by visually emphasizing and drawing attention to specific elements of an interface.
 
 <div className="type-hierarchy-hero">
   <div className="type-hierarchy-hero__roles">
@@ -281,9 +283,9 @@ A clear, logical information architecture improves readability and scannability.
     <div style={{fontSize: '14px', fontWeight: 400, color: '#fff'}}>Paragraph</div>
   </div>
   <div className="type-hierarchy-hero__example">
-    <div style={{fontSize: '32px', fontWeight: 700, lineHeight: 1.2, marginBottom: '16px'}}>Your dashboard</div>
-    <div style={{fontSize: '20px', fontWeight: 700, lineHeight: 1.4, marginBottom: '4px'}}>Analytics</div>
-    <div style={{fontSize: '16px', fontWeight: 500, lineHeight: 1.4, marginBottom: '2px'}}>Page views</div>
+    <div style={{fontSize: '32px', fontWeight: 700, lineHeight: 1.2, marginBottom: '16px'}}>Your rides</div>
+    <div style={{fontSize: '20px', fontWeight: 700, lineHeight: 1.4, marginBottom: '4px'}}>Economy</div>
+    <div style={{fontSize: '16px', fontWeight: 500, lineHeight: 1.4, marginBottom: '2px'}}>Premium</div>
     <div style={{fontSize: '14px', fontWeight: 400, color: '#727272', lineHeight: 1.5}}>6 min</div>
   </div>
 </div>
@@ -292,7 +294,9 @@ A clear, logical information architecture improves readability and scannability.
 
 #### Content hierarchy
 
-Combining matching sizes from each role creates a simple, balanced hierarchy. In the examples below, each card pairs a heading, label, and paragraph at the same size tier.
+Combining the same sizes from each class creates a simple, beautiful hierarchy.
+
+In this example, we're using pairings to combine a heading, label, and paragraph.
 
 <div className="type-content-hierarchy-grid">
   <div className="type-content-hierarchy-card">
@@ -333,9 +337,9 @@ Combining matching sizes from each role creates a simple, balanced hierarchy. In
 
 **Balancing data density and legibility**
 
-Good paragraph legibility is essential for users to read and understand content. When text is legible, users can quickly scan and find the information they need.
+Good paragraph legibility is crucial for users to read and understand the content. When the text is legible, users can quickly scan the content and find the information they need.
 
-Use **Paragraph Medium (16 px)** or **Paragraph Large (18 px)** for multi-line text whenever possible.
+You should use **Paragraph Medium (16)** or **Paragraph Large (18)** for multi-line text whenever you can.
 
 <div className="type-do-dont">
   <div>
@@ -356,23 +360,25 @@ Use **Paragraph Medium (16 px)** or **Paragraph Large (18 px)** for multi-line t
       </div>
     </div>
     <div className="type-do-dont__badge type-do-dont__badge--dont">&#10005; Don't</div>
-    <p className="type-do-dont__desc">Avoid Paragraph XSmall for long-form text. Reserve it for items like disclaimer text.</p>
+    <p className="type-do-dont__desc">Don't use Paragraph X Small for long form text. Use it sparingly for things like disclaimer text.</p>
   </div>
 </div>
 
 <div className="type-caution">
   <div className="type-caution__badge">! Caution</div>
-  <p className="type-caution__desc">Do not use Paragraph XSmall (12 px) for long-form text on small devices.</p>
-  <p className="type-caution__desc">The smaller size strains the eyes. Limit it to a maximum of 3 lines for items like legal disclaimers.</p>
+  <p className="type-caution__desc">Do not use ParagraphX Small at 12 for long-form text on small devices.</p>
+  <p className="type-caution__desc">The smaller size can strain the eyes. Use sparingly at a max of 3 lines for items like legal disclaimers.</p>
 </div>
 
 ---
 
 ### Using typography to create emphasis
 
-**Page headers and branded moments**
+**Page headers/structure**
 
-Use the Display role for large titles and hero moments. Do not apply Display to everyday UI text like labels, paragraphs, or buttons.
+**Branded moments**
+
+Use the Inter Display font for large titles and heading text. Don't apply the Inter Display font to most other UI text, like labels, paragraphs, and buttons.
 
 <div className="type-do-dont">
   <div>
@@ -383,7 +389,7 @@ Use the Display role for large titles and hero moments. Do not apply Display to 
       </div>
     </div>
     <div className="type-do-dont__badge type-do-dont__badge--do">&#10003; Do</div>
-    <p className="type-do-dont__desc">Use Display for large titles and branded hero moments.</p>
+    <p className="type-do-dont__desc">Do use the Inter Display font for large titles and heading text.</p>
   </div>
   <div>
     <div className="type-dont-block__preview">
@@ -392,7 +398,7 @@ Use the Display role for large titles and hero moments. Do not apply Display to 
       </div>
     </div>
     <div className="type-do-dont__badge type-do-dont__badge--dont">&#10005; Don't</div>
-    <p className="type-do-dont__desc">Don't use the Display role for body paragraphs or general content.</p>
+    <p className="type-do-dont__desc">Don't use the Inter Display font for paragraphs.</p>
   </div>
 </div>
 
@@ -400,9 +406,9 @@ Use the Display role for large titles and hero moments. Do not apply Display to 
 
 ### Component overrides
 
-Default sizes are provided to consolidate the basics of our user interface. For standard screens — settings, lists, detail views — follow the default sizes strictly.
+Default sizes are provided to consolidate the basics of our user interface. When designing default screens, for example, in settings or lists, you should strictly follow the default sizes.
 
-Use large or small variances only when you need to create higher contrast or adapt to specific layout constraints.
+You might use large or small variances whenever you want to create higher contrast.
 
 <div className="type-do-dont">
   <div>
@@ -479,7 +485,7 @@ Use large or small variances only when you need to create higher contrast or ada
       </div>
     </div>
     <div className="type-do-dont__badge type-do-dont__badge--dont">&#10005; Don't</div>
-    <p className="type-do-dont__desc">Don't reinvent the wheel — avoid over-designing consolidated UI with mismatched sizes.</p>
+    <p className="type-do-dont__desc">Don't reinvent the wheel and use design cycles to overly design consolidated UI.</p>
   </div>
 </div>
 
@@ -487,15 +493,17 @@ Use large or small variances only when you need to create higher contrast or ada
 
 ### Embedded links in a body of text
 
-Links embedded inside a sentence can be unfriendly to screen readers and localization. Prefer placing a link or button below the paragraph. When inline links are unavoidable, always use an underline to indicate tappability.
+Links embedded inside a sentence can be unfriendly to screen readers and localization. It's much better to use a link or button below a paragraph. But if you must, you should use an underline to indicate that the text is tappable.
 
-:::caution
-Do not rely on text colour alone to distinguish links. An underline is a more visible, accessible affordance. Links should use label weight inside paragraph-weight blocks of text.
-:::
+See also [Link versus button](/foundations/accessibility).
+
+<div className="docs-callout">
+  Avoid using text color alone because an underline is a more visible, accessible option. Links should use label weight inside paragraph weight blocks of text.
+</div>
 
 <div className="type-link-example">
   <div className="type-link-example__card">
-    <p style={{fontSize: '14px', lineHeight: 1.6, margin: 0}}>Messages sent using <span style={{textDecoration: 'underline', fontWeight: 500}}>Dashboard</span> are subject to the <span style={{textDecoration: 'underline', fontWeight: 500}}>Privacy Notice</span>, <span style={{textDecoration: 'underline', fontWeight: 500}}>User Generated Content Terms</span>, <span style={{textDecoration: 'underline', fontWeight: 500}}>Merchant Terms &amp; Conditions</span>.</p>
+    <p style={{fontSize: '14px', lineHeight: 1.6, margin: 0}}>Messages sent using <span style={{textDecoration: 'underline', fontWeight: 500}}>the Dashboard</span> are subject to the <span style={{textDecoration: 'underline', fontWeight: 500}}>Privacy Notice</span>, <span style={{textDecoration: 'underline', fontWeight: 500}}>User Generated Content Terms</span>, and <span style={{textDecoration: 'underline', fontWeight: 500}}>Merchant Terms &amp; Conditions</span>.</p>
   </div>
 </div>
 
@@ -503,9 +511,9 @@ Do not rely on text colour alone to distinguish links. An underline is a more vi
 
 ### Using the Mono ramp
 
-**Metrics and data tables**
+**Metrics**
 
-Use the Mono ramp when designing data-intensive views, tables, and dashboard overviews where the monospace font provides significant benefits in alignment and legibility.
+Use the Mono ramp when designing data-intensive views, tables, and dashboard overviews, where the monospace font has significant benefits in terms of alignment and legibility.
 
 <div className="type-mono-table-demo">
   <table>
