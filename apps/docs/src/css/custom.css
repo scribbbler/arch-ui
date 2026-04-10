@@ -515,6 +515,12 @@ ul.tabs .tabs__item:hover {
   color: #a6a6a6;
 }
 
+/* Establish a size containment context on the doc content so grids inside
+   can respond to available width rather than viewport width. */
+.theme-doc-markdown {
+  container-type: inline-size;
+}
+
 .foundation-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -522,13 +528,15 @@ ul.tabs .tabs__item:hover {
   margin-top: 32px;
 }
 
-@media (max-width: 900px) {
+/* When the doc content drops below ~720px (cards would be under ~170px each
+   and text like "Accessibility" starts wrapping), collapse to 2 columns. */
+@container (max-width: 720px) {
   .foundation-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 520px) {
+@container (max-width: 360px) {
   .foundation-grid {
     grid-template-columns: 1fr;
   }
