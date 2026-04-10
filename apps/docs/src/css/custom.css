@@ -102,6 +102,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   margin: 24px 0;
+  align-items: stretch;
 }
 @media (max-width: 640px) {
   .guidance-grid {
@@ -112,6 +113,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 100%;
 }
 .guidance__preview {
   border-radius: 12px;
@@ -120,6 +122,7 @@
   align-items: center;
   justify-content: center;
   min-height: 200px;
+  flex: 1;
 }
 .guidance__preview--do {
   background: #E6F2ED;
@@ -1100,6 +1103,11 @@ ul.tabs .tabs__item:hover {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin: 24px 0;
+  align-items: stretch;
+}
+.type-content-hierarchy-card {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 768px) {
@@ -1115,6 +1123,7 @@ ul.tabs .tabs__item:hover {
   display: flex;
   align-items: flex-end;
   min-height: 260px;
+  flex: 1;
 }
 
 [data-theme='dark'] .type-content-hierarchy-card__preview {
