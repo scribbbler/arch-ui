@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
     <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    Base typography is flexible and modular and can be used in various ways. Below are the principles behind how our type system was created and examples of how it can be used.
+    Arch typography is flexible and modular and can be used in various ways. Below are the principles behind how our type system was created and examples of how it can be used.
   </p>
 </div>
 
@@ -45,7 +45,7 @@ Type styles, labels, text styles, type, font
 
 ### Go big
 
-We prioritize larger font sizes because the Uber experience values legibility and accessibility. We love our new font and aren't afraid to let it shine.
+We prioritize larger font sizes because Arch values legibility and accessibility. We love our type and aren't afraid to let it shine.
 
 ### Less is more
 
