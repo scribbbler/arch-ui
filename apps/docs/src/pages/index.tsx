@@ -8,7 +8,7 @@ const categories = [
   {
     title: 'Foundations',
     description:
-      'The building blocks of Arch UI. Explore tokens, typography, colors, spacing, and the design principles behind the system.',
+      'The building blocks of Arch UI. Find out how the system is set up.',
     href: '/foundations',
     icon: (
       <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@ const categories = [
   {
     title: 'Components',
     description:
-      `Review specs, guidelines, behaviors, and proper usage for all ${COMPONENT_COUNT} components in the Arch UI library.`,
+      'Review specs, guidelines, behaviors, and proper usage for Arch UI components.',
     href: '/components',
     icon: (
       <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,7 @@ const categories = [
   {
     title: 'Patterns',
     description:
-      'Review broader design patterns and the composition strategies that bring components together.',
+      'Review broader design patterns and the module libraries that power them.',
     href: '/patterns/forms',
     icon: (
       <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +53,7 @@ const categories = [
   {
     title: 'Resources & Tools',
     description:
-      'Storybook explorer, MCP server for AI agents, and developer tooling to work with the design system.',
+      'Learn how to use Arch UI to design focused and accessible experiences.',
     href: '/intro',
     icon: (
       <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
