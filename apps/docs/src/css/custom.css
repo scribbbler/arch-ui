@@ -276,8 +276,8 @@ ul.tabs .tabs__item:hover {
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
   --ifm-code-font-size: 95%;
   /* Single source of truth: every content band on the site is capped here */
-  --ifm-container-width: 800px;
-  --ifm-container-width-xl: 800px;
+  --ifm-container-width: 960px;
+  --ifm-container-width-xl: 960px;
 }
 
 [data-theme='dark'] {
