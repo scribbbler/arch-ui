@@ -100,6 +100,31 @@ ul.tabs {
   margin-bottom: 24px;
 }
 
+/* Active tab — black instead of blue */
+ul.tabs .tabs__item--active {
+  color: #000 !important;
+  border-bottom-color: #000 !important;
+}
+ul.tabs .tabs__item:hover {
+  background: transparent !important;
+}
+
+/* Sidebar active link — black, medium weight, light gray background */
+.menu__link--active {
+  color: #000 !important;
+  font-weight: 500 !important;
+}
+.menu__link--active:not(.menu__link--sublist) {
+  background: #F3F3F3 !important;
+}
+.menu__list-item-collapsible--active,
+.menu__list-item-collapsible--active .menu__link {
+  color: #000 !important;
+}
+.menu__list-item-collapsible--active {
+  background: transparent !important;
+}
+
 /* Docs callout — standardized gray note/info box.
    Use <div className="docs-callout"> for any inline note, disclaimer,
    or aside. Never use :::note or inline styled divs. */
