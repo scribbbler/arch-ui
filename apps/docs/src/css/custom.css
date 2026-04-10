@@ -97,11 +97,14 @@
 /* Reusable preview card grid — used via src/components/PreviewCard.tsx.
    Cards always stretch to equal height inside a row. Never duplicate the
    classes elsewhere; import Preview from the component and reuse. */
+/* Preview grid uses CSS subgrid so all surfaces in a row share the same
+   height, independent of label/description length in sibling cards. Each
+   card spans 3 parent rows: [surface] [label] [description]. */
 .preview-grid {
   display: grid;
-  gap: 24px;
+  gap: 16px 24px;
   margin: 24px 0;
-  align-items: stretch;
+  grid-auto-rows: auto;
 }
 .preview-grid--cols-2 {
   grid-template-columns: 1fr 1fr;
@@ -124,8 +127,10 @@
   }
 }
 .preview-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 4px;
 }
 .preview-card__surface {
   background: #F3F3F3;
@@ -135,8 +140,7 @@
   align-items: center;
   justify-content: center;
   min-height: 180px;
-  flex: 1;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .preview-card__inner {
   background: #fff;
