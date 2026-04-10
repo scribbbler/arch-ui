@@ -75,7 +75,7 @@ While design tokens can represent any design decision, there are a handful of es
 |---|---|
 | **Color** | Color values, including both named colors and hexadecimal values. |
 | **Dimension** | Numeric values with units, such as pixels or ems. |
-| **Font family** | Font families, such as "Uber Move". |
+| **Font family** | Font families, such as "Inter". |
 | **Font-weight** | Font weights, such as "bold" or "normal". |
 | **Duration** | Time durations, such as "0.5s" or "2ms". |
 | **Cubic Bezier** | Easing functions with cubic Bezier curves. |
