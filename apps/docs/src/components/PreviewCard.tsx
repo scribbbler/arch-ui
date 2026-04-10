@@ -25,7 +25,7 @@ type PreviewGridProps = {
 };
 
 type PreviewCardProps = {
-  label: React.ReactNode;
+  label?: React.ReactNode;
   description?: React.ReactNode;
   children: React.ReactNode;
 };
@@ -44,13 +44,14 @@ export function PreviewCard({
   description,
   children,
 }: PreviewCardProps): React.ReactElement {
+  const hasText = label != null || description != null;
   return (
-    <div className="preview-card">
+    <div className={`preview-card${hasText ? '' : ' preview-card--no-text'}`}>
       <div className="preview-card__surface">
         <div className="preview-card__inner">{children}</div>
       </div>
-      <div className="preview-card__label">{label}</div>
-      {description && <p className="preview-card__desc">{description}</p>}
+      {label != null && <div className="preview-card__label">{label}</div>}
+      {description != null && <p className="preview-card__desc">{description}</p>}
     </div>
   );
 }

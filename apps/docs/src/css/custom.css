@@ -135,6 +135,14 @@
   grid-row: span 3;
   gap: 4px;
 }
+/* Surface-only cards skip the label/description rows entirely. */
+.preview-card--no-text {
+  grid-row: span 1;
+  grid-template-rows: 1fr;
+}
+.preview-card--no-text .preview-card__surface {
+  margin-bottom: 0;
+}
 .preview-card__surface {
   background: #F3F3F3;
   border-radius: 12px;
