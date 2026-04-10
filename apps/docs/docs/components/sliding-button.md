@@ -23,11 +23,11 @@ import TabItem from '@theme/TabItem';
 <div className="doc-hero doc-hero--dark">
   <div style={{background: '#fff', borderRadius: '16px', padding: '24px', width: '280px'}}>
     <div style={{fontSize: '13px', color: '#727272', marginBottom: '16px'}}>Confirm request</div>
-    <div style={{fontSize: '14px', fontWeight: 600, marginBottom: '4px'}}>UberX</div>
+    <div style={{fontSize: '14px', fontWeight: 600, marginBottom: '4px'}}>Premium</div>
     <div style={{fontSize: '12px', color: '#727272', marginBottom: '20px'}}>4 min away</div>
     <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '8px'}}>
-      <div style={{background: '#276EF1', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '16px', flexShrink: 0}}>&#8594;</div>
-      <span style={{color: '#fff', fontSize: '14px', fontWeight: 600}}>Confirm UberX</span>
+      <div style={{background: '#266EF1', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '16px', flexShrink: 0}}>&#8594;</div>
+      <span style={{color: '#fff', fontSize: '14px', fontWeight: 600}}>Confirm Premium</span>
     </div>
   </div>
 </div>
@@ -45,7 +45,7 @@ A sliding button consists of a draggable handle with a predefined icon and a bas
 <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
   <div style={{position: 'relative', display: 'inline-block'}}>
     <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '12px', minWidth: '280px'}}>
-      <div style={{background: '#276EF1', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '16px', flexShrink: 0}}>&#8594;</div>
+      <div style={{background: '#266EF1', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '16px', flexShrink: 0}}>&#8594;</div>
       <span style={{color: '#fff', fontSize: '14px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
     </div>
     <div style={{position: 'absolute', top: '-28px', left: '14px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Icon<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
@@ -76,10 +76,10 @@ Use sliding buttons to let users take important actions. They should be used as 
     <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center', minHeight: '200px', alignItems: 'center'}}>
       <div style={{background: '#fff', borderRadius: '12px', padding: '20px', width: '220px'}}>
         <div style={{fontSize: '12px', color: '#727272', marginBottom: '12px'}}>Confirm request</div>
-        <div style={{fontSize: '13px', fontWeight: 600, marginBottom: '16px'}}>UberX · $9.80</div>
+        <div style={{fontSize: '13px', fontWeight: 600, marginBottom: '16px'}}>Premium · $9.80</div>
         <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px'}}>
-          <div style={{background: '#276EF1', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
-          <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Confirm UberX</span>
+          <div style={{background: '#266EF1', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+          <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Confirm Premium</span>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@ The handle's arrow icon is the sole draggable element. On tap, the handle grows 
   <div>
     <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center'}}>
       <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '10px', width: '240px'}}>
-        <div style={{background: '#276EF1', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+        <div style={{background: '#266EF1', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
         <span style={{color: '#fff', fontSize: '13px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
       </div>
     </div>
@@ -207,7 +207,7 @@ Background colour customisations of the sliding button are supported but should 
 <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', margin: '24px 0'}}>
   <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '24px 16px', display: 'flex', justifyContent: 'center'}}>
     <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '180px'}}>
-      <div style={{background: '#276EF1', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '13px', flexShrink: 0}}>&#8594;</div>
+      <div style={{background: '#266EF1', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '13px', flexShrink: 0}}>&#8594;</div>
       <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
     </div>
   </div>
@@ -219,7 +219,7 @@ Background colour customisations of the sliding button are supported but should 
   </div>
   <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '24px 16px', display: 'flex', justifyContent: 'center'}}>
     <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '180px'}}>
-      <div style={{background: '#05944F', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '13px', flexShrink: 0}}>&#8594;</div>
+      <div style={{background: '#166C3B', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '13px', flexShrink: 0}}>&#8594;</div>
       <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
     </div>
   </div>
@@ -259,7 +259,7 @@ Avoid resizing elements inside the button, like the icon or sliding button affor
   <div>
     <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center'}}>
       <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '10px', width: '240px'}}>
-        <div style={{background: '#276EF1', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+        <div style={{background: '#266EF1', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
         <span style={{color: '#fff', fontSize: '13px', fontWeight: 600}}>Slide to confirm</span>
       </div>
     </div>

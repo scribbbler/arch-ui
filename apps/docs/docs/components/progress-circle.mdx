@@ -15,7 +15,7 @@ export const CircleTrack = ({ value = 0, size = 72, strokeWidth = 6 }) => {
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{display: 'block'}}>
       <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="#E2E2E2" strokeWidth={strokeWidth} />
       {value > 0 && (
-        <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="#276EF1" strokeWidth={strokeWidth}
+        <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="#266EF1" strokeWidth={strokeWidth}
           strokeDasharray={circumference} strokeDashoffset={offset} strokeLinecap="round"
           transform={`rotate(-90 ${size / 2} ${size / 2})`} />
       )}
