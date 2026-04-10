@@ -94,6 +94,55 @@
   padding: 0 0 0 8px !important;
 }
 
+/* Landing page — large category cards */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 32px 0 48px;
+}
+.home-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #E2E2E2;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.home-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.home-card__art {
+  background: #000;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.home-card__art svg {
+  width: 70%;
+  height: 70%;
+}
+.home-card__body {
+  padding: 24px;
+}
+.home-card__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #000;
+}
+.home-card__desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #5E5E5E;
+  margin: 0;
+}
+
 /* Docusaurus Tabs — add a full-width bottom border to the tab row */
 ul.tabs {
   border-bottom: 1px solid #E2E2E2;
