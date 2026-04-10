@@ -8,33 +8,40 @@
  */
 
 function relocateFooter() {
-  if (typeof document === 'undefined') return;
+  if (typeof document === 'undefined') return false;
 
   const footer = document.querySelector('footer.theme-layout-footer');
-  if (!footer) return;
+  if (!footer) return false;
 
   // Only relocate on pages with a sidebar (doc pages)
   const sidebar = document.querySelector('.theme-doc-sidebar-container');
-  if (!sidebar) return;
+  if (!sidebar) return true; // nothing to do, but footer exists
 
   // Target: the doc item column that contains the article + pagination
   const target =
-    document.querySelector('.docItemCol_') ||
     document.querySelector('[class*="docItemCol"]') ||
     document.querySelector('.theme-doc-markdown')?.parentElement;
 
-  if (target && footer.parentElement !== target) {
+  if (!target) return false;
+
+  if (footer.parentElement !== target) {
     target.appendChild(footer);
   }
+  return true;
+}
+
+/**
+ * Tries to relocate the footer, retrying on subsequent animation frames until
+ * the target element exists (because React may not have rendered the new page yet).
+ */
+function relocateWhenReady(attempts = 0) {
+  if (relocateFooter()) return;
+  if (attempts > 30) return; // give up after ~500ms
+  requestAnimationFrame(() => relocateWhenReady(attempts + 1));
 }
 
 if (typeof window !== 'undefined') {
-  // Run on every route change and initial load
-  const observer = new MutationObserver(() => relocateFooter());
-  const start = () => {
-    relocateFooter();
-    observer.observe(document.body, { childList: true, subtree: true });
-  };
+  const start = () => relocateWhenReady();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', start);
   } else {
@@ -43,5 +50,5 @@ if (typeof window !== 'undefined') {
 }
 
 export function onRouteDidUpdate() {
-  relocateFooter();
+  relocateWhenReady();
 }
