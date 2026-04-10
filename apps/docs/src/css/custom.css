@@ -543,25 +543,23 @@ ul.tabs .tabs__item:hover {
 
 .foundation-card__icon {
   background: #0a0a0a;
-  padding: 28px 20px;
+  padding: 32px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, 0.7);
-  aspect-ratio: 4 / 3;
 }
 
 .foundation-card__icon svg {
-  width: 100%;
-  height: 100%;
-  max-width: 120px;
-  max-height: 80px;
+  width: 120px;
+  height: 80px;
 }
 
 .foundation-card__title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  padding: 12px 14px;
+  margin: 0;
+  padding: 16px 16px 8px;
 }
 
 /* ─── Token anatomy card ────────────────────────────────────────────────────── */
