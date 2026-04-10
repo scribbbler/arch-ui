@@ -11,7 +11,6 @@ import { Banner } from '../../../../packages/components/src/Banner';
 import { Heading } from '../../../../packages/components/src/Heading';
 import { Paragraph } from '../../../../packages/components/src/Paragraph';
 import { Label } from '../../../../packages/components/src/Label';
-import { Tag } from '../../../../packages/components/src/Tag';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Styles</span>
@@ -57,6 +56,8 @@ The footprint of a component determines its radius values. Larger components tha
 
 #### 16px
 
+A 16px corner radius is used on large vessel-like containers, such as sheets and dialogs.
+
 <Preview.Grid columns={1}>
   <Preview.Card bare>
     <div style={{position: 'relative', display: 'flex', justifyContent: 'center', padding: '24px 0'}}>
@@ -99,30 +100,96 @@ The footprint of a component determines its radius values. Larger components tha
   </Preview.Card>
 </Preview.Grid>
 
-A 16px corner radius is used on large vessel-like containers, such as sheets and dialogs.
-
 ---
 
+#### 12px
+
+The number used most of the time for corner radii is 12px. Medium-sized components like cards, message cards, snack bars, and banners default to this value.
+
 <Preview.Grid columns={1}>
-  <Preview.Card label="12px" description="The most common radius value. Medium components like cards, message cards, snack bars, and banners default to this value.">
-    <div style={{display: 'flex', flexDirection: 'column', gap: '8px', width: '240px'}}>
-      <div style={{background: '#fff', borderRadius: '12px', padding: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}}>
-        <div style={{fontSize: '15px', fontWeight: 700}}>Heading</div>
-        <div style={{fontSize: '12px', color: '#727272', marginTop: '4px'}}>Short description text.</div>
+  <Preview.Card bare>
+    <div style={{position: 'relative', padding: '48px 24px 24px'}}>
+      {/* Annotation label + vertical drop line */}
+      <div style={{position: 'absolute', top: '12px', left: '32px', color: '#DE1135', fontFamily: "'Menlo', 'Monaco', 'Courier New', monospace", fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'none'}}>
+        12 corner radius
       </div>
-      <div style={{background: '#266EF1', borderRadius: '12px', padding: '10px 14px', color: '#fff', fontSize: '12px'}}>
-        A thing happened
+      <div style={{position: 'absolute', top: '30px', left: '72px', width: '1px', height: '34px', background: '#DE1135', pointerEvents: 'none'}} />
+      {/* Two-column demo: pink card on the left, stacked banners on the right */}
+      <div style={{display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'flex-start'}}>
+        {/* Pink rose card */}
+        <div style={{position: 'relative', width: '340px', minHeight: '200px', background: '#FCE6E0', borderRadius: '12px', padding: '28px', overflow: 'hidden'}}>
+          <span style={{position: 'absolute', top: '-14px', left: '-14px', width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid #DE1135', background: 'rgba(222, 17, 53, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#DE1135', fontFamily: "'Menlo', monospace", fontSize: '11px'}}>12</span>
+          <div style={{fontSize: '24px', fontWeight: 700, marginBottom: '8px'}}>Heading</div>
+          <div style={{fontSize: '14px', color: '#555', marginBottom: '20px', maxWidth: '200px', lineHeight: 1.4}}>Consilio difficultates superare potest esse, immo</div>
+          <div style={{display: 'inline-block', background: '#fff', borderRadius: '9999px', padding: '8px 22px', fontSize: '14px', fontWeight: 500}}>Label</div>
+          <div style={{position: 'absolute', right: '-10px', bottom: '-20px', fontSize: '160px', lineHeight: 1, pointerEvents: 'none'}} aria-hidden="true">🌹</div>
+        </div>
+        {/* Right column: two stacked banners */}
+        <div style={{display: 'flex', flexDirection: 'column', gap: '14px', width: '340px'}}>
+          {/* Blue info banner */}
+          <div style={{position: 'relative', background: '#266EF1', color: '#fff', borderRadius: '12px', padding: '16px 20px', display: 'flex', alignItems: 'flex-start', gap: '14px'}}>
+            <span style={{position: 'absolute', top: '-14px', right: '-14px', width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid #DE1135', background: 'rgba(222, 17, 53, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#DE1135', fontFamily: "'Menlo', monospace", fontSize: '11px'}}>12</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true" style={{flexShrink: 0, marginTop: '1px'}}><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <div style={{flex: 1, fontSize: '14px', lineHeight: 1.5}}>Message that takes 2 lines to explain and goes on</div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true" style={{flexShrink: 0, marginTop: '2px'}}><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          </div>
+          {/* Dark snack bar */}
+          <div style={{position: 'relative', background: '#282828', color: '#fff', borderRadius: '12px', padding: '18px 20px', fontSize: '14px'}}>
+            <span style={{position: 'absolute', top: '-14px', right: '-14px', width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid #DE1135', background: 'rgba(222, 17, 53, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#DE1135', fontFamily: "'Menlo', monospace", fontSize: '11px'}}>12</span>
+            A thing happened
+          </div>
+        </div>
       </div>
     </div>
   </Preview.Card>
-  <Preview.Card label="8px" description="Used for elements often nested inside others, like buttons and nested components.">
-    <div style={{background: '#000', borderRadius: '8px', padding: '12px 32px', color: '#fff', fontSize: '14px', fontWeight: 600}}>Label</div>
+</Preview.Grid>
+
+---
+
+#### 8px
+
+An 8px radius is used for elements often nested inside others, like buttons.
+
+<Preview.Grid columns={1}>
+  <Preview.Card bare>
+    <div style={{position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '48px 24px', minHeight: '140px'}}>
+      {/* Annotation label + horizontal line */}
+      <div style={{position: 'absolute', top: '50%', left: 'calc(50% - 260px)', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', color: '#DE1135', fontFamily: "'Menlo', 'Monaco', 'Courier New', monospace", fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'none'}}>
+        <span>8 corner radius</span>
+        <span style={{display: 'inline-block', width: '56px', height: '1px', background: '#DE1135', margin: '0 10px'}} />
+      </div>
+      {/* Black Label button */}
+      <div style={{position: 'relative', background: '#000', color: '#fff', borderRadius: '8px', padding: '22px 96px', fontSize: '18px', fontWeight: 600}}>
+        <span style={{position: 'absolute', top: '-14px', left: '-14px', width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid #DE1135', background: 'rgba(222, 17, 53, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#DE1135', fontFamily: "'Menlo', monospace", fontSize: '11px'}}>8</span>
+        Label
+      </div>
+    </div>
   </Preview.Card>
-  <Preview.Card label="4px" description="Used on small components like tags and badges.">
-    <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center'}}>
-      <Tag>20-25 min</Tag>
-      <Tag>4.4 (104)</Tag>
-      <Tag>$0 fee</Tag>
+</Preview.Grid>
+
+---
+
+#### 4px
+
+A 4px radius is used on small components like tags and badges.
+
+<Preview.Grid columns={1}>
+  <Preview.Card bare>
+    <div style={{position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '48px 24px', minHeight: '140px'}}>
+      {/* Annotation label + horizontal line */}
+      <div style={{position: 'absolute', top: '50%', left: 'calc(50% - 240px)', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', color: '#DE1135', fontFamily: "'Menlo', 'Monaco', 'Courier New', monospace", fontSize: '13px', whiteSpace: 'nowrap', pointerEvents: 'none'}}>
+        <span>4 corner radius</span>
+        <span style={{display: 'inline-block', width: '56px', height: '1px', background: '#DE1135', margin: '0 10px'}} />
+      </div>
+      {/* Row of tags */}
+      <div style={{display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center'}}>
+        <div style={{position: 'relative', background: '#F3F3F3', borderRadius: '4px', padding: '8px 14px', fontSize: '13px', fontWeight: 500}}>
+          <span style={{position: 'absolute', top: '-14px', left: '-14px', width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid #DE1135', background: 'rgba(222, 17, 53, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#DE1135', fontFamily: "'Menlo', monospace", fontSize: '11px'}}>4</span>
+          20-25 min
+        </div>
+        <div style={{background: '#F3F3F3', borderRadius: '4px', padding: '8px 14px', fontSize: '13px', fontWeight: 500}}>4.4 (104)</div>
+        <div style={{background: '#F3F3F3', borderRadius: '4px', padding: '8px 14px', fontSize: '13px', fontWeight: 500}}>$0 fee</div>
+      </div>
     </div>
   </Preview.Card>
 </Preview.Grid>
