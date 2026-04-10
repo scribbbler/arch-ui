@@ -13,39 +13,353 @@ import TabItem from '@theme/TabItem';
     <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    A confirmation button that requires the user to slide a handle across a track to complete an action.
+    Sliding buttons are a variation of the standard primary button. By requiring a different gesture to confirm an action, they help reduce accidental taps and reinforce user intent.
   </p>
 </div>
 
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
-    Preview coming soon
+<div className="doc-hero doc-hero--dark">
+  <div style={{background: '#fff', borderRadius: '16px', padding: '24px', width: '280px'}}>
+    <div style={{fontSize: '13px', color: '#727272', marginBottom: '16px'}}>Confirm request</div>
+    <div style={{fontSize: '14px', fontWeight: 600, marginBottom: '4px'}}>UberX</div>
+    <div style={{fontSize: '12px', color: '#727272', marginBottom: '20px'}}>4 min away</div>
+    <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '8px'}}>
+      <div style={{background: '#276EF1', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '16px', flexShrink: 0}}>&#8594;</div>
+      <span style={{color: '#fff', fontSize: '14px', fontWeight: 600}}>Confirm UberX</span>
+    </div>
   </div>
 </div>
 
 **Common alternative names**
 
-Swipe to confirm, slide to unlock, drag button
+Swipe button, draggable button
 
 ---
 
-Usage guidelines coming soon.
+## Anatomy
+
+A sliding button consists of a draggable handle with a predefined icon and a base track with a customisable label. All of the elements below are required.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{position: 'relative', display: 'inline-block'}}>
+    <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '12px', minWidth: '280px'}}>
+      <div style={{background: '#276EF1', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '16px', flexShrink: 0}}>&#8594;</div>
+      <span style={{color: '#fff', fontSize: '14px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
+    </div>
+    <div style={{position: 'absolute', top: '-28px', left: '14px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Icon<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+    <div style={{position: 'absolute', top: '-28px', right: '40px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Label<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+    <div style={{position: 'absolute', bottom: '-28px', left: '0px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Sliding button<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+    <div style={{position: 'absolute', bottom: '-28px', right: '0px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Base<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+  </div>
+</div>
+
+### Iconography
+
+Sliding buttons use a single forward arrow icon to convey a clear interaction affordance and maintain consistency across experiences. The component does not support custom icons.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '50%', width: '56px', height: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '22px'}}>&#8594;</div>
+</div>
+
+---
+
+## Usage
+
+Use sliding buttons to let users take important actions. They should be used as the last step in a multi-step flow (like confirming a request or completing a transaction) or to introduce friction to confirm a user's intent and prevent accidental button taps (like initiating an emergency call).
+
+### Use cases
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', margin: '24px 0'}}>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center', minHeight: '200px', alignItems: 'center'}}>
+      <div style={{background: '#fff', borderRadius: '12px', padding: '20px', width: '220px'}}>
+        <div style={{fontSize: '12px', color: '#727272', marginBottom: '12px'}}>Confirm request</div>
+        <div style={{fontSize: '13px', fontWeight: 600, marginBottom: '16px'}}>UberX · $9.80</div>
+        <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px'}}>
+          <div style={{background: '#276EF1', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+          <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Confirm UberX</span>
+        </div>
+      </div>
+    </div>
+    <div style={{marginTop: '12px'}}>
+      <div style={{fontSize: '14px', fontWeight: 600, marginBottom: '4px'}}>Prevent accidental action</div>
+      <p style={{fontSize: '13px', color: '#5E5E5E', margin: 0}}>Sliding buttons introduce intentional friction in flows with a prominent primary action. The differentiated interaction pattern helps prevent accidental taps.</p>
+    </div>
+  </div>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center', minHeight: '200px', alignItems: 'center'}}>
+      <div style={{background: '#fff', borderRadius: '12px', padding: '20px', width: '220px'}}>
+        <div style={{fontSize: '12px', fontWeight: 600, marginBottom: '8px'}}>Emergency assistance</div>
+        <div style={{fontSize: '11px', color: '#727272', marginBottom: '16px'}}>Your trip details will be shared automatically.</div>
+        <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px'}}>
+          <div style={{background: '#DE1135', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+          <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to call 911</span>
+        </div>
+      </div>
+    </div>
+    <div style={{marginTop: '12px'}}>
+      <div style={{fontSize: '14px', fontWeight: 600, marginBottom: '4px'}}>Confirm intent on costly or irreversible actions</div>
+      <p style={{fontSize: '13px', color: '#5E5E5E', margin: 0}}>Users must take deliberate, intentional steps to confirm their intent before triggering a costly or non-reversible action like making a payment or initiating an emergency call.</p>
+    </div>
+  </div>
+</div>
+
+<div style={{background: '#FFF3DD', borderRadius: '8px', padding: '16px 20px', margin: '24px 0', fontSize: '14px'}}>
+  <strong>Caution</strong><br/>
+  If the action is not critical, a sliding button may be unnecessary and may add unnecessary complexity to the interface. Use a standard <a href="/components/button">Button</a> instead.
+</div>
+
+### Mobile environments only
+
+Using a swipe interaction as an action gesture feels natural in a mobile environment.
+
+<div style={{background: '#FFF3DD', borderRadius: '8px', padding: '16px 20px', margin: '24px 0', fontSize: '14px'}}>
+  We discourage using sliding buttons in desktop environments. Trying to complete the task with a mouse or trackpad feels unnatural and is not a widely adopted pattern. Use a standard confirmation dialog or button on desktop.
+</div>
+
+---
+
+## Behavior
+
+Users drag on the arrow affordance along the track. Once the arrow reaches a threshold, the sliding button's action is triggered.
+
+### States
+
+| State | Description |
+|---|---|
+| **Preloading** | An interim state when the component content is loading. Uses a placeholder skeleton. |
+| **Enabled** | Handle rests at the start of the track. Label is visible. The component is ready for interaction. |
+| **Focus** | Text and icons use inverse primary. Container uses inverse primary. Outline: 3px focus border using `borderAccent`. |
+| **On drag** | While the handle is being dragged, the label text transitions to a `contentStateDisabled` fill to indicate the action is in progress. |
+| **Loading** | A spinner replaces the label and the arrow affordance is removed. Used after the threshold is reached while the action is being processed. |
+| **Disabled** | Text and icons use `contentStateDisabled`. Container uses `backgroundStateDisabled`. The handle cannot be dragged. |
+
+### Slide affordance
+
+The handle's arrow icon is the sole draggable element. On tap, the handle grows by 16px to provide a visual cue that the affordance has been engaged. The user then drags it across the track toward the trailing end.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', margin: '24px 0'}}>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '10px', width: '240px'}}>
+        <div style={{background: '#276EF1', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+        <span style={{color: '#fff', fontSize: '13px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
+      </div>
+    </div>
+    <div style={{fontSize: '12px', color: '#DE1135', marginTop: '8px'}}>Enabled</div>
+  </div>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '10px', width: '240px'}}>
+        <div style={{background: '#1A1A1A', borderRadius: '12px 50% 50% 12px', width: '52px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+        <span style={{color: '#fff', fontSize: '13px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
+      </div>
+    </div>
+    <div style={{fontSize: '12px', color: '#DE1135', marginTop: '8px'}}>On tap — handle grows by 16px</div>
+  </div>
+</div>
+
+### Auto-complete thresholds
+
+Users can slide the button to complete an action upon passing a threshold. Two threshold levels are provided to support different user types.
+
+<div style={{background: '#FFF3DD', borderRadius: '8px', padding: '16px 20px', margin: '24px 0', fontSize: '14px'}}>
+  Demanding a high degree of interaction precision to complete an action proves difficult to users with physical and motor disabilities, as well as seniors. When choosing which threshold to use, think about who your users are and whether they would find it difficult to interact with the component in the "Hard" slide mode.
+</div>
+
+| Threshold | Value |
+|---|---|
+| Low (Easy) | Complete more than 20% |
+| High (Hard) | Complete more than 80% |
+
+#### Low threshold (Easy)
+
+When the handle position exceeds 20% of the base width (`slidingButton.x > 0.2 * base.width`), the action auto-completes. Suitable for non-destructive confirmations where speed and accessibility matter.
+
+#### High threshold (Hard)
+
+When the handle position exceeds 80% of the base width (`slidingButton.x > 0.8 * base.width`), the action auto-completes. Use this for destructive or high-stakes actions where accidental confirmation must be minimised.
+
+### Haptics
+
+(iOS)
+
+| Event | Haptic pattern | Description |
+|---|---|---|
+| **Failure** | Failure (native) | On failure, play a Failure haptic pattern after resetting the state of the button. |
+| **On touch down** | Single nudge | On touch down, play a single haptic nudge to confirm the affordance has been engaged. |
+| **Success** | Success (native) | On success, play a Success haptic pattern to reinforce the request has been successfully submitted. |
+
+### Breakpoints
+
+Sliding buttons should follow the same breakpoint rules defined in the [Button](/components/button) documentation — full-width on mobile. This component is not recommended for desktop layouts.
+
+---
+
+## Overrides
+
+### Color
+
+Background colour customisations of the sliding button are supported but should stick to using primary, high-contrast colours like: `InverseBackgroundPrimary`, `backgroundAccent`, `backgroundNegative`, and `backgroundPositive`. Ensure your text and icon colours work on top of your chosen background. Ensure your custom background colour is tokenised so it flips in dark mode.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', margin: '24px 0'}}>
+  <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '24px 16px', display: 'flex', justifyContent: 'center'}}>
+    <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '180px'}}>
+      <div style={{background: '#276EF1', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '13px', flexShrink: 0}}>&#8594;</div>
+      <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
+    </div>
+  </div>
+  <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '24px 16px', display: 'flex', justifyContent: 'center'}}>
+    <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '180px'}}>
+      <div style={{background: '#DE1135', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '13px', flexShrink: 0}}>&#8594;</div>
+      <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
+    </div>
+  </div>
+  <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '24px 16px', display: 'flex', justifyContent: 'center'}}>
+    <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '180px'}}>
+      <div style={{background: '#05944F', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '13px', flexShrink: 0}}>&#8594;</div>
+      <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
+    </div>
+  </div>
+</div>
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Distinguish the swipe affordance from the surrounding UI by using a primary, high-contrast background.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Do not invert the button styles or use secondary styling on the swipe affordance. For more guidance on colour, check out the Colour section of this documentation.</p>
+  </div>
+</div>
+
+### Size
+
+Avoid resizing elements inside the button, like the icon or sliding button affordance. Try going up or down in size for the entire button instead.
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Keep the sliding button height and the base button height the same.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Do not enlarge or shrink either part of the sliding button.</p>
+  </div>
+</div>
+
+---
+
+## Examples
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', margin: '24px 0'}}>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '10px', width: '240px'}}>
+        <div style={{background: '#276EF1', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+        <span style={{color: '#fff', fontSize: '13px', fontWeight: 600}}>Slide to confirm</span>
+      </div>
+    </div>
+    <div style={{fontSize: '13px', fontWeight: 600, marginTop: '8px'}}>Default</div>
+  </div>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{background: '#282828', borderRadius: '40px', padding: '6px', display: 'flex', alignItems: 'center', gap: '10px', width: '240px'}}>
+        <div style={{background: '#DE1135', borderRadius: '50%', width: '36px', height: '36px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', flexShrink: 0}}>&#8594;</div>
+        <span style={{color: '#fff', fontSize: '13px', fontWeight: 600}}>Slide to delete</span>
+      </div>
+    </div>
+    <div style={{fontSize: '13px', fontWeight: 600, marginTop: '8px'}}>Danger</div>
+  </div>
+</div>
+
+---
+
+## Related components
+
+- [Button](/components/button) — Standard rectangle button
+- [Button group](/components/button-group) — Group of related buttons
+- [Button dock](/components/button-dock) — Fixed bottom container for primary actions
+- [Timed button](/components/timed-button) — Auto-advancing countdown button
 
 </TabItem>
 <TabItem value="specs" label="Specs">
 
-Specs coming soon.
+## Metrics
+
+| Property | Value |
+|---|---|
+| Track corner radius | Full-round (`--radius-component-pill`) |
+| Track height | 52px |
+| Track padding | 6px |
+| Handle diameter | 40px |
+| Handle corner radius | 50% (circle) |
+| Minimum touch target | 48 &times; 48px |
+
+## Type and color
+
+| Element | Token |
+|---|---|
+| Label text | `label-large` / `--color-content-primary` |
+| Handle icon | `--color-content-inverse-primary` |
+| Handle background (default) | `--color-background-accent` |
+| Handle background (danger) | `--color-background-negative` |
+| Track background (enabled) | `--color-background-inverse-primary` |
+| Track background (disabled) | `--color-background-state-disabled` |
+| Label text (disabled) | `--color-content-state-disabled` |
+| Label text (on drag) | `--color-content-state-disabled` |
+| Focus outline | 3px `--color-border-accent` |
+
+## Screen readers
+
+### VoiceOver
+
+| Property | Value |
+|---|---|
+| **Voiced preview** | "Slide to [action], adjustable" |
+| Label | Button label text |
+| Role | Adjustable (slider) |
+| Value | Percentage of track completed |
+| Hint | "Swipe right to confirm" |
+
+### TalkBack
+
+| Property | Value |
+|---|---|
+| **Voiced preview** | "Slide to [action], slider, [percentage]" |
+| contentDescription | Button label text |
+| Role | Slider (SeekBar) |
+| Action | Swipe right to confirm |
 
 </TabItem>
 <TabItem value="content" label="Content">
 
-Content guidelines coming soon.
+## Swipe versus Slide
+
+### Swipe
+
+A swipe gesture occurs when the user moves one or more fingers across the screen in a specific horizontal or vertical direction. Swiping suggests a navigational gesture that helps users move between peer surfaces.
+
+### Slide
+
+Using the word "slide" to indicate a gesture was first introduced in 2007 with the launch of the first iPhone. The gesture was specifically designed to avoid accidental triggers, for example, while the device is in your pocket.
+
+<div className="do-dont-grid">
+  <div className="do-block">
+    <strong>Do</strong>
+    <p>Use the word "Slide" when you need an explicit affordance in your button. This signifies the button needs an interaction trigger in order for the user to complete a given action or flow.</p>
+  </div>
+  <div className="dont-block">
+    <strong>Don't</strong>
+    <p>Do not use the word "Swipe" as it carries more meaning related to navigation rather than task completion. If you need the written affordance, use "Slide" instead.</p>
+  </div>
+</div>
 
 </TabItem>
-<TabItem value="changelog" label="Status & Changelog">
+<TabItem value="changelog" label="Status & changelog">
 
 Status & changelog coming soon.
 

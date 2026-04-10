@@ -45,7 +45,7 @@ Specs coming soon.
 Content guidelines coming soon.
 
 </TabItem>
-<TabItem value="changelog" label="Status & Changelog">
+<TabItem value="changelog" label="Status & changelog">
 
 Status & changelog coming soon.
 

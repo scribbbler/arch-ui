@@ -45,7 +45,7 @@ Specs coming soon.
 Content guidelines coming soon.
 
 </TabItem>
-<TabItem value="changelog" label="Status & Changelog">
+<TabItem value="changelog" label="Status & changelog">
 
 Status & changelog coming soon.
 
@@ -53,7 +53,7 @@ Status & changelog coming soon.
 <TabItem value="code" label="Code">
 
 :::caution Deprecated
-Modal Sheet is deprecated. Use [Sheet](/docs/components/sheet) for bottom or side panel overlays, or [Modal](/docs/components/modal) for centred dialogs. Modal Sheet will be removed in a future major release.
+Modal Sheet is deprecated. Use [Sheet](/components/sheet) for bottom or side panel overlays, or [Modal](/components/modal) for centred dialogs. Modal Sheet will be removed in a future major release.
 :::
 
 Modal Sheet was a mobile-first overlay pattern that combined the behaviour of a modal dialog with a bottom sheet presentation -- sliding up from the bottom edge of the screen. It was primarily used on touch devices to present actions, confirmations, or short forms in a thumb-friendly position.

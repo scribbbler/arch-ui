@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Styles</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
     <h1 style={{margin: 0}}>Corner radius</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     Arch UI allows for rounded corners to a variety of components. For simple reference, the metric values for corner radius are 16, 12, 8, and 4. These radius metrics are dependent on the size of the component that it is applied to.

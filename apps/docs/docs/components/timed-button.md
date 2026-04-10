@@ -261,9 +261,19 @@ By using the "Updates frequently" trait, VoiceOver will continuously announce th
 
 
 </TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
 <TabItem value="code" label="Code">
 
-<h2>Expected props</h2>
+## Expected props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
@@ -280,9 +290,9 @@ By using the "Updates frequently" trait, VoiceOver will continuously announce th
 | `size` | `'default' \| 'large' \| 'compact'` | `'default'` | Button size |
 | `autoStart` | `boolean` | `true` | Start countdown immediately on mount |
 
-<h2>Basic usage</h2>
+## Basic usage
 
-```tsx
+```jsx
 import { TimedButton } from "@arch-ui/components";
 
 <TimedButton
@@ -294,9 +304,9 @@ import { TimedButton } from "@arch-ui/components";
 </TimedButton>
 ```
 
-<h2>With icons</h2>
+## With icons
 
-```tsx
+```jsx
 import { TimedButton } from "@arch-ui/components";
 import { CheckIcon, ArrowRightIcon } from "@arch-ui/icons";
 
@@ -310,7 +320,7 @@ import { CheckIcon, ArrowRightIcon } from "@arch-ui/icons";
 </TimedButton>
 ```
 
-<h2>Keyboard interaction</h2>
+## Keyboard interaction
 
 | Key | Action |
 |---|---|
@@ -318,17 +328,12 @@ import { CheckIcon, ArrowRightIcon } from "@arch-ui/icons";
 | `Escape` | Cancel the timer if a cancel handler is provided |
 | `Tab` | Move focus to the next focusable element |
 
-<h2>Accessibility implementation</h2>
+## Accessibility implementation
 
 - The countdown text must be announced to screen readers via `aria-live="polite"` at regular intervals (every 5 seconds for longer timers, every second for the last 3 seconds).
 - The button must include `role="timer"` on the countdown element.
 - Users must be able to extend or disable timers via preferences (WCAG 2.2.1 Timing Adjustable).
 - The timer progress overlay is purely decorative — the numerical countdown is the accessible indicator.
-
-</TabItem>
-<TabItem value="changelog" label="Status & changelog">
-
-Status & changelog coming soon.
 
 </TabItem>
 </Tabs>

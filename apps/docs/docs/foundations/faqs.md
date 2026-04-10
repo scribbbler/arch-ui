@@ -7,6 +7,7 @@ hide_title: true
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ABOUT ARCH UI</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
     <h1 style={{margin: 0}}>FAQs</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
     Answers to the most common questions about working with Arch UI.
@@ -21,7 +22,7 @@ hide_title: true
 
 This rule exists because tokens are the single mechanism for theming, dark mode, and future brand changes. A hardcoded `#266EF1` cannot respond to a theme switch; `var(--color-content-brand)` can.
 
-If you need a value that does not have a corresponding token, do not invent one or hardcode the value. Instead, add the token to `packages/tokens/src/semantic/`, rebuild the token output with `pnpm build`, and then reference it. See the [Design Tokens](/docs/foundations/tokens) page for naming conventions and tier structure.
+If you need a value that does not have a corresponding token, do not invent one or hardcode the value. Instead, add the token to `packages/tokens/src/semantic/`, rebuild the token output with `pnpm build`, and then reference it. See the [Design Tokens](/foundations/tokens) page for naming conventions and tier structure.
 
 ---
 
@@ -100,7 +101,7 @@ The **manifest JSON** file inside each component folder is the canonical API ref
 
 ## What icon library does Arch UI use?
 
-Arch UI uses a curated subset of [Material Design Icons](https://pictogrammers.com/library/mdi/) (`@mdi/svg`), wrapped as typed React components in the `@arch-ui/icons` package. The set currently includes 43 icons. See the [Icons](/docs/foundations/icons) page for the full list, sizing specs, and accessibility guidance.
+Arch UI uses a curated subset of [Material Design Icons](https://pictogrammers.com/library/mdi/) (`@mdi/svg`), wrapped as typed React components in the `@arch-ui/icons` package. The set currently includes 43 icons. See the [Icons](/foundations/icons) page for the full list, sizing specs, and accessibility guidance.
 
 ---
 

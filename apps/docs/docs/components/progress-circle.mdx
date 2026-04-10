@@ -1,0 +1,223 @@
+---
+sidebar_label: Progress circle
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { ProgressBar } from '../../../../packages/components/src/ProgressBar';
+
+export const CircleTrack = ({ value = 0, size = 72, strokeWidth = 6 }) => {
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (value / 100) * circumference;
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{display: 'block'}}>
+      <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="#E2E2E2" strokeWidth={strokeWidth} />
+      {value > 0 && (
+        <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="#276EF1" strokeWidth={strokeWidth}
+          strokeDasharray={circumference} strokeDashoffset={offset} strokeLinecap="round"
+          transform={`rotate(-90 ${size / 2} ${size / 2})`} />
+      )}
+      <text x={size / 2} y={size / 2} textAnchor="middle" dominantBaseline="central"
+        style={{fontSize: '14px', fontWeight: 600, fill: '#545454'}}>{value}%</text>
+    </svg>
+  );
+};
+
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INDICATORS AND STATUS</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Progress circle</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A circular progress indicator that communicates completion percentage in a compact, radial format.
+  </p>
+</div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{display: 'flex', gap: '32px', alignItems: 'center', padding: '24px'}}>
+    <CircleTrack value={25} />
+    <CircleTrack value={50} />
+    <CircleTrack value={75} />
+    <CircleTrack value={100} />
+  </div>
+</div>
+
+**Common alternative names**
+
+Circular progress, Radial progress, Donut loader
+
+---
+
+## Anatomy
+
+A progress circle communicates completion in a compact radial format. It comes in two shape variants: circle and pill.
+
+### Circle
+
+The circle variant uses a circular track with a radial progress indicator. An optional label below describes the operation.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{display: 'flex', gap: '64px', alignItems: 'flex-start'}}>
+    <div style={{textAlign: 'center', position: 'relative'}}>
+      <div style={{position: 'absolute', top: '-32px', left: '50%', transform: 'translateX(-50%)', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center', whiteSpace: 'nowrap'}}>Circle track<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+      <CircleTrack value={0} />
+    </div>
+    <div style={{textAlign: 'center', position: 'relative'}}>
+      <div style={{position: 'absolute', top: '-32px', left: '50%', transform: 'translateX(-50%)', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center', whiteSpace: 'nowrap'}}>Progress indicator<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+      <CircleTrack value={50} />
+    </div>
+  </div>
+</div>
+
+<div style={{textAlign: 'center', marginTop: '-16px', marginBottom: '24px'}}>
+  <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 600}}>Label <span style={{fontWeight: 400}}>(Optional)</span></span>
+</div>
+
+### Pill
+
+The pill variant uses a rounded capsule track with a linear progress fill. A label inside or below the pill is recommended.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{display: 'flex', gap: '64px', alignItems: 'flex-start'}}>
+    <div style={{textAlign: 'center', position: 'relative', width: '120px'}}>
+      <div style={{position: 'absolute', top: '-32px', left: '50%', transform: 'translateX(-50%)', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center', whiteSpace: 'nowrap'}}>Pill track<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+      <ProgressBar value={0} size="md" label="Empty pill track" />
+    </div>
+    <div style={{textAlign: 'center', position: 'relative', width: '120px'}}>
+      <div style={{position: 'absolute', top: '-32px', left: '50%', transform: 'translateX(-50%)', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center', whiteSpace: 'nowrap'}}>Progress indicator<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+      <ProgressBar value={100} size="md" label="Full pill track" />
+    </div>
+  </div>
+</div>
+
+<div style={{textAlign: 'center', marginTop: '-16px', marginBottom: '24px'}}>
+  <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 600}}>Label <span style={{fontWeight: 400}}>(Recommended)</span></span>
+</div>
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+## Usage
+
+```jsx
+import { ProgressCircle } from '@arch-ui/components';
+
+function Example() {
+  return (
+    <ProgressCircle value={72} label="Profile completeness" />
+  );
+}
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `number` | `0` | Current progress from 0 to 100. Ignored when `indeterminate` is true. |
+| `indeterminate` | `boolean` | `false` | Displays a continuously spinning ring for operations of unknown duration. |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Diameter of the circle. |
+| `label` | `string` | `undefined` | Accessible label applied as `aria-label`. Required for screen readers. |
+| `showValue` | `boolean` | `false` | Renders the numeric percentage inside the circle. |
+| `children` | `ReactNode` | `undefined` | Custom content rendered inside the circle, such as an icon. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the root element. |
+
+---
+
+## Determinate
+
+Set `value` between 0 and 100. The ring fills clockwise from the top.
+
+```jsx
+<ProgressCircle value={25} label="25% complete" />
+<ProgressCircle value={75} label="75% complete" />
+<ProgressCircle value={100} label="Complete" />
+```
+
+---
+
+## Indeterminate
+
+Use `indeterminate` for operations where the total duration is unknown. The ring animates continuously.
+
+```jsx
+<ProgressCircle indeterminate label="Processing" />
+```
+
+---
+
+## Sizes
+
+```jsx
+<ProgressCircle value={50} size="sm" label="Small" />
+<ProgressCircle value={50} size="md" label="Medium" />
+<ProgressCircle value={50} size="lg" label="Large" />
+```
+
+---
+
+## Showing the value
+
+Set `showValue` to display the percentage number inside the ring.
+
+```jsx
+<ProgressCircle value={68} showValue label="Storage used" />
+```
+
+---
+
+## Custom inner content
+
+Pass `children` to render an icon or custom element inside the circle instead of the numeric value.
+
+```jsx
+<ProgressCircle value={100} label="Upload complete">
+  <CheckIcon />
+</ProgressCircle>
+```
+
+---
+
+## Guidelines
+
+- Prefer Progress Bar for inline or full-width indicators. Use Progress Circle when the radial shape fits the layout better, such as in dashboards or cards.
+- Avoid placing too many Progress Circles in a single view. They work best as focal points, not repeated inline indicators.
+- When both `showValue` and `children` are provided, `children` takes precedence.
+
+---
+
+## Accessibility
+
+- The component uses `role="progressbar"` with `aria-valuemin`, `aria-valuemax`, and `aria-valuenow`.
+- Always provide a `label` prop so screen readers can identify the purpose of the indicator.
+- In indeterminate mode, `aria-valuenow` is omitted.
+- The circle animation respects `prefers-reduced-motion`.
+
+</TabItem>
+</Tabs>

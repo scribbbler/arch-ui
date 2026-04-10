@@ -1,0 +1,329 @@
+---
+sidebar_label: Button dock
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { ButtonDock } from '../../../../packages/components/src/ButtonDock';
+import { Button } from '../../../../packages/components/src/Button';
+import { Checkbox } from '../../../../packages/components/src/Checkbox';
+import { Link } from '../../../../packages/components/src/Link';
+
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>BUTTONS</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Button dock</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A fixed-position bottom action bar for primary and secondary actions.
+  </p>
+</div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Action bar, sticky actions, bottom bar
+
+---
+
+## Anatomy
+
+A button dock is a vertically stacked container with an optional accessory view at the top and a button container holding up to four action buttons.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0'}}>
+<div style={{display: 'flex', gap: '0', alignItems: 'stretch', justifyContent: 'center'}}>
+
+{/* Left labels + vertical red lines */}
+<div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end', width: '150px', flexShrink: 0}}>
+  {/* Accessory view label + line */}
+  <div style={{display: 'flex', alignItems: 'stretch', flex: '0 0 auto'}}>
+    <div style={{display: 'flex', alignItems: 'center', paddingRight: '12px'}}>
+      <div><div className="anatomy-label" style={{textAlign: 'right'}}>Accessory view</div><div className="anatomy-label-req" style={{textAlign: 'right'}}>(Optional)</div></div>
+    </div>
+    <div style={{width: '2px', background: '#DE1135', minHeight: '60px'}}></div>
+  </div>
+  {/* Gap */}
+  <div style={{height: '8px'}}></div>
+  {/* Button container label + line */}
+  <div style={{display: 'flex', alignItems: 'stretch', flex: 1}}>
+    <div style={{display: 'flex', alignItems: 'center', paddingRight: '12px'}}>
+      <div><div className="anatomy-label" style={{textAlign: 'right'}}>Button container</div><div className="anatomy-label-req" style={{textAlign: 'right'}}>(required)</div></div>
+    </div>
+    <div style={{width: '2px', background: '#DE1135'}}></div>
+  </div>
+</div>
+
+{/* Center: single continuous white card */}
+<div style={{background: '#fff', borderRadius: '16px', padding: '16px', width: '320px', flexShrink: 0}}>
+  <div style={{marginBottom: '12px'}}>
+    <Checkbox checked onChange={() => {}}>I agree to the <Link href="#">terms and conditions.</Link></Checkbox>
+  </div>
+  <div style={{borderTop: '1px solid #F0F0F0', marginBottom: '12px'}}></div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+    <Button kind="secondary" fullWidth>Edit</Button>
+    <Button kind="secondary" fullWidth>Edit</Button>
+    <Button kind="primary" fullWidth>Save</Button>
+    <Button kind="tertiary" fullWidth>Cancel</Button>
+  </div>
+  <div style={{display: 'flex', justifyContent: 'center', marginTop: '12px'}}>
+    <div style={{width: '120px', height: '4px', background: '#333', borderRadius: '2px'}}></div>
+  </div>
+</div>
+
+{/* Right labels with connector lines — each label is a flex row that stretches to match the button beside it */}
+<div style={{display: 'flex', flexDirection: 'column', width: '180px', flexShrink: 0}}>
+  {/* Spacer for accessory view + divider area */}
+  <div style={{height: '86px'}}></div>
+  {/* Button labels — each 56px = 48px button + 8px gap */}
+  <div style={{display: 'flex', alignItems: 'center', height: '56px'}}>
+    <div style={{width: '32px', borderTop: '2px solid #DE1135', flexShrink: 0}}></div>
+    <div style={{paddingLeft: '6px'}}><div className="anatomy-label">Secondary button</div><div className="anatomy-label-req">(Optional)</div></div>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', height: '56px'}}>
+    <div style={{width: '32px', borderTop: '2px solid #DE1135', flexShrink: 0}}></div>
+    <div style={{paddingLeft: '6px'}}><div className="anatomy-label">Secondary button</div><div className="anatomy-label-req">(Optional)</div></div>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', height: '56px'}}>
+    <div style={{width: '32px', borderTop: '2px solid #DE1135', flexShrink: 0}}></div>
+    <div style={{paddingLeft: '6px'}}><div className="anatomy-label">Confirm button</div><div className="anatomy-label-req">(Recommended)</div></div>
+  </div>
+  <div style={{display: 'flex', alignItems: 'center', height: '56px'}}>
+    <div style={{width: '32px', borderTop: '2px solid #DE1135', flexShrink: 0}}></div>
+    <div style={{paddingLeft: '6px'}}><div className="anatomy-label">Dismiss button</div><div className="anatomy-label-req">(Recommended)</div></div>
+  </div>
+</div>
+
+</div>
+</div>
+
+---
+
+## Behavior
+
+### Breakpoints
+
+Components are optimised for multiple screen widths. There are 2 variants of the button dock component: **Narrow** and **Wide**.
+
+### Narrow
+
+Use the **Narrow** variant of the component for screens up to 600 wide.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '24px', margin: '24px 0'}}>
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px'}}>
+
+<div>
+  <div style={{textAlign: 'center', marginBottom: '8px'}}>
+    <span style={{fontFamily: 'monospace', fontSize: '13px', color: '#DE1135'}}>375</span>
+  </div>
+  <div style={{display: 'flex', justifyContent: 'center', marginBottom: '4px'}}>
+    <div style={{width: '100%', position: 'relative', height: '8px'}}>
+      <div style={{position: 'absolute', left: '0', right: '0', top: '50%', borderTop: '1px solid #DE1135'}}></div>
+      <div style={{position: 'absolute', left: '0', top: '25%', bottom: '25%', borderLeft: '1px solid #DE1135'}}></div>
+      <div style={{position: 'absolute', right: '0', top: '25%', bottom: '25%', borderRight: '1px solid #DE1135'}}></div>
+    </div>
+  </div>
+  <div style={{background: '#fff', borderRadius: '8px', overflow: 'hidden', border: '1px solid #E2E2E2'}}>
+    <div style={{padding: '16px', minHeight: '280px'}}>
+      <div style={{fontSize: '10px', color: '#727272', marginBottom: '8px'}}>← Add new order</div>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Form content</div>
+      <div style={{fontSize: '11px', color: '#999', lineHeight: 1.5}}>Content area where the user fills in their form data before submitting via the button dock below.</div>
+    </div>
+    <div style={{borderTop: '1px solid #E2E2E2', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+      <Button kind="secondary" fullWidth>Save draft</Button>
+      <Button kind="primary" fullWidth>Create order</Button>
+      <Button kind="tertiary" fullWidth>Cancel</Button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div style={{textAlign: 'center', marginBottom: '8px'}}>
+    <span style={{fontFamily: 'monospace', fontSize: '13px', color: '#DE1135'}}>up to 600</span>
+  </div>
+  <div style={{display: 'flex', justifyContent: 'center', marginBottom: '4px'}}>
+    <div style={{width: '100%', position: 'relative', height: '8px'}}>
+      <div style={{position: 'absolute', left: '0', right: '0', top: '50%', borderTop: '1px solid #DE1135'}}></div>
+      <div style={{position: 'absolute', left: '0', top: '25%', bottom: '25%', borderLeft: '1px solid #DE1135'}}></div>
+      <div style={{position: 'absolute', right: '0', top: '25%', bottom: '25%', borderRight: '1px solid #DE1135'}}></div>
+    </div>
+  </div>
+  <div style={{background: '#fff', borderRadius: '8px', overflow: 'hidden', border: '1px solid #E2E2E2'}}>
+    <div style={{padding: '16px', minHeight: '280px'}}>
+      <div style={{fontSize: '10px', color: '#727272', marginBottom: '8px'}}>← Add new order</div>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Form content</div>
+      <div style={{fontSize: '11px', color: '#999', lineHeight: 1.5}}>Content area with more room. The button dock still stacks vertically at this width, keeping touch targets full-width for easy tapping.</div>
+    </div>
+    <div style={{borderTop: '1px solid #E2E2E2', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+      <Button kind="secondary" fullWidth>Save draft</Button>
+      <Button kind="primary" fullWidth>Create order</Button>
+      <Button kind="tertiary" fullWidth>Cancel</Button>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+### Wide
+
+Use the **Wide** variant of the component for screens wider than 600.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '24px', margin: '24px 0'}}>
+  <div style={{textAlign: 'center', marginBottom: '8px'}}>
+    <span style={{fontFamily: 'monospace', fontSize: '13px', color: '#DE1135'}}>600 and wider</span>
+  </div>
+  <div style={{display: 'flex', justifyContent: 'center', marginBottom: '4px'}}>
+    <div style={{width: '100%', position: 'relative', height: '8px'}}>
+      <div style={{position: 'absolute', left: '0', right: '0', top: '50%', borderTop: '1px solid #DE1135'}}></div>
+      <div style={{position: 'absolute', left: '0', top: '25%', bottom: '25%', borderLeft: '1px solid #DE1135'}}></div>
+      <div style={{position: 'absolute', right: '0', top: '25%', bottom: '25%', borderRight: '1px solid #DE1135'}}></div>
+    </div>
+  </div>
+  <div style={{background: '#fff', borderRadius: '8px', overflow: 'hidden', border: '1px solid #E2E2E2'}}>
+    <div style={{padding: '24px', minHeight: '240px'}}>
+      <div style={{fontSize: '10px', color: '#727272', marginBottom: '8px'}}>← Add new order</div>
+      <div style={{fontSize: '18px', fontWeight: 700, marginBottom: '12px'}}>Form content</div>
+      <div style={{fontSize: '13px', color: '#999', lineHeight: 1.6}}>On wider screens the button dock switches to a horizontal layout. Secondary actions align to the left and the primary action aligns to the right, matching the natural reading direction for form submission flows.</div>
+    </div>
+    <div style={{borderTop: '1px solid #E2E2E2', padding: '12px 24px', display: 'flex', alignItems: 'center', gap: '8px'}}>
+      <Button kind="secondary">Save draft</Button>
+      <div style={{flex: 1}}></div>
+      <Button kind="tertiary">Cancel</Button>
+      <Button kind="primary">Create order</Button>
+    </div>
+  </div>
+</div>
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+## Usage
+
+ButtonDock accepts up to three action slots arranged in a vertical stack: a primary action, a secondary action, and a dismiss action. Each slot accepts any `ReactNode`, giving consumers full control over button semantics and styling.
+
+```jsx
+import { ButtonDock } from '@arch-ui/components';
+import { Button } from '@arch-ui/components';
+
+<ButtonDock
+  primaryAction={<Button kind="primary" fullWidth>Save changes</Button>}
+  secondaryAction={<Button kind="secondary">Save draft</Button>}
+  dismissAction={<a href="/cancel">Cancel</a>}
+/>
+```
+
+### Primary action only
+
+The simplest use case is a single primary action at the bottom of a form.
+
+```jsx
+<ButtonDock
+  primaryAction={<Button kind="primary" fullWidth>Continue</Button>}
+/>
+```
+
+### Two actions
+
+A common pattern for forms with a submit and a secondary option.
+
+```jsx
+<ButtonDock
+  primaryAction={<Button kind="primary" fullWidth>Submit</Button>}
+  secondaryAction={<Button kind="secondary">Back</Button>}
+/>
+```
+
+---
+
+## Position
+
+The `position` prop controls how the dock attaches to the viewport or scroll container.
+
+| Value | Behaviour |
+|---|---|
+| `fixed` (default) | Pinned to the bottom of the viewport. Use for full-page forms. |
+| `sticky` | Sticks within its scroll container. Use when the dock lives inside a scrollable region like a modal or drawer. |
+
+```jsx
+<ButtonDock
+  position="sticky"
+  primaryAction={<Button kind="primary" fullWidth>Confirm</Button>}
+/>
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `primaryAction` | `ReactNode` | `undefined` | The primary action button, typically a full-width Button. |
+| `secondaryAction` | `ReactNode` | `undefined` | A secondary action button rendered below the primary action. |
+| `dismissAction` | `ReactNode` | `undefined` | A dismiss or cancel link rendered below the secondary action. |
+| `position` | `'fixed' \| 'sticky'` | `'fixed'` | Controls whether the dock is fixed to the viewport or sticky within its scroll container. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the root element. |
+
+---
+
+## Accessibility
+
+- The root element uses `role="contentinfo"` to provide a semantic landmark.
+- The primary action button should be first in tab order.
+- Action slots accept any `ReactNode`, so consumers are responsible for using proper button or link semantics in each slot.
+
+---
+
+## Best practices
+
+**Do:**
+- Use for forms with a submit and cancel action at the bottom.
+- Use `sticky` when the dock should scroll with a container (modals, drawers).
+- Always provide a primary action.
+
+**Don't:**
+- Do not nest multiple ButtonDocks on the same page.
+- Do not use for navigation -- use a toolbar or navigation bar instead.
+
+---
+
+## Design tokens
+
+| Token | Role |
+|---|---|
+| `color-surface-base` | Dock background |
+| `shadow-shallow-above` | Top shadow to separate from content |
+| `spacing-16` | Padding |
+| `spacing-12` | Gap between action slots |
+| `z-semantic-sticky` | Z-index for fixed/sticky positioning |
+
+</TabItem>
+</Tabs>

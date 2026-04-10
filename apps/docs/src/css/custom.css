@@ -1,5 +1,116 @@
 @import '../../../../packages/tokens/build/css/tokens.css';
+@import '../../../../packages/components/src/Accordion/Accordion.css';
+@import '../../../../packages/components/src/Alert/Alert.css';
+@import '../../../../packages/components/src/Avatar/Avatar.css';
+@import '../../../../packages/components/src/AvatarGroup/AvatarGroup.css';
+@import '../../../../packages/components/src/Badge/Badge.css';
+@import '../../../../packages/components/src/Banner/Banner.css';
+@import '../../../../packages/components/src/Box/Box.css';
+@import '../../../../packages/components/src/Breadcrumbs/Breadcrumbs.css';
 @import '../../../../packages/components/src/Button/Button.css';
+@import '../../../../packages/components/src/ButtonDock/ButtonDock.css';
+@import '../../../../packages/components/src/ButtonGroup/ButtonGroup.css';
+@import '../../../../packages/components/src/Card/Card.css';
+@import '../../../../packages/components/src/Checkbox/Checkbox.css';
+@import '../../../../packages/components/src/CheckboxGroup/CheckboxGroup.css';
+@import '../../../../packages/components/src/Code/Code.css';
+@import '../../../../packages/components/src/Combobox/Combobox.css';
+@import '../../../../packages/components/src/Display/Display.css';
+@import '../../../../packages/components/src/Divider/Divider.css';
+@import '../../../../packages/components/src/Drawer/Drawer.css';
+@import '../../../../packages/components/src/FileUpload/FileUpload.css';
+@import '../../../../packages/components/src/FormControl/FormControl.css';
+@import '../../../../packages/components/src/Grid/Grid.css';
+@import '../../../../packages/components/src/Heading/Heading.css';
+@import '../../../../packages/components/src/Inline/Inline.css';
+@import '../../../../packages/components/src/Input/Input.css';
+@import '../../../../packages/components/src/Label/Label.css';
+@import '../../../../packages/components/src/Link/Link.css';
+@import '../../../../packages/components/src/List/List.css';
+@import '../../../../packages/components/src/Modal/Modal.css';
+@import '../../../../packages/components/src/Overlay/Overlay.css';
+@import '../../../../packages/components/src/Pagination/Pagination.css';
+@import '../../../../packages/components/src/Paragraph/Paragraph.css';
+@import '../../../../packages/components/src/PaymentCard/PaymentCard.css';
+@import '../../../../packages/components/src/PhoneInput/PhoneInput.css';
+@import '../../../../packages/components/src/PinCode/PinCode.css';
+@import '../../../../packages/components/src/Popover/Popover.css';
+@import '../../../../packages/components/src/ProgressBar/ProgressBar.css';
+@import '../../../../packages/components/src/ProgressSteps/ProgressSteps.css';
+@import '../../../../packages/components/src/Radio/Radio.css';
+@import '../../../../packages/components/src/RadioGroup/RadioGroup.css';
+@import '../../../../packages/components/src/SegmentedControl/SegmentedControl.css';
+@import '../../../../packages/components/src/Select/Select.css';
+@import '../../../../packages/components/src/Skeleton/Skeleton.css';
+@import '../../../../packages/components/src/SkipNav/SkipNav.css';
+@import '../../../../packages/components/src/Slider/Slider.css';
+@import '../../../../packages/components/src/Spinner/Spinner.css';
+@import '../../../../packages/components/src/Stack/Stack.css';
+@import '../../../../packages/components/src/Stepper/Stepper.css';
+@import '../../../../packages/components/src/Table/Table.css';
+@import '../../../../packages/components/src/Tabs/Tabs.css';
+@import '../../../../packages/components/src/Tag/Tag.css';
+@import '../../../../packages/components/src/Textarea/Textarea.css';
+@import '../../../../packages/components/src/Toast/Toast.css';
+@import '../../../../packages/components/src/Toggle/Toggle.css';
+@import '../../../../packages/components/src/Tooltip/Tooltip.css';
+@import '../../../../packages/components/src/VisuallyHidden/VisuallyHidden.css';
+
+/* Anatomy diagram tables — no borders, tight spacing */
+.anatomy-table,
+.anatomy-table th,
+.anatomy-table tr {
+  border: none !important;
+  background: transparent !important;
+}
+.anatomy-table td {
+  border: none !important;
+  padding: 0 !important;
+}
+.anatomy-table td.anatomy-line {
+  background: transparent !important;
+  width: 2px !important;
+  min-width: 2px !important;
+  max-width: 2px !important;
+  padding: 0 !important;
+  position: relative;
+}
+.anatomy-table td.anatomy-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: #DE1135;
+}
+.anatomy-table td.anatomy-left {
+  vertical-align: middle !important;
+  text-align: right !important;
+  padding: 0 12px 0 0 !important;
+}
+.anatomy-table td.anatomy-right {
+  vertical-align: middle !important;
+  padding: 0 0 0 8px !important;
+}
+
+/* Anatomy annotation labels */
+.anatomy-label {
+  font-size: 13px !important;
+  color: #DE1135 !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.anatomy-label-req {
+  font-size: 12px !important;
+  color: #DE1135 !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  margin: 2px 0 0 0 !important;
+  padding: 0 !important;
+}
 
 :root {
   --ifm-color-primary: #266EF1;

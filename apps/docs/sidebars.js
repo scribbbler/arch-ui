@@ -108,7 +108,6 @@ const sidebars = {
           label: 'Form fields',
           items: [
             'components/select',
-            'components/text-field',
             'components/input',
             'components/textarea',
             'components/combobox',

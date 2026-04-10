@@ -1,0 +1,213 @@
+---
+sidebar_label: Banner
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { Banner } from '../../../../packages/components/src/Banner';
+
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>MESSAGING</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Banner</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A full-width announcement bar for site-wide or page-level status messages.
+  </p>
+</div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{maxWidth: '600px', width: '100%', display: 'flex', flexDirection: 'column', gap: '12px'}}>
+    <Banner variant="info" actionText="Learn more" onAction={() => {}}>
+      New feature available — check out the updated dashboard.
+    </Banner>
+    <Banner variant="success">Operation completed successfully.</Banner>
+    <Banner variant="warning" onClose={() => {}}>Scheduled maintenance on Saturday 10 pm – 2 am UTC.</Banner>
+    <Banner variant="danger">Service disruption in progress. We are investigating.</Banner>
+  </div>
+</div>
+
+**Common alternative names**
+
+Notice, Announcement bar, Info bar
+
+---
+
+## Anatomy
+
+A banner is a full-width container that holds a message with optional artwork and an action. It supports both multi-line layouts with a headline and single-line layouts with paragraph text only.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', flexDirection: 'column', gap: '32px'}}>
+  <div style={{display: 'grid', gridTemplateColumns: '100px auto 100px', gap: '0', alignItems: 'center'}}>
+    <div style={{display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'flex-end'}}>
+      <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+        <div style={{textAlign: 'right', fontSize: '13px', color: '#DE1135', fontWeight: 700, whiteSpace: 'nowrap'}}>Inset</div>
+        <div style={{width: '16px', borderTop: '1px solid #DE1135'}}></div>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+        <div style={{textAlign: 'right', fontSize: '13px', color: '#DE1135', fontWeight: 700, whiteSpace: 'nowrap'}}>Content<br/><span style={{fontSize: '12px', fontWeight: 400}}>(Required)</span></div>
+        <div style={{width: '16px', borderTop: '1px solid #DE1135'}}></div>
+      </div>
+    </div>
+    <Banner variant="info" actionText="Learn more" onAction={() => {}}>
+      <strong>Headline text</strong> — Paragraph text with supporting details about this notification.
+    </Banner>
+    <div style={{display: 'flex', flexDirection: 'column', gap: '16px', paddingLeft: '8px'}}>
+      <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+        <div style={{width: '16px', borderTop: '1px solid #DE1135'}}></div>
+        <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, whiteSpace: 'nowrap'}}>Container<br/><span style={{fontSize: '12px', fontWeight: 400}}>(Required)</span></div>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '8px'}}>
+        <div style={{width: '16px', borderTop: '1px solid #DE1135'}}></div>
+        <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, whiteSpace: 'nowrap'}}>Action<br/><span style={{fontSize: '12px', fontWeight: 400}}>(Optional)</span></div>
+      </div>
+    </div>
+  </div>
+  <div style={{textAlign: 'center', fontSize: '12px', color: '#727272', fontStyle: 'italic'}}>Multi-line: headline + paragraph</div>
+  <div style={{display: 'grid', gridTemplateColumns: '100px auto 100px', gap: '0', alignItems: 'center'}}>
+    <div style={{display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end'}}>
+      <div style={{textAlign: 'right', fontSize: '13px', color: '#DE1135', fontWeight: 700, whiteSpace: 'nowrap'}}>Paragraph<br/>text</div>
+      <div style={{width: '16px', borderTop: '1px solid #DE1135'}}></div>
+    </div>
+    <Banner variant="success" actionText="Action" onAction={() => {}}>
+      Single-line paragraph text with a brief message.
+    </Banner>
+    <div></div>
+  </div>
+  <div style={{textAlign: 'center', fontSize: '12px', color: '#727272', fontStyle: 'italic'}}>Single-line: paragraph only</div>
+</div>
+
+### Leading artwork
+
+The leading position supports custom icons or badges to reinforce the banner's intent.
+
+<div style={{display: 'flex', flexDirection: 'column', gap: '16px', margin: '24px 0'}}>
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div style={{width: '24px', height: '24px', borderRadius: '50%', background: '#276EF1', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '12px', fontWeight: 700}}>i</div>
+    </div>
+    <div style={{paddingTop: '16px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Custom icon</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>Base icons at size 24. Use semantic icons that match the banner variant (info, success, warning, danger).</p>
+    </div>
+  </div>
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#FFC043', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px'}}>&#9888;</div>
+    </div>
+    <div style={{paddingTop: '16px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Custom badge</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>Asset library badges at size 40. Used when a stronger visual emphasis is needed beyond a simple icon.</p>
+    </div>
+  </div>
+</div>
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+## Usage
+
+```jsx
+import { Banner } from '@arch-ui/components';
+
+<Banner variant="info">
+  New feature available -- check out the updated dashboard.
+</Banner>
+```
+
+### Variants
+
+```jsx
+<Banner variant="info">Informational message.</Banner>
+<Banner variant="success">Operation completed successfully.</Banner>
+<Banner variant="warning">Scheduled maintenance on Saturday 10 pm - 2 am UTC.</Banner>
+<Banner variant="danger">Service disruption in progress. We are investigating.</Banner>
+```
+
+### With action button
+
+Add an inline action alongside the message.
+
+```jsx
+<Banner
+  variant="info"
+  actionText="Learn more"
+  onAction={() => navigate('/changelog')}
+>
+  Version 2.0 is now available.
+</Banner>
+```
+
+### Dismissible banner
+
+```jsx
+const [visible, setVisible] = useState(true);
+
+{visible && (
+  <Banner variant="warning" onClose={() => setVisible(false)}>
+    Your session will expire in 5 minutes.
+  </Banner>
+)}
+```
+
+### Action and dismiss together
+
+```jsx
+<Banner
+  variant="info"
+  actionText="Update now"
+  onAction={handleUpdate}
+  onClose={() => setVisible(false)}
+>
+  A new version is available.
+</Banner>
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'info' \| 'success' \| 'warning' \| 'danger'` | `'info'` | Semantic variant controlling colour. |
+| `children` | `ReactNode` | -- | Banner content. Keep brief -- one or two sentences. |
+| `actionText` | `string` | -- | Text for an inline action button. |
+| `onAction` | `() => void` | -- | Callback fired when the action button is clicked. |
+| `onClose` | `() => void` | -- | When provided, a dismiss button is rendered. |
+| `className` | `string` | -- | Additional CSS class names. |
+
+---
+
+## Accessibility
+
+- Uses `role="alert"` for `danger` and `warning` variants and `role="status"` for `info` and `success`.
+- The dismiss button carries `aria-label="Dismiss banner"`.
+- Both the action and dismiss buttons have `:focus-visible` outlines for keyboard navigation.
+- Banner content is centered with the close button absolutely positioned at the inline end, so content flow is not disrupted.
+
+</TabItem>
+</Tabs>

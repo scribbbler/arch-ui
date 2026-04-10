@@ -1,0 +1,402 @@
+---
+sidebar_label: List
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { List, ListItem, ListItemLabel } from '../../../../packages/components/src/List';
+import { Avatar } from '../../../../packages/components/src/Avatar';
+import { Badge } from '../../../../packages/components/src/Badge';
+import { Checkbox } from '../../../../packages/components/src/Checkbox';
+import { RadioGroup } from '../../../../packages/components/src/RadioGroup';
+import { Radio } from '../../../../packages/components/src/Radio';
+import { Toggle } from '../../../../packages/components/src/Toggle';
+import { Stepper } from '../../../../packages/components/src/Stepper';
+import { Button } from '../../../../packages/components/src/Button';
+import { StarIcon } from '../../../../packages/icons/src';
+import { ChevronRightIcon } from '../../../../packages/icons/src';
+import { PencilOutlineIcon } from '../../../../packages/icons/src';
+import { DeleteOutlineIcon } from '../../../../packages/icons/src';
+
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>CONTENT DISPLAY</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>List</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A semantic list component for rendering structured rows of content with support for headings, descriptions, and artwork.
+  </p>
+</div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Collection, Item list
+
+---
+
+## Anatomy
+
+A list item supports a wide range of leading and trailing content configurations. The diagram below shows every possible slot combination available to list items.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 24px', margin: '24px 0'}}>
+  <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'stretch'}}>
+    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: '8px'}}>
+      <div style={{fontSize: '14px', fontWeight: 700, color: '#DE1135', marginBottom: '16px', textAlign: 'right', borderBottom: '2px solid #DE1135', paddingBottom: '4px'}}>Leading content</div>
+    </div>
+    <div></div>
+    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: '8px'}}>
+      <div style={{fontSize: '14px', fontWeight: 700, color: '#DE1135', marginBottom: '16px', textAlign: 'left', borderBottom: '2px solid #DE1135', paddingBottom: '4px'}}>Trailing content</div>
+    </div>
+  </div>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '0'}}>
+    {/* Row 1: Avatar + Radio */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', borderBottom: '1px solid #E2E2E2', padding: '8px 0'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px'}}>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Avatar / Image</span>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+      </div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            artwork={<Avatar name="Label text" size="small" />}
+            artworkSize="small"
+            endEnhancer={
+              <RadioGroup legend="" name="anatomy-radio" value="selected" onChange={() => {}}>
+                <Radio value="selected" />
+              </RadioGroup>
+            }
+          >
+            <ListItemLabel description="Description">Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Radio</span>
+      </div>
+    </div>
+    {/* Row 2: Badge + Checkbox */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', borderBottom: '1px solid #E2E2E2', padding: '8px 0'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px'}}>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Badge</span>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+      </div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            artwork={<Badge variant="info" size="sm">3</Badge>}
+            artworkSize="small"
+            endEnhancer={<Checkbox checked onChange={() => {}} aria-label="Select item" />}
+          >
+            <ListItemLabel description="Description">Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Checkbox</span>
+      </div>
+    </div>
+    {/* Row 3: Large icon + Toggle */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', borderBottom: '1px solid #E2E2E2', padding: '8px 0'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px'}}>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Large icon</span>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+      </div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            artwork={<StarIcon size={24} />}
+            artworkSize="large"
+            shape="round"
+            endEnhancer={<Toggle checked onChange={() => {}} aria-label="Toggle setting" />}
+          >
+            <ListItemLabel description="Description">Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Toggle</span>
+      </div>
+    </div>
+    {/* Row 4: Medium icon + Stepper */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', borderBottom: '1px solid #E2E2E2', padding: '8px 0'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px'}}>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Medium icon</span>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+      </div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            artwork={<StarIcon size={20} />}
+            artworkSize="medium"
+            endEnhancer={<Stepper value={1} onChange={() => {}} min={0} max={10} />}
+          >
+            <ListItemLabel description="Description">Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Stepper</span>
+      </div>
+    </div>
+    {/* Row 5: Small icon + Icon buttons */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', borderBottom: '1px solid #E2E2E2', padding: '8px 0'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px'}}>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Small icon</span>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+      </div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            artwork={<StarIcon size={16} />}
+            artworkSize="small"
+            endEnhancer={
+              <div style={{display: 'flex', gap: '4px'}}>
+                <Button kind="tertiary" size="compact" shape="circle" aria-label="Edit"><PencilOutlineIcon size={16} /></Button>
+                <Button kind="tertiary" size="compact" shape="circle" aria-label="Delete"><DeleteOutlineIcon size={16} /></Button>
+              </div>
+            }
+          >
+            <ListItemLabel>Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Icon buttons</span>
+      </div>
+    </div>
+    {/* Row 6: Multi-line text + Text button */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', borderBottom: '1px solid #E2E2E2', padding: '8px 0'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px'}}>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700, textAlign: 'right'}}>Up to 3 lines<br/>of text</span>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+      </div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            endEnhancer={<Button kind="tertiary" size="compact">Button</Button>}
+          >
+            <ListItemLabel description={<>Description line one<br/>Description line two</>}>Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Text button</span>
+      </div>
+    </div>
+    {/* Row 7: No leading + Chevron */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', borderBottom: '1px solid #E2E2E2', padding: '8px 0'}}>
+      <div></div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            endEnhancer={<ChevronRightIcon size={20} />}
+          >
+            <ListItemLabel description="Description">Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Chevron</span>
+      </div>
+    </div>
+    {/* Row 8: No leading + Text lines */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', borderBottom: '1px solid #E2E2E2', padding: '8px 0'}}>
+      <div></div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            endEnhancer={<div style={{textAlign: 'right'}}><div style={{fontSize: '14px', color: '#282828'}}>Value</div><div style={{fontSize: '12px', color: '#727272'}}>Subtext</div></div>}
+          >
+            <ListItemLabel description="Description">Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Text lines</span>
+      </div>
+    </div>
+    {/* Row 9: No leading + Badge */}
+    <div style={{display: 'grid', gridTemplateColumns: '120px 1fr 120px', gap: '0', alignItems: 'center', padding: '8px 0'}}>
+      <div></div>
+      <div style={{background: '#fff', borderRadius: '8px', margin: '0 8px', overflow: 'hidden'}}>
+        <List>
+          <ListItem
+            endEnhancer={<Badge variant="info">New</Badge>}
+          >
+            <ListItemLabel description="Description">Label text</ListItemLabel>
+          </ListItem>
+        </List>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '6px'}}>
+        <div style={{width: '12px', borderTop: '1px solid #DE1135'}}></div>
+        <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 700}}>Badge</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+## Usage
+
+### Basic list
+
+```jsx
+import { List, ListItem, ListItemLabel } from '@arch-ui/components';
+
+<List>
+  <ListItem>
+    <ListItemLabel description="Software Engineer">Jane Doe</ListItemLabel>
+  </ListItem>
+  <ListItem>
+    <ListItemLabel description="Product Designer">Alex Kim</ListItemLabel>
+  </ListItem>
+</List>
+```
+
+### With artwork and end enhancer
+
+```jsx
+<List>
+  <ListItem
+    artwork={<Avatar name="Jane Doe" size="small" />}
+    artworkSize="small"
+    endEnhancer={<span>3m ago</span>}
+  >
+    <ListItemLabel description="Sent you a message">Jane Doe</ListItemLabel>
+  </ListItem>
+</List>
+```
+
+### List variants
+
+Control the list marker style with `variant`.
+
+```jsx
+<List variant="bullet">
+  <li>Unordered item one</li>
+  <li>Unordered item two</li>
+</List>
+
+<List variant="number">
+  <li>First step</li>
+  <li>Second step</li>
+</List>
+
+<List variant="none">
+  <ListItem>No markers</ListItem>
+</List>
+```
+
+### Section headings
+
+Use ListHeading to label groups within a list.
+
+```jsx
+<List>
+  <ListHeading heading="Team members" subHeading="3 people" />
+  <ListItem><ListItemLabel>Jane</ListItemLabel></ListItem>
+  <ListItem><ListItemLabel>Alex</ListItemLabel></ListItem>
+  <ListItem><ListItemLabel>Sam</ListItemLabel></ListItem>
+</List>
+```
+
+### Description list
+
+For key-value pairs, use the DescriptionList components.
+
+```jsx
+import { DescriptionList, DescriptionTerm, DescriptionDetail } from '@arch-ui/components';
+
+<DescriptionList>
+  <DescriptionTerm>Name</DescriptionTerm>
+  <DescriptionDetail>Jane Doe</DescriptionDetail>
+  <DescriptionTerm>Role</DescriptionTerm>
+  <DescriptionDetail>Engineer</DescriptionDetail>
+</DescriptionList>
+```
+
+---
+
+## Props
+
+### ListProps
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'bullet' \| 'number' \| 'none'` | `'none'` | Visual style of list markers. |
+| `as` | `'ul' \| 'ol'` | auto | Override the rendered element. Auto-selects `<ol>` for `number`, `<ul>` otherwise. |
+| `children` | `ReactNode` | -- | List content. |
+| `className` | `string` | -- | Additional CSS class names. |
+
+### ListHeadingProps
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `heading` | `ReactNode` | **required** | Heading text. |
+| `subHeading` | `ReactNode` | -- | Sub-heading text. |
+| `endEnhancer` | `ReactNode` | -- | Content on the right side. |
+| `endEnhancerDescription` | `ReactNode` | -- | Description below the end enhancer. |
+| `maxLines` | `1 \| 2` | `1` | Max lines for heading text. `1` enables ellipsis truncation. |
+| `className` | `string` | -- | Additional CSS class names. |
+
+---
+
+## Sub-components
+
+List exports several companion components:
+
+- **ListItem** -- Rich list row with artwork, content, and end enhancer slots. See [List Item](./list-item.md).
+- **ListItemLabel** -- Structured content block with primary label and description.
+- **ListHeading** -- Section heading row for grouping items.
+- **DescriptionList / DescriptionTerm / DescriptionDetail** -- Semantic `<dl>` pattern rendered as a two-column grid.
+
+---
+
+## Accessibility
+
+- Renders semantic `<ul>` or `<ol>` elements based on the variant.
+- DescriptionList uses a native `<dl>` with `<dt>` and `<dd>` elements for proper semantics.
+- Interactive ListItems receive `role="button"` and keyboard focus support.
+
+</TabItem>
+</Tabs>

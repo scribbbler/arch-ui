@@ -1,0 +1,228 @@
+---
+sidebar_label: Progress bar
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { ProgressBar } from '../../../../packages/components/src/ProgressBar';
+
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INDICATORS AND STATUS</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Progress bar</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A linear progress indicator for operations with measurable completion or unknown duration.
+  </p>
+</div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Loading bar, Progress indicator
+
+---
+
+## Anatomy
+
+A progress bar communicates completion using a linear track and a fill indicator. It supports three types: determinate, indeterminate, and stepped.
+
+<div style={{display: 'flex', flexDirection: 'column', gap: '24px', margin: '24px 0'}}>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{width: '100%', maxWidth: '320px', position: 'relative'}}>
+        <div style={{background: '#fff', borderRadius: '8px', padding: '24px 20px', position: 'relative'}}>
+          <div style={{position: 'absolute', top: '-4px', left: '20px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Progress indicator<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+          <div style={{position: 'absolute', top: '-4px', right: '20px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Track<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+          <div style={{marginTop: '24px', width: '100%'}}>
+            <ProgressBar value={45} label="Uploading" />
+          </div>
+          <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '8px'}}>
+            <span style={{fontSize: '12px', color: '#545454'}}>Uploading...</span>
+            <span style={{fontSize: '12px', color: '#545454'}}>45%</span>
+          </div>
+          <div style={{marginTop: '4px', textAlign: 'right'}}>
+            <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 600}}>Label <span style={{fontWeight: 400}}>(Optional)</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style={{marginTop: '12px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '4px'}}>Determinate</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>Shows a known completion percentage. The progress indicator fills the track proportionally from left to right.</p>
+    </div>
+  </div>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{width: '100%', maxWidth: '320px', position: 'relative'}}>
+        <div style={{background: '#fff', borderRadius: '8px', padding: '24px 20px', position: 'relative'}}>
+          <div style={{position: 'absolute', top: '-4px', left: '20px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Progress indicator<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+          <div style={{position: 'absolute', top: '-4px', right: '20px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Track<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+          <div style={{marginTop: '24px', width: '100%'}}>
+            <ProgressBar indeterminate label="Loading" />
+          </div>
+          <div style={{marginTop: '8px'}}>
+            <span style={{fontSize: '12px', color: '#545454'}}>Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style={{marginTop: '12px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '4px'}}>Indeterminate</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>Used when the operation duration is unknown. The indicator animates continuously across the track.</p>
+    </div>
+  </div>
+  <div>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', display: 'flex', justifyContent: 'center'}}>
+      <div style={{width: '100%', maxWidth: '320px', position: 'relative'}}>
+        <div style={{background: '#fff', borderRadius: '8px', padding: '24px 20px', position: 'relative'}}>
+          <div style={{position: 'absolute', top: '-4px', left: '0px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Complete step<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+          <div style={{position: 'absolute', top: '-4px', left: '50%', transform: 'translateX(-50%)', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Active step<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+          <div style={{position: 'absolute', top: '-4px', right: '0px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Incomplete step<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+          <div style={{marginTop: '28px', display: 'flex', gap: '3px', width: '100%'}}>
+            <div style={{flex: 1, height: '6px', background: '#276EF1', borderRadius: '4px 0 0 4px'}}></div>
+            <div style={{flex: 1, height: '6px', background: '#276EF1', opacity: 0.5}}></div>
+            <div style={{flex: 1, height: '6px', background: '#E2E2E2'}}></div>
+            <div style={{flex: 1, height: '6px', background: '#E2E2E2', borderRadius: '0 4px 4px 0'}}></div>
+          </div>
+          <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '8px'}}>
+            <span style={{fontSize: '12px', color: '#545454'}}>Step 2 of 4</span>
+            <span style={{fontSize: '11px', color: '#DE1135', fontWeight: 600}}>Label <span style={{fontWeight: 400}}>(Optional)</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style={{marginTop: '12px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '4px'}}>Stepped</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>Divides the track into discrete segments representing steps. Each segment shows complete, active, or incomplete state. Minimum 2 segments required.</p>
+    </div>
+  </div>
+</div>
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+## Usage
+
+```jsx
+import { ProgressBar } from '@arch-ui/components';
+
+function Example() {
+  return (
+    <ProgressBar value={45} label="Uploading file" />
+  );
+}
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `number` | `0` | Current progress from 0 to 100. Ignored when `indeterminate` is true. |
+| `indeterminate` | `boolean` | `false` | Displays an animated bar for operations of unknown duration. |
+| `size` | `'sm' \| 'md'` | `'md'` | Height of the track. `sm` is 4px, `md` is 8px. |
+| `label` | `string` | `undefined` | Accessible label applied as `aria-label`. Required for screen readers. |
+| `successValue` | `number` | `100` | Value at which the bar switches to a success state. |
+| `showLabel` | `boolean` | `false` | Renders a percentage label alongside the bar. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the root element. |
+
+All standard `div` HTML attributes are also supported via rest props.
+
+---
+
+## Determinate
+
+The default mode. Set `value` to a number between 0 and 100. The fill width transitions smoothly as the value changes.
+
+```jsx
+<ProgressBar value={25} label="Step 1 of 4" />
+<ProgressBar value={75} label="Uploading" />
+<ProgressBar value={100} label="Complete" />
+```
+
+---
+
+## Indeterminate
+
+Use `indeterminate` when the operation length is unknown. The bar animates continuously. `value` is ignored and `aria-valuenow` is omitted.
+
+```jsx
+<ProgressBar indeterminate label="Loading data" />
+```
+
+---
+
+## Sizes
+
+```jsx
+<ProgressBar value={60} size="sm" label="Small bar" />
+<ProgressBar value={60} size="md" label="Medium bar" />
+```
+
+---
+
+## Percentage label
+
+Set `showLabel` to display the current percentage next to the bar. The label is `aria-hidden` since the progress value is already communicated through ARIA attributes.
+
+```jsx
+<ProgressBar value={63} showLabel label="Upload progress" />
+```
+
+The label is only shown in determinate mode. It is hidden when `indeterminate` is true.
+
+---
+
+## Success state
+
+When the value reaches `successValue` (default 100), the fill colour changes to the success feedback token. This provides a clear visual signal that the operation completed.
+
+```jsx
+<ProgressBar value={100} label="Upload complete" />
+
+{/* Custom success threshold */}
+<ProgressBar value={80} successValue={80} label="Minimum reached" />
+```
+
+---
+
+## Accessibility
+
+- The component uses `role="progressbar"` with `aria-valuemin`, `aria-valuemax`, and `aria-valuenow`.
+- Always provide a `label` prop so screen readers can identify the progress bar.
+- In indeterminate mode, `aria-valuenow` is omitted, which tells assistive technology that the progress is unknown.
+- When `prefers-reduced-motion: reduce` is active, the fill transition and indeterminate animation are both disabled.
+
+</TabItem>
+</Tabs>

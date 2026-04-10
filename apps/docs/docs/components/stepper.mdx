@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Stepper } from '../../../../packages/components/src/Stepper';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INPUT AND SELECTION</span>
@@ -32,6 +33,21 @@ Number input, quantity selector, numeric stepper, counter
 
 ---
 
+## Anatomy
+
+A stepper is composed of two buttons flanking a centered value display. All three parts are required.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{position: 'relative', display: 'inline-block'}}>
+    <Stepper value={15} onChange={() => {}} />
+    <div style={{position: 'absolute', top: '-28px', left: '10px', fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'center', whiteSpace: 'nowrap'}}>Button<br/><span style={{fontWeight: 400}}>(Required)</span></div>
+    <div style={{position: 'absolute', top: '-28px', right: '10px', fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'center', whiteSpace: 'nowrap'}}>Button<br/><span style={{fontWeight: 400}}>(Required)</span></div>
+    <div style={{position: 'absolute', bottom: '-28px', left: '50%', transform: 'translateX(-50%)', fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'center', whiteSpace: 'nowrap'}}>Value text<br/><span style={{fontWeight: 400}}>(Required)</span></div>
+  </div>
+</div>
+
+---
+
 Usage guidelines coming soon.
 
 </TabItem>
@@ -45,7 +61,7 @@ Specs coming soon.
 Content guidelines coming soon.
 
 </TabItem>
-<TabItem value="changelog" label="Status & Changelog">
+<TabItem value="changelog" label="Status & changelog">
 
 Status & changelog coming soon.
 

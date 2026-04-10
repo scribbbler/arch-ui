@@ -1,0 +1,257 @@
+---
+sidebar_label: Slider
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { Slider } from '../../../../packages/components/src/Slider';
+
+<div style={{marginBottom: '2rem'}}>
+  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INPUT AND SELECTION</span>
+  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
+    <h1 style={{margin: 0}}>Slider</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
+  </div>
+  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
+    A range input for selecting a numeric value within a defined min/max range with custom-styled track and thumb.
+  </p>
+</div>
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Range input, range slider, track bar
+
+---
+
+## Anatomy
+
+A slider is composed of a track, an active fill, and one or more draggable knobs. Optional elements include leading and trailing icons, a value label tooltip, and segment ticks.
+
+<div style={{display: 'flex', flexDirection: 'column', gap: '16px', margin: '24px 0'}}>
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'center'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{position: 'relative', width: '100%', maxWidth: '220px'}}>
+        <div style={{position: 'absolute', top: '-36px', left: '28px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Knob<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+        <div style={{position: 'absolute', top: '-36px', right: '0px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Track Base<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+        <Slider value={40} onChange={() => {}} aria-label="Simple anatomy example" />
+        <div style={{position: 'absolute', bottom: '-36px', left: '16px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Track Active<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+      </div>
+    </div>
+    <div style={{paddingTop: '16px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Simple</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>A slider is made of a track base, an active track fill showing the current value, and a draggable knob.</p>
+    </div>
+  </div>
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'center'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{position: 'relative', width: '100%', maxWidth: '220px'}}>
+        <div style={{position: 'absolute', top: '-36px', left: '-8px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Leading icon<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Optional)</span></div>
+        <div style={{position: 'absolute', top: '-36px', right: '-8px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Trailing icon<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Optional)</span></div>
+        <div style={{display: 'flex', alignItems: 'center', gap: '8px', width: '100%'}}>
+          <span style={{fontSize: '16px', color: '#545454'}}>&#128264;</span>
+          <div style={{flex: 1}}>
+            <Slider value={35} onChange={() => {}} aria-label="Icons anatomy example" />
+          </div>
+          <span style={{fontSize: '16px', color: '#545454'}}>&#128266;</span>
+        </div>
+      </div>
+    </div>
+    <div style={{paddingTop: '16px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Icons</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>Optional leading and trailing icons placed at the ends of the track to illustrate the minimum and maximum values.</p>
+    </div>
+  </div>
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'center'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{position: 'relative', width: '100%', maxWidth: '220px'}}>
+        <div style={{position: 'absolute', top: '-48px', left: '24px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Value Label<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Optional)</span></div>
+        <div style={{position: 'absolute', top: '-20px', left: '28px', background: '#282828', color: '#fff', fontSize: '10px', padding: '2px 6px', borderRadius: '4px', textAlign: 'center'}}>50</div>
+        <Slider value={50} onChange={() => {}} aria-label="Label anatomy example" />
+        <div style={{position: 'absolute', bottom: '-36px', left: '20px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Knob<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+      </div>
+    </div>
+    <div style={{paddingTop: '16px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Label</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>An optional tooltip-style value label displayed above the knob to show the current numeric value.</p>
+    </div>
+  </div>
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'center'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{position: 'relative', width: '100%', maxWidth: '220px'}}>
+        <div style={{position: 'absolute', top: '-36px', left: '16px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Knob<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+        <div style={{position: 'absolute', top: '-36px', left: '50%', transform: 'translateX(-50%)', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Knob<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+        <div style={{position: 'absolute', top: '-36px', right: '0px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Track Base<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+        <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+          <div style={{width: '20%', height: '4px', background: '#CCCCCC', borderRadius: '4px 0 0 4px'}}></div>
+          <div style={{width: '16px', height: '16px', background: '#276EF1', borderRadius: '50%', marginLeft: '-2px', marginRight: '-2px', position: 'relative', zIndex: 1}}></div>
+          <div style={{width: '30%', height: '4px', background: '#276EF1'}}></div>
+          <div style={{width: '16px', height: '16px', background: '#276EF1', borderRadius: '50%', marginLeft: '-2px', marginRight: '-2px', position: 'relative', zIndex: 1}}></div>
+          <div style={{flex: 1, height: '4px', background: '#CCCCCC', borderRadius: '0 4px 4px 0'}}></div>
+        </div>
+        <div style={{position: 'absolute', bottom: '-36px', left: '24px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Track Active<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+      </div>
+    </div>
+    <div style={{paddingTop: '16px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Range</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>Two knobs define a range selection. The active track fills the area between the two knobs.</p>
+    </div>
+  </div>
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'center'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div style={{position: 'relative', width: '100%', maxWidth: '220px'}}>
+        <div style={{position: 'absolute', top: '-36px', left: '0px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Segment ticks<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Optional)</span></div>
+        <div style={{position: 'absolute', top: '-36px', right: '0px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Track Base<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+        <div style={{position: 'relative', width: '100%'}}>
+          <div style={{position: 'absolute', top: 'calc(50% - 6px)', left: '0', right: '0', display: 'flex', justifyContent: 'space-between', pointerEvents: 'none', zIndex: 0}}>
+            <div style={{width: '2px', height: '12px', background: '#999'}}></div>
+            <div style={{width: '2px', height: '12px', background: '#999'}}></div>
+            <div style={{width: '2px', height: '12px', background: '#999'}}></div>
+            <div style={{width: '2px', height: '12px', background: '#999'}}></div>
+            <div style={{width: '2px', height: '12px', background: '#999'}}></div>
+          </div>
+          <Slider value={50} step={25} onChange={() => {}} aria-label="Segment anatomy example" />
+        </div>
+        <div style={{position: 'absolute', bottom: '-36px', left: '10px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Track Active<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+        <div style={{position: 'absolute', bottom: '-36px', right: '20px', fontSize: '11px', color: '#DE1135', fontWeight: 600, textAlign: 'center'}}>Knob<br/><span style={{fontSize: '10px', fontWeight: 400}}>(Required)</span></div>
+      </div>
+    </div>
+    <div style={{paddingTop: '16px'}}>
+      <div style={{fontSize: '16px', fontWeight: 700, marginBottom: '8px'}}>Segment</div>
+      <p style={{fontSize: '14px', color: '#5E5E5E', margin: 0}}>Optional tick marks along the track that indicate discrete steps or segments the knob can snap to.</p>
+    </div>
+  </div>
+</div>
+
+---
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+## Usage
+
+```jsx
+import { Slider } from '@arch-ui/components';
+
+function Example() {
+  const [volume, setVolume] = React.useState(50);
+
+  return (
+    <Slider
+      aria-label="Volume"
+      value={volume}
+      min={0}
+      max={100}
+      step={5}
+      onChange={(v) => setVolume(v)}
+    />
+  );
+}
+```
+
+### Uncontrolled
+
+Use `defaultValue` for uncontrolled usage without managing state.
+
+```jsx
+<Slider aria-label="Brightness" defaultValue={75} min={0} max={100} />
+```
+
+### Custom step
+
+```jsx
+<Slider
+  aria-label="Price range"
+  value={price}
+  min={0}
+  max={1000}
+  step={50}
+  onChange={setPrice}
+/>
+```
+
+---
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `number` | `undefined` | Current value for controlled usage. |
+| `defaultValue` | `number` | `undefined` | Initial value for uncontrolled usage. |
+| `min` | `number` | `0` | Minimum allowed value. |
+| `max` | `number` | `100` | Maximum allowed value. |
+| `step` | `number` | `1` | Increment size for each step. |
+| `onChange` | `(value: number) => void` | `undefined` | Called with the numeric value when the slider changes. |
+| `disabled` | `boolean` | `false` | Disables the slider. |
+| `className` | `string` | `undefined` | Additional CSS class names applied to the wrapper. |
+
+All standard `InputHTMLAttributes` (except `type`, `onChange`, and `value`) are also forwarded.
+
+---
+
+## Accessibility
+
+- Built on the native `<input type="range">`, so `aria-valuemin`, `aria-valuemax`, and `aria-valuenow` are provided automatically.
+- Arrow keys step the value. Home and End jump to min and max.
+- Always provide an `aria-label` or pair with a visible label via `id` and `<label htmlFor>`.
+- Focus is indicated with `color-border-focus` and a 2px outline.
+- Touch target meets the 44px minimum.
+- The component is `forwardRef` compatible.
+- Respects `prefers-reduced-motion` by disabling thumb transitions.
+
+---
+
+## Best practices
+
+**Do:**
+- Use Slider when the user needs to select a value from a continuous range.
+- Provide a visible label or `aria-label` for context.
+- Show the current value alongside the slider when precision matters.
+
+**Don't:**
+- Do not use Slider for discrete choices with labels -- use SegmentedControl or Radio.
+- Do not use Slider for entering exact numbers -- use Input with `type="number"` or Stepper.
+
+---
+
+## Design tokens
+
+| Token | Role |
+|---|---|
+| `color-background-muted` | Track background |
+| `color-action-primary` | Thumb colour and Firefox progress fill |
+| `color-action-primary-hover` | Thumb hover colour |
+| `color-action-primary-active` | Thumb active (pressed) colour |
+| `color-border-focus` | Focus outline |
+| `radius-component-full` | Track and thumb border radius |
+| `spacing-4` | Track height |
+| `spacing-20` | Thumb diameter |
+
+</TabItem>
+</Tabs>

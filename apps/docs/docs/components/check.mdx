@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Checkbox } from '../../../../packages/components/src/Checkbox';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INPUT AND SELECTION</span>
@@ -32,6 +33,38 @@ Checkbox, tick box, check mark
 
 ---
 
+## Anatomy
+
+A check is composed of a square container and a state icon. The container is always visible, while the icon changes depending on state — a checkmark when checked, a horizontal dash when indeterminate, or empty when unchecked.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px', alignItems: 'center'}}>
+
+<div style={{textAlign: 'center'}}>
+  <Checkbox onChange={() => {}}>Label</Checkbox>
+  <div style={{marginTop: '12px', fontSize: '13px', color: '#DE1135', fontWeight: 700}}>Square container<br/><span style={{fontWeight: 400}}>(Required)</span></div>
+</div>
+
+<div style={{textAlign: 'center'}}>
+  <Checkbox checked onChange={() => {}}>Label</Checkbox>
+  <div style={{marginTop: '12px', fontSize: '13px', color: '#DE1135', fontWeight: 700}}>Checkmark icon<br/><span style={{fontWeight: 400}}>(Required)</span></div>
+</div>
+
+<div style={{textAlign: 'center'}}>
+  <Checkbox indeterminate onChange={() => {}}>Label</Checkbox>
+  <div style={{marginTop: '12px', fontSize: '13px', color: '#DE1135', fontWeight: 700}}>Indeterminate icon<br/><span style={{fontWeight: 400}}>(Required)</span></div>
+</div>
+
+<div style={{textAlign: 'center'}}>
+  <Checkbox checked isError onChange={() => {}}>Label</Checkbox>
+  <div style={{marginTop: '12px', fontSize: '13px', color: '#DE1135', fontWeight: 700}}>Error state<br/><span style={{fontWeight: 400}}>(Optional)</span></div>
+</div>
+
+</div>
+</div>
+
+---
+
 Usage guidelines coming soon.
 
 </TabItem>
@@ -45,7 +78,7 @@ Specs coming soon.
 Content guidelines coming soon.
 
 </TabItem>
-<TabItem value="changelog" label="Status & Changelog">
+<TabItem value="changelog" label="Status & changelog">
 
 Status & changelog coming soon.
 

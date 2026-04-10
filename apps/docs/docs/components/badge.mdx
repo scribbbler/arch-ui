@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Badge } from '../../../../packages/components/src/Badge';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INDICATORS AND STATUS</span>
@@ -32,6 +33,50 @@ Label, Chip, Count
 
 ---
 
+## Anatomy
+
+Badges come in two types: notification badges that display a count or icon, and dot badges that serve as a minimal presence indicator.
+
+### Notification badges
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+<div style={{display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center'}}>
+
+<div style={{display: 'grid', gridTemplateColumns: '140px auto 140px', gap: '0', alignItems: 'center'}}>
+  <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'right', paddingRight: '16px'}}>Number<br/><span style={{fontWeight: 400}}>Required</span></div>
+  <Badge variant="danger" size="sm">2</Badge>
+  <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, paddingLeft: '16px'}}>Container<br/><span style={{fontWeight: 400}}>Required</span></div>
+</div>
+
+<div style={{display: 'grid', gridTemplateColumns: '140px auto 140px', gap: '0', alignItems: 'center'}}>
+  <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'right', paddingRight: '16px'}}>Number<br/><span style={{fontWeight: 400}}>Required</span></div>
+  <Badge variant="danger" size="sm">22</Badge>
+  <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, paddingLeft: '16px'}}>Container<br/><span style={{fontWeight: 400}}>Required</span></div>
+</div>
+
+<div style={{display: 'grid', gridTemplateColumns: '140px auto 140px', gap: '0', alignItems: 'center'}}>
+  <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'right', paddingRight: '16px'}}>Icon<br/><span style={{fontWeight: 400}}>Required</span></div>
+  <Badge variant="danger" size="sm">!</Badge>
+  <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, paddingLeft: '16px'}}>Container<br/><span style={{fontWeight: 400}}>Required</span></div>
+</div>
+
+</div>
+</div>
+
+### Dot badges
+
+Dot badges provide a minimal indicator without a count. The outline must match the background colour it sits on.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+<div style={{display: 'grid', gridTemplateColumns: '140px auto 140px', gap: '0', alignItems: 'center'}}>
+  <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'right', paddingRight: '16px'}}>Dot<br/><span style={{fontWeight: 400}}>Required</span></div>
+  <Badge variant="danger" dot aria-label="Status indicator" />
+  <div style={{fontSize: '13px', color: '#DE1135', fontWeight: 700, paddingLeft: '16px'}}>Outline<br/><span style={{fontWeight: 400}}>Recommended, must match background color</span></div>
+</div>
+</div>
+
+---
+
 Usage guidelines coming soon.
 
 </TabItem>
@@ -45,7 +90,7 @@ Specs coming soon.
 Content guidelines coming soon.
 
 </TabItem>
-<TabItem value="changelog" label="Status & Changelog">
+<TabItem value="changelog" label="Status & changelog">
 
 Status & changelog coming soon.
 

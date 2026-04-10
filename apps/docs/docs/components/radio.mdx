@@ -5,6 +5,8 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { RadioGroup } from '../../../../packages/components/src/RadioGroup';
+import { Radio } from '../../../../packages/components/src/Radio';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>INPUT AND SELECTION</span>
@@ -32,6 +34,39 @@ Radio button, option button, radio group
 
 ---
 
+## Anatomy
+
+A radio consists of a circular container and an inner filled circle that appears when selected. The filled circle is optional because it is only visible in the selected state.
+
+<div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center'}}>
+
+<div style={{textAlign: 'center'}}>
+  <div style={{position: 'relative', display: 'inline-block'}}>
+    <RadioGroup legend="Demo" name="anatomy-demo" value="selected" onChange={() => {}}>
+      <Radio value="selected">Label</Radio>
+    </RadioGroup>
+    <div style={{position: 'absolute', top: '-32px', left: '50%', transform: 'translateX(-50%)', fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'center', whiteSpace: 'nowrap'}}>Filled circle<br/><span style={{fontWeight: 400}}>(Optional)</span></div>
+    <div style={{position: 'absolute', bottom: '-32px', left: '50%', transform: 'translateX(-50%)', fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'center', whiteSpace: 'nowrap'}}>Circular container<br/><span style={{fontWeight: 400}}>(Required)</span></div>
+  </div>
+  <div style={{marginTop: '44px', fontSize: '14px', fontWeight: 600}}>Selected</div>
+</div>
+
+<div style={{textAlign: 'center'}}>
+  <div style={{position: 'relative', display: 'inline-block'}}>
+    <RadioGroup legend="Demo" name="anatomy-demo2" value="" onChange={() => {}}>
+      <Radio value="unselected">Label</Radio>
+    </RadioGroup>
+    <div style={{position: 'absolute', bottom: '-32px', left: '50%', transform: 'translateX(-50%)', fontSize: '13px', color: '#DE1135', fontWeight: 700, textAlign: 'center', whiteSpace: 'nowrap'}}>Circular container<br/><span style={{fontWeight: 400}}>(Required)</span></div>
+  </div>
+  <div style={{marginTop: '44px', fontSize: '14px', fontWeight: 600}}>Unselected</div>
+</div>
+
+</div>
+</div>
+
+---
+
 Usage guidelines coming soon.
 
 </TabItem>
@@ -45,7 +80,7 @@ Specs coming soon.
 Content guidelines coming soon.
 
 </TabItem>
-<TabItem value="changelog" label="Status & Changelog">
+<TabItem value="changelog" label="Status & changelog">
 
 Status & changelog coming soon.
 

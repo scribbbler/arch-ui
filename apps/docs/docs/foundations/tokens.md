@@ -10,9 +10,10 @@ import TabItem from '@theme/TabItem';
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
     <h1 style={{margin: 0}}>Design tokens</h1>
+    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
   </div>
   <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    Design tokens are the smallest units of design decisions in Arch UI — named, reusable values for color, spacing, and typography that stay consistent across platforms and codebases.
+    Tokens are a set of foundational design decisions represented as reusable data. These tokens are shared across all platforms, iOS, Android, and Web, and control the entire visual part of our design system.
   </p>
 </div>
 
@@ -44,14 +45,6 @@ import TabItem from '@theme/TabItem';
     </div>
   </div>
 </div>
-
-## What are design tokens?
-
-A design token is a name/value pair that represents a single design decision. Instead of scattering `#266EF1` throughout your codebase, you reference `--color-action-primary` -- a name that carries meaning, survives refactors, and adapts to themes automatically.
-
-Arch UI ships **474 tokens** across 8 categories, organized into a layered architecture that separates raw values from design intent.
-
----
 
 ## Anatomy
 
