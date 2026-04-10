@@ -536,21 +536,17 @@ Use the Mono ramp when designing data-intensive views, tables, and dashboard ove
 
 **Increasing legibility**
 
-In some cases, the mono ramp can be used where the legibility of every individual character is critical — for example, payment codes that users must read and enter manually.
+In some cases, Mono can be used where the legibility of every character is critical.
 
-<div className="type-payment-code-demo">
-  <div className="type-payment-code-demo__card">
+<Guidance.Do description="Use Inter Mono for codes that need to be read clearly from a distance.">
+  <div style={{padding: '16px 0'}}>
     <div style={{fontSize: '28px', fontWeight: 700, lineHeight: 1.3, marginBottom: '8px'}}>Payment code</div>
     <p style={{fontSize: '16px', lineHeight: 1.5, color: '#545454', margin: '0 0 16px'}}>Use this code when submitting your payment:</p>
-    <div className="type-payment-code-demo__code">
+    <div style={{background: '#266EF1', borderRadius: '8px', padding: '16px', textAlign: 'center'}}>
       <span style={{fontFamily: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace", fontSize: '28px', fontWeight: 700, color: '#fff', letterSpacing: '0.05em'}}>4400-1913-0920</span>
     </div>
   </div>
-</div>
-
-<div className="docs-callout docs-callout--success">
-  <strong>Do:</strong> Use Mono for codes, confirmation numbers, and values that need to be read clearly at a glance.
-</div>
+</Guidance.Do>
 
 
 </TabItem>
