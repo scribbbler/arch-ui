@@ -53,9 +53,11 @@ Each design token has a unique name and its corresponding value. This name/value
 
 The most integral part of a design token is its name — it is how it will be known and referenced across all platforms.
 
+:::note
 Naming is inherently complex — you can always reference the naming convention of each token type on its respective documentation page for more details.
+:::
 
-There are two main properties when thinking of how we construct the name of a design token, its **Tier** and **Type**.
+There are two main properties when thinking of how we construct the name of a design token, its [Tier](#tiers) and [Type](#type-optional).
 
 #### Type
 
@@ -69,13 +71,31 @@ Depending on how context specific a design token is, its naming can vary. For ou
 
 While design tokens can represent any design decision, there are a handful of established token types in W3C that summarize the purpose of the token and are often referenced by our tooling.
 
+| Name | Definition |
+|---|---|
+| **Color** | Color values, including both named colors and hexadecimal values. |
+| **Dimension** | Numeric values with units, such as pixels or ems. |
+| **Font family** | Font families, such as "Uber Move". |
+| **Font-weight** | Font weights, such as "bold" or "normal". |
+| **Duration** | Time durations, such as "0.5s" or "2ms". |
+| **Cubic Bezier** | Easing functions with cubic Bezier curves. |
+| **Number** | Simple numeric values without units. |
+
 ### Value (required)
 
-A design token's value is the specific data that defines a design property and is associated with a particular token name. Depending on the token and its complexity, there are several types of data supported.
+A design token's value is the specific data that defines a design property and is associated with a particular token name. Depending on the token and its complexity, there are several types of data supported:
 
 #### Data types
 
-Each token carries a specific data type depending on its category — colors are stored as hex or rgba, spacing as pixel values, typography as font stacks and numeric scales, and so on.
+| Data type | Description |
+|---|---|
+| **String** | A sequence of characters that can represent text, such as font or color names. |
+| **Number** | A numerical value that can represent various design properties, such as size, spacing, or duration. |
+| **Color** | A value that represents a specific color, typically in hexadecimal or RGB format. |
+| **Boolean** | A value that is either true or false, and can be used to represent binary properties such as whether an element is visible or hidden. |
+| **Object** | A collection of key/value pairs, which can be used to represent more complex design properties, such as gradients or shadows. |
+| **Array** | A collection of values of the same data type, such as a list of font sizes or spacing values. |
+| **Null** | A special value that represents the absence of a value. |
 
 ### Composite tokens
 
@@ -86,6 +106,15 @@ There are two main use cases for composite tokens — supporting calculation-bas
 #### Composite types
 
 W3C currently recognizes 6 composite token types.
+
+| Type | Definition |
+|---|---|
+| **Stroke** | Composite of an array of widths (dashArray) and a string to define the shape (lineCap) property. |
+| **Border** | Composite of a color token, width number, and style object (usually a stroke composite). |
+| **Transition** | Composite of duration, delay, and a timing array. |
+| **Shadow** | Composite of a color token, X and Y offsets, blur, and spread. |
+| **Gradient** | Composite of color tokens and a finite amount of positions they take. |
+| **Typography** | Composite of a font family, size, weight, letter spacing, and line height. |
 
 #### Group vs composite tokens
 
@@ -104,7 +133,9 @@ Beyond name and value, a design token can have a description property to provide
 
 "Design tokens are a methodology for expressing design decisions in a platform-agnostic way so that they can be shared across different disciplines, tools, and technologies. They help establish a common vocabulary across organizations." — [W3C Design Tokens](https://www.w3.org/community/design-tokens/)
 
+:::note
 We aim to be as close to the proposed W3C design token format and follow best practices, however, we will be holding off on doing a migration to achieve full compliance until its official release.
+:::
 
 #### Resources
 
