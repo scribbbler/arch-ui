@@ -2,53 +2,48 @@
  * Moves the site footer inside the doc content column so the layout becomes:
  *   horizontal-flex( sidebar, vertical-flex( main-content, footer ) )
  *
- * Docusaurus renders the footer at Layout level (sibling of .main-wrapper),
- * which means it spans below both sidebar and content. We want it to sit
- * inside the content column instead.
+ * Docusaurus renders the footer at Layout level (sibling of .main-wrapper).
+ * We use a persistent MutationObserver to move it inside the doc content column
+ * whenever it appears, so SPA navigation works without needing a hard refresh.
  */
 
-function relocateFooter() {
-  if (typeof document === 'undefined') return false;
+function tryRelocate() {
+  if (typeof document === 'undefined') return;
 
   const footer = document.querySelector('footer.theme-layout-footer');
-  if (!footer) return false;
+  if (!footer) return;
 
   // Only relocate on pages with a sidebar (doc pages)
   const sidebar = document.querySelector('.theme-doc-sidebar-container');
-  if (!sidebar) return true; // nothing to do, but footer exists
+  if (!sidebar) return;
 
   // Target: the doc item column that contains the article + pagination
   const target =
     document.querySelector('[class*="docItemCol"]') ||
     document.querySelector('.theme-doc-markdown')?.parentElement;
-
-  if (!target) return false;
+  if (!target) return;
 
   if (footer.parentElement !== target) {
     target.appendChild(footer);
   }
-  return true;
-}
-
-/**
- * Tries to relocate the footer, retrying on subsequent animation frames until
- * the target element exists (because React may not have rendered the new page yet).
- */
-function relocateWhenReady(attempts = 0) {
-  if (relocateFooter()) return;
-  if (attempts > 30) return; // give up after ~500ms
-  requestAnimationFrame(() => relocateWhenReady(attempts + 1));
 }
 
 if (typeof window !== 'undefined') {
-  const start = () => relocateWhenReady();
+  const run = () => {
+    tryRelocate();
+    // Persistent observer: re-run whenever React mutates the DOM
+    const observer = new MutationObserver(() => tryRelocate());
+    observer.observe(document.body, { childList: true, subtree: true });
+  };
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
+    document.addEventListener('DOMContentLoaded', run);
   } else {
-    start();
+    run();
   }
 }
 
 export function onRouteDidUpdate() {
-  relocateWhenReady();
+  // Also run on each route change as a belt-and-braces measure
+  requestAnimationFrame(() => tryRelocate());
 }
