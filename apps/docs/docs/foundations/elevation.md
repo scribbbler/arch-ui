@@ -39,13 +39,13 @@ A component's elevation is communicated with a shadow. This is determined by its
 - A sheet overlaying a map
 - A dialog overlaying a screen
 - A snackbar overlapping content on a screen
-- A button dock with content overflowing behind it
+- A button dock with content overflowing behind it.
 
 Don't use shadows to distinguish a component's boundary unless it is elevated above the main surface. For example, don't use a shadow around a banner or card; use color or borders instead.
 
 Shadows shouldn't be used to indicate that something is tappable or can be scrolled but can be used to indicate a component is being dragged or picked up from its original position.
 
-<div style={{background: '#FFF3DD', borderRadius: '8px', padding: '16px 20px', margin: '24px 0', fontSize: '14px'}}>
+<div className="docs-callout docs-callout--warning">
   Shadows should NOT flip in dark mode.
 </div>
 
