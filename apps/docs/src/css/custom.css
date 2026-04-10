@@ -94,9 +94,12 @@
   padding: 0 0 0 8px !important;
 }
 
-/* Footer — horizontal link row with top border */
+/* Footer — horizontal link row with top border inside the max-width band */
 .footer {
   background: #fff;
+  padding: 0;
+}
+.footer .container {
   border-top: 1px solid #E2E2E2;
   padding: 32px 0 48px;
 }
