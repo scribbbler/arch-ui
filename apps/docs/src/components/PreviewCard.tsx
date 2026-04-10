@@ -19,7 +19,8 @@ import React from 'react';
  */
 
 type PreviewGridProps = {
-  columns?: 2 | 3 | 4;
+  /** Number of columns. Use `1` for a full-width preview. */
+  columns?: 1 | 2 | 3 | 4;
   children: React.ReactNode;
 };
 
