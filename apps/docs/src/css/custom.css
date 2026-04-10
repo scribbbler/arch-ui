@@ -107,19 +107,10 @@
   max-width: var(--ifm-container-width) !important;
   margin: 0 auto;
 }
-/* On doc pages (with sidebar), shift the footer right by the sidebar width so its
-   800px band aligns with the content column instead of the viewport center. */
-body:has(.theme-doc-sidebar-container) .footer {
-  padding-left: var(--doc-sidebar-width);
-}
-
-/* Sidebar extends full viewport height below the navbar regardless of doc content height */
-.theme-doc-sidebar-container {
-  position: sticky;
-  top: var(--ifm-navbar-height);
-  height: calc(100vh - var(--ifm-navbar-height));
-  min-height: calc(100vh - var(--ifm-navbar-height));
-}
+/* The footer is physically moved inside the doc content column by
+   src/clientModules/relocateFooter.js, so no positional CSS is needed here.
+   The container max-width (800px) from --ifm-container-width keeps it aligned
+   with the rest of the doc body. */
 .footer__links {
   margin-bottom: 16px;
 }

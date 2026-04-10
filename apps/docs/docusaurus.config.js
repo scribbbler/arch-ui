@@ -8,6 +8,8 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
+  clientModules: ['./src/clientModules/relocateFooter.js'],
+
   presets: [
     [
       'classic',
