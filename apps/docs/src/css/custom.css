@@ -264,6 +264,14 @@ ul.tabs .tabs__item:hover {
   --ifm-color-primary-lightest: #DEE9FE;
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
   --ifm-code-font-size: 95%;
+  --doc-max-width: 800px;
+}
+
+/* Global max-width for doc page content */
+.theme-doc-markdown,
+.markdown,
+article {
+  max-width: var(--doc-max-width);
 }
 
 [data-theme='dark'] {
@@ -413,7 +421,6 @@ ul.tabs .tabs__item:hover {
   overflow: hidden;
   text-decoration: none !important;
   color: inherit !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.15s, border-color 0.15s;
 }
 
@@ -525,7 +532,6 @@ ul.tabs .tabs__item:hover {
   overflow: hidden;
   text-decoration: none !important;
   color: inherit !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.15s, border-color 0.15s;
 }
 
