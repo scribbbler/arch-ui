@@ -94,6 +94,97 @@
   padding: 0 0 0 8px !important;
 }
 
+/* Shared Do / Don't / Caution guidance blocks — used across every doc page
+   via src/components/Guidance.tsx. Never inline these styles or duplicate
+   them elsewhere; always import Guidance and reuse. */
+.guidance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0;
+}
+@media (max-width: 640px) {
+  .guidance-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.guidance {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.guidance__preview {
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+.guidance__preview--do {
+  background: #E6F2ED;
+}
+.guidance__preview--dont {
+  background: #FFF0EE;
+}
+.guidance__card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.guidance__badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.guidance__badge--do {
+  background: #E6F2ED;
+  color: #166C3B;
+}
+.guidance__badge--dont {
+  background: #FFF0EE;
+  color: #B8102E;
+}
+.guidance__desc {
+  font-size: 14px;
+  color: #5E5E5E;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.guidance-caution {
+  margin: 24px 0;
+}
+.guidance-caution__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #FFF1E1;
+  color: #7A4A00;
+  margin-bottom: 12px;
+}
+.guidance-caution__body {
+  font-size: 14px;
+  color: #282828;
+  line-height: 1.6;
+}
+.guidance-caution__body p {
+  margin: 0 0 8px 0;
+}
+.guidance-caution__body p:last-child {
+  margin-bottom: 0;
+}
+
 /* Custom site footer — rendered inside the main content column on doc pages
    (via swizzled DocItem/Layout) and directly on the landing page. */
 .site-footer {
@@ -203,9 +294,12 @@ ul.tabs .tabs__item:hover {
   background: transparent !important;
 }
 
-/* Docs callout — standardized gray note/info box.
-   Use <div className="docs-callout"> for any inline note, disclaimer,
-   or aside. Never use :::note or inline styled divs. */
+/* Docs callout — standardized note/info box with color variants.
+   Default: neutral gray. Add a modifier class for tone:
+     .docs-callout--success  (green)
+     .docs-callout--warning  (yellow / caution)
+     .docs-callout--danger   (red)
+   Never use :::note, :::tip, :::caution or inline styled divs. */
 .docs-callout {
   background: #F3F3F3;
   padding: 20px 24px;
@@ -213,6 +307,7 @@ ul.tabs .tabs__item:hover {
   margin: 24px 0;
   font-size: 15px;
   line-height: 1.6;
+  color: #282828;
 }
 .docs-callout p {
   margin: 0;
@@ -222,6 +317,18 @@ ul.tabs .tabs__item:hover {
 }
 .docs-callout strong {
   font-weight: 700;
+}
+.docs-callout--success {
+  background: #E6F2ED;
+  color: #166C3B;
+}
+.docs-callout--warning {
+  background: #FFF1E1;
+  color: #7A4A00;
+}
+.docs-callout--danger {
+  background: #FFF0EE;
+  color: #B8102E;
 }
 
 /* Anatomy annotation labels */

@@ -52,9 +52,9 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
-:::caution Deprecated
-Modal Sheet is deprecated. Use [Sheet](/components/sheet) for bottom or side panel overlays, or [Modal](/components/modal) for centred dialogs. Modal Sheet will be removed in a future major release.
-:::
+<div className="docs-callout">
+  <strong>Deprecated.</strong> Modal Sheet is deprecated. Use <a href="/components/sheet">Sheet</a> for bottom or side panel overlays, or <a href="/components/modal">Modal</a> for centred dialogs. Modal Sheet will be removed in a future major release.
+</div>
 
 Modal Sheet was a mobile-first overlay pattern that combined the behaviour of a modal dialog with a bottom sheet presentation -- sliding up from the bottom edge of the screen. It was primarily used on touch devices to present actions, confirmations, or short forms in a thumb-friendly position.
 

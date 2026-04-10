@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
@@ -211,9 +212,9 @@ They are all used in different sizes and weights throughout our [typography toke
 | `--typography-family-serif` | Georgia, Cambria, 'Times New Roman', Times, serif |
 | `--typography-family-mono` | ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace |
 
-:::tip
-Looking for our font files? You can download Inter from [Google Fonts](https://fonts.google.com/specimen/Inter). The serif and monospace stacks use system fonts that ship with every major operating system.
-:::
+<div className="docs-callout">
+  Looking for our font files? You can download Inter from <a href="https://fonts.google.com/specimen/Inter">Google Fonts</a>. The serif and monospace stacks use system fonts that ship with every major operating system.
+</div>
 
 ---
 
@@ -341,34 +342,21 @@ Good paragraph legibility is crucial for users to read and understand the conten
 
 You should use **Paragraph Medium (16)** or **Paragraph Large (18)** for multi-line text whenever you can.
 
-<div className="type-do-dont">
-  <div>
-    <div className="type-do-block__preview">
-      <div>
-        <p style={{fontSize: '16px', fontWeight: 400, lineHeight: 1.5, margin: 0, marginBottom: '12px'}}>You unlocked a higher level based on your activity and orders in the past 6 months.</p>
-        <p style={{fontSize: '16px', fontWeight: 400, lineHeight: 1.5, margin: 0}}>Enjoy your new benefits through April 1, 2026.</p>
-      </div>
-    </div>
-    <div className="type-do-dont__badge type-do-dont__badge--do">&#10003; Do</div>
-    <p className="type-do-dont__desc">Use Paragraph Medium or Large for long-form text.</p>
-  </div>
-  <div>
-    <div className="type-dont-block__preview">
-      <div>
-        <p style={{fontSize: '12px', fontWeight: 400, lineHeight: 1.5, margin: 0, marginBottom: '12px'}}>You unlocked a higher level based on your activity and orders in the past 6 months.</p>
-        <p style={{fontSize: '12px', fontWeight: 400, lineHeight: 1.5, margin: 0}}>Enjoy your new benefits through April 1, 2026.</p>
-      </div>
-    </div>
-    <div className="type-do-dont__badge type-do-dont__badge--dont">&#10005; Don't</div>
-    <p className="type-do-dont__desc">Don't use Paragraph X Small for long form text. Use it sparingly for things like disclaimer text.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use Paragraph Medium or Large for long-form text.">
+    <p style={{fontSize: '16px', fontWeight: 400, lineHeight: 1.5, margin: 0, marginBottom: '12px'}}>You unlocked a higher level based on your activity and orders in the past 6 months.</p>
+    <p style={{fontSize: '16px', fontWeight: 400, lineHeight: 1.5, margin: 0}}>Enjoy your new benefits through April 1, 2026.</p>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't use Paragraph X Small for long form text. Use it sparingly for things like disclaimer text.">
+    <p style={{fontSize: '12px', fontWeight: 400, lineHeight: 1.5, margin: 0, marginBottom: '12px'}}>You unlocked a higher level based on your activity and orders in the past 6 months.</p>
+    <p style={{fontSize: '12px', fontWeight: 400, lineHeight: 1.5, margin: 0}}>Enjoy your new benefits through April 1, 2026.</p>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="type-caution">
-  <div className="type-caution__badge">! Caution</div>
-  <p className="type-caution__desc">Do not use ParagraphX Small at 12 for long-form text on small devices.</p>
-  <p className="type-caution__desc">The smaller size can strain the eyes. Use sparingly at a max of 3 lines for items like legal disclaimers.</p>
-</div>
+<Guidance.Caution>
+  <p>Do not use ParagraphX Small at 12 for long-form text on small devices.</p>
+  <p>The smaller size can strain the eyes. Use sparingly at a max of 3 lines for items like legal disclaimers.</p>
+</Guidance.Caution>
 
 ---
 
@@ -380,27 +368,15 @@ You should use **Paragraph Medium (16)** or **Paragraph Large (18)** for multi-l
 
 Use the Inter Display font for large titles and heading text. Don't apply the Inter Display font to most other UI text, like labels, paragraphs, and buttons.
 
-<div className="type-do-dont">
-  <div>
-    <div className="type-do-block__preview">
-      <div>
-        <div style={{fontSize: '36px', fontWeight: 700, lineHeight: 1.2, marginBottom: '12px'}}>Premium</div>
-        <div style={{background: '#f5a623', borderRadius: '4px', height: '8px', width: '80%'}}></div>
-      </div>
-    </div>
-    <div className="type-do-dont__badge type-do-dont__badge--do">&#10003; Do</div>
-    <p className="type-do-dont__desc">Do use the Inter Display font for large titles and heading text.</p>
-  </div>
-  <div>
-    <div className="type-dont-block__preview">
-      <div>
-        <p style={{fontSize: '24px', fontWeight: 400, lineHeight: 1.4, margin: 0}}>We build interfaces that work for everyone.</p>
-      </div>
-    </div>
-    <div className="type-do-dont__badge type-do-dont__badge--dont">&#10005; Don't</div>
-    <p className="type-do-dont__desc">Don't use the Inter Display font for paragraphs.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Do use the Inter Display font for large titles and heading text.">
+    <div style={{fontSize: '36px', fontWeight: 700, lineHeight: 1.2, marginBottom: '12px'}}>Premium</div>
+    <div style={{background: '#f5a623', borderRadius: '4px', height: '8px', width: '80%'}}></div>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't use the Inter Display font for paragraphs.">
+    <p style={{fontSize: '24px', fontWeight: 400, lineHeight: 1.4, margin: 0}}>We build interfaces that work for everyone.</p>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
@@ -410,84 +386,76 @@ Default sizes are provided to consolidate the basics of our user interface. When
 
 You might use large or small variances whenever you want to create higher contrast.
 
-<div className="type-do-dont">
-  <div>
-    <div className="type-do-block__preview">
-      <div style={{width: '100%'}}>
-        <div style={{fontSize: '20px', fontWeight: 700, marginBottom: '16px'}}>Favorites</div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
-          <span style={{fontSize: '18px'}}>&#9632;</span>
-          <div>
-            <div style={{fontSize: '14px', fontWeight: 600}}>Home</div>
-            <div style={{fontSize: '12px', color: '#727272'}}>123 Main St.</div>
-          </div>
+<Guidance.Grid>
+  <Guidance.Do description="Use default sizes for all screens that don't require customization.">
+    <div style={{width: '100%'}}>
+      <div style={{fontSize: '20px', fontWeight: 700, marginBottom: '16px'}}>Favorites</div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
+        <span style={{fontSize: '18px'}}>&#9632;</span>
+        <div>
+          <div style={{fontSize: '14px', fontWeight: 600}}>Home</div>
+          <div style={{fontSize: '12px', color: '#727272'}}>123 Main St.</div>
         </div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
-          <span style={{fontSize: '18px'}}>&#9632;</span>
-          <div>
-            <div style={{fontSize: '14px', fontWeight: 600}}>Work</div>
-            <div style={{fontSize: '12px', color: '#727272'}}>555 Market St.</div>
-          </div>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px'}}>
+        <span style={{fontSize: '18px'}}>&#9632;</span>
+        <div>
+          <div style={{fontSize: '14px', fontWeight: 600}}>Work</div>
+          <div style={{fontSize: '12px', color: '#727272'}}>555 Market St.</div>
         </div>
-        <div style={{fontSize: '20px', fontWeight: 700, marginBottom: '12px'}}>Other places</div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
-          <span style={{fontSize: '18px'}}>&#9632;</span>
-          <div>
-            <div style={{fontSize: '14px', fontWeight: 600}}>The Bakery</div>
-            <div style={{fontSize: '12px', color: '#727272'}}>222 Pan St.</div>
-          </div>
+      </div>
+      <div style={{fontSize: '20px', fontWeight: 700, marginBottom: '12px'}}>Other places</div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
+        <span style={{fontSize: '18px'}}>&#9632;</span>
+        <div>
+          <div style={{fontSize: '14px', fontWeight: 600}}>The Bakery</div>
+          <div style={{fontSize: '12px', color: '#727272'}}>222 Pan St.</div>
         </div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
-          <span style={{fontSize: '18px'}}>&#9632;</span>
-          <div>
-            <div style={{fontSize: '14px', fontWeight: 600}}>Piccino</div>
-            <div style={{fontSize: '12px', color: '#727272'}}>222 Lombard St.</div>
-          </div>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+        <span style={{fontSize: '18px'}}>&#9632;</span>
+        <div>
+          <div style={{fontSize: '14px', fontWeight: 600}}>Piccino</div>
+          <div style={{fontSize: '12px', color: '#727272'}}>222 Lombard St.</div>
         </div>
       </div>
     </div>
-    <div className="type-do-dont__badge type-do-dont__badge--do">&#10003; Do</div>
-    <p className="type-do-dont__desc">Use default sizes for all screens that don't require customization.</p>
-  </div>
-  <div>
-    <div className="type-dont-block__preview">
-      <div style={{width: '100%'}}>
-        <div style={{fontSize: '12px', color: '#727272', marginBottom: '8px'}}>Favorites</div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', paddingBottom: '12px', borderBottom: '1px solid #e5e5e5'}}>
-          <span style={{fontSize: '24px'}}>&#9679;</span>
-          <div>
-            <div style={{fontSize: '24px', fontWeight: 700}}>Home</div>
-            <div style={{fontSize: '14px', color: '#727272'}}>123 Main St.</div>
-          </div>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't reinvent the wheel and use design cycles to overly design consolidated UI.">
+    <div style={{width: '100%'}}>
+      <div style={{fontSize: '12px', color: '#727272', marginBottom: '8px'}}>Favorites</div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', paddingBottom: '12px', borderBottom: '1px solid #e5e5e5'}}>
+        <span style={{fontSize: '24px'}}>&#9679;</span>
+        <div>
+          <div style={{fontSize: '24px', fontWeight: 700}}>Home</div>
+          <div style={{fontSize: '14px', color: '#727272'}}>123 Main St.</div>
         </div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
-          <span style={{fontSize: '24px'}}>&#9679;</span>
-          <div>
-            <div style={{fontSize: '24px', fontWeight: 700}}>Work</div>
-            <div style={{fontSize: '14px', color: '#727272'}}>555 Market St.</div>
-          </div>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
+        <span style={{fontSize: '24px'}}>&#9679;</span>
+        <div>
+          <div style={{fontSize: '24px', fontWeight: 700}}>Work</div>
+          <div style={{fontSize: '14px', color: '#727272'}}>555 Market St.</div>
         </div>
-        <div style={{fontSize: '12px', color: '#727272', marginBottom: '8px', marginTop: '8px'}}>Favorites</div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
-          <span style={{fontSize: '18px'}}>&#9632;</span>
-          <div>
-            <div style={{fontSize: '18px', fontWeight: 700}}>The Bakery</div>
-            <div style={{fontSize: '14px', color: '#727272'}}>222 Pan</div>
-          </div>
+      </div>
+      <div style={{fontSize: '12px', color: '#727272', marginBottom: '8px', marginTop: '8px'}}>Favorites</div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px'}}>
+        <span style={{fontSize: '18px'}}>&#9632;</span>
+        <div>
+          <div style={{fontSize: '18px', fontWeight: 700}}>The Bakery</div>
+          <div style={{fontSize: '14px', color: '#727272'}}>222 Pan</div>
         </div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
-          <span style={{fontSize: '18px'}}>&#9632;</span>
-          <div>
-            <div style={{fontSize: '18px', fontWeight: 700}}>Piccino</div>
-            <div style={{fontSize: '14px', color: '#727272'}}>222 Lombard</div>
-          </div>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+        <span style={{fontSize: '18px'}}>&#9632;</span>
+        <div>
+          <div style={{fontSize: '18px', fontWeight: 700}}>Piccino</div>
+          <div style={{fontSize: '14px', color: '#727272'}}>222 Lombard</div>
         </div>
       </div>
     </div>
-    <div className="type-do-dont__badge type-do-dont__badge--dont">&#10005; Don't</div>
-    <p className="type-do-dont__desc">Don't reinvent the wheel and use design cycles to overly design consolidated UI.</p>
-  </div>
-</div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
@@ -572,16 +540,14 @@ Use the Mono ramp when designing data-intensive views, tables, and dashboard ove
   </table>
 </div>
 
-<div className="type-do-dont" style={{marginTop: '24px'}}>
-  <div>
-    <div className="type-do-dont__badge type-do-dont__badge--do">&#10003; Do</div>
-    <p className="type-do-dont__desc">Use Mono when displaying a number or amount in isolation — prices, percentages, metrics.</p>
-  </div>
-  <div>
-    <div className="type-do-dont__badge type-do-dont__badge--dont">&#10005; Don't</div>
-    <p className="type-do-dont__desc">Do not use Mono for nominal numbers that identify something, such as phone numbers or street addresses.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use Mono when displaying a number or amount in isolation, such as prices, percentages, and metrics.">
+    <div style={{fontFamily: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace", fontSize: '28px', fontWeight: 700}}>$1,234.56</div>
+  </Guidance.Do>
+  <Guidance.Dont description="Do not use Mono for nominal numbers that identify something, such as phone numbers or street addresses.">
+    <div style={{fontFamily: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace", fontSize: '20px', fontWeight: 500}}>+1 (555) 123-4567</div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 **Increasing legibility**
 
@@ -597,9 +563,8 @@ In some cases, the mono ramp can be used where the legibility of every individua
   </div>
 </div>
 
-<div>
-  <div className="type-do-dont__badge type-do-dont__badge--do">&#10003; Do</div>
-  <p className="type-do-dont__desc">Use Mono for codes, confirmation numbers, and values that need to be read clearly at a glance.</p>
+<div className="docs-callout docs-callout--success">
+  <strong>Do:</strong> Use Mono for codes, confirmation numbers, and values that need to be read clearly at a glance.
 </div>
 
 ---
