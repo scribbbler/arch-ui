@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 
 ## Anatomy
 
-Every token has a **name** and a **value**. Optionally, it carries a **type** (for tooling) and a **description** (for documentation).
+Each design token has a unique name and its corresponding value. This name/value pairing is similar to a dictionary data structure found in engineering, where a key is associated with a value, and the key/value pair can be used to store and retrieve data.
 
 <div className="token-anatomy">
   <div className="token-anatomy__card">
@@ -48,6 +48,68 @@ Every token has a **name** and a **value**. Optionally, it carries a **type** (f
     </div>
   </div>
 </div>
+
+### Name (required)
+
+The most integral part of a design token is its name — it is how it will be known and referenced across all platforms.
+
+Naming is inherently complex — you can always reference the naming convention of each token type on its respective documentation page for more details.
+
+There are two main properties when thinking of how we construct the name of a design token, its **Tier** and **Type**.
+
+#### Type
+
+There are established formats and best practices for naming we follow based on the token type (color, typography, sizing, etc.) to ensure high comprehension and usability for designers and developers alike.
+
+#### Tier
+
+Depending on how context specific a design token is, its naming can vary. For our most foundational tier, naming will often consist of the token type, followed by a numeric or ordinal scale. The more narrow the token's intended usage is, the more precise its name will be.
+
+### Type (optional)
+
+While design tokens can represent any design decision, there are a handful of established token types in W3C that summarize the purpose of the token and are often referenced by our tooling.
+
+### Value (required)
+
+A design token's value is the specific data that defines a design property and is associated with a particular token name. Depending on the token and its complexity, there are several types of data supported.
+
+#### Data types
+
+Each token carries a specific data type depending on its category — colors are stored as hex or rgba, spacing as pixel values, typography as font stacks and numeric scales, and so on.
+
+### Composite tokens
+
+The last tier of tokens supported is a composite — a token that combines or derives its value from one or more child tokens. Composite tokens are created by specifying a calculation or formula that references other tokens as input values and uses those values to produce a new output value.
+
+There are two main use cases for composite tokens — supporting calculation-based value reference (such as dynamic sizing of a component) and defining more complex component tier tokens (card, tile, etc.)
+
+#### Composite types
+
+W3C currently recognizes 6 composite token types.
+
+#### Group vs composite tokens
+
+Composite tokens are not to be mistaken for group tokens. A group token does not have a value of its own but simply serves as a container or grouping mechanism for related tokens. Group tokens can be used to organize related tokens by category or context, such as color tokens for a specific brand or typography tokens for a specific component.
+
+### Description (optional)
+
+Beyond name and value, a design token can have a description property to provide additional information to the user. It's most often used to:
+
+- Provide purpose & context
+- Provide usage guidance
+- Any relevant design considerations
+- Caveats & Limitations
+
+### W3C Definition & Format
+
+"Design tokens are a methodology for expressing design decisions in a platform-agnostic way so that they can be shared across different disciplines, tools, and technologies. They help establish a common vocabulary across organizations." — [W3C Design Tokens](https://www.w3.org/community/design-tokens/)
+
+We aim to be as close to the proposed W3C design token format and follow best practices, however, we will be holding off on doing a migration to achieve full compliance until its official release.
+
+#### Resources
+
+- [W3C Design Tokens Community Group](https://www.w3.org/community/design-tokens/)
+- [Design Tokens Format Module specification](https://tr.designtokens.org/format/)
 
 ---
 
