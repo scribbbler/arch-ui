@@ -83,9 +83,7 @@ export default function Home(): React.ReactElement {
           <h1 className="arch-hero__title">Arch Design System</h1>
           <p className="arch-hero__version">Work in progress</p>
           <p className="arch-hero__description">
-            A token-driven, accessible React component library with {COMPONENT_COUNT} components.
-            Built for teams that want consistent UI primitives with first-class
-            AI agent support via MCP server and component manifests.
+            The design system brands build on. Token-first, agent-ready, and built to be customised — not just themed. Any brand. Any scale.
           </p>
         </div>
       </header>
