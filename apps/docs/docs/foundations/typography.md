@@ -552,17 +552,6 @@ In some cases, the mono ramp can be used where the legibility of every individua
   <strong>Do:</strong> Use Mono for codes, confirmation numbers, and values that need to be read clearly at a glance.
 </div>
 
----
-
-## Weights
-
-| Token | Value | Use case |
-|---|---|---|
-| `--typography-weight-regular` | 400 | Paragraph text, descriptions |
-| `--typography-weight-medium` | 500 | Labels, buttons, form fields |
-| `--typography-weight-semibold` | 600 | Emphasis, sub-headings |
-| `--typography-weight-bold` | 700 | Headings, display text |
-| `--typography-weight-extrabold` | 800 | Hero text, marketing moments |
 
 </TabItem>
 <TabItem value="tokens" label="Tokens">
