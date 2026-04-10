@@ -5,6 +5,11 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Card, CardBody } from '../../../../packages/components/src/Card';
+import { Banner } from '../../../../packages/components/src/Banner';
+import { Heading } from '../../../../packages/components/src/Heading';
+import { Paragraph } from '../../../../packages/components/src/Paragraph';
+import { Label } from '../../../../packages/components/src/Label';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Styles</span>
@@ -33,7 +38,9 @@ Border radius, bevel, rounded corners
 
 ---
 
-## Radius values
+## Usage
+
+### Radius values
 
 The footprint of a component determines its radius values. Larger components that contain other components can have a greater corner radius. Each Arch UI component comes with the appropriate corner radius already applied. This guide provides insight into how radius values are applied in the Arch UI library.
 
@@ -46,7 +53,7 @@ The footprint of a component determines its radius values. Larger components tha
 
 ---
 
-## 16px
+### 16px
 
 <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
   <div style={{background: '#fff', borderRadius: '16px', width: '280px', padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}}>
@@ -67,7 +74,7 @@ A 16px corner radius is used on large vessel-like containers, such as sheets and
 
 ---
 
-## 12px
+### 12px
 
 <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap'}}>
   <div style={{background: '#fff', borderRadius: '12px', width: '200px', padding: '20px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}}>
@@ -90,7 +97,7 @@ The number used most of the time for corner radii is 12px. Medium-sized componen
 
 ---
 
-## 8px
+### 8px
 
 <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
   <div style={{background: '#000', borderRadius: '8px', padding: '12px 32px', color: '#fff', fontSize: '14px', fontWeight: 600}}>Label</div>
@@ -100,33 +107,39 @@ An 8px radius is used for elements often nested inside others, like buttons.
 
 ---
 
-## Nested components
+#### Nested components
 
 For components with a default corner radius of 12px, their corner radius can be set to 8px when nested inside another component. This subtly creates balance with the parent component.
 
-<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0'}}>
-  <div>
-    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-      <div style={{background: '#fff', borderRadius: '12px', width: '220px', padding: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}}>
-        <div style={{fontSize: '13px', color: '#727272', marginBottom: '8px'}}>Documents</div>
-        <div style={{background: '#F6BC2F', borderRadius: '8px', padding: '8px 12px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '12px'}}>
-          <span>&#9888;</span> You have 2 expiring documents
-        </div>
-        <div style={{fontSize: '13px', marginBottom: '4px'}}>Drivers License</div>
-        <div style={{fontSize: '12px', color: '#727272'}}>Expires 8/12/2025 &nbsp; Update</div>
-      </div>
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0', alignItems: 'stretch'}}>
+  <div style={{display: 'flex', flexDirection: 'column'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1}}>
+      <Card style={{width: '260px'}}>
+        <CardBody>
+          <Label size="small" style={{color: '#727272', marginBottom: '8px', display: 'block'}}>Documents</Label>
+          <div style={{marginBottom: '12px'}}>
+            <Banner variant="warning">You have 2 expiring documents</Banner>
+          </div>
+          <Heading level={6} size="xsmall" style={{margin: '0 0 4px'}}>Drivers License</Heading>
+          <Paragraph size="small" style={{color: '#727272', margin: 0}}>
+            Expires 8/12/2025 &nbsp; Update
+          </Paragraph>
+        </CardBody>
+      </Card>
     </div>
     <div style={{fontSize: '13px', fontWeight: 600, marginTop: '8px'}}>Default 12px corner radius</div>
   </div>
-  <div>
-    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-      <div style={{background: '#fff', borderRadius: '12px', width: '220px', padding: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}}>
-        <div style={{fontSize: '14px', fontWeight: 600, marginBottom: '4px'}}>Vehicle Insurance</div>
-        <div style={{fontSize: '12px', color: '#727272', marginBottom: '12px'}}>Progressive gold plan</div>
-        <div style={{background: '#F6BC2F', borderRadius: '8px', padding: '8px 12px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '6px'}}>
-          <span>&#9888;</span> Expired. Update your plan to drive
-        </div>
-      </div>
+  <div style={{display: 'flex', flexDirection: 'column'}}>
+    <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1}}>
+      <Card style={{width: '260px'}}>
+        <CardBody>
+          <Heading level={6} size="small" style={{margin: '0 0 4px'}}>Vehicle Insurance</Heading>
+          <Paragraph size="small" style={{color: '#727272', margin: '0 0 12px'}}>
+            Progressive gold plan
+          </Paragraph>
+          <Banner variant="warning">Expired. Update your plan to drive</Banner>
+        </CardBody>
+      </Card>
     </div>
     <div style={{fontSize: '13px', fontWeight: 600, marginTop: '8px'}}>Nested 8px corner radius</div>
   </div>
@@ -134,7 +147,7 @@ For components with a default corner radius of 12px, their corner radius can be 
 
 ---
 
-## 4px
+### 4px
 
 <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
   <div style={{background: '#fff', borderRadius: '12px', width: '280px', padding: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)'}}>

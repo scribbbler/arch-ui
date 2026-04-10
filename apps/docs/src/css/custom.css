@@ -355,7 +355,11 @@ a:focus {
 .navbar__link,
 .navbar__brand,
 .tabs__item,
-.pagination-nav__link {
+.pagination-nav__link,
+.table-of-contents__link,
+.table-of-contents__link--active,
+.theme-doc-toc-desktop a,
+.theme-doc-toc-mobile a {
   text-decoration: none !important;
 }
 .arch-card,
@@ -363,6 +367,15 @@ a:focus {
 .foundation-card,
 .docs-category-card {
   color: inherit !important;
+}
+/* TOC (right-side table of contents) — no underlines, black active state */
+.table-of-contents__link {
+  color: #5E5E5E !important;
+}
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: #000 !important;
+  text-decoration: none !important;
 }
 
 /* Docusaurus Tabs — add a full-width bottom border to the tab row */
