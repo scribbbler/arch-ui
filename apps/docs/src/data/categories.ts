@@ -189,6 +189,7 @@ export const componentCategories: ComponentCategory[] = [
     id: 'buttons',
     title: 'Buttons',
     href: '/components/button',
+    image: '/img/components/buttons.png',
     members: ['button', 'button-group', 'button-dock', 'sliding-button', 'timed-button'],
     descriptionOverride:
       'Clickable controls that let people trigger actions, confirm choices, and navigate.',
@@ -197,6 +198,7 @@ export const componentCategories: ComponentCategory[] = [
     id: 'input-and-selection',
     title: 'Input and selection',
     href: '/components/input',
+    image: '/img/components/input_selection.png',
     members: [
       'input',
       'textarea',
@@ -222,6 +224,7 @@ export const componentCategories: ComponentCategory[] = [
     id: 'indicator-and-status',
     title: 'Indicator and status',
     href: '/components/badge',
+    image: '/img/components/indicators_status.png',
     members: [
       'badge',
       'tag',
@@ -241,6 +244,7 @@ export const componentCategories: ComponentCategory[] = [
     id: 'content-display',
     title: 'Content display',
     href: '/components/accordion',
+    image: '/img/components/content_display.png',
     members: [
       'accordion',
       'card',
@@ -262,6 +266,7 @@ export const componentCategories: ComponentCategory[] = [
     id: 'messaging',
     title: 'Messaging',
     href: '/components/alert',
+    image: '/img/components/messaging.png',
     members: [
       'alert',
       'banner',
@@ -279,6 +284,7 @@ export const componentCategories: ComponentCategory[] = [
     id: 'containers-and-layout',
     title: 'Containers and layout',
     href: '/components/modal',
+    image: '/img/components/containers_layout.png',
     members: [
       'modal',
       'modal-full-screen',
@@ -296,6 +302,7 @@ export const componentCategories: ComponentCategory[] = [
     id: 'navigation',
     title: 'Navigation',
     href: '/components/tabs',
+    image: '/img/components/navigation.png',
     members: [
       'tabs',
       'top-navigation',
@@ -314,6 +321,7 @@ export const componentCategories: ComponentCategory[] = [
     id: 'data-and-tables',
     title: 'Data and tables',
     href: '/components/table',
+    image: '/img/components/data_tables.png',
     members: ['table', 'data-table'],
     descriptionOverride:
       'Structured views for browsing, sorting, and comparing tabular data.',
