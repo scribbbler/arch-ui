@@ -1,0 +1,43 @@
+@media (min-width: 997px) {
+  .menu {
+    flex-grow: 1;
+    padding: 0.5rem;
+  }
+  /*
+   * Default Docusaurus behavior zeroes padding-right and relies on
+   * `scrollbar-gutter: stable` to reserve space. That leaves items
+   * flush to the right when no scrollbar is present. Keep symmetric
+   * padding on both sides instead.
+   */
+  @supports (scrollbar-gutter: stable) {
+    .menu {
+      padding: 0.5rem;
+      scrollbar-gutter: stable;
+    }
+  }
+
+  .menuWithAnnouncementBar {
+    margin-bottom: var(--docusaurus-announcement-bar-height);
+  }
+
+  /*
+   * Shrink the category expand/collapse chevron from the Infima
+   * default (~1.25rem) down to 16px. Targets both the standalone
+   * caret button (when the category has its own link) and the
+   * inline caret appended to sublist links.
+   */
+  .menu :global(.menu__caret),
+  .menu :global(.menu__link--sublist-caret) {
+    --ifm-menu-link-sublist-icon-size: 16px;
+  }
+  .menu :global(.menu__caret)::before,
+  .menu :global(.menu__link--sublist-caret)::after {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    background-size: 16px 16px;
+  }
+  .menu :global(.menu__caret) {
+    padding: 0.5rem;
+  }
+}
