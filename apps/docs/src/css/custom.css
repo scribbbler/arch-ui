@@ -270,6 +270,24 @@
   line-height: 1.5;
 }
 
+/* ─── Doc section divider ────────────────────────────────────────────────────
+   Every `---` in a doc page renders as an 8px chunky bar that visually breaks
+   the page into h2 sections. Uses a neutral gray that matches other subtle
+   surfaces, with generous vertical margin so the bar doesn't crowd adjacent
+   headings. */
+.theme-doc-markdown hr,
+.markdown hr {
+  height: 8px;
+  border: 0;
+  background: #F3F3F3;
+  margin: 48px 0;
+  border-radius: 0;
+}
+[data-theme='dark'] .theme-doc-markdown hr,
+[data-theme='dark'] .markdown hr {
+  background: #1F1F1F;
+}
+
 /* Custom site footer — rendered inside the main content column on doc pages
    (via swizzled DocItem/Layout) and directly on the landing page. */
 .site-footer {
