@@ -4,6 +4,7 @@
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +29,24 @@
     background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
     color var(--motion-duration-fast) var(--motion-semantic-easing-default),
     box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+/* ─── Min touch target (WCAG 2.5.8) ──────────────────────────────────────────
+   Buttons under 48×48 expand their clickable area via a transparent
+   pseudo-element so the target meets the 48 px minimum without changing the
+   visual footprint of the button. Larger sizes (default, large) already meet
+   the threshold and don't need this. */
+.arch-button--mini::before,
+.arch-button--compact::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: 100%;
+  block-size: 100%;
+  min-inline-size: 48px;
+  min-block-size: 48px;
+  transform: translate(-50%, -50%);
 }
 
 @media (prefers-reduced-motion: reduce) {
