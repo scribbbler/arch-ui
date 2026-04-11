@@ -34,7 +34,7 @@
  */
 .arch-page-header__title-row .arch-status-badge {
   align-self: center;
-  transform: translateY(-0.18em);
+  transform: translateY(-0.4em);
 }
 
 .arch-page-header__title {
