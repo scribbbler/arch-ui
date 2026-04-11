@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Expression</span>
@@ -217,44 +218,38 @@ When `aria-label` is provided, the component automatically sets `role="img"` and
 
 ### Minimum touch target
 
-Icon-only buttons must meet a 44 &times; 44 px minimum touch target (WCAG 2.5.8). The icon itself can be 16, 20, or 24 px — pad the clickable area with spacing or a transparent border to reach the target size.
+Icon-only buttons must meet a 44 &times; 44 px minimum touch target (WCAG 2.5.8). The icon itself can be 16, 20, or 24 px, so pad the clickable area with spacing or a transparent border to reach the target size.
 
 ---
 
 ## Do / Don't
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Wrap interactive icons in a <code>&lt;button&gt;</code> and provide <code>aria-label</code> when there is no visible text.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Attach <code>onClick</code> directly to the icon SVG or rely on a tooltip as the only accessible name.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Wrap interactive icons in a <button> and provide aria-label when there is no visible text.">
+    <code>{'<button aria-label="Close"><CloseIcon /></button>'}</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't attach onClick directly to the icon SVG or rely on a tooltip as the only accessible name.">
+    <code>{'<CloseIcon onClick={close} />'}</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use one of the three supported sizes (16, 20, 24). They are optimized for pixel-perfect rendering.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Scale icons to arbitrary values like 18 or 22. Off-grid sizes produce blurry edges.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use one of the three supported sizes (16, 20, 24). They are optimized for pixel-perfect rendering.">
+    <code>{'<Icon size={20} />'}</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Scaling icons to arbitrary values like 18 or 22 produces blurry edges.">
+    <code>{'<Icon size={22} />'}</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Let icons inherit <code>currentColor</code> from the parent or pass a semantic color token.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Hardcode hex values like <code>color="#333"</code>. They bypass the color system and break in dark mode.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Let icons inherit currentColor from the parent or pass a semantic color token.">
+    <code>color: var(--color-icon-default);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Hardcoded hex values bypass the color system and break in dark mode.">
+    <code>color: #333;</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 </TabItem>
 <TabItem value="tokens" label="Tokens">

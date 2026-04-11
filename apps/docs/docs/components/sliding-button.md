@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>BUTTONS</span>
@@ -157,7 +158,7 @@ The handle's arrow icon is the sole draggable element. On tap, the handle grows 
         <span style={{color: '#fff', fontSize: '13px', fontWeight: 600}}>Slide to &#123;action&#125;</span>
       </div>
     </div>
-    <div style={{fontSize: '12px', color: '#DE1135', marginTop: '8px'}}>On tap — handle grows by 16px</div>
+    <div style={{fontSize: '12px', color: '#DE1135', marginTop: '8px'}}>On tap, handle grows by 16px</div>
   </div>
 </div>
 
@@ -194,7 +195,7 @@ When the handle position exceeds 80% of the base width (`slidingButton.x > 0.8 *
 
 ### Breakpoints
 
-Sliding buttons should follow the same breakpoint rules defined in the [Button](/components/button) documentation — full-width on mobile. This component is not recommended for desktop layouts.
+Sliding buttons should follow the same breakpoint rules defined in the [Button](/components/button) documentation: full-width on mobile. This component is not recommended for desktop layouts.
 
 ---
 
@@ -225,31 +226,42 @@ Background colour customisations of the sliding button are supported but should 
   </div>
 </div>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Distinguish the swipe affordance from the surrounding UI by using a primary, high-contrast background.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Do not invert the button styles or use secondary styling on the swipe affordance. For more guidance on colour, check out the Colour section of this documentation.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Distinguish the swipe affordance from the surrounding UI by using a primary, high-contrast background.">
+    <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '180px'}}>
+      <div style={{background: '#266EF1', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '13px', flexShrink: 0}}>&rarr;</div>
+      <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to confirm</span>
+    </div>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't invert the button styles or use secondary styling on the swipe affordance.">
+    <div style={{background: '#fff', border: '1px solid #E2E2E2', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '180px'}}>
+      <div style={{background: '#F3F3F3', borderRadius: '50%', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#727272', fontSize: '13px', flexShrink: 0}}>&rarr;</div>
+      <span style={{color: '#727272', fontSize: '12px', fontWeight: 600}}>Slide to confirm</span>
+    </div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ### Size
 
 Avoid resizing elements inside the button, like the icon or sliding button affordance. Try going up or down in size for the entire button instead.
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Keep the sliding button height and the base button height the same.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Do not enlarge or shrink either part of the sliding button.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Keep the sliding button height and the base button height the same.">
+    <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+      <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '200px'}}>
+        <div style={{background: '#266EF1', borderRadius: '50%', width: '32px', height: '32px'}} />
+        <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to confirm</span>
+      </div>
+      <div style={{background: '#000', color: '#fff', borderRadius: '40px', padding: '12px 24px', fontSize: '12px', fontWeight: 600, textAlign: 'center', width: '200px'}}>Cancel</div>
+    </div>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't enlarge or shrink either part of the sliding button.">
+    <div style={{background: '#282828', borderRadius: '48px', padding: '10px', display: 'flex', alignItems: 'center', gap: '10px', width: '220px'}}>
+      <div style={{background: '#266EF1', borderRadius: '50%', width: '48px', height: '48px'}} />
+      <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to confirm</span>
+    </div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
@@ -280,10 +292,10 @@ Avoid resizing elements inside the button, like the icon or sliding button affor
 
 ## Related components
 
-- [Button](/components/button) — Standard rectangle button
-- [Button group](/components/button-group) — Group of related buttons
-- [Button dock](/components/button-dock) — Fixed bottom container for primary actions
-- [Timed button](/components/timed-button) — Auto-advancing countdown button
+- [Button](/components/button): Standard rectangle button
+- [Button group](/components/button-group): Group of related buttons
+- [Button dock](/components/button-dock): Fixed bottom container for primary actions
+- [Timed button](/components/timed-button): Auto-advancing countdown button
 
 </TabItem>
 <TabItem value="specs" label="Specs">
@@ -347,16 +359,20 @@ A swipe gesture occurs when the user moves one or more fingers across the screen
 
 Using the word "slide" to indicate a gesture was first introduced in 2007 with the launch of the first iPhone. The gesture was specifically designed to avoid accidental triggers, for example, while the device is in your pocket.
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use the word "Slide" when you need an explicit affordance in your button. This signifies the button needs an interaction trigger in order for the user to complete a given action or flow.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Do not use the word "Swipe" as it carries more meaning related to navigation rather than task completion. If you need the written affordance, use "Slide" instead.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description='Use the word "Slide" when you need an explicit affordance. This signifies the button needs an interaction trigger for the user to complete a given action or flow.'>
+    <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '200px'}}>
+      <div style={{background: '#266EF1', borderRadius: '50%', width: '32px', height: '32px'}} />
+      <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Slide to confirm</span>
+    </div>
+  </Guidance.Do>
+  <Guidance.Dont description={`Don't use "Swipe". It carries meaning related to navigation rather than task completion.`}>
+    <div style={{background: '#282828', borderRadius: '40px', padding: '5px', display: 'flex', alignItems: 'center', gap: '8px', width: '200px'}}>
+      <div style={{background: '#266EF1', borderRadius: '50%', width: '32px', height: '32px'}} />
+      <span style={{color: '#fff', fontSize: '12px', fontWeight: 600}}>Swipe to confirm</span>
+    </div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 </TabItem>
 <TabItem value="changelog" label="Status & changelog">

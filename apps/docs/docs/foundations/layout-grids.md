@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Styles</span>
@@ -147,31 +148,41 @@ Another common layout scenario is "offsetting" or "skipping" columns. Use `grid-
 
 You can specify content to have a fixed arbitrary width. The space of this element and the content next to it will be as wide as the gutter of its parent. The rest of the content will remain aligned to the outer grid. This is useful for things like a side-nav component.
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Align content to the columns. Place elements within column boundaries so the vertical rhythm of the grid is visible.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Align content to the gutters. Gutters are reserved to provide space between content blocks.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Align content to the columns. Place elements within column boundaries so the vertical rhythm of the grid is visible.">
+    <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '6px', width: '100%'}}>
+      <div style={{gridColumn: '1 / 3', height: '32px', background: '#266EF1', borderRadius: '4px'}} />
+      <div style={{gridColumn: '3 / 5', height: '32px', background: '#266EF1', borderRadius: '4px'}} />
+    </div>
+  </Guidance.Do>
+  <Guidance.Dont description="Align content to the gutters. Gutters are reserved to provide space between content blocks.">
+    <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '6px', width: '100%', position: 'relative'}}>
+      <div style={{gridColumn: '1 / 3', height: '32px', background: '#266EF1', borderRadius: '4px', marginLeft: '12px'}} />
+      <div style={{gridColumn: '3 / 5', height: '32px', background: '#266EF1', borderRadius: '4px', marginLeft: '12px'}} />
+    </div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 #### Exceptions
 
 Intrinsic width items like tags and pill buttons don't need to span all the columns in a layout. Keep them at the default width.
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Keep intrinsic width components at their default width even if they do not span the columns.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Stretch intrinsic width components to fill a grid. Not every piece of content needs to span the columns.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Keep intrinsic width components at their default width even if they do not span the columns.">
+    <div style={{display: 'flex', gap: '8px'}}>
+      <div style={{padding: '6px 14px', background: '#F3F3F3', borderRadius: '4px', fontSize: '13px'}}>Tag</div>
+      <div style={{padding: '6px 14px', background: '#F3F3F3', borderRadius: '4px', fontSize: '13px'}}>Tag</div>
+      <div style={{padding: '6px 14px', background: '#F3F3F3', borderRadius: '4px', fontSize: '13px'}}>Tag</div>
+    </div>
+  </Guidance.Do>
+  <Guidance.Dont description="Stretching intrinsic width components to fill a grid wastes space.">
+    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px'}}>
+      <div style={{padding: '6px 14px', background: '#F3F3F3', borderRadius: '4px', fontSize: '13px', textAlign: 'center'}}>Tag</div>
+      <div style={{padding: '6px 14px', background: '#F3F3F3', borderRadius: '4px', fontSize: '13px', textAlign: 'center'}}>Tag</div>
+      <div style={{padding: '6px 14px', background: '#F3F3F3', borderRadius: '4px', fontSize: '13px', textAlign: 'center'}}>Tag</div>
+    </div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
@@ -229,9 +240,9 @@ Resizing a container past a breakpoint will update its layout grid.
 
 | Breakpoint | Range | Columns | Gutter | Margin | Behaviour |
 |---|---|---|---|---|---|
-| **xs** (Mobile) | 0 – 599px | 4 | 16px | 16px | Fluid — columns stretch |
-| **sm** (Tablet portrait) | 600 – 904px | 8 | 16px | 24px | Fluid — columns stretch |
-| **md** (Tablet landscape) | 905 – 1239px | 12 | 24px | 32px | Fluid — columns stretch |
+| **xs** (Mobile) | 0 to 599px | 4 | 16px | 16px | Fluid, columns stretch |
+| **sm** (Tablet portrait) | 600 to 904px | 8 | 16px | 24px | Fluid, columns stretch |
+| **md** (Tablet landscape) | 905 to 1239px | 12 | 24px | 32px | Fluid, columns stretch |
 | **lg** (Desktop) | 1240px + | 12 | 24px | auto | Fixed max-width, centred |
 
 <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '32px 24px', margin: '24px 0', overflowX: 'auto'}}>
@@ -274,7 +285,7 @@ Resizing a container past a breakpoint will update its layout grid.
 
 ### Content
 
-As the layout grid changes at breakpoints, the content adjusts to the new grid. Elements that span a fraction of the desktop grid should reorganise to span proportionally more columns on smaller grids — or stack vertically when appropriate.
+As the layout grid changes at breakpoints, the content adjusts to the new grid. Elements that span a fraction of the desktop grid should reorganise to span proportionally more columns on smaller grids, or stack vertically when appropriate.
 
 | Desktop (12 cols) | Tablet (8 cols) | Mobile (4 cols) |
 |---|---|---|
@@ -288,17 +299,17 @@ As the layout grid changes at breakpoints, the content adjusts to the new grid. 
 
 All the properties you have available to position your content are responsive. They will accept multiple values that will be executed on the different breakpoints.
 
-**Span** — Multiple span values will change the number of columns a cell spans at every breakpoint.
+**Span**: Multiple span values will change the number of columns a cell spans at every breakpoint.
 
-**Hide** — Setting the span to 0 will hide the cell. You can use this to show and hide a navigational element at certain screen sizes.
+**Hide**: Setting the span to 0 will hide the cell. You can use this to show and hide a navigational element at certain screen sizes.
 
-**Skip** — You can do the same for offset. A cell can have a span of 3 columns but a different skip for each breakpoint.
+**Skip**: You can do the same for offset. A cell can have a span of 3 columns but a different skip for each breakpoint.
 
 ---
 
 ## Sub-grids
 
-In order to sub-divide areas of the grid, you can use sub-grids — areas on your base grid that use a separate grid. A column region can itself contain a sub-grid. When nesting, the inner grid uses the parent column's width as its total width and applies the same gutter value.
+In order to sub-divide areas of the grid, you can use sub-grids: areas on your base grid that use a separate grid. A column region can itself contain a sub-grid. When nesting, the inner grid uses the parent column's width as its total width and applies the same gutter value.
 
 For this, for every grid breakpoint, we provide a version with the margins removed, making it easier to align to the rest of the content. Like the base layout grid, the width of these areas dictates which grid to use.
 
@@ -312,27 +323,23 @@ On large screens (1240px and above), the grid stops expanding. Content locks to 
 
 ## Do / Don't
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use semantic layout tokens for all grid spacing. This keeps your layout in sync with the rest of the system when token values are updated.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Hardcode pixel values for gutters, margins, or section gaps. Values like <code>padding: 0 16px</code> bypass the token system and will drift over time.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use semantic layout tokens for all grid spacing. This keeps your layout in sync with the rest of the system when token values are updated.">
+    <code>padding: 0 var(--spacing-layout-margin);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Hardcoded pixel values for gutters, margins, or section gaps bypass the token system and will drift over time.">
+    <code>padding: 0 16px;</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use a mobile-first approach: start with 4 columns and layer on complexity at wider breakpoints.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Design desktop-first and try to cram 12 columns of content into a 4-column mobile layout as an afterthought.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use a mobile-first approach: start with 4 columns and layer on complexity at wider breakpoints.">
+    <div style={{fontSize: '13px'}}>Mobile (4) &rarr; Tablet (8) &rarr; Desktop (12)</div>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't design desktop-first and try to cram 12 columns of content into a 4-column mobile layout as an afterthought.">
+    <div style={{fontSize: '13px'}}>Desktop (12) &rarr; Mobile (?)</div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 </TabItem>
 <TabItem value="tokens" label="Tokens">
@@ -365,7 +372,7 @@ These are the layout-related spacing tokens available in the system. All are def
 | xs | 0px | 599px | 4 | 16px | 16px |
 | sm | 600px | 904px | 8 | 16px | 24px |
 | md | 905px | 1239px | 12 | 24px | 32px |
-| lg | 1240px | — | 12 | 24px | auto |
+| lg | 1240px |  | 12 | 24px | auto |
 
 </TabItem>
 <TabItem value="code" label="Code">

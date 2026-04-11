@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>BUTTONS</span>
@@ -112,29 +113,27 @@ Timed buttons should be used sparingly to notify users that the current screen r
 
 Use the provided numerical countdown to reinforce how much time a user has left to take action and ensure all users can comprehend it (including screen readers).
 
-<div style={{background: '#FFF3DD', borderRadius: '8px', padding: '16px 20px', margin: '24px 0', fontSize: '14px'}}>
+<div className="docs-callout docs-callout--warning">
   <strong>This is especially important for accessibility.</strong><br/>
   Users with cognitive disabilities find it even harder to decide when time limits are unclear. Users with visual impairments cannot see the visual affordance, so the remaining explicit time makes this button accessible to them with a screen reader.
 </div>
 
-<div className="do-dont-grid">
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Solely use visual indicators to communicate time sensitivity — this is challenging for users with cognitive disabilities and vision impairments.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Use two-line layouts for the timer label. Two-line layouts are strictly reserved for localisation and dynamic type and should not be used otherwise.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Dont description="Don't rely on visual indicators alone to communicate time sensitivity. It's challenging for users with cognitive disabilities and vision impairments.">
+    <div style={{background: '#266EF1', color: '#fff', borderRadius: '8px', padding: '12px 20px', fontSize: '14px', fontWeight: 600, width: '160px', textAlign: 'center'}}>Continue</div>
+  </Guidance.Dont>
+  <Guidance.Dont description="Don't use two-line layouts for the timer label. Two-line layouts are reserved for localisation and dynamic type.">
+    <div style={{background: '#266EF1', color: '#fff', borderRadius: '8px', padding: '8px 20px', fontSize: '14px', fontWeight: 600, width: '160px', textAlign: 'center', lineHeight: 1.2}}>Continue<br/><span style={{fontSize: '12px', fontWeight: 400}}>7 seconds</span></div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ### Asking for more time
 
-We highly encourage thinking about ways to enable users to set their preferences when it comes to time — whether that's asking for extended timers or disabling them completely.
+We highly encourage thinking about ways to enable users to set their preferences when it comes to time, whether that's asking for extended timers or disabling them completely.
 
-**Explicit action** — One way to allow for more time is to present a visible trigger to extend the remaining time.
+**Explicit action**: One way to allow for more time is to present a visible trigger to extend the remaining time.
 
-**Setting preferences** — Users should be able to set a preference on a product or system level to define their needs when it comes to time. Consider using a regular button the first time you introduce a new experience (FTUX) and give them the option to save their preference for next time. During their next session, switch out the preferred choice to use a timed button to auto-advance them.
+**Setting preferences**: Users should be able to set a preference on a product or system level to define their needs when it comes to time. Consider using a regular button the first time you introduce a new experience (FTUX) and give them the option to save their preference for next time. During their next session, switch out the preferred choice to use a timed button to auto-advance them.
 
 ---
 
@@ -159,15 +158,15 @@ When a user navigates forward through a timed flow, the timer begins immediately
 
 Users can tap or click a timed button or do nothing as the timer completes. Both result in the timed button's action being executed.
 
-**Proactive** — If a user wants to proactively choose the auto-advance action before the timer ends, they can tap the button at any point during the countdown.
+**Proactive**: If a user wants to proactively choose the auto-advance action before the timer ends, they can tap the button at any point during the countdown.
 
-**Timeout** — If a user does not interact with the timed button, the action will be executed automatically when the countdown reaches zero.
+**Timeout**: If a user does not interact with the timed button, the action will be executed automatically when the countdown reaches zero.
 
 ### Motion and timing
 
 When using timed buttons, ensure that the larger UI presentation layer they are part of is on the screen long enough for all users to decide and acknowledge the change.
 
-<div style={{background: '#FFF3DD', borderRadius: '8px', padding: '16px 20px', margin: '24px 0', fontSize: '14px'}}>
+<div className="docs-callout docs-callout--warning">
   <strong>Timing is crucial for users with disabilities,</strong> where having a shorter timer can contribute to a negative experience.
 </div>
 
@@ -179,16 +178,14 @@ When using timed buttons, ensure that the larger UI presentation layer they are 
 | People who are deaf and communicate in sign language | May need more time to read the information when it's printed in text because their first language might be sign language. |
 | People with cognitive or language limitations | Need more time to read and to understand and process. |
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Keep the button and its container for at least 15–20 seconds to ensure users have enough time to read and process.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Use a timer of under 10 seconds — this is way too short and will most likely cause a spike in errors and unhappy users.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Keep the button and its container on screen for at least 15 to 20 seconds to ensure users have enough time to read and process.">
+    <div style={{background: '#266EF1', color: '#fff', borderRadius: '8px', padding: '12px 20px', fontSize: '14px', fontWeight: 600, textAlign: 'center', width: '180px'}}>Continue (18)</div>
+  </Guidance.Do>
+  <Guidance.Dont description="A timer under 10 seconds is too short and will most likely cause errors and frustration.">
+    <div style={{background: '#266EF1', color: '#fff', borderRadius: '8px', padding: '12px 20px', fontSize: '14px', fontWeight: 600, textAlign: 'center', width: '180px'}}>Continue (7)</div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 #### Timing presets
 
@@ -201,16 +198,16 @@ When using timed buttons, ensure that the larger UI presentation layer they are 
 
 ### Breakpoints
 
-Timed buttons should follow the same button breakpoint rules defined in the Button documentation — full-width on mobile, content-width or full-width on desktop depending on the layout context.
+Timed buttons should follow the same button breakpoint rules defined in the Button documentation: full-width on mobile, content-width or full-width on desktop depending on the layout context.
 
 ---
 
 ## Related components
 
-- [Button](/components/button) — Standard rectangle button
-- [Button group](/components/button-group) — Group of related buttons
-- [Button dock](/components/button-dock) — Fixed bottom container for primary actions
-- [Sliding button](/components/sliding-button) — Swipe-to-confirm interaction
+- [Button](/components/button): Standard rectangle button
+- [Button group](/components/button-group): Group of related buttons
+- [Button dock](/components/button-dock): Fixed bottom container for primary actions
+- [Sliding button](/components/sliding-button): Swipe-to-confirm interaction
 
 </TabItem>
 <TabItem value="specs" label="Specs">
@@ -277,16 +274,16 @@ Status & changelog coming soon.
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `children` | `ReactNode` | — | Button label text |
+| `children` | `ReactNode` |  | Button label text |
 | `duration` | `number` | `30` | Countdown duration in seconds (minimum 15) |
-| `onTimeout` | `() => void` | — | Callback when the timer reaches zero |
-| `onClick` | `() => void` | — | Callback when the user clicks before timeout |
-| `onCancel` | `() => void` | — | Callback when the user cancels (if cancel is available) |
+| `onTimeout` | `() => void` |  | Callback when the timer reaches zero |
+| `onClick` | `() => void` |  | Callback when the user clicks before timeout |
+| `onCancel` | `() => void` |  | Callback when the user cancels (if cancel is available) |
 | `kind` | `'primary' \| 'secondary'` | `'primary'` | Visual hierarchy |
 | `disabled` | `boolean` | `false` | Disable the button and stop the timer |
 | `loading` | `boolean` | `false` | Show loading spinner, pause timer |
-| `startEnhancer` | `ReactNode` | — | Leading icon |
-| `endEnhancer` | `ReactNode` | — | Trailing icon |
+| `startEnhancer` | `ReactNode` |  | Leading icon |
+| `endEnhancer` | `ReactNode` |  | Trailing icon |
 | `size` | `'default' \| 'large' \| 'compact'` | `'default'` | Button size |
 | `autoStart` | `boolean` | `true` | Start countdown immediately on mount |
 
@@ -333,7 +330,7 @@ import { CheckIcon, ArrowRightIcon } from "@arch-ui/icons";
 - The countdown text must be announced to screen readers via `aria-live="polite"` at regular intervals (every 5 seconds for longer timers, every second for the last 3 seconds).
 - The button must include `role="timer"` on the countdown element.
 - Users must be able to extend or disable timers via preferences (WCAG 2.2.1 Timing Adjustable).
-- The timer progress overlay is purely decorative — the numerical countdown is the accessible indicator.
+- The timer progress overlay is purely decorative. The numerical countdown is the accessible indicator.
 
 </TabItem>
 </Tabs>

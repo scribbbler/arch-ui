@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
@@ -106,27 +107,23 @@ Use semantic border color tokens to communicate validation states:
 
 ---
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use border tokens for all border widths and colours. Tokens adapt to themes automatically and keep the system consistent.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Hardcode pixel values or hex colours for borders. Raw values break theming and drift from the design system over time.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use border tokens for all border widths and colours. Tokens adapt to themes automatically and keep the system consistent.">
+    <code>border: var(--border-width-default) solid var(--color-border-default);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Hardcode pixel values or hex colours for borders. Raw values break theming and drift from the design system over time.">
+    <code>border: 1px solid #e5e5e5;</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Default to <code>--border-width-default</code> (1px) for most UI borders. Only escalate to strong or thick when the design requires emphasis.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Use thick borders (4px) as a default container boundary. Heavy borders create visual clutter and reduce the prominence of intentional emphasis.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Default to --border-width-default (1px) for most UI borders. Only escalate to strong or thick when the design requires emphasis.">
+    <code>border-width: var(--border-width-default);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Use thick borders (4px) as a default container boundary. Heavy borders create visual clutter and reduce the prominence of intentional emphasis.">
+    <code>border-width: var(--border-width-thick);</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 </TabItem>
 <TabItem value="tokens" label="Tokens">

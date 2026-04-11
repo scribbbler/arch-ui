@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Styles</span>
@@ -175,45 +176,32 @@ All mobile devices, both Android and iOS, follow the same grid system. The only 
 
 ## Do / Don't
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use semantic tokens for component and layout spacing. They communicate intent and can be changed globally.</p>
+<Guidance.Grid>
+  <Guidance.Do description="Use semantic tokens for component and layout spacing. They communicate intent and can be changed globally.">
     <code>padding: var(--spacing-component-md);</code>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Hard-code pixel values. They bypass the system and won't respond to future density changes.</p>
+  </Guidance.Do>
+  <Guidance.Dont description="Hardcoded pixel values bypass the system and won't respond to future density changes.">
     <code>padding: 12px;</code>
-  </div>
-</div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use CSS <code>gap</code> with a spacing token on flex/grid parents to space children evenly.</p>
+<Guidance.Grid>
+  <Guidance.Do description="Use CSS gap with a spacing token on flex or grid parents to space children evenly.">
     <code>gap: var(--spacing-inline-md);</code>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Add margin to individual children to simulate gaps. It creates inconsistencies and requires overrides on first/last child.</p>
+  </Guidance.Do>
+  <Guidance.Dont description="Adding margin to individual children creates inconsistencies and requires overrides on first or last child.">
     <code>.child &#123; margin-right: 8px; &#125;</code>
-  </div>
-</div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Reach for primitive tokens only when no semantic token fits. Document why in a comment.</p>
-    <code>/* optical alignment override */
-margin-top: var(--spacing-2);</code>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Use primitives for common patterns that already have semantic tokens. It hides the purpose of the value.</p>
+<Guidance.Grid>
+  <Guidance.Do description="Reach for primitive tokens only when no semantic token fits. Document why in a comment.">
+    <code>/* optical alignment override */ margin-top: var(--spacing-2);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't use primitives for common patterns that already have semantic tokens. It hides the purpose of the value.">
     <code>padding: var(--spacing-12);</code>
-  </div>
-</div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 </TabItem>
 <TabItem value="tokens" label="Tokens">

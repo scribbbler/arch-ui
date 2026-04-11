@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 import { AllColorRamps, SemanticTokenTable } from '../../src/components/ColorPalette';
 
 <div style={{marginBottom: '2rem'}}>
@@ -121,18 +122,16 @@ Semantic tokens are grouped into seven categories. Each category addresses a dif
 
 Components must always reference semantic tokens. Primitives exist to feed the semantic layer — they should not appear in component CSS. This rule ensures that every component automatically adapts to theme changes.
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p><code>color: var(--color-text-default);</code></p>
-    <p><code>background: var(--color-background-subtle);</code></p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p><code>color: #282828;</code></p>
-    <p><code>background: var(--color-gray-50);</code></p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Reference semantic tokens so components adapt to theme changes automatically.">
+    <p style={{margin: 0}}><code>color: var(--color-text-default);</code></p>
+    <p style={{margin: 0}}><code>background: var(--color-background-subtle);</code></p>
+  </Guidance.Do>
+  <Guidance.Dont description="Hardcoded hex values or primitive tokens break theming.">
+    <p style={{margin: 0}}><code>color: #282828;</code></p>
+    <p style={{margin: 0}}><code>background: var(--color-gray-50);</code></p>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ### Match token role to element purpose
 
@@ -218,16 +217,14 @@ All semantic text-on-background pairings meet WCAG 2.1 AA requirements:
 
 Color should reinforce meaning, not be the sole indicator. Combine color with text labels, icons, or patterns to ensure information is perceivable by users with color vision deficiencies.
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use a red border <em>and</em> an error icon <em>and</em> descriptive text for validation errors.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Show a red border as the only indicator that a field is invalid.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Combine color with icons and descriptive text for validation errors.">
+    <p style={{margin: 0}}>Red border <em>and</em> an error icon <em>and</em> descriptive text.</p>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't rely on color alone to signal state.">
+    <p style={{margin: 0}}>A red border as the only indicator that a field is invalid.</p>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ### Focus visibility
 

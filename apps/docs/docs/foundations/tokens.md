@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
@@ -633,100 +634,60 @@ The component token stays the same. The semantic token stays the same. Only the 
 
 <h2>Do / Don't</h2>
 
-<div className="do-dont-grid">
-<div className="do-block">
-
-**Do** -- Use semantic tokens in component styles
-
-```css
-.button {
+<Guidance.Grid>
+  <Guidance.Do description="Use semantic tokens in component styles.">
+    <pre style={{margin: 0, fontSize: '12px', lineHeight: 1.5}}>{`.button {
   background: var(--color-action-primary);
   color: var(--color-action-primary-text);
   border-radius: var(--radius-component-md);
   padding: var(--spacing-component-sm)
     var(--spacing-component-lg);
-}
-```
-</div>
-<div className="dont-block">
-
-**Don't** -- Hard-code raw values
-
-```css
-.button {
+}`}</pre>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't hardcode raw values.">
+    <pre style={{margin: 0, fontSize: '12px', lineHeight: 1.5}}>{`.button {
   background: #266EF1;
   color: white;
   border-radius: 8px;
   padding: 8px 16px;
-}
-```
-</div>
-</div>
+}`}</pre>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-<div className="do-block">
-
-**Do** -- Name semantic tokens by intent
-
-```
-color-action-primary
+<Guidance.Grid>
+  <Guidance.Do description="Name semantic tokens by intent.">
+    <pre style={{margin: 0, fontSize: '12px', lineHeight: 1.5}}>{`color-action-primary
 color-text-subtle
-color-feedback-danger-bg
-```
-</div>
-<div className="dont-block">
-
-**Don't** -- Name semantic tokens by appearance
-
-```
-color-blue
+color-feedback-danger-bg`}</pre>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't name semantic tokens by appearance.">
+    <pre style={{margin: 0, fontSize: '12px', lineHeight: 1.5}}>{`color-blue
 color-light-gray
-color-red-background
-```
-</div>
-</div>
+color-red-background`}</pre>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-<div className="do-block">
+<Guidance.Grid>
+  <Guidance.Do description="Let component tokens alias semantic tokens.">
+    <pre style={{margin: 0, fontSize: '12px', lineHeight: 1.5}}>{`button-bg-default -> {color-action-primary}
+button-bg-hover   -> {color-action-primary-hover}`}</pre>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't skip the semantic layer.">
+    <pre style={{margin: 0, fontSize: '12px', lineHeight: 1.5}}>{`button-bg-default -> {color-blue-600}
+button-bg-hover   -> {color-blue-700}`}</pre>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-**Do** -- Let component tokens alias semantic tokens
-
-```
-button-bg-default → {color-action-primary}
-button-bg-hover   → {color-action-primary-hover}
-```
-</div>
-<div className="dont-block">
-
-**Don't** -- Skip the semantic layer
-
-```
-button-bg-default → {color-blue-600}
-button-bg-hover   → {color-blue-700}
-```
-</div>
-</div>
-
-<div className="do-dont-grid">
-<div className="do-block">
-
-**Do** -- Use the existing scale
-
-```css
-padding: var(--spacing-component-md);
-gap: var(--spacing-component-sm);
-```
-</div>
-<div className="dont-block">
-
-**Don't** -- Invent arbitrary values
-
-```css
-padding: 13px;
-gap: 7px;
-```
-</div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use the existing scale.">
+    <pre style={{margin: 0, fontSize: '12px', lineHeight: 1.5}}>{`padding: var(--spacing-component-md);
+gap: var(--spacing-component-sm);`}</pre>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't invent arbitrary values.">
+    <pre style={{margin: 0, fontSize: '12px', lineHeight: 1.5}}>{`padding: 13px;
+gap: 7px;`}</pre>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 

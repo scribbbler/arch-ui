@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>EXPRESSION</span>
@@ -112,9 +113,9 @@ Duration tokens control how long a transition takes. Shorter durations feel snap
 
 Use the smallest duration that still lets the user perceive the change. A good heuristic:
 
-- **Under 100px of movement** — `--motion-duration-fast`
-- **100 to 300px of movement** — `--motion-duration-normal` or `--motion-duration-slow`
-- **Full-screen or multi-element choreography** — `--motion-duration-slower`
+- **Under 100px of movement**: `--motion-duration-fast`
+- **100 to 300px of movement**: `--motion-duration-normal` or `--motion-duration-slow`
+- **Full-screen or multi-element choreography**: `--motion-duration-slower`
 
 ---
 
@@ -175,58 +176,50 @@ Easing curves define the acceleration profile of an animation. They are the diff
 
 ## Do and Don't
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use semantic tokens (<code>--motion-semantic-easing-enter</code>) in components so intent is clear and changes propagate automatically.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Hard-code <code>cubic-bezier()</code> values or raw millisecond durations in component CSS. These bypass the token system and break reduced-motion support.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use semantic tokens in components so intent is clear and changes propagate automatically.">
+    <code>transition: transform var(--motion-duration-fast) var(--motion-semantic-easing-enter);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Hardcoding cubic-bezier values or raw millisecond durations bypasses the token system and breaks reduced-motion support.">
+    <code>transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1);</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Prefer <code>transform</code> and <code>opacity</code> for animations. These properties are GPU-composited and do not trigger layout recalculation.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Animate <code>width</code>, <code>height</code>, <code>top</code>, <code>left</code>, or <code>margin</code>. These trigger expensive layout reflows on every frame.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Prefer transform and opacity for animations. These properties are GPU-composited and do not trigger layout recalculation.">
+    <code>transition: transform 200ms, opacity 200ms;</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Animating width, height, top, left, or margin triggers expensive layout reflows on every frame.">
+    <code>transition: width 200ms, margin-left 200ms;</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Keep exit animations faster than enter animations. Users want departing UI to get out of the way quickly.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Use <code>--motion-duration-slower</code> for simple hover states. A 500ms delay on a button hover feels sluggish.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Keep exit animations faster than enter animations. Users want departing UI to get out of the way quickly.">
+    <code>transition-duration: var(--motion-duration-fast);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Using slower durations for simple hover states feels sluggish. A 500ms delay on a button hover is too slow.">
+    <code>transition-duration: var(--motion-duration-slower);</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Test with <code>prefers-reduced-motion: reduce</code> enabled. Verify that the interface is still fully usable without any animation.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Rely on animation as the only feedback mechanism. Always pair motion with a visible state change (colour, icon, text) so reduced-motion users are not left guessing.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Test with prefers-reduced-motion: reduce enabled. Verify that the interface is still fully usable without any animation.">
+    <code>{'@media (prefers-reduced-motion: reduce) { /* no motion */ }'}</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't rely on animation as the only feedback mechanism. Pair motion with a visible state change so reduced-motion users are not left guessing.">
+    <code>transform: translateY(-2px); /* only signal */</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
 ## Performance checklist
 
-1. **Animate composited properties only** — `transform`, `opacity`, and `filter` are cheap. Everything else triggers layout or paint.
-2. **Use `will-change` sparingly** — Add it right before an animation starts and remove it after. Permanent `will-change` wastes GPU memory.
-3. **Avoid animating during scroll** — If you must, use `IntersectionObserver` to trigger animations only when elements enter the viewport.
-4. **Cap concurrent animations** — More than three simultaneous animated elements on screen can cause frame drops on lower-end devices.
+1. **Animate composited properties only.** `transform`, `opacity`, and `filter` are cheap. Everything else triggers layout or paint.
+2. **Use `will-change` sparingly.** Add it right before an animation starts and remove it after. Permanent `will-change` wastes GPU memory.
+3. **Avoid animating during scroll.** If you must, use `IntersectionObserver` to trigger animations only when elements enter the viewport.
+4. **Cap concurrent animations.** More than three simultaneous animated elements on screen can cause frame drops on lower-end devices.
 
 ---
 
@@ -242,7 +235,7 @@ Easing curves define the acceleration profile of an animation. They are the diff
 
 <h2>Semantic motion tokens</h2>
 
-Semantic tokens map primitive values to interaction contexts. Use these in component CSS instead of the primitive tokens — they carry intent, making future changes safer.
+Semantic tokens map primitive values to interaction contexts. Use these in component CSS instead of the primitive tokens. They carry intent, making future changes safer.
 
 | Semantic token | CSS variable | Resolves to | When to use |
 |---|---|---|---|
@@ -259,8 +252,8 @@ Semantic tokens map primitive values to interaction contexts. Use these in compo
 
 This is intentional and follows a physical model:
 
-- **Enter (ease-out):** The element arrives quickly then decelerates into its resting position — like a ball rolling to a stop. The user perceives it as responsive.
-- **Exit (ease-in):** The element starts slow then accelerates away — like dropping off a shelf. It clears the viewport quickly, getting out of the way.
+- **Enter (ease-out):** The element arrives quickly then decelerates into its resting position, like a ball rolling to a stop. The user perceives it as responsive.
+- **Exit (ease-in):** The element starts slow then accelerates away, like dropping off a shelf. It clears the viewport quickly, getting out of the way.
 
 <h2>Token alias chain</h2>
 

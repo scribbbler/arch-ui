@@ -3,6 +3,8 @@ sidebar_label: Alternative text
 hide_title: true
 ---
 
+import Guidance from '@site/src/components/Guidance';
+
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>ACCESSIBILITY</span>
   <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
@@ -34,64 +36,40 @@ Not every image needs the same treatment. Use this decision tree to determine th
 
 Describe what the image actually shows, not what type of content it is.
 
-<div className="do-dont-grid">
-<div className="do-block">
-
-**Do**
-
-`alt="Bar chart showing 45% increase in user signups from January to March 2024"`
-
-</div>
-<div className="dont-block">
-
-**Don't**
-
-`alt="Chart"` or `alt="Image of a chart"`
-
-</div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description='Describe what the image actually shows.'>
+    <code>alt="Bar chart showing 45% increase in user signups from January to March 2024"</code>
+  </Guidance.Do>
+  <Guidance.Dont description='Generic descriptions that add no information.'>
+    <code>alt="Chart"</code> or <code>alt="Image of a chart"</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ### Describe function, not appearance
 
 When an image serves a functional purpose (link, button), describe what it does rather than what it looks like.
 
-<div className="do-dont-grid">
-<div className="do-block">
-
-**Do**
-
-`alt="Download invoice as PDF"`
-
-</div>
-<div className="dont-block">
-
-**Don't**
-
-`alt="Blue arrow pointing down icon"`
-
-</div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Describe what the image does.">
+    <code>alt="Download invoice as PDF"</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Describe what the image looks like.">
+    <code>alt="Blue arrow pointing down icon"</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ### Keep it concise
 
 Alt text should typically be one sentence or less. Screen reader users navigate quickly and verbose alt text slows them down. Aim for under 125 characters.
 
-<div className="do-dont-grid">
-<div className="do-block">
-
-**Do**
-
-`alt="Team celebrating product launch in the office"`
-
-</div>
-<div className="dont-block">
-
-**Don't**
-
-`alt="A group of approximately twelve people standing in a modern office space with glass walls and wooden floors, smiling and clapping their hands while confetti falls from the ceiling during what appears to be a product launch celebration"`
-
-</div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="One short sentence is enough.">
+    <code>alt="Team celebrating product launch in the office"</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Verbose alt text slows down screen reader users. Aim for under 125 characters.">
+    <code>alt="A group of approximately twelve people standing in a modern office space with glass walls and wooden floors, smiling and clapping their hands while confetti falls from the ceiling during what appears to be a product launch celebration"</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ### Do not start with "Image of" or "Photo of"
 
@@ -101,7 +79,7 @@ Screen readers already announce the element as an image. Prefixing alt text with
 
 ## Decorative images
 
-Decorative images serve no informational purpose — they exist for visual interest only. These must be hidden from screen readers to avoid cluttering the experience with meaningless announcements.
+Decorative images serve no informational purpose. They exist for visual interest only, and must be hidden from screen readers to avoid cluttering the experience with meaningless announcements.
 
 ### How to mark an image as decorative
 
@@ -118,7 +96,7 @@ Decorative images serve no informational purpose — they exist for visual inter
 </div>
 ```
 
-The `alt=""` attribute (empty string) is intentional. It tells screen readers to skip this image entirely. Omitting the `alt` attribute altogether is different — screen readers may announce the file name instead, which is worse than silence.
+The `alt=""` attribute (empty string) is intentional. It tells screen readers to skip this image entirely. Omitting the `alt` attribute altogether is different: screen readers may announce the file name instead, which is worse than silence.
 
 ### Common decorative images
 
@@ -241,7 +219,7 @@ axe-core catches missing `alt` attributes and empty `aria-label` values, but it 
 Ask these questions during code review:
 
 1. **If the image were removed, would you lose information?** If yes, the alt text must convey that information.
-2. **Does the alt text make sense out of context?** Screen reader users may navigate by image list — each alt text should stand on its own.
+2. **Does the alt text make sense out of context?** Screen reader users may navigate by image list, so each alt text should stand on its own.
 3. **Is the alt text free of redundancy?** No "image of," no repeating adjacent text.
 4. **For complex images, is a long description available?** Alt text alone is not enough for charts and diagrams.
 

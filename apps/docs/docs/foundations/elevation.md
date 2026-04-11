@@ -5,6 +5,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 
 <div style={{marginBottom: '2rem'}}>
   <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Styles</span>
@@ -240,38 +241,32 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 
 ## Do / Don't
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use semantic tokens (<code>--shadow-component-sm</code>, <code>--shadow-overlay</code>) so shadow intensity can be tuned globally.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Hardcode <code>box-shadow</code> values or use primitives like <code>--shadow-md</code> directly in component CSS.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use semantic tokens so shadow intensity can be tuned globally.">
+    <code>box-shadow: var(--shadow-component-sm);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Hardcode box-shadow values or use primitives directly in component CSS.">
+    <code>box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use directional shadows (<code>--shadow-shallow-below</code>) on sticky elements so shadow only casts in the scroll direction.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Apply an omnidirectional shadow like <code>--shadow-lg</code> on a sticky header — it creates unwanted glow on the sides.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use directional shadows on sticky elements so shadow only casts in the scroll direction.">
+    <code>box-shadow: var(--shadow-shallow-below);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Applying an omnidirectional shadow on a sticky header creates unwanted glow on the sides.">
+    <code>box-shadow: var(--shadow-lg);</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
-<div className="do-dont-grid">
-  <div className="do-block">
-    <strong>Do</strong>
-    <p>Use semantic z-index tokens (<code>--z-semantic-modal</code>) and render high-tier elements via portals.</p>
-  </div>
-  <div className="dont-block">
-    <strong>Don't</strong>
-    <p>Use magic numbers like <code>z-index: 9999</code>. They bypass the layering system and create stacking conflicts.</p>
-  </div>
-</div>
+<Guidance.Grid>
+  <Guidance.Do description="Use semantic z-index tokens and render high-tier elements via portals.">
+    <code>z-index: var(--z-semantic-modal);</code>
+  </Guidance.Do>
+  <Guidance.Dont description="Magic numbers bypass the layering system and create stacking conflicts.">
+    <code>z-index: 9999;</code>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 </TabItem>
 <TabItem value="tokens" label="Tokens">

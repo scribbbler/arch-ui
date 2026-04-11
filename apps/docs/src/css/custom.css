@@ -501,37 +501,6 @@ ul.tabs .tabs__item:hover {
   --ifm-color-primary-lightest: #DEE9FE;
 }
 
-/* Do/Don't styling */
-.do-dont-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.do-block, .dont-block {
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.do-block {
-  border-left: 4px solid #06C167;
-  background: #EAF6ED;
-}
-
-.dont-block {
-  border-left: 4px solid #DE1135;
-  background: #FFF0EE;
-}
-
-[data-theme='dark'] .do-block {
-  background: #0D572D;
-}
-
-[data-theme='dark'] .dont-block {
-  background: #520810;
-}
-
 /* ─── Navbar consistency ─────────────────────────────────────────────────────── */
 
 .navbar__items .navbar__item.navbar__link {
