@@ -2,128 +2,16 @@
 slug: /components
 sidebar_position: 0
 title: Components
+description: Reusable, accessible UI building blocks designed to work together. Every component follows the Arch design system foundations — tokens, spacing, color, and typography — so your interfaces stay consistent.
+eyebrow: Components
+status: Draft
 hide_title: true
 ---
 
-import Link from '@docusaurus/Link';
+import PageHeader from '@site/src/components/PageHeader';
+import { CategoryCardGrid } from '@site/src/components/CategoryCard';
+import { componentCategories } from '@site/src/data/categories';
 
-<div style={{marginBottom: '2rem'}}>
-  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Components</span>
-  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Components</h1>
-    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
-  </div>
-  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    Reusable, accessible UI building blocks designed to work together.
-    Every component follows the Arch design system foundations — tokens,
-    spacing, color, and typography — so your interfaces stay consistent.
-  </p>
-</div>
+<PageHeader />
 
-<div className="foundation-grid">
-
-<Link to="/components/button" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="15" y="25" width="90" height="30" rx="6" stroke="currentColor" strokeWidth="2" />
-<line x1="70" y1="40" x2="85" y2="40" stroke="currentColor" strokeWidth="2" />
-<polyline points="80,35 85,40 80,45" stroke="currentColor" strokeWidth="2" fill="none" />
-</svg>
-</div>
-<div className="docs-category-card__title">Buttons</div>
-</Link>
-
-<Link to="/components/input" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="15" y="15" width="50" height="50" rx="6" stroke="currentColor" strokeWidth="2" />
-<polyline points="30,40 40,50 55,30" stroke="currentColor" strokeWidth="2" fill="none" />
-<rect x="75" y="15" width="30" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
-<polyline points="83,30 90,37 97,23" stroke="currentColor" strokeWidth="2" fill="none" />
-</svg>
-</div>
-<div className="docs-category-card__title">Input and selection</div>
-</Link>
-
-<Link to="/components/badge" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="30" cy="30" r="15" stroke="currentColor" strokeWidth="2" />
-<circle cx="60" cy="30" r="15" stroke="currentColor" strokeWidth="2" />
-<path d="M75 30 C75 20, 90 15, 90 30 C90 15, 105 20, 105 30 C105 45, 90 55, 90 55 C90 55, 75 45, 75 30Z" stroke="currentColor" strokeWidth="2" fill="none" />
-<circle cx="30" cy="60" r="6" fill="currentColor" />
-<rect x="45" y="55" width="30" height="10" rx="5" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Indicator and status</div>
-</Link>
-
-<Link to="/components/accordion" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="15" y="10" width="90" height="15" rx="3" stroke="currentColor" strokeWidth="2" />
-<rect x="15" y="32" width="90" height="15" rx="3" stroke="currentColor" strokeWidth="2" />
-<rect x="15" y="54" width="90" height="15" rx="3" stroke="currentColor" strokeWidth="2" />
-<line x1="25" y1="17" x2="55" y2="17" stroke="currentColor" strokeWidth="2" />
-<line x1="25" y1="39" x2="65" y2="39" stroke="currentColor" strokeWidth="2" />
-<line x1="25" y1="61" x2="50" y2="61" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Content display</div>
-</Link>
-
-<Link to="/components/alert" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="15" y="15" width="90" height="50" rx="6" stroke="currentColor" strokeWidth="2" />
-<circle cx="35" cy="40" r="8" stroke="currentColor" strokeWidth="2" />
-<line x1="35" y1="35" x2="35" y2="41" stroke="currentColor" strokeWidth="2" />
-<circle cx="35" cy="44" r="1" fill="currentColor" />
-<line x1="52" y1="35" x2="90" y2="35" stroke="currentColor" strokeWidth="2" />
-<line x1="52" y1="45" x2="80" y2="45" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Messaging</div>
-</Link>
-
-<Link to="/components/modal" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="5" width="100" height="70" rx="6" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
-<rect x="25" y="15" width="70" height="50" rx="6" stroke="currentColor" strokeWidth="2" />
-<line x1="80" y1="22" x2="86" y2="28" stroke="currentColor" strokeWidth="2" />
-<line x1="86" y1="22" x2="80" y2="28" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Containers and layout</div>
-</Link>
-
-<Link to="/components/tabs" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<polyline points="25,40 15,40 15,65 105,65 105,40 55,40" stroke="currentColor" strokeWidth="2" fill="none" />
-<rect x="25" y="30" width="30" height="10" rx="3" stroke="currentColor" strokeWidth="2" />
-<line x1="40" y1="50" x2="90" y2="50" stroke="currentColor" strokeWidth="2" />
-<line x1="40" y1="57" x2="75" y2="57" stroke="currentColor" strokeWidth="2" />
-<polyline points="15,40 10,40 10,20 35,20" stroke="currentColor" strokeWidth="2" fill="none" />
-<polyline points="40,20 60,20" stroke="currentColor" strokeWidth="2" fill="none" />
-</svg>
-</div>
-<div className="docs-category-card__title">Navigation</div>
-</Link>
-
-<Link to="/components/table" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="15" y="10" width="90" height="60" rx="4" stroke="currentColor" strokeWidth="2" />
-<line x1="15" y1="25" x2="105" y2="25" stroke="currentColor" strokeWidth="2" />
-<line x1="15" y1="40" x2="105" y2="40" stroke="currentColor" strokeWidth="1.5" />
-<line x1="15" y1="55" x2="105" y2="55" stroke="currentColor" strokeWidth="1.5" />
-<line x1="50" y1="10" x2="50" y2="70" stroke="currentColor" strokeWidth="1.5" />
-<line x1="80" y1="10" x2="80" y2="70" stroke="currentColor" strokeWidth="1.5" />
-</svg>
-</div>
-<div className="docs-category-card__title">Data and tables</div>
-</Link>
-
-</div>
+<CategoryCardGrid items={componentCategories} />

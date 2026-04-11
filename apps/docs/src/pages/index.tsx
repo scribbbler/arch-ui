@@ -1,40 +1,8 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import { COMPONENT_COUNT } from '../constants';
 import SiteFooter from '../components/SiteFooter';
-
-const categories = [
-  {
-    title: 'Foundations',
-    description:
-      'The building blocks of Arch UI. Find out how the system is set up.',
-    href: '/foundations',
-    image: '/img/landing/foundations.png',
-  },
-  {
-    title: 'Components',
-    description:
-      'Review specs, guidelines, behaviors, and proper usage for Arch UI components.',
-    href: '/components',
-    image: '/img/landing/components.png',
-  },
-  {
-    title: 'Patterns',
-    description:
-      'Review broader design patterns and the module libraries that power them.',
-    href: '/patterns/forms',
-    image: '/img/landing/patterns.png',
-  },
-  {
-    title: 'Resources & Tools',
-    description:
-      'Learn how to use Arch UI to design focused and accessible experiences.',
-    href: '/intro',
-    image: '/img/landing/resources.png',
-  },
-];
+import { CategoryCardGrid } from '../components/CategoryCard';
+import { topLevelCategories } from '../data/categories';
 
 export default function Home(): React.ReactElement {
   return (
@@ -55,17 +23,7 @@ export default function Home(): React.ReactElement {
       </header>
 
       <main className="arch-categories">
-        <div className="arch-categories__grid">
-          {categories.map((cat) => (
-            <Link key={cat.title} to={useBaseUrl(cat.href)} className="docs-category-card">
-              <div className="docs-category-card__icon">
-                <img src={useBaseUrl(cat.image)} alt="" />
-              </div>
-              <h3 className="docs-category-card__title">{cat.title}</h3>
-              <p className="docs-category-card__description">{cat.description}</p>
-            </Link>
-          ))}
-        </div>
+        <CategoryCardGrid items={topLevelCategories} />
         <SiteFooter />
       </main>
     </Layout>

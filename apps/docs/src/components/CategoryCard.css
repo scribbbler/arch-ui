@@ -65,19 +65,22 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
+/*
+ * Media aspect ratio matches the source images shipped in
+ * static/img/foundations/styles/ (792 × 400). All category card artwork is
+ * expected to use the same intrinsic ratio so cards line up across a grid —
+ * new assets should be exported at the same dimensions.
+ */
 .arch-category-card__media {
   background: #0a0a0a;
-  aspect-ratio: 3 / 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  aspect-ratio: 792 / 400;
   overflow: hidden;
 }
 
 .arch-category-card__image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
 }
 

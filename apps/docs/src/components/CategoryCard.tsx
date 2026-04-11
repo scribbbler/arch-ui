@@ -38,18 +38,20 @@ export interface CategoryCardProps {
 
 export function CategoryCard({ category }: CategoryCardProps): React.ReactElement {
   const description = useCardDescription(category);
-  const imageSrc = useBaseUrl(category.image);
+  const imageSrc = useBaseUrl(category.image ?? '');
   const href = useBaseUrl(category.href);
 
   return (
     <Link to={href} className="arch-category-card">
       <div className="arch-category-card__media">
-        <img
-          className="arch-category-card__image"
-          src={imageSrc}
-          alt=""
-          loading="lazy"
-        />
+        {category.image && (
+          <img
+            className="arch-category-card__image"
+            src={imageSrc}
+            alt=""
+            loading="lazy"
+          />
+        )}
       </div>
       <div className="arch-category-card__body">
         <h3 className="arch-category-card__title">{category.title}</h3>
