@@ -76,12 +76,6 @@ const sidebars = {
     'components/status',
     {
       type: 'category',
-      label: 'Version guides',
-      collapsed: false,
-      items: ['components/version-guides'],
-    },
-    {
-      type: 'category',
       label: 'Buttons',
       collapsed: false,
       items: [
