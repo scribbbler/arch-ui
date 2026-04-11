@@ -288,6 +288,22 @@
   background: #1F1F1F;
 }
 
+/* ─── Doc subsection divider ─────────────────────────────────────────────────
+   Every h3 inside a doc page gets a 2px top rule so subsections within an h2
+   chunk are visually separated. Pairs with the 8px `---` bar between h2s:
+   h2 = heavy 8px chunk break, h3 = lighter 2px subsection break. CSS-only so
+   no markdown edits are needed. */
+.theme-doc-markdown h3,
+.markdown h3 {
+  border-top: 2px solid #F3F3F3;
+  padding-top: 32px;
+  margin-top: 40px;
+}
+[data-theme='dark'] .theme-doc-markdown h3,
+[data-theme='dark'] .markdown h3 {
+  border-top-color: #1F1F1F;
+}
+
 /* Custom site footer — rendered inside the main content column on doc pages
    (via swizzled DocItem/Layout) and directly on the landing page. */
 .site-footer {
