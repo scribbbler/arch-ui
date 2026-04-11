@@ -6,30 +6,8 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Guidance from '@site/src/components/Guidance';
 import { Button } from '../../../../packages/components/src/Button';
-
-export const DoDont = ({doText, dontText, doLabel = 'Do', dontLabel = "Don't", cautionText, cautionLabel = 'Caution'}) => (
-  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0'}}>
-    <div>
-      <div style={{background: '#E6F2ED', borderRadius: '12px', padding: '32px', minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px'}}>
-        <div style={{background: 'white', borderRadius: '12px', padding: '24px', width: '100%', textAlign: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}>
-          {doText}
-        </div>
-      </div>
-      <span style={{display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#E6F2ED', padding: '4px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 600}}>✓ {doLabel}</span>
-    </div>
-    <div>
-      <div style={{background: dontLabel === 'Caution' ? '#FFF1E1' : '#FFF0EE', borderRadius: '12px', padding: '32px', minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px'}}>
-        <div style={{background: 'white', borderRadius: '12px', padding: '24px', width: '100%', textAlign: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}>
-          {dontText || cautionText}
-        </div>
-      </div>
-      <span style={{display: 'inline-flex', alignItems: 'center', gap: '6px', background: dontLabel === 'Caution' ? '#FFF1E1' : '#FFF0EE', padding: '4px 12px', borderRadius: '20px', fontSize: '13px', fontWeight: 600}}>
-        {dontLabel === 'Caution' ? '!' : '✕'} {cautionText ? cautionLabel : dontLabel}
-      </span>
-    </div>
-  </div>
-);
 
 export const Section = ({children, gray}) => (
   <div style={{background: gray ? '#F3F3F3' : 'transparent', padding: gray ? '48px 24px' : '0', margin: gray ? '32px calc(-1 * (50vw - 50%))' : '0', width: gray ? '100vw' : 'auto', position: gray ? 'relative' : 'static', left: gray ? '50%' : 'auto', transform: gray ? 'translateX(-50%)' : 'none'}}>
@@ -208,7 +186,7 @@ Buttons use color and contrast to create three levels of emphasis and hierarchy.
 |-----------|----------|---------------|---------|
 | Primary | High | 1 | **The most important action** to move forward in a flow, acknowledge and dismiss, or finish a task. |
 | Secondary | Medium | Many | **Most actions** are in line with other content. |
-| Tertiary | Low | A few | **Dismissive actions** give users a way out — cancel, do nothing, dismiss, or skip. |
+| Tertiary | Low | A few | **Dismissive actions** give users a way out to cancel, do nothing, dismiss, or skip. |
 
 ---
 
@@ -216,14 +194,18 @@ Buttons use color and contrast to create three levels of emphasis and hierarchy.
 
 Use one primary button per context to allow users to take a specific action, move forward in a flow, acknowledge and dismiss, or finish a task.
 
-<DoDont
-  doText={<div><B label="Secondary" kind="secondary" style={{width: '100%', marginBottom: '8px'}} /><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Tertiary" kind="tertiary" style={{width: '100%'}} /></div>}
-  dontText={<div><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Tertiary" kind="tertiary" style={{width: '100%'}} /></div>}
-/>
-
-Use one primary button per context to highlight the action the user will most likely take.
-
-Avoid using multiple primary buttons on a screen.
+<Guidance.Grid>
+  <Guidance.Do description="Use one primary button per context to highlight the action the user will most likely take.">
+    <B label="Secondary" kind="secondary" style={{width: '100%', marginBottom: '8px'}} />
+    <B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} />
+    <B label="Tertiary" kind="tertiary" style={{width: '100%'}} />
+  </Guidance.Do>
+  <Guidance.Dont description="Avoid using multiple primary buttons on a screen.">
+    <B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} />
+    <B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} />
+    <B label="Tertiary" kind="tertiary" style={{width: '100%'}} />
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
@@ -231,15 +213,18 @@ Avoid using multiple primary buttons on a screen.
 
 Secondary buttons are the bread and butter of the button world. Lean into them whenever possible. The gray background protection provides higher visibility, making them more accessible than tertiary buttons.
 
-<DoDont
-  doText={<div><B label="Label" kind="secondary" /><div style={{marginTop: '16px'}}><B label="Secondary" kind="secondary" style={{width: '100%'}} /></div></div>}
-  dontText={<div><B label="Change address" kind="primary" style={{borderRadius: '9999px'}} /><div style={{marginTop: '16px', fontSize: '13px', color: '#727272'}}>Avoid using primary buttons in the middle of the page</div></div>}
-  dontLabel="Caution"
-/>
-
-Do use secondary buttons inline with list items and other elements.
-
-Avoid using primary buttons in the middle of the page (use secondary buttons instead). Primary actions usually should be pinned at the bottom.
+<Guidance.Grid>
+  <Guidance.Do description="Use secondary buttons inline with list items and other elements.">
+    <B label="Label" kind="secondary" />
+    <div style={{marginTop: '16px'}}>
+      <B label="Secondary" kind="secondary" style={{width: '100%'}} />
+    </div>
+  </Guidance.Do>
+  <Guidance.Caution description="Avoid using primary buttons in the middle of the page. Use secondary buttons instead. Primary actions usually should be pinned at the bottom.">
+    <B label="Change address" kind="primary" style={{borderRadius: '9999px'}} />
+    <div style={{marginTop: '16px', fontSize: '13px', color: '#727272'}}>Avoid using primary buttons in the middle of the page</div>
+  </Guidance.Caution>
+</Guidance.Grid>
 
 ---
 
@@ -247,14 +232,16 @@ Avoid using primary buttons in the middle of the page (use secondary buttons ins
 
 Tertiary buttons are mainly used for **dismissive actions** that give users a way out of something, letting them do nothing, dismiss, or skip.
 
-<DoDont
-  doText={<div><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Tertiary" kind="tertiary" style={{width: '100%'}} /></div>}
-  dontText={<div><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Secondary" kind="secondary" style={{width: '100%'}} /></div>}
-/>
-
-Do treat buttons with a dismissive behavior similar to "Cancel" with the tertiary style.
-
-Avoid using secondary-style buttons for dismissive actions.
+<Guidance.Grid>
+  <Guidance.Do description='Treat buttons with a dismissive behavior similar to "Cancel" with the tertiary style.'>
+    <B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} />
+    <B label="Tertiary" kind="tertiary" style={{width: '100%'}} />
+  </Guidance.Do>
+  <Guidance.Dont description="Avoid using secondary-style buttons for dismissive actions.">
+    <B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} />
+    <B label="Secondary" kind="secondary" style={{width: '100%'}} />
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
@@ -277,14 +264,18 @@ Destructive buttons are actions that permanently cause data loss. Because these 
 
 If a flow includes an action that could be destructive, it's important to give users a chance to double-check before it's completed. The initial action should be designed in a way that suggests caution, using a secondary destructive button, and then a final confirmation dialog should appear with a more obvious warning, using a primary destructive button.
 
-<DoDont
-  doText={<div><B label="Logout" kind="secondary" icon="→" style={{width: '100%', marginBottom: '16px'}} /><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B label="Tertiary" kind="tertiary" style={{width: '100%'}} /></div>}
-  dontText={<div><B label="Logout" kind="dangerSecondary" icon="→" style={{width: '100%', marginBottom: '16px'}} /><B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} /><B kind="dangerSecondary" style={{width: '100%'}} /></div>}
-/>
-
-Do use standard buttons for actions that don't cause data loss.
-
-Don't use destructive actions for actions that don't cause data loss, like logging out or canceling a task.
+<Guidance.Grid>
+  <Guidance.Do description="Use standard buttons for actions that don't cause data loss.">
+    <B label="Logout" kind="secondary" icon="→" style={{width: '100%', marginBottom: '16px'}} />
+    <B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} />
+    <B label="Tertiary" kind="tertiary" style={{width: '100%'}} />
+  </Guidance.Do>
+  <Guidance.Dont description="Don't use destructive actions for actions that don't cause data loss, like logging out or canceling a task.">
+    <B label="Logout" kind="dangerSecondary" icon="→" style={{width: '100%', marginBottom: '16px'}} />
+    <B label="Primary" kind="primary" style={{width: '100%', marginBottom: '8px'}} />
+    <B kind="dangerSecondary" style={{width: '100%'}} />
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
@@ -595,27 +586,34 @@ Rounded pill buttons have a minimum width to avoid that almost-circle look when 
 </div>
 </div>
 
-<DoDont
-  doText={<div style={{textAlign: 'center'}}><B label="Yes" kind="secondary" shape="pill" />{' '}<B label="No" kind="secondary" shape="pill" /></div>}
-  dontText={<div style={{textAlign: 'center', color: '#727272'}}>Buttons that are almost a pill but not quite a circle</div>}
-/>
-
-Use the minimum width for buttons with shorter label lengths.
-
-Don't use a width smaller than the minimum. This creates buttons that are almost a pill but not quite a circle.
+<Guidance.Grid>
+  <Guidance.Do description="Use the minimum width for buttons with shorter label lengths.">
+    <div style={{textAlign: 'center'}}>
+      <B label="Yes" kind="secondary" shape="pill" />{' '}
+      <B label="No" kind="secondary" shape="pill" />
+    </div>
+  </Guidance.Do>
+  <Guidance.Dont description="Don't use a width smaller than the minimum. This creates buttons that are almost a pill but not quite a circle.">
+    <div style={{textAlign: 'center', color: '#727272'}}>Buttons that are almost a pill but not quite a circle</div>
+  </Guidance.Dont>
+</Guidance.Grid>
 
 **Pill button max-width**
 
 Avoid stretching pill buttons to the width of a container. Use a rectangle button if you desire fixed-width behavior.
 
-<DoDont
-  doText={<div><div style={{background: 'white', borderRadius: '12px', padding: '24px', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}><div style={{fontWeight: 700, fontSize: '18px'}}>4 matched loads</div><div style={{color: '#727272', fontSize: '14px', margin: '8px 0'}}>Houston, TX → Local, short hauls</div><B label="View matches" kind="secondary" shape="pill" /></div></div>}
-  dontText={<div><div style={{background: 'white', borderRadius: '12px', padding: '24px', boxShadow: '0 1px 4px rgba(0,0,0,0.08)'}}><div style={{fontWeight: 700, fontSize: '18px'}}>4 matched loads</div><div style={{color: '#727272', fontSize: '14px', margin: '8px 0'}}>Houston, TX → Local, short hauls</div><B label="View matches" kind="secondary" fullWidth /></div></div>}
-/>
-
-Do use intrinsic width pill buttons which correspond to the length of the label.
-
-Avoid stretching pill buttons to fill the width of a container.
+<Guidance.Grid>
+  <Guidance.Do description="Use intrinsic width pill buttons which correspond to the length of the label.">
+    <div style={{fontWeight: 700, fontSize: '18px'}}>4 matched loads</div>
+    <div style={{color: '#727272', fontSize: '14px', margin: '8px 0'}}>Houston, TX to local, short hauls</div>
+    <B label="View matches" kind="secondary" shape="pill" />
+  </Guidance.Do>
+  <Guidance.Dont description="Avoid stretching pill buttons to fill the width of a container.">
+    <div style={{fontWeight: 700, fontSize: '18px'}}>4 matched loads</div>
+    <div style={{color: '#727272', fontSize: '14px', margin: '8px 0'}}>Houston, TX to local, short hauls</div>
+    <B label="View matches" kind="secondary" fullWidth />
+  </Guidance.Dont>
+</Guidance.Grid>
 
 ---
 
@@ -755,11 +753,11 @@ For screens wider than 600px the Button will be in its original size and aligned
 
 ## Related components
 
-- **[ButtonGroup](/components/button-group)** — Group of mutually exclusive buttons
-- **[ButtonDock](/components/button-dock)** — Fixed bottom action bar for primary/secondary actions
-- **[Link](/components/link)** — For navigation without an action
-- **[Toggle](/components/toggle)** — For binary on/off states
-- **[SegmentedControl](/components/segmented-control)** — For switching between views
+- **[ButtonGroup](/components/button-group)**: Group of mutually exclusive buttons
+- **[ButtonDock](/components/button-dock)**: Fixed bottom action bar for primary or secondary actions
+- **[Link](/components/link)**: For navigation without an action
+- **[Toggle](/components/toggle)**: For binary on/off states
+- **[SegmentedControl](/components/segmented-control)**: For switching between views
 
 </TabItem>
 <TabItem value="specs" label="Specs">
@@ -774,9 +772,9 @@ For screens wider than 600px the Button will be in its original size and aligned
 | `isSelected` | `boolean` | `false` | Toggle state for ButtonGroup |
 | `disabled` | `boolean` | `false` | Prevents interaction |
 | `isLoading` | `boolean` | `false` | Shows spinner, disables button |
-| `loadingText` | `string` | — | Label shown during loading |
-| `startEnhancer` | `ReactNode` | — | Icon before label |
-| `endEnhancer` | `ReactNode` | — | Icon after label |
+| `loadingText` | `string` |  | Label shown during loading |
+| `startEnhancer` | `ReactNode` |  | Icon before label |
+| `endEnhancer` | `ReactNode` |  | Icon after label |
 | `fullWidth` | `boolean` | `false` | Stretches to 100% width |
 | `as` | `ElementType` | `'button'` | Polymorphic root element |
 
@@ -793,10 +791,10 @@ For screens wider than 600px the Button will be in its original size and aligned
 
 | State | Visual | ARIA |
 |-------|--------|------|
-| Default | Base background | — |
-| Hover | One shade darker | — |
-| Active/Pressed | Two shades darker | — |
-| Focus | Inset 2px ring | — |
+| Default | Base background |  |
+| Hover | One shade darker |  |
+| Active/Pressed | Two shades darker |  |
+| Focus | Inset 2px ring |  |
 | Disabled | 50% opacity | `disabled` attribute |
 | Loading | Spinner + optional text | `aria-busy="true"` |
 | Selected | Active shade background | `aria-pressed="true"` |
@@ -826,10 +824,10 @@ For screens wider than 600px the Button will be in its original size and aligned
 
 <h2>Writing Button Labels</h2>
 
-- **Use verbs** — "Save changes", not "Changes"
-- **Be specific** — "Delete account" instead of just "Delete"
-- **Stay concise** — 1–3 words for primary, up to 5 for secondary
-- **Use sentence case** — "Save changes", not "Save Changes"
+- **Use verbs**: "Save changes", not "Changes"
+- **Be specific**: "Delete account" instead of just "Delete"
+- **Stay concise**: 1 to 3 words for primary, up to 5 for secondary
+- **Use sentence case**: "Save changes", not "Save Changes"
 
 <h2>Loading Text</h2>
 
@@ -849,14 +847,14 @@ When `isLoading` is true, replace the label with a present participle:
 
 **Related actions** share a common goal (e.g., "End ride" / "Unlock"). Use the same hierarchy level.
 
-**Opposite actions** conflict (e.g., "Cancel order" / "Continue order"). Use different hierarchy levels — primary for the forward action, tertiary for the dismissive action.
+**Opposite actions** conflict (e.g., "Cancel order" / "Continue order"). Use different hierarchy levels: primary for the forward action, tertiary for the dismissive action.
 
 </TabItem>
 <TabItem value="changelog" label="Status & changelog">
 
 <h2>Status</h2>
 
-**Stable** — This component is production-ready and covered by semantic versioning.
+**Stable**: This component is production-ready and covered by semantic versioning.
 
 <h2>Changelog</h2>
 
@@ -869,7 +867,7 @@ When `isLoading` is true, replace the label with a present participle:
 - Added `shape` prop (default, pill, circle, square)
 - Added `isSelected` prop
 - Added kinds: tertiary, dangerSecondary, dangerTertiary
-- Removed IconButton — use `Button shape="circle"` instead
+- Removed IconButton. Use `Button shape="circle"` instead.
 
 <h3>v0.1.0 (2026-04-02)</h3>
 

@@ -338,10 +338,10 @@ You should use **Paragraph Medium (16)** or **Paragraph Large (18)** for multi-l
   </Guidance.Dont>
 </Guidance.Grid>
 
-<Guidance.Caution>
-  <p>Do not use ParagraphX Small at 12 for long-form text on small devices.</p>
-  <p>The smaller size can strain the eyes. Use sparingly at a max of 3 lines for items like legal disclaimers.</p>
-</Guidance.Caution>
+<div className="docs-callout docs-callout--warning">
+  <p style={{margin: '0 0 8px'}}>Do not use Paragraph X Small at 12 for long-form text on small devices.</p>
+  <p style={{margin: 0}}>The smaller size can strain the eyes. Use sparingly at a max of 3 lines for items like legal disclaimers.</p>
+</div>
 
 ---
 

@@ -226,6 +226,9 @@
 .guidance__preview--dont {
   background: #FFF0EE;
 }
+.guidance__preview--caution {
+  background: #FFF1E1;
+}
 .guidance__card {
   background: #fff;
   border-radius: 12px;
@@ -254,37 +257,15 @@
   background: #FFF0EE;
   color: #B8102E;
 }
+.guidance__badge--caution {
+  background: #FFF1E1;
+  color: #7A4A00;
+}
 .guidance__desc {
   font-size: 14px;
   color: #5E5E5E;
   margin: 0;
   line-height: 1.5;
-}
-
-.guidance-caution {
-  margin: 24px 0;
-}
-.guidance-caution__badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  background: #FFF1E1;
-  color: #7A4A00;
-  margin-bottom: 12px;
-}
-.guidance-caution__body {
-  font-size: 14px;
-  color: #282828;
-  line-height: 1.6;
-}
-.guidance-caution__body p {
-  margin: 0 0 8px 0;
-}
-.guidance-caution__body p:last-child {
-  margin-bottom: 0;
 }
 
 /* Custom site footer — rendered inside the main content column on doc pages

@@ -3,9 +3,11 @@ import React from 'react';
 /**
  * Shared Do / Don't / Caution guidance blocks for Arch UI docs.
  *
- * Use `<Guidance.Grid>` to lay out a Do and a Don't side by side,
- * `<Guidance.Do>` and `<Guidance.Dont>` for the tinted preview cards,
- * and `<Guidance.Caution>` for a full-width amber callout.
+ * Use `<Guidance.Grid>` to lay out guidance cards side by side, and
+ * `<Guidance.Do>`, `<Guidance.Dont>`, `<Guidance.Caution>` for the
+ * individual tinted preview cards. All three share the same shape
+ * (preview surface + badge + optional description) so any combination
+ * lines up cleanly in the grid.
  *
  * Import from this single file so every page renders guidance identically.
  */
@@ -41,11 +43,14 @@ function Dont({ children, description }: BlockProps): React.ReactElement {
   );
 }
 
-function Caution({ children }: WithChildren): React.ReactElement {
+function Caution({ children, description }: BlockProps): React.ReactElement {
   return (
-    <div className="guidance-caution">
-      <div className="guidance-caution__badge">! Caution</div>
-      <div className="guidance-caution__body">{children}</div>
+    <div className="guidance">
+      <div className="guidance__preview guidance__preview--caution">
+        <div className="guidance__card">{children}</div>
+      </div>
+      <div className="guidance__badge guidance__badge--caution">! Caution</div>
+      {description && <p className="guidance__desc">{description}</p>}
     </div>
   );
 }
