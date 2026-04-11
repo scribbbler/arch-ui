@@ -27,6 +27,16 @@
   margin-top: 4px;
 }
 
+/*
+ * Optical alignment: sans-serif capitals sit in the upper ~70% of the line
+ * box, so flex `align-items: center` places the badge visually low. Nudge
+ * the badge up so its center matches the title's cap-height center.
+ */
+.arch-page-header__title-row .arch-status-badge {
+  align-self: center;
+  transform: translateY(-0.18em);
+}
+
 .arch-page-header__title {
   margin: 0;
   line-height: 1;
