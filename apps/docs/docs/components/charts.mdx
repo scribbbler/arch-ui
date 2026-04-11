@@ -1,0 +1,161 @@
+---
+sidebar_label: Charts
+title: "Charts"
+description: "A set of data visualisation components for presenting quantitative information as graphical displays."
+eyebrow: "DATA AND TABLES"
+status: "Draft"
+hide_title: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import PageHeader from '@site/src/components/PageHeader';
+
+<PageHeader />
+
+<Tabs>
+<TabItem value="usage" label="Usage" default>
+
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
+  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
+    Preview coming soon
+  </div>
+</div>
+
+**Common alternative names**
+
+Data visualization, graphs, plots
+
+Usage guidelines coming soon.
+
+</TabItem>
+<TabItem value="specs" label="Specs">
+
+Specs coming soon.
+
+</TabItem>
+<TabItem value="content" label="Content">
+
+Content guidelines coming soon.
+
+</TabItem>
+<TabItem value="changelog" label="Status & changelog">
+
+Status & changelog coming soon.
+
+</TabItem>
+<TabItem value="code" label="Code">
+
+---
+
+## Available chart types
+
+### Bar Chart
+
+Compares discrete categories using horizontal or vertical bars. Best for showing rankings, comparisons across groups, or changes over a small number of time periods.
+
+```jsx
+import { BarChart } from '@arch-ui/components';
+
+<BarChart
+  caption="Revenue by quarter"
+  data={[
+    { label: 'Q1', value: 12000 },
+    { label: 'Q2', value: 18500 },
+    { label: 'Q3', value: 15200 },
+    { label: 'Q4', value: 21000 },
+  ]}
+/>
+```
+
+---
+
+### Line Chart
+
+Displays trends over a continuous axis (typically time). Best for showing change over time, growth rates, or comparing multiple series.
+
+```jsx
+import { LineChart } from '@arch-ui/components';
+
+<LineChart
+  caption="Daily active users"
+  series={[
+    { label: 'Mobile', data: [120, 150, 180, 200, 175] },
+    { label: 'Desktop', data: [90, 85, 95, 110, 105] },
+  ]}
+  xLabels={['Mon', 'Tue', 'Wed', 'Thu', 'Fri']}
+/>
+```
+
+---
+
+### Area Chart
+
+Similar to a line chart but with the area below the line filled, emphasising volume or cumulative totals.
+
+```jsx
+import { AreaChart } from '@arch-ui/components';
+
+<AreaChart
+  caption="Storage usage over time"
+  data={[10, 25, 40, 55, 70, 68, 75]}
+  xLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
+/>
+```
+
+---
+
+### Pie / Donut Chart
+
+Shows proportions of a whole. Use when there are fewer than six segments and the goal is to show relative share.
+
+```jsx
+import { DonutChart } from '@arch-ui/components';
+
+<DonutChart
+  caption="Traffic sources"
+  data={[
+    { label: 'Organic', value: 45 },
+    { label: 'Paid', value: 30 },
+    { label: 'Referral', value: 15 },
+    { label: 'Direct', value: 10 },
+  ]}
+/>
+```
+
+---
+
+## Expected common props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `caption` | `string` | -- | Accessible description of the chart. Required. |
+| `data` | `DataPoint[] \| Series[]` | -- | The data to visualise. Shape varies by chart type. Required. |
+| `height` | `number \| string` | `300` | Chart height. |
+| `colorScale` | `string[]` | -- | Custom colour palette. When omitted, uses the design system's categorical colour tokens. |
+| `showLegend` | `boolean` | `true` | When true, renders a legend. |
+| `showTooltip` | `boolean` | `true` | When true, hovering a data point shows a tooltip with the exact value. |
+| `animate` | `boolean` | `true` | When true, the chart animates on initial render. |
+| `className` | `string` | -- | Additional class names. |
+
+---
+
+## Design guidance
+
+- **Use colour tokens** -- chart colours should come from the design system's categorical palette tokens rather than arbitrary hex values. This ensures consistency and accessibility across themes.
+- **Always provide a caption** -- even though charts are visual, the caption gives screen readers and search engines context.
+- **Limit categories** -- pie and donut charts work best with fewer than six segments. For more categories, use a bar chart.
+- **Label axes** -- line and bar charts should include axis labels that clarify what the numbers represent.
+
+---
+
+## Accessibility
+
+- Every chart renders a `caption` or `aria-label` describing its purpose.
+- Data points should be reachable via keyboard. Each segment, bar, or point is focusable and reveals a tooltip on focus.
+- Charts should include a visually hidden data table fallback so screen reader users can access the underlying data.
+- Colour alone should not be the only differentiator between series. Use pattern fills, labels, or distinct marker shapes alongside colour.
+- Animations respect `prefers-reduced-motion: reduce`.
+
+</TabItem>
+</Tabs>
