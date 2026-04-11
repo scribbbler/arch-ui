@@ -22,20 +22,20 @@
 
   /*
    * Shrink the category expand/collapse chevron from the Infima
-   * default (~1.25rem) down to 16px. Targets both the standalone
+   * default (~1.25rem) down to 20px. Targets both the standalone
    * caret button (when the category has its own link) and the
    * inline caret appended to sublist links.
    */
   .menu :global(.menu__caret),
   .menu :global(.menu__link--sublist-caret) {
-    --ifm-menu-link-sublist-icon-size: 16px;
+    --ifm-menu-link-sublist-icon-size: 20px;
   }
   .menu :global(.menu__caret)::before,
   .menu :global(.menu__link--sublist-caret)::after {
-    width: 16px;
-    height: 16px;
-    min-width: 16px;
-    background-size: 16px 16px;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    background-size: 20px 20px;
   }
   .menu :global(.menu__caret) {
     padding: 0.5rem;
