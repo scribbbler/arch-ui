@@ -196,7 +196,10 @@
 .guidance-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto auto;
+  /* Three auto rows: surface, badge, description. Each card spans all
+     three via subgrid so surfaces, badges, and descs line up across the
+     row regardless of how long each card's description is. */
+  grid-template-rows: auto auto auto;
   gap: 12px 24px;
   margin: 24px 0;
 }
@@ -209,16 +212,15 @@
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-  gap: 12px;
+  gap: 8px;
 }
 .guidance__preview {
   border-radius: 12px;
   padding: 32px;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   min-height: 200px;
-  flex: 1;
 }
 .guidance__preview--do {
   background: #E6F2ED;
