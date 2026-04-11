@@ -45,6 +45,8 @@ Use ARIA when native HTML semantics are insufficient for the widget you are buil
 | Tree view | No | Yes — `role="tree"`, `role="treeitem"`, `aria-expanded` |
 | Alert | Partially (`role="alert"`) | Yes — for dynamic alerts not present on page load |
 
+---
+
 ### Essential ARIA attributes
 
 **`aria-label`** — Provides an accessible name when no visible text is present.
@@ -111,6 +113,8 @@ Announces changes at the next convenient pause. Use for non-urgent updates like 
 </div>
 ```
 
+---
+
 ### `aria-live="assertive"`
 
 Interrupts the current announcement to deliver the update immediately. Use sparingly — only for urgent messages like errors or time-sensitive alerts.
@@ -121,6 +125,8 @@ Interrupts the current announcement to deliver the update immediately. Use spari
 </div>
 ```
 
+---
+
 ### `role="status"`
 
 A shorthand for `aria-live="polite"` with `aria-atomic="true"`. Use for status indicators that update frequently.
@@ -130,6 +136,8 @@ A shorthand for `aria-live="polite"` with `aria-atomic="true"`. Use for status i
   {isLoading ? 'Loading results...' : `${count} results found`}
 </div>
 ```
+
+---
 
 ### Live region rules
 
@@ -146,6 +154,8 @@ A shorthand for `aria-live="polite"` with `aria-atomic="true"`. Use for status i
 1. Open **System Settings > Accessibility > VoiceOver** or press `Cmd + F5`
 2. Use `Ctrl + Option` (VO keys) as the modifier for all VoiceOver commands
 
+---
+
 ### Essential commands
 
 | Action | Shortcut |
@@ -158,6 +168,8 @@ A shorthand for `aria-live="polite"` with `aria-atomic="true"`. Use for status i
 | Open rotor (navigation menu) | `VO + U` |
 | Move by headings | `VO + Cmd + H` |
 | Move by form controls | `VO + Cmd + J` |
+
+---
 
 ### What to check
 
@@ -176,6 +188,8 @@ A shorthand for `aria-live="polite"` with `aria-atomic="true"`. Use for status i
 1. Download NVDA from [nvaccess.org](https://www.nvaccess.org/download/)
 2. The Insert key is the NVDA modifier key
 
+---
+
 ### Essential commands
 
 | Action | Shortcut |
@@ -189,6 +203,8 @@ A shorthand for `aria-live="polite"` with `aria-atomic="true"`. Use for status i
 | Move by headings | `H` / `Shift + H` |
 | Move by form controls | `F` / `Shift + F` |
 | List all headings | `NVDA + F7` |
+
+---
 
 ### Browse mode vs. focus mode
 
@@ -224,6 +240,8 @@ Key requirements:
 - Focus is trapped inside the dialog while it is open
 - `Escape` closes the dialog and returns focus to the trigger
 
+---
+
 ### Disclosure (accordion)
 
 ```jsx
@@ -239,6 +257,8 @@ Key requirements:
   </div>
 </div>
 ```
+
+---
 
 ### Tooltip
 
@@ -264,6 +284,8 @@ Tooltips use `aria-describedby` (not `aria-labelledby`) because they provide sup
 2. Go to the **Elements** panel
 3. Select an element and open the **Accessibility** pane in the sidebar
 4. Review the computed **Role**, **Name**, **State**, and **Description**
+
+---
 
 ### Firefox Accessibility Inspector
 

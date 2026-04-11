@@ -72,6 +72,8 @@ import { SystemBanner } from '@arch-ui/components';
 <SystemBanner variant="danger">Critical outage in progress. Our team is investigating.</SystemBanner>
 ```
 
+---
+
 ### With action
 
 ```jsx
@@ -83,6 +85,8 @@ import { SystemBanner } from '@arch-ui/components';
   Multiple services are experiencing issues.
 </SystemBanner>
 ```
+
+---
 
 ### Dismissible
 

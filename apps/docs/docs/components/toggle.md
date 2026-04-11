@@ -85,6 +85,8 @@ When no visible label is provided, use `aria-label` for screen reader context.
 />
 ```
 
+---
+
 ### Inside FormControl
 
 ```jsx

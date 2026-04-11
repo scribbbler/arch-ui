@@ -43,9 +43,13 @@ Color palette, colour, theme colors, color tokens
 
 Every color in the system has a role, not just a value. Instead of reaching for "blue-600", you use `--color-action-primary` — and the system handles what that means in light mode, dark mode, or any future theme. This keeps intent readable and theme switching painless.
 
+---
+
 ### Accessible by default
 
 Our palette was designed so that semantic pairings meet WCAG 2.1 contrast requirements out of the box. Text tokens paired with their corresponding background tokens achieve at least 4.5:1 contrast for normal text. Feedback colors — danger, success, warning, info — are tested in both themes to ensure legibility without relying on color alone.
+
+---
 
 ### Two-tier architecture
 
@@ -129,6 +133,8 @@ Components must always reference semantic tokens. Primitives exist to feed the s
   </Guidance.Dont>
 </Guidance.Grid>
 
+---
+
 ### Match token role to element purpose
 
 Choose tokens that match the semantic role of the element. A background should use a `background` token, not a `surface` token repurposed.
@@ -140,9 +146,13 @@ Choose tokens that match the semantic role of the element. A background should u
 | Disabled input border | `--color-border-disabled` | `--color-gray-200` |
 | Primary button fill | `--color-action-primary` | `--color-blue-600` |
 
+---
+
 ### Action token patterns
 
 Interactive elements follow a consistent three-state pattern: rest, hover, and active. Each variant (primary, secondary, ghost, destructive) provides all three plus a text color. See the **Code** tab for implementation examples.
+
+---
 
 ### Feedback tokens come in sets
 
@@ -209,6 +219,8 @@ All semantic text-on-background pairings meet WCAG 2.1 AA requirements:
 - **Large text** (18px+ or 14px+ bold): 3:1 minimum
 - **UI components and graphical objects**: 3:1 minimum against adjacent colors
 
+---
+
 ### Do not rely on color alone
 
 Color should reinforce meaning, not be the sole indicator. Combine color with text labels, icons, or patterns to ensure information is perceivable by users with color vision deficiencies.
@@ -221,6 +233,8 @@ Color should reinforce meaning, not be the sole indicator. Combine color with te
     <p style={{margin: 0}}>A red border as the only indicator that a field is invalid.</p>
   </Guidance.Dont>
 </Guidance.Grid>
+
+---
 
 ### Focus visibility
 
@@ -237,25 +251,37 @@ All semantic tokens used by Arch UI components. These tokens change values betwe
 
 <SemanticTokenTable category="background" />
 
+---
+
 <h3>Text</h3>
 
 <SemanticTokenTable category="text" />
+
+---
 
 <h3>Action</h3>
 
 <SemanticTokenTable category="action" />
 
+---
+
 <h3>Border</h3>
 
 <SemanticTokenTable category="border" />
+
+---
 
 <h3>Feedback</h3>
 
 <SemanticTokenTable category="feedback" />
 
+---
+
 <h3>Surface</h3>
 
 <SemanticTokenTable category="surface" />
+
+---
 
 <h3>Icon</h3>
 

@@ -212,6 +212,8 @@ Every icon in Arch UI renders with `aria-hidden="true"` by default. This is corr
 
 When `aria-label` is provided, the component automatically sets `role="img"` and removes `aria-hidden`, making the icon visible to assistive technology.
 
+---
+
 ### Minimum touch target
 
 Icon-only buttons must meet a 44 &times; 44 px minimum touch target (WCAG 2.5.8). The icon itself can be 16, 20, or 24 px, so pad the clickable area with spacing or a transparent border to reach the target size.

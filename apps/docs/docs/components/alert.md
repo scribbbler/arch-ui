@@ -77,6 +77,8 @@ Four semantic variants control the colour and default icon.
 <Alert variant="danger" title="Error" description="Unable to save changes." />
 ```
 
+---
+
 ### Dismissible alert
 
 Provide `onClose` to render a close button.
@@ -94,6 +96,8 @@ const [visible, setVisible] = useState(true);
 )}
 ```
 
+---
+
 ### Custom icon
 
 Override the default variant icon, or pass `null` to remove it entirely.
@@ -102,6 +106,8 @@ Override the default variant icon, or pass `null` to remove it entirely.
 <Alert variant="info" icon={<CustomIcon />} title="Custom" description="With a custom icon." />
 <Alert variant="info" icon={null} title="No icon" description="Icon suppressed." />
 ```
+
+---
 
 ### Internationalisation
 

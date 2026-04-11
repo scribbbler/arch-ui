@@ -95,6 +95,8 @@ The standard link colour, suited for body text and inline navigation.
 <Link href="/about">About us</Link>
 ```
 
+---
+
 ### Subtle
 
 A muted colour that blends with secondary text. Useful for footnotes, metadata, or dense link lists.
@@ -102,6 +104,8 @@ A muted colour that blends with secondary text. Useful for footnotes, metadata, 
 ```jsx
 <Link href="/terms" variant="subtle">Terms of service</Link>
 ```
+
+---
 
 ### Inverse
 

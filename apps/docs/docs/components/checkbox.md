@@ -86,6 +86,8 @@ Used to represent a partially selected group, such as a "select all" checkbox wh
 </Checkbox>
 ```
 
+---
+
 ### Label placement
 
 Position the label relative to the checkbox using the `labelPlacement` prop.
@@ -95,6 +97,8 @@ Position the label relative to the checkbox using the `labelPlacement` prop.
 <Checkbox labelPlacement="top">Label above</Checkbox>
 <Checkbox labelPlacement="bottom">Label below</Checkbox>
 ```
+
+---
 
 ### Error state
 

@@ -73,6 +73,8 @@ All grids, typography, and component constructions leverage this scale to produc
   </div>
 </div>
 
+---
+
 ### Baseline grid
 
 Built off the 4 spacing scale, the vertical grid provides a flexible structure that allows text to flow vertically along its baseline. This creates a consistent vertical rhythm across all product screens. Use multiples of 4 when defining measurements, spacing, and positioning elements.
@@ -84,6 +86,8 @@ Built off the 4 spacing scale, the vertical grid provides a flexible structure t
     ))}
   </div>
 </div>
+
+---
 
 ### Core sizes
 
@@ -124,6 +128,8 @@ While all increments of 4 are available, designers will use a set of five archet
 
 Use **padding** to create space inside a container — the breathing room around content. Use **margin** (or `gap`) to create space between sibling elements. In Arch UI components, prefer CSS `gap` on flex and grid containers over margin; it avoids collapsed-margin surprises and is easier to override with a single token.
 
+---
+
 ### Component spacing
 
 Semantic component tokens (`--spacing-component-*`) control the internal padding and gaps of individual components — buttons, inputs, cards, and dialogs. They follow a t-shirt size progression:
@@ -136,6 +142,8 @@ Semantic component tokens (`--spacing-component-*`) control the internal padding
 | `--spacing-component-lg` | 16 px | Card body padding, dialog content area |
 | `--spacing-component-xl` | 24 px | Large cards, hero sections inside components |
 
+---
+
 ### Inline spacing
 
 Inline tokens (`--spacing-inline-*`) handle the horizontal gaps between elements that sit on the same line — icon + label, avatar + name, tag + tag.
@@ -147,6 +155,8 @@ Inline tokens (`--spacing-inline-*`) handle the horizontal gaps between elements
 | `--spacing-inline-md` | 8 px | Icon-to-label gap (default), chip gap |
 | `--spacing-inline-lg` | 12 px | Adjacent buttons, wider inline groups |
 
+---
+
 ### Layout spacing
 
 Layout tokens control page-level structure — the gutter around content, the gap between major sections, and the gap between content blocks within a section.
@@ -156,6 +166,8 @@ Layout tokens control page-level structure — the gutter around content, the ga
 | `--spacing-layout-page-gutter` | 16 px | Left/right page margin on mobile-first layouts |
 | `--spacing-layout-content-gap` | 24 px | Gap between content blocks within a section |
 | `--spacing-layout-section-gap` | 48 px | Gap between major page sections |
+
+---
 
 ### Phone layout
 

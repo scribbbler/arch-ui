@@ -87,6 +87,8 @@ function ProductCard() {
 | `children` | `ReactNode` | -- | Card content. |
 | `className` | `string` | -- | Additional CSS class names. |
 
+---
+
 ### CardHeader / CardBody / CardFooter
 
 | Prop | Type | Default | Description |

@@ -74,6 +74,8 @@ import { FormControl, FormLabel, FormHelperText, Textarea } from '@arch-ui/compo
 </FormControl>
 ```
 
+---
+
 ### Auto-resize
 
 When `autoResize` is enabled, the textarea grows to fit its content. The manual resize handle is hidden.
@@ -81,6 +83,8 @@ When `autoResize` is enabled, the textarea grows to fit its content. The manual 
 ```jsx
 <Textarea autoResize placeholder="Start typing..." />
 ```
+
+---
 
 ### Clearable
 

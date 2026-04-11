@@ -100,6 +100,8 @@ Timed buttons should be used sparingly to notify users that the current screen r
   Ensure usage of these buttons is tied only to optional flows and actions and not interacting with them will cause no degradation in the overall quality of our products, services, or experiences.
 </div>
 
+---
+
 ### Use cases
 
 | Use case | Description |
@@ -108,6 +110,8 @@ Timed buttons should be used sparingly to notify users that the current screen r
 | **Focus on tasks at hand** | Increase user productivity by enabling quick auto-confirmation on actions that are extremely familiar, have a low learning curve and a low decline/dropoff rate. |
 | **Timeout to limit actions** | Timed buttons can be used to limit the number of times a user can take a certain action. |
 | **Buffer to reverse action** | Allow users, who realize they made a mistake or change their mind, to cancel an action within a certain amount of time after it has been triggered. |
+
+---
 
 ### Continuous transparency
 
@@ -126,6 +130,8 @@ Use the provided numerical countdown to reinforce how much time a user has left 
     <div style={{background: '#266EF1', color: '#fff', borderRadius: '8px', padding: '8px 20px', fontSize: '14px', fontWeight: 600, width: '160px', textAlign: 'center', lineHeight: 1.2}}>Continue<br/><span style={{fontSize: '12px', fontWeight: 400}}>7 seconds</span></div>
   </Guidance.Dont>
 </Guidance.Grid>
+
+---
 
 ### Asking for more time
 
@@ -150,9 +156,13 @@ We highly encourage thinking about ways to enable users to set their preferences
 | **Disabled** | Text and icons use disabled content color. Container uses disabled background. |
 | **Loading** | Container uses inverse primary. Spinner matches icon size for large button. |
 
+---
+
 ### Moving forward/backward in the flow
 
 When a user navigates forward through a timed flow, the timer begins immediately. If a user navigates backward to a previous step, the timer should reset to its original duration.
+
+---
 
 ### Proactive versus timeout interaction
 
@@ -161,6 +171,8 @@ Users can tap or click a timed button or do nothing as the timer completes. Both
 **Proactive**: If a user wants to proactively choose the auto-advance action before the timer ends, they can tap the button at any point during the countdown.
 
 **Timeout**: If a user does not interact with the timed button, the action will be executed automatically when the countdown reaches zero.
+
+---
 
 ### Motion and timing
 
@@ -195,6 +207,8 @@ When using timed buttons, ensure that the larger UI presentation layer they are 
 | Medium | 45 sec | Give the user 45 seconds to read your content and make an informed decision. |
 | Long | 75 sec | Give the user 75 seconds to read your content and make an informed decision. |
 | Custom | 8 sec &le; custom | You can set a custom duration of the timer, with an absolute minimum of 15 seconds, to ensure most users can make an informed decision and read through the content. |
+
+---
 
 ### Breakpoints
 
@@ -246,6 +260,8 @@ By using the "Updates frequently" trait, VoiceOver will continuously announce th
 | Value | `[time] seconds remaining` |
 | Trait | Button, Updates frequently |
 | Hint | n/a |
+
+---
 
 ### TalkBack
 

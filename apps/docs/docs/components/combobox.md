@@ -95,6 +95,8 @@ In multi-select mode, selected options appear as removable tags inside the contr
 />
 ```
 
+---
+
 ### Creatable
 
 Allow users to create new options that don't exist in the list.

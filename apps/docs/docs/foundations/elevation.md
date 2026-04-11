@@ -82,6 +82,8 @@ Shallow shadows are used for most use cases. They provide subtle depth for stick
 | `--shadow-shallow-above` | `0px -4px 16px rgba(0, 0, 0, 0.12)` | Sticky footers, bottom-docked toolbars |
 | `--shadow-shallow-below` | `0px 4px 16px rgba(0, 0, 0, 0.12)` | Sticky headers, top nav bars |
 
+---
+
 ### Deep
 
 Deep shadows are available when you have a component with a darker background. It's difficult for the eye to distinguish a shadow behind darker elements, for example, on a Snackbar or Tooltip.
@@ -142,6 +144,8 @@ In addition to directional shadows, Arch UI provides a six-step primitive shadow
 | Sticky headers | `--shadow-shallow-below` | Directional shadow avoids visible edges on sides |
 | Bottom sheets | `--shadow-deep-above` | Strong upward shadow for dramatic entrance |
 
+---
+
 ### Inner shadow
 
 An inset shadow used for pressed states, input fields, or recessed surfaces.
@@ -149,6 +153,8 @@ An inset shadow used for pressed states, input fields, or recessed surfaces.
 <div style={{background: '#f3f3f3', borderRadius: '12px', padding: '48px 32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
   <div style={{width: '200px', height: '80px', background: '#fff', borderRadius: '8px', boxShadow: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 600}}>shadow-inner</div>
 </div>
+
+---
 
 ### Shadow and motion
 
@@ -280,6 +286,8 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 | shadow-xl | `--shadow-xl` | `0 8px 24px hsla(0, 0%, 0%, 0.16)` |
 | shadow-2xl | `--shadow-2xl` | `0 16px 48px hsla(0, 0%, 0%, 0.22)` |
 
+---
+
 <h3>Directional and special shadows</h3>
 
 | Token | CSS variable | Value |
@@ -289,6 +297,8 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 | shadow-shallow-below | `--shadow-shallow-below` | `0px 4px 16px rgba(0, 0, 0, 0.12)` |
 | shadow-deep-above | `--shadow-deep-above` | `0px -16px 48px rgba(0, 0, 0, 0.22)` |
 | shadow-deep-below | `--shadow-deep-below` | `0px 16px 48px rgba(0, 0, 0, 0.22)` |
+
+---
 
 <h3>Semantic shadow tokens</h3>
 
@@ -314,6 +324,8 @@ Remember that `z-index` only works within a stacking context. A `z-index: 700` t
 | z-popover | `--z-popover` | `500` |
 | z-toast | `--z-toast` | `600` |
 | z-tooltip | `--z-tooltip` | `700` |
+
+---
 
 <h3>Semantic z-index</h3>
 

@@ -84,6 +84,8 @@ import { Tooltip } from '@arch-ui/components';
 </Tooltip>
 ```
 
+---
+
 ### Custom delay
 
 Adjust how long the user must hover before the tooltip appears.
@@ -97,6 +99,8 @@ Adjust how long the user must hover before the tooltip appears.
   <Button>600ms delay</Button>
 </Tooltip>
 ```
+
+---
 
 ### Multi-line content
 

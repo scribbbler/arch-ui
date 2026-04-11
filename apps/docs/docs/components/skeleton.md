@@ -98,6 +98,8 @@ The default variant. Full-width with a height matching `--typography-scale-parag
 <Skeleton variant="text" width="60%" />
 ```
 
+---
+
 ### Circular
 
 A fully rounded shape. Ideal for avatar or icon placeholders. When only `width` is set, `height` is automatically mirrored to keep the element square.
@@ -106,6 +108,8 @@ A fully rounded shape. Ideal for avatar or icon placeholders. When only `width` 
 <Skeleton variant="circular" width="40px" />
 <Skeleton variant="circular" width="64px" height="64px" />
 ```
+
+---
 
 ### Rectangular
 

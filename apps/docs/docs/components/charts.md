@@ -74,6 +74,8 @@ import { BarChart } from '@arch-ui/components';
 />
 ```
 
+---
+
 ### Line Chart
 
 Displays trends over a continuous axis (typically time). Best for showing change over time, growth rates, or comparing multiple series.
@@ -91,6 +93,8 @@ import { LineChart } from '@arch-ui/components';
 />
 ```
 
+---
+
 ### Area Chart
 
 Similar to a line chart but with the area below the line filled, emphasising volume or cumulative totals.
@@ -104,6 +108,8 @@ import { AreaChart } from '@arch-ui/components';
   xLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']}
 />
 ```
+
+---
 
 ### Pie / Donut Chart
 

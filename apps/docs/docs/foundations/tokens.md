@@ -66,6 +66,8 @@ There are established formats and best practices for naming we follow based on t
 
 Depending on how context specific a design token is, its naming can vary. For our most foundational tier, naming will often consist of the token type, followed by a numeric or ordinal scale. The more narrow the token's intended usage is, the more precise its name will be.
 
+---
+
 ### Type (optional)
 
 While design tokens can represent any design decision, there are a handful of established token types in W3C that summarize the purpose of the token and are often referenced by our tooling.
@@ -79,6 +81,8 @@ While design tokens can represent any design decision, there are a handful of es
 | **Duration** | Time durations, such as "0.5s" or "2ms". |
 | **Cubic Bezier** | Easing functions with cubic Bezier curves. |
 | **Number** | Simple numeric values without units. |
+
+---
 
 ### Value (required)
 
@@ -95,6 +99,8 @@ A design token's value is the specific data that defines a design property and i
 | **Object** | A collection of key/value pairs, which can be used to represent more complex design properties, such as gradients or shadows. |
 | **Array** | A collection of values of the same data type, such as a list of font sizes or spacing values. |
 | **Null** | A special value that represents the absence of a value. |
+
+---
 
 ### Composite tokens
 
@@ -119,6 +125,8 @@ W3C currently recognizes 6 composite token types.
 
 Composite tokens are not to be mistaken for group tokens. A group token does not have a value of its own but simply serves as a container or grouping mechanism for related tokens. Group tokens can be used to organize related tokens by category or context, such as color tokens for a specific brand or typography tokens for a specific component.
 
+---
+
 ### Description (optional)
 
 Beyond name and value, a design token can have a description property to provide additional information to the user. It's most often used to:
@@ -127,6 +135,8 @@ Beyond name and value, a design token can have a description property to provide
 - Provide usage guidance
 - Any relevant design considerations
 - Caveats & Limitations
+
+---
 
 ### W3C Definition & Format
 
@@ -209,6 +219,8 @@ shadow-sm           →  0 1px 4px hsla(0, 0%, 0%, 0.16)
 motion-duration-fast →  100ms
 ```
 
+---
+
 ### Semantic tokens
 
 A semantic token, also known as an alias token, is an abstraction layer that reflects the usage of a value in the UI instead of the literal value.
@@ -228,6 +240,8 @@ spacing-component-md         →  {spacing.12}         →  12px
 radius-component-md          →  {radius.md}          →  8px
 shadow-component-sm          →  {shadow.sm}          →  0 1px 4px ...
 ```
+
+---
 
 ### Component-specific tokens
 
@@ -253,9 +267,13 @@ input-border-focus   →  {color-border-focus}
 
 Design tokens provide a common language between designers and developers.
 
+---
+
 ### Consistency
 
 Remember that it takes a long time to cement a consistent "feel" with our users, but it takes very little to break it. Design tokens ensure consistency in our design system, connecting each element to a predefined style and, therefore, a design token.
+
+---
 
 ### Reusability
 

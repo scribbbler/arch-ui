@@ -90,6 +90,8 @@ toast({ title: 'Warning', variant: 'warning', description: 'Storage nearly full.
 toast({ title: 'Error', variant: 'danger', description: 'Failed to save changes.' });
 ```
 
+---
+
 ### Custom duration
 
 ```jsx
@@ -99,6 +101,8 @@ toast({ title: 'Uploading...', duration: 10000 });
 // Persistent (no auto-dismiss)
 toast({ title: 'Connection lost', variant: 'danger', duration: 0 });
 ```
+
+---
 
 ### Position
 
@@ -111,6 +115,8 @@ Control where toasts appear by setting the `position` prop on the provider.
 ```
 
 Available positions: `top-left`, `top-center`, `top-right`, `bottom-left`, `bottom-center`, `bottom-right`.
+
+---
 
 ### Non-closeable
 
@@ -132,6 +138,8 @@ toast({ title: 'Auto-saved', closeable: false, duration: 3000 });
 | `labels` | `Partial<ToastProviderLabels>` | -- | Override default labels (e.g. `{ notifications: 'Alerts' }`). |
 | `children` | `ReactNode` | **required** | App content. |
 
+---
+
 ### ToastOptions (passed to `toast()`)
 
 | Prop | Type | Default | Description |
@@ -141,6 +149,8 @@ toast({ title: 'Auto-saved', closeable: false, duration: 3000 });
 | `variant` | `'default' \| 'success' \| 'warning' \| 'danger'` | `'default'` | Visual and semantic variant. |
 | `duration` | `number` | `5000` | Auto-dismiss delay in milliseconds. Pass `0` for persistent. |
 | `closeable` | `boolean` | `true` | Whether the close button is visible. |
+
+---
 
 ### ToastProps (for direct rendering)
 

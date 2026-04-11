@@ -80,6 +80,8 @@ import { FormControl, FormLabel, FormErrorMessage, Select } from '@arch-ui/compo
 </FormControl>
 ```
 
+---
+
 ### Multi-select
 
 When `multiple` is set, the component renders as a native multi-select listbox without the custom chevron.

@@ -93,6 +93,8 @@ function EditProfileModal({ isOpen, onClose, onSave }) {
 | `animate` | `boolean` | `true` | When true, the modal animates in and out. |
 | `children` | `ReactNode` | -- | Modal content -- typically ModalHeader, ModalBody, ModalFooter. |
 
+---
+
 ### ModalHeader
 
 | Prop | Type | Default | Description |
@@ -101,12 +103,16 @@ function EditProfileModal({ isOpen, onClose, onSave }) {
 | `onClose` | `() => void` | -- | Handler for the close button. When provided, a close button renders in the header. |
 | `labels` | `Partial<ModalLabels>` | `{ close: 'Close' }` | Override default labels for internationalisation. |
 
+---
+
 ### ModalBody
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `children` | `ReactNode` | -- | Body content. |
 | `className` | `string` | -- | Additional class names. |
+
+---
 
 ### ModalFooter
 

@@ -112,6 +112,8 @@ Use sliding buttons to let users take important actions. They should be used as 
   If the action is not critical, a sliding button may be unnecessary and may add unnecessary complexity to the interface. Use a standard <a href="/components/button">Button</a> instead.
 </div>
 
+---
+
 ### Mobile environments only
 
 Using a swipe interaction as an action gesture feels natural in a mobile environment.
@@ -136,6 +138,8 @@ Users drag on the arrow affordance along the track. Once the arrow reaches a thr
 | **On drag** | While the handle is being dragged, the label text transitions to a `contentStateDisabled` fill to indicate the action is in progress. |
 | **Loading** | A spinner replaces the label and the arrow affordance is removed. Used after the threshold is reached while the action is being processed. |
 | **Disabled** | Text and icons use `contentStateDisabled`. Container uses `backgroundStateDisabled`. The handle cannot be dragged. |
+
+---
 
 ### Slide affordance
 
@@ -162,6 +166,8 @@ The handle's arrow icon is the sole draggable element. On tap, the handle grows 
   </div>
 </div>
 
+---
+
 ### Auto-complete thresholds
 
 Users can slide the button to complete an action upon passing a threshold. Two threshold levels are provided to support different user types.
@@ -183,6 +189,8 @@ When the handle position exceeds 20% of the base width (`slidingButton.x > 0.2 *
 
 When the handle position exceeds 80% of the base width (`slidingButton.x > 0.8 * base.width`), the action auto-completes. Use this for destructive or high-stakes actions where accidental confirmation must be minimised.
 
+---
+
 ### Haptics
 
 (iOS)
@@ -192,6 +200,8 @@ When the handle position exceeds 80% of the base width (`slidingButton.x > 0.8 *
 | **Failure** | Failure (native) | On failure, play a Failure haptic pattern after resetting the state of the button. |
 | **On touch down** | Single nudge | On touch down, play a single haptic nudge to confirm the affordance has been engaged. |
 | **Success** | Success (native) | On success, play a Success haptic pattern to reinforce the request has been successfully submitted. |
+
+---
 
 ### Breakpoints
 
@@ -240,6 +250,8 @@ Background colour customisations of the sliding button are supported but should 
     </div>
   </Guidance.Dont>
 </Guidance.Grid>
+
+---
 
 ### Size
 
@@ -343,6 +355,8 @@ Avoid resizing elements inside the button, like the icon or sliding button affor
 | Value | Percentage of track completed |
 | Hint | "Swipe right to confirm" |
 
+---
+
 ### TalkBack
 
 | Property | Value |
@@ -362,6 +376,8 @@ Avoid resizing elements inside the button, like the icon or sliding button affor
 ### Swipe
 
 A swipe gesture occurs when the user moves one or more fingers across the screen in a specific horizontal or vertical direction. Swiping suggests a navigational gesture that helps users move between peer surfaces.
+
+---
 
 ### Slide
 
@@ -416,6 +432,8 @@ A standard sliding track with a directional arrow handle and instructional label
 ```jsx
 <SlidingButton label="Slide to submit" onConfirm={handleSubmit} />
 ```
+
+---
 
 ### Danger
 

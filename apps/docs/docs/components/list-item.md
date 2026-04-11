@@ -85,6 +85,8 @@ Control the artwork container size with the `artworkSize` prop.
 </ListItem>
 ```
 
+---
+
 ### Interactive items
 
 Pass an `onClick` handler to make the item behave as a button.
@@ -96,6 +98,8 @@ Pass an `onClick` handler to make the item behave as a button.
   </ListItemLabel>
 </ListItem>
 ```
+
+---
 
 ### Sublist items
 
@@ -123,6 +127,8 @@ Set `sublist` to indent the item, useful for nested or hierarchical lists.
 | `onClick` | `(e: SyntheticEvent) => void` | -- | Click handler. Makes the item interactive with hover and focus styles. |
 | `children` | `ReactNode` | -- | Item content. Use ListItemLabel for structured content. |
 | `className` | `string` | -- | Additional CSS class names. |
+
+---
 
 ### ListItemLabelProps
 

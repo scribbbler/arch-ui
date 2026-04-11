@@ -78,6 +78,8 @@ If your Modal Sheet was used as a bottom panel for filters, actions, or selectio
 </Drawer>
 ```
 
+---
+
 ### Replace with Modal
 
 If your Modal Sheet was used as a centred confirmation or form dialog, replace it with Modal using an appropriate size:

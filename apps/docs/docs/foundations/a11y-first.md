@@ -41,6 +41,8 @@ Before opening a design tool, define how the component will be operated:
 
 Write these answers down. They are the accessibility specification, and they should exist before any visual design begins.
 
+---
+
 ### 2. Choose the right HTML element
 
 Select the semantic HTML element that matches your interaction model. If you need a button, use `<button>`. If you need a link, use `<a>`. If you need a group of mutually exclusive options, use `<fieldset>` with `<input type="radio">`.
@@ -65,6 +67,8 @@ The right element gives you keyboard behaviour, focus management, and screen rea
 </div>
 ```
 
+---
+
 ### 3. Layer ARIA only when HTML falls short
 
 There are cases where native HTML does not provide the semantics you need — tabs, comboboxes, tree views, and other composite widgets. In those cases, use ARIA roles, states, and properties to fill the gap.
@@ -86,6 +90,8 @@ The rule is: **add ARIA to describe what you have built, never to replace what H
 </div>
 ```
 
+---
+
 ### 4. Test with the keyboard before the mouse
 
 After implementing a component, put your mouse away. Navigate through the entire interaction using only the keyboard:
@@ -97,6 +103,8 @@ After implementing a component, put your mouse away. Navigate through the entire
 - Does focus move logically through the interface?
 
 If any of these fail, fix them before moving on to visual polish.
+
+---
 
 ### 5. Verify with a screen reader
 
@@ -117,8 +125,12 @@ Building a11y first requires understanding that disability is not a narrow categ
 ### Permanent disabilities
 People who are blind, deaf, or have motor impairments that are lifelong conditions. These users rely on assistive technology daily.
 
+---
+
 ### Temporary disabilities
 A broken arm, an eye infection, or a migraine. These conditions are short-lived but create the same barriers as permanent disabilities during their duration.
+
+---
 
 ### Situational disabilities
 Bright sunlight washing out a screen, holding a baby in one arm, or working in a noisy environment. These are context-dependent and affect everyone at some point.
@@ -163,6 +175,8 @@ Use this checklist during code review:
 
 If a form field already has a `<label>` element, adding `aria-label` overrides the visible label for screen reader users. This creates a disconnect between what sighted and non-sighted users perceive.
 
+---
+
 ### Disabling focus outlines globally
 
 ```css
@@ -172,9 +186,13 @@ If a form field already has a `<label>` element, adding `aria-label` overrides t
 
 This removes the only way keyboard users can track their position on the page. Arch UI's `var(--color-border-focus)` provides a consistent, visible focus ring that should never be overridden.
 
+---
+
 ### Using `tabIndex` values greater than 0
 
 Positive `tabIndex` values create an unpredictable focus order that is nearly impossible to maintain as the page grows. Use `tabIndex={0}` to add an element to the natural tab order, or `tabIndex={-1}` to make it programmatically focusable without being in the tab sequence.
+
+---
 
 ### Hiding content with `display: none` when it should be accessible
 

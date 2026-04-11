@@ -53,9 +53,13 @@ Animation, transitions, timing, easing
 
 Every animation must serve a function: confirming an action, revealing content, or directing focus. If an animation does not help the user understand what happened or what to do next, remove it.
 
+---
+
 ### Fast by default
 
 Users should never feel like they are waiting for an animation to finish. Most interactions use `--motion-duration-fast` (100ms) or `--motion-duration-normal` (200ms). Reserve longer durations for complex transitions that involve spatial rearrangement.
+
+---
 
 ### Respect user preferences
 
@@ -105,6 +109,8 @@ Duration tokens control how long a transition takes. Shorter durations feel snap
   </div>
 </div>
 
+---
+
 ### Choosing a duration
 
 Use the smallest duration that still lets the user perceive the change. A good heuristic:
@@ -129,6 +135,8 @@ Easing curves define the acceleration profile of an animation. They are the diff
 | `motion.easing.ease-in-out` | `--motion-easing-ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Symmetrical acceleration. Default for on-screen state changes. |
 | `motion.easing.spring` | `--motion-easing-spring` | `cubic-bezier(0.175, 0.885, 0.32, 1.275)` | Slight overshoot. Playful reveals, toasts, popovers. |
 | `motion.easing.bounce` | `--motion-easing-bounce` | `cubic-bezier(0.68, -0.55, 0.265, 1.55)` | Pronounced overshoot. Attention-grabbing, use sparingly. |
+
+---
 
 ### Easing curves visualised
 

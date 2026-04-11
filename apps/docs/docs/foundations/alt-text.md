@@ -45,6 +45,8 @@ Describe what the image actually shows, not what type of content it is.
   </Guidance.Dont>
 </Guidance.Grid>
 
+---
+
 ### Describe function, not appearance
 
 When an image serves a functional purpose (link, button), describe what it does rather than what it looks like.
@@ -58,6 +60,8 @@ When an image serves a functional purpose (link, button), describe what it does 
   </Guidance.Dont>
 </Guidance.Grid>
 
+---
+
 ### Keep it concise
 
 Alt text should typically be one sentence or less. Screen reader users navigate quickly and verbose alt text slows them down. Aim for under 125 characters.
@@ -70,6 +74,8 @@ Alt text should typically be one sentence or less. Screen reader users navigate 
     <code>alt="A group of approximately twelve people standing in a modern office space with glass walls and wooden floors, smiling and clapping their hands while confetti falls from the ceiling during what appears to be a product launch celebration"</code>
   </Guidance.Dont>
 </Guidance.Grid>
+
+---
 
 ### Do not start with "Image of" or "Photo of"
 
@@ -97,6 +103,8 @@ Decorative images serve no informational purpose. They exist for visual interest
 ```
 
 The `alt=""` attribute (empty string) is intentional. It tells screen readers to skip this image entirely. Omitting the `alt` attribute altogether is different: screen readers may announce the file name instead, which is worse than silence.
+
+---
 
 ### Common decorative images
 
@@ -129,6 +137,8 @@ An icon that is the only content in a button or link needs alt text describing i
 ```
 
 Note that the icon itself is marked `aria-hidden="true"` — the label lives on the interactive parent element, not on the SVG.
+
+---
 
 ### Accompanying icons (decorative)
 
@@ -214,6 +224,8 @@ Form controls are not images, but they follow the same principle: every control 
 
 axe-core catches missing `alt` attributes and empty `aria-label` values, but it cannot evaluate whether alt text is *meaningful*. Automated tools flag the presence of alt text, not its quality.
 
+---
+
 ### Manual review
 
 Ask these questions during code review:
@@ -222,6 +234,8 @@ Ask these questions during code review:
 2. **Does the alt text make sense out of context?** Screen reader users may navigate by image list, so each alt text should stand on its own.
 3. **Is the alt text free of redundancy?** No "image of," no repeating adjacent text.
 4. **For complex images, is a long description available?** Alt text alone is not enough for charts and diagrams.
+
+---
 
 ### Screen reader test
 

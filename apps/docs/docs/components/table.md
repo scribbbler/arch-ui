@@ -101,6 +101,8 @@ function MonthlySales() {
 | `children` | `ReactNode` | -- | Table structure -- Thead, Tbody, Tfoot, Tr, Th, Td. |
 | `className` | `string` | -- | Additional CSS class names. |
 
+---
+
 ### Th
 
 | Prop | Type | Default | Description |
@@ -111,6 +113,8 @@ function MonthlySales() {
 
 Th also accepts all native `ThHTMLAttributes`.
 
+---
+
 ### Td
 
 | Prop | Type | Default | Description |
@@ -119,6 +123,8 @@ Th also accepts all native `ThHTMLAttributes`.
 | `className` | `string` | -- | Additional CSS class names. |
 
 Td also accepts all native `TdHTMLAttributes`.
+
+---
 
 ### Thead / Tbody / Tfoot / Tr
 

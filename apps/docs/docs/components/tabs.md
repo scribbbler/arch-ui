@@ -94,6 +94,8 @@ function ProfilePage() {
 | `renderAll` | `boolean` | `false` | When true, all tab panels are rendered in the DOM (hidden via CSS) for SEO. |
 | `className` | `string` | -- | Additional class names applied to the root element. |
 
+---
+
 ### TabItem
 
 | Prop | Type | Description |
@@ -118,6 +120,8 @@ The default variant. A bottom border highlights the active tab.
 <Tabs variant="line" tabs={tabs} activeValue={active} onChange={setActive} />
 ```
 
+---
+
 ### Enclosed
 
 Tabs appear as enclosed panels with a connected border, similar to folder tabs.
@@ -137,6 +141,8 @@ The tab list renders as a horizontal row above the content panels.
 ```jsx
 <Tabs orientation="horizontal" tabs={tabs} activeValue={active} onChange={setActive} />
 ```
+
+---
 
 ### Vertical
 

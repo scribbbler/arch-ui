@@ -45,9 +45,13 @@ Type styles, labels, text styles, type, font
 
 We prioritize larger font sizes because Arch values legibility and accessibility. We love our type and aren't afraid to let it shine.
 
+---
+
 ### Less is more
 
 We optimize for fewer style options, so there's no decision paralysis when choosing the right type of style. We include a simple set of text styles to provide the right balance of control and creative freedom.
+
+---
 
 ### Simple semantics
 

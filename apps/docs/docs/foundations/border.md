@@ -48,9 +48,13 @@ Stroke, outline, rule, divider, separator
 
 Borders should communicate meaning — grouping related content, separating distinct regions, or indicating interactivity. Avoid using borders purely for visual embellishment. Every border should serve a clear purpose in the layout.
 
+---
+
 ### Use the minimum weight that works
 
 Start with the default (thin) border weight. Only reach for stronger weights when you need to convey emphasis or create a clear visual hierarchy. Heavier borders draw attention, so use them sparingly to preserve their impact.
+
+---
 
 ### Pair width and color intentionally
 
@@ -83,17 +87,25 @@ Border style is always `solid` in Arch UI. We do not provide tokens for dashed o
 
 Use `--border-width-default` with `--color-border-default` to create subtle dividers between content areas — for example, between list items, table rows, or sidebar and main content.
 
+---
+
 ### Defining container boundaries
 
 Use `--border-width-default` with `--color-border-subtle` for card and container outlines. The subtle color keeps the border from competing with the content inside.
+
+---
 
 ### Communicating emphasis
 
 Use `--border-width-strong` with `--color-border-strong` when a border needs to stand out — for example, an active tab indicator, a selected state, or a section header underline.
 
+---
+
 ### Focus indicators
 
 Every interactive element must have a visible focus ring. Use `--color-border-focus` for focus outlines to ensure accessibility compliance.
+
+---
 
 ### Feedback states
 

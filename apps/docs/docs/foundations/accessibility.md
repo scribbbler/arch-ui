@@ -54,9 +54,13 @@ Use the correct HTML element before reaching for ARIA. A `<button>` is always be
 </div>
 ```
 
+---
+
 ### Progressive enhancement
 
 Arch UI components work without JavaScript for their core content. Interactive enhancements layer on top of a baseline that is already accessible. A disclosure component, for example, renders its content in the DOM even before JS hydrates — collapsed state is a visual enhancement, not a content gate.
+
+---
 
 ### No ARIA is better than bad ARIA
 
@@ -102,6 +106,8 @@ Focus indicators use a 2px outline with a 2px offset, ensuring they remain visib
 ### Focus trapping
 
 Modal dialogs, drawers, and popovers trap focus within their boundaries while open. When the overlay closes, focus returns to the element that triggered it. This prevents keyboard users from becoming lost behind an open modal.
+
+---
 
 ### Skip links
 

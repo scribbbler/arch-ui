@@ -89,6 +89,8 @@ Select a start and end date for range-based use cases like booking or filtering.
 />
 ```
 
+---
+
 ### Min and max dates
 
 Constrain the selectable range to prevent invalid selections.

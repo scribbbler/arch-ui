@@ -270,38 +270,40 @@
   line-height: 1.5;
 }
 
-/* ─── Doc section divider ────────────────────────────────────────────────────
-   Every `---` in a doc page renders as an 8px chunky bar that visually breaks
-   the page into h2 sections. Uses a neutral gray that matches other subtle
-   surfaces, with generous vertical margin so the bar doesn't crowd adjacent
-   headings. */
+/* ─── Doc section dividers ───────────────────────────────────────────────────
+   Dividers are peer-to-peer transition markers between sibling sections of
+   the same heading level. In markdown they are always written as `---`; CSS
+   then picks the weight based on what the `<hr>` is immediately followed by:
+
+     hr + h2  → 8px chunky bar  (between consecutive h2 sections)
+     hr + h3  → 2px thin rule   (between consecutive h3 sections in one h2)
+
+   A `---` is only inserted in markdown where a sibling transition actually
+   happens, so an h3 that opens a new h2's subsection tree has NO rule above
+   it (you are descending into the tree, not moving sideways within it). The
+   base rule below applies to any bare `<hr>` that escapes the `:has()` match
+   so legacy dividers still render as the 8px bar. */
 .theme-doc-markdown hr,
 .markdown hr {
-  height: 8px;
   border: 0;
   background: #F3F3F3;
-  margin: 48px 0;
   border-radius: 0;
+  height: 8px;
+  margin: 48px 0;
+}
+.theme-doc-markdown hr:has(+ h2),
+.markdown hr:has(+ h2) {
+  height: 8px;
+  margin: 48px 0;
+}
+.theme-doc-markdown hr:has(+ h3),
+.markdown hr:has(+ h3) {
+  height: 2px;
+  margin: 40px 0 32px;
 }
 [data-theme='dark'] .theme-doc-markdown hr,
 [data-theme='dark'] .markdown hr {
   background: #1F1F1F;
-}
-
-/* ─── Doc subsection divider ─────────────────────────────────────────────────
-   Every h3 inside a doc page gets a 2px top rule so subsections within an h2
-   chunk are visually separated. Pairs with the 8px `---` bar between h2s:
-   h2 = heavy 8px chunk break, h3 = lighter 2px subsection break. CSS-only so
-   no markdown edits are needed. */
-.theme-doc-markdown h3,
-.markdown h3 {
-  border-top: 2px solid #F3F3F3;
-  padding-top: 32px;
-  margin-top: 40px;
-}
-[data-theme='dark'] .theme-doc-markdown h3,
-[data-theme='dark'] .markdown h3 {
-  border-top-color: #1F1F1F;
 }
 
 /* Custom site footer — rendered inside the main content column on doc pages

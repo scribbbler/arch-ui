@@ -24,9 +24,13 @@ There are three primary mechanisms users employ, and your interface must handle 
 
 `Ctrl/Cmd + Plus` scales the entire viewport — text, images, and layout. At 200% zoom on a 1440px monitor, the effective viewport becomes 720px. Your layout must reflow to fit this narrower space without horizontal scrolling.
 
+---
+
 ### Browser font size setting
 
 Users can change the default font size in their browser settings (e.g., from 16px to 24px). This only affects text sized with relative units (`rem`, `em`, `%`). Text sized with `px` is unaffected, which is why Arch UI tokens use `rem` for all typography values.
+
+---
 
 ### Operating system text scaling
 
@@ -50,6 +54,8 @@ Arch UI typography tokens are defined in `rem` units, not pixels. A `rem` is rel
 
 Pixel values do not scale with user preferences. If you hardcode `font-size: 14px`, that text stays at 14px regardless of what the user has configured — defeating their accessibility settings.
 
+---
+
 ### When `em` is appropriate
 
 Use `em` for values that should scale relative to their parent's font size, not the root. This is useful for:
@@ -65,6 +71,8 @@ Use `em` for values that should scale relative to their parent's font size, not 
   vertical-align: -0.125em;
 }
 ```
+
+---
 
 ### When `px` is acceptable
 
@@ -89,6 +97,8 @@ Practical implications:
 - **Multi-column layouts must collapse** — a 3-column grid at normal zoom should stack to a single column at high zoom levels
 - **Navigation must adapt** — horizontal nav bars should collapse into a hamburger menu or vertical layout
 - **Tables may need horizontal scroll** — wide data tables are the one acceptable exception to the no-horizontal-scroll rule, provided they are wrapped in a container with `overflow-x: auto`
+
+---
 
 ### Using the layout tokens
 
@@ -125,6 +135,8 @@ This creates text that:
 - Scales with the viewport width between breakpoints
 - Never exceeds `--font-size-800` (preventing absurdly large text on wide screens)
 
+---
+
 ### Line length
 
 Long lines of text are harder to read, especially for users with cognitive disabilities or dyslexia. Arch UI recommends a maximum line length of 80 characters for body text:
@@ -152,6 +164,8 @@ The `ch` unit is relative to the width of the "0" character in the current font,
    - Images and icons scale appropriately
 4. Continue to 400% and verify content reflows to a single column
 
+---
+
 ### Font size override test
 
 1. Open Chrome settings > Appearance > Font size
@@ -160,6 +174,8 @@ The `ch` unit is relative to the width of the "0" character in the current font,
    - All text has actually grown (anything stuck at the same size is using `px` units)
    - Layout accommodates the larger text without breaking
    - Buttons and form controls expand to fit their text content
+
+---
 
 ### Firefox font minimum test
 
@@ -188,6 +204,8 @@ The `ch` unit is relative to the width of the "0" character in the current font,
 
 When text grows, fixed-height containers clip content. Use `min-height` instead of `height`, and avoid `overflow: hidden` on containers that hold text.
 
+---
+
 ### Pixel-based media queries
 
 ```css
@@ -204,6 +222,8 @@ When text grows, fixed-height containers clip content. Use `min-height` instead 
 
 A `48rem` breakpoint triggers at 768px for users with a default 16px font size, but it triggers at 1152px for users with a 24px font size — which is correct, because those users need the mobile layout earlier.
 
+---
+
 ### Truncation without access to full content
 
 Text truncation (`text-overflow: ellipsis`) hides content. If the full text is important, provide a way to reveal it — a tooltip, an expandable region, or a "show more" control.
@@ -217,6 +237,8 @@ Text truncation (`text-overflow: ellipsis`) hides content. If the full text is i
   {longLabel}
 </span>
 ```
+
+---
 
 ### Viewport units for font sizing
 

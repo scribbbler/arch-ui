@@ -27,17 +27,23 @@ Adds three new utility components and expands Button's variant set. All componen
 - **VisuallyHidden** — utility for providing accessible text that is hidden from sighted users.
 - Token tier documentation generated from `@arch-ui/tokens` build output.
 
+---
+
 ### Changed
 
 - **Button** — the `variant` prop now accepts `"danger"` in addition to existing values.
 - **Modal** — improved focus restoration behaviour when the modal closes. Focus now returns to the element that triggered the open action.
 - **Tooltip** — default delay increased from 200ms to 300ms to reduce accidental activations.
 
+---
+
 ### Fixed
 
 - **Select** — resolved an issue where the dropdown would not close on outside click in Safari.
 - **Tabs** — arrow key navigation now wraps correctly when reaching the last tab.
 - **Tag** — dismiss button now announces removal to screen readers.
+
+---
 
 ### Deprecated
 
@@ -54,11 +60,15 @@ Adds three new utility components and expands Button's variant set. All componen
 - **ProgressSteps** — multi-step progress indicator for wizard-style flows.
 - **SkipNav** — skip navigation link for keyboard users to bypass repetitive content.
 
+---
+
 ### Changed
 
 - **Card** — added `as` prop to allow rendering as different HTML elements.
 - **Input** — error state now uses `aria-invalid` and `aria-describedby` for better screen reader support.
 - **Badge** — reduced minimum width to accommodate single-character content.
+
+---
 
 ### Fixed
 
@@ -77,11 +87,15 @@ Adds three new utility components and expands Button's variant set. All componen
 - **Stepper** — vertical and horizontal step indicator for multi-page forms.
 - **Pagination** — page navigation with configurable visible page range.
 
+---
+
 ### Changed
 
 - **Alert** — renamed `type` prop to `intent` to align with the design token naming convention.
 - **Divider** — now supports `vertical` orientation via the `orientation` prop.
 - **Spinner** — size values updated to use spacing tokens instead of fixed pixel values.
+
+---
 
 ### Fixed
 

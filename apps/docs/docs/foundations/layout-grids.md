@@ -57,6 +57,8 @@ This is where the content aligns to. Column sizes change based on the size of th
   </div>
 </div>
 
+---
+
 ### Gutter
 
 The fixed space between columns. This space remains the same even if the container size changes.
@@ -68,6 +70,8 @@ The fixed space between columns. This space remains the same even if the contain
     ))}
   </div>
 </div>
+
+---
 
 ### Margin
 
@@ -99,6 +103,8 @@ Align content to the columns on the grid. Any cells that do not fit on a single 
   </div>
 </div>
 
+---
+
 ### Span
 
 Use CSS `grid-column: span N` to specify how many grid columns a cell should span.
@@ -125,9 +131,13 @@ Use CSS `grid-column: span N` to specify how many grid columns a cell should spa
 
 If there aren't enough columns to accommodate the span, it will wrap to the next row.
 
+---
+
 ### Hide
 
 When content should be hidden at certain breakpoints, remove it from the flow entirely. This is useful for responsive layouts where some sections may be hidden on a specific breakpoint.
+
+---
 
 ### Skip
 
@@ -139,6 +149,8 @@ Another common layout scenario is "offsetting" or "skipping" columns. Use `grid-
     <div style={{gridColumn: '5 / span 2', background: 'rgba(150, 150, 150, 0.4)', borderRadius: '4px', padding: '8px', fontSize: '11px', fontWeight: 600, textAlign: 'center', color: '#555'}}>skip 1</div>
   </div>
 </div>
+
+---
 
 ### Fixed-width content
 
@@ -201,6 +213,8 @@ By default, the layout grid will take the container's full width. Columns stretc
   </div>
 </div>
 
+---
+
 ### Fixed
 
 You can give the layout grid a fixed size, which will place it either centred or left/right aligned to the container. Margins become `auto` on large screens.
@@ -221,6 +235,8 @@ You can give the layout grid a fixed size, which will place it either centred or
     </div>
   </div>
 </div>
+
+---
 
 ### Hybrid
 
@@ -291,6 +307,8 @@ As the layout grid changes at breakpoints, the content adjusts to the new grid. 
 | 8 of 12 (67%) | 8 of 8 (100%) | 4 of 4 (100%) |
 | 12 of 12 (100%) | 8 of 8 (100%) | 4 of 4 (100%) |
 
+---
+
 ### Responsive content
 
 All the properties you have available to position your content are responsive. They will accept multiple values that will be executed on the different breakpoints.
@@ -351,6 +369,8 @@ These are the layout-related spacing tokens available in the system. All are def
 | spacing-layout-page-gutter | `--spacing-layout-page-gutter` | 16px | Page-edge margins on mobile; small-screen gutters |
 | spacing-layout-content-gap | `--spacing-layout-content-gap` | 24px | Gap between content blocks; desktop gutters |
 | spacing-layout-section-gap | `--spacing-layout-section-gap` | 48px | Vertical space between major page sections |
+
+---
 
 <h3>Primitive tokens used by the grid</h3>
 
