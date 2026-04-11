@@ -9,6 +9,7 @@
 .arch-page-header {
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -46,7 +47,7 @@
 .arch-page-header__description {
   font-size: 18px;
   color: #5e5e5e;
-  margin-top: 12px;
+  margin-top: 4px;
   max-width: 600px;
 }
 
