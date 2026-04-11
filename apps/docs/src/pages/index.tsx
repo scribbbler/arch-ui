@@ -11,63 +11,28 @@ const categories = [
     description:
       'The building blocks of Arch UI. Find out how the system is set up.',
     href: '/foundations',
-    icon: (
-      <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="30" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
-        <rect x="50" y="10" width="30" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
-        <rect x="10" y="50" width="30" height="20" rx="4" stroke="currentColor" strokeWidth="2" />
-        <rect x="50" y="50" width="60" height="20" rx="4" stroke="currentColor" strokeWidth="2" />
-        <rect x="90" y="10" width="20" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    ),
+    image: '/img/landing/foundations.png',
   },
   {
     title: 'Components',
     description:
       'Review specs, guidelines, behaviors, and proper usage for Arch UI components.',
     href: '/components',
-    icon: (
-      <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="25" width="100" height="30" rx="6" stroke="currentColor" strokeWidth="2" />
-        <circle cx="30" cy="40" r="8" stroke="currentColor" strokeWidth="2" />
-        <line x1="50" y1="36" x2="90" y2="36" stroke="currentColor" strokeWidth="2" />
-        <line x1="50" y1="44" x2="75" y2="44" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    ),
+    image: '/img/landing/components.png',
   },
   {
     title: 'Patterns',
     description:
       'Review broader design patterns and the module libraries that power them.',
     href: '/patterns/forms',
-    icon: (
-      <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="5" width="45" height="70" rx="4" stroke="currentColor" strokeWidth="2" />
-        <rect x="65" y="5" width="45" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
-        <rect x="65" y="45" width="45" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
-        <line x1="20" y1="20" x2="45" y2="20" stroke="currentColor" strokeWidth="2" />
-        <line x1="20" y1="30" x2="40" y2="30" stroke="currentColor" strokeWidth="2" />
-        <line x1="20" y1="40" x2="45" y2="40" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    ),
+    image: '/img/landing/patterns.png',
   },
   {
     title: 'Resources & Tools',
     description:
       'Learn how to use Arch UI to design focused and accessible experiences.',
     href: '/intro',
-    icon: (
-      <svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="10" width="100" height="60" rx="4" stroke="currentColor" strokeWidth="2" />
-        <line x1="10" y1="25" x2="110" y2="25" stroke="currentColor" strokeWidth="2" />
-        <circle cx="20" cy="17" r="3" fill="currentColor" />
-        <circle cx="30" cy="17" r="3" fill="currentColor" />
-        <circle cx="40" cy="17" r="3" fill="currentColor" />
-        <line x1="20" y1="38" x2="60" y2="38" stroke="currentColor" strokeWidth="2" />
-        <line x1="20" y1="48" x2="80" y2="48" stroke="currentColor" strokeWidth="2" />
-        <line x1="20" y1="58" x2="50" y2="58" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    ),
+    image: '/img/landing/resources.png',
   },
 ];
 
@@ -93,7 +58,9 @@ export default function Home(): React.ReactElement {
         <div className="arch-categories__grid">
           {categories.map((cat) => (
             <Link key={cat.title} to={useBaseUrl(cat.href)} className="docs-category-card">
-              <div className="docs-category-card__icon">{cat.icon}</div>
+              <div className="docs-category-card__icon">
+                <img src={useBaseUrl(cat.image)} alt="" />
+              </div>
               <h3 className="docs-category-card__title">{cat.title}</h3>
               <p className="docs-category-card__description">{cat.description}</p>
             </Link>

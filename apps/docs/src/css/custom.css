@@ -636,11 +636,16 @@ ul.tabs .tabs__item:hover {
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, 0.7);
+  aspect-ratio: 3 / 2;
 }
 
-.docs-category-card__icon svg {
-  width: 120px;
-  height: 80px;
+.docs-category-card__icon svg,
+.docs-category-card__icon img {
+  width: 100%;
+  height: 100%;
+  max-width: 160px;
+  max-height: 120px;
+  object-fit: contain;
 }
 
 .docs-category-card__title {
