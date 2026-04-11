@@ -422,8 +422,15 @@ a:focus {
   color: inherit !important;
 }
 /* TOC (right-side table of contents) — no underlines, black active state */
+.table-of-contents {
+  line-height: 1.35 !important;
+}
+.table-of-contents li {
+  margin: 0.35rem 0 !important;
+}
 .table-of-contents__link {
   color: #5E5E5E !important;
+  line-height: 1.35 !important;
 }
 .table-of-contents__link:hover,
 .table-of-contents__link--active {
