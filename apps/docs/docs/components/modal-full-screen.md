@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 Use the standard Modal component with `size="full"` to achieve full-screen behaviour.
@@ -75,6 +77,8 @@ function MediaViewer({ isOpen, onClose }) {
 }
 ```
 
+---
+
 ## When to use
 
 - **Multi-step flows** -- wizards or onboarding sequences that benefit from a distraction-free environment.
@@ -82,10 +86,14 @@ function MediaViewer({ isOpen, onClose }) {
 - **Complex editors** -- rich text editors, code editors, or form builders that need maximum workspace.
 - **Mobile contexts** -- on small screens, full-screen modals often provide a better experience than constrained dialogs.
 
+---
+
 ## When not to use
 
 - Simple confirmations or alerts. Use a standard `size="sm"` or `size="md"` Modal instead.
 - Inline information that does not require focus takeover. Consider Drawer or Popover.
+
+---
 
 ## Anatomy
 
@@ -95,6 +103,8 @@ Modal Full Screen uses the same sub-components as Modal:
 - **ModalBody** -- scrollable content area that fills the remaining vertical space.
 - **ModalFooter** -- optional action bar pinned to the bottom.
 
+---
+
 ## Navigation pattern
 
 Because the full-screen modal replaces the visible UI, always provide a clear exit path:
@@ -102,6 +112,8 @@ Because the full-screen modal replaces the visible UI, always provide a clear ex
 1. A close button in ModalHeader (pass `onClose` to ModalHeader).
 2. Escape key dismissal (enabled by default on Modal).
 3. Optionally, a "Back" or "Cancel" button in the footer.
+
+---
 
 ## Accessibility
 

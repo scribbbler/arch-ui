@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 Date Picker renders a text input that opens a calendar popover on focus or click. Users can type a date directly or select one from the calendar grid.

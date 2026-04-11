@@ -270,6 +270,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Expected props
 
 | Prop | Type | Default | Description |
@@ -287,6 +289,8 @@ Status & changelog coming soon.
 | `size` | `'default' \| 'large' \| 'compact'` | `'default'` | Button size |
 | `autoStart` | `boolean` | `true` | Start countdown immediately on mount |
 
+---
+
 ## Basic usage
 
 ```jsx
@@ -300,6 +304,8 @@ import { TimedButton } from "@arch-ui/components";
   Confirm
 </TimedButton>
 ```
+
+---
 
 ## With icons
 
@@ -317,6 +323,8 @@ import { CheckIcon, ArrowRightIcon } from "@arch-ui/icons";
 </TimedButton>
 ```
 
+---
+
 ## Keyboard interaction
 
 | Key | Action |
@@ -324,6 +332,8 @@ import { CheckIcon, ArrowRightIcon } from "@arch-ui/icons";
 | `Enter` / `Space` | Trigger the button action immediately (proactive) |
 | `Escape` | Cancel the timer if a cancel handler is provided |
 | `Tab` | Move focus to the next focusable element |
+
+---
 
 ## Accessibility implementation
 

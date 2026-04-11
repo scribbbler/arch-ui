@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -70,6 +72,8 @@ function FiltersDrawer({ isOpen, onClose }) {
 }
 ```
 
+---
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -83,6 +87,8 @@ function FiltersDrawer({ isOpen, onClose }) {
 | `aria-label` | `string` | -- | Accessible label for the drawer dialog. |
 
 Drawer supports `ref` forwarding to the panel `<div>`.
+
+---
 
 ## Position variants
 
@@ -102,6 +108,8 @@ The `position` prop controls which edge the drawer slides in from. Values use CS
 <Drawer isOpen={isOpen} onClose={onClose} position="bottom" size="16rem">...</Drawer>
 ```
 
+---
+
 ## Custom sizing
 
 Pass any valid CSS length to `size`. For `start`/`end` drawers this sets the inline-size (width in LTR). For `top`/`bottom` drawers it sets the block-size (height).
@@ -109,6 +117,8 @@ Pass any valid CSS length to `size`. For `start`/`end` drawers this sets the inl
 ```jsx
 <Drawer isOpen={isOpen} onClose={onClose} size="400px">...</Drawer>
 ```
+
+---
 
 ## Accessibility
 

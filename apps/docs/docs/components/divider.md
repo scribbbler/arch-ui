@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -68,6 +70,8 @@ function SectionBreak() {
 }
 ```
 
+---
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -78,6 +82,8 @@ function SectionBreak() {
 
 Divider also spreads any additional `HTMLAttributes` onto the root element and supports `ref` forwarding.
 
+---
+
 ## Horizontal (default)
 
 The default rendering. Produces a full-width `<hr>` element with `role="separator"`.
@@ -85,6 +91,8 @@ The default rendering. Produces a full-width `<hr>` element with `role="separato
 ```jsx
 <Divider />
 ```
+
+---
 
 ## Vertical
 
@@ -96,6 +104,8 @@ An inline-block separator that aligns with adjacent text or controls. Useful ins
 <span>Settings</span>
 ```
 
+---
+
 ## With label
 
 When `label` is provided on a horizontal divider, the component renders as a `<div>` with two decorative lines flanking the label text. The label uses `var(--color-text-subtle)` and medium font weight.
@@ -103,6 +113,8 @@ When `label` is provided on a horizontal divider, the component renders as a `<d
 ```jsx
 <Divider label="or" />
 ```
+
+---
 
 ## Accessibility
 

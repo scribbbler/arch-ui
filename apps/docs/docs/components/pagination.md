@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -74,6 +76,8 @@ function ProductList() {
 }
 ```
 
+---
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -90,6 +94,8 @@ function ProductList() {
 
 Pagination supports `ref` forwarding to the `<nav>` element.
 
+---
+
 ## Size variants
 
 The `size` prop controls the density of the pagination buttons, mapping directly to Button sizes.
@@ -101,6 +107,8 @@ The `size` prop controls the density of the pagination buttons, mapping directly
 <Pagination totalPages={10} currentPage={1} onChange={setPage} size="large" />
 ```
 
+---
+
 ## First and last buttons
 
 Enable `showFirstLast` to add double-chevron buttons that jump directly to page 1 or the final page.
@@ -108,6 +116,8 @@ Enable `showFirstLast` to add double-chevron buttons that jump directly to page 
 ```jsx
 <Pagination totalPages={50} currentPage={25} onChange={setPage} showFirstLast />
 ```
+
+---
 
 ## Ellipsis truncation
 
@@ -120,6 +130,8 @@ When the total page count exceeds the visible range, ellipsis indicators appear.
 // Shows: 1 ... 3 4 [5] 6 7 ... 20
 <Pagination totalPages={20} currentPage={5} onChange={setPage} siblingCount={2} />
 ```
+
+---
 
 ## Internationalisation
 
@@ -140,6 +152,8 @@ Override the default button labels for localisation.
   }}
 />
 ```
+
+---
 
 ## Accessibility
 

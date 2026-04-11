@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -78,6 +80,8 @@ function AppSidebar() {
 }
 ```
 
+---
+
 ## Expected props
 
 | Prop | Type | Default | Description |
@@ -97,6 +101,8 @@ function AppSidebar() {
 | `icon` | `ReactNode` | Optional icon rendered before the label. |
 | `children` | `SideNavItem[]` | Nested sub-items rendered in a collapsible group. |
 | `badge` | `ReactNode` | Optional badge or count rendered after the label. |
+
+---
 
 ## Nested groups
 
@@ -119,9 +125,13 @@ Items with a `children` array render as collapsible sections. Clicking the group
 />
 ```
 
+---
+
 ## Collapsed (rail) mode
 
 When `collapsed` is true, the sidebar narrows to show only icons. Hovering or focusing an item can reveal a tooltip with the label. This mode is useful for maximising content area while keeping navigation accessible.
+
+---
 
 ## Accessibility
 

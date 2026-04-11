@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -72,6 +74,8 @@ function AppHeader() {
 }
 ```
 
+---
+
 ## Expected props
 
 | Prop | Type | Default | Description |
@@ -90,6 +94,8 @@ function AppHeader() {
 | `href` | `string` | Destination URL. |
 | `active` | `boolean` | When true, the item is styled as the current section. |
 
+---
+
 ## Anatomy
 
 1. **Logo region** -- the brand identity, typically a clickable link back to the home page.
@@ -97,13 +103,19 @@ function AppHeader() {
 3. **Actions region** -- utility controls such as search, sign-in button, or user avatar.
 4. **Mobile toggle** (responsive) -- a hamburger button that opens a collapsible or off-canvas menu on small viewports.
 
+---
+
 ## Sticky behaviour
 
 When `sticky` is enabled, the header remains fixed at the top of the viewport as the user scrolls. Consider adding a subtle bottom border or shadow on scroll to visually separate the header from page content.
 
+---
+
 ## Responsive considerations
 
 On viewports narrower than the design system's tablet breakpoint, the primary navigation should collapse behind a hamburger button. The mobile menu can render as a Drawer (`position="start"`) or an expanding panel beneath the header.
+
+---
 
 ## Accessibility
 

@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 Toasts are created imperatively via the `useToast` hook. Wrap your app in `ToastProvider` once at the root.

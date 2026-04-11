@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -74,6 +76,8 @@ function AppShell() {
 }
 ```
 
+---
+
 ## Expected props
 
 | Prop | Type | Default | Description |
@@ -92,22 +96,30 @@ function AppShell() {
 | `icon` | `ReactNode` | Icon rendered above the label. |
 | `badge` | `number \| boolean` | Optional badge indicator for unread counts or notifications. |
 
+---
+
 ## States
 
 - **Active** -- the selected destination is highlighted with an accent colour and bolder weight.
 - **Inactive** -- unselected items use a muted colour.
 - **Badge** -- a small dot or count overlays the icon to indicate new content.
 
+---
+
 ## When to use
 
 - Mobile-first applications with three to five primary destinations.
 - Apps where the main navigation must remain visible at all times on small screens.
+
+---
 
 ## When not to use
 
 - Desktop layouts where a sidebar or top navigation provides better information density.
 - More than five destinations. Consider grouping secondary items under a "More" overflow menu.
 - Single-page flows or wizards that do not require persistent navigation.
+
+---
 
 ## Accessibility
 

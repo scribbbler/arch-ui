@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -73,6 +75,8 @@ function EditProfileModal({ isOpen, onClose, onSave }) {
   );
 }
 ```
+
+---
 
 ## Props
 
@@ -113,6 +117,8 @@ function EditProfileModal({ isOpen, onClose, onSave }) {
 
 ModalHeader, ModalBody, and ModalFooter all support `ref` forwarding.
 
+---
+
 ## Size variants
 
 The `size` prop controls the max-width of the modal panel.
@@ -122,6 +128,8 @@ The `size` prop controls the max-width of the modal panel.
 <Modal isOpen={isOpen} onClose={onClose} size="lg">...</Modal>  // Wide
 <Modal isOpen={isOpen} onClose={onClose} size="full">...</Modal> // Full viewport
 ```
+
+---
 
 ## Confirmation dialog
 
@@ -146,6 +154,8 @@ For destructive actions that require explicit confirmation, set `role="alertdial
 </Modal>
 ```
 
+---
+
 ## Internationalisation
 
 Override the default close button label via the `labels` prop on ModalHeader.
@@ -155,6 +165,8 @@ Override the default close button label via the `labels` prop on ModalHeader.
   Modifier le profil
 </ModalHeader>
 ```
+
+---
 
 ## Accessibility
 

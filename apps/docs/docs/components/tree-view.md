@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -81,6 +83,8 @@ function FileExplorer() {
 }
 ```
 
+---
+
 ## Expected props
 
 | Prop | Type | Default | Description |
@@ -101,6 +105,8 @@ function FileExplorer() {
 | `children` | `TreeNode[]` | Child nodes. When present, the node is expandable. |
 | `disabled` | `boolean` | When true, the node is non-interactive. |
 
+---
+
 ## States
 
 - **Expanded** -- a branch node whose children are visible. The expand/collapse chevron points downward.
@@ -109,6 +115,8 @@ function FileExplorer() {
 - **Focused** -- the node that currently has keyboard focus, indicated by a focus ring.
 - **Disabled** -- a node that cannot be selected or expanded.
 
+---
+
 ## When to use
 
 - File system browsers or project explorers.
@@ -116,11 +124,15 @@ function FileExplorer() {
 - Settings panels organised in a hierarchy.
 - Organisational charts or permission trees.
 
+---
+
 ## When not to use
 
 - Flat lists with no hierarchy. Use a standard list or menu.
 - Navigation between pages. Use Side Navigation.
 - Shallow option sets. Use a select, radio group, or checkbox group.
+
+---
 
 ## Accessibility
 

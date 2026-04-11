@@ -300,6 +300,8 @@ Avoid resizing elements inside the button, like the icon or sliding button affor
 </TabItem>
 <TabItem value="specs" label="Specs">
 
+---
+
 ## Metrics
 
 | Property | Value |
@@ -310,6 +312,8 @@ Avoid resizing elements inside the button, like the icon or sliding button affor
 | Handle diameter | 40px |
 | Handle corner radius | 50% (circle) |
 | Minimum touch target | 48 &times; 48px |
+
+---
 
 ## Type and color
 
@@ -324,6 +328,8 @@ Avoid resizing elements inside the button, like the icon or sliding button affor
 | Label text (disabled) | `--color-content-state-disabled` |
 | Label text (on drag) | `--color-content-state-disabled` |
 | Focus outline | 3px `--color-border-accent` |
+
+---
 
 ## Screen readers
 
@@ -348,6 +354,8 @@ Avoid resizing elements inside the button, like the icon or sliding button affor
 
 </TabItem>
 <TabItem value="content" label="Content">
+
+---
 
 ## Swipe versus Slide
 
@@ -381,6 +389,8 @@ Status & changelog coming soon.
 
 </TabItem>
 <TabItem value="code" label="Code">
+
+---
 
 ## Usage
 

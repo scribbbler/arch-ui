@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 Sheet is built on top of the Drawer component with additional bottom-sheet affordances. Use Drawer with `position="bottom"` for the foundational behaviour.
@@ -78,6 +80,8 @@ function FilterSheet({ isOpen, onClose }) {
 }
 ```
 
+---
+
 ## When to use
 
 - **Mobile filters** -- present a list of filter controls that the user can dismiss by tapping the overlay or swiping down.
@@ -85,11 +89,15 @@ function FilterSheet({ isOpen, onClose }) {
 - **Action menus** -- on touch devices, a bottom sheet is more thumb-friendly than a dropdown or context menu.
 - **Side panels** -- on larger screens, a sheet sliding from the side can serve as a persistent inspector or properties panel.
 
+---
+
 ## When not to use
 
 - Dialogs that require an explicit response. Use Modal instead.
 - Navigation drawers that persist across pages. Use Drawer with `position="start"`.
 - Tooltips or small contextual panels. Use Popover.
+
+---
 
 ## Anatomy
 
@@ -99,6 +107,8 @@ A typical Sheet contains:
 2. **Header** -- a title and optional close button.
 3. **Content area** -- scrollable body for the sheet's primary content.
 4. **Footer** (optional) -- action buttons pinned to the bottom.
+
+---
 
 ## Bottom sheet pattern
 
@@ -116,6 +126,8 @@ The most common pattern. The sheet slides up from the bottom edge with rounded t
 </Drawer>
 ```
 
+---
+
 ## Side sheet pattern
 
 On tablet and desktop viewports, a side sheet provides an inspector or detail panel that coexists with the main content.
@@ -126,6 +138,8 @@ On tablet and desktop viewports, a side sheet provides an inspector or detail pa
   <p>Properties and metadata for the selected item.</p>
 </Drawer>
 ```
+
+---
 
 ## Accessibility
 

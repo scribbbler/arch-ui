@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -70,6 +72,8 @@ function ProjectNav() {
 }
 ```
 
+---
+
 ## Expected props
 
 | Prop | Type | Default | Description |
@@ -86,22 +90,30 @@ function ProjectNav() {
 | `active` | `boolean` | When true, the item is styled as the current page. |
 | `disabled` | `boolean` | When true, the item is non-interactive. |
 
+---
+
 ## Anatomy
 
 1. **Container** -- a horizontal bar, often with a bottom border, spanning the content width.
 2. **Nav items** -- a row of text links or buttons. The active item is indicated by an underline or accent colour.
 3. **Overflow** (optional) -- when items exceed the available width, a horizontal scroll or "More" dropdown handles the overflow.
 
+---
+
 ## When to use
 
 - Second-level navigation within a section that already has a global Navigation Header.
 - Switching between views of the same data set (e.g., list view vs. grid view), when Tabs are too heavyweight.
+
+---
 
 ## When not to use
 
 - Primary site-wide navigation. Use Navigation Header.
 - Content that benefits from persistent panels. Use Tabs.
 - More than seven to eight items. Consider a different information architecture or use overflow handling.
+
+---
 
 ## Accessibility
 

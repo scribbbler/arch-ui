@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -83,6 +85,8 @@ function MonthlySales() {
   );
 }
 ```
+
+---
 
 ## Props
 
@@ -120,6 +124,8 @@ Td also accepts all native `TdHTMLAttributes`.
 
 Each accepts `children` and `className`. All sub-components support `ref` forwarding.
 
+---
+
 ## Striped rows
 
 Alternating row backgrounds improve scanability in dense tables.
@@ -130,6 +136,8 @@ Alternating row backgrounds improve scanability in dense tables.
   <Tbody>...</Tbody>
 </Table>
 ```
+
+---
 
 ## Bordered cells
 
@@ -142,6 +150,8 @@ Add visible borders to every cell for precise alignment and data-heavy layouts.
 </Table>
 ```
 
+---
+
 ## Compact size
 
 Use `size="sm"` for tighter cell padding in space-constrained layouts.
@@ -152,6 +162,8 @@ Use `size="sm"` for tighter cell padding in space-constrained layouts.
   <Tbody>...</Tbody>
 </Table>
 ```
+
+---
 
 ## Table with footer
 
@@ -180,9 +192,13 @@ import { Table, Thead, Tbody, Tfoot, Tr, Th, Td } from '@arch-ui/components';
 </Table>
 ```
 
+---
+
 ## Responsive behaviour
 
 Table renders inside a wrapper `<div>` with `overflow-x: auto`, so wide tables scroll horizontally on narrow viewports rather than breaking the page layout.
+
+---
 
 ## Accessibility
 

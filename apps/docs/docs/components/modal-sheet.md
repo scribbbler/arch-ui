@@ -58,6 +58,8 @@ Status & changelog coming soon.
 
 Modal Sheet was a mobile-first overlay pattern that combined the behaviour of a modal dialog with a bottom sheet presentation -- sliding up from the bottom edge of the screen. It was primarily used on touch devices to present actions, confirmations, or short forms in a thumb-friendly position.
 
+---
+
 ## Migration guide
 
 ### Replace with Sheet
@@ -96,6 +98,8 @@ If your Modal Sheet was used as a centred confirmation or form dialog, replace i
   </ModalFooter>
 </Modal>
 ```
+
+---
 
 ## Original behaviour
 

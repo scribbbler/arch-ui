@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -81,6 +83,8 @@ function UserTable() {
 }
 ```
 
+---
+
 ## Expected props
 
 | Prop | Type | Default | Description |
@@ -108,6 +112,8 @@ function UserTable() {
 | `align` | `'start' \| 'center' \| 'end'` | Cell content alignment. |
 | `render` | `(value, row) => ReactNode` | Custom cell renderer. |
 
+---
+
 ## Sorting
 
 Columns marked `sortable: true` render a clickable header. Clicking toggles between ascending, descending, and unsorted states. The current sort state is indicated by an arrow icon.
@@ -118,6 +124,8 @@ const columns = [
   { key: 'created', header: 'Created', sortable: true },
 ];
 ```
+
+---
 
 ## Row selection
 
@@ -133,6 +141,8 @@ When `selectable` is true, a checkbox column is prepended. A header checkbox tog
 />
 ```
 
+---
+
 ## Pagination
 
 Enable built-in pagination for large data sets. The Pagination component renders below the table.
@@ -147,6 +157,8 @@ Enable built-in pagination for large data sets. The Pagination component renders
 />
 ```
 
+---
+
 ## Custom cell rendering
 
 Use the `render` function on a column definition to customise how cell values are displayed.
@@ -156,6 +168,8 @@ const columns = [
   { key: 'status', header: 'Status', render: (value) => <Badge>{value}</Badge> },
 ];
 ```
+
+---
 
 ## Empty state
 
@@ -169,6 +183,8 @@ Provide an `emptyState` node to display when the data array is empty.
   emptyState={<p>No results found. Try adjusting your filters.</p>}
 />
 ```
+
+---
 
 ## Accessibility
 

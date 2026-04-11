@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Available chart types
 
 ### Bar Chart
@@ -121,6 +123,8 @@ import { DonutChart } from '@arch-ui/components';
 />
 ```
 
+---
+
 ## Expected common props
 
 | Prop | Type | Default | Description |
@@ -134,12 +138,16 @@ import { DonutChart } from '@arch-ui/components';
 | `animate` | `boolean` | `true` | When true, the chart animates on initial render. |
 | `className` | `string` | -- | Additional class names. |
 
+---
+
 ## Design guidance
 
 - **Use colour tokens** -- chart colours should come from the design system's categorical palette tokens rather than arbitrary hex values. This ensures consistency and accessibility across themes.
 - **Always provide a caption** -- even though charts are visual, the caption gives screen readers and search engines context.
 - **Limit categories** -- pie and donut charts work best with fewer than six segments. For more categories, use a bar chart.
 - **Label axes** -- line and bar charts should include axis labels that clarify what the numbers represent.
+
+---
 
 ## Accessibility
 

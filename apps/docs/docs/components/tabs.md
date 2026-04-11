@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -74,6 +76,8 @@ function ProfilePage() {
   );
 }
 ```
+
+---
 
 ## Props
 
@@ -102,6 +106,8 @@ function ProfilePage() {
 
 Tabs supports `ref` forwarding to the root `<div>`.
 
+---
+
 ## Variants
 
 ### Line
@@ -119,6 +125,8 @@ Tabs appear as enclosed panels with a connected border, similar to folder tabs.
 ```jsx
 <Tabs variant="enclosed" tabs={tabs} activeValue={active} onChange={setActive} />
 ```
+
+---
 
 ## Orientation
 
@@ -138,6 +146,8 @@ The tab list renders as a vertical column to the left of the content panels. Arr
 <Tabs orientation="vertical" tabs={tabs} activeValue={active} onChange={setActive} />
 ```
 
+---
+
 ## Fill modes
 
 - **Intrinsic** (default) -- each tab is as wide as its label.
@@ -146,6 +156,8 @@ The tab list renders as a vertical column to the left of the content panels. Arr
 ```jsx
 <Tabs fill="fixed" tabs={tabs} activeValue={active} onChange={setActive} />
 ```
+
+---
 
 ## Disabled tabs
 
@@ -158,6 +170,8 @@ const tabs = [
 ];
 ```
 
+---
+
 ## Tab artwork
 
 Pass an icon or illustration via the `artwork` prop. It renders before the label and is marked `aria-hidden="true"`.
@@ -168,6 +182,8 @@ const tabs = [
 ];
 ```
 
+---
+
 ## Render all panels
 
 By default, only the active panel is in the DOM. Set `renderAll` to keep all panels mounted (hidden via CSS) so search engines can index their content.
@@ -175,6 +191,8 @@ By default, only the active panel is in the DOM. Set `renderAll` to keep all pan
 ```jsx
 <Tabs renderAll tabs={tabs} activeValue={active} onChange={setActive} />
 ```
+
+---
 
 ## Accessibility
 

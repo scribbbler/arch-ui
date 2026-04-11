@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -66,6 +68,8 @@ function Footer() {
 }
 ```
 
+---
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -78,6 +82,8 @@ function Footer() {
 | `className` | `string` | -- | Additional CSS class names. |
 
 Link also accepts all native `AnchorHTMLAttributes` and supports `ref` forwarding.
+
+---
 
 ## Variants
 
@@ -105,6 +111,8 @@ A light colour designed for use on dark backgrounds.
 <Link href="/contact" variant="inverse">Contact us</Link>
 ```
 
+---
+
 ## External links
 
 Setting `external` renders a small arrow-box icon after the link text and adjusts the accessible label so screen readers announce "(opens in new tab)".
@@ -117,6 +125,8 @@ Setting `external` renders a small arrow-box icon after the link text and adjust
 
 Note: `external` does not set `target="_blank"` automatically. Set it yourself when you want the link to open in a new tab.
 
+---
+
 ## Animated underline
 
 When `animateUnderline` is enabled, the underline slides in from the left on hover rather than being present at rest.
@@ -124,6 +134,8 @@ When `animateUnderline` is enabled, the underline slides in from the left on hov
 ```jsx
 <Link href="/features" animateUnderline>Explore features</Link>
 ```
+
+---
 
 ## Accessibility
 

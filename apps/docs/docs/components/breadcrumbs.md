@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -70,6 +72,8 @@ function ProductPage() {
 }
 ```
 
+---
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -87,6 +91,8 @@ function ProductPage() {
 
 Breadcrumbs supports `ref` forwarding to the `<nav>` element.
 
+---
+
 ## Custom separator
 
 Replace the default `/` separator with any React node -- an icon, a chevron character, or a custom component.
@@ -97,6 +103,8 @@ Replace the default `/` separator with any React node -- an icon, a chevron char
   separator={<span aria-hidden="true">&#8250;</span>}
 />
 ```
+
+---
 
 ## Accessibility
 

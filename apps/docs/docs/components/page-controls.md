@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -73,6 +75,8 @@ function ImageCarousel({ images }) {
 }
 ```
 
+---
+
 ## Expected props
 
 | Prop | Type | Default | Description |
@@ -83,11 +87,15 @@ function ImageCarousel({ images }) {
 | `size` | `'sm' \| 'md'` | `'md'` | Dot size. |
 | `className` | `string` | -- | Additional class names. |
 
+---
+
 ## States
 
 - **Active** -- the current dot is filled with the primary accent colour and may be slightly larger than inactive dots.
 - **Inactive** -- remaining dots use a muted fill to indicate available pages.
 - **Interactive** -- each dot is a tappable target that navigates to the corresponding page.
+
+---
 
 ## When to use
 
@@ -95,10 +103,14 @@ function ImageCarousel({ images }) {
 - Onboarding flows to show step progress.
 - Content pagers where thumbnails would take too much space.
 
+---
+
 ## When not to use
 
 - Large data sets with many pages. Use Pagination instead.
 - Flows where the user must complete steps in order. Use a stepper or progress indicator.
+
+---
 
 ## Accessibility
 

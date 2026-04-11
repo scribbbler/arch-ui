@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -69,6 +71,8 @@ function ProductCard() {
   );
 }
 ```
+
+---
 
 ## Props
 
@@ -92,6 +96,8 @@ function ProductCard() {
 
 All sub-components and Card itself support `ref` forwarding.
 
+---
+
 ## Clickable link card
 
 When the card should navigate to a new page, pass both `clickable` and `href`. The card renders as an anchor element with hover elevation and focus-visible styling.
@@ -101,6 +107,8 @@ When the card should navigate to a new page, pass both `clickable` and `href`. T
   <CardBody>View product details</CardBody>
 </Card>
 ```
+
+---
 
 ## Clickable action card
 
@@ -112,6 +120,8 @@ When the card triggers an action without navigation, pass `clickable` and `onCli
 </Card>
 ```
 
+---
+
 ## Anatomy
 
 - **CardHeader** -- top region separated from the body by a border. Suited for titles, icons, or metadata.
@@ -119,6 +129,8 @@ When the card triggers an action without navigation, pass `clickable` and `onCli
 - **CardFooter** -- bottom region separated from the body by a border. Suited for actions, prices, or timestamps.
 
 All three sub-components are optional; you can use any combination.
+
+---
 
 ## Accessibility
 

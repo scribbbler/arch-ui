@@ -52,6 +52,8 @@ Status & changelog coming soon.
 </TabItem>
 <TabItem value="code" label="Code">
 
+---
+
 ## Usage
 
 ```jsx
@@ -78,6 +80,8 @@ function OptionsMenu() {
 }
 ```
 
+---
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -93,6 +97,8 @@ function OptionsMenu() {
 | `onMouseLeaveDelay` | `number` | `200` | Delay in ms before hiding the popover on mouse leave (hover trigger only). |
 | `children` | `ReactElement` | -- | The trigger element. Must be a single focusable React element. Required. |
 
+---
+
 ## Position variants
 
 The popover can appear on any side of the trigger. `start` and `end` use logical directions for RTL support.
@@ -103,6 +109,8 @@ The popover can appear on any side of the trigger. `start` and `end` use logical
 <Popover position="start" ...>...</Popover>
 <Popover position="end" ...>...</Popover>
 ```
+
+---
 
 ## Hover trigger
 
@@ -122,6 +130,8 @@ For tooltip-like interactions where hovering reveals supplementary content, set 
 </Popover>
 ```
 
+---
+
 ## Arrow
 
 Pass `showArrow` to render a small CSS arrow pointing from the popover toward its trigger. The arrow automatically orients based on the `position` value.
@@ -129,6 +139,8 @@ Pass `showArrow` to render a small CSS arrow pointing from the popover toward it
 ```jsx
 <Popover showArrow position="top" ...>...</Popover>
 ```
+
+---
 
 ## Accessibility
 
