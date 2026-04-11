@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Placeholder, Shimmer, Content loader
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

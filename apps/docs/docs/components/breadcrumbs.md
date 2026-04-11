@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Breadcrumb trail, navigation path, crumbs
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

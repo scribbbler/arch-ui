@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Autocomplete, typeahead, searchable select
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

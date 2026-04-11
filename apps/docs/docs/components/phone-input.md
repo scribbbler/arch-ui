@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Telephone input, phone number field, international phone
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Row, List row, Cell
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

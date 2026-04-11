@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Horizontal nav, nav bar, menu bar
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

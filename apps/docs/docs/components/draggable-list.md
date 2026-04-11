@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Sortable list, Reorderable list, Drag and drop
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

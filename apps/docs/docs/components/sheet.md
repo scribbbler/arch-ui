@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Bottom sheet, side sheet, panel
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

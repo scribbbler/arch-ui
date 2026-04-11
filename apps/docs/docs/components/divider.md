@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Separator, rule, horizontal rule
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

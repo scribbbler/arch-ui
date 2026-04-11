@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Anchor, hyperlink, text link
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

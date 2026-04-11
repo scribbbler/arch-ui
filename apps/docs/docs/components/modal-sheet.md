@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Bottom sheet modal, action sheet
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

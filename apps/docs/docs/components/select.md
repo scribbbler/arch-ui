@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Dropdown, picker, native select, select box
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

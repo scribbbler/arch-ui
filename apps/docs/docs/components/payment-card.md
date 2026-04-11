@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Credit card input, card number field
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

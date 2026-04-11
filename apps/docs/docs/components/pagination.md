@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Pager, page navigation, page selector
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

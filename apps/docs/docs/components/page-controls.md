@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Page dots, page indicator, carousel dots
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Full-screen dialog, takeover
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

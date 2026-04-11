@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Tree, file browser, nested list
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

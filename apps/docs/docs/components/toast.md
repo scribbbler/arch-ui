@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Snackbar, Notification, Flash message
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

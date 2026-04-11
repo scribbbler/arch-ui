@@ -281,8 +281,6 @@ Design tokens provide a predefined set of options that can be applied to multipl
 
 Using raw values directly in code is poor practice for maintenance and future changes, mainly because we support themes and accessibility features like Dark Mode. Proper tokens allow themes to work seamlessly across multiple platforms -- iOS, Android, and the Web.
 
----
-
 These styles have been defined with a system in mind; the moment you deviate from them, you break this system. By adhering to this system instead, you help consolidate a distinctive look & feel driven by our brand guidelines.
 
 <div className="docs-callout">

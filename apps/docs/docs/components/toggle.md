@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Switch, on/off toggle, binary toggle
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

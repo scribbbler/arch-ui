@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Sidebar, nav rail, side menu
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

@@ -271,25 +271,28 @@
 }
 
 /* ─── Doc section dividers ───────────────────────────────────────────────────
-   Dividers are peer-to-peer transition markers between sibling sections of
-   the same heading level. In markdown they are always written as `---`; CSS
-   then picks the weight based on what the `<hr>` is immediately followed by:
+   Industry convention: a doc page has exactly two levels of visual section
+   breaks, and dividers mark peer-to-peer transitions at those two levels
+   only. Everything deeper is carried by heading typography and whitespace.
 
-     hr + h2  → 8px chunky bar  (between consecutive h2 sections)
-     hr + h3  → 2px thin rule   (between consecutive h3 sections in one h2)
+     hr + h2  → 8px chunky bar  (major section transition)
+     hr + h3  → 2px thin rule   (subsection transition within an h2)
+     hr + anything else         → collapsed, invisible (treated as an error
+                                  in the source; the sweep script strips
+                                  these, CSS hides any that slip through)
 
-   A `---` is only inserted in markdown where a sibling transition actually
-   happens, so an h3 that opens a new h2's subsection tree has NO rule above
-   it (you are descending into the tree, not moving sideways within it). The
-   base rule below applies to any bare `<hr>` that escapes the `:has()` match
-   so legacy dividers still render as the 8px bar. */
+   A `---` is never inserted before the first h3 under an h2 — descending
+   into the subsection tree is not a peer transition. Authored markdown must
+   follow this rule so that every `<hr>` in the rendered DOM lands on one of
+   the two `:has()` branches below. */
 .theme-doc-markdown hr,
 .markdown hr {
   border: 0;
   background: #F3F3F3;
   border-radius: 0;
-  height: 8px;
-  margin: 48px 0;
+  /* Default collapses to nothing — only the :has() branches below paint. */
+  height: 0;
+  margin: 0;
 }
 .theme-doc-markdown hr:has(+ h2),
 .markdown hr:has(+ h2) {

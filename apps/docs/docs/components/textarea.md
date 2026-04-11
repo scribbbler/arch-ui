@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Text area, multi-line input, comment box
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

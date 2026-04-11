@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Loader, Loading indicator, Activity indicator
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

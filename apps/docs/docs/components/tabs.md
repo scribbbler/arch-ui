@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Tab bar, tab group, segmented view
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

@@ -117,8 +117,6 @@ Use semantic border color tokens to communicate validation states:
 | Success | `--color-border-success` | Confirmed inputs, success states |
 | Warning | `--color-border-warning` | Caution indicators, partial validation |
 
----
-
 <Guidance.Grid>
   <Guidance.Do description="Use border tokens for all border widths and colours. Tokens adapt to themes automatically and keep the system consistent.">
     <code>border: var(--border-width-default) solid var(--color-border-default);</code>

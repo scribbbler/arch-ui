@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Global banner, App-wide notice, Maintenance banner
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

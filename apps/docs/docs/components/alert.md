@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Notification, Inline message, Callout
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

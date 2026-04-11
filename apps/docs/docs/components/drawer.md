@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Side panel, slide-out, off-canvas
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

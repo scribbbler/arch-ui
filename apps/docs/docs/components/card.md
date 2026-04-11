@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Container, panel, surface
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

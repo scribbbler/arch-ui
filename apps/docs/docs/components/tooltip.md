@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Hint, Info tip, Hover card
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

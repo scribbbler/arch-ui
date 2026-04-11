@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Dropdown, floating panel, flyout
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

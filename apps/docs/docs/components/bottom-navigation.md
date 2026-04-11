@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Tab bar, bottom tabs, mobile nav
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

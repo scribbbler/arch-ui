@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Grid, data grid, spreadsheet
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

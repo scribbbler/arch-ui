@@ -117,8 +117,6 @@ Arch UI leverages a modular scale to define a set of harmonious and hierarchical
   <span style={{fontSize: '80px', fontWeight: 700}}>96</span>
 </div>
 
----
-
 **Line height**
 
 Proper line height is achieved by multiplying the type size by 1.45 and rounding to the nearest interval of 4. This ensures all type aligns with our 4 px baseline grid.
@@ -201,8 +199,6 @@ They are all used in different sizes and weights throughout our [typography toke
   Looking for our font files? You can download Inter from <a href="https://fonts.google.com/specimen/Inter">Google Fonts</a>. The serif and monospace stacks use system fonts that ship with every major operating system.
 </div>
 
----
-
 #### Inter Mono
 
 We've created a sister version of our main typographic styles, which solely uses Inter Mono. It is designed specifically for money and number-related use cases.
@@ -275,8 +271,6 @@ Typography is a powerful tool that can be used to create this architecture, by v
     <div style={{fontSize: '14px', fontWeight: 400, color: '#727272', lineHeight: 1.5}}>6 min</div>
   </div>
 </div>
-
----
 
 #### Content hierarchy
 

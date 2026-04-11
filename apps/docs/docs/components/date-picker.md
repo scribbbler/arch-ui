@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Calendar, date selector, date input
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Data visualization, graphs, plots
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

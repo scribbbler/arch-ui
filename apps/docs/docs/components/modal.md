@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 Dialog, overlay, lightbox
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>

@@ -30,8 +30,6 @@ import TabItem from '@theme/TabItem';
 
 App bar, top bar, header bar
 
----
-
 Usage guidelines coming soon.
 
 </TabItem>
