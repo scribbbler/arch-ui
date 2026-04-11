@@ -1,0 +1,55 @@
+/*
+ * Shared page header — matches the inline block that every doc page used to
+ * define. See PageHeader.tsx for the matching markup and the frontmatter
+ * contract. Visual values intentionally mirror the previous inline styles so
+ * the migration is a pure refactor; revisit once shared typography tokens
+ * land for docs chrome.
+ */
+
+.arch-page-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.arch-page-header__eyebrow {
+  font-size: 14px;
+  color: #727272;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.arch-page-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.arch-page-header__title {
+  margin: 0;
+}
+
+.arch-page-header__status {
+  padding: 2px 10px;
+  border: 1px solid #282828;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+[data-theme='dark'] .arch-page-header__status {
+  border-color: #a6a6a6;
+}
+
+.arch-page-header__description {
+  font-size: 18px;
+  color: #5e5e5e;
+  margin-top: 12px;
+  max-width: 600px;
+}
+
+[data-theme='dark'] .arch-page-header__description {
+  color: #a6a6a6;
+}

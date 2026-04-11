@@ -1,0 +1,107 @@
+/*
+ * Shared category card — renders from a single `Category` record defined in
+ * src/data/categories.ts. See CategoryCard.tsx for the matching markup.
+ *
+ * Class names use an `arch-category-card` prefix to avoid collision with the
+ * legacy `.docs-category-card` block in custom.css. The legacy block is still
+ * consumed by pages that haven't been migrated (src/pages/index.tsx,
+ * docs/components/index.mdx); remove it once those pages migrate too.
+ */
+
+.arch-category-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+@container (max-width: 900px) {
+  .arch-category-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@container (max-width: 640px) {
+  .arch-category-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container (max-width: 360px) {
+  .arch-category-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.arch-category-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none !important;
+  color: inherit !important;
+  background: #ffffff;
+  transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.arch-category-card:hover {
+  border-color: #bbbbbb;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.arch-category-card:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+[data-theme='dark'] .arch-category-card {
+  background: #141414;
+  border-color: #333;
+}
+
+[data-theme='dark'] .arch-category-card:hover {
+  border-color: #555;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.arch-category-card__media {
+  background: #0a0a0a;
+  aspect-ratio: 3 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.arch-category-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.arch-category-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+}
+
+.arch-category-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.arch-category-card__description {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #727272;
+  margin: 0;
+}
+
+[data-theme='dark'] .arch-category-card__description {
+  color: #a6a6a6;
+}

@@ -1,3 +1,39 @@
+const fs = require('fs');
+const path = require('path');
+const matter = require('gray-matter');
+
+/**
+ * Walks a docs directory at build time and returns a map from relative doc id
+ * (e.g. "foundations/tokens") to that file's frontmatter. Exposed to the client
+ * via `customFields.docFrontmatter` so shared components like `<CategoryCard />`
+ * and `<PageHeader />` can render content from a single source (the page's
+ * frontmatter) without duplicating it in data modules or JSX.
+ */
+function loadDocFrontmatter(rootDir) {
+  const result = {};
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      if (!/\.mdx?$/.test(entry.name)) continue;
+      const raw = fs.readFileSync(full, 'utf8');
+      const { data } = matter(raw);
+      const id = path
+        .relative(rootDir, full)
+        .replace(/\\/g, '/')
+        .replace(/\.(md|mdx)$/, '');
+      result[id] = data;
+    }
+  };
+  walk(rootDir);
+  return result;
+}
+
+const docFrontmatter = loadDocFrontmatter(path.join(__dirname, 'docs'));
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Arch Design System',
@@ -7,6 +43,10 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
+
+  customFields: {
+    docFrontmatter,
+  },
 
   presets: [
     [

@@ -1,22 +1,20 @@
 ---
 sidebar_label: Design tokens
+title: Design tokens
+description: Tokens are a set of foundational design decisions represented as reusable data. These tokens are shared across all platforms, iOS, Android, and Web, and control the entire visual part of our design system.
+eyebrow: Styles
+status: Draft
 hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Guidance from '@site/src/components/Guidance';
+import PageHeader from '@site/src/components/PageHeader';
+import { CategoryCardGrid } from '@site/src/components/CategoryCard';
+import { foundationCategories } from '@site/src/data/categories';
 
-<div style={{marginBottom: '2rem'}}>
-  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>STYLES</span>
-  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Design tokens</h1>
-    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
-  </div>
-  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    Tokens are a set of foundational design decisions represented as reusable data. These tokens are shared across all platforms, iOS, Android, and Web, and control the entire visual part of our design system.
-  </p>
-</div>
+<PageHeader />
 
 <Tabs>
 <TabItem value="usage" label="Usage" default>
@@ -279,109 +277,7 @@ These styles have been defined with a system in mind; the moment you deviate fro
 
 Arch UI defines tokens across 8 categories. Each category has its own foundation page with detailed values and usage guidance.
 
-<div className="foundation-grid" style={{marginBottom: '48px'}}>
-
-<a href="/foundations/color" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="40" cy="35" r="20" stroke="currentColor" strokeWidth="2" />
-<circle cx="60" cy="35" r="20" stroke="currentColor" strokeWidth="2" />
-<circle cx="50" cy="52" r="20" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Color</div>
-</a>
-
-<a href="/foundations/typography" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<text x="15" y="35" fill="currentColor" fontSize="28" fontWeight="700" fontFamily="system-ui">Aa</text>
-<line x1="15" y1="50" x2="105" y2="50" stroke="currentColor" strokeWidth="2" />
-<line x1="15" y1="60" x2="80" y2="60" stroke="currentColor" strokeWidth="2" />
-<line x1="15" y1="70" x2="95" y2="70" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Typography</div>
-</a>
-
-<a href="/foundations/spacing" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<line x1="20" y1="15" x2="20" y2="65" stroke="currentColor" strokeWidth="2" />
-<line x1="15" y1="15" x2="25" y2="15" stroke="currentColor" strokeWidth="2" />
-<line x1="15" y1="65" x2="25" y2="65" stroke="currentColor" strokeWidth="2" />
-<line x1="40" y1="15" x2="40" y2="65" stroke="currentColor" strokeWidth="2" />
-<line x1="35" y1="15" x2="45" y2="15" stroke="currentColor" strokeWidth="2" />
-<line x1="35" y1="65" x2="45" y2="65" stroke="currentColor" strokeWidth="2" />
-<rect x="55" y="15" width="50" height="50" rx="4" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
-<rect x="65" y="25" width="30" height="30" rx="4" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Spacing</div>
-</a>
-
-<a href="/foundations/border" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="15" y="10" width="90" height="60" rx="6" stroke="currentColor" strokeWidth="1" />
-<rect x="25" y="20" width="70" height="40" rx="4" stroke="currentColor" strokeWidth="2" />
-<rect x="38" y="32" width="44" height="16" rx="3" stroke="currentColor" strokeWidth="4" />
-</svg>
-</div>
-<div className="docs-category-card__title">Border</div>
-</a>
-
-<a href="/foundations/corner-radius" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="10" y="10" width="40" height="30" rx="0" stroke="currentColor" strokeWidth="2" />
-<rect x="60" y="10" width="40" height="30" rx="6" stroke="currentColor" strokeWidth="2" />
-<rect x="10" y="48" width="40" height="24" rx="12" stroke="currentColor" strokeWidth="2" />
-<circle cx="80" cy="60" r="12" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Corner Radius</div>
-</a>
-
-<a href="/foundations/elevation" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="22" y="22" width="50" height="36" rx="4" fill="currentColor" opacity="0.15" />
-<rect x="18" y="18" width="50" height="36" rx="4" stroke="currentColor" strokeWidth="2" />
-<rect x="62" y="42" width="36" height="26" rx="4" fill="currentColor" opacity="0.15" />
-<rect x="58" y="38" width="36" height="26" rx="4" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Elevation</div>
-</a>
-
-<a href="/foundations/motion" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="30" cy="40" r="15" stroke="currentColor" strokeWidth="2" />
-<circle cx="70" cy="40" r="15" stroke="currentColor" strokeWidth="2" />
-<path d="M45 40 C50 25, 55 25, 55 40 C55 55, 50 55, 45 40" stroke="currentColor" strokeWidth="2" />
-<path d="M85 40 Q95 20 105 40 Q95 60 85 40" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Motion</div>
-</a>
-
-<a href="/foundations/layout-grids" className="docs-category-card">
-<div className="docs-category-card__icon">
-<svg viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<line x1="30" y1="5" x2="30" y2="75" stroke="currentColor" strokeWidth="2" />
-<line x1="60" y1="5" x2="60" y2="75" stroke="currentColor" strokeWidth="2" />
-<line x1="90" y1="5" x2="90" y2="75" stroke="currentColor" strokeWidth="2" />
-<line x1="10" y1="20" x2="110" y2="20" stroke="currentColor" strokeWidth="2" />
-<line x1="10" y1="40" x2="110" y2="40" stroke="currentColor" strokeWidth="2" />
-<line x1="10" y1="60" x2="110" y2="60" stroke="currentColor" strokeWidth="2" />
-</svg>
-</div>
-<div className="docs-category-card__title">Layout Grids</div>
-</a>
-
-</div>
+<CategoryCardGrid items={foundationCategories.filter(c => c.id !== 'tokens')} />
 
 </TabItem>
 

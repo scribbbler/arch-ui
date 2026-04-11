@@ -602,8 +602,12 @@ ul.tabs .tabs__item:hover {
   }
 }
 
-/* Docs category card — used on landing and foundations index.
-   Named to avoid collision with the .arch-card component class. */
+/* Legacy docs category card — still consumed by src/pages/index.tsx (homepage)
+   and docs/components/index.mdx. The foundations index has migrated to the
+   shared <CategoryCard /> component (see src/components/CategoryCard.tsx and
+   src/data/categories.ts). Delete this block once the homepage and components
+   index migrate as well — both are blocked on their card artwork being added
+   to static/img/top-level/ and static/img/components/ respectively. */
 .docs-category-card {
   display: flex;
   flex-direction: column;

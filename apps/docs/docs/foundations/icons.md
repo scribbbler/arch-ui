@@ -1,22 +1,18 @@
 ---
 sidebar_label: Icons
+title: Icons
+description: Our icon system is built for clarity and consistency. It aims to be bold, communicative, and functional, complementing typography and fitting naturally within every component.
+eyebrow: Expression
+status: Draft
 hide_title: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Guidance from '@site/src/components/Guidance';
+import PageHeader from '@site/src/components/PageHeader';
 
-<div style={{marginBottom: '2rem'}}>
-  <span style={{fontSize: '14px', color: '#727272', textTransform: 'uppercase', letterSpacing: '0.05em'}}>Expression</span>
-  <div style={{display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px'}}>
-    <h1 style={{margin: 0}}>Icons</h1>
-    <span style={{padding: '2px 10px', border: '1px solid #282828', borderRadius: '4px', fontSize: '13px', fontWeight: 500}}>Draft</span>
-  </div>
-  <p style={{fontSize: '18px', color: '#5E5E5E', marginTop: '12px', maxWidth: '600px'}}>
-    Our icon system is built for clarity and consistency. It aims to be bold, communicative, and functional, complementing typography and fitting naturally within every component.
-  </p>
-</div>
+<PageHeader />
 
 <Tabs>
 <TabItem value="usage" label="Usage" default>
