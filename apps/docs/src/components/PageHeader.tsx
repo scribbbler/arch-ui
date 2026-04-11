@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
+import StatusBadge from './StatusBadge';
 import './PageHeader.css';
 
 /**
@@ -38,9 +39,7 @@ export default function PageHeader(): React.ReactElement {
       {fm.eyebrow && <span className="arch-page-header__eyebrow">{fm.eyebrow}</span>}
       <div className="arch-page-header__title-row">
         <h1 className="arch-page-header__title">{title}</h1>
-        {fm.status && (
-          <span className="arch-page-header__status">{fm.status}</span>
-        )}
+        {fm.status && <StatusBadge status={fm.status} />}
       </div>
       {fm.description && (
         <p className="arch-page-header__description">{fm.description}</p>

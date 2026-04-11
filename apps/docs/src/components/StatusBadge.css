@@ -1,0 +1,59 @@
+/*
+ * StatusBadge — visual states for docs page status pills.
+ *
+ * Variants live here (not in PageHeader.css) because the badge is a standalone
+ * component. Colors are hand-picked for docs chrome, not tied to semantic
+ * color tokens, so they can be tuned independently of product UI.
+ */
+
+.arch-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.arch-status-badge--draft {
+  background: #eeeeee;
+  color: #000000;
+}
+
+.arch-status-badge--beta {
+  background: #e8efff;
+  color: #0b4fd6;
+}
+
+.arch-status-badge--stable {
+  background: #e1f5e9;
+  color: #006b3a;
+}
+
+.arch-status-badge--deprecated {
+  background: #fce8e6;
+  color: #9f0606;
+}
+
+[data-theme='dark'] .arch-status-badge--draft {
+  background: #2e2e2e;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .arch-status-badge--beta {
+  background: #1a2c5c;
+  color: #a8c2ff;
+}
+
+[data-theme='dark'] .arch-status-badge--stable {
+  background: #143d25;
+  color: #7fd8a3;
+}
+
+[data-theme='dark'] .arch-status-badge--deprecated {
+  background: #4a1414;
+  color: #ffa8a2;
+}
