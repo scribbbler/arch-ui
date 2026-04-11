@@ -58,25 +58,28 @@ export interface ComponentCategory extends Category {
 /* Top-level cards (homepage)                                          */
 /* ------------------------------------------------------------------ */
 
-// Cards without `image` render a solid black placeholder. Drop files into
-// `static/img/top-level/` and set the `image` field to replace the placeholder.
+// Artwork lives in `static/img/landing/`. Cards without `image` render a
+// solid black placeholder.
 export const topLevelCategories: Category[] = [
   {
     id: 'foundations',
     title: 'Foundations',
     href: '/foundations',
+    image: '/img/landing/foundations.png',
     docId: 'foundations/index',
   },
   {
     id: 'components',
     title: 'Components',
     href: '/components',
+    image: '/img/landing/components.png',
     docId: 'components/index',
   },
   {
     id: 'patterns',
     title: 'Patterns',
     href: '/patterns/forms',
+    image: '/img/landing/patterns.png',
     descriptionOverride:
       'Review broader design patterns and the module libraries that power them.',
   },
@@ -84,6 +87,7 @@ export const topLevelCategories: Category[] = [
     id: 'resources',
     title: 'Resources & Tools',
     href: '/intro',
+    image: '/img/landing/resources.png',
     descriptionOverride:
       'Learn how to use Arch UI to design focused and accessible experiences.',
   },
