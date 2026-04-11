@@ -422,8 +422,12 @@ a:focus {
   color: inherit !important;
 }
 /* TOC (right-side table of contents) — no underlines, black active state */
+.theme-doc-toc-desktop {
+  padding-left: 24px !important;
+}
 .table-of-contents {
   line-height: 1.35 !important;
+  padding-left: 16px !important;
 }
 .table-of-contents li {
   margin: 0.85rem 0 !important;
