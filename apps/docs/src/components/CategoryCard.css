@@ -15,6 +15,39 @@
   margin-top: 32px;
 }
 
+/*
+ * The grid lives in two very different contexts:
+ *  1. Doc pages (foundations/components index, tokens.md rail) — available
+ *     width is the doc content area, which can be much narrower than the
+ *     viewport because of the sidebar and ToC. Use `@container` queries so
+ *     the grid responds to its actual container width; `.theme-doc-markdown`
+ *     is set up as a query container in custom.css.
+ *  2. Custom pages (homepage) — no query container in the ancestor chain;
+ *     available width tracks the viewport. Fall back to `@media` queries.
+ *
+ * Both rule sets coexist because `@container` silently does nothing when
+ * there is no ancestor query container, so the `@media` rules drive the
+ * homepage while the `@container` rules drive the doc pages.
+ */
+
+@media (max-width: 900px) {
+  .arch-category-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .arch-category-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .arch-category-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @container (max-width: 900px) {
   .arch-category-card-grid {
     grid-template-columns: repeat(3, 1fr);

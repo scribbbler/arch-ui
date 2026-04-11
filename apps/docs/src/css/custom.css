@@ -573,10 +573,6 @@ ul.tabs .tabs__item:hover {
   padding: 64px 0 80px;
   max-width: var(--ifm-container-width);
   margin: 0 auto;
-  /* Establish a size-containment context so the shared CategoryCardGrid's
-     @container queries respond to this wrapper's width (doc pages get this
-     from .theme-doc-markdown — this is the homepage equivalent). */
-  container-type: inline-size;
 }
 
 @media (max-width: 520px) {
