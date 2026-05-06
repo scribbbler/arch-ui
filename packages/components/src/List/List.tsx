@@ -101,7 +101,7 @@ const List = forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
       .join(' ');
 
     return (
-      <Tag ref={ref as React.Ref<HTMLUListElement>} className={classes}>
+      <Tag ref={ref as any} className={classes}>
         {children}
       </Tag>
     );
@@ -242,14 +242,14 @@ const DescriptionList = forwardRef<HTMLDListElement, DescriptionListProps>(
 const DescriptionTerm = forwardRef<HTMLElement, DescriptionTermProps>(
   function DescriptionTerm({ children, className }, ref) {
     const classes = ['arch-description-term', className].filter(Boolean).join(' ');
-    return <dt ref={ref as React.Ref<HTMLElement>} className={classes}>{children}</dt>;
+    return <dt ref={ref as any} className={classes}>{children}</dt>;
   }
 );
 
 const DescriptionDetail = forwardRef<HTMLElement, DescriptionDetailProps>(
   function DescriptionDetail({ children, className }, ref) {
     const classes = ['arch-description-detail', className].filter(Boolean).join(' ');
-    return <dd ref={ref as React.Ref<HTMLElement>} className={classes}>{children}</dd>;
+    return <dd ref={ref as any} className={classes}>{children}</dd>;
   }
 );
 

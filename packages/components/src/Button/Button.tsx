@@ -99,9 +99,7 @@ type ButtonComponent = <E extends ElementType = 'button'>(
  * <Button as="a" href="/profile" kind="tertiary">View profile</Button>
  * <Button isLoading loadingText="Saving…">Save</Button>
  */
-const Button: ButtonComponent = forwardRef(function Button<
-  E extends ElementType = 'button'
->(
+const Button = forwardRef(function Button(
   {
     as,
     kind = 'primary',
@@ -119,8 +117,8 @@ const Button: ButtonComponent = forwardRef(function Button<
     children,
     onClick,
     ...rest
-  }: ButtonProps<E>,
-  ref: PolymorphicRef<E>
+  }: ButtonProps,
+  ref: React.ForwardedRef<HTMLButtonElement>
 ) {
   const Tag = (as ?? 'button') as ElementType;
   const isDisabled = disabled || isLoading;

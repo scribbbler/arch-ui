@@ -5,7 +5,7 @@ import './ProgressBar.css';
 
 export type ProgressBarSize = 'sm' | 'md';
 
-export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ProgressBarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'label'> {
   /** Current progress value 0–100. Ignored when indeterminate=true. Defaults to 0. */
   value?: number;
   /** When true, displays an animated bar for operations of unknown duration. */

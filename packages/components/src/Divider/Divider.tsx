@@ -5,7 +5,7 @@ import './Divider.css';
 
 export type DividerOrientation = 'horizontal' | 'vertical';
 
-export interface DividerProps extends React.HTMLAttributes<HTMLElement> {
+export interface DividerProps extends Omit<React.HTMLAttributes<HTMLElement>, 'label'> {
   /** Orientation of the separator. Defaults to 'horizontal'. */
   orientation?: DividerOrientation;
   /**
@@ -53,7 +53,7 @@ const Divider = forwardRef<HTMLElement, DividerProps>(function Divider(
 
     return (
       <div
-        ref={ref as React.Ref<HTMLDivElement>}
+        ref={ref as any}
         className={classes}
         role="separator"
         aria-orientation="horizontal"
@@ -76,7 +76,7 @@ const Divider = forwardRef<HTMLElement, DividerProps>(function Divider(
 
   return (
     <hr
-      ref={ref as React.Ref<HTMLHRElement>}
+      ref={ref as any}
       className={classes}
       role="separator"
       aria-orientation={orientation}

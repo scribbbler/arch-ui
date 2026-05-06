@@ -255,7 +255,6 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
 });
 
 export { Pagination };
-export type { PaginationSize, PaginationShape };
 export type { PaginationLabels } from './Pagination.labels';
 export { DEFAULT_LABELS as DEFAULT_PAGINATION_LABELS } from './Pagination.labels';
 export default Pagination;

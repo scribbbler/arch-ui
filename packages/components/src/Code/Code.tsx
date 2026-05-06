@@ -47,7 +47,7 @@ const Code = forwardRef<HTMLElement, CodeProps>(
       const preClasses = ["arch-code-block", className].filter(Boolean).join(" ");
       return (
         <pre className={preClasses} style={cssVars} {...languageProps} {...rest}>
-          <code ref={ref as React.Ref<HTMLElement>} className="arch-code">
+          <code ref={ref as any} className="arch-code">
             {children}
           </code>
         </pre>
@@ -60,7 +60,7 @@ const Code = forwardRef<HTMLElement, CodeProps>(
 
     return (
       <code
-        ref={ref as React.Ref<HTMLElement>}
+        ref={ref as any}
         className={inlineClasses}
         style={cssVars}
         {...languageProps}

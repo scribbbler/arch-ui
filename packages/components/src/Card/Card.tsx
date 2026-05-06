@@ -120,7 +120,7 @@ const Card = forwardRef<HTMLElement, CardProps>(function Card(
   if (clickable && href) {
     return (
       <a
-        ref={ref as React.Ref<HTMLAnchorElement>}
+        ref={ref as any}
         href={href}
         className={classes}
         style={style}
@@ -141,7 +141,7 @@ const Card = forwardRef<HTMLElement, CardProps>(function Card(
 
     return (
       <div
-        ref={ref as React.Ref<HTMLDivElement>}
+        ref={ref as any}
         role="button"
         tabIndex={0}
         className={classes}
@@ -156,7 +156,7 @@ const Card = forwardRef<HTMLElement, CardProps>(function Card(
 
   return (
     <div
-      ref={ref as React.Ref<HTMLDivElement>}
+      ref={ref as any}
       className={classes}
       style={style}
     >

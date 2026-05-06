@@ -22,6 +22,11 @@ Do not begin implementation until you have confirmed the active task with the us
 
 These apply to every file, every session, with no exceptions:
 
+### Package Manager
+- This project uses **pnpm** exclusively — never use `npm` or `yarn`
+- All commands must use `pnpm`: `pnpm install`, `pnpm build`, `pnpm test`, etc.
+- Do not create `package-lock.json` or `yarn.lock`
+
 ### Tokens
 - Never use a hex value, pixel value, or named colour directly in component CSS
 - Every style value must be `var(--token-name)`
