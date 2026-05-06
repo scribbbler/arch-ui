@@ -7,7 +7,7 @@ export type BadgeVariant = 'neutral' | 'info' | 'success' | 'warning' | 'danger'
 export type BadgeSize = 'sm' | 'md';
 export type BadgePlacement = 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft';
 
-export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface BadgeProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content'> {
   /** Colour palette variant. Defaults to 'neutral'. */
   variant?: BadgeVariant;
   /** Size of the badge. Defaults to 'md'. */
