@@ -4,6 +4,7 @@ storybook-static/
 .docusaurus/
 test-results/
 build/
+!packages/tokens/build/
 *.tsbuildinfo
 .turbo/
 .DS_Store

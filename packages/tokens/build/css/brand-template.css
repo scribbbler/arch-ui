@@ -1,0 +1,377 @@
+/**
+ * Arch Design System — Brand Template
+ *
+ * Override these semantic tokens to apply your brand.
+ * Import this file AFTER @arch-ui/tokens/css.
+ *
+ * Usage:
+ *   @import "@arch-ui/tokens/css";
+ *   @import "./your-brand.css";
+ */
+
+:root {
+  /* border > width > default — current: 1px */
+  /* --border-width-default: ; */
+  /* border > width > strong — current: 2px */
+  /* --border-width-strong: ; */
+  /* color > background > default — current: #ffffff */
+  /* --color-background-default: ; */
+  /* color > background > subtle — current: #f3f3f3 */
+  /* --color-background-subtle: ; */
+  /* color > background > muted — current: #e8e8e8 */
+  /* --color-background-muted: ; */
+  /* color > background > inverse — current: #282828 */
+  /* --color-background-inverse: ; */
+  /* color > background > disabled — current: #e8e8e8 */
+  /* --color-background-disabled: ; */
+  /* color > background > overlay — current: rgba(0, 0, 0, 0.5) */
+  /* --color-background-overlay: ; */
+  /* color > text > default — current: #282828 */
+  /* --color-text-default: ; */
+  /* color > text > subtle — current: #727272 */
+  /* --color-text-subtle: ; */
+  /* color > text > placeholder — current: #a6a6a6 */
+  /* --color-text-placeholder: ; */
+  /* color > text > disabled — current: #bbbbbb */
+  /* --color-text-disabled: ; */
+  /* color > text > inverse — current: #ffffff */
+  /* --color-text-inverse: ; */
+  /* color > text > link — current: #266ef1 */
+  /* --color-text-link: ; */
+  /* color > text > link-visited — current: #944de7 */
+  /* --color-text-link-visited: ; */
+  /* color > text > link-hover — current: #175bcc */
+  /* --color-text-link-hover: ; */
+  /* color > text > danger — current: #de1135 */
+  /* --color-text-danger: ; */
+  /* color > text > success — current: #0e8345 */
+  /* --color-text-success: ; */
+  /* color > text > warning — current: #845201 */
+  /* --color-text-warning: ; */
+  /* color > text > info — current: #266ef1 */
+  /* --color-text-info: ; */
+  /* color > action > primary — current: #266ef1 */
+  /* --color-action-primary: ; */
+  /* color > action > primary-hover — current: #175bcc */
+  /* --color-action-primary-hover: ; */
+  /* color > action > primary-active — current: #1948a3 */
+  /* --color-action-primary-active: ; */
+  /* color > action > primary-text — current: #ffffff */
+  /* --color-action-primary-text: ; */
+  /* color > action > secondary — current: #e8e8e8 */
+  /* --color-action-secondary: ; */
+  /* color > action > secondary-hover — current: #dddddd */
+  /* --color-action-secondary-hover: ; */
+  /* color > action > secondary-active — current: #bbbbbb */
+  /* --color-action-secondary-active: ; */
+  /* color > action > secondary-text — current: #4b4b4b */
+  /* --color-action-secondary-text: ; */
+  /* color > action > ghost — current: rgba(0, 0, 0, 0) */
+  /* --color-action-ghost: ; */
+  /* color > action > ghost-hover — current: #e8e8e8 */
+  /* --color-action-ghost-hover: ; */
+  /* color > action > ghost-active — current: #dddddd */
+  /* --color-action-ghost-active: ; */
+  /* color > action > ghost-text — current: #4b4b4b */
+  /* --color-action-ghost-text: ; */
+  /* color > action > destructive — current: #de1135 */
+  /* --color-action-destructive: ; */
+  /* color > action > destructive-hover — current: #bb032a */
+  /* --color-action-destructive-hover: ; */
+  /* color > action > destructive-active — current: #950f22 */
+  /* --color-action-destructive-active: ; */
+  /* color > action > destructive-text — current: #ffffff */
+  /* --color-action-destructive-text: ; */
+  /* color > border > default — current: #dddddd */
+  /* --color-border-default: ; */
+  /* color > border > subtle — current: #e8e8e8 */
+  /* --color-border-subtle: ; */
+  /* color > border > strong — current: #a6a6a6 */
+  /* --color-border-strong: ; */
+  /* color > border > focus — current: #068bee */
+  /* --color-border-focus: ; */
+  /* color > border > danger — current: #f83446 */
+  /* --color-border-danger: ; */
+  /* color > border > success — current: #009a51 */
+  /* --color-border-success: ; */
+  /* color > border > warning — current: #b97502 */
+  /* --color-border-warning: ; */
+  /* color > border > disabled — current: #dddddd */
+  /* --color-border-disabled: ; */
+  /* color > feedback > danger-bg — current: #fff0ee */
+  /* --color-feedback-danger-bg: ; */
+  /* color > feedback > danger-text — current: #bb032a */
+  /* --color-feedback-danger-text: ; */
+  /* color > feedback > danger-border — current: #ffd2cd */
+  /* --color-feedback-danger-border: ; */
+  /* color > feedback > success-bg — current: #eaf6ed */
+  /* --color-feedback-success-bg: ; */
+  /* color > feedback > success-text — current: #166c3b */
+  /* --color-feedback-success-text: ; */
+  /* color > feedback > success-border — current: #b1eac2 */
+  /* --color-feedback-success-border: ; */
+  /* color > feedback > warning-bg — current: #fdf2dc */
+  /* --color-feedback-warning-bg: ; */
+  /* color > feedback > warning-text — current: #845201 */
+  /* --color-feedback-warning-text: ; */
+  /* color > feedback > warning-border — current: #ffd688 */
+  /* --color-feedback-warning-border: ; */
+  /* color > feedback > info-bg — current: #eff4fe */
+  /* --color-feedback-info-bg: ; */
+  /* color > feedback > info-text — current: #175bcc */
+  /* --color-feedback-info-text: ; */
+  /* color > feedback > info-border — current: #cddeff */
+  /* --color-feedback-info-border: ; */
+  /* color > surface > base — current: #ffffff */
+  /* --color-surface-base: ; */
+  /* color > surface > raised — current: #ffffff */
+  /* --color-surface-raised: ; */
+  /* color > surface > overlay — current: #ffffff */
+  /* --color-surface-overlay: ; */
+  /* color > surface > sunken — current: #f3f3f3 */
+  /* --color-surface-sunken: ; */
+  /* color > icon > default — current: #5e5e5e */
+  /* --color-icon-default: ; */
+  /* color > icon > subtle — current: #a6a6a6 */
+  /* --color-icon-subtle: ; */
+  /* color > icon > disabled — current: #bbbbbb */
+  /* --color-icon-disabled: ; */
+  /* color > icon > inverse — current: #ffffff */
+  /* --color-icon-inverse: ; */
+  /* color > icon > danger — current: #f83446 */
+  /* --color-icon-danger: ; */
+  /* color > icon > success — current: #009a51 */
+  /* --color-icon-success: ; */
+  /* color > icon > warning — current: #b97502 */
+  /* --color-icon-warning: ; */
+  /* color > icon > info — current: #068bee */
+  /* --color-icon-info: ; */
+  /* motion > semantic > duration-instant — current: 0ms */
+  /* --motion-semantic-duration-instant: ; */
+  /* motion > semantic > duration-fast — current: 100ms */
+  /* --motion-semantic-duration-fast: ; */
+  /* motion > semantic > duration-normal — current: 200ms */
+  /* --motion-semantic-duration-normal: ; */
+  /* motion > semantic > duration-slow — current: 300ms */
+  /* --motion-semantic-duration-slow: ; */
+  /* motion > semantic > duration-slower — current: 500ms */
+  /* --motion-semantic-duration-slower: ; */
+  /* motion > semantic > easing-default — current: cubic-bezier(0.4, 0, 0.2, 1) */
+  /* --motion-semantic-easing-default: ; */
+  /* motion > semantic > easing-enter — current: cubic-bezier(0, 0, 0.2, 1) */
+  /* --motion-semantic-easing-enter: ; */
+  /* motion > semantic > easing-exit — current: cubic-bezier(0.4, 0, 1, 1) */
+  /* --motion-semantic-easing-exit: ; */
+  /* radius > component > sm — current: 4px */
+  /* --radius-component-sm: ; */
+  /* radius > component > md — current: 8px */
+  /* --radius-component-md: ; */
+  /* radius > component > lg — current: 12px */
+  /* --radius-component-lg: ; */
+  /* radius > component > full — current: 9999px */
+  /* --radius-component-full: ; */
+  /* shadow > component > sm — current: 0 1px 4px hsla(0, 0%, 0%, 0.16) */
+  /* --shadow-component-sm: ; */
+  /* shadow > component > md — current: 0 2px 8px hsla(0, 0%, 0%, 0.16) */
+  /* --shadow-component-md: ; */
+  /* shadow > overlay — current: 0 8px 24px hsla(0, 0%, 0%, 0.16) */
+  /* --shadow-overlay: ; */
+  /* spacing > layout > page-gutter — current: 16px */
+  /* --spacing-layout-page-gutter: ; */
+  /* spacing > layout > section-gap — current: 48px */
+  /* --spacing-layout-section-gap: ; */
+  /* spacing > layout > content-gap — current: 24px */
+  /* --spacing-layout-content-gap: ; */
+  /* spacing > component > xs — current: 4px */
+  /* --spacing-component-xs: ; */
+  /* spacing > component > sm — current: 8px */
+  /* --spacing-component-sm: ; */
+  /* spacing > component > md — current: 12px */
+  /* --spacing-component-md: ; */
+  /* spacing > component > lg — current: 16px */
+  /* --spacing-component-lg: ; */
+  /* spacing > component > xl — current: 24px */
+  /* --spacing-component-xl: ; */
+  /* spacing > inline > xs — current: 2px */
+  /* --spacing-inline-xs: ; */
+  /* spacing > inline > sm — current: 4px */
+  /* --spacing-inline-sm: ; */
+  /* spacing > inline > md — current: 8px */
+  /* --spacing-inline-md: ; */
+  /* spacing > inline > lg — current: 12px */
+  /* --spacing-inline-lg: ; */
+  /* typography > scale > display-large > font-size — current: 96px */
+  /* --typography-scale-display-large-font-size: ; */
+  /* typography > scale > display-large > line-height — current: 112px */
+  /* --typography-scale-display-large-line-height: ; */
+  /* typography > scale > display-large > font-weight — current: 700 */
+  /* --typography-scale-display-large-font-weight: ; */
+  /* typography > scale > display-large > letter-spacing — current: -0.05em */
+  /* --typography-scale-display-large-letter-spacing: ; */
+  /* typography > scale > display-medium > font-size — current: 52px */
+  /* --typography-scale-display-medium-font-size: ; */
+  /* typography > scale > display-medium > line-height — current: 64px */
+  /* --typography-scale-display-medium-line-height: ; */
+  /* typography > scale > display-medium > font-weight — current: 700 */
+  /* --typography-scale-display-medium-font-weight: ; */
+  /* typography > scale > display-medium > letter-spacing — current: -0.05em */
+  /* --typography-scale-display-medium-letter-spacing: ; */
+  /* typography > scale > display-small > font-size — current: 44px */
+  /* --typography-scale-display-small-font-size: ; */
+  /* typography > scale > display-small > line-height — current: 52px */
+  /* --typography-scale-display-small-line-height: ; */
+  /* typography > scale > display-small > font-weight — current: 700 */
+  /* --typography-scale-display-small-font-weight: ; */
+  /* typography > scale > display-small > letter-spacing — current: -0.025em */
+  /* --typography-scale-display-small-letter-spacing: ; */
+  /* typography > scale > display-xsmall > font-size — current: 36px */
+  /* --typography-scale-display-xsmall-font-size: ; */
+  /* typography > scale > display-xsmall > line-height — current: 44px */
+  /* --typography-scale-display-xsmall-line-height: ; */
+  /* typography > scale > display-xsmall > font-weight — current: 700 */
+  /* --typography-scale-display-xsmall-font-weight: ; */
+  /* typography > scale > display-xsmall > letter-spacing — current: -0.025em */
+  /* --typography-scale-display-xsmall-letter-spacing: ; */
+  /* typography > scale > heading-xxlarge > font-size — current: 40px */
+  /* --typography-scale-heading-xxlarge-font-size: ; */
+  /* typography > scale > heading-xxlarge > line-height — current: 52px */
+  /* --typography-scale-heading-xxlarge-line-height: ; */
+  /* typography > scale > heading-xxlarge > font-weight — current: 700 */
+  /* --typography-scale-heading-xxlarge-font-weight: ; */
+  /* typography > scale > heading-xxlarge > letter-spacing — current: 0em */
+  /* --typography-scale-heading-xxlarge-letter-spacing: ; */
+  /* typography > scale > heading-xlarge > font-size — current: 36px */
+  /* --typography-scale-heading-xlarge-font-size: ; */
+  /* typography > scale > heading-xlarge > line-height — current: 44px */
+  /* --typography-scale-heading-xlarge-line-height: ; */
+  /* typography > scale > heading-xlarge > font-weight — current: 700 */
+  /* --typography-scale-heading-xlarge-font-weight: ; */
+  /* typography > scale > heading-xlarge > letter-spacing — current: 0em */
+  /* --typography-scale-heading-xlarge-letter-spacing: ; */
+  /* typography > scale > heading-large > font-size — current: 32px */
+  /* --typography-scale-heading-large-font-size: ; */
+  /* typography > scale > heading-large > line-height — current: 40px */
+  /* --typography-scale-heading-large-line-height: ; */
+  /* typography > scale > heading-large > font-weight — current: 700 */
+  /* --typography-scale-heading-large-font-weight: ; */
+  /* typography > scale > heading-large > letter-spacing — current: 0em */
+  /* --typography-scale-heading-large-letter-spacing: ; */
+  /* typography > scale > heading-medium > font-size — current: 28px */
+  /* --typography-scale-heading-medium-font-size: ; */
+  /* typography > scale > heading-medium > line-height — current: 36px */
+  /* --typography-scale-heading-medium-line-height: ; */
+  /* typography > scale > heading-medium > font-weight — current: 700 */
+  /* --typography-scale-heading-medium-font-weight: ; */
+  /* typography > scale > heading-medium > letter-spacing — current: 0em */
+  /* --typography-scale-heading-medium-letter-spacing: ; */
+  /* typography > scale > heading-small > font-size — current: 24px */
+  /* --typography-scale-heading-small-font-size: ; */
+  /* typography > scale > heading-small > line-height — current: 32px */
+  /* --typography-scale-heading-small-line-height: ; */
+  /* typography > scale > heading-small > font-weight — current: 700 */
+  /* --typography-scale-heading-small-font-weight: ; */
+  /* typography > scale > heading-small > letter-spacing — current: 0em */
+  /* --typography-scale-heading-small-letter-spacing: ; */
+  /* typography > scale > heading-xsmall > font-size — current: 20px */
+  /* --typography-scale-heading-xsmall-font-size: ; */
+  /* typography > scale > heading-xsmall > line-height — current: 28px */
+  /* --typography-scale-heading-xsmall-line-height: ; */
+  /* typography > scale > heading-xsmall > font-weight — current: 700 */
+  /* --typography-scale-heading-xsmall-font-weight: ; */
+  /* typography > scale > heading-xsmall > letter-spacing — current: 0em */
+  /* --typography-scale-heading-xsmall-letter-spacing: ; */
+  /* typography > scale > label-large > font-size — current: 18px */
+  /* --typography-scale-label-large-font-size: ; */
+  /* typography > scale > label-large > line-height — current: 24px */
+  /* --typography-scale-label-large-line-height: ; */
+  /* typography > scale > label-large > font-weight — current: 500 */
+  /* --typography-scale-label-large-font-weight: ; */
+  /* typography > scale > label-large > letter-spacing — current: 0em */
+  /* --typography-scale-label-large-letter-spacing: ; */
+  /* typography > scale > label-medium > font-size — current: 16px */
+  /* --typography-scale-label-medium-font-size: ; */
+  /* typography > scale > label-medium > line-height — current: 20px */
+  /* --typography-scale-label-medium-line-height: ; */
+  /* typography > scale > label-medium > font-weight — current: 500 */
+  /* --typography-scale-label-medium-font-weight: ; */
+  /* typography > scale > label-medium > letter-spacing — current: 0em */
+  /* --typography-scale-label-medium-letter-spacing: ; */
+  /* typography > scale > label-small > font-size — current: 14px */
+  /* --typography-scale-label-small-font-size: ; */
+  /* typography > scale > label-small > line-height — current: 16px */
+  /* --typography-scale-label-small-line-height: ; */
+  /* typography > scale > label-small > font-weight — current: 500 */
+  /* --typography-scale-label-small-font-weight: ; */
+  /* typography > scale > label-small > letter-spacing — current: 0em */
+  /* --typography-scale-label-small-letter-spacing: ; */
+  /* typography > scale > label-xsmall > font-size — current: 12px */
+  /* --typography-scale-label-xsmall-font-size: ; */
+  /* typography > scale > label-xsmall > line-height — current: 16px */
+  /* --typography-scale-label-xsmall-line-height: ; */
+  /* typography > scale > label-xsmall > font-weight — current: 500 */
+  /* --typography-scale-label-xsmall-font-weight: ; */
+  /* typography > scale > label-xsmall > letter-spacing — current: 0em */
+  /* --typography-scale-label-xsmall-letter-spacing: ; */
+  /* typography > scale > paragraph-large > font-size — current: 18px */
+  /* --typography-scale-paragraph-large-font-size: ; */
+  /* typography > scale > paragraph-large > line-height — current: 28px */
+  /* --typography-scale-paragraph-large-line-height: ; */
+  /* typography > scale > paragraph-large > font-weight — current: 400 */
+  /* --typography-scale-paragraph-large-font-weight: ; */
+  /* typography > scale > paragraph-large > letter-spacing — current: 0em */
+  /* --typography-scale-paragraph-large-letter-spacing: ; */
+  /* typography > scale > paragraph-medium > font-size — current: 16px */
+  /* --typography-scale-paragraph-medium-font-size: ; */
+  /* typography > scale > paragraph-medium > line-height — current: 24px */
+  /* --typography-scale-paragraph-medium-line-height: ; */
+  /* typography > scale > paragraph-medium > font-weight — current: 400 */
+  /* --typography-scale-paragraph-medium-font-weight: ; */
+  /* typography > scale > paragraph-medium > letter-spacing — current: 0em */
+  /* --typography-scale-paragraph-medium-letter-spacing: ; */
+  /* typography > scale > paragraph-small > font-size — current: 14px */
+  /* --typography-scale-paragraph-small-font-size: ; */
+  /* typography > scale > paragraph-small > line-height — current: 20px */
+  /* --typography-scale-paragraph-small-line-height: ; */
+  /* typography > scale > paragraph-small > font-weight — current: 400 */
+  /* --typography-scale-paragraph-small-font-weight: ; */
+  /* typography > scale > paragraph-small > letter-spacing — current: 0em */
+  /* --typography-scale-paragraph-small-letter-spacing: ; */
+  /* typography > scale > paragraph-xsmall > font-size — current: 12px */
+  /* --typography-scale-paragraph-xsmall-font-size: ; */
+  /* typography > scale > paragraph-xsmall > line-height — current: 20px */
+  /* --typography-scale-paragraph-xsmall-line-height: ; */
+  /* typography > scale > paragraph-xsmall > font-weight — current: 400 */
+  /* --typography-scale-paragraph-xsmall-font-weight: ; */
+  /* typography > scale > paragraph-xsmall > letter-spacing — current: 0em */
+  /* --typography-scale-paragraph-xsmall-letter-spacing: ; */
+  /* typography > scale > code-md > font-size — current: 14px */
+  /* --typography-scale-code-md-font-size: ; */
+  /* typography > scale > code-md > line-height — current: 20px */
+  /* --typography-scale-code-md-line-height: ; */
+  /* typography > scale > code-md > font-weight — current: 400 */
+  /* --typography-scale-code-md-font-weight: ; */
+  /* typography > scale > code-md > letter-spacing — current: 0em */
+  /* --typography-scale-code-md-letter-spacing: ; */
+  /* typography > scale > code-sm > font-size — current: 12px */
+  /* --typography-scale-code-sm-font-size: ; */
+  /* typography > scale > code-sm > line-height — current: 20px */
+  /* --typography-scale-code-sm-line-height: ; */
+  /* typography > scale > code-sm > font-weight — current: 400 */
+  /* --typography-scale-code-sm-font-weight: ; */
+  /* typography > scale > code-sm > letter-spacing — current: 0em */
+  /* --typography-scale-code-sm-letter-spacing: ; */
+  /* z > semantic > dropdown — current: 100 */
+  /* --z-semantic-dropdown: ; */
+  /* z > semantic > sticky — current: 200 */
+  /* --z-semantic-sticky: ; */
+  /* z > semantic > overlay — current: 300 */
+  /* --z-semantic-overlay: ; */
+  /* z > semantic > modal — current: 400 */
+  /* --z-semantic-modal: ; */
+  /* z > semantic > popover — current: 500 */
+  /* --z-semantic-popover: ; */
+  /* z > semantic > toast — current: 600 */
+  /* --z-semantic-toast: ; */
+  /* z > semantic > tooltip — current: 700 */
+  /* --z-semantic-tooltip: ; */
+}
