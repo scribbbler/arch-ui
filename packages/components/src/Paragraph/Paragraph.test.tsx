@@ -19,11 +19,11 @@ describe("Paragraph", () => {
     expect(screen.getByText("text").tagName).toBe("SPAN");
   });
 
-  it("applies default weight as regular", () => {
+  it("applies default weight from scale token", () => {
     render(<Paragraph>text</Paragraph>);
     const el = screen.getByText("text");
     expect(el.style.getPropertyValue("--paragraph-font-weight")).toBe(
-      "var(--typography-weight-regular)",
+      "var(--typography-scale-paragraph-medium-font-weight)",
     );
   });
 

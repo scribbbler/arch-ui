@@ -120,27 +120,27 @@ describe("Heading", () => {
     );
   });
 
-  it("applies default weight bold", () => {
+  it("applies default weight from scale token", () => {
     render(<Heading>Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-weight")).toBe(
-      "var(--typography-weight-bold)",
+      "var(--typography-scale-heading-xxlarge-font-weight)",
     );
   });
 
-  it("applies weight semibold", () => {
-    render(<Heading weight="semibold">Title</Heading>);
+  it("applies weight from scale token for size small", () => {
+    render(<Heading size="small">Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-weight")).toBe(
-      "var(--typography-weight-semibold)",
+      "var(--typography-scale-heading-small-font-weight)",
     );
   });
 
-  it("applies weight extrabold", () => {
-    render(<Heading weight="extrabold">Title</Heading>);
+  it("applies weight from scale token for size medium", () => {
+    render(<Heading size="medium">Title</Heading>);
     const el = screen.getByText("Title");
     expect(el.style.getPropertyValue("--heading-font-weight")).toBe(
-      "var(--typography-weight-extrabold)",
+      "var(--typography-scale-heading-medium-font-weight)",
     );
   });
 

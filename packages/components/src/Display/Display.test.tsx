@@ -36,12 +36,14 @@ describe("Display", () => {
     },
   );
 
-  it.each(["semibold", "bold", "extrabold"] as const)(
-    "applies weight=%s",
-    (weight) => {
-      render(<Display weight={weight}>text</Display>);
+  it.each(["large", "medium", "small", "xsmall"] as const)(
+    "applies font-weight from scale token for size=%s",
+    (size) => {
+      render(<Display size={size}>text</Display>);
       const el = screen.getByText("text");
-      expect(el.style.getPropertyValue("--display-font-weight")).toContain(weight);
+      expect(el.style.getPropertyValue("--display-font-weight")).toBe(
+        `var(--typography-scale-display-${size}-font-weight)`,
+      );
     },
   );
 

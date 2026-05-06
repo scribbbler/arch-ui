@@ -9,7 +9,7 @@ import { Avatar } from '../Avatar';
 
 function makeAvatars(count: number) {
   return Array.from({ length: count }, (_, i) => (
-    <Avatar key={i} name={`Person ${i + 1}`} size="md" />
+    <Avatar key={i} name={`Person ${i + 1}`} size="medium" />
   ));
 }
 
@@ -88,7 +88,7 @@ describe('AvatarGroup — max overflow', () => {
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 describe('AvatarGroup — sizes', () => {
-  const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
+  const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
 
   sizes.forEach((size) => {
     it(`applies the "${size}" size class`, () => {
@@ -99,9 +99,9 @@ describe('AvatarGroup — sizes', () => {
     });
   });
 
-  it('defaults to size="md"', () => {
+  it('defaults to size="medium"', () => {
     const { container } = render(<AvatarGroup>{makeAvatars(2)}</AvatarGroup>);
-    expect(container.firstChild).toHaveClass('arch-avatar-group--md');
+    expect(container.firstChild).toHaveClass('arch-avatar-group--medium');
   });
 });
 

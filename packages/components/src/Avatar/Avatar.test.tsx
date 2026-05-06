@@ -93,7 +93,7 @@ describe('Avatar — initials fallback', () => {
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 describe('Avatar — sizes', () => {
-  const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
+  const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
 
   sizes.forEach((size) => {
     it(`applies the "${size}" size class`, () => {
@@ -102,9 +102,9 @@ describe('Avatar — sizes', () => {
     });
   });
 
-  it('defaults to size="md"', () => {
+  it('defaults to size="medium"', () => {
     const { container } = render(<Avatar name="Jane Doe" />);
-    expect(container.firstChild).toHaveClass('arch-avatar--md');
+    expect(container.firstChild).toHaveClass('arch-avatar--medium');
   });
 });
 
@@ -143,7 +143,7 @@ describe('Avatar — accessibility', () => {
   });
 
   it('passes axe for all sizes', async () => {
-    const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
+    const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
     for (const size of sizes) {
       const { container } = render(<Avatar name="Jane Doe" size={size} />);
       const results = await axe(container);

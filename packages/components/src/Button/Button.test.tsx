@@ -50,14 +50,14 @@ describe('Button — rendering', () => {
     expect(screen.getByRole('button', { name: 'Label' })).toHaveClass('my-class');
   });
 
-  it('renders leftIcon and rightIcon', () => {
+  it('renders startEnhancer and endEnhancer', () => {
     render(
-      <Button leftIcon={<svg data-testid="left-icon" />} rightIcon={<svg data-testid="right-icon" />}>
+      <Button startEnhancer={<svg data-testid="start-icon" />} endEnhancer={<svg data-testid="end-icon" />}>
         With icons
       </Button>
     );
-    expect(screen.getByTestId('left-icon')).toBeInTheDocument();
-    expect(screen.getByTestId('right-icon')).toBeInTheDocument();
+    expect(screen.getByTestId('start-icon')).toBeInTheDocument();
+    expect(screen.getByTestId('end-icon')).toBeInTheDocument();
   });
 
   it('applies fullWidth class when fullWidth is true', () => {
@@ -73,20 +73,27 @@ describe('Button — rendering', () => {
   });
 });
 
-/* ─── Variants ───────────────────────────────────────────────────────────────── */
+/* ─── Kinds ─────────────────────────────────────────────────────────────────── */
 
-describe('Button — variants', () => {
-  const variants = ['primary', 'secondary', 'ghost', 'destructive', 'link'] as const;
+describe('Button — kinds', () => {
+  const kinds = [
+    { kind: 'primary', expectedClass: 'arch-button--primary' },
+    { kind: 'secondary', expectedClass: 'arch-button--secondary' },
+    { kind: 'tertiary', expectedClass: 'arch-button--tertiary' },
+    { kind: 'dangerPrimary', expectedClass: 'arch-button--danger-primary' },
+    { kind: 'dangerSecondary', expectedClass: 'arch-button--danger-secondary' },
+    { kind: 'dangerTertiary', expectedClass: 'arch-button--danger-tertiary' },
+  ] as const;
 
-  variants.forEach((variant) => {
-    it(`renders variant="${variant}" with the correct class`, () => {
-      render(<Button variant={variant}>{variant}</Button>);
-      const el = screen.getByRole('button', { name: variant });
-      expect(el).toHaveClass(`arch-button--${variant}`);
+  kinds.forEach(({ kind, expectedClass }) => {
+    it(`renders kind="${kind}" with the correct class`, () => {
+      render(<Button kind={kind}>{kind}</Button>);
+      const el = screen.getByRole('button', { name: kind });
+      expect(el).toHaveClass(expectedClass);
     });
   });
 
-  it('defaults to variant="primary"', () => {
+  it('defaults to kind="primary"', () => {
     render(<Button>Default</Button>);
     expect(screen.getByRole('button', { name: 'Default' })).toHaveClass('arch-button--primary');
   });
@@ -95,19 +102,24 @@ describe('Button — variants', () => {
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
 describe('Button — sizes', () => {
-  const sizes = ['sm', 'md', 'lg'] as const;
+  const sizes = [
+    { size: 'mini', expectedClass: 'arch-button--mini' },
+    { size: 'compact', expectedClass: 'arch-button--compact' },
+    { size: 'default', expectedClass: 'arch-button--default' },
+    { size: 'large', expectedClass: 'arch-button--large' },
+  ] as const;
 
-  sizes.forEach((size) => {
+  sizes.forEach(({ size, expectedClass }) => {
     it(`renders size="${size}" with the correct class`, () => {
       render(<Button size={size}>{size}</Button>);
       const el = screen.getByRole('button', { name: size });
-      expect(el).toHaveClass(`arch-button--${size}`);
+      expect(el).toHaveClass(expectedClass);
     });
   });
 
-  it('defaults to size="md"', () => {
+  it('defaults to size="default"', () => {
     render(<Button>Default</Button>);
-    expect(screen.getByRole('button', { name: 'Default' })).toHaveClass('arch-button--md');
+    expect(screen.getByRole('button', { name: 'Default' })).toHaveClass('arch-button--default');
   });
 });
 
@@ -142,7 +154,7 @@ describe('Button — click handling', () => {
     const user = userEvent.setup();
     const handler = vi.fn();
     render(
-      <Button loading onClick={handler}>
+      <Button isLoading onClick={handler}>
         Save
       </Button>
     );
@@ -172,18 +184,18 @@ describe('Button — disabled state', () => {
 
 describe('Button — loading state', () => {
   it('disables the button when loading', () => {
-    render(<Button loading>Save</Button>);
+    render(<Button isLoading>Save</Button>);
     expect(screen.getByRole('button')).toBeDisabled();
   });
 
   it('sets aria-busy when loading', () => {
-    render(<Button loading>Save</Button>);
+    render(<Button isLoading>Save</Button>);
     expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true');
   });
 
   it('shows loadingText when provided', () => {
     render(
-      <Button loading loadingText="Saving…">
+      <Button isLoading loadingText="Saving…">
         Save
       </Button>
     );
@@ -191,12 +203,12 @@ describe('Button — loading state', () => {
   });
 
   it('applies the loading class when loading', () => {
-    render(<Button loading>Save</Button>);
+    render(<Button isLoading>Save</Button>);
     expect(screen.getByRole('button')).toHaveClass('arch-button--loading');
   });
 
   it('renders the spinner element when loading', () => {
-    render(<Button loading>Save</Button>);
+    render(<Button isLoading>Save</Button>);
     expect(
       screen.getByRole('button').querySelector('.arch-button__spinner')
     ).toBeInTheDocument();
@@ -220,7 +232,7 @@ describe('Button — accessibility', () => {
 
   it('passes axe in loading state with loadingText', async () => {
     const { container } = render(
-      <Button loading loadingText="Loading…">
+      <Button isLoading loadingText="Loading…">
         Submit
       </Button>
     );
@@ -228,16 +240,16 @@ describe('Button — accessibility', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('passes axe for the destructive variant', async () => {
+  it('passes axe for the dangerPrimary kind', async () => {
     const { container } = render(
-      <Button variant="destructive">Delete item</Button>
+      <Button kind="dangerPrimary">Delete item</Button>
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 
-  it('passes axe for the link variant', async () => {
-    const { container } = render(<Button variant="link">More info</Button>);
+  it('passes axe for the tertiary kind', async () => {
+    const { container } = render(<Button kind="tertiary">More info</Button>);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

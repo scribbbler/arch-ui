@@ -27,11 +27,11 @@ describe("Label", () => {
     );
   });
 
-  it("applies default weight as medium", () => {
+  it("applies default weight from scale token", () => {
     render(<Label>text</Label>);
     const el = screen.getByText("text");
     expect(el.style.getPropertyValue("--label-font-weight")).toBe(
-      "var(--typography-weight-medium)",
+      "var(--typography-scale-label-medium-font-weight)",
     );
   });
 
@@ -43,24 +43,16 @@ describe("Label", () => {
     );
   });
 
-  it.each(["medium", "semibold", "bold"] as const)(
-    "applies weight=%s",
-    (weight) => {
-      render(<Label weight={weight}>text</Label>);
+  it.each(["large", "medium", "small", "xsmall"] as const)(
+    "applies font-weight from scale token for size=%s",
+    (size) => {
+      render(<Label size={size}>text</Label>);
       const el = screen.getByText("text");
-      expect(el.style.getPropertyValue("--label-font-weight")).toContain(weight);
+      expect(el.style.getPropertyValue("--label-font-weight")).toBe(
+        `var(--typography-scale-label-${size}-font-weight)`,
+      );
     },
   );
-
-  it("applies uppercase class", () => {
-    render(<Label uppercase>OVERLINE</Label>);
-    expect(screen.getByText("OVERLINE")).toHaveClass("arch-label--uppercase");
-  });
-
-  it("does not apply uppercase class by default", () => {
-    render(<Label>text</Label>);
-    expect(screen.getByText("text")).not.toHaveClass("arch-label--uppercase");
-  });
 
   it("applies custom color", () => {
     render(<Label color="color-text-subtle">text</Label>);

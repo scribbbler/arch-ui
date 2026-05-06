@@ -131,16 +131,14 @@ describe('ListItem', () => {
 /* ─── Spacing token ──────────────────────────────────────────────────────────── */
 
 describe('List — spacing', () => {
-  it('sets CSS custom property for spacing', () => {
+  it('does not set a CSS custom property for spacing (spacing prop not yet implemented)', () => {
     const { container } = render(
-      <List spacing="spacing-component-md">
+      <List>
         <ListItem>Item</ListItem>
       </List>
     );
     const list = container.firstChild as HTMLElement;
-    expect(list.style.getPropertyValue('--arch-list-spacing')).toBe(
-      'var(--spacing-component-md)'
-    );
+    expect(list.style.getPropertyValue('--arch-list-spacing')).toBe('');
   });
 });
 

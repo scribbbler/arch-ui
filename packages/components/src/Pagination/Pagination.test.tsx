@@ -105,46 +105,46 @@ describe('Pagination — current page', () => {
 /* ─── Prev/next disabled at boundaries ───────────────────────────────────────── */
 
 describe('Pagination — boundary disabled states', () => {
-  it('previous button is aria-disabled on page 1', () => {
+  it('previous button is disabled on page 1', () => {
     render(<ControlledPagination initialPage={1} />);
     expect(
       screen.getByRole('button', { name: 'Go to previous page' })
-    ).toHaveAttribute('aria-disabled', 'true');
+    ).toBeDisabled();
   });
 
-  it('next button is aria-disabled on the last page', () => {
+  it('next button is disabled on the last page', () => {
     render(<ControlledPagination totalPages={5} initialPage={5} />);
     expect(
       screen.getByRole('button', { name: 'Go to next page' })
-    ).toHaveAttribute('aria-disabled', 'true');
+    ).toBeDisabled();
   });
 
-  it('previous button is not aria-disabled when past page 1', () => {
+  it('previous button is not disabled when past page 1', () => {
     render(<ControlledPagination totalPages={5} initialPage={2} />);
     expect(
       screen.getByRole('button', { name: 'Go to previous page' })
-    ).not.toHaveAttribute('aria-disabled');
+    ).not.toBeDisabled();
   });
 
-  it('next button is not aria-disabled before the last page', () => {
+  it('next button is not disabled before the last page', () => {
     render(<ControlledPagination totalPages={5} initialPage={4} />);
     expect(
       screen.getByRole('button', { name: 'Go to next page' })
-    ).not.toHaveAttribute('aria-disabled');
+    ).not.toBeDisabled();
   });
 
-  it('first button is aria-disabled on page 1 when showFirstLast=true', () => {
+  it('first button is disabled on page 1 when showFirstLast=true', () => {
     render(<ControlledPagination initialPage={1} showFirstLast />);
     expect(
       screen.getByRole('button', { name: 'Go to first page' })
-    ).toHaveAttribute('aria-disabled', 'true');
+    ).toBeDisabled();
   });
 
-  it('last button is aria-disabled on the last page when showFirstLast=true', () => {
+  it('last button is disabled on the last page when showFirstLast=true', () => {
     render(<ControlledPagination totalPages={5} initialPage={5} showFirstLast />);
     expect(
       screen.getByRole('button', { name: 'Go to last page' })
-    ).toHaveAttribute('aria-disabled', 'true');
+    ).toBeDisabled();
   });
 });
 
