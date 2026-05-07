@@ -314,6 +314,11 @@
   overflow: hidden;
 }
 
+.arch-button--shape-circle .arch-button__enhancer,
+.arch-button--shape-square .arch-button__enhancer {
+  margin: 0;
+}
+
 .arch-button--shape-circle {
   border-radius: var(--radius-full);
 }
