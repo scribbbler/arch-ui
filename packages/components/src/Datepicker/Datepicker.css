@@ -39,58 +39,86 @@
   inline-size: 100%;
 }
 
-/* ─── Input trigger ──────────────────────────────────────────────────────────── */
+/* ─── Input trigger — mirrors Base Web Input root: 2px border, muted bg ────── */
 
 .arch-datepicker__input {
   display: block;
   width: 100%;
   box-sizing: border-box;
   appearance: none;
-  background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-muted);
+  border: var(--border-width-medium) solid var(--color-border-default);
   border-radius: var(--radius-component-md);
   color: var(--color-text-default);
+  caret-color: var(--color-text-default);
   font-family: inherit;
   cursor: pointer;
   outline: none;
   margin: 0;
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
 .arch-datepicker__input::placeholder {
-  color: var(--color-text-subtle);
+  color: var(--color-text-placeholder);
 }
 
+/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+
+.arch-datepicker__input:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-border-strong);
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────────── */
+
+.arch-datepicker__input:focus,
 .arch-datepicker__input:focus-visible {
   border-color: var(--color-border-focus);
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: var(--spacing-2);
+  background-color: var(--color-background-default);
+  outline: none;
 }
+
+/* ─── Disabled ───────────────────────────────────────────────────────────────── */
 
 .arch-datepicker__input:disabled {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-border-disabled);
+  border-color: var(--color-background-disabled);
   color: var(--color-text-disabled);
+  -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+.arch-datepicker__input:disabled::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Sizes — matches Base Web Input padding scale ───────────────────────────
+   compact: paddingBlock=6   paddingInline=14  font=ParagraphSmall
+   default: paddingBlock=10  paddingInline=14  font=ParagraphMedium
+   large:   paddingBlock=14  paddingInline=14  font=ParagraphLarge
+   ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-datepicker--compact .arch-datepicker__input {
-  padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-8);
+  padding-block: var(--spacing-6);
+  padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  border-radius: var(--radius-sm);
 }
 
 .arch-datepicker--default .arch-datepicker__input {
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-12);
-  font-size: var(--typography-scale-paragraph-small-font-size);
+  padding-block: var(--spacing-10);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 .arch-datepicker--large .arch-datepicker__input {
-  padding-block: var(--spacing-12);
-  padding-inline: var(--spacing-16);
-  font-size: var(--typography-scale-paragraph-small-font-size);
+  padding-block: var(--spacing-14);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
 }
 
 /* ─── Calendar root — Base Web: radius400, padding=scale500 (12px) ──────────── */

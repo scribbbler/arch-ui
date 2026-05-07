@@ -11,58 +11,86 @@
   width: 100%;
 }
 
-/* ─── Input ──────────────────────────────────────────────────────────────────── */
+/* ─── Input — mirrors Base Web Input root: 2px border, muted bg ─────────────── */
 
 .arch-timezone-picker__input {
   display: block;
   width: 100%;
   box-sizing: border-box;
   appearance: none;
-  background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-muted);
+  border: var(--border-width-medium) solid var(--color-border-default);
   border-radius: var(--radius-component-md);
   color: var(--color-text-default);
+  caret-color: var(--color-text-default);
   font-family: inherit;
   cursor: text;
   outline: none;
   margin: 0;
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
 .arch-timezone-picker__input::placeholder {
-  color: var(--color-text-subtle);
+  color: var(--color-text-placeholder);
 }
 
+/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+
+.arch-timezone-picker__input:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-border-strong);
+}
+
+/* ─── Focus ──────────────────────────────────────────────────────────────────── */
+
+.arch-timezone-picker__input:focus,
 .arch-timezone-picker__input:focus-visible {
   border-color: var(--color-border-focus);
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+  background-color: var(--color-background-default);
+  outline: none;
 }
+
+/* ─── Disabled ───────────────────────────────────────────────────────────────── */
 
 .arch-timezone-picker__input:disabled {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-border-disabled);
+  border-color: var(--color-background-disabled);
   color: var(--color-text-disabled);
+  -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+.arch-timezone-picker__input:disabled::placeholder {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Sizes — matches Base Web Input padding scale ───────────────────────────
+   compact: paddingBlock=6   paddingInline=14  font=ParagraphSmall
+   default: paddingBlock=10  paddingInline=14  font=ParagraphMedium
+   large:   paddingBlock=14  paddingInline=14  font=ParagraphLarge
+   ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-timezone-picker--compact .arch-timezone-picker__input {
-  padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-8);
-  font-size: var(--typography-scale-text-sm);
+  padding-block: var(--spacing-6);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  border-radius: var(--radius-sm);
 }
 
 .arch-timezone-picker--default .arch-timezone-picker__input {
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-12);
-  font-size: var(--typography-scale-text-sm);
+  padding-block: var(--spacing-10);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 .arch-timezone-picker--large .arch-timezone-picker__input {
-  padding-block: var(--spacing-12);
-  padding-inline: var(--spacing-16);
-  font-size: var(--typography-scale-text-sm);
+  padding-block: var(--spacing-14);
+  padding-inline: var(--spacing-14);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
 }
 
 /* ─── Dropdown ───────────────────────────────────────────────────────────────── */
