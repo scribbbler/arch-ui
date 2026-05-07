@@ -221,7 +221,7 @@ const motionLines = lightCSS
 
 let finalCSS = `/**\n * Arch Design System — Generated Tokens\n * Do not edit manually.\n */\n\n`;
 finalCSS += `:root {\n${lightCSS}\n}\n`;
-finalCSS += `\n[data-theme="dark"] {\n${darkLines.join("\n")}\n}\n`;
+finalCSS += `\n[data-theme="dark"],\n.dark {\n${darkLines.join("\n")}\n}\n`;
 
 if (motionLines.length > 0) {
   const reducedMotionLines = motionLines.map((line) =>

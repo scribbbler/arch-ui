@@ -419,7 +419,8 @@
   --z-semantic-tooltip: 700;
 }
 
-[data-theme="dark"] {
+[data-theme="dark"],
+.dark {
   --color-background-default: #282828;
   --color-background-subtle: #4b4b4b;
   --color-background-muted: #5e5e5e;
