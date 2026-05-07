@@ -3,6 +3,13 @@ body {
   font-family: var(--typography-family-sans);
 }
 
+/* Constrain story preview width — matches Base Web's centered layout */
+.arch-storybook-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
 /* Reduced motion override for Storybook toolbar toggle */
 .reduce-motion,
 .reduce-motion * {

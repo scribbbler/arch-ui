@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Preview } from '@storybook/react';
 import '../../../packages/tokens/build/css/tokens.css';
 import './overrides.css';
@@ -58,7 +59,11 @@ const preview: Preview = {
       document.body.style.backgroundColor = 'var(--color-background-default)';
       document.body.style.color = 'var(--color-text-default)';
 
-      return Story();
+      return React.createElement(
+        'div',
+        { className: 'arch-storybook-container' },
+        Story()
+      );
     },
   ],
   parameters: {
