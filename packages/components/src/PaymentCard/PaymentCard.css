@@ -177,3 +177,32 @@
   line-height: var(--typography-scale-paragraph-large-line-height);
   min-block-size: var(--spacing-56);
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-payment-card__trailing-icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--spacing-12);
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Complete — trailing icon color */
+.arch-payment-card--complete .arch-payment-card__trailing-icon {
+  color: var(--color-feedback-success-text);
+}
+
+/* Incomplete — trailing icon color */
+.arch-payment-card--incomplete .arch-payment-card__trailing-icon {
+  color: var(--color-feedback-danger-text);
+}
+
+/* Loading — muted input text */
+.arch-payment-card--loading .arch-payment-card__input {
+  color: var(--color-text-subtle);
+}

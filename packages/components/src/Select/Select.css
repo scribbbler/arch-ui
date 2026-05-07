@@ -288,3 +288,32 @@
   width: var(--spacing-16);
   height: var(--spacing-16);
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-select__trailing-icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: calc(var(--spacing-12) + 1.25rem + var(--spacing-8));
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Complete — trailing icon color */
+.arch-select-wrapper--complete .arch-select__trailing-icon {
+  color: var(--color-feedback-success-text);
+}
+
+/* Incomplete — trailing icon color */
+.arch-select-wrapper--incomplete .arch-select__trailing-icon {
+  color: var(--color-feedback-danger-text);
+}
+
+/* Loading — muted input text */
+.arch-select-wrapper--loading .arch-select {
+  color: var(--color-text-subtle);
+}

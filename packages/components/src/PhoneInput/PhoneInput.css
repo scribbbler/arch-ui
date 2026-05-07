@@ -244,3 +244,28 @@
   line-height: var(--typography-scale-paragraph-large-line-height);
   min-block-size: var(--spacing-56);
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-phone-input__trailing-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline-end: var(--spacing-12);
+  line-height: 1;
+}
+
+/* Complete — trailing icon color */
+.arch-phone-input--complete .arch-phone-input__trailing-icon {
+  color: var(--color-feedback-success-text);
+}
+
+/* Incomplete — trailing icon color */
+.arch-phone-input--incomplete .arch-phone-input__trailing-icon {
+  color: var(--color-feedback-danger-text);
+}
+
+/* Loading — muted input text */
+.arch-phone-input--loading .arch-phone-input__input {
+  color: var(--color-text-subtle);
+}

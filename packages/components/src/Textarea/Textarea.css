@@ -206,3 +206,31 @@
 .arch-textarea__clear:focus-visible {
   outline: var(--border-width-medium) solid var(--color-border-focus);
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-textarea__trailing-icon {
+  position: absolute;
+  inset-block-start: var(--spacing-12);
+  inset-inline-end: var(--spacing-12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Complete — trailing icon color */
+.arch-textarea-wrapper--complete .arch-textarea__trailing-icon {
+  color: var(--color-feedback-success-text);
+}
+
+/* Incomplete — trailing icon color */
+.arch-textarea-wrapper--incomplete .arch-textarea__trailing-icon {
+  color: var(--color-feedback-danger-text);
+}
+
+/* Loading — muted input text */
+.arch-textarea-wrapper--loading .arch-textarea {
+  color: var(--color-text-subtle);
+}

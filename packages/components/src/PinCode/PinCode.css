@@ -137,3 +137,18 @@
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-pincode__trailing-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: var(--spacing-8);
+  line-height: 1;
+}
+
+/* Loading — muted input text */
+.arch-pincode--loading .arch-pincode__input {
+  color: var(--color-text-subtle);
+}

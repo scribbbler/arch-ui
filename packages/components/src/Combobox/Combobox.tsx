@@ -7,6 +7,8 @@ import React, {
   useState,
 } from 'react';
 import { Portal } from '../Portal';
+import { Skeleton } from '../Skeleton';
+import { Spinner } from '../Spinner';
 import { Tag } from '../Tag';
 import './Combobox.css';
 
@@ -53,6 +55,14 @@ export interface ComboboxProps {
   error?: boolean;
   /** Additional CSS class names. */
   className?: string;
+  /** Shows a green checkmark trailing icon indicating a complete/valid field. */
+  complete?: boolean;
+  /** Shows a red X trailing icon indicating an incomplete/invalid field. */
+  incomplete?: boolean;
+  /** Shows a Spinner trailing icon indicating the field is loading. */
+  loading?: boolean;
+  /** Renders a Skeleton placeholder instead of the component. */
+  preloading?: boolean;
 }
 
 /* ─── Icons ───────────────────────────────────────────────────────────────────── */
@@ -135,9 +145,17 @@ const Combobox = forwardRef<HTMLDivElement, ComboboxProps>(function Combobox(
     positive = false,
     error = false,
     className,
+    complete = false,
+    incomplete = false,
+    loading = false,
+    preloading = false,
   },
   ref
 ) {
+  /* ── Preloading: render skeleton instead of component ──────────────── */
+  if (preloading) {
+    return <Skeleton width="100%" height="48px" />;
+  }
   const listboxId = useId();
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -398,9 +416,30 @@ const Combobox = forwardRef<HTMLDivElement, ComboboxProps>(function Combobox(
 
   /* ── Build class names ───────────────────────────────────────────────── */
 
+  /* Determine trailing state icon: loading > complete > incomplete */
+  let stateIcon: React.ReactNode = null;
+  if (loading) {
+    stateIcon = <Spinner size="xs" />;
+  } else if (complete) {
+    stateIcon = (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+      </svg>
+    );
+  } else if (incomplete) {
+    stateIcon = (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" />
+      </svg>
+    );
+  }
+
   const rootClasses = [
     'arch-combobox',
     `arch-combobox--${size}`,
+    complete && 'arch-combobox--complete',
+    incomplete && 'arch-combobox--incomplete',
+    loading && 'arch-combobox--loading',
     className,
   ]
     .filter(Boolean)
@@ -480,6 +519,11 @@ const Combobox = forwardRef<HTMLDivElement, ComboboxProps>(function Combobox(
 
         {/* Icons */}
         <span className="arch-combobox__icons">
+          {stateIcon && (
+            <span className="arch-combobox__trailing-icon" aria-hidden="true">
+              {stateIcon}
+            </span>
+          )}
           {clearable && hasValue && !disabled && (
             <button
               type="button"

@@ -451,3 +451,32 @@
   padding-inline: var(--spacing-16);
   text-align: start;
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-datepicker__trailing-icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--spacing-12);
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Complete — trailing icon color */
+.arch-datepicker--complete .arch-datepicker__trailing-icon {
+  color: var(--color-feedback-success-text);
+}
+
+/* Incomplete — trailing icon color */
+.arch-datepicker--incomplete .arch-datepicker__trailing-icon {
+  color: var(--color-feedback-danger-text);
+}
+
+/* Loading — muted input text */
+.arch-datepicker--loading .arch-datepicker__input {
+  color: var(--color-text-subtle);
+}

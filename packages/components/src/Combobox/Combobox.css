@@ -296,3 +296,27 @@
   padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-56);
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-combobox__trailing-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Complete — trailing icon color */
+.arch-combobox--complete .arch-combobox__trailing-icon {
+  color: var(--color-feedback-success-text);
+}
+
+/* Incomplete — trailing icon color */
+.arch-combobox--incomplete .arch-combobox__trailing-icon {
+  color: var(--color-feedback-danger-text);
+}
+
+/* Loading — muted input text */
+.arch-combobox--loading .arch-combobox__input {
+  color: var(--color-text-subtle);
+}

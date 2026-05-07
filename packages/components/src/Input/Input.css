@@ -210,6 +210,11 @@
   pointer-events: none;
 }
 
+/* Loading state — disable input interaction */
+.arch-input-wrapper--loading .arch-input {
+  color: var(--color-text-subtle);
+}
+
 /* ─── Clear button ───────────────────────────────────────────────────────────── */
 
 .arch-input__clear {

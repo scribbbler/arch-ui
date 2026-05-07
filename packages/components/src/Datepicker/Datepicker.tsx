@@ -1,4 +1,6 @@
 import React, { forwardRef, useState, useCallback, useRef, useEffect } from 'react';
+import { Skeleton } from '../Skeleton';
+import { Spinner } from '../Spinner';
 import './Datepicker.css';
 
 /* ─── Types ───────────────────────────────────────────────────────────────────── */
@@ -24,6 +26,14 @@ export interface DatepickerProps {
   formatString?: string;
   /** Additional CSS class names applied to the root wrapper element. */
   className?: string;
+  /** Shows a green checkmark trailing icon indicating a complete/valid field. */
+  complete?: boolean;
+  /** Shows a red X trailing icon indicating an incomplete/invalid field. */
+  incomplete?: boolean;
+  /** Shows a Spinner trailing icon indicating the field is loading. */
+  loading?: boolean;
+  /** Renders a Skeleton placeholder instead of the component. */
+  preloading?: boolean;
 }
 
 /* ─── Helpers ────────────────────────────────────────────────────────────────── */
@@ -100,10 +110,18 @@ const Datepicker = forwardRef<HTMLDivElement, DatepickerProps>(function Datepick
     size = 'default',
     formatString = 'MM/DD/YYYY',
     className,
+    complete = false,
+    incomplete = false,
+    loading = false,
+    preloading = false,
     ...rest
   },
   ref
 ) {
+  /* ── Preloading: render skeleton instead of component ──────────────── */
+  if (preloading) {
+    return <Skeleton width="100%" height="48px" />;
+  }
   const [open, setOpen] = useState(false);
   const today = new Date();
   const viewDate = value ?? today;
@@ -111,9 +129,30 @@ const Datepicker = forwardRef<HTMLDivElement, DatepickerProps>(function Datepick
   const [viewYear, setViewYear] = useState(viewDate.getFullYear());
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  /* Determine trailing icon: loading > complete > incomplete */
+  let trailingIcon: React.ReactNode = null;
+  if (loading) {
+    trailingIcon = <Spinner size="xs" />;
+  } else if (complete) {
+    trailingIcon = (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+      </svg>
+    );
+  } else if (incomplete) {
+    trailingIcon = (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" />
+      </svg>
+    );
+  }
+
   const wrapperClasses = [
     'arch-datepicker',
     `arch-datepicker--${size}`,
+    complete && 'arch-datepicker--complete',
+    incomplete && 'arch-datepicker--incomplete',
+    loading && 'arch-datepicker--loading',
     className,
   ]
     .filter(Boolean)
@@ -254,6 +293,11 @@ const Datepicker = forwardRef<HTMLDivElement, DatepickerProps>(function Datepick
         aria-expanded={open}
         {...rest}
       />
+      {trailingIcon && (
+        <span className="arch-datepicker__trailing-icon" aria-hidden="true">
+          {trailingIcon}
+        </span>
+      )}
       {open && (
         <div className="arch-datepicker__popover" role="dialog" aria-label="Calendar">
           <div className="arch-datepicker__header">

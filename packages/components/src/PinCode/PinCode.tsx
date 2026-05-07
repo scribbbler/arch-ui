@@ -1,4 +1,6 @@
 import React, { forwardRef, useCallback, useRef } from 'react';
+import { Skeleton } from '../Skeleton';
+import { Spinner } from '../Spinner';
 import './PinCode.css';
 
 /* ─── Types ───────────────────────────────────────────────────────────────────── */
@@ -24,6 +26,10 @@ export interface PinCodeProps {
   placeholder?: string;
   /** Additional CSS class names applied to the outer wrapper. */
   className?: string;
+  /** Shows a Spinner indicating the field is loading. */
+  loading?: boolean;
+  /** Renders a Skeleton placeholder instead of the component. */
+  preloading?: boolean;
 }
 
 /* ─── Component ──────────────────────────────────────────────────────────────── */
@@ -50,9 +56,15 @@ const PinCode = forwardRef<HTMLDivElement, PinCodeProps>(function PinCode(
     mask = false,
     placeholder = '\u25CB',
     className,
+    loading = false,
+    preloading = false,
   },
   ref
 ) {
+  /* ── Preloading: render skeleton instead of component ──────────────── */
+  if (preloading) {
+    return <Skeleton width="100%" height="48px" />;
+  }
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const setInputRef = useCallback(
@@ -163,6 +175,7 @@ const PinCode = forwardRef<HTMLDivElement, PinCodeProps>(function PinCode(
     'arch-pincode',
     `arch-pincode--${size}`,
     error ? 'arch-pincode--error' : '',
+    loading && 'arch-pincode--loading',
     className,
   ]
     .filter(Boolean)
@@ -190,6 +203,11 @@ const PinCode = forwardRef<HTMLDivElement, PinCodeProps>(function PinCode(
           onFocus={handleFocus(index)}
         />
       ))}
+      {loading && (
+        <span className="arch-pincode__trailing-icon" aria-hidden="true">
+          <Spinner size="xs" />
+        </span>
+      )}
     </div>
   );
 });

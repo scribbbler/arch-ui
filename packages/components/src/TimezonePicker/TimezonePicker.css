@@ -173,3 +173,32 @@
   font-size: var(--typography-scale-text-sm);
   color: var(--color-text-subtle);
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-timezone-picker__trailing-icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--spacing-12);
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Complete — trailing icon color */
+.arch-timezone-picker--complete .arch-timezone-picker__trailing-icon {
+  color: var(--color-feedback-success-text);
+}
+
+/* Incomplete — trailing icon color */
+.arch-timezone-picker--incomplete .arch-timezone-picker__trailing-icon {
+  color: var(--color-feedback-danger-text);
+}
+
+/* Loading — muted input text */
+.arch-timezone-picker--loading .arch-timezone-picker__input {
+  color: var(--color-text-subtle);
+}

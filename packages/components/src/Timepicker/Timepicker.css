@@ -153,3 +153,32 @@
 .arch-timepicker__option--selected:hover {
   background-color: var(--color-background-primary);
 }
+
+/* ─── Trailing icon (field state) ───────────────────────────────────────────── */
+
+.arch-timepicker__trailing-icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--spacing-12);
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Complete — trailing icon color */
+.arch-timepicker--complete .arch-timepicker__trailing-icon {
+  color: var(--color-feedback-success-text);
+}
+
+/* Incomplete — trailing icon color */
+.arch-timepicker--incomplete .arch-timepicker__trailing-icon {
+  color: var(--color-feedback-danger-text);
+}
+
+/* Loading — muted input text */
+.arch-timepicker--loading .arch-timepicker__input {
+  color: var(--color-text-subtle);
+}
