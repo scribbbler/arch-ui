@@ -119,10 +119,10 @@
   flex: 1;
   min-width: 0;
 
-  /* Appearance — 2px border, muted background */
+  /* Appearance — transparent border, subtle background */
   appearance: none;
-  background-color: var(--color-background-muted);
-  border: var(--border-width-medium) solid var(--color-border-default);
+  background-color: var(--color-background-subtle);
+  border: var(--border-width-medium) solid transparent;
   border-start-start-radius: var(--radius-none);
   border-end-start-radius: var(--radius-none);
   border-start-end-radius: var(--radius-component-md);
@@ -136,7 +136,8 @@
   outline: none;
   transition:
     border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
 /* ─── Placeholder ────────────────────────────────────────────────────────────── */
@@ -145,45 +146,57 @@
   color: var(--color-text-placeholder);
 }
 
-/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+/* ─── Hover — 4% black overlay fill ──────────────────────────────────────────── */
 
 .arch-phone-input__input:hover:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
-  border-color: var(--color-border-strong);
+  box-shadow: inset 999px 999px 0 rgba(0, 0, 0, 0.04);
 }
 
-/* ─── Focus — borderSelected + inputFillActive ───────────────────────────────── */
+/* ─── Pressed — 8% black overlay fill ────────────────────────────────────────── */
+
+.arch-phone-input__input:active:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
+  box-shadow: inset 999px 999px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Active / Focus — 3px borderSelected + backgroundPrimary ────────────────── */
 
 .arch-phone-input__input:focus-visible {
-  border-color: var(--color-border-focus);
+  border-color: var(--color-border-selected);
+  border-width: var(--border-width-strong);
   background-color: var(--color-background-default);
+  box-shadow: none;
   outline: none;
 }
 
-/* ─── Error ──────────────────────────────────────────────────────────────────── */
+/* ─── Error — 3px borderNegative + backgroundPrimary ─────────────────────────── */
 
 .arch-phone-input--error .arch-phone-input__input {
   border-color: var(--color-border-danger);
+  border-width: var(--border-width-strong);
+  background-color: var(--color-background-default);
 }
 
 .arch-phone-input--error .arch-phone-input__input:focus-visible {
   border-color: var(--color-border-danger);
 }
 
-/* ─── Positive ───────────────────────────────────────────────────────────────── */
+/* ─── Success / Positive — 3px borderPositive + backgroundPrimary ────────────── */
 
 .arch-phone-input--positive .arch-phone-input__input {
   border-color: var(--color-border-success);
+  border-width: var(--border-width-strong);
+  background-color: var(--color-background-default);
 }
 
 .arch-phone-input--positive .arch-phone-input__input:focus-visible {
   border-color: var(--color-border-success);
 }
 
-/* ─── Disabled ───────────────────────────────────────────────────────────────── */
+/* ─── Disabled — contentDisabled fill ────────────────────────────────────────── */
 
 .arch-phone-input--disabled .arch-phone-input__input {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-background-disabled);
+  border-color: transparent;
   color: var(--color-text-disabled);
   -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;

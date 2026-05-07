@@ -18,10 +18,10 @@
   box-sizing: border-box;
   text-align: center;
 
-  /* Appearance — mirrors Base Web Input root: 2px border, muted bg */
+  /* Appearance — mirrors Base Web Input root: transparent border, subtle bg */
   appearance: none;
-  background-color: var(--color-background-muted);
-  border: var(--border-width-medium) solid var(--color-border-default);
+  background-color: var(--color-background-subtle);
+  border: var(--border-width-medium) solid transparent;
   border-radius: var(--radius-component-md);
   color: var(--color-text-default);
   caret-color: var(--color-text-default);
@@ -40,7 +40,8 @@
 
   transition:
     border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
 /* Remove margin from the last pin input */
@@ -54,36 +55,45 @@
   color: var(--color-text-placeholder);
 }
 
-/* ─── Hover ─────────────────────────────────────────────────────────────────── */
+/* ─── Hover — 4% black overlay fill ─────────────────────────────────────────── */
 
-.arch-pincode__input:hover:not(:disabled):not([aria-invalid="true"]):not(:focus-visible) {
-  border-color: var(--color-border-strong);
+.arch-pincode__input:hover:not(:disabled):not(:focus-visible) {
+  box-shadow: inset 999px 999px 0 rgba(0, 0, 0, 0.04);
 }
 
-/* ─── Focus — borderSelected + inputFillActive ──────────────────────────────── */
+/* ─── Pressed — 8% black overlay fill ───────────────────────────────────────── */
+
+.arch-pincode__input:active:not(:disabled):not(:focus-visible) {
+  box-shadow: inset 999px 999px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Active / Focus — 3px borderSelected + backgroundPrimary ────────────────── */
 
 .arch-pincode__input:focus-visible {
-  border-color: var(--color-border-focus);
+  border-color: var(--color-border-selected);
+  border-width: var(--border-width-strong);
   background-color: var(--color-background-default);
+  box-shadow: none;
   outline: none;
 }
 
-/* ─── Error state ───────────────────────────────────────────────────────────── */
+/* ─── Error — 3px borderNegative + backgroundPrimary ─────────────────────────── */
 
 .arch-pincode--error .arch-pincode__input {
   border-color: var(--color-border-danger);
+  border-width: var(--border-width-strong);
+  background-color: var(--color-background-default);
 }
 
 .arch-pincode--error .arch-pincode__input:focus-visible {
   border-color: var(--color-border-danger);
-  background-color: var(--color-background-default);
 }
 
-/* ─── Disabled ──────────────────────────────────────────────────────────────── */
+/* ─── Disabled — contentDisabled fill ────────────────────────────────────────── */
 
 .arch-pincode__input:disabled {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-background-disabled);
+  border-color: transparent;
   color: var(--color-text-disabled);
   -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;

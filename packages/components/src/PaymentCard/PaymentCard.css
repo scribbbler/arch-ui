@@ -50,8 +50,8 @@
 
   /* Appearance */
   appearance: none;
-  background-color: var(--color-background-muted);
-  border: var(--border-width-medium) solid var(--color-border-default);
+  background-color: var(--color-background-subtle);
+  border: var(--border-width-medium) solid transparent;
   border-radius: var(--radius-component-md);
   color: var(--color-text-default);
   caret-color: var(--color-text-default);
@@ -65,7 +65,8 @@
   outline: none;
   transition:
     border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
 /* ─── Placeholder ────────────────────────────────────────────────────────────── */
@@ -74,45 +75,57 @@
   color: var(--color-text-placeholder);
 }
 
-/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+/* ─── Hover — 4% black overlay fill ──────────────────────────────────────────── */
 
 .arch-payment-card__input:hover:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
-  border-color: var(--color-border-strong);
+  box-shadow: inset 999px 999px 0 rgba(0, 0, 0, 0.04);
 }
 
-/* ─── Focus — borderSelected + inputFillActive ───────────────────────────────── */
+/* ─── Pressed — 8% black overlay fill ────────────────────────────────────────── */
+
+.arch-payment-card__input:active:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
+  box-shadow: inset 999px 999px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Active / Focus — 3px borderSelected + backgroundPrimary ────────────────── */
 
 .arch-payment-card__input:focus-visible {
-  border-color: var(--color-border-focus);
+  border-color: var(--color-border-selected);
+  border-width: var(--border-width-strong);
   background-color: var(--color-background-default);
+  box-shadow: none;
   outline: none;
 }
 
-/* ─── Error ──────────────────────────────────────────────────────────────────── */
+/* ─── Error — 3px borderNegative + backgroundPrimary ─────────────────────────── */
 
 .arch-payment-card--error .arch-payment-card__input {
   border-color: var(--color-border-danger);
+  border-width: var(--border-width-strong);
+  background-color: var(--color-background-default);
 }
 
 .arch-payment-card--error .arch-payment-card__input:focus-visible {
   border-color: var(--color-border-danger);
 }
 
-/* ─── Positive ───────────────────────────────────────────────────────────────── */
+/* ─── Success / Positive — 3px borderPositive + backgroundPrimary ────────────── */
 
 .arch-payment-card--positive .arch-payment-card__input {
   border-color: var(--color-border-success);
+  border-width: var(--border-width-strong);
+  background-color: var(--color-background-default);
 }
 
 .arch-payment-card--positive .arch-payment-card__input:focus-visible {
   border-color: var(--color-border-success);
 }
 
-/* ─── Disabled ───────────────────────────────────────────────────────────────── */
+/* ─── Disabled — contentDisabled fill ────────────────────────────────────────── */
 
 .arch-payment-card--disabled .arch-payment-card__input {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-background-disabled);
+  border-color: transparent;
   color: var(--color-text-disabled);
   -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;

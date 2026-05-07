@@ -21,52 +21,67 @@
   gap: var(--spacing-4);
   width: 100%;
   box-sizing: border-box;
-  background-color: var(--color-background-muted);
-  border: var(--border-width-medium) solid var(--color-border-default);
+  background-color: var(--color-background-subtle);
+  border: var(--border-width-medium) solid transparent;
   border-radius: var(--radius-component-md);
   cursor: pointer;
   outline: none;
   transition:
     border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
+
+/* ─── Hover — 4% black overlay fill ──────────────────────────────────────────── */
 
 .arch-combobox__control:hover:not(.arch-combobox__control--disabled):not(.arch-combobox__control--focused) {
-  border-color: var(--color-border-strong);
+  box-shadow: inset 999px 999px 0 rgba(0, 0, 0, 0.04);
 }
 
-/* ─── Focus state ────────────────────────────────────────────────────────────── */
+/* ─── Pressed — 8% black overlay fill ────────────────────────────────────────── */
+
+.arch-combobox__control:active:not(.arch-combobox__control--disabled):not(.arch-combobox__control--focused) {
+  box-shadow: inset 999px 999px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Active / Focus — 3px borderSelected + backgroundPrimary ────────────────── */
 
 .arch-combobox__control--focused {
-  border-color: var(--color-border-focus);
+  border-color: var(--color-border-selected);
+  border-width: var(--border-width-strong);
   background-color: var(--color-background-default);
+  box-shadow: none;
 }
 
-/* ─── Error state ────────────────────────────────────────────────────────────── */
+/* ─── Error — 3px borderNegative + backgroundPrimary ─────────────────────────── */
 
 .arch-combobox__control--error {
   border-color: var(--color-border-danger);
+  border-width: var(--border-width-strong);
+  background-color: var(--color-background-default);
 }
 
 .arch-combobox__control--error.arch-combobox__control--focused {
   border-color: var(--color-border-danger);
 }
 
-/* ─── Positive state ─────────────────────────────────────────────────────────── */
+/* ─── Success / Positive — 3px borderPositive + backgroundPrimary ────────────── */
 
 .arch-combobox__control--positive {
   border-color: var(--color-border-success);
+  border-width: var(--border-width-strong);
+  background-color: var(--color-background-default);
 }
 
 .arch-combobox__control--positive.arch-combobox__control--focused {
   border-color: var(--color-border-success);
 }
 
-/* ─── Disabled state ─────────────────────────────────────────────────────────── */
+/* ─── Disabled — contentDisabled fill ────────────────────────────────────────── */
 
 .arch-combobox__control--disabled {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-background-disabled);
+  border-color: transparent;
   color: var(--color-text-disabled);
   cursor: not-allowed;
 }
