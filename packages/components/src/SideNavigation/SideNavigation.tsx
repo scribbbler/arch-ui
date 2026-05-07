@@ -14,6 +14,8 @@ export interface SideNavItem {
   href?: string;
   /** Optional badge rendered on the right side of the item. */
   badge?: string | number;
+  /** Whether the item is disabled. */
+  disabled?: boolean;
   /** Optional nested sub-navigation items. */
   subNav?: SideNavItem[];
 }
@@ -62,11 +64,11 @@ function SideNavItemRenderer({ item, activeItemId, onChange, collapsed, depth }:
   const [open, setOpen] = useState(isExpanded);
 
   const handleClick = (e: React.MouseEvent) => {
+    if (item.disabled) return;
     if (hasSubNav) {
       setOpen((prev) => !prev);
     }
     if (item.href) {
-      // Let the anchor navigate naturally, but still notify onChange
       onChange?.(item.itemId);
       return;
     }
@@ -77,6 +79,7 @@ function SideNavItemRenderer({ item, activeItemId, onChange, collapsed, depth }:
   const classes = [
     'arch-side-navigation__item',
     isActive && 'arch-side-navigation__item--active',
+    item.disabled && 'arch-side-navigation__item--disabled',
     depth > 0 && 'arch-side-navigation__item--nested',
     collapsed && 'arch-side-navigation__item--collapsed',
   ]
@@ -106,9 +109,11 @@ function SideNavItemRenderer({ item, activeItemId, onChange, collapsed, depth }:
     <li className="arch-side-navigation__item-wrapper">
       <Tag
         className={classes}
+        style={{ '--arch-side-nav-level': depth } as React.CSSProperties}
         onClick={handleClick}
         aria-current={isActive ? 'page' : undefined}
         aria-expanded={hasSubNav && !collapsed ? open : undefined}
+        aria-disabled={item.disabled || undefined}
         title={collapsed ? item.title : undefined}
         {...tagProps}
       >
