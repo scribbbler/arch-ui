@@ -53,8 +53,10 @@ const preview: Preview = {
       const reducedMotion = context.globals.reducedMotion || 'no-preference';
 
       document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
-      document.documentElement.setAttribute('dir', direction);
+      document.documentElement.dir = direction;
       document.documentElement.classList.toggle('reduce-motion', reducedMotion === 'reduce');
+      document.body.style.backgroundColor = 'var(--color-background-default)';
+      document.body.style.color = 'var(--color-text-default)';
 
       return Story();
     },
