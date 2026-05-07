@@ -128,39 +128,37 @@
   cursor: default;
 }
 
-/* ─── Sizes — matches Base Web Input scale ───────────────────────────────────
-   mini:    paddingBlock=4   paddingInline=14  font=ParagraphXSmall
-   compact: paddingBlock=6   paddingInline=14  font=ParagraphSmall
-   default: paddingBlock=10  paddingInline=14  font=ParagraphMedium
-   large:   paddingBlock=14  paddingInline=14  font=ParagraphLarge
+/* ─── Sizes — matches Base Web text field container spacing spec ─────────────
+   small:   paddingBlock=8   paddingInline=16  font=ParagraphSmall
+   medium:  paddingBlock=12  paddingInline=16  font=ParagraphMedium
+   large:   paddingBlock=16  paddingInline=16  font=ParagraphLarge
+   Content spacing between enhancers: 16px (handled by gap on wrapper)
    ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-input--xs {
   padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-14);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
-  border-radius: var(--radius-sm);
 }
 
 .arch-input--sm {
-  padding-block: var(--spacing-6);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
-  border-radius: var(--radius-sm);
 }
 
 .arch-input--md {
-  padding-block: var(--spacing-10);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 .arch-input--lg {
-  padding-block: var(--spacing-14);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
 }
@@ -178,20 +176,20 @@
 }
 
 .arch-input__element--left {
-  inset-inline-start: var(--spacing-8);
+  inset-inline-start: var(--spacing-16);
 }
 
 .arch-input__element--right {
-  inset-inline-end: var(--spacing-8);
+  inset-inline-end: var(--spacing-16);
 }
 
-/* Shift input padding to accommodate element slots */
+/* Shift input padding to accommodate element slots (16px + icon + 8px gap) */
 .arch-input-wrapper--has-left .arch-input {
-  padding-inline-start: calc(var(--spacing-8) + 1.25em + var(--spacing-4));
+  padding-inline-start: calc(var(--spacing-16) + 1.25em + var(--spacing-8));
 }
 
 .arch-input-wrapper--has-right .arch-input {
-  padding-inline-end: calc(var(--spacing-8) + 1.25em + var(--spacing-4));
+  padding-inline-end: calc(var(--spacing-16) + 1.25em + var(--spacing-8));
 }
 
 /* ─── Complete state — trailing positive icon ────────────────────────────────── */

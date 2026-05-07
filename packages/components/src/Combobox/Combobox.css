@@ -214,18 +214,17 @@
   color: var(--color-text-subtle);
 }
 
-/* ─── Sizes — matches Base Web Combobox padding scale ────────────────────────
-   mini:    height=30  paddingL=6   font=ParagraphXSmall
-   compact: height=36  paddingL=10  font=ParagraphSmall
-   default: height=48  paddingL=14  font=ParagraphMedium
-   large:   height=56  paddingL=16  font=ParagraphLarge
+/* ─── Sizes — matches Base Web text field container spacing spec ─────────────
+   mini:    paddingBlock=4   paddingInline=16  font=ParagraphXSmall
+   compact: paddingBlock=8   paddingInline=16  font=ParagraphSmall
+   default: paddingBlock=12  paddingInline=16  font=ParagraphMedium
+   large:   paddingBlock=16  paddingInline=16  font=ParagraphLarge
    ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-combobox--mini .arch-combobox__control {
   padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-6);
+  padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-28);
-  border-radius: var(--radius-sm);
 }
 
 .arch-combobox--mini .arch-combobox__input {
@@ -237,15 +236,14 @@
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
   padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-6);
+  padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-28);
 }
 
 .arch-combobox--compact .arch-combobox__control {
-  padding-block: var(--spacing-6);
-  padding-inline: var(--spacing-10);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-36);
-  border-radius: var(--radius-sm);
 }
 
 .arch-combobox--compact .arch-combobox__input {
@@ -256,14 +254,14 @@
 .arch-combobox--compact .arch-combobox__option {
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
-  padding-block: var(--spacing-6);
-  padding-inline: var(--spacing-10);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-36);
 }
 
 .arch-combobox--default .arch-combobox__control {
-  padding-block: var(--spacing-10);
-  padding-inline: var(--spacing-10);
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-48);
 }
 
@@ -275,14 +273,14 @@
 .arch-combobox--default .arch-combobox__option {
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
-  padding-block: var(--spacing-10);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-48);
 }
 
 .arch-combobox--large .arch-combobox__control {
-  padding-block: var(--spacing-14);
-  padding-inline: var(--spacing-10);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-56);
 }
 
@@ -294,7 +292,7 @@
 .arch-combobox--large .arch-combobox__option {
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
-  padding-block: var(--spacing-14);
+  padding-block: var(--spacing-16);
   padding-inline: var(--spacing-16);
   min-block-size: var(--spacing-56);
 }

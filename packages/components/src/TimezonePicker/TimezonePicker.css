@@ -74,30 +74,29 @@
   color: var(--color-text-disabled);
 }
 
-/* ─── Sizes — matches Base Web Input padding scale ───────────────────────────
-   compact: paddingBlock=6   paddingInline=14  font=ParagraphSmall
-   default: paddingBlock=10  paddingInline=14  font=ParagraphMedium
-   large:   paddingBlock=14  paddingInline=14  font=ParagraphLarge
+/* ─── Sizes — matches Base Web text field container spacing spec ─────────────
+   compact: paddingBlock=8   paddingInline=16  font=ParagraphSmall
+   default: paddingBlock=12  paddingInline=16  font=ParagraphMedium
+   large:   paddingBlock=16  paddingInline=16  font=ParagraphLarge
    ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-timezone-picker--compact .arch-timezone-picker__input {
-  padding-block: var(--spacing-6);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
-  border-radius: var(--radius-sm);
 }
 
 .arch-timezone-picker--default .arch-timezone-picker__input {
-  padding-block: var(--spacing-10);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 .arch-timezone-picker--large .arch-timezone-picker__input {
-  padding-block: var(--spacing-14);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
 }

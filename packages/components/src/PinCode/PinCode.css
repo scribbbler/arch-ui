@@ -115,7 +115,6 @@
   block-size: var(--spacing-32);
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
-  border-radius: var(--radius-sm);
 }
 
 .arch-pincode--compact .arch-pincode__input {
@@ -123,7 +122,6 @@
   block-size: var(--spacing-36);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
-  border-radius: var(--radius-sm);
 }
 
 .arch-pincode--default .arch-pincode__input {

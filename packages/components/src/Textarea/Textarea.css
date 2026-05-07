@@ -127,34 +127,37 @@
   cursor: default;
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+/* ─── Sizes — matches Base Web text field container spacing spec ─────────────
+   xs:      paddingBlock=4   paddingInline=16  font=ParagraphXSmall
+   sm:      paddingBlock=8   paddingInline=16  font=ParagraphSmall
+   md:      paddingBlock=12  paddingInline=16  font=ParagraphMedium
+   lg:      paddingBlock=16  paddingInline=16  font=ParagraphLarge
+   ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-textarea--xs {
   padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-14);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
-  border-radius: var(--radius-sm);
 }
 
 .arch-textarea--sm {
-  padding-block: var(--spacing-6);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
-  border-radius: var(--radius-sm);
 }
 
 .arch-textarea--md {
-  padding-block: var(--spacing-10);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 .arch-textarea--lg {
-  padding-block: var(--spacing-14);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
 }

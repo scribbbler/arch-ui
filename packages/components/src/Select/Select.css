@@ -205,49 +205,41 @@
   block-size: auto;
 }
 
-/* ─── Sizes — matches Base Web Select control padding scale ─────────────────
-   mini:    paddingY=4   paddingX=10  font=font100
-   compact: paddingY=6   paddingX=10  font=font200
-   default: paddingY=10  paddingX=10  font=font300
-   large:   paddingY=14  paddingX=10  font=font400
+/* ─── Sizes — matches Base Web text field container spacing spec ─────────────
+   mini:    paddingBlock=4   paddingInline=16  font=ParagraphXSmall
+   compact: paddingBlock=8   paddingInline=16  font=ParagraphSmall
+   default: paddingBlock=12  paddingInline=16  font=ParagraphMedium
+   large:   paddingBlock=16  paddingInline=16  font=ParagraphLarge
    ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-select--xs,
 .arch-select-control--xs .arch-select__value-container {
   padding-block: var(--spacing-4);
-  padding-inline-start: var(--spacing-10);
+  padding-inline-start: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
 }
 
-.arch-select-control--xs {
-  border-radius: var(--radius-sm);
-}
-
 .arch-select--sm,
 .arch-select-control--sm .arch-select__value-container {
-  padding-block: var(--spacing-6);
-  padding-inline-start: var(--spacing-10);
+  padding-block: var(--spacing-8);
+  padding-inline-start: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
 }
 
-.arch-select-control--sm {
-  border-radius: var(--radius-sm);
-}
-
 .arch-select--md,
 .arch-select-control--md .arch-select__value-container {
-  padding-block: var(--spacing-10);
-  padding-inline-start: var(--spacing-10);
+  padding-block: var(--spacing-12);
+  padding-inline-start: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 .arch-select--lg,
 .arch-select-control--lg .arch-select__value-container {
-  padding-block: var(--spacing-14);
-  padding-inline-start: var(--spacing-10);
+  padding-block: var(--spacing-16);
+  padding-inline-start: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
 }
@@ -255,24 +247,22 @@
 /* Standalone native select sizes — keep backward compat */
 
 .arch-select--xs {
-  padding-inline-start: var(--spacing-10);
+  padding-inline-start: var(--spacing-16);
   min-block-size: var(--spacing-28);
-  border-radius: var(--radius-sm);
 }
 
 .arch-select--sm {
-  padding-inline-start: var(--spacing-10);
+  padding-inline-start: var(--spacing-16);
   min-block-size: var(--spacing-36);
-  border-radius: var(--radius-sm);
 }
 
 .arch-select--md {
-  padding-inline-start: var(--spacing-10);
+  padding-inline-start: var(--spacing-16);
   min-block-size: var(--spacing-48);
 }
 
 .arch-select--lg {
-  padding-inline-start: var(--spacing-10);
+  padding-inline-start: var(--spacing-16);
   min-block-size: var(--spacing-56);
 }
 
