@@ -89,14 +89,14 @@ describe('Alert — onClose', () => {
 
   it('renders a close button when onClose is provided', () => {
     render(<Alert title="Closeable" onClose={vi.fn()} />);
-    expect(screen.getByRole('button', { name: 'Dismiss alert' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Close' })).toBeInTheDocument();
   });
 
   it('calls onClose when the close button is clicked', async () => {
     const user = userEvent.setup();
     const handler = vi.fn();
     render(<Alert title="Closeable" onClose={handler} />);
-    await user.click(screen.getByRole('button', { name: 'Dismiss alert' }));
+    await user.click(screen.getByRole('button', { name: 'Close' }));
     expect(handler).toHaveBeenCalledTimes(1);
   });
 });
@@ -125,7 +125,7 @@ describe('Alert — icon', () => {
 describe('Alert — labels (i18n)', () => {
   it('uses default dismiss label', () => {
     render(<Alert title="T" onClose={vi.fn()} />);
-    expect(screen.getByRole('button', { name: 'Dismiss alert' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Close' })).toBeInTheDocument();
   });
 
   it('accepts a custom dismiss label', () => {

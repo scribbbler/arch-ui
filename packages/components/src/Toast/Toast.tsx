@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import { createPortal } from 'react-dom';
 import { Button } from '../Button';
+import { useLocale } from '../Locale';
 import {
   DEFAULT_TOAST_LABELS,
   DEFAULT_PROVIDER_LABELS,
@@ -122,7 +123,8 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
   },
   ref
 ) {
-  const mergedLabels = { ...DEFAULT_TOAST_LABELS, ...labels };
+  const locale = useLocale();
+  const mergedLabels = { ...DEFAULT_TOAST_LABELS, dismiss: locale.toast.close, ...labels };
   const [exiting, setExiting] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const remainingRef = useRef(duration);

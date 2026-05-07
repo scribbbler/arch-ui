@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Button } from '../Button';
+import { useLocale } from '../Locale';
 import './Notification.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -94,6 +95,7 @@ const Notification = forwardRef<HTMLDivElement, NotificationProps>(function Noti
   { variant = 'info', title, children, closeable = false, onClose, className },
   ref
 ) {
+  const locale = useLocale();
   const showClose = closeable && onClose != null;
   const role =
     variant === 'error' || variant === 'warning' ? 'alert' : 'status';
@@ -125,7 +127,7 @@ const Notification = forwardRef<HTMLDivElement, NotificationProps>(function Noti
           size="compact"
           shape="square"
           className="arch-notification__close"
-          aria-label="Dismiss notification"
+          aria-label={locale.notification.close}
           onClick={onClose}
           startEnhancer={<CloseIcon />}
         />

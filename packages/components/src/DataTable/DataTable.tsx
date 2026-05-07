@@ -1,4 +1,5 @@
 import React, { forwardRef, useState, useCallback } from 'react';
+import { useLocale } from '../Locale';
 import './DataTable.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -59,11 +60,13 @@ const DataTable = forwardRef<HTMLDivElement, DataTableProps>(function DataTable(
     sortable = false,
     resizable = false,
     loading = false,
-    emptyMessage = 'No data available',
+    emptyMessage: emptyMessageProp,
     className,
   },
   ref
 ) {
+  const locale = useLocale();
+  const emptyMessage = emptyMessageProp ?? locale.datatable.emptyState;
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection>('none');
 
@@ -175,7 +178,7 @@ const DataTable = forwardRef<HTMLDivElement, DataTableProps>(function DataTable(
         </table>
         {loading && (
           <div className="arch-data-table__loading" aria-live="polite">
-            <span className="arch-data-table__loading-text">Loading…</span>
+            <span className="arch-data-table__loading-text">{locale.datatable.loadingState}</span>
           </div>
         )}
       </div>

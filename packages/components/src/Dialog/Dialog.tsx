@@ -3,6 +3,7 @@ import { Portal } from '../Portal';
 import { Overlay } from '../Overlay';
 import { FocusTrap } from '../FocusTrap';
 import { Button } from '../Button';
+import { useLocale } from '../Locale';
 import './Dialog.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -50,13 +51,16 @@ const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
     onConfirm,
     title,
     children,
-    confirmLabel = 'Confirm',
-    cancelLabel = 'Cancel',
+    confirmLabel: confirmLabelProp,
+    cancelLabel: cancelLabelProp,
     variant = 'default',
     className,
   },
   ref
 ) {
+  const locale = useLocale();
+  const confirmLabel = confirmLabelProp ?? locale.dialog.confirm;
+  const cancelLabel = cancelLabelProp ?? locale.dialog.cancel;
   const titleId = useId();
   const bodyId = useId();
 

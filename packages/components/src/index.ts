@@ -263,3 +263,22 @@ export { AppShell, type AppShellProps } from "./AppShell";
 export { PageControl, type PageControlProps, type PageControlSize } from "./PageControl";
 export { TabsMotion, type TabsMotionProps, type TabMotionItem, type TabsMotionFill } from "./TabsMotion";
 export { ButtonTimed, type ButtonTimedProps } from "./ButtonTimed";
+
+// --- Locale ---
+export { LocaleProvider, LocaleContext, useLocale, en_US, type Locale, type LocaleProviderProps } from "./Locale";
+
+// --- Theme ---
+export {
+  ThemeProvider,
+  ThemeContext,
+  useTheme,
+  createTheme,
+  themeToCSS,
+  themeToStyleVars,
+  LightTheme,
+  DarkTheme,
+  type Theme,
+  type ThemePrimitives,
+  type ThemeOverrides,
+  type ThemeProviderProps,
+} from "./Theme";

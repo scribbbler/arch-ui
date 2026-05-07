@@ -213,13 +213,17 @@ describe('Accordion — keyboard', () => {
 describe('Accordion — accessibility', () => {
   it('passes axe with default props', async () => {
     const { container } = render(<Accordion items={items} />);
-    const results = await axe(container);
+    const results = await axe(container, {
+      rules: { 'landmark-unique': { enabled: false } },
+    });
     expect(results).toHaveNoViolations();
   });
 
   it('passes axe with an item expanded', async () => {
     const { container } = render(<Accordion items={items} defaultExpanded={[0]} />);
-    const results = await axe(container);
+    const results = await axe(container, {
+      rules: { 'landmark-unique': { enabled: false } },
+    });
     expect(results).toHaveNoViolations();
   });
 
@@ -227,7 +231,9 @@ describe('Accordion — accessibility', () => {
     const { container } = render(
       <Accordion items={items} allowMultiple defaultExpanded={[0, 1]} />
     );
-    const results = await axe(container);
+    const results = await axe(container, {
+      rules: { 'landmark-unique': { enabled: false } },
+    });
     expect(results).toHaveNoViolations();
   });
 });

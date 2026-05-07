@@ -15,9 +15,9 @@ const defaultItems = [
 /* ─── Rendering ──────────────────────────────────────────────────────────────── */
 
 describe('Breadcrumbs — rendering', () => {
-  it('renders a nav element with aria-label="Breadcrumb"', () => {
+  it('renders a nav element with aria-label="Breadcrumbs navigation"', () => {
     render(<Breadcrumbs items={defaultItems} />);
-    expect(screen.getByRole('navigation', { name: 'Breadcrumb' })).toBeInTheDocument();
+    expect(screen.getByRole('navigation', { name: 'Breadcrumbs navigation' })).toBeInTheDocument();
   });
 
   it('renders all item labels', () => {
@@ -44,7 +44,7 @@ describe('Breadcrumbs — rendering', () => {
 
   it('applies a custom className to the nav element', () => {
     render(<Breadcrumbs items={defaultItems} className="my-breadcrumbs" />);
-    expect(screen.getByRole('navigation', { name: 'Breadcrumb' })).toHaveClass('my-breadcrumbs');
+    expect(screen.getByRole('navigation', { name: 'Breadcrumbs navigation' })).toHaveClass('my-breadcrumbs');
   });
 
   it('forwards a ref to the nav element', () => {
@@ -56,7 +56,7 @@ describe('Breadcrumbs — rendering', () => {
 
   it('renders an ordered list inside the nav', () => {
     render(<Breadcrumbs items={defaultItems} />);
-    const nav = screen.getByRole('navigation', { name: 'Breadcrumb' });
+    const nav = screen.getByRole('navigation', { name: 'Breadcrumbs navigation' });
     expect(nav.querySelector('ol')).toBeInTheDocument();
   });
 });

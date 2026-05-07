@@ -46,7 +46,7 @@ describe('Toast — individual component', () => {
   it('renders a close button', () => {
     render(<Toast title="T" onClose={vi.fn()} />);
     expect(
-      screen.getByRole('button', { name: 'Dismiss notification' })
+      screen.getByRole('button', { name: 'Close' })
     ).toBeInTheDocument();
   });
 
@@ -54,7 +54,7 @@ describe('Toast — individual component', () => {
     vi.useFakeTimers();
     const handler = vi.fn();
     render(<Toast title="T" onClose={handler} duration={0} />);
-    const btn = screen.getByRole('button', { name: 'Dismiss notification' });
+    const btn = screen.getByRole('button', { name: 'Close' });
     await act(async () => { btn.click(); });
     act(() => { vi.advanceTimersByTime(300); });
     expect(handler).toHaveBeenCalled();
@@ -194,7 +194,7 @@ describe('Toast — labels (i18n)', () => {
   it('uses default dismiss label', () => {
     render(<Toast title="T" onClose={vi.fn()} duration={0} />);
     expect(
-      screen.getByRole('button', { name: 'Dismiss notification' })
+      screen.getByRole('button', { name: 'Close' })
     ).toBeInTheDocument();
   });
 

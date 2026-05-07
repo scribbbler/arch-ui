@@ -47,8 +47,8 @@ describe('Pagination — rendering', () => {
 
   it('renders previous and next buttons', () => {
     render(<ControlledPagination />);
-    expect(screen.getByRole('button', { name: 'Go to previous page' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Go to next page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Prev' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument();
   });
 
   it('does not render first/last buttons by default', () => {
@@ -108,28 +108,28 @@ describe('Pagination — boundary disabled states', () => {
   it('previous button is disabled on page 1', () => {
     render(<ControlledPagination initialPage={1} />);
     expect(
-      screen.getByRole('button', { name: 'Go to previous page' })
+      screen.getByRole('button', { name: 'Prev' })
     ).toBeDisabled();
   });
 
   it('next button is disabled on the last page', () => {
     render(<ControlledPagination totalPages={5} initialPage={5} />);
     expect(
-      screen.getByRole('button', { name: 'Go to next page' })
+      screen.getByRole('button', { name: 'Next' })
     ).toBeDisabled();
   });
 
   it('previous button is not disabled when past page 1', () => {
     render(<ControlledPagination totalPages={5} initialPage={2} />);
     expect(
-      screen.getByRole('button', { name: 'Go to previous page' })
+      screen.getByRole('button', { name: 'Prev' })
     ).not.toBeDisabled();
   });
 
   it('next button is not disabled before the last page', () => {
     render(<ControlledPagination totalPages={5} initialPage={4} />);
     expect(
-      screen.getByRole('button', { name: 'Go to next page' })
+      screen.getByRole('button', { name: 'Next' })
     ).not.toBeDisabled();
   });
 
@@ -199,7 +199,7 @@ describe('Pagination — onChange', () => {
     const user = userEvent.setup();
     const handleChange = vi.fn();
     render(<ControlledPagination totalPages={5} initialPage={2} onChange={handleChange} />);
-    await user.click(screen.getByRole('button', { name: 'Go to next page' }));
+    await user.click(screen.getByRole('button', { name: 'Next' }));
     expect(handleChange).toHaveBeenCalledWith(3);
   });
 
@@ -207,7 +207,7 @@ describe('Pagination — onChange', () => {
     const user = userEvent.setup();
     const handleChange = vi.fn();
     render(<ControlledPagination totalPages={5} initialPage={3} onChange={handleChange} />);
-    await user.click(screen.getByRole('button', { name: 'Go to previous page' }));
+    await user.click(screen.getByRole('button', { name: 'Prev' }));
     expect(handleChange).toHaveBeenCalledWith(2);
   });
 
@@ -224,7 +224,7 @@ describe('Pagination — onChange', () => {
     const handleChange = vi.fn();
     render(<ControlledPagination totalPages={5} initialPage={1} onChange={handleChange} />);
     await user.click(
-      screen.getByRole('button', { name: 'Go to previous page' })
+      screen.getByRole('button', { name: 'Prev' })
     ).catch(() => { /* pointer-events:none may prevent event */ });
     expect(handleChange).not.toHaveBeenCalled();
   });
@@ -267,8 +267,8 @@ describe('Pagination — labels (i18n)', () => {
     render(<ControlledPagination totalPages={5} initialPage={1} showFirstLast />);
     expect(screen.getByRole('navigation', { name: 'Pagination' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Go to first page' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Go to previous page' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Go to next page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Prev' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Go to last page' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Go to page 1' })).toBeInTheDocument();
   });
@@ -309,7 +309,7 @@ describe('Pagination — labels (i18n)', () => {
     );
     expect(screen.getByRole('navigation', { name: 'Pages' })).toBeInTheDocument();
     // Other labels remain default
-    expect(screen.getByRole('button', { name: 'Go to next page' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument();
   });
 });
 

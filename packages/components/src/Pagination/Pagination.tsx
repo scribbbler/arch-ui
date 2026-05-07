@@ -1,5 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import { Button, type ButtonSize, type ButtonShape } from '../Button';
+import { useLocale } from '../Locale';
 import { DEFAULT_LABELS, type PaginationLabels } from './Pagination.labels';
 import './Pagination.css';
 
@@ -136,7 +137,13 @@ const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination(
   },
   ref
 ) {
-  const mergedLabels = { ...DEFAULT_LABELS, ...labels };
+  const locale = useLocale();
+  const mergedLabels = {
+    ...DEFAULT_LABELS,
+    previousPage: locale.pagination.prev,
+    nextPage: locale.pagination.next,
+    ...labels,
+  };
   const pages = useMemo(
     () => buildPageRange(currentPage, totalPages, siblingCount),
     [currentPage, totalPages, siblingCount]

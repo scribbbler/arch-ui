@@ -3,6 +3,7 @@ import { Portal } from '../Portal';
 import { Overlay } from '../Overlay';
 import { FocusTrap } from '../FocusTrap';
 import { Button } from '../Button';
+import { useLocale } from '../Locale';
 import { DEFAULT_LABELS, type ModalLabels } from './Modal.labels';
 import './Modal.css';
 
@@ -71,8 +72,9 @@ const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function ModalHead
   { children, onClose, labels },
   ref
 ) {
+  const locale = useLocale();
   const ctx = React.useContext(ModalContext);
-  const mergedLabels = { ...DEFAULT_LABELS, ...labels };
+  const mergedLabels = { ...DEFAULT_LABELS, close: locale.modal.close, ...labels };
 
   return (
     <header ref={ref} className="arch-modal__header">

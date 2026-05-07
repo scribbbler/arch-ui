@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Button } from '../Button';
+import { useLocale } from '../Locale';
 import { DEFAULT_LABELS, type AlertLabels } from './Alert.labels';
 import './Alert.css';
 
@@ -104,8 +105,9 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   { variant = 'info', title, description, onClose, closeable, icon, labels, className },
   ref
 ) {
+  const locale = useLocale();
   const showClose = onClose != null && closeable !== false;
-  const mergedLabels = { ...DEFAULT_LABELS, ...labels };
+  const mergedLabels = { ...DEFAULT_LABELS, dismiss: locale.alert.close, ...labels };
   const role =
     variant === 'danger' || variant === 'warning' ? 'alert' : 'status';
 

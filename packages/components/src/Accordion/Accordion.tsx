@@ -1,4 +1,5 @@
 import React, { forwardRef, useCallback, useId, useRef, useState } from 'react';
+import { useLocale } from '../Locale';
 import './Accordion.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -72,6 +73,7 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion(
   { items, allowMultiple = false, defaultExpanded = [], disabled = false, onChange, className },
   ref
 ) {
+  const locale = useLocale();
   const uid = useId();
   const [openIndices, setOpenIndices] = useState<Set<number>>(
     () => new Set(defaultExpanded)
@@ -144,6 +146,7 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion(
                 className="arch-accordion__trigger"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
+                aria-label={isOpen ? locale.accordion.collapse : locale.accordion.expand}
                 aria-disabled={isItemDisabled ? 'true' : undefined}
                 onClick={() => {
                   if (!isItemDisabled) toggle(index);

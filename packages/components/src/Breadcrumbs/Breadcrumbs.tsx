@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { useLocale } from '../Locale';
 import './Breadcrumbs.css';
 
 /* ─── Types ──────────────────────────────────────────────────────────────────── */
@@ -42,10 +43,11 @@ const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(function Breadcrum
   { items, separator = '/', className },
   ref
 ) {
+  const locale = useLocale();
   const classes = ['arch-breadcrumbs', className].filter(Boolean).join(' ');
 
   return (
-    <nav ref={ref} aria-label="Breadcrumb" className={classes}>
+    <nav ref={ref} aria-label={locale.breadcrumbs.ariaLabel} className={classes}>
       <ol className="arch-breadcrumbs__list">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
