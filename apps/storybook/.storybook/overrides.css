@@ -5,6 +5,7 @@ body {
 
 /* Constrain story preview width — matches Base Web's centered layout */
 .arch-storybook-container {
+  min-width: 320px;
   max-width: 600px;
   margin: 0 auto;
   padding: 24px;
