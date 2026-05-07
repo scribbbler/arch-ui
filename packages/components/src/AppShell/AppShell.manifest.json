@@ -1,0 +1,60 @@
+{
+  "name": "AppShell",
+  "version": "1.0.0",
+  "description": "A layout wrapper that provides a sticky sidebar and main content structure. Commonly used with SideNavigation to create application-level page layouts. The sidebar is hidden on mobile viewports.",
+  "status": "stable",
+  "accessibility": {
+    "role": "generic",
+    "ariaAttributes": [],
+    "notes": [
+      "The sidebar renders as an <aside> landmark for assistive technology.",
+      "On mobile viewports the sidebar is hidden; consider pairing with Drawer for mobile navigation."
+    ]
+  },
+  "props": {
+    "sidebar": {
+      "type": "ReactNode",
+      "description": "Sidebar content, typically a SideNavigation component."
+    },
+    "sidebarWidth": {
+      "type": "string",
+      "default": "240px",
+      "description": "Width of the expanded sidebar."
+    },
+    "collapsedWidth": {
+      "type": "string",
+      "default": "60px",
+      "description": "Width of the collapsed sidebar."
+    },
+    "collapsed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the sidebar is in collapsed mode."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Main content area."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use AppShell as the outermost layout wrapper for application pages.",
+      "Pass a SideNavigation component as the sidebar prop.",
+      "Pair with Drawer on mobile for sidebar access below 768px."
+    ],
+    "dont": [
+      "Do not nest AppShell inside another AppShell.",
+      "Do not use AppShell for marketing or landing pages that have no sidebar."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-border-subtle",
+    "border-width-thin"
+  ]
+}

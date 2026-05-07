@@ -1,0 +1,48 @@
+/* AppShell — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ─── Sidebar ──────────────────────────────────────────────────────────────── */
+
+.arch-app-shell__sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: var(--arch-app-shell-sidebar-width);
+  flex-shrink: 0;
+  overflow-y: auto;
+  border-inline-end: var(--border-width-thin) solid var(--color-border-subtle);
+  background-color: var(--color-background-default);
+  transition: width 200ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-app-shell__sidebar {
+    transition: none;
+  }
+}
+
+/* ─── Content ──────────────────────────────────────────────────────────────── */
+
+.arch-app-shell__content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ─── Mobile: hide sidebar below 768px ─────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .arch-app-shell__sidebar {
+    display: none;
+  }
+
+  .arch-app-shell__content {
+    width: 100%;
+  }
+}

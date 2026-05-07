@@ -257,6 +257,7 @@ export {
 } from "./Layout";
 export { Icon, type IconProps, type IconSize } from "./Icon";
 export { Tile, type TileProps } from "./Tile";
+export { AppShell, type AppShellProps } from "./AppShell";
 
 // --- Misc ---
 export { PageControl, type PageControlProps, type PageControlSize } from "./PageControl";
