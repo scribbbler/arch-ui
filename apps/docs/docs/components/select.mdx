@@ -9,6 +9,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Select } from '../../../../packages/components/src/Select';
 import PageHeader from '@site/src/components/PageHeader';
 
 <PageHeader />
@@ -17,8 +18,12 @@ import PageHeader from '@site/src/components/PageHeader';
 <TabItem value="usage" label="Usage" default>
 
 <div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
-    Preview coming soon
+  <div style={{width: '100%', maxWidth: '320px'}}>
+    <Select aria-label="Options" placeholder="Select an option...">
+      <option value="one">Option one</option>
+      <option value="two">Option two</option>
+      <option value="three">Option three</option>
+    </Select>
   </div>
 </div>
 

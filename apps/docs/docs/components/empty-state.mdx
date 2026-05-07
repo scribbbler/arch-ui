@@ -20,8 +20,11 @@ import PageHeader from '@site/src/components/PageHeader';
 <TabItem value="usage" label="Usage" default>
 
 <div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
-    Preview coming soon
+  <div style={{background: '#fff', borderRadius: '12px', padding: '48px 32px', maxWidth: '400px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', textAlign: 'center', border: '1px solid #E2E2E2'}}>
+    <div style={{width: '48px', height: '48px', background: '#F6F6F6', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px'}}>🔍</div>
+    <Heading level={3} size="xsmall">No results found</Heading>
+    <Paragraph size="small" color="color-text-subtle">Try adjusting your search or filter criteria.</Paragraph>
+    <div style={{marginTop: '4px'}}><Button kind="primary" size="compact">Clear filters</Button></div>
   </div>
 </div>
 

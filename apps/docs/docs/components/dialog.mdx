@@ -10,6 +10,7 @@ hide_title: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import { Button } from '../../../../packages/components/src/Button';
+import { Dialog } from '../../../../packages/components/src/Dialog';
 import PageHeader from '@site/src/components/PageHeader';
 
 <PageHeader />
@@ -18,8 +19,16 @@ import PageHeader from '@site/src/components/PageHeader';
 <TabItem value="usage" label="Usage" default>
 
 <div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
-    Preview coming soon
+  <div style={{maxWidth: '320px', width: '100%', background: '#fff', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.12)'}}>
+    <div style={{padding: '16px 20px', borderBottom: '1px solid #E2E2E2', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+      <span style={{fontSize: '16px', fontWeight: 700}}>Confirm action</span>
+      <span style={{fontSize: '16px', color: '#727272'}}>&#10005;</span>
+    </div>
+    <div style={{padding: '20px', fontSize: '14px', color: '#5E5E5E'}}>Are you sure you want to proceed? This action cannot be undone.</div>
+    <div style={{padding: '12px 20px 16px', display: 'flex', flexDirection: 'column', gap: '8px'}}>
+      <Button kind="primary" fullWidth>Confirm</Button>
+      <Button kind="tertiary" fullWidth>Cancel</Button>
+    </div>
   </div>
 </div>
 

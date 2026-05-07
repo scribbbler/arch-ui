@@ -9,6 +9,8 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Tooltip } from '../../../../packages/components/src/Tooltip';
+import { Button } from '../../../../packages/components/src/Button';
 import PageHeader from '@site/src/components/PageHeader';
 
 <PageHeader />
@@ -16,10 +18,10 @@ import PageHeader from '@site/src/components/PageHeader';
 <Tabs>
 <TabItem value="usage" label="Usage" default>
 
-<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
-    Preview coming soon
-  </div>
+<div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center', minHeight: '120px', alignItems: 'center'}}>
+  <Tooltip content="This is a tooltip" position="top">
+    <Button kind="secondary" size="compact">Hover me</Button>
+  </Tooltip>
 </div>
 
 **Common alternative names**

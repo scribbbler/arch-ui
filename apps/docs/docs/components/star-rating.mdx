@@ -12,6 +12,7 @@ import TabItem from '@theme/TabItem';
 import { StarIcon } from '../../../../packages/icons/src/icons/StarIcon';
 import { StarOutlineIcon } from '../../../../packages/icons/src/icons/StarOutlineIcon';
 import { StarHalfFullIcon } from '../../../../packages/icons/src/icons/StarHalfFullIcon';
+import { Rating } from '../../../../packages/components/src/Rating';
 import PageHeader from '@site/src/components/PageHeader';
 
 <PageHeader />
@@ -20,9 +21,7 @@ import PageHeader from '@site/src/components/PageHeader';
 <TabItem value="usage" label="Usage" default>
 
 <div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
-    Preview coming soon
-  </div>
+  <Rating value={3} count={5} readOnly aria-label="Product rating" />
 </div>
 
 **Common alternative names**

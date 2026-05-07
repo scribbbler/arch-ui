@@ -9,6 +9,7 @@ hide_title: true
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { Table, Thead, Tbody, Tr, Th, Td } from '../../../../packages/components/src/Table';
 import PageHeader from '@site/src/components/PageHeader';
 
 <PageHeader />
@@ -17,8 +18,33 @@ import PageHeader from '@site/src/components/PageHeader';
 <TabItem value="usage" label="Usage" default>
 
 <div style={{background: '#F3F3F3', borderRadius: '12px', padding: '32px', margin: '24px 0', display: 'flex', justifyContent: 'center'}}>
-  <div style={{background: '#282828', borderRadius: '12px', padding: '40px', maxWidth: '600px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: '#fff', fontSize: '14px', opacity: 0.5}}>
-    Preview coming soon
+  <div style={{maxWidth: '600px', width: '100%'}}>
+    <Table caption="Monthly sales figures">
+      <Thead>
+        <Tr>
+          <Th scope="col">Month</Th>
+          <Th scope="col">Revenue</Th>
+          <Th scope="col">Orders</Th>
+        </Tr>
+      </Thead>
+      <Tbody>
+        <Tr>
+          <Td>January</Td>
+          <Td>$12,000</Td>
+          <Td>340</Td>
+        </Tr>
+        <Tr>
+          <Td>February</Td>
+          <Td>$14,500</Td>
+          <Td>410</Td>
+        </Tr>
+        <Tr>
+          <Td>March</Td>
+          <Td>$16,200</Td>
+          <Td>475</Td>
+        </Tr>
+      </Tbody>
+    </Table>
   </div>
 </div>
 
