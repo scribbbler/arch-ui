@@ -1,0 +1,80 @@
+{
+  "name": "Tile",
+  "version": "1.0.0",
+  "description": "A selectable tile/card for option selection, similar to a large radio button or checkbox. Keyboard accessible with Enter and Space activation. Visually communicates selected and disabled states.",
+  "status": "stable",
+  "accessibility": {
+    "role": "button",
+    "keyboardInteraction": ["Enter", "Space", "Tab", "Shift+Tab"],
+    "ariaAttributes": [
+      "aria-pressed",
+      "aria-disabled"
+    ],
+    "notes": [
+      "The tile renders as a div with role='button' and aria-pressed reflecting the selected state.",
+      "Enter and Space toggle the selected state.",
+      "Disabled tiles have aria-disabled='true' and are not focusable.",
+      "Focus indicator uses var(--color-border-focus) with a 2px solid outline.",
+      "Selected state is communicated via both a visual border change and aria-pressed."
+    ]
+  },
+  "props": {
+    "selected": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the tile is in the selected state."
+    },
+    "onChange": {
+      "type": "(selected: boolean) => void",
+      "default": "undefined",
+      "description": "Callback fired when the tile is toggled. Receives the new selected state."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the tile, preventing interaction."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Tile content — label, description, icon, etc."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Tile for option selection where a larger touch target is beneficial.",
+      "Always provide meaningful content inside the tile so users understand the option.",
+      "Group related tiles together for multi-option selection patterns."
+    ],
+    "dont": [
+      "Do not use Tile for navigation — use Card with clickable and href instead.",
+      "Do not nest interactive elements inside a Tile.",
+      "Do not use Tile for binary toggles — use Toggle instead."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-subtle",
+    "color-border-default",
+    "color-border-subtle",
+    "color-border-focus",
+    "color-action-primary",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-disabled",
+    "color-background-disabled",
+    "color-border-disabled",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "border-width-default",
+    "border-width-medium",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

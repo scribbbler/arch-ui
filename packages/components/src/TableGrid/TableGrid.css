@@ -1,0 +1,37 @@
+/* TableGrid — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Grid Container ────────────────────────────────────────────────────────── */
+
+.arch-table-grid {
+  display: grid;
+  grid-template-columns: var(--arch-table-grid-columns);
+  inline-size: 100%;
+  background-color: var(--color-background-default);
+  color: var(--color-text-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  overflow: hidden;
+}
+
+/* ─── Header Cell ───────────────────────────────────────────────────────────── */
+
+.arch-table-grid__header {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+  background-color: var(--color-background-muted);
+  font-weight: var(--typography-weight-semibold);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Data Cell ─────────────────────────────────────────────────────────────── */
+
+.arch-table-grid__cell {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-default);
+  border-block-end: var(--border-width-default) solid var(--color-border-subtle);
+}

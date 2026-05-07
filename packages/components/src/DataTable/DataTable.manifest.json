@@ -1,0 +1,84 @@
+{
+  "name": "DataTable",
+  "version": "1.0.0",
+  "description": "A feature-rich data table component with sorting, filtering, and pagination. Built on semantic HTML table elements with accessible column headers and interactive controls.",
+  "status": "stable",
+  "accessibility": {
+    "role": "table",
+    "keyboardInteraction": ["Enter", "Space"],
+    "ariaAttributes": ["aria-sort"],
+    "notes": [
+      "Sortable column headers are rendered as buttons with aria-sort indicating current sort state.",
+      "The table uses a <caption> derived from an internal accessible description.",
+      "Loading state announces via aria-busy on the table element.",
+      "Empty state message is presented in a table cell spanning all columns.",
+      "Focus indicator uses var(--color-border-focus) on sortable headers."
+    ]
+  },
+  "props": {
+    "columns": {
+      "type": "DataTableColumn[]",
+      "description": "REQUIRED. Array of column definitions including key, title, optional sortable flag, optional width, and optional render function."
+    },
+    "data": {
+      "type": "any[]",
+      "description": "REQUIRED. Array of data objects to display as rows."
+    },
+    "sortable": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, enables sorting on columns that have sortable set to true."
+    },
+    "resizable": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, columns can be resized by dragging column borders."
+    },
+    "loading": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, displays a loading state overlay on the table."
+    },
+    "emptyMessage": {
+      "type": "string",
+      "default": "No data available",
+      "description": "Message displayed when the data array is empty."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names on the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Provide meaningful column titles for accessibility.",
+      "Use the render function for custom cell rendering when needed.",
+      "Use the loading prop while data is being fetched.",
+      "Use emptyMessage to provide helpful guidance when no data is present."
+    ],
+    "dont": [
+      "Do not use DataTable for non-tabular content — use List or Grid instead.",
+      "Do not place complex interactive widgets inside cells — keep cells focused on data display.",
+      "Do not omit column definitions."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-subtle",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-default",
+    "color-border-subtle",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "shadow-sm",
+    "border-width-default"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "MapMarker",
+  "version": "1.0.0",
+  "description": "A map pin/marker component for location indicators. Renders a visual marker with an optional label, available in three sizes and three visual variants.",
+  "status": "stable",
+  "accessibility": {
+    "role": "img",
+    "keyboardInteraction": [],
+    "ariaAttributes": ["aria-label"],
+    "notes": [
+      "The marker uses role='img' with an aria-label derived from the label prop.",
+      "When label text is visible, aria-label still provides the accessible name for the entire marker graphic.",
+      "The marker is presentational — it does not receive focus unless placed inside an interactive container."
+    ]
+  },
+  "props": {
+    "label": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Text label displayed on or near the marker."
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "default": "md",
+      "description": "Controls the marker size."
+    },
+    "variant": {
+      "type": "'default' | 'active' | 'muted'",
+      "default": "default",
+      "description": "Visual variant of the marker."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names on the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Provide a label for accessibility when the marker indicates a meaningful location.",
+      "Use the active variant to highlight the currently selected marker.",
+      "Use the muted variant for background or secondary markers.",
+      "Use consistent sizing across markers in the same view."
+    ],
+    "dont": [
+      "Do not use MapMarker for general icons — use Icon components instead.",
+      "Do not place interactive elements inside MapMarker — wrap it in a button if it needs to be clickable.",
+      "Do not use MapMarker outside of map or location contexts."
+    ]
+  },
+  "tokens": [
+    "color-background-primary",
+    "color-background-muted",
+    "color-background-default",
+    "color-text-default",
+    "color-text-inverse",
+    "color-text-subtle",
+    "color-border-default",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "radius-component-md",
+    "shadow-sm",
+    "typography-scale-text-sm"
+  ]
+}

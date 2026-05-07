@@ -1,0 +1,65 @@
+{
+  "name": "Icon",
+  "version": "1.0.0",
+  "description": "A generic icon wrapper that sizes and colors SVG icons consistently. Accepts an SVG as children and applies standardised dimensions and colour via tokens.",
+  "status": "stable",
+  "accessibility": {
+    "role": "img (when title is provided), presentation (when decorative)",
+    "keyboardInteraction": [],
+    "ariaAttributes": [
+      "aria-label",
+      "aria-hidden"
+    ],
+    "notes": [
+      "When a title prop is provided, the wrapper has role='img' and aria-label set to the title for screen readers.",
+      "When no title is provided, the icon is treated as decorative with aria-hidden='true'.",
+      "Do not use Icon for interactive purposes — wrap it in a Button or Link instead."
+    ]
+  },
+  "props": {
+    "size": {
+      "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+      "default": "md",
+      "description": "Controls the rendered size of the icon."
+    },
+    "color": {
+      "type": "string",
+      "default": "undefined",
+      "description": "CSS custom property name (without '--') for the icon colour. Must be a valid colour token."
+    },
+    "title": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Accessible label for the icon. When provided, the icon is announced by screen readers."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "The SVG element to render inside the icon wrapper."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide a title when the icon conveys meaning.",
+      "Omit title for purely decorative icons so they are hidden from assistive technology.",
+      "Use colour tokens from the design system to maintain consistency."
+    ],
+    "dont": [
+      "Do not use Icon as a clickable element — wrap it in a Button or Link.",
+      "Do not set width or height directly on the SVG child — let the Icon wrapper control sizing.",
+      "Do not pass raw hex values to the color prop — use a token name."
+    ]
+  },
+  "tokens": [
+    "color-text-default",
+    "color-text-subtle",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16"
+  ]
+}

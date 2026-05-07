@@ -1,0 +1,61 @@
+{
+  "name": "TableGrid",
+  "version": "1.0.0",
+  "description": "A CSS Grid-based table layout for complex data display. Uses CSS grid-template-columns for flexible column sizing. Includes TableGridHeader and TableGridCell sub-components.",
+  "status": "stable",
+  "accessibility": {
+    "role": "grid",
+    "keyboardInteraction": [],
+    "ariaAttributes": ["role"],
+    "notes": [
+      "The root element uses role='grid' to communicate grid semantics to assistive technologies.",
+      "TableGridHeader cells use role='columnheader' for proper header identification.",
+      "TableGridCell elements use role='gridcell' for proper cell identification.",
+      "Ensure logical reading order matches visual grid order."
+    ]
+  },
+  "props": {
+    "columns": {
+      "type": "string",
+      "description": "REQUIRED. CSS grid-template-columns value, e.g. '1fr 2fr 1fr' or 'repeat(3, 1fr)'."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Grid content — use TableGridHeader and TableGridCell sub-components."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names on the root element."
+    }
+  },
+  "subcomponents": {
+    "TableGridHeader": "Renders a column header cell within the grid layout.",
+    "TableGridCell": "Renders a data cell within the grid layout."
+  },
+  "usage": {
+    "do": [
+      "Use CSS grid-template-columns syntax for the columns prop.",
+      "Use TableGridHeader for all header cells and TableGridCell for data cells.",
+      "Use for complex layouts where traditional table elements are limiting."
+    ],
+    "dont": [
+      "Do not use TableGrid for simple tabular data — use Table or TableSemantic instead.",
+      "Do not mix TableGridHeader and TableGridCell out of order.",
+      "Do not use pixel values directly in the columns prop — prefer fr units or token-based values."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-default",
+    "color-border-subtle",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

@@ -1,0 +1,81 @@
+/* TreeView — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Root ──────────────────────────────────────────────────────────────────── */
+
+.arch-tree-view {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-default);
+}
+
+/* ─── Group (nested list) ───────────────────────────────────────────────────── */
+
+.arch-tree-view__group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Node ──────────────────────────────────────────────────────────────────── */
+
+.arch-tree-view__node {
+  list-style: none;
+}
+
+/* ─── Node Content ──────────────────────────────────────────────────────────── */
+
+.arch-tree-view__node-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding-block: var(--spacing-4);
+  padding-inline-start: calc(var(--arch-tree-view-level) * var(--spacing-16));
+  padding-inline-end: var(--spacing-8);
+  border-radius: var(--radius-component-md);
+  cursor: pointer;
+  user-select: none;
+}
+
+.arch-tree-view__node-content:hover {
+  background-color: var(--color-background-subtle);
+}
+
+.arch-tree-view__node-content:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: -1px;
+}
+
+/* ─── Selected ──────────────────────────────────────────────────────────────── */
+
+.arch-tree-view__node--selected > .arch-tree-view__node-content {
+  background-color: var(--color-background-muted);
+  color: var(--color-text-default);
+}
+
+/* ─── Toggle Icon ───────────────────────────────────────────────────────────── */
+
+.arch-tree-view__toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--spacing-16);
+  block-size: var(--spacing-16);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+}
+
+.arch-tree-view__toggle-spacer {
+  flex-shrink: 0;
+  display: inline-block;
+  inline-size: var(--spacing-16);
+}
+
+/* ─── Label ─────────────────────────────────────────────────────────────────── */
+
+.arch-tree-view__label {
+  flex: 1;
+  font-size: var(--typography-scale-text-sm);
+}

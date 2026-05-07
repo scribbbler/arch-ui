@@ -1,0 +1,71 @@
+{
+  "name": "TreeView",
+  "version": "1.0.0",
+  "description": "A hierarchical tree structure component with expand/collapse functionality. Supports nested nodes, selection state, and keyboard navigation.",
+  "status": "stable",
+  "accessibility": {
+    "role": "tree",
+    "keyboardInteraction": ["Enter", "Space"],
+    "ariaAttributes": ["role", "aria-expanded", "aria-selected"],
+    "notes": [
+      "The root element uses role='tree' and child items use role='treeitem'.",
+      "Expandable nodes use aria-expanded to communicate state.",
+      "Selected nodes use aria-selected to communicate selection.",
+      "Toggle buttons use Enter and Space to expand/collapse nodes.",
+      "Focus indicator uses var(--color-border-focus) on interactive nodes."
+    ]
+  },
+  "props": {
+    "items": {
+      "type": "TreeNode[]",
+      "description": "REQUIRED. Array of tree node objects. Each node has id, label, optional children, and optional isExpanded."
+    },
+    "onToggle": {
+      "type": "(id: string) => void",
+      "description": "Callback fired when a node's expand/collapse state is toggled."
+    },
+    "onSelect": {
+      "type": "(id: string) => void",
+      "description": "Callback fired when a node is selected."
+    },
+    "selectedId": {
+      "type": "string",
+      "default": "undefined",
+      "description": "The id of the currently selected node."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names on the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Provide meaningful labels for each tree node.",
+      "Use onToggle to manage expand/collapse state externally.",
+      "Use selectedId and onSelect for controlled selection.",
+      "Keep tree depth reasonable for usability — consider alternative patterns for deeply nested data."
+    ],
+    "dont": [
+      "Do not use TreeView for flat lists — use List instead.",
+      "Do not place complex interactive widgets inside node labels.",
+      "Do not create circular parent-child references in the items array."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-subtle",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-default",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

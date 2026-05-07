@@ -1,0 +1,98 @@
+{
+  "name": "Dialog",
+  "version": "1.0.0",
+  "description": "A lightweight confirmation dialog for simple confirm/cancel actions. Simpler than Modal, designed for quick decisions like deletions or confirmations. Supports a danger variant for destructive actions.",
+  "status": "stable",
+  "accessibility": {
+    "role": "alertdialog",
+    "ariaAttributes": ["aria-modal", "aria-labelledby", "aria-describedby"],
+    "keyboardInteraction": ["Escape (close)", "Tab / Shift+Tab (cycle within)", "Enter (confirm)"],
+    "notes": [
+      "Uses role='alertdialog' and aria-modal='true' to announce as a confirmation dialog.",
+      "aria-labelledby connects the dialog to the title element.",
+      "aria-describedby connects the dialog to the body content.",
+      "Body scroll is locked while the dialog is open.",
+      "Focus is trapped inside via FocusTrap and restored to the trigger on close.",
+      "Clicking the Overlay closes the dialog."
+    ]
+  },
+  "props": {
+    "isOpen": {
+      "type": "boolean",
+      "description": "Controls dialog visibility."
+    },
+    "onClose": {
+      "type": "() => void",
+      "description": "Called when the dialog should close (escape, overlay click, or cancel)."
+    },
+    "onConfirm": {
+      "type": "() => void",
+      "description": "Called when the confirm button is clicked."
+    },
+    "title": {
+      "type": "string",
+      "description": "Heading text for the dialog."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Body content of the dialog, typically a confirmation message."
+    },
+    "confirmLabel": {
+      "type": "string",
+      "default": "Confirm",
+      "description": "Label for the confirm action button."
+    },
+    "cancelLabel": {
+      "type": "string",
+      "default": "Cancel",
+      "description": "Label for the cancel action button."
+    },
+    "variant": {
+      "type": "'default' | 'danger'",
+      "default": "default",
+      "description": "Visual variant. Use 'danger' for destructive confirmations."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for simple confirm/cancel decisions.",
+      "Use 'danger' variant when confirming destructive actions like deletion.",
+      "Keep dialog content brief — one or two sentences.",
+      "Provide clear, specific button labels (e.g., 'Delete' instead of 'Confirm')."
+    ],
+    "dont": [
+      "Do not use Dialog for complex forms — use Modal instead.",
+      "Do not nest a Dialog inside another Dialog or Modal.",
+      "Do not use for informational content that does not require a decision."
+    ]
+  },
+  "tokens": [
+    "color-surface-base",
+    "color-border-default",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-subtle",
+    "color-background-primary",
+    "color-text-inverse",
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "shadow-overlay",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "spacing-24",
+    "radius-component-md",
+    "z-semantic-modal",
+    "motion-semantic-duration-normal",
+    "motion-semantic-easing-enter",
+    "typography-scale-paragraph-medium-font-size",
+    "typography-scale-paragraph-small-font-size",
+    "typography-weight-semibold",
+    "border-width-default"
+  ]
+}

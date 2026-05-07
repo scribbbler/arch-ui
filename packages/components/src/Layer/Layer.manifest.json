@@ -1,0 +1,46 @@
+{
+  "name": "Layer",
+  "version": "1.0.0",
+  "description": "Manages z-index stacking context layers. Layer creates a new stacking context with a specified z-index. LayerManager provides a context provider for coordinating layer ordering across the application.",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "keyboardInteraction": [],
+    "ariaAttributes": [],
+    "notes": [
+      "Layer is a layout utility with no inherent semantics.",
+      "Ensure that layered content does not obscure critical interactive elements without user-initiated action.",
+      "Content inside layers should manage its own focus and keyboard navigation."
+    ]
+  },
+  "props": {
+    "children": {
+      "type": "ReactNode",
+      "description": "Content rendered within the stacking context."
+    },
+    "zIndex": {
+      "type": "number",
+      "default": 0,
+      "description": "The z-index value for this layer's stacking context."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Layer to create explicit stacking contexts for overlapping UI.",
+      "Use LayerManager at the app root to coordinate z-index values.",
+      "Keep z-index values predictable by using Layer instead of raw z-index in CSS."
+    ],
+    "dont": [
+      "Do not set z-index directly in component CSS — use Layer instead.",
+      "Do not nest excessive layers without clear purpose."
+    ]
+  },
+  "tokens": [
+    "color-background-default"
+  ]
+}

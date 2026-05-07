@@ -1,0 +1,129 @@
+/* MapMarker — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Root ──────────────────────────────────────────────────────────────────── */
+
+.arch-map-marker {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── Pin ───────────────────────────────────────────────────────────────────── */
+
+.arch-map-marker__pin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── Head ──────────────────────────────────────────────────────────────────── */
+
+.arch-map-marker__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-component-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Tail (pointer) ────────────────────────────────────────────────────────── */
+
+.arch-map-marker__tail {
+  inline-size: 0;
+  block-size: 0;
+  border-style: solid;
+}
+
+/* ─── Label ─────────────────────────────────────────────────────────────────── */
+
+.arch-map-marker__label {
+  font-size: var(--typography-scale-text-sm);
+  white-space: nowrap;
+}
+
+/* ─── Size: sm ──────────────────────────────────────────────────────────────── */
+
+.arch-map-marker--sm .arch-map-marker__head {
+  min-inline-size: var(--spacing-16);
+  min-block-size: var(--spacing-16);
+  padding: var(--spacing-4);
+}
+
+.arch-map-marker--sm .arch-map-marker__tail {
+  border-inline-width: var(--spacing-4);
+  border-block-start-width: var(--spacing-4);
+  border-block-end-width: 0;
+  border-inline-color: transparent;
+}
+
+.arch-map-marker--sm .arch-map-marker__label {
+  font-size: var(--typography-scale-text-sm);
+}
+
+/* ─── Size: md ──────────────────────────────────────────────────────────────── */
+
+.arch-map-marker--md .arch-map-marker__head {
+  min-inline-size: var(--spacing-24);
+  min-block-size: var(--spacing-24);
+  padding: var(--spacing-4);
+}
+
+.arch-map-marker--md .arch-map-marker__tail {
+  border-inline-width: var(--spacing-8);
+  border-block-start-width: var(--spacing-8);
+  border-block-end-width: 0;
+  border-inline-color: transparent;
+}
+
+/* ─── Size: lg ──────────────────────────────────────────────────────────────── */
+
+.arch-map-marker--lg .arch-map-marker__head {
+  min-inline-size: var(--spacing-32);
+  min-block-size: var(--spacing-32);
+  padding: var(--spacing-8);
+}
+
+.arch-map-marker--lg .arch-map-marker__tail {
+  border-inline-width: var(--spacing-12);
+  border-block-start-width: var(--spacing-12);
+  border-block-end-width: 0;
+  border-inline-color: transparent;
+}
+
+/* ─── Variant: default ──────────────────────────────────────────────────────── */
+
+.arch-map-marker--default .arch-map-marker__head {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-inverse);
+  border: var(--border-width-default) solid var(--color-border-default);
+}
+
+.arch-map-marker--default .arch-map-marker__tail {
+  border-block-start-color: var(--color-background-primary);
+}
+
+/* ─── Variant: active ───────────────────────────────────────────────────────── */
+
+.arch-map-marker--active .arch-map-marker__head {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-inverse);
+  border: var(--border-width-default) solid var(--color-border-focus);
+  box-shadow: var(--shadow-sm);
+}
+
+.arch-map-marker--active .arch-map-marker__tail {
+  border-block-start-color: var(--color-background-primary);
+}
+
+/* ─── Variant: muted ────────────────────────────────────────────────────────── */
+
+.arch-map-marker--muted .arch-map-marker__head {
+  background-color: var(--color-background-muted);
+  color: var(--color-text-subtle);
+  border: var(--border-width-default) solid var(--color-border-default);
+}
+
+.arch-map-marker--muted .arch-map-marker__tail {
+  border-block-start-color: var(--color-background-muted);
+}

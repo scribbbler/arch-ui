@@ -1,0 +1,91 @@
+{
+  "name": "Notification",
+  "version": "1.0.0",
+  "description": "An inline notification component with icon, title, message, and optional close button. Similar to Alert but designed for richer content with a distinct visual treatment.",
+  "status": "stable",
+  "accessibility": {
+    "role": "alert (error/warning) or status (success/info)",
+    "keyboardInteraction": [],
+    "ariaAttributes": ["role"],
+    "notes": [
+      "Error and warning notifications use role='alert' (assertive, interrupts screen readers).",
+      "Success and info notifications use role='status' (polite, waits for idle).",
+      "When closeable is true and onClose is provided, a dismiss button is rendered with an accessible label.",
+      "The icon is aria-hidden — decorative only.",
+      "Title is bold and rendered as a strong element."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'info' | 'success' | 'warning' | 'error'",
+      "default": "info",
+      "description": "Semantic variant controlling color and icon."
+    },
+    "title": {
+      "type": "string",
+      "description": "Bold heading text for the notification."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Body content of the notification."
+    },
+    "closeable": {
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the close button is visible."
+    },
+    "onClose": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Callback to dismiss the notification. Required when closeable is true."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use 'error' for errors or destructive consequences.",
+      "Use 'warning' for non-critical cautions that require attention.",
+      "Use 'success' for confirmations of completed actions.",
+      "Use 'info' for neutral informational messages.",
+      "Always include a title — never an empty notification."
+    ],
+    "dont": [
+      "Do not use Notification for transient messages — use Toast or Snackbar.",
+      "Do not use 'error' for general information.",
+      "Do not place multiple notifications on a page when one summary would suffice."
+    ]
+  },
+  "tokens": [
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "color-feedback-danger-border",
+    "color-feedback-success-bg",
+    "color-feedback-success-text",
+    "color-feedback-success-border",
+    "color-feedback-warning-bg",
+    "color-feedback-warning-text",
+    "color-feedback-warning-border",
+    "color-feedback-info-bg",
+    "color-feedback-info-text",
+    "color-feedback-info-border",
+    "color-icon-danger",
+    "color-icon-success",
+    "color-icon-warning",
+    "color-icon-info",
+    "color-border-focus",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "typography-scale-paragraph-medium-font-size",
+    "typography-scale-paragraph-small-font-size",
+    "typography-weight-semibold",
+    "border-width-default",
+    "border-width-medium",
+    "color-background-subtle"
+  ]
+}

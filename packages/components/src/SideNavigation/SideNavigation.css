@@ -1,0 +1,74 @@
+/* SideNavigation — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-side-navigation {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-8);
+  background-color: var(--color-background-default);
+}
+
+/* ─── List ──────────────────────────────────────────────────────────────────── */
+
+.arch-side-navigation__list,
+.arch-side-navigation__sub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.arch-side-navigation__sub-list {
+  padding-inline-start: var(--spacing-16);
+}
+
+/* ─── Item wrapper ──────────────────────────────────────────────────────────── */
+
+.arch-side-navigation__item-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Item ──────────────────────────────────────────────────────────────────── */
+
+.arch-side-navigation__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-12);
+
+  font-family: inherit;
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+  text-align: start;
+
+  background: none;
+  border: none;
+  border-radius: var(--radius-component-md);
+  cursor: pointer;
+}
+
+.arch-side-navigation__item:hover {
+  background-color: var(--color-background-muted);
+  color: var(--color-text-default);
+}
+
+.arch-side-navigation__item--active {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-inverse);
+}
+
+.arch-side-navigation__item--nested {
+  font-size: var(--typography-scale-text-sm);
+}
+
+.arch-side-navigation__item:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
+}

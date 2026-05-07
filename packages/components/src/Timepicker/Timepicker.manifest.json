@@ -1,0 +1,99 @@
+{
+  "name": "Timepicker",
+  "version": "1.0.0",
+  "description": "A time selection dropdown that renders a scrollable list of time slots. Supports 12-hour and 24-hour formats, configurable step intervals, and multiple sizes.",
+  "status": "stable",
+  "accessibility": {
+    "role": "listbox (dropdown), option (time slots)",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "ArrowUp", "ArrowDown", "Enter", "Space", "Escape"],
+    "ariaAttributes": [
+      "aria-label",
+      "aria-disabled",
+      "aria-selected",
+      "aria-expanded",
+      "aria-haspopup"
+    ],
+    "notes": [
+      "The input triggers a time slot dropdown on click or Enter/Space.",
+      "Arrow keys navigate through time options in the dropdown.",
+      "Escape closes the dropdown and returns focus to the input.",
+      "Selected time is announced via aria-selected on the active option.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus)."
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "string | null",
+      "default": "null",
+      "description": "The currently selected time as a string (e.g. '09:30' for 24h or '09:30 AM' for 12h)."
+    },
+    "onChange": {
+      "type": "(time: string | null) => void",
+      "default": "undefined",
+      "description": "Callback fired when a time is selected."
+    },
+    "step": {
+      "type": "number",
+      "default": 30,
+      "description": "Step interval in minutes between each time slot."
+    },
+    "format": {
+      "type": "'12' | '24'",
+      "default": "\"12\"",
+      "description": "Whether to show time in 12-hour (AM/PM) or 24-hour format."
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "\"Select time\"",
+      "description": "Placeholder text shown when no time is selected."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the timepicker input and prevents opening the dropdown."
+    },
+    "size": {
+      "type": "'compact' | 'default' | 'large'",
+      "default": "\"default\"",
+      "description": "Controls the input height, padding, and font size."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root wrapper element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide an accessible label via aria-label or a linked FormLabel.",
+      "Use step to control granularity — 15 for quarter-hour, 30 for half-hour, 60 for hourly.",
+      "Pair with Datepicker for full date-time selection."
+    ],
+    "dont": [
+      "Do not use for duration input — this is for time-of-day selection.",
+      "Do not omit a label — provide aria-label if no visible label is present.",
+      "Do not use step values that do not divide evenly into 60 for predictable slot generation."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-primary",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-subtle",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-inverse",
+    "color-text-disabled",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "shadow-sm",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

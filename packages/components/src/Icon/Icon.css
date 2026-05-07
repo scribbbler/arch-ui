@@ -1,0 +1,47 @@
+/* Icon — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--arch-icon-color, var(--color-text-default));
+  line-height: 1;
+}
+
+.arch-icon > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-icon--xs {
+  width: var(--spacing-4);
+  height: var(--spacing-4);
+}
+
+.arch-icon--sm {
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+}
+
+.arch-icon--md {
+  width: var(--spacing-12);
+  height: var(--spacing-12);
+}
+
+.arch-icon--lg {
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+}
+
+.arch-icon--xl {
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+}

@@ -1,0 +1,70 @@
+{
+  "name": "TabsMotion",
+  "version": "1.0.0",
+  "description": "An animated tab component with a sliding underline indicator that transitions smoothly between the active tabs. Designed for horizontal tab bars where motion feedback enhances the user experience.",
+  "status": "stable",
+  "accessibility": {
+    "role": "tablist",
+    "keyboardInteraction": ["ArrowLeft", "ArrowRight", "Home", "End"],
+    "ariaAttributes": ["aria-selected", "aria-orientation"],
+    "notes": [
+      "Each tab is a button with role='tab' inside a role='tablist' container.",
+      "Arrow keys navigate between tabs. Home and End jump to first and last tab.",
+      "Focus indicator uses var(--color-border-focus) via :focus-visible.",
+      "The sliding indicator is purely decorative (aria-hidden).",
+      "Respects prefers-reduced-motion by disabling the slide animation."
+    ]
+  },
+  "props": {
+    "tabs": {
+      "type": "TabMotionItem[]",
+      "description": "Array of tab definitions. Each item has a unique 'key' and a 'label' (ReactNode)."
+    },
+    "activeKey": {
+      "type": "string",
+      "description": "The key of the currently active tab (controlled)."
+    },
+    "onChange": {
+      "type": "(key: string) => void",
+      "description": "Called when the user activates a different tab."
+    },
+    "fill": {
+      "type": "'fixed' | 'intrinsic'",
+      "default": "intrinsic",
+      "description": "Tab width behaviour. 'intrinsic' sizes tabs to content; 'fixed' makes all tabs equal width."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use when you need animated tab transitions for a polished UI.",
+      "Keep tab labels short and clear.",
+      "Use the fill='fixed' option when tabs should share equal width."
+    ],
+    "dont": [
+      "Do not use for navigation between separate pages — use HeaderNavigation instead.",
+      "Do not nest TabsMotion inside another TabsMotion.",
+      "Do not use with a very large number of tabs (more than 8) where overflow is likely."
+    ]
+  },
+  "tokens": [
+    "color-background-primary",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-subtle",
+    "color-border-focus",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "typography-scale-text-sm",
+    "typography-weight-regular",
+    "typography-weight-semibold",
+    "motion-duration-fast",
+    "motion-semantic-easing-default",
+    "border-width-medium"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": "FileUploaderBasic",
+  "version": "1.0.0",
+  "description": "A simple single file upload button. Unlike FileUpload, this component does not render a drag-and-drop zone — it provides a styled button that triggers the native file dialog.",
+  "status": "stable",
+  "accessibility": {
+    "role": "button (trigger)",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "Enter", "Space"],
+    "ariaAttributes": [
+      "aria-label",
+      "aria-disabled"
+    ],
+    "notes": [
+      "The visible button triggers a hidden file input on click or Enter/Space.",
+      "The hidden input receives the accept attribute for file type filtering.",
+      "Disabled state prevents the file dialog from opening and sets aria-disabled.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus)."
+    ]
+  },
+  "props": {
+    "accept": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Comma-separated list of accepted MIME types or file extensions (e.g. 'image/*,.pdf')."
+    },
+    "onChange": {
+      "type": "(file: File | null) => void",
+      "default": "undefined",
+      "description": "Callback fired when a file is selected or cleared."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the upload button."
+    },
+    "children": {
+      "type": "ReactNode",
+      "default": "\"Upload file\"",
+      "description": "Custom label content for the upload button."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root wrapper element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Provide descriptive button text via children (e.g. 'Upload resume' not just 'Upload').",
+      "Use the accept prop to restrict file types and prevent user errors.",
+      "Use for single file uploads — for multi-file or drag-and-drop, use FileUpload."
+    ],
+    "dont": [
+      "Do not use for multi-file uploads — use FileUpload instead.",
+      "Do not use for drag-and-drop scenarios — use FileUpload instead.",
+      "Do not omit an accessible label — children text serves as the button label."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-primary",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-inverse",
+    "color-text-disabled",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

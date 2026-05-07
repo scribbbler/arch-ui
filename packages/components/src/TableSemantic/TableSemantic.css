@@ -1,0 +1,68 @@
+/* TableSemantic — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Wrapper ───────────────────────────────────────────────────────────────── */
+
+.arch-table-semantic__wrapper {
+  overflow-x: auto;
+  inline-size: 100%;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-table-semantic {
+  inline-size: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-background-default);
+  color: var(--color-text-default);
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+
+.arch-table-semantic th {
+  text-align: start;
+  font-weight: var(--typography-weight-semibold);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+  white-space: nowrap;
+}
+
+/* ─── Cells ─────────────────────────────────────────────────────────────────── */
+
+.arch-table-semantic td {
+  vertical-align: middle;
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Sizes ─────────────────────────────────────────────────────────────────── */
+
+.arch-table-semantic--compact th,
+.arch-table-semantic--compact td {
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-8);
+}
+
+.arch-table-semantic--default th,
+.arch-table-semantic--default td {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+}
+
+.arch-table-semantic--spacious th,
+.arch-table-semantic--spacious td {
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
+}
+
+/* ─── Striped ───────────────────────────────────────────────────────────────── */
+
+.arch-table-semantic--striped tbody tr:nth-child(even) {
+  background-color: var(--color-background-subtle);
+}
+
+/* ─── Hoverable ─────────────────────────────────────────────────────────────── */
+
+.arch-table-semantic--hoverable tbody tr:hover {
+  background-color: var(--color-background-muted);
+}

@@ -1,0 +1,73 @@
+{
+  "name": "MobileHeader",
+  "version": "1.0.0",
+  "description": "Mobile-optimised header with a back button, centred title, and an optional trailing action area. Designed for mobile navigation patterns where screen-level context and a return path are essential.",
+  "status": "stable",
+  "accessibility": {
+    "role": "banner",
+    "ariaAttributes": ["aria-label"],
+    "notes": [
+      "The back button includes an accessible label via backLabel prop or defaults to 'Back'.",
+      "The title is rendered as a heading element for screen reader navigation.",
+      "Action button must receive an aria-label from the consumer when using an icon-only pattern."
+    ]
+  },
+  "props": {
+    "title": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Title text displayed in the centre of the header."
+    },
+    "onBack": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Callback fired when the back button is pressed."
+    },
+    "backLabel": {
+      "type": "string",
+      "default": "'Back'",
+      "description": "Accessible label for the back button."
+    },
+    "actionIcon": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "Icon rendered in the trailing action button."
+    },
+    "onAction": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Callback fired when the action button is pressed."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use MobileHeader at the top of mobile views that need a back action.",
+      "Provide a meaningful backLabel when the default 'Back' is insufficient.",
+      "Provide aria-label on the root element when multiple headers exist on a page."
+    ],
+    "dont": [
+      "Do not use MobileHeader on desktop layouts.",
+      "Do not use MobileHeader as a replacement for AppNavBar.",
+      "Do not render actionIcon without an onAction handler."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-subtle",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "shadow-sm"
+  ]
+}

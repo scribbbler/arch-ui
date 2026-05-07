@@ -1,0 +1,130 @@
+/* DataTable — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Root ──────────────────────────────────────────────────────────────────── */
+
+.arch-data-table {
+  inline-size: 100%;
+}
+
+/* ─── Wrapper ───────────────────────────────────────────────────────────────── */
+
+.arch-data-table__wrapper {
+  position: relative;
+  overflow-x: auto;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Table ─────────────────────────────────────────────────────────────────── */
+
+.arch-data-table__table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-background-default);
+  color: var(--color-text-default);
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+
+.arch-data-table__thead {
+  background-color: var(--color-background-muted);
+}
+
+.arch-data-table__th {
+  text-align: start;
+  font-weight: var(--typography-weight-semibold);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+  white-space: nowrap;
+}
+
+.arch-data-table__th--sortable {
+  padding: 0;
+}
+
+.arch-data-table__th[style] {
+  inline-size: var(--arch-data-table-col-width);
+}
+
+/* ─── Sort Button ───────────────────────────────────────────────────────────── */
+
+.arch-data-table__sort-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  inline-size: 100%;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+  background: none;
+  border: none;
+  font: inherit;
+  font-weight: var(--typography-weight-semibold);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+  cursor: pointer;
+  text-align: start;
+}
+
+.arch-data-table__sort-button:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: -2px;
+}
+
+.arch-data-table__sort-indicator {
+  flex-shrink: 0;
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+}
+
+/* ─── Body ──────────────────────────────────────────────────────────────────── */
+
+.arch-data-table__tbody .arch-data-table__tr:nth-child(even) {
+  background-color: var(--color-background-subtle);
+}
+
+/* ─── Cells ─────────────────────────────────────────────────────────────────── */
+
+.arch-data-table__td {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+  border-block-end: var(--border-width-default) solid var(--color-border-subtle);
+  vertical-align: middle;
+}
+
+/* ─── Empty State ───────────────────────────────────────────────────────────── */
+
+.arch-data-table__empty {
+  text-align: center;
+  color: var(--color-text-subtle);
+  padding-block: var(--spacing-16);
+  font-size: var(--typography-scale-text-sm);
+}
+
+/* ─── Loading Overlay ───────────────────────────────────────────────────────── */
+
+.arch-data-table__loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background-default);
+  opacity: 0.8;
+}
+
+.arch-data-table__loading-text {
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+}
+
+/* ─── Resizable ─────────────────────────────────────────────────────────────── */
+
+.arch-data-table--resizable .arch-data-table__th {
+  resize: horizontal;
+  overflow: hidden;
+}

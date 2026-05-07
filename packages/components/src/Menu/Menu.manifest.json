@@ -1,0 +1,60 @@
+{
+  "name": "Menu",
+  "version": "1.0.0",
+  "description": "Dropdown menu with items, groups, and dividers. Renders a list of actionable items that can include icons, disabled states, and visual dividers for grouping related actions.",
+  "status": "stable",
+  "accessibility": {
+    "role": "menu",
+    "ariaAttributes": ["aria-label", "aria-disabled"],
+    "notes": [
+      "Renders with role='menu' and items with role='menuitem'.",
+      "Disabled items are marked with aria-disabled='true' and are not focusable.",
+      "Divider items are rendered as separators with role='separator'.",
+      "All menu items are keyboard navigable with visible focus indicators."
+    ]
+  },
+  "props": {
+    "items": {
+      "type": "MenuItem[]",
+      "default": "[]",
+      "description": "Array of menu items to render. Items with divider=true render as visual separators."
+    },
+    "onItemSelect": {
+      "type": "(item: MenuItem) => void",
+      "default": "undefined",
+      "description": "Callback fired when a non-disabled menu item is selected."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use Menu for contextual actions triggered by a button or right-click.",
+      "Group related items using dividers for visual clarity.",
+      "Provide aria-label on the root element to describe the menu purpose."
+    ],
+    "dont": [
+      "Do not use Menu for primary navigation — use AppNavBar or SideNavigation instead.",
+      "Do not nest Menu components inside each other.",
+      "Do not render a menu without a triggering mechanism."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-subtle",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "shadow-sm"
+  ]
+}

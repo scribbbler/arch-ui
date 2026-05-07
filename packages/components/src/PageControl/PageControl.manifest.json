@@ -1,0 +1,64 @@
+{
+  "name": "PageControl",
+  "version": "1.0.0",
+  "description": "A dot-based page indicator component for carousels, onboarding flows, and paged content. Renders a row of interactive dots representing pages, with the current page visually highlighted.",
+  "status": "stable",
+  "accessibility": {
+    "role": "tablist",
+    "keyboardInteraction": ["ArrowLeft", "ArrowRight", "Home", "End"],
+    "ariaAttributes": ["aria-label", "aria-selected", "aria-controls"],
+    "notes": [
+      "Each dot is rendered as a button with role='tab' for screen reader compatibility.",
+      "Arrow keys navigate between dots. Home and End jump to first and last dot.",
+      "Focus indicator uses var(--color-border-focus) via :focus-visible.",
+      "The active dot is visually distinguished via background colour and scale.",
+      "Minimum touch target of 44px is maintained on each dot via padding."
+    ]
+  },
+  "props": {
+    "numPages": {
+      "type": "number",
+      "description": "Total number of pages (dots) to render."
+    },
+    "currentPage": {
+      "type": "number",
+      "description": "Zero-based index of the currently active page."
+    },
+    "onChange": {
+      "type": "(page: number) => void",
+      "description": "Called when the user selects a different page dot."
+    },
+    "size": {
+      "type": "'sm' | 'md'",
+      "default": "md",
+      "description": "Size of the dots. 'sm' renders smaller dots; 'md' renders the default size."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for carousel or onboarding step indicators.",
+      "Always provide an accessible label via aria-label on the root.",
+      "Keep numPages reasonable (under 10) for usability."
+    ],
+    "dont": [
+      "Do not use as a replacement for Pagination with numbered pages.",
+      "Do not use for navigation between unrelated content sections — use Tabs instead."
+    ]
+  },
+  "tokens": [
+    "color-background-primary",
+    "color-background-muted",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "radius-component-md",
+    "motion-duration-fast",
+    "motion-semantic-easing-default",
+    "border-width-medium"
+  ]
+}

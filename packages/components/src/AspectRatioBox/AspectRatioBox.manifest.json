@@ -1,0 +1,47 @@
+{
+  "name": "AspectRatioBox",
+  "version": "1.0.0",
+  "description": "A container that maintains a fixed aspect ratio regardless of its content. Useful for embedding media, images, or any content that must preserve a width-to-height relationship.",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "keyboardInteraction": [],
+    "ariaAttributes": [],
+    "notes": [
+      "AspectRatioBox is a layout utility with no inherent semantics.",
+      "Content inside the box should provide its own accessible roles and labels."
+    ]
+  },
+  "props": {
+    "aspectRatio": {
+      "type": "number",
+      "default": 1,
+      "description": "The width-to-height ratio. For example, 16/9 for widescreen, 1 for square, 4/3 for classic."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Content rendered inside the aspect ratio container."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for embedding images or video that must maintain a fixed ratio.",
+      "Use aspectRatio={16/9} for widescreen media containers.",
+      "Use aspectRatio={1} for square thumbnails or avatars."
+    ],
+    "dont": [
+      "Do not use for general-purpose containers that do not need a fixed ratio.",
+      "Do not nest AspectRatioBox inside another AspectRatioBox."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "spacing-4",
+    "radius-component-md"
+  ]
+}

@@ -1,0 +1,20 @@
+/* FlexGrid — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: calc(var(--spacing-8) * -1);
+}
+
+/* ─── Item ───────────────────────────────────────────────────────────────────── */
+
+.arch-flex-grid__item {
+  box-sizing: border-box;
+  flex: 0 0 calc(var(--arch-flex-grid-item-span, 12) / 12 * 100%);
+  max-width: calc(var(--arch-flex-grid-item-span, 12) / 12 * 100%);
+  padding-inline: var(--spacing-8);
+  padding-block-end: var(--spacing-16);
+}

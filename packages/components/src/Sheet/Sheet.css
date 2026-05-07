@@ -1,0 +1,108 @@
+/* Sheet — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Panel ─────────────────────────────────────────────────────────────────── */
+
+.arch-sheet {
+  position: fixed;
+  z-index: var(--z-semantic-modal);
+  inset-inline: 0;
+  inset-block-end: 0;
+  background-color: var(--color-surface-base);
+  border-block-start: var(--border-width-default) solid var(--color-border-default);
+  border-start-start-radius: var(--radius-component-lg);
+  border-start-end-radius: var(--radius-component-lg);
+  box-shadow: var(--shadow-overlay);
+  max-block-size: 85vh;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  animation: arch-sheet-enter var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) both;
+}
+
+.arch-sheet:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+@keyframes arch-sheet-enter {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-sheet {
+    animation: none;
+  }
+}
+
+/* ─── Handle ────────────────────────────────────────────────────────────────── */
+
+.arch-sheet__handle {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--spacing-8);
+}
+
+.arch-sheet__handle::after {
+  content: '';
+  inline-size: 2rem;
+  block-size: 0.25rem;
+  background-color: var(--color-border-subtle);
+  border-radius: var(--radius-component-sm);
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────────── */
+
+.arch-sheet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-24);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+.arch-sheet__title {
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  font-weight: var(--typography-weight-semibold);
+  color: var(--color-text-default);
+  margin: 0;
+}
+
+/* ─── Close button ──────────────────────────────────────────────────────────── */
+
+.arch-sheet__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8);
+  background: none;
+  border: none;
+  border-radius: var(--radius-component-sm);
+  color: var(--color-text-subtle);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.arch-sheet__close:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Body ──────────────────────────────────────────────────────────────────── */
+
+.arch-sheet__body {
+  padding-block: var(--spacing-24);
+  padding-inline: var(--spacing-24);
+  overflow-y: auto;
+  flex: 1;
+  color: var(--color-text-default);
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Layout",
+  "version": "1.0.0",
+  "description": "Page-level layout with header, sidebar, content, and footer areas. Sub-components LayoutHeader, LayoutSidebar, LayoutContent, and LayoutFooter provide semantic structure for application shells.",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "keyboardInteraction": [],
+    "ariaAttributes": [],
+    "notes": [
+      "Layout is a structural utility. Sub-components render semantic HTML landmarks where appropriate.",
+      "LayoutHeader renders as a <header> element.",
+      "LayoutFooter renders as a <footer> element.",
+      "LayoutSidebar renders as a <aside> element.",
+      "LayoutContent renders as a <main> element.",
+      "Ensure skip navigation is provided for keyboard users (use SkipNav)."
+    ]
+  },
+  "props": {
+    "children": {
+      "type": "ReactNode",
+      "description": "Layout sub-components: LayoutHeader, LayoutSidebar, LayoutContent, LayoutFooter."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "subcomponents": {
+    "LayoutHeader": "Renders a <header> element for the top area of the page layout.",
+    "LayoutSidebar": "Renders an <aside> element for the side navigation area.",
+    "LayoutContent": "Renders a <main> element for the primary content area.",
+    "LayoutFooter": "Renders a <footer> element for the bottom area of the page layout."
+  },
+  "usage": {
+    "do": [
+      "Use Layout as the outermost structural wrapper for application pages.",
+      "Use LayoutContent for the primary scrollable content region.",
+      "Use LayoutSidebar for persistent navigation or secondary content.",
+      "Pair with SkipNav so keyboard users can bypass navigation."
+    ],
+    "dont": [
+      "Do not nest Layout inside another Layout.",
+      "Do not place page content outside of LayoutContent.",
+      "Do not use Layout for card or component-level layouts — use Box or Stack."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-border-subtle",
+    "spacing-16",
+    "spacing-8"
+  ]
+}

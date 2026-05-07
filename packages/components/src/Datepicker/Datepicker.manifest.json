@@ -1,0 +1,104 @@
+{
+  "name": "Datepicker",
+  "version": "1.0.0",
+  "description": "A date selection input that displays a calendar grid popover on focus or click. Supports min/max date constraints, multiple sizes, and custom date formatting.",
+  "status": "stable",
+  "accessibility": {
+    "role": "dialog (calendar popover), grid (calendar grid), button (day cells)",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter", "Space", "Escape"],
+    "ariaAttributes": [
+      "aria-label",
+      "aria-disabled",
+      "aria-selected",
+      "aria-current"
+    ],
+    "notes": [
+      "The input triggers a calendar popover on click or Enter/Space.",
+      "Arrow keys navigate the calendar grid by day (left/right) or week (up/down).",
+      "Escape closes the calendar popover and returns focus to the input.",
+      "Selected date is announced via aria-selected on the active day cell.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus).",
+      "Disabled dates are marked with aria-disabled and are not focusable."
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "Date | null",
+      "default": "null",
+      "description": "The currently selected date."
+    },
+    "onChange": {
+      "type": "(date: Date | null) => void",
+      "default": "undefined",
+      "description": "Callback fired when a date is selected or cleared."
+    },
+    "minDate": {
+      "type": "Date",
+      "default": "undefined",
+      "description": "The earliest selectable date."
+    },
+    "maxDate": {
+      "type": "Date",
+      "default": "undefined",
+      "description": "The latest selectable date."
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "\"Select date\"",
+      "description": "Placeholder text shown when no date is selected."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the datepicker input and prevents opening the calendar."
+    },
+    "size": {
+      "type": "'compact' | 'default' | 'large'",
+      "default": "\"default\"",
+      "description": "Controls the input height, padding, and font size."
+    },
+    "formatString": {
+      "type": "string",
+      "default": "\"MM/DD/YYYY\"",
+      "description": "Date format string used to display the selected date in the input."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root wrapper element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide an accessible label via aria-label or a linked FormLabel.",
+      "Set minDate and maxDate to constrain selection to valid date ranges.",
+      "Use the formatString prop to match the locale expectations of your users."
+    ],
+    "dont": [
+      "Do not use for date-time selection — pair with Timepicker for time input.",
+      "Do not omit a label — provide aria-label if no visible label is present.",
+      "Do not set minDate after maxDate."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-primary",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-subtle",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-inverse",
+    "color-text-disabled",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "shadow-sm",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

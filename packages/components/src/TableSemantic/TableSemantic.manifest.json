@@ -1,0 +1,70 @@
+{
+  "name": "TableSemantic",
+  "version": "1.0.0",
+  "description": "A simple semantic HTML table wrapper with consistent styling. Supports striped rows, hoverable rows, and three size presets (compact, default, spacious).",
+  "status": "stable",
+  "accessibility": {
+    "role": "table",
+    "keyboardInteraction": [],
+    "ariaAttributes": [],
+    "notes": [
+      "Uses native HTML table elements for full semantic accessibility.",
+      "Wrap content in standard thead, tbody, tr, th, td elements.",
+      "Ensure th elements have appropriate scope attributes.",
+      "The component provides styling only — semantic structure is the consumer's responsibility."
+    ]
+  },
+  "props": {
+    "children": {
+      "type": "ReactNode",
+      "description": "Table content using native HTML table elements (thead, tbody, tr, th, td)."
+    },
+    "striped": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, alternating rows receive a subtle background colour."
+    },
+    "hoverable": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, rows highlight on hover."
+    },
+    "size": {
+      "type": "'compact' | 'default' | 'spacious'",
+      "default": "default",
+      "description": "Controls cell padding density."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names on the root table element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use striped for long tables to improve row scanning.",
+      "Use hoverable when rows represent selectable or navigable items.",
+      "Use size='compact' for dense data displays.",
+      "Use size='spacious' for tables with fewer rows that benefit from breathing room."
+    ],
+    "dont": [
+      "Do not use TableSemantic for layout — it is strictly for tabular data.",
+      "Do not nest interactive components inside cells without testing keyboard accessibility.",
+      "Do not omit scope attributes on th elements."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-subtle",
+    "color-background-muted",
+    "color-text-default",
+    "color-text-subtle",
+    "color-border-default",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "MessageCard",
+  "version": "1.0.0",
+  "description": "A card component optimized for displaying messages with metadata. Combines an image, heading, paragraph text, and a call-to-action button in a structured layout.",
+  "status": "stable",
+  "accessibility": {
+    "role": "article",
+    "keyboardInteraction": ["Enter", "Space"],
+    "ariaAttributes": [],
+    "notes": [
+      "The root element uses role='article' to communicate a self-contained content block.",
+      "The image has an empty alt attribute when it is decorative — provide meaningful alt text via the image prop if the image conveys information.",
+      "The button is keyboard accessible with Enter and Space activation.",
+      "Focus indicator uses var(--color-border-focus) on the button element."
+    ]
+  },
+  "props": {
+    "image": {
+      "type": "string",
+      "default": "undefined",
+      "description": "URL for the card image displayed at the top."
+    },
+    "heading": {
+      "type": "string",
+      "description": "Heading text for the message."
+    },
+    "paragraph": {
+      "type": "string",
+      "description": "Body paragraph text for the message."
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Label for the call-to-action button. When omitted, the button is not rendered."
+    },
+    "onClick": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Click handler for the call-to-action button."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names on the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Provide a heading and paragraph for every MessageCard.",
+      "Use buttonLabel and onClick together for actionable messages.",
+      "Use meaningful image URLs or omit the image prop for text-only messages.",
+      "Keep paragraph text concise for scannability."
+    ],
+    "dont": [
+      "Do not use MessageCard for complex form layouts — use Card with form components instead.",
+      "Do not nest interactive elements inside the heading or paragraph slots.",
+      "Do not use MessageCard for navigation — use a clickable Card with href instead."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-primary",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-inverse",
+    "color-border-default",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "shadow-sm",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

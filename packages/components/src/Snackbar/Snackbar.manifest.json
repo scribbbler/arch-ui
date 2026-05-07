@@ -1,0 +1,93 @@
+{
+  "name": "Snackbar",
+  "version": "1.0.0",
+  "description": "A brief auto-dismissing notification bar anchored to the bottom of the screen. Supports an optional action button. Uses a SnackbarProvider and useSnackbar hook pattern for imperative creation.",
+  "status": "stable",
+  "accessibility": {
+    "role": "status (polite) or alert (assertive for error variant)",
+    "keyboardInteraction": [],
+    "ariaAttributes": ["aria-live", "aria-atomic"],
+    "notes": [
+      "The snackbar uses aria-live='assertive' for error variant and aria-live='polite' for all others.",
+      "aria-atomic='true' ensures screen readers announce the full snackbar message.",
+      "Snackbars auto-dismiss after autoHideDuration (default 5000ms).",
+      "Animation respects prefers-reduced-motion.",
+      "Snackbars are rendered in a Portal attached to document.body."
+    ]
+  },
+  "props": {
+    "message": {
+      "type": "string",
+      "description": "The notification message text."
+    },
+    "actionLabel": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Text for an optional action button."
+    },
+    "onAction": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Callback fired when the action button is clicked."
+    },
+    "variant": {
+      "type": "'default' | 'success' | 'warning' | 'error'",
+      "default": "default",
+      "description": "Visual and semantic variant."
+    },
+    "autoHideDuration": {
+      "type": "number",
+      "default": 5000,
+      "description": "Auto-dismiss delay in milliseconds."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "subcomponents": {
+    "SnackbarProvider": "Wraps the application. Required to use useSnackbar.",
+    "useSnackbar": "Hook that returns { snackbar(options) } for imperative creation."
+  },
+  "usage": {
+    "do": [
+      "Use SnackbarProvider once at the root of your app.",
+      "Use the useSnackbar hook to trigger snackbars from anywhere in the tree.",
+      "Keep snackbar messages brief — a single sentence or fragment.",
+      "Use action buttons for undo or retry patterns."
+    ],
+    "dont": [
+      "Do not use Snackbar for persistent messages — use Alert or Notification.",
+      "Do not stack more than one snackbar at a time.",
+      "Do not place interactive elements beyond the single action button."
+    ]
+  },
+  "tokens": [
+    "color-surface-raised",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-inverse",
+    "color-border-default",
+    "color-border-focus",
+    "color-feedback-success-bg",
+    "color-feedback-success-text",
+    "color-feedback-warning-bg",
+    "color-feedback-warning-text",
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "shadow-component-md",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "spacing-24",
+    "radius-component-md",
+    "typography-scale-paragraph-small-font-size",
+    "typography-weight-semibold",
+    "border-width-default",
+    "border-width-medium",
+    "motion-duration-normal",
+    "motion-semantic-easing-default",
+    "z-semantic-toast"
+  ]
+}

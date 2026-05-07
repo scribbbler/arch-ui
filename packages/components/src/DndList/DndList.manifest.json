@@ -1,0 +1,73 @@
+{
+  "name": "DndList",
+  "version": "1.0.0",
+  "description": "A drag and drop reorderable list component. Renders draggable list items with grab handles and optional remove buttons. Uses native HTML drag and drop API.",
+  "status": "stable",
+  "accessibility": {
+    "role": "list (wrapper), listitem (each row)",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "ArrowUp", "ArrowDown", "Space", "Enter", "Delete"],
+    "ariaAttributes": [
+      "aria-label",
+      "aria-grabbed",
+      "aria-dropeffect",
+      "aria-roledescription"
+    ],
+    "notes": [
+      "Each item has a grab handle that is keyboard-focusable.",
+      "Space/Enter on the grab handle starts a drag operation; arrow keys reorder during drag.",
+      "Delete key on an item triggers removal when removable is true.",
+      "aria-grabbed and aria-dropeffect communicate drag state to assistive technology.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus)."
+    ]
+  },
+  "props": {
+    "items": {
+      "type": "DndItem[]",
+      "default": "[]",
+      "description": "Array of items to render. Each item has an id (string) and label (ReactNode)."
+    },
+    "onChange": {
+      "type": "(items: DndItem[]) => void",
+      "default": "undefined",
+      "description": "Callback fired when items are reordered or removed."
+    },
+    "removable": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, each item shows a remove button."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root wrapper element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide an aria-label on the DndList describing the list purpose.",
+      "Keep items concise — long labels may truncate in narrow containers.",
+      "Use the onChange callback to persist the new order to your state/store."
+    ],
+    "dont": [
+      "Do not nest DndList components — nested drag and drop is not supported.",
+      "Do not use for static, non-reorderable lists — use the List component instead."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-subtle",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-subtle",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "radius-component-md",
+    "shadow-sm",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

@@ -1,0 +1,188 @@
+/* CheckboxV2 — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2 {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  cursor: pointer;
+  user-select: none;
+  min-block-size: 2.75rem;
+  position: relative;
+}
+
+.arch-checkbox-v2--disabled {
+  cursor: not-allowed;
+}
+
+/* ─── Hidden native input ────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2__input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Visual box ─────────────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  inline-size: var(--spacing-18);
+  block-size: var(--spacing-18);
+  min-inline-size: var(--spacing-18);
+  min-block-size: var(--spacing-18);
+
+  border: var(--border-width-medium) solid var(--color-border-default);
+  border-radius: var(--radius-component-sm);
+  background-color: var(--color-background-default);
+
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+
+  position: relative;
+  margin-block-start: var(--spacing-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-checkbox-v2__box {
+    transition: none;
+  }
+}
+
+/* ─── Checkmark (::after) ────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2__box::after {
+  content: '';
+  display: none;
+  position: absolute;
+}
+
+/* Checked: angled checkmark via border trick */
+.arch-checkbox-v2--checked .arch-checkbox-v2__box::after {
+  display: block;
+  inline-size: 35%;
+  block-size: 60%;
+  border-inline-end: var(--border-width-medium) solid var(--color-action-primary-text);
+  border-block-end: var(--border-width-medium) solid var(--color-action-primary-text);
+  transform: rotate(45deg) translate(-10%, -15%);
+}
+
+/* Indeterminate: horizontal dash */
+.arch-checkbox-v2--indeterminate .arch-checkbox-v2__box::after {
+  display: block;
+  inline-size: 55%;
+  block-size: var(--border-width-medium);
+  background-color: var(--color-action-primary-text);
+  border: none;
+  transform: none;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
+  position: absolute;
+}
+
+/* ─── Checked state ──────────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2--checked .arch-checkbox-v2__box,
+.arch-checkbox-v2--indeterminate .arch-checkbox-v2__box {
+  background-color: var(--color-action-primary);
+  border-color: var(--color-action-primary);
+}
+
+/* ─── Error state ────────────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2--error .arch-checkbox-v2__box {
+  border-color: var(--color-border-danger);
+}
+
+.arch-checkbox-v2--error.arch-checkbox-v2--checked .arch-checkbox-v2__box,
+.arch-checkbox-v2--error.arch-checkbox-v2--indeterminate .arch-checkbox-v2__box {
+  background-color: var(--color-action-primary);
+  border-color: var(--color-border-danger);
+}
+
+/* ─── Disabled state ─────────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2--disabled .arch-checkbox-v2__box {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+}
+
+.arch-checkbox-v2--disabled.arch-checkbox-v2--checked .arch-checkbox-v2__box,
+.arch-checkbox-v2--disabled.arch-checkbox-v2--indeterminate .arch-checkbox-v2__box {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+}
+
+.arch-checkbox-v2--disabled.arch-checkbox-v2--checked .arch-checkbox-v2__box::after,
+.arch-checkbox-v2--disabled.arch-checkbox-v2--indeterminate .arch-checkbox-v2__box::after {
+  border-color: var(--color-text-disabled);
+  background-color: var(--color-text-disabled);
+}
+
+/* ─── Focus visible ──────────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2__input:focus-visible + .arch-checkbox-v2__box {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Hover (non-disabled) ───────────────────────────────────────────────────── */
+
+.arch-checkbox-v2:not(.arch-checkbox-v2--disabled):hover .arch-checkbox-v2__box {
+  border-color: var(--color-action-primary-hover);
+}
+
+.arch-checkbox-v2:not(.arch-checkbox-v2--disabled).arch-checkbox-v2--checked:hover .arch-checkbox-v2__box,
+.arch-checkbox-v2:not(.arch-checkbox-v2--disabled).arch-checkbox-v2--indeterminate:hover .arch-checkbox-v2__box {
+  background-color: var(--color-action-primary-hover);
+  border-color: var(--color-action-primary-hover);
+}
+
+/* ─── Content (label + description) ──────────────────────────────────────────── */
+
+.arch-checkbox-v2__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding-block-start: var(--spacing-4);
+}
+
+/* ─── Label ──────────────────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2__label {
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  font-weight: var(--typography-weight-regular);
+  color: var(--color-text-default);
+  line-height: 1.5;
+}
+
+.arch-checkbox-v2--disabled .arch-checkbox-v2__label {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Description ────────────────────────────────────────────────────────────── */
+
+.arch-checkbox-v2__description {
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-regular);
+  color: var(--color-text-subtle);
+  line-height: 1.5;
+}
+
+.arch-checkbox-v2--disabled .arch-checkbox-v2__description {
+  color: var(--color-text-disabled);
+}

@@ -1,0 +1,98 @@
+/* Dialog — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Wrapper ───────────────────────────────────────────────────────────────── */
+
+.arch-dialog-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-semantic-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--spacing-32);
+  padding-inline: var(--spacing-16);
+}
+
+/* ─── Panel ─────────────────────────────────────────────────────────────────── */
+
+.arch-dialog {
+  position: relative;
+  z-index: var(--z-semantic-modal);
+  background-color: var(--color-surface-base);
+  border: var(--border-width-default) solid var(--color-border-default);
+  box-shadow: var(--shadow-overlay);
+  border-radius: var(--radius-component-md);
+  inline-size: 100%;
+  max-inline-size: 28rem;
+  padding-block: var(--spacing-24);
+  padding-inline: var(--spacing-24);
+  outline: none;
+  animation: arch-dialog-enter var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) both;
+}
+
+.arch-dialog:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+@keyframes arch-dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--spacing-8));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-dialog {
+    animation: none;
+  }
+}
+
+/* ─── Title ─────────────────────────────────────────────────────────────────── */
+
+.arch-dialog__title {
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  font-weight: var(--typography-weight-semibold);
+  color: var(--color-text-default);
+  margin: 0;
+  margin-block-end: var(--spacing-8);
+}
+
+/* ─── Body ──────────────────────────────────────────────────────────────────── */
+
+.arch-dialog__body {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-subtle);
+  margin-block-end: var(--spacing-24);
+}
+
+/* ─── Footer ────────────────────────────────────────────────────────────────── */
+
+.arch-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-12);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+
+.arch-dialog__cancel:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.arch-dialog__confirm:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.arch-dialog__confirm--danger {
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+}

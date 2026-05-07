@@ -1,0 +1,169 @@
+/* RadioV2 — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-radio-v2 {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  cursor: pointer;
+  user-select: none;
+  min-block-size: 2.75rem;
+  position: relative;
+}
+
+.arch-radio-v2--disabled {
+  cursor: not-allowed;
+}
+
+/* ─── Hidden native input ────────────────────────────────────────────────────── */
+
+.arch-radio-v2__input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Visual circle ──────────────────────────────────────────────────────────── */
+
+.arch-radio-v2__circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  inline-size: var(--spacing-18);
+  block-size: var(--spacing-18);
+  min-inline-size: var(--spacing-18);
+  min-block-size: var(--spacing-18);
+
+  border: var(--border-width-medium) solid var(--color-border-default);
+  border-radius: 50%;
+  background-color: var(--color-background-default);
+
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+
+  position: relative;
+  margin-block-start: var(--spacing-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-radio-v2__circle {
+    transition: none;
+  }
+}
+
+/* ─── Inner dot (::after) ────────────────────────────────────────────────────── */
+
+.arch-radio-v2__circle::after {
+  content: '';
+  display: none;
+  position: absolute;
+  inline-size: 50%;
+  block-size: 50%;
+  border-radius: 50%;
+  background-color: var(--color-action-primary-text);
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
+}
+
+/* ─── Selected state ─────────────────────────────────────────────────────────── */
+
+.arch-radio-v2--selected .arch-radio-v2__circle {
+  background-color: var(--color-action-primary);
+  border-color: var(--color-action-primary);
+}
+
+.arch-radio-v2--selected .arch-radio-v2__circle::after {
+  display: block;
+}
+
+/* ─── Error state ────────────────────────────────────────────────────────────── */
+
+.arch-radio-v2--error .arch-radio-v2__circle {
+  border-color: var(--color-border-danger);
+}
+
+.arch-radio-v2--error.arch-radio-v2--selected .arch-radio-v2__circle {
+  background-color: var(--color-action-primary);
+  border-color: var(--color-border-danger);
+}
+
+/* ─── Disabled state ─────────────────────────────────────────────────────────── */
+
+.arch-radio-v2--disabled .arch-radio-v2__circle {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+}
+
+.arch-radio-v2--disabled.arch-radio-v2--selected .arch-radio-v2__circle {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+}
+
+.arch-radio-v2--disabled.arch-radio-v2--selected .arch-radio-v2__circle::after {
+  background-color: var(--color-text-disabled);
+}
+
+/* ─── Focus visible ──────────────────────────────────────────────────────────── */
+
+.arch-radio-v2__input:focus-visible + .arch-radio-v2__circle {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Hover (non-disabled) ───────────────────────────────────────────────────── */
+
+.arch-radio-v2:not(.arch-radio-v2--disabled):hover .arch-radio-v2__circle {
+  border-color: var(--color-action-primary-hover);
+}
+
+.arch-radio-v2:not(.arch-radio-v2--disabled).arch-radio-v2--selected:hover .arch-radio-v2__circle {
+  background-color: var(--color-action-primary-hover);
+  border-color: var(--color-action-primary-hover);
+}
+
+/* ─── Content (label + description) ──────────────────────────────────────────── */
+
+.arch-radio-v2__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding-block-start: var(--spacing-4);
+}
+
+/* ─── Label ──────────────────────────────────────────────────────────────────── */
+
+.arch-radio-v2__label {
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  font-weight: var(--typography-weight-regular);
+  color: var(--color-text-default);
+  line-height: 1.5;
+}
+
+.arch-radio-v2--disabled .arch-radio-v2__label {
+  color: var(--color-text-disabled);
+}
+
+/* ─── Description ────────────────────────────────────────────────────────────── */
+
+.arch-radio-v2__description {
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-regular);
+  color: var(--color-text-subtle);
+  line-height: 1.5;
+}
+
+.arch-radio-v2--disabled .arch-radio-v2__description {
+  color: var(--color-text-disabled);
+}

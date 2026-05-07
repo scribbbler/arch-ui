@@ -1,0 +1,70 @@
+{
+  "name": "AppNavBar",
+  "version": "1.0.0",
+  "description": "Top-level application navigation bar with logo, menu items, and user profile area. Provides a consistent header across the application with support for branded logos, navigation links with active states, and a user information slot.",
+  "status": "stable",
+  "accessibility": {
+    "role": "navigation",
+    "ariaAttributes": ["aria-label"],
+    "notes": [
+      "Renders as a <nav> element with aria-label for landmark identification.",
+      "Active navigation items are indicated with aria-current='page'.",
+      "All interactive items must be keyboard accessible with visible focus indicators."
+    ]
+  },
+  "props": {
+    "title": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Application title displayed in the navigation bar."
+    },
+    "logo": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "Logo element rendered at the start of the navigation bar."
+    },
+    "items": {
+      "type": "NavItem[]",
+      "default": "[]",
+      "description": "Array of navigation items to render in the main navigation area."
+    },
+    "userInfo": {
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "Content rendered at the end of the navigation bar, typically user profile information."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use AppNavBar as the primary top-level navigation for your application.",
+      "Provide a meaningful aria-label to distinguish this navigation landmark.",
+      "Use the userInfo slot for profile menus or user-related actions."
+    ],
+    "dont": [
+      "Do not nest AppNavBar inside another navigation component.",
+      "Do not use AppNavBar for secondary or sidebar navigation.",
+      "Do not place more than one AppNavBar on a single page."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-text-default",
+    "color-text-subtle",
+    "color-background-primary",
+    "color-text-inverse",
+    "color-border-subtle",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "shadow-sm"
+  ]
+}

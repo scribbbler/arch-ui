@@ -1,0 +1,78 @@
+/* MessageCard — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-message-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* ─── Image ─────────────────────────────────────────────────────────────────── */
+
+.arch-message-card__image-wrapper {
+  overflow: hidden;
+}
+
+.arch-message-card__image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+}
+
+/* ─── Body ──────────────────────────────────────────────────────────────────── */
+
+.arch-message-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-16);
+}
+
+/* ─── Heading ───────────────────────────────────────────────────────────────── */
+
+.arch-message-card__heading {
+  margin: 0;
+  font-weight: var(--typography-weight-semibold);
+  color: var(--color-text-default);
+}
+
+/* ─── Paragraph ─────────────────────────────────────────────────────────────── */
+
+.arch-message-card__paragraph {
+  margin: 0;
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+}
+
+/* ─── Button ────────────────────────────────────────────────────────────────── */
+
+.arch-message-card__button {
+  align-self: flex-start;
+  margin-block-start: var(--spacing-4);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+  background-color: var(--color-background-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-component-md);
+  font: inherit;
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-semibold);
+  cursor: pointer;
+}
+
+.arch-message-card__button:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.arch-message-card__button:hover {
+  opacity: 0.9;
+}

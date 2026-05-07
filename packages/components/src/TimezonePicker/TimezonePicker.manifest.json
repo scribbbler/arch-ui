@@ -1,0 +1,84 @@
+{
+  "name": "TimezonePicker",
+  "version": "1.0.0",
+  "description": "A searchable timezone selection dropdown. Renders a filterable list of IANA timezone options with UTC offset display.",
+  "status": "stable",
+  "accessibility": {
+    "role": "combobox (input), listbox (dropdown), option (timezone entries)",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "ArrowUp", "ArrowDown", "Enter", "Escape"],
+    "ariaAttributes": [
+      "aria-label",
+      "aria-disabled",
+      "aria-selected",
+      "aria-expanded",
+      "aria-haspopup",
+      "aria-autocomplete"
+    ],
+    "notes": [
+      "The input supports type-ahead filtering of timezone options.",
+      "Arrow keys navigate through filtered options in the dropdown.",
+      "Escape closes the dropdown and returns focus to the input.",
+      "Selected timezone is announced via aria-selected on the active option.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus)."
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "string | null",
+      "default": "null",
+      "description": "The currently selected IANA timezone identifier (e.g. 'America/New_York')."
+    },
+    "onChange": {
+      "type": "(tz: string | null) => void",
+      "default": "undefined",
+      "description": "Callback fired when a timezone is selected."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the timezone picker input."
+    },
+    "size": {
+      "type": "'compact' | 'default' | 'large'",
+      "default": "\"default\"",
+      "description": "Controls the input height, padding, and font size."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root wrapper element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide an accessible label via aria-label or a linked FormLabel.",
+      "Display the UTC offset alongside the timezone name for user clarity.",
+      "Pair with Datepicker and Timepicker for full date-time-zone selection."
+    ],
+    "dont": [
+      "Do not use for simple UTC offset selection — this is for IANA timezone selection.",
+      "Do not omit a label — provide aria-label if no visible label is present."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-primary",
+    "color-background-disabled",
+    "color-border-default",
+    "color-border-subtle",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-inverse",
+    "color-text-disabled",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "shadow-sm",
+    "typography-scale-text-sm",
+    "border-width-default"
+  ]
+}

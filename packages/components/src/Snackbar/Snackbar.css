@@ -1,0 +1,136 @@
+/* Snackbar — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Container (portal region) ─────────────────────────────────────────────── */
+
+.arch-snackbar-container {
+  position: fixed;
+  z-index: var(--z-semantic-toast);
+  inset-block-end: var(--spacing-24);
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--spacing-8);
+  pointer-events: none;
+  max-inline-size: min(calc(100vw - var(--spacing-24) * 2), 36rem);
+  inline-size: 100%;
+}
+
+/* ─── Individual Snackbar ───────────────────────────────────────────────────── */
+
+.arch-snackbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
+  background-color: var(--color-surface-raised);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  box-shadow: var(--shadow-component-md);
+  pointer-events: all;
+  inline-size: 100%;
+  animation: arch-snackbar-enter var(--motion-duration-normal) var(--motion-semantic-easing-default) forwards;
+}
+
+.arch-snackbar--exiting {
+  animation: arch-snackbar-exit var(--motion-duration-normal) var(--motion-semantic-easing-default) forwards;
+}
+
+@keyframes arch-snackbar-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes arch-snackbar-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-snackbar {
+    animation: none;
+  }
+
+  .arch-snackbar--exiting {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ─── Message ───────────────────────────────────────────────────────────────── */
+
+.arch-snackbar__message {
+  flex: 1;
+  min-inline-size: 0;
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-default);
+}
+
+/* ─── Action button ─────────────────────────────────────────────────────────── */
+
+.arch-snackbar__action {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-4) var(--spacing-8);
+  border-radius: var(--radius-component-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  font-weight: var(--typography-weight-semibold);
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: var(--color-text-default);
+}
+
+.arch-snackbar__action:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Variant: success ──────────────────────────────────────────────────────── */
+
+.arch-snackbar--success {
+  background-color: var(--color-feedback-success-bg);
+  border-color: var(--color-feedback-success-border);
+}
+
+.arch-snackbar--success .arch-snackbar__message {
+  color: var(--color-feedback-success-text);
+}
+
+/* ─── Variant: warning ──────────────────────────────────────────────────────── */
+
+.arch-snackbar--warning {
+  background-color: var(--color-feedback-warning-bg);
+  border-color: var(--color-feedback-warning-border);
+}
+
+.arch-snackbar--warning .arch-snackbar__message {
+  color: var(--color-feedback-warning-text);
+}
+
+/* ─── Variant: error ────────────────────────────────────────────────────────── */
+
+.arch-snackbar--error {
+  background-color: var(--color-feedback-danger-bg);
+  border-color: var(--color-feedback-danger-border);
+}
+
+.arch-snackbar--error .arch-snackbar__message {
+  color: var(--color-feedback-danger-text);
+}

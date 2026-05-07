@@ -1,0 +1,88 @@
+/* TabsMotion — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Root ──────────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Tab list ──────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__tablist {
+  display: flex;
+  position: relative;
+  border-block-end: var(--border-width-default) solid var(--color-border-subtle);
+}
+
+/* ─── Tab button ────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-regular);
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+  position: relative;
+  transition: color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-tabs-motion__tab {
+    transition: none;
+  }
+}
+
+/* ─── Active tab ────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__tab--active {
+  color: var(--color-text-default);
+  font-weight: var(--typography-weight-semibold);
+}
+
+/* ─── Hover ─────────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__tab:not(.arch-tabs-motion__tab--active):hover {
+  color: var(--color-text-default);
+}
+
+/* ─── Focus visible ─────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__tab:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: -2px;
+}
+
+/* ─── Sliding indicator ─────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__indicator {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  block-size: var(--border-width-medium);
+  background-color: var(--color-background-primary);
+  transition:
+    transform var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    width var(--motion-duration-fast) var(--motion-semantic-easing-default);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-tabs-motion__indicator {
+    transition: none;
+  }
+}
+
+/* ─── Fill fixed ────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion--fill-fixed .arch-tabs-motion__tab {
+  flex: 1 1 0%;
+}

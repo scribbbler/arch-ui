@@ -1,0 +1,45 @@
+{
+  "name": "HeaderNavigation",
+  "version": "1.0.0",
+  "description": "Horizontal header navigation with navigation items grouped into left and right sections. Provides a flexible layout for organising navigation links, logos, and action buttons in a top header bar.",
+  "status": "stable",
+  "accessibility": {
+    "role": "navigation",
+    "ariaAttributes": ["aria-label"],
+    "notes": [
+      "Renders as a <nav> element with aria-label for landmark identification.",
+      "Use HeaderNavigationLeft and HeaderNavigationRight to semantically group items.",
+      "All interactive children must be keyboard accessible with visible focus indicators."
+    ]
+  },
+  "props": {
+    "children": {
+      "type": "ReactNode",
+      "description": "Content to render inside the header navigation. Typically HeaderNavigationLeft and HeaderNavigationRight sub-components."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use HeaderNavigationLeft for branding and primary links.",
+      "Use HeaderNavigationRight for secondary actions and user controls.",
+      "Provide aria-label to distinguish this navigation landmark from others."
+    ],
+    "dont": [
+      "Do not use HeaderNavigation for vertical or sidebar navigation.",
+      "Do not nest HeaderNavigation inside another navigation component.",
+      "Do not place interactive elements directly without grouping them in left or right sections."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-border-subtle",
+    "spacing-8",
+    "spacing-16",
+    "shadow-sm"
+  ]
+}

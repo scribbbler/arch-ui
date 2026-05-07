@@ -1,0 +1,79 @@
+{
+  "name": "ButtonTimed",
+  "version": "1.0.0",
+  "description": "A button with a built-in countdown timer that displays remaining seconds (e.g. 'Undo (5s)') and automatically triggers a callback when the timer reaches zero. Extends the base Button component's visual styles.",
+  "status": "stable",
+  "accessibility": {
+    "role": "button",
+    "keyboardInteraction": ["Enter", "Space"],
+    "ariaAttributes": ["aria-live", "aria-disabled"],
+    "notes": [
+      "The countdown text is announced via aria-live='polite' on the timer region.",
+      "Focus indicator uses var(--color-border-focus) via :focus-visible.",
+      "When the timer reaches zero, onTimeout is called automatically.",
+      "The button remains interactive during countdown — clicking it triggers onClick.",
+      "Disabled state prevents both interaction and countdown."
+    ]
+  },
+  "props": {
+    "initialTime": {
+      "type": "number",
+      "description": "Countdown duration in seconds."
+    },
+    "onTimeout": {
+      "type": "() => void",
+      "description": "Called when the countdown reaches zero."
+    },
+    "kind": {
+      "type": "ButtonKind",
+      "default": "primary",
+      "description": "Visual style inherited from Button."
+    },
+    "size": {
+      "type": "ButtonSize",
+      "default": "default",
+      "description": "Size inherited from Button."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the button and pauses the countdown."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root element."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Button label content. Countdown text is appended automatically."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for undo actions, auto-dismiss confirmations, or timed operations.",
+      "Keep initialTime short (3-10 seconds) to avoid user frustration.",
+      "Provide clear label text so the user understands what will happen on timeout."
+    ],
+    "dont": [
+      "Do not use for primary actions that require deliberate user confirmation.",
+      "Do not set initialTime to 0 or negative values.",
+      "Do not use for long countdowns — consider a ProgressBar instead."
+    ]
+  },
+  "tokens": [
+    "color-background-primary",
+    "color-text-inverse",
+    "color-text-subtle",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "typography-scale-text-sm",
+    "border-width-medium",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

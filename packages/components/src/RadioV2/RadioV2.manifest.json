@@ -1,0 +1,97 @@
+{
+  "name": "RadioV2",
+  "version": "1.0.0",
+  "description": "An enhanced radio button component with built-in label and description text support. Renders a real <input type=\"radio\"> for accessibility with a custom visual overlay. Supports checked, disabled, and error states.",
+  "status": "stable",
+  "accessibility": {
+    "role": "radio",
+    "keyboardInteraction": ["Space"],
+    "ariaAttributes": ["aria-checked", "aria-disabled", "aria-invalid", "aria-describedby"],
+    "notes": [
+      "A real <input type=\"radio\"> is rendered and visually hidden; the styled circle is a presentation layer.",
+      "Focus indicator appears on the visual radio via :focus-visible using var(--color-border-focus).",
+      "When error is true, the border uses var(--color-border-danger).",
+      "The label is associated with the input via htmlFor/id pairing.",
+      "The description is linked via aria-describedby for screen reader access.",
+      "Touch target is at minimum 44px via min-block-size on the wrapper."
+    ]
+  },
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the radio is selected."
+    },
+    "onChange": {
+      "type": "(checked: boolean) => void",
+      "description": "Called with true when the radio is selected."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name attribute for the native input. Groups radios with the same name."
+    },
+    "value": {
+      "type": "string",
+      "description": "Value attribute for the native input."
+    },
+    "label": {
+      "type": "string",
+      "description": "Primary label text rendered next to the radio."
+    },
+    "description": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Secondary description text rendered below the label."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Disables the radio. Prevents interaction and reduces visual emphasis."
+    },
+    "error": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows an error state. Border colour changes to var(--color-border-danger)."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the wrapper element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide a label for accessibility.",
+      "Use description to provide additional context when the label alone is insufficient.",
+      "Group radios with the same name attribute for mutually exclusive selection.",
+      "Use error alongside a visible error message to communicate validation failures."
+    ],
+    "dont": [
+      "Do not use a single radio alone — always provide at least two options.",
+      "Do not leave a radio without a label.",
+      "Do not use for multi-select choices — use CheckboxV2 instead."
+    ]
+  },
+  "tokens": [
+    "color-action-primary",
+    "color-action-primary-hover",
+    "color-action-primary-text",
+    "color-background-default",
+    "color-background-disabled",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-disabled",
+    "color-border-default",
+    "color-border-focus",
+    "color-border-danger",
+    "color-border-disabled",
+    "spacing-4",
+    "spacing-8",
+    "border-width-default",
+    "border-width-medium",
+    "typography-scale-text-sm",
+    "typography-weight-regular",
+    "motion-duration-fast",
+    "motion-semantic-easing-default"
+  ]
+}

@@ -1,0 +1,139 @@
+/* TimezonePicker — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-timezone-picker {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ─── Input ──────────────────────────────────────────────────────────────────── */
+
+.arch-timezone-picker__input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  color: var(--color-text-default);
+  font-family: inherit;
+  cursor: text;
+  outline: none;
+  margin: 0;
+}
+
+.arch-timezone-picker__input::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.arch-timezone-picker__input:focus-visible {
+  border-color: var(--color-border-focus);
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.arch-timezone-picker__input:disabled {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-timezone-picker--compact .arch-timezone-picker__input {
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-8);
+  font-size: var(--typography-scale-text-sm);
+}
+
+.arch-timezone-picker--default .arch-timezone-picker__input {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-12);
+  font-size: var(--typography-scale-text-sm);
+}
+
+.arch-timezone-picker--large .arch-timezone-picker__input {
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
+  font-size: var(--typography-scale-text-sm);
+}
+
+/* ─── Dropdown ───────────────────────────────────────────────────────────────── */
+
+.arch-timezone-picker__dropdown {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  z-index: 1000;
+  margin-block-start: var(--spacing-4);
+  background-color: var(--color-background-default);
+  border: var(--border-width-default) solid var(--color-border-subtle);
+  border-radius: var(--radius-component-md);
+  box-shadow: var(--shadow-sm);
+  max-block-size: 240px;
+  overflow-y: auto;
+  padding-block: var(--spacing-4);
+}
+
+/* ─── Option ─────────────────────────────────────────────────────────────────── */
+
+.arch-timezone-picker__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-12);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-default);
+  cursor: pointer;
+  text-align: start;
+  font-family: inherit;
+}
+
+.arch-timezone-picker__option:hover {
+  background-color: var(--color-background-muted);
+}
+
+.arch-timezone-picker__option:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: -2px;
+}
+
+.arch-timezone-picker__option--selected {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-inverse);
+}
+
+.arch-timezone-picker__option--selected:hover {
+  background-color: var(--color-background-primary);
+}
+
+.arch-timezone-picker__offset {
+  color: var(--color-text-subtle);
+  font-size: var(--typography-scale-text-sm);
+}
+
+.arch-timezone-picker__option--selected .arch-timezone-picker__offset {
+  color: var(--color-text-inverse);
+}
+
+/* ─── Empty state ────────────────────────────────────────────────────────────── */
+
+.arch-timezone-picker__empty {
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-12);
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+}

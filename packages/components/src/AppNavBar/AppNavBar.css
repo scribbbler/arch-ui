@@ -1,0 +1,96 @@
+/* AppNavBar — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-app-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+
+  background-color: var(--color-background-default);
+  border-block-end: var(--border-width-thin) solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Start (logo + title) ──────────────────────────────────────────────────── */
+
+.arch-app-nav-bar__start {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  flex-shrink: 0;
+}
+
+.arch-app-nav-bar__logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.arch-app-nav-bar__title {
+  font-size: var(--typography-scale-text-sm);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-default);
+  white-space: nowrap;
+}
+
+/* ─── Items ─────────────────────────────────────────────────────────────────── */
+
+.arch-app-nav-bar__items {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.arch-app-nav-bar__item-wrapper {
+  display: flex;
+}
+
+.arch-app-nav-bar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-8);
+
+  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-subtle);
+  text-decoration: none;
+  border-radius: var(--radius-component-md);
+  cursor: pointer;
+}
+
+.arch-app-nav-bar__item:hover {
+  background-color: var(--color-background-muted);
+  color: var(--color-text-default);
+}
+
+.arch-app-nav-bar__item--active {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-inverse);
+}
+
+.arch-app-nav-bar__item:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
+}
+
+.arch-app-nav-bar__item-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ─── End (user info) ───────────────────────────────────────────────────────── */
+
+.arch-app-nav-bar__end {
+  display: flex;
+  align-items: center;
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}

@@ -1,0 +1,63 @@
+{
+  "name": "BottomNavigation",
+  "version": "1.0.0",
+  "description": "Mobile bottom tab bar navigation for switching between top-level views. Displays a fixed row of icons with labels at the bottom of the viewport, following mobile navigation conventions.",
+  "status": "stable",
+  "accessibility": {
+    "role": "navigation",
+    "ariaAttributes": ["aria-label", "aria-current"],
+    "notes": [
+      "Renders as a <nav> element with aria-label for landmark identification.",
+      "Active tab is marked with aria-current='page'.",
+      "All tabs are keyboard accessible with visible focus indicators.",
+      "Icon-only tabs must include a visible label for accessibility."
+    ]
+  },
+  "props": {
+    "items": {
+      "type": "BottomNavItem[]",
+      "default": "[]",
+      "description": "Array of navigation items to render as bottom tabs."
+    },
+    "activeKey": {
+      "type": "string",
+      "default": "undefined",
+      "description": "The key of the currently active tab."
+    },
+    "onChange": {
+      "type": "(key: string) => void",
+      "default": "undefined",
+      "description": "Callback fired when a tab is selected."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use BottomNavigation for primary mobile navigation between top-level views.",
+      "Limit to 3-5 items for optimal usability.",
+      "Always provide both icon and label for each item."
+    ],
+    "dont": [
+      "Do not use BottomNavigation on desktop layouts.",
+      "Do not use more than 5 navigation items.",
+      "Do not use BottomNavigation for secondary or nested navigation."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-primary",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-inverse",
+    "color-border-subtle",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "typography-scale-text-sm",
+    "shadow-sm"
+  ]
+}

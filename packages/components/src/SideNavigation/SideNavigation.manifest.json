@@ -1,0 +1,66 @@
+{
+  "name": "SideNavigation",
+  "version": "1.0.0",
+  "description": "Vertical sidebar navigation with nested items and active state tracking. Supports hierarchical navigation structures with expandable sub-navigation groups.",
+  "status": "stable",
+  "accessibility": {
+    "role": "navigation",
+    "ariaAttributes": ["aria-label", "aria-current", "aria-expanded"],
+    "notes": [
+      "Renders as a <nav> element with aria-label for landmark identification.",
+      "Active item is marked with aria-current='page'.",
+      "Parent items with sub-navigation use aria-expanded to communicate state.",
+      "All items are keyboard navigable with visible focus indicators."
+    ]
+  },
+  "props": {
+    "items": {
+      "type": "SideNavItem[]",
+      "default": "[]",
+      "description": "Array of navigation items, each optionally containing nested sub-navigation items."
+    },
+    "activeItemId": {
+      "type": "string",
+      "default": "undefined",
+      "description": "The itemId of the currently active navigation item."
+    },
+    "onChange": {
+      "type": "(itemId: string) => void",
+      "default": "undefined",
+      "description": "Callback fired when a navigation item is selected."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names to apply to the root element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use SideNavigation for primary vertical navigation in dashboard or admin layouts.",
+      "Provide a meaningful aria-label to distinguish this navigation from others.",
+      "Keep nesting to a maximum of two levels for usability."
+    ],
+    "dont": [
+      "Do not use SideNavigation for horizontal or mobile bottom navigation.",
+      "Do not nest more than two levels of sub-navigation.",
+      "Do not use SideNavigation without an onChange handler for interactive items."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-primary",
+    "color-text-default",
+    "color-text-subtle",
+    "color-text-inverse",
+    "color-border-subtle",
+    "color-border-focus",
+    "spacing-4",
+    "spacing-8",
+    "spacing-12",
+    "spacing-16",
+    "radius-component-md",
+    "typography-scale-text-sm"
+  ]
+}

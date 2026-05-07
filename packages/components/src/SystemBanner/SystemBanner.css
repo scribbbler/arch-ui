@@ -1,0 +1,106 @@
+/* SystemBanner — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-system-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  inline-size: 100%;
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
+  border-block-end-width: var(--border-width-default);
+  border-block-end-style: solid;
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  font-weight: var(--typography-weight-semibold);
+  position: relative;
+}
+
+/* ─── Content ────────────────────────────────────────────────────────────────── */
+
+.arch-system-banner__content {
+  flex: 1;
+  text-align: center;
+}
+
+/* ─── Action button ─────────────────────────────────────────────────────────── */
+
+.arch-system-banner__action {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-4) var(--spacing-8);
+  border-radius: var(--radius-component-sm);
+  color: inherit;
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  font-weight: var(--typography-weight-semibold);
+  white-space: nowrap;
+  text-decoration: underline;
+}
+
+.arch-system-banner__action:hover {
+  opacity: 0.8;
+}
+
+.arch-system-banner__action:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Close button ───────────────────────────────────────────────────────────── */
+
+.arch-system-banner__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-4);
+  border-radius: var(--radius-component-sm);
+  color: inherit;
+  opacity: 0.7;
+  flex-shrink: 0;
+  position: absolute;
+  inset-inline-end: var(--spacing-16);
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.arch-system-banner__close:hover {
+  opacity: 1;
+  background-color: var(--color-background-subtle);
+}
+
+.arch-system-banner__close:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Variant: info ──────────────────────────────────────────────────────────── */
+
+.arch-system-banner--info {
+  background-color: var(--color-feedback-info-bg);
+  color: var(--color-feedback-info-text);
+  border-block-end-color: var(--color-feedback-info-border);
+}
+
+/* ─── Variant: warning ───────────────────────────────────────────────────────── */
+
+.arch-system-banner--warning {
+  background-color: var(--color-feedback-warning-bg);
+  color: var(--color-feedback-warning-text);
+  border-block-end-color: var(--color-feedback-warning-border);
+}
+
+/* ─── Variant: error ─────────────────────────────────────────────────────────── */
+
+.arch-system-banner--error {
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+  border-block-end-color: var(--color-feedback-danger-border);
+}

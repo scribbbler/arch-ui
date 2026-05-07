@@ -1,0 +1,21 @@
+/* AspectRatioBox — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-aspect-ratio-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--arch-aspect-ratio, 1);
+  overflow: hidden;
+  background-color: var(--color-background-default);
+  border-radius: var(--radius-component-md);
+}
+
+.arch-aspect-ratio-box__inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

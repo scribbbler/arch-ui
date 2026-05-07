@@ -1,0 +1,123 @@
+/* Notification — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+.arch-notification {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
+  border-radius: var(--radius-component-md);
+  border-width: var(--border-width-default);
+  border-style: solid;
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+}
+
+/* ─── Icon ───────────────────────────────────────────────────────────────────── */
+
+.arch-notification__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-block-start: 0.1em;
+}
+
+/* ─── Body ───────────────────────────────────────────────────────────────────── */
+
+.arch-notification__body {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+/* ─── Title ──────────────────────────────────────────────────────────────────── */
+
+.arch-notification__title {
+  display: block;
+  font-weight: var(--typography-weight-semibold);
+  margin-block-end: var(--spacing-4);
+}
+
+/* ─── Content ────────────────────────────────────────────────────────────────── */
+
+.arch-notification__content {
+  display: block;
+  font-size: var(--typography-scale-paragraph-small-font-size);
+}
+
+/* ─── Close button ───────────────────────────────────────────────────────────── */
+
+.arch-notification__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-4);
+  border-radius: var(--radius-component-sm);
+  color: inherit;
+  opacity: 0.7;
+  margin-block-start: -0.125em;
+  margin-inline-end: calc(-1 * var(--spacing-4));
+}
+
+.arch-notification__close:hover {
+  opacity: 1;
+  background-color: var(--color-background-subtle);
+}
+
+.arch-notification__close:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Variant: info ──────────────────────────────────────────────────────────── */
+
+.arch-notification--info {
+  background-color: var(--color-feedback-info-bg);
+  color: var(--color-feedback-info-text);
+  border-color: var(--color-feedback-info-border);
+}
+
+.arch-notification--info .arch-notification__icon {
+  color: var(--color-icon-info);
+}
+
+/* ─── Variant: success ───────────────────────────────────────────────────────── */
+
+.arch-notification--success {
+  background-color: var(--color-feedback-success-bg);
+  color: var(--color-feedback-success-text);
+  border-color: var(--color-feedback-success-border);
+}
+
+.arch-notification--success .arch-notification__icon {
+  color: var(--color-icon-success);
+}
+
+/* ─── Variant: warning ───────────────────────────────────────────────────────── */
+
+.arch-notification--warning {
+  background-color: var(--color-feedback-warning-bg);
+  color: var(--color-feedback-warning-text);
+  border-color: var(--color-feedback-warning-border);
+}
+
+.arch-notification--warning .arch-notification__icon {
+  color: var(--color-icon-warning);
+}
+
+/* ─── Variant: error ─────────────────────────────────────────────────────────── */
+
+.arch-notification--error {
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
+  border-color: var(--color-feedback-danger-border);
+}
+
+.arch-notification--error .arch-notification__icon {
+  color: var(--color-icon-danger);
+}

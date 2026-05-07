@@ -1,0 +1,88 @@
+/* Rating — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+
+.arch-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+/* ─── Star button ────────────────────────────────────────────────────────────── */
+
+.arch-rating__star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-text-subtle);
+  transition: color 0.15s ease;
+  position: relative;
+  line-height: 1;
+}
+
+.arch-rating__star:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-component-md);
+}
+
+.arch-rating__star:hover:not(.arch-rating__star--readonly) {
+  color: var(--color-background-primary);
+}
+
+.arch-rating__star--filled {
+  color: var(--color-background-primary);
+}
+
+.arch-rating__star--readonly {
+  cursor: default;
+}
+
+/* ─── Half star (readOnly mode) ──────────────────────────────────────────────── */
+
+.arch-rating__star--half {
+  position: relative;
+}
+
+.arch-rating__star-half-overlay {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  overflow: hidden;
+  width: 50%;
+  color: var(--color-background-primary);
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+
+.arch-rating--sm .arch-rating__star {
+  font-size: var(--spacing-16);
+}
+
+.arch-rating--md .arch-rating__star {
+  font-size: var(--spacing-24, 1.5rem);
+}
+
+.arch-rating--lg .arch-rating__star {
+  font-size: var(--spacing-32, 2rem);
+}
+
+/* ─── SVG icon sizing ────────────────────────────────────────────────────────── */
+
+.arch-rating__star svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.arch-rating__star-half-overlay svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}

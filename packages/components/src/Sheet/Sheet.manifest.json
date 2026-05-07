@@ -1,0 +1,72 @@
+{
+  "name": "Sheet",
+  "version": "1.0.0",
+  "description": "A bottom sheet overlay that slides up from the bottom of the screen. Ideal for mobile-first interactions such as action menus, filters, or supplementary content.",
+  "status": "stable",
+  "accessibility": {
+    "role": "dialog",
+    "ariaAttributes": ["aria-modal", "aria-labelledby"],
+    "keyboardInteraction": ["Escape (close)", "Tab / Shift+Tab (cycle within)"],
+    "notes": [
+      "Uses role='dialog' and aria-modal='true'.",
+      "aria-labelledby connects the dialog to the title element.",
+      "Body scroll is locked while the sheet is open.",
+      "Focus is trapped inside via FocusTrap and restored to the trigger on close.",
+      "Clicking the Overlay closes the sheet.",
+      "Slide-up animation respects prefers-reduced-motion."
+    ]
+  },
+  "props": {
+    "isOpen": {
+      "type": "boolean",
+      "description": "Controls sheet visibility."
+    },
+    "onClose": {
+      "type": "() => void",
+      "description": "Called when the sheet should close."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Sheet content."
+    },
+    "title": {
+      "type": "string",
+      "description": "Heading text for the sheet, rendered in the header."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for mobile-first action menus, filters, or supplementary content.",
+      "Always provide a title for accessibility.",
+      "Keep sheet content scrollable when it exceeds viewport height."
+    ],
+    "dont": [
+      "Do not use Sheet for desktop-only layouts — use Modal or Drawer instead.",
+      "Do not nest a Sheet inside another Sheet or Modal.",
+      "Do not put critical form flows inside a Sheet — use a full page or Modal."
+    ]
+  },
+  "tokens": [
+    "color-surface-base",
+    "color-border-default",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-subtle",
+    "shadow-overlay",
+    "spacing-8",
+    "spacing-16",
+    "spacing-24",
+    "radius-component-lg",
+    "z-semantic-modal",
+    "motion-semantic-duration-normal",
+    "motion-semantic-easing-enter",
+    "typography-scale-paragraph-medium-font-size",
+    "typography-weight-semibold",
+    "border-width-default"
+  ]
+}

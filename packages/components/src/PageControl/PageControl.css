@@ -1,0 +1,72 @@
+/* PageControl — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Root ──────────────────────────────────────────────────────────────────── */
+
+.arch-page-control {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+/* ─── Dot ───────────────────────────────────────────────────────────────────── */
+
+.arch-page-control__dot {
+  display: inline-block;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  inline-size: var(--spacing-8);
+  block-size: var(--spacing-8);
+  border-radius: var(--radius-component-md);
+  background-color: var(--color-background-muted);
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
+  /* Ensure 44px touch target via padding around the visible dot */
+  position: relative;
+}
+
+.arch-page-control__dot::before {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--spacing-8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-page-control__dot {
+    transition: none;
+  }
+}
+
+/* ─── Active dot ────────────────────────────────────────────────────────────── */
+
+.arch-page-control__dot--active {
+  background-color: var(--color-background-primary);
+  transform: scale(1.25);
+}
+
+/* ─── Small size ────────────────────────────────────────────────────────────── */
+
+.arch-page-control--sm .arch-page-control__dot {
+  inline-size: var(--spacing-4);
+  block-size: var(--spacing-4);
+}
+
+.arch-page-control--sm {
+  gap: var(--spacing-4);
+}
+
+/* ─── Focus visible ─────────────────────────────────────────────────────────── */
+
+.arch-page-control__dot:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Hover ─────────────────────────────────────────────────────────────────── */
+
+.arch-page-control__dot:not(.arch-page-control__dot--active):hover {
+  background-color: var(--color-background-primary);
+  opacity: 0.5;
+}

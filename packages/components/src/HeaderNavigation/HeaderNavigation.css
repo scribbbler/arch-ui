@@ -1,0 +1,33 @@
+/* HeaderNavigation — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+
+.arch-header-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+
+  background-color: var(--color-background-default);
+  border-block-end: var(--border-width-thin) solid var(--color-border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Left section ──────────────────────────────────────────────────────────── */
+
+.arch-header-navigation__left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+/* ─── Right section ─────────────────────────────────────────────────────────── */
+
+.arch-header-navigation__right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin-inline-start: auto;
+}

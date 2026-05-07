@@ -1,0 +1,84 @@
+{
+  "name": "SystemBanner",
+  "version": "1.0.0",
+  "description": "A full-width system-level banner displayed at the top of the page for critical system messages, maintenance notices, or service degradation alerts. More prominent than Banner, intended for system-level concerns.",
+  "status": "stable",
+  "accessibility": {
+    "role": "alert (error/warning) or status (info)",
+    "keyboardInteraction": [],
+    "ariaAttributes": ["role"],
+    "notes": [
+      "Error and warning banners use role='alert' (assertive).",
+      "Info banners use role='status' (polite).",
+      "When onClose is provided, a dismiss button is rendered with an accessible label.",
+      "Action button is keyboard accessible with focus-visible styling.",
+      "Should be placed at the very top of the page above all other content."
+    ]
+  },
+  "props": {
+    "variant": {
+      "type": "'info' | 'warning' | 'error'",
+      "default": "info",
+      "description": "Semantic variant controlling color and urgency."
+    },
+    "children": {
+      "type": "ReactNode",
+      "description": "Banner message content."
+    },
+    "actionLabel": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Text for an inline action button."
+    },
+    "onAction": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Callback fired when the action button is clicked."
+    },
+    "onClose": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "When provided, a dismiss button is rendered."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Place at the very top of the page above all navigation.",
+      "Use 'error' for outages or critical system failures.",
+      "Use 'warning' for maintenance windows or degraded service.",
+      "Use 'info' for system announcements.",
+      "Keep content brief — one sentence."
+    ],
+    "dont": [
+      "Do not use SystemBanner for form-level errors — use Alert or Notification.",
+      "Do not show multiple SystemBanners simultaneously.",
+      "Do not use for marketing announcements — use Banner instead."
+    ]
+  },
+  "tokens": [
+    "color-feedback-info-bg",
+    "color-feedback-info-text",
+    "color-feedback-info-border",
+    "color-feedback-warning-bg",
+    "color-feedback-warning-text",
+    "color-feedback-warning-border",
+    "color-feedback-danger-bg",
+    "color-feedback-danger-text",
+    "color-feedback-danger-border",
+    "color-border-focus",
+    "color-background-subtle",
+    "spacing-4",
+    "spacing-8",
+    "spacing-16",
+    "radius-component-sm",
+    "typography-scale-paragraph-small-font-size",
+    "typography-weight-semibold",
+    "border-width-default",
+    "border-width-medium"
+  ]
+}

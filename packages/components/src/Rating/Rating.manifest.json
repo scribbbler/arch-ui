@@ -1,0 +1,81 @@
+{
+  "name": "Rating",
+  "version": "1.0.0",
+  "description": "A star rating input component. Supports interactive selection and read-only display with half-star precision. Uses clickable star icons with keyboard navigation.",
+  "status": "stable",
+  "accessibility": {
+    "role": "radiogroup (wrapper), radio (each star)",
+    "keyboardInteraction": ["Tab", "Shift+Tab", "ArrowLeft", "ArrowRight", "Enter", "Space"],
+    "ariaAttributes": [
+      "aria-label",
+      "aria-checked",
+      "aria-readonly",
+      "aria-valuenow",
+      "aria-valuemin",
+      "aria-valuemax"
+    ],
+    "notes": [
+      "Uses role='radiogroup' on the wrapper with individual stars as radio options.",
+      "Arrow keys navigate between stars; Enter/Space selects the focused star.",
+      "In readOnly mode, the component uses aria-readonly and is not focusable.",
+      "aria-valuenow reflects the current numeric rating value.",
+      "Focus indicator uses a 2px solid outline with var(--color-border-focus)."
+    ]
+  },
+  "props": {
+    "value": {
+      "type": "number",
+      "default": 0,
+      "description": "The current rating value."
+    },
+    "onChange": {
+      "type": "(value: number) => void",
+      "default": "undefined",
+      "description": "Callback fired when a star is clicked."
+    },
+    "count": {
+      "type": "number",
+      "default": 5,
+      "description": "Total number of stars to display."
+    },
+    "readOnly": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, displays the rating without interaction. Supports half-star display."
+    },
+    "size": {
+      "type": "'sm' | 'md' | 'lg'",
+      "default": "\"md\"",
+      "description": "Controls the size of each star icon."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names applied to the root wrapper element."
+    }
+  },
+  "usage": {
+    "do": [
+      "Always provide an accessible label via aria-label on the Rating component.",
+      "Use readOnly mode for displaying aggregate ratings or user-submitted ratings.",
+      "Use the count prop to customise the scale (e.g. count=10 for a 1-10 scale)."
+    ],
+    "dont": [
+      "Do not use for binary like/dislike — use Toggle or a button pair instead.",
+      "Do not omit aria-label — screen readers need context for the rating purpose."
+    ]
+  },
+  "tokens": [
+    "color-background-default",
+    "color-background-muted",
+    "color-background-primary",
+    "color-border-default",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-subtle",
+    "spacing-4",
+    "spacing-8",
+    "radius-component-md",
+    "typography-scale-text-sm"
+  ]
+}

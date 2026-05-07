@@ -1,0 +1,45 @@
+{
+  "name": "FlexGrid",
+  "version": "1.0.0",
+  "description": "A flexbox-based responsive grid layout. A simpler, legacy-friendly alternative to CSS Grid. Uses a 12-column model where FlexGridItem children declare their span.",
+  "status": "stable",
+  "accessibility": {
+    "role": "none",
+    "keyboardInteraction": [],
+    "ariaAttributes": [],
+    "notes": [
+      "FlexGrid is a layout utility with no inherent semantics.",
+      "Content inside grid items should provide its own accessible roles and labels."
+    ]
+  },
+  "props": {
+    "children": {
+      "type": "ReactNode",
+      "description": "FlexGridItem children that compose the grid layout."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "subcomponents": {
+    "FlexGridItem": "A single cell within the FlexGrid. Uses the span prop (1–12) to control width as a fraction of 12 columns."
+  },
+  "usage": {
+    "do": [
+      "Use FlexGridItem span values that add up to 12 per row for a full-width layout.",
+      "Use FlexGrid for simple column layouts that do not require CSS Grid features.",
+      "Wrap items in FlexGridItem to control column sizing."
+    ],
+    "dont": [
+      "Do not use FlexGrid for complex two-dimensional layouts — use Grid instead.",
+      "Do not use span values greater than 12.",
+      "Do not place content directly inside FlexGrid without wrapping in FlexGridItem."
+    ]
+  },
+  "tokens": [
+    "spacing-8",
+    "spacing-16"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": "TagGroup",
+  "version": "1.0.0",
+  "description": "A container for managing a set of Tags with add and remove capabilities. Renders tags in a wrapping flex layout with an optional add button.",
+  "status": "stable",
+  "accessibility": {
+    "role": "group",
+    "ariaAttributes": ["role", "aria-label"],
+    "keyboardInteraction": ["Tab to navigate between tags and buttons"],
+    "notes": [
+      "The container uses role='group' with an aria-label for screen readers.",
+      "Each tag's remove button has an accessible label.",
+      "The add button is keyboard accessible with focus-visible styling.",
+      "When disabled, all interactive elements are disabled and the group has aria-disabled."
+    ]
+  },
+  "props": {
+    "tags": {
+      "type": "TagItem[]",
+      "description": "Array of tag items to render. TagItem: { id: string, label: string, variant?: TagVariant }."
+    },
+    "onRemove": {
+      "type": "(id: string) => void",
+      "default": "undefined",
+      "description": "Callback fired when a tag's remove button is clicked. Receives the tag id."
+    },
+    "onAdd": {
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Callback fired when the add button is clicked. When provided, an add button is rendered."
+    },
+    "addLabel": {
+      "type": "string",
+      "default": "Add",
+      "description": "Label text for the add button."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": "false",
+      "description": "When true, all tags and buttons are disabled."
+    },
+    "className": {
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS class names."
+    }
+  },
+  "usage": {
+    "do": [
+      "Use to display a set of tags that users can add to or remove from.",
+      "Provide meaningful labels for each tag.",
+      "Use onRemove to handle tag removal from parent state.",
+      "Use the addLabel prop to provide context-specific add button text."
+    ],
+    "dont": [
+      "Do not use TagGroup for navigation — use Tabs or Breadcrumbs.",
+      "Do not put more than 20 tags in a single group.",
+      "Do not use as a replacement for a multi-select — use Combobox instead."
+    ]
+  },
+  "tokens": [
+    "color-border-default",
+    "color-border-focus",
+    "color-text-default",
+    "color-text-subtle",
+    "color-background-muted",
+    "spacing-4",
+    "spacing-8",
+    "radius-component-sm",
+    "radius-component-full",
+    "typography-scale-paragraph-small-font-size",
+    "typography-weight-medium",
+    "border-width-default",
+    "border-width-medium"
+  ]
+}
