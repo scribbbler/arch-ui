@@ -4,15 +4,13 @@
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
 .arch-system-banner {
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  grid-column-gap: var(--spacing-16);
   align-items: center;
-  justify-content: center;
-  gap: var(--spacing-8);
   inline-size: 100%;
-  padding-block: var(--spacing-16);
-  padding-inline: var(--spacing-16);
-  border-block-end-width: var(--border-width-default);
-  border-block-end-style: solid;
+  border-radius: var(--radius-component-md);
+  margin: var(--spacing-16);
   font-size: var(--typography-scale-paragraph-small-font-size);
   font-weight: var(--typography-weight-semibold);
   position: relative;
@@ -21,8 +19,25 @@
 /* ─── Content ────────────────────────────────────────────────────────────────── */
 
 .arch-system-banner__content {
-  flex: 1;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--spacing-16);
+}
+
+/* ─── Title ──────────────────────────────────────────────────────────────────── */
+
+.arch-system-banner__title {
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  line-height: var(--typography-scale-label-medium-line-height);
+}
+
+/* ─── Description ────────────────────────────────────────────────────────────── */
+
+.arch-system-banner__description {
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 /* ─── Action button ─────────────────────────────────────────────────────────── */
@@ -51,29 +66,34 @@
   outline-offset: 2px;
 }
 
+/* ─── Trailing content ──────────────────────────────────────────────────────── */
+
+.arch-system-banner__trailing {
+  display: flex;
+  grid-row-end: span 2;
+  margin-inline-start: auto;
+}
+
 /* ─── Close button ───────────────────────────────────────────────────────────── */
 
 .arch-system-banner__close {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
   background: none;
   border: none;
-  cursor: pointer;
-  padding: var(--spacing-4);
-  border-radius: var(--radius-component-sm);
   color: inherit;
-  opacity: 0.7;
-  flex-shrink: 0;
-  position: absolute;
-  inset-inline-end: var(--spacing-16);
-  inset-block-start: 50%;
-  transform: translateY(-50%);
+  cursor: pointer;
+  padding-inline: var(--spacing-16);
+  border-start-end-radius: var(--radius-component-md);
+  border-end-end-radius: var(--radius-component-md);
 }
 
 .arch-system-banner__close:hover {
-  opacity: 1;
-  background-color: var(--color-background-subtle);
+  box-shadow: inset 999px 999px 0 var(--color-background-subtle);
+}
+
+.arch-system-banner__close:active {
+  box-shadow: inset 999px 999px 0 var(--color-background-muted);
 }
 
 .arch-system-banner__close:focus-visible {
@@ -86,7 +106,6 @@
 .arch-system-banner--info {
   background-color: var(--color-feedback-info-bg);
   color: var(--color-feedback-info-text);
-  border-block-end-color: var(--color-feedback-info-border);
 }
 
 /* ─── Variant: warning ───────────────────────────────────────────────────────── */
@@ -94,7 +113,6 @@
 .arch-system-banner--warning {
   background-color: var(--color-feedback-warning-bg);
   color: var(--color-feedback-warning-text);
-  border-block-end-color: var(--color-feedback-warning-border);
 }
 
 /* ─── Variant: error ─────────────────────────────────────────────────────────── */
@@ -102,5 +120,4 @@
 .arch-system-banner--error {
   background-color: var(--color-feedback-danger-bg);
   color: var(--color-feedback-danger-text);
-  border-block-end-color: var(--color-feedback-danger-border);
 }

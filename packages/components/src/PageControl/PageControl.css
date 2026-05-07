@@ -4,29 +4,41 @@
 /* ─── Root ──────────────────────────────────────────────────────────────────── */
 
 .arch-page-control {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: var(--spacing-8);
+  inline-size: fit-content;
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-12);
+  border-radius: var(--radius-xl);
+}
+
+/* ─── Background protection kind ───────────────────────────────────────────── */
+
+.arch-page-control--bg-protection {
+  background-color: var(--color-background-default);
 }
 
 /* ─── Dot ───────────────────────────────────────────────────────────────────── */
 
 .arch-page-control__dot {
+  appearance: none;
   display: inline-block;
+  margin: 0;
   padding: 0;
   border: none;
   cursor: pointer;
   inline-size: var(--spacing-8);
   block-size: var(--spacing-8);
-  border-radius: var(--radius-component-md);
+  border-radius: var(--radius-full);
   background-color: var(--color-background-muted);
   transition:
     background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
     transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
-  /* Ensure 44px touch target via padding around the visible dot */
   position: relative;
 }
 
+/* Touch target */
 .arch-page-control__dot::before {
   content: '';
   position: absolute;
@@ -42,11 +54,24 @@
 /* ─── Active dot ────────────────────────────────────────────────────────────── */
 
 .arch-page-control__dot--active {
-  background-color: var(--color-background-primary);
-  transform: scale(1.25);
+  background-color: var(--color-text-default);
 }
 
-/* ─── Small size ────────────────────────────────────────────────────────────── */
+/* ─── Disabled dot ──────────────────────────────────────────────────────────── */
+
+.arch-page-control__dot--disabled {
+  background-color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ─── Medium size ──────────────────────────────────────────────────────────── */
+
+.arch-page-control--md .arch-page-control__dot {
+  inline-size: var(--spacing-6);
+  block-size: var(--spacing-6);
+}
+
+/* ─── Small size ───────────────────────────────────────────────────────────── */
 
 .arch-page-control--sm .arch-page-control__dot {
   inline-size: var(--spacing-4);
@@ -57,16 +82,26 @@
   gap: var(--spacing-4);
 }
 
-/* ─── Focus visible ─────────────────────────────────────────────────────────── */
+/* ─── Focus visible ────────────────────────────────────────────────────────── */
 
 .arch-page-control__dot:focus-visible {
   outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline-offset: var(--spacing-2);
 }
 
-/* ─── Hover ─────────────────────────────────────────────────────────────────── */
+/* ─── Hover ────────────────────────────────────────────────────────────────── */
 
-.arch-page-control__dot:not(.arch-page-control__dot--active):hover {
-  background-color: var(--color-background-primary);
+.arch-page-control__dot:not(.arch-page-control__dot--active):not(.arch-page-control__dot--disabled):hover {
+  background-color: var(--color-text-default);
   opacity: 0.5;
+}
+
+/* ─── Inverse kind ─────────────────────────────────────────────────────────── */
+
+.arch-page-control--inverse .arch-page-control__dot--active {
+  background-color: var(--color-text-inverse);
+}
+
+.arch-page-control--inverse .arch-page-control__dot:not(.arch-page-control__dot--active) {
+  background-color: var(--color-background-inverse);
 }

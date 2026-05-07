@@ -48,7 +48,8 @@
       "danger": { "$value": "{color.red.500}", "$type": "color" },
       "success": { "$value": "{color.green.500}", "$type": "color" },
       "warning": { "$value": "{color.yellow.500}", "$type": "color" },
-      "disabled": { "$value": "{color.gray.200}", "$type": "color" }
+      "disabled": { "$value": "{color.gray.200}", "$type": "color" },
+      "selected": { "$value": "{color.black}", "$type": "color" }
     },
     "feedback": {
       "danger-bg": { "$value": "{color.red.50}", "$type": "color" },

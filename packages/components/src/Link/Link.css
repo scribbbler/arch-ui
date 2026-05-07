@@ -1,7 +1,12 @@
+/* Link — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+
 .arch-link {
   color: var(--link-color);
+  font-size: inherit;
+  line-height: inherit;
   text-decoration: underline;
-  text-underline-offset: 0.2em;
+  text-underline-position: under;
   cursor: pointer;
   transition: color var(--motion-semantic-duration-fast) var(--motion-semantic-easing-default);
 }
@@ -14,9 +19,14 @@
   color: var(--link-color-visited);
 }
 
+.arch-link:active {
+  color: var(--link-color-active);
+}
+
 .arch-link:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-1);
+  text-decoration: none;
   border-radius: var(--radius-xs);
 }
 
@@ -25,6 +35,7 @@
   --link-color: var(--color-text-link);
   --link-color-hover: var(--color-text-link-hover);
   --link-color-visited: var(--color-text-link-visited);
+  --link-color-active: var(--color-text-link-hover);
 }
 
 /* Subtle variant */
@@ -32,6 +43,7 @@
   --link-color: var(--color-text-subtle);
   --link-color-hover: var(--color-text-link-hover);
   --link-color-visited: var(--color-text-link-visited);
+  --link-color-active: var(--color-text-link-hover);
 }
 
 /* Inverse variant */
@@ -39,6 +51,7 @@
   --link-color: var(--color-text-inverse);
   --link-color-hover: var(--color-text-inverse);
   --link-color-visited: var(--color-text-inverse);
+  --link-color-active: var(--color-text-inverse);
 }
 
 .arch-link--inverse:visited {
@@ -49,25 +62,21 @@
 .arch-link--animate-underline {
   text-decoration: none;
   position: relative;
+  will-change: background-size;
+  background-repeat: no-repeat;
+  background-size: 0% 100%, 100% 100%;
+  transition:
+    background-size var(--motion-semantic-duration-slower) var(--motion-semantic-easing-default),
+    color var(--motion-semantic-duration-fast) var(--motion-semantic-easing-default);
 }
 
-.arch-link--animate-underline::after {
-  content: "";
-  position: absolute;
-  inset-block-end: 0;
-  inset-inline-start: 0;
-  inline-size: 0;
-  block-size: var(--border-width-default);
-  background-color: currentColor;
-  transition: inline-size var(--motion-semantic-duration-fast) var(--motion-semantic-easing-default);
-}
-
-.arch-link--animate-underline:hover::after {
-  inline-size: 100%;
+.arch-link--animate-underline:hover {
+  background-size: 100% 100%, 100% 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arch-link--animate-underline::after {
+  .arch-link,
+  .arch-link--animate-underline {
     transition: none;
   }
 }

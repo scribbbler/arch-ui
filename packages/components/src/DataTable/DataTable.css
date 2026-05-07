@@ -1,5 +1,6 @@
 /* DataTable — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web data-table. */
 
 /* ─── Root ──────────────────────────────────────────────────────────────────── */
 
@@ -14,7 +15,6 @@
   overflow-x: auto;
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-component-md);
-  box-shadow: var(--shadow-sm);
 }
 
 /* ─── Table ─────────────────────────────────────────────────────────────────── */
@@ -29,16 +29,16 @@
 /* ─── Header ────────────────────────────────────────────────────────────────── */
 
 .arch-data-table__thead {
-  background-color: var(--color-background-muted);
+  background-color: var(--color-background-default);
 }
 
 .arch-data-table__th {
   text-align: start;
   font-weight: var(--typography-weight-semibold);
-  font-size: var(--typography-scale-text-sm);
-  color: var(--color-text-subtle);
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-16);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-default);
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-12);
   border-block-end: var(--border-width-default) solid var(--color-border-default);
   white-space: nowrap;
 }
@@ -51,6 +51,12 @@
   inline-size: var(--arch-data-table-col-width);
 }
 
+/* ─── Header cell hover ─────────────────────────────────────────────────────── */
+
+.arch-data-table__th:hover {
+  background-color: var(--color-background-muted);
+}
+
 /* ─── Sort Button ───────────────────────────────────────────────────────────── */
 
 .arch-data-table__sort-button {
@@ -58,32 +64,33 @@
   align-items: center;
   gap: var(--spacing-4);
   inline-size: 100%;
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-16);
+  height: 100%;
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-12);
   background: none;
   border: none;
   font: inherit;
   font-weight: var(--typography-weight-semibold);
-  font-size: var(--typography-scale-text-sm);
-  color: var(--color-text-subtle);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-default);
   cursor: pointer;
   text-align: start;
 }
 
 .arch-data-table__sort-button:focus-visible {
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: -2px;
+  outline: var(--spacing-2) solid var(--color-border-focus);
+  outline-offset: calc(-1 * var(--spacing-2));
 }
 
 .arch-data-table__sort-indicator {
   flex-shrink: 0;
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
   color: var(--color-text-subtle);
 }
 
 /* ─── Body ──────────────────────────────────────────────────────────────────── */
 
-.arch-data-table__tbody .arch-data-table__tr:nth-child(even) {
+.arch-data-table__tbody .arch-data-table__tr:hover {
   background-color: var(--color-background-subtle);
 }
 
@@ -91,18 +98,30 @@
 
 .arch-data-table__td {
   padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-16);
-  border-block-end: var(--border-width-default) solid var(--color-border-subtle);
-  vertical-align: middle;
+  padding-inline: var(--spacing-12);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+  vertical-align: top;
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+}
+
+.arch-data-table__tbody .arch-data-table__tr:last-child .arch-data-table__td {
+  border-block-end: none;
+}
+
+/* ─── Checkbox column ────────────────────────────────────────────────────────── */
+
+.arch-data-table__checkbox-cell {
+  padding-inline-end: var(--spacing-8);
 }
 
 /* ─── Empty State ───────────────────────────────────────────────────────────── */
 
 .arch-data-table__empty {
   text-align: center;
-  color: var(--color-text-subtle);
-  padding-block: var(--spacing-16);
-  font-size: var(--typography-scale-text-sm);
+  color: var(--color-text-default);
+  padding: var(--spacing-16);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
 /* ─── Loading Overlay ───────────────────────────────────────────────────────── */
@@ -114,12 +133,11 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-background-default);
-  opacity: 0.8;
 }
 
 .arch-data-table__loading-text {
-  font-size: var(--typography-scale-text-sm);
-  color: var(--color-text-subtle);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-default);
 }
 
 /* ─── Resizable ─────────────────────────────────────────────────────────────── */

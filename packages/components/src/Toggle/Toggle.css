@@ -1,146 +1,173 @@
-/* Toggle — arch-ui component styles
+/* Toggle (Switch) — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web switch/styled-components visual design.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
 /* ─── Wrapper ────────────────────────────────────────────────────────────────── */
 
 .arch-toggle {
   display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-8);
+  vertical-align: middle;
+  align-items: flex-start;
   cursor: pointer;
-  /* Ensure the overall touch target is accessible */
-  min-block-size: 2.75rem; /* 44px */
 }
 
 .arch-toggle--disabled {
   cursor: not-allowed;
-  opacity: 0.45;
 }
 
 /* ─── Hidden native input ─────────────────────────────────────────────────────── */
 
 .arch-toggle__input {
-  /* Visually hidden but still focusable and part of the a11y tree */
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  padding: 0;
-  margin: -1px;
+  opacity: 0;
+  width: 0;
+  height: 0;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
 }
 
-/* ─── Track ───────────────────────────────────────────────────────────────────── */
+/* ─── Track — default size: 52px wide x 28px tall (scale900) ─────────────────── */
 
 .arch-toggle__track {
   position: relative;
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  box-sizing: border-box;
   background-color: var(--color-background-muted);
+  border: var(--border-width-medium) solid var(--color-text-subtle);
   border-radius: var(--radius-component-full);
-  border: var(--border-width-default) solid var(--color-border-default);
+  padding: var(--spacing-4);
   transition:
     background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
     border-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
-/* Checked state — track colour change */
+/* Checked state — track becomes inverse/primary, no border */
 .arch-toggle__input:checked ~ .arch-toggle__track {
-  background-color: var(--color-action-primary);
-  border-color: var(--color-action-primary);
+  background-color: var(--color-background-inverse);
+  border-color: transparent;
 }
 
 /* Focus-visible — outline on the track when the hidden input is focused */
 .arch-toggle__input:focus-visible ~ .arch-toggle__track {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
 }
 
-/* Hover — not-disabled */
+/* Disabled track */
+.arch-toggle--disabled .arch-toggle__track {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+}
+
+.arch-toggle--disabled .arch-toggle__input:checked ~ .arch-toggle__track {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-border-disabled);
+}
+
+/* Hover — not-disabled, unchecked */
 .arch-toggle:not(.arch-toggle--disabled):hover .arch-toggle__track {
-  border-color: var(--color-action-primary-hover);
+  border-color: var(--color-text-default);
 }
 
+/* Hover — checked */
 .arch-toggle:not(.arch-toggle--disabled):hover .arch-toggle__input:checked ~ .arch-toggle__track {
-  background-color: var(--color-action-primary-hover);
-  border-color: var(--color-action-primary-hover);
+  background-color: var(--color-background-inverse);
 }
 
 /* ─── Thumb ───────────────────────────────────────────────────────────────────── */
 
 .arch-toggle__thumb {
-  position: absolute;
-  background-color: var(--color-background-default);
+  background-color: var(--color-text-subtle);
   border-radius: var(--radius-component-full);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
+  outline: none;
+  transition: transform var(--motion-duration-fast) cubic-bezier(0.27, 1.06, 0.18, 1.00);
 }
 
-/* ─── Size: md (default) — Base Web: track 44×24, thumb 20px ────────────────── */
+/* Checked thumb — grows and becomes inverse-colored */
+.arch-toggle__input:checked ~ .arch-toggle__track .arch-toggle__thumb {
+  background-color: var(--color-text-inverse);
+}
+
+/* Disabled thumb */
+.arch-toggle--disabled .arch-toggle__thumb {
+  background-color: var(--color-text-disabled);
+}
+
+/* ─── Size: md (default) — track 52x28, thumb 24px checked / 16px unchecked ── */
 
 .arch-toggle--md .arch-toggle__track {
-  inline-size: calc(var(--spacing-24) + var(--spacing-20)); /* 44px */
-  block-size: var(--spacing-24);   /* 24px */
-  padding-inline: var(--spacing-2);
+  inline-size: calc(var(--spacing-28) + var(--spacing-24));  /* 52px */
+  block-size: var(--spacing-28);  /* 28px (scale900) */
 }
 
 .arch-toggle--md .arch-toggle__thumb {
-  inline-size: var(--spacing-20);  /* 20px */
-  block-size: var(--spacing-20);   /* 20px */
-  inset-inline-start: var(--spacing-2);
+  inline-size: var(--spacing-16);  /* 16px unchecked */
+  block-size: var(--spacing-16);
 }
 
 .arch-toggle--md .arch-toggle__input:checked ~ .arch-toggle__track .arch-toggle__thumb {
-  transform: translateX(var(--spacing-20)); /* move thumb to inline-end */
+  inline-size: var(--spacing-24);  /* 24px checked (scale800) */
+  block-size: var(--spacing-24);
+  transform: translateX(var(--spacing-20));  /* scale700 = 20px */
 }
 
-/* ─── Size: sm (compact) — Base Web: track 38×20, thumb 16px ────────────────── */
+/* ─── Size: sm (compact) — track 40x24 (scale1000 x scale800) ────────────────── */
 
 .arch-toggle--sm .arch-toggle__track {
-  inline-size: calc(var(--spacing-18) + var(--spacing-20)); /* 38px */
-  block-size: var(--spacing-20);   /* 20px */
-  padding-inline: var(--spacing-2);
+  inline-size: var(--spacing-40);  /* 40px (scale1400) */
+  block-size: var(--spacing-24);   /* 24px (scale800) */
 }
 
 .arch-toggle--sm .arch-toggle__thumb {
-  inline-size: var(--spacing-16);  /* 16px */
-  block-size: var(--spacing-16);   /* 16px */
-  inset-inline-start: var(--spacing-2);
+  inline-size: var(--spacing-12);  /* 12px unchecked */
+  block-size: var(--spacing-12);
 }
 
 .arch-toggle--sm .arch-toggle__input:checked ~ .arch-toggle__track .arch-toggle__thumb {
-  transform: translateX(var(--spacing-18)); /* move thumb to inline-end */
+  inline-size: var(--spacing-16);  /* 16px checked (scale600) */
+  block-size: var(--spacing-16);
+  transform: translateX(var(--spacing-16));  /* scale600 = 16px */
 }
 
-/* ─── Size: xs — track 28×14, thumb 10px ─────────────────────────────────────── */
+/* ─── Size: xs — track 28x16, thumb 10/8 ─────────────────────────────────────── */
 
 .arch-toggle--xs .arch-toggle__track {
-  inline-size: var(--spacing-28);  /* 28px */
-  block-size: var(--spacing-14);   /* 14px */
-  padding-inline: var(--spacing-2);
+  inline-size: var(--spacing-28);
+  block-size: var(--spacing-16);
+  padding: var(--spacing-2);
 }
 
 .arch-toggle--xs .arch-toggle__thumb {
-  inline-size: var(--spacing-10);  /* 10px */
-  block-size: var(--spacing-10);   /* 10px */
-  inset-inline-start: var(--spacing-2);
+  inline-size: var(--spacing-8);
+  block-size: var(--spacing-8);
 }
 
 .arch-toggle--xs .arch-toggle__input:checked ~ .arch-toggle__track .arch-toggle__thumb {
-  transform: translateX(var(--spacing-14)); /* move thumb to inline-end */
+  inline-size: var(--spacing-10);
+  block-size: var(--spacing-10);
+  transform: translateX(var(--spacing-14));
 }
 
-/* ─── Label text ─────────────────────────────────────────────────────────────── */
+/* ─── Label text — ParagraphMedium (default) or ParagraphSmall (small) ───────── */
 
 .arch-toggle__label {
+  vertical-align: middle;
   color: var(--color-text-default);
-  font-size: var(--typography-scale-label-medium-font-size);
-  line-height: var(--typography-scale-label-medium-line-height);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
   font-weight: var(--typography-weight-regular);
+  padding-inline-start: var(--spacing-8);
+  padding-block-start: var(--spacing-4);
+}
+
+.arch-toggle--sm .arch-toggle__label {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  padding-block-start: var(--spacing-2);
 }
 
 .arch-toggle--disabled .arch-toggle__label {

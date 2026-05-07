@@ -1,15 +1,41 @@
 /* Stepper — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
-   Logical properties only: no left/right — use inline-start/inline-end. */
+   Matches Base Web Stepper layout. */
 
 /* ─── Container ─────────────────────────────────────────────────────────────── */
 
 .arch-stepper {
-  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-component-md);
   overflow: hidden;
+  padding: var(--spacing-14);
+  block-size: var(--spacing-48);
+}
+
+/* ─── Sizes ────────────────────────────────────────────────────────────────── */
+
+.arch-stepper--mini {
+  padding: var(--spacing-6);
+  block-size: var(--spacing-28);
+}
+
+.arch-stepper--compact {
+  padding: var(--spacing-10);
+  block-size: var(--spacing-36);
+}
+
+.arch-stepper--default {
+  padding: var(--spacing-14);
+  block-size: var(--spacing-48);
+}
+
+.arch-stepper--large {
+  padding: var(--spacing-16);
+  block-size: var(--spacing-56);
 }
 
 /* ─── Buttons ───────────────────────────────────────────────────────────────── */
@@ -18,10 +44,24 @@
   border-radius: 0;
   border: none;
   flex-shrink: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--color-text-default);
+}
+
+.arch-stepper__button:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
 }
 
 .arch-stepper__button:focus-visible {
   z-index: 1;
+  outline: var(--spacing-2) solid var(--color-border-focus);
+  outline-offset: calc(-1 * var(--spacing-2));
 }
 
 /* ─── Value display ─────────────────────────────────────────────────────────── */
@@ -37,14 +77,10 @@
   border-inline-start: var(--border-width-default) solid var(--color-border-default);
   border-inline-end: var(--border-width-default) solid var(--color-border-default);
   user-select: none;
+  padding-inline: var(--spacing-8);
 }
 
-/* ─── Sizes — value display dimensions match button sizes ───────────────────
-   mini:    28px height, paragraph-xsmall
-   compact: 36px height, paragraph-small
-   default: 48px height, paragraph-medium
-   large:   56px height, paragraph-large
-   ──────────────────────────────────────────────────────────────────────────── */
+/* ─── Value sizes — match button sizes ────────────────────────────────────── */
 
 .arch-stepper--mini .arch-stepper__value {
   min-inline-size: var(--spacing-40);

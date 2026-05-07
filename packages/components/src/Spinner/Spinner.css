@@ -1,4 +1,5 @@
 /* Spinner — arch-ui component styles
+   Aligned with Uber Base Web spinner visual design.
    All values must be var(--token-name). No hex, pixel literals, or named colours.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
@@ -16,39 +17,34 @@
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
 .arch-spinner {
-  display: inline-block;
+  display: block;
   flex-shrink: 0;
   border-style: solid;
   border-radius: var(--radius-component-full);
-  border-color: var(--color-background-muted);
+  border-color: var(--color-background-subtle);
   border-block-start-color: var(--color-action-primary);
-  animation: arch-spinner-rotate var(--motion-duration-slow) var(--motion-semantic-easing-default) infinite;
+  animation: arch-spinner-rotate var(--motion-duration-slow) linear infinite;
+  cursor: wait;
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
-
-.arch-spinner--xs {
-  inline-size: var(--spacing-16);
-  block-size: var(--spacing-16);
-  border-width: 0.125rem;
-}
+/* ─── Sizes — Base Web: small=24px/2px, medium=28px/4px, large=32px/8px ─────── */
 
 .arch-spinner--sm {
-  inline-size: 1.25rem;
-  block-size: 1.25rem;
-  border-width: 0.125rem;
+  inline-size: var(--spacing-24);
+  block-size: var(--spacing-24);
+  border-width: var(--spacing-2);
 }
 
 .arch-spinner--md {
-  inline-size: 2rem;
-  block-size: 2rem;
-  border-width: 0.1875rem;
+  inline-size: var(--spacing-28);
+  block-size: var(--spacing-28);
+  border-width: var(--spacing-4);
 }
 
 .arch-spinner--lg {
-  inline-size: 3rem;
-  block-size: 3rem;
-  border-width: 0.25rem;
+  inline-size: var(--spacing-32);
+  block-size: var(--spacing-32);
+  border-width: var(--spacing-8);
 }
 
 /* ─── Reduced motion ─────────────────────────────────────────────────────────── */
@@ -56,7 +52,7 @@
 @media (prefers-reduced-motion: reduce) {
   .arch-spinner {
     animation: none;
-    border-color: var(--color-background-muted);
+    border-color: var(--color-background-subtle);
     border-block-start-color: var(--color-action-primary);
   }
 }

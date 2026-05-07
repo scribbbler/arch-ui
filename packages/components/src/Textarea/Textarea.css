@@ -1,6 +1,29 @@
 /* Textarea — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web textarea/styled-components visual design.
    Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Root (outer border container — mirrors Input root) ─────────────────────── */
+
+.arch-textarea-root {
+  display: flex;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: var(--border-width-medium) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  background-color: var(--color-background-muted);
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-textarea-root--fit-content {
+  width: fit-content;
+}
+
+.arch-textarea-root:not(.arch-textarea-root--fit-content) {
+  width: 100%;
+}
 
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
@@ -9,13 +32,15 @@
   display: block;
   width: 100%;
   box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
 
   /* Appearance */
   appearance: none;
-  background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-default);
-  border-radius: var(--radius-component-md);
+  background-color: transparent;
+  border: none;
   color: var(--color-text-default);
+  caret-color: var(--color-text-default);
   font-family: inherit;
 
   /* Default resize */
@@ -34,21 +59,36 @@
 
 /* ─── Hover ──────────────────────────────────────────────────────────────────── */
 
-.arch-textarea:hover:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
+.arch-textarea-root:hover:not(.arch-textarea-root--disabled):not(.arch-textarea-root--focused) {
   border-color: var(--color-border-strong);
 }
 
 /* ─── Focus ──────────────────────────────────────────────────────────────────── */
 
-.arch-textarea:focus-visible {
+.arch-textarea-root--focused {
   border-color: var(--color-border-focus);
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  background-color: var(--color-background-default);
+}
+
+.arch-textarea:focus-visible {
+  outline: none;
+}
+
+/* Fallback for standalone textarea without root wrapper */
+.arch-textarea-wrapper:not(:has(.arch-textarea-root)) .arch-textarea:focus-visible {
+  border-color: var(--color-border-focus);
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
 }
 
 /* ─── Invalid ─────────────────────────────────────────────────────────────────── */
 
+.arch-textarea-root--error,
 .arch-textarea[aria-invalid="true"] {
+  border-color: var(--color-border-danger);
+}
+
+.arch-textarea-root--error.arch-textarea-root--focused {
   border-color: var(--color-border-danger);
 }
 
@@ -57,13 +97,33 @@
   outline-color: var(--color-border-danger);
 }
 
+/* ─── Positive (valid) ────────────────────────────────────────────────────────── */
+
+.arch-textarea-root--positive,
+.arch-textarea--positive {
+  border-color: var(--color-border-success);
+}
+
+.arch-textarea-root--positive.arch-textarea-root--focused,
+.arch-textarea--positive:focus-visible {
+  border-color: var(--color-border-success);
+  outline-color: var(--color-border-success);
+}
+
 /* ─── Disabled ───────────────────────────────────────────────────────────────── */
+
+.arch-textarea-root--disabled {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-background-disabled);
+  cursor: not-allowed;
+}
 
 .arch-textarea:disabled,
 .arch-textarea[aria-disabled="true"] {
   background-color: var(--color-background-disabled);
   border-color: var(--color-border-disabled);
   color: var(--color-text-disabled);
+  -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;
   resize: none;
 }
@@ -80,49 +140,44 @@
   cursor: default;
 }
 
-/* ─── Positive (valid) ────────────────────────────────────────────────────────── */
-
-.arch-textarea--positive {
-  border-color: var(--color-border-success);
-}
-
-.arch-textarea--positive:focus-visible {
-  border-color: var(--color-border-success);
-  outline-color: var(--color-border-success);
-}
-
 /* ─── Sizes — matches Base Web Input padding scale ───────────────────────────
-   mini:    paddingY=6   paddingX=14  font=ParagraphXSmall (12px)
-   compact: paddingY=8   paddingX=14  font=ParagraphSmall  (14px)
-   default: paddingY=12  paddingX=14  font=ParagraphMedium (16px)
-   large:   paddingY=16  paddingX=14  font=ParagraphLarge  (18px)
+   mini:    paddingY=4   paddingX=14  font=font100
+   compact: paddingY=6   paddingX=14  font=font200
+   default: paddingY=10  paddingX=14  font=font300
+   large:   paddingY=14  paddingX=14  font=font400
    ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-textarea--xs {
-  padding-block: var(--spacing-6);
+  padding-block: var(--spacing-4);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
+}
+
+.arch-textarea-root--xs {
   border-radius: var(--radius-sm);
 }
 
 .arch-textarea--sm {
-  padding-block: var(--spacing-8);
+  padding-block: var(--spacing-6);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
+}
+
+.arch-textarea-root--sm {
   border-radius: var(--radius-sm);
 }
 
 .arch-textarea--md {
-  padding-block: var(--spacing-12);
+  padding-block: var(--spacing-10);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 .arch-textarea--lg {
-  padding-block: var(--spacing-16);
+  padding-block: var(--spacing-14);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
@@ -169,11 +224,15 @@
   border: none;
   background: none;
   cursor: pointer;
-  color: var(--color-text-subtle);
+  color: var(--color-text-default);
   font-size: 1.125em;
   line-height: 1;
 }
 
 .arch-textarea__clear:hover {
   color: var(--color-text-default);
+}
+
+.arch-textarea__clear:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
 }

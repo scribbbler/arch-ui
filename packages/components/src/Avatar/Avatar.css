@@ -1,20 +1,18 @@
 /* Avatar — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web avatar.
    Sizes and font scales match Uber Base. */
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  box-sizing: border-box;
   overflow: hidden;
   flex-shrink: 0;
 
   inline-size: var(--arch-avatar-size);
   block-size: var(--arch-avatar-size);
-
-  background-color: var(--color-action-primary);
-  color: var(--color-action-primary-text);
 
   font-family: inherit;
   user-select: none;
@@ -30,7 +28,14 @@
   border-radius: var(--radius-md);
 }
 
+/* ─── Fallback background (when image fails to load) ────────────────────────── */
+
+.arch-avatar--fallback {
+  background-color: var(--color-background-inverse);
+}
+
 /* ─── Sizes — matches Uber Base exactly ──────────────────────────────────────
+   scale1000 = 32px default, but Base Web uses these named sizes:
    xsmall:  24px  LabelXSmall (12px)
    small:   36px  LabelMedium (16px)
    medium:  48px  HeadingXSmall (20px)
@@ -82,11 +87,17 @@
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
+  border-radius: inherit;
 }
 
 /* ─── Initials ───────────────────────────────────────────────────────────────── */
 
 .arch-avatar__initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-text-inverse);
   line-height: 1;
   text-transform: uppercase;
 }

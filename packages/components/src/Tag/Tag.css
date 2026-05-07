@@ -1,54 +1,111 @@
 /* Tag — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web tag. */
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-tag {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-4);
-
-  padding-block: var(--spacing-2);
-  padding-inline: var(--spacing-8);
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
 
   font-family: inherit;
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  font-weight: var(--typography-weight-medium);
   white-space: nowrap;
   vertical-align: middle;
+  outline: none;
 
-  border-radius: var(--radius-component-full);
+  border-style: solid;
+  border-width: var(--border-width-default);
+  border-color: transparent;
+
+  margin: var(--spacing-4);
 }
 
-/* ─── Hover state ───────────────────────────────────────────────────────────── */
+/* ─── Sizes ─────────────────────────────────────────────────────────────────── */
 
-.arch-tag:hover {
-  opacity: 0.85;
+.arch-tag--xs {
+  height: var(--spacing-20);
+  padding-block: var(--spacing-2);
+  padding-inline: var(--spacing-4);
+  border-radius: var(--radius-component-md);
+  font-size: var(--typography-scale-label-xsmall-font-size);
+  font-weight: var(--typography-scale-label-xsmall-font-weight);
 }
 
-/* ─── Clickable (toggle chip) ───────────────────────────────────────────────── */
+.arch-tag--sm {
+  height: var(--spacing-24);
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-6);
+  border-radius: var(--radius-component-md);
+  font-size: var(--typography-scale-label-small-font-size);
+  font-weight: var(--typography-scale-label-small-font-weight);
+}
 
-.arch-tag--clickable {
+.arch-tag--md {
+  height: var(--spacing-32);
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-8);
+  border-radius: var(--radius-component-lg);
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+}
+
+.arch-tag--lg {
+  height: var(--spacing-40);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-10);
+  border-radius: var(--radius-component-lg);
+  border-width: var(--border-width-strong);
+  font-size: var(--typography-scale-label-large-font-size);
+  font-weight: var(--typography-scale-label-large-font-weight);
+}
+
+/* ─── Hover overlay (actionable tags) ───────────────────────────────────────── */
+
+.arch-tag--clickable,
+.arch-tag--closeable {
   cursor: pointer;
-  user-select: none;
-  transition: background-color var(--motion-semantic-duration-fast) var(--motion-semantic-easing-default);
 }
 
-.arch-tag--clickable:hover {
-  opacity: 1;
-  filter: brightness(0.95);
+.arch-tag--clickable::before,
+.arch-tag--closeable::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: transparent;
+  pointer-events: none;
 }
 
-.arch-tag--clickable:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+@media (hover: hover) {
+  .arch-tag--clickable:hover::before,
+  .arch-tag--closeable:hover::before {
+    background-color: var(--color-background-overlay);
+  }
 }
 
-.arch-tag--checked {
-  border: var(--border-width-strong) solid currentColor;
+.arch-tag--clickable:active::before,
+.arch-tag--closeable:active::before {
+  background-color: var(--color-background-overlay);
 }
 
-/* ─── Icon slot ──────────────────────────────────────────────────────────────── */
+/* ─── Focus ─────────────────────────────────────────────────────────────────── */
+
+.arch-tag--clickable:focus-visible,
+.arch-tag--closeable:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--spacing-2) var(--color-border-focus);
+}
+
+/* ─── Disabled ──────────────────────────────────────────────────────────────── */
+
+.arch-tag--disabled {
+  cursor: not-allowed;
+}
+
+/* ─── Start enhancer ────────────────────────────────────────────────────────── */
 
 .arch-tag__icon {
   display: inline-flex;
@@ -58,10 +115,26 @@
   color: inherit;
 }
 
+.arch-tag--xs .arch-tag__icon,
+.arch-tag--sm .arch-tag__icon {
+  padding-inline-end: var(--spacing-4);
+}
+
+.arch-tag--md .arch-tag__icon {
+  padding-inline-end: var(--spacing-8);
+}
+
+.arch-tag--lg .arch-tag__icon {
+  padding-inline-end: var(--spacing-12);
+}
+
 /* ─── Label ──────────────────────────────────────────────────────────────────── */
 
 .arch-tag__label {
   display: inline;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* ─── Remove button ──────────────────────────────────────────────────────────── */
@@ -76,21 +149,33 @@
   background: none;
   border: none;
   padding: 0;
-  margin-inline-start: var(--spacing-4);
   cursor: pointer;
   color: inherit;
-  opacity: 0.7;
+  outline: none;
   line-height: 1;
 }
 
-.arch-tag__remove:hover {
-  opacity: 1;
+.arch-tag--xs .arch-tag__remove,
+.arch-tag--sm .arch-tag__remove {
+  margin-inline-start: var(--spacing-4);
+}
+
+.arch-tag--md .arch-tag__remove {
+  margin-inline-start: var(--spacing-8);
+}
+
+.arch-tag--lg .arch-tag__remove {
+  margin-inline-start: var(--spacing-12);
 }
 
 .arch-tag__remove:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
   border-radius: var(--radius-component-sm);
+}
+
+.arch-tag--disabled .arch-tag__remove {
+  cursor: not-allowed;
 }
 
 /* ─── Variant: neutral ───────────────────────────────────────────────────────── */
@@ -100,11 +185,23 @@
   color: var(--color-text-default);
 }
 
+.arch-tag--neutral.arch-tag--secondary {
+  background-color: transparent;
+  border-color: var(--color-border-default);
+  color: var(--color-text-default);
+}
+
 /* ─── Variant: primary ───────────────────────────────────────────────────────── */
 
 .arch-tag--primary {
-  background-color: var(--color-action-primary);
-  color: var(--color-action-primary-text);
+  background-color: var(--color-background-inverse);
+  color: var(--color-text-inverse);
+}
+
+.arch-tag--primary.arch-tag--secondary {
+  background-color: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--color-text-default);
 }
 
 /* ─── Variant: info ──────────────────────────────────────────────────────────── */
@@ -133,4 +230,10 @@
 .arch-tag--danger {
   background-color: var(--color-feedback-danger-bg);
   color: var(--color-feedback-danger-text);
+}
+
+/* ─── Checked (selection mode) ───────────────────────────────────────────────── */
+
+.arch-tag--checked {
+  border-color: currentColor;
 }

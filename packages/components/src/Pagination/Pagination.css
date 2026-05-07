@@ -2,7 +2,9 @@
    Uses Button and IconButton internally. CSS handles layout and size-specific overrides. */
 
 .arch-pagination {
-  display: block;
+  display: flex;
+  align-items: center;
+  color: var(--color-background-inverse);
 }
 
 .arch-pagination__list {
@@ -28,6 +30,26 @@
 .arch-pagination--compact .arch-pagination__item .arch-button { min-inline-size: var(--spacing-36); }
 .arch-pagination--default .arch-pagination__item .arch-button { min-inline-size: var(--spacing-48); }
 .arch-pagination--large .arch-pagination__item .arch-button { min-inline-size: var(--spacing-56); }
+
+/* ─── Max label ────────────────────────────────────────────────────────────── */
+
+.arch-pagination__max-label {
+  margin-inline-start: var(--spacing-8);
+  margin-inline-end: var(--spacing-16);
+}
+
+/* ─── Dropdown container ───────────────────────────────────────────────────── */
+
+.arch-pagination__dropdown {
+  position: relative;
+  margin-inline-start: var(--spacing-16);
+  margin-inline-end: var(--spacing-8);
+}
+
+.arch-pagination__dropdown:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
+}
 
 /* Ellipsis — match button height per size */
 .arch-pagination__ellipsis {

@@ -1,5 +1,6 @@
 /* FormControl — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web form-control/styled-components visual design.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
 /* ─── FormControl wrapper ────────────────────────────────────────────────────── */
@@ -7,19 +8,47 @@
 .arch-form-control {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin-block-end: var(--spacing-16);
 }
 
-/* ─── FormLabel ──────────────────────────────────────────────────────────────── */
+/* ─── FormLabel — font250, contentPrimary ────────────────────────────────────── */
 
 .arch-form-label {
-  display: inline-flex;
+  display: flex;
+  width: 100%;
   align-items: center;
-  gap: var(--spacing-4);
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  line-height: var(--typography-scale-paragraph-small-line-height);
+  font-size: var(--typography-scale-label-medium-font-size);
+  line-height: var(--typography-scale-label-medium-line-height);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-default);
-  margin-block-end: var(--spacing-4);
+  padding: 0;
+}
+
+/* ─── Label container — marginY = 8px (scale300) ────────────────────────────── */
+
+.arch-form-label-container {
+  display: flex;
+  width: 100%;
+  margin-block: var(--spacing-8);
+}
+
+/* ─── Label end enhancer — font100, flex: 0, full width ──────────────────────── */
+
+.arch-form-label__end-enhancer {
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+  flex: 0;
+  width: 100%;
+  color: var(--color-text-default);
+}
+
+.arch-form-label__end-enhancer--error {
+  color: var(--color-text-danger);
+}
+
+.arch-form-label__end-enhancer--disabled {
+  color: var(--color-text-disabled);
 }
 
 /* Required asterisk injected via data attribute so it never enters the DOM as
@@ -27,28 +56,76 @@
 .arch-form-label[data-required="true"]::after {
   content: " *";
   color: var(--color-text-danger);
-  aria-hidden: true;
 }
 
-/* Disabled label */
-.arch-form-label[data-disabled="true"] {
-  color: var(--color-text-disabled);
+/* Disabled label — contentSecondary */
+.arch-form-label[data-disabled="true"],
+.arch-form-label--disabled {
+  color: var(--color-text-subtle);
 }
 
-/* ─── FormHelperText ──────────────────────────────────────────────────────────── */
+/* ─── Caption — font100, marginY = 8px (scale300) ───────────────────────────── */
+
+.arch-form-caption {
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+  color: var(--color-text-subtle);
+  padding: 0;
+  margin-block: var(--spacing-8);
+  display: flex;
+}
+
+.arch-form-caption--error {
+  color: var(--color-text-danger);
+}
+
+.arch-form-caption--positive {
+  color: var(--color-text-success);
+}
+
+/* ─── Caption message ────────────────────────────────────────────────────────── */
+
+.arch-form-caption__message {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  flex-grow: 1;
+}
+
+/* ─── Caption icon ───────────────────────────────────────────────────────────── */
+
+.arch-form-caption__icon {
+  display: flex;
+  padding-block-start: var(--spacing-4);
+  padding-inline-end: var(--spacing-4);
+  flex-shrink: 0;
+}
+
+/* ─── FormHelperText (legacy compat) ─────────────────────────────────────────── */
 
 .arch-form-helper-text {
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  line-height: var(--typography-scale-paragraph-small-line-height);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
   color: var(--color-text-subtle);
-  margin-block-start: var(--spacing-4);
+  margin-block: var(--spacing-8);
+  padding: 0;
 }
 
-/* ─── FormErrorMessage ───────────────────────────────────────────────────────── */
+/* ─── FormErrorMessage (legacy compat) ───────────────────────────────────────── */
 
 .arch-form-error-message {
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  line-height: var(--typography-scale-paragraph-small-line-height);
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
   color: var(--color-text-danger);
-  margin-block-start: var(--spacing-4);
+  margin-block: var(--spacing-8);
+  padding: 0;
+  display: flex;
+}
+
+/* ─── Control container ──────────────────────────────────────────────────────── */
+
+.arch-form-control__control {
+  width: 100%;
+  margin-block-end: var(--spacing-16);
 }

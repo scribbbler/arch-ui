@@ -4,27 +4,109 @@
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
 .arch-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-8);
-  inline-size: 100%;
-  padding-block: var(--spacing-16);
-  padding-inline: var(--spacing-16);
-  border-block-end-width: var(--border-width-default);
-  border-block-end-style: solid;
-  font-size: var(--typography-scale-paragraph-small-font-size);
+  display: grid;
+  grid-template-columns: min-content auto min-content;
+  grid-template-rows: auto minmax(0, min-content);
+  grid-column-gap: var(--spacing-16);
+  border-radius: var(--radius-component-md);
+  margin: var(--spacing-16);
   position: relative;
 }
 
-/* ─── Content ────────────────────────────────────────────────────────────────── */
+/* ─── Leading content (artwork) ─────────────────────────────────────────────── */
 
-.arch-banner__content {
-  flex: 1;
-  text-align: center;
+.arch-banner__leading {
+  display: flex;
+  align-items: center;
 }
 
-/* ─── Close button ───────────────────────────────────────────────────────────── */
+.arch-banner__leading--with-artwork {
+  padding-inline-start: var(--spacing-16);
+}
+
+/* ─── Message content ───────────────────────────────────────────────────────── */
+
+.arch-banner__message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block-start: var(--spacing-16);
+}
+
+.arch-banner__message--trailing-action {
+  padding-block-end: var(--spacing-16);
+}
+
+/* ─── Title ──────────────────────────────────────────────────────────────────── */
+
+.arch-banner__title {
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  line-height: var(--typography-scale-label-medium-line-height);
+}
+
+/* ─── Description ────────────────────────────────────────────────────────────── */
+
+.arch-banner__description {
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+}
+
+/* ─── Trailing content ──────────────────────────────────────────────────────── */
+
+.arch-banner__trailing {
+  display: flex;
+  grid-row-end: span 2;
+  margin-inline-start: auto;
+}
+
+/* ─── Trailing button container ─────────────────────────────────────────────── */
+
+.arch-banner__trailing-button {
+  display: flex;
+  align-items: center;
+  padding-inline-end: var(--spacing-16);
+}
+
+/* ─── Trailing icon button ──────────────────────────────────────────────────── */
+
+.arch-banner__trailing-icon-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding-inline: var(--spacing-16);
+  border-start-end-radius: var(--radius-component-md);
+  border-end-end-radius: var(--radius-component-md);
+}
+
+.arch-banner__trailing-icon-button:hover {
+  box-shadow: inset 999px 999px 0 var(--color-background-subtle);
+}
+
+.arch-banner__trailing-icon-button:active {
+  box-shadow: inset 999px 999px 0 var(--color-background-muted);
+}
+
+.arch-banner__trailing-icon-button:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ─── Below content ─────────────────────────────────────────────────────────── */
+
+.arch-banner__below {
+  grid-column-start: 2;
+}
+
+.arch-banner__below--with-action {
+  padding-block-start: var(--spacing-8);
+  padding-block-end: var(--spacing-16);
+}
+
+/* ─── Close button (legacy) ──────────────────────────────────────────────────── */
 
 .arch-banner__close {
   display: inline-flex;
@@ -36,7 +118,6 @@
   padding: var(--spacing-4);
   border-radius: var(--radius-component-sm);
   color: inherit;
-  opacity: 0.7;
   flex-shrink: 0;
   position: absolute;
   inset-inline-end: var(--spacing-16);
@@ -45,8 +126,12 @@
 }
 
 .arch-banner__close:hover {
-  opacity: 1;
-  background-color: var(--color-background-subtle);
+  box-shadow: inset 999px 999px 0 var(--color-background-subtle);
+}
+
+.arch-banner__close:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
 }
 
 /* ─── Action button ─────────────────────────────────────────────────────────── */
@@ -75,17 +160,11 @@
   outline-offset: 2px;
 }
 
-.arch-banner__close:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
-}
-
 /* ─── Variant: info ──────────────────────────────────────────────────────────── */
 
 .arch-banner--info {
   background-color: var(--color-feedback-info-bg);
   color: var(--color-feedback-info-text);
-  border-block-end-color: var(--color-feedback-info-border);
 }
 
 /* ─── Variant: success ───────────────────────────────────────────────────────── */
@@ -93,7 +172,6 @@
 .arch-banner--success {
   background-color: var(--color-feedback-success-bg);
   color: var(--color-feedback-success-text);
-  border-block-end-color: var(--color-feedback-success-border);
 }
 
 /* ─── Variant: warning ───────────────────────────────────────────────────────── */
@@ -101,7 +179,6 @@
 .arch-banner--warning {
   background-color: var(--color-feedback-warning-bg);
   color: var(--color-feedback-warning-text);
-  border-block-end-color: var(--color-feedback-warning-border);
 }
 
 /* ─── Variant: danger ────────────────────────────────────────────────────────── */
@@ -109,5 +186,4 @@
 .arch-banner--danger {
   background-color: var(--color-feedback-danger-bg);
   color: var(--color-feedback-danger-text);
-  border-block-end-color: var(--color-feedback-danger-border);
 }

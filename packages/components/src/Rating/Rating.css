@@ -1,43 +1,65 @@
 /* Rating — arch-ui component styles
+   Aligned with Uber Base Web rating visual design.
    All values must be var(--token-name). No hex, pixel literals, or named colours.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
 /* ─── Wrapper ────────────────────────────────────────────────────────────────── */
 
 .arch-rating {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-4);
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-/* ─── Star button ────────────────────────────────────────────────────────────── */
+.arch-rating:focus {
+  outline: none;
+}
+
+/* ─── Star item — Base Web: inline-block, margin-right=scale300 (8px) ────────── */
 
 .arch-rating__star {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   background: none;
   border: none;
   padding: 0;
+  margin-block: 0;
+  margin-inline-start: 0;
+  margin-inline-end: var(--spacing-8);
   cursor: pointer;
-  color: var(--color-text-subtle);
-  transition: color 0.15s ease;
+  transition: transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
   position: relative;
   line-height: 1;
 }
 
+.arch-rating__star:last-of-type {
+  margin-inline-end: 0;
+}
+
+/* Focus — Base Web: 3px solid borderAccent, offset 2px */
 .arch-rating__star:focus-visible {
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
-  border-radius: var(--radius-component-md);
+  outline: var(--spacing-4) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
 }
 
+/* Hover state */
 .arch-rating__star:hover:not(.arch-rating__star--readonly) {
-  color: var(--color-background-primary);
+  color: var(--color-border-strong);
 }
 
+/* Filled star — Base Web: borderSelected */
 .arch-rating__star--filled {
-  color: var(--color-background-primary);
+  color: var(--color-border-strong);
+}
+
+/* Inactive star — Base Web: ratingInactiveFill */
+.arch-rating__star:not(.arch-rating__star--filled) {
+  color: var(--color-text-subtle);
+}
+
+/* Selected state — Base Web: scale(1.35) */
+.arch-rating__star--selected {
+  transform: scale(1.35);
 }
 
 .arch-rating__star--readonly {
@@ -56,26 +78,58 @@
   inset-inline-start: 0;
   overflow: hidden;
   width: 50%;
-  color: var(--color-background-primary);
+  color: var(--color-border-strong);
+}
+
+/* ─── Emoticon variant — Base Web: margin-right=scale300, scale(1.1) on select ─ */
+
+.arch-rating__emoticon {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-block: 0;
+  margin-inline-start: 0;
+  margin-inline-end: var(--spacing-8);
+  cursor: pointer;
+  transition: transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
+  line-height: 1;
+}
+
+.arch-rating__emoticon:focus-visible {
+  outline: var(--spacing-4) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
+}
+
+.arch-rating__emoticon--selected {
+  transform: scale(1.1);
+}
+
+.arch-rating__emoticon--readonly {
+  cursor: default;
 }
 
 /* ─── Sizes ──────────────────────────────────────────────────────────────────── */
 
-.arch-rating--sm .arch-rating__star {
+.arch-rating--sm .arch-rating__star,
+.arch-rating--sm .arch-rating__emoticon {
   font-size: var(--spacing-16);
 }
 
-.arch-rating--md .arch-rating__star {
-  font-size: var(--spacing-24, 1.5rem);
+.arch-rating--md .arch-rating__star,
+.arch-rating--md .arch-rating__emoticon {
+  font-size: var(--spacing-24);
 }
 
-.arch-rating--lg .arch-rating__star {
-  font-size: var(--spacing-32, 2rem);
+.arch-rating--lg .arch-rating__star,
+.arch-rating--lg .arch-rating__emoticon {
+  font-size: var(--spacing-32);
 }
 
 /* ─── SVG icon sizing ────────────────────────────────────────────────────────── */
 
-.arch-rating__star svg {
+.arch-rating__star svg,
+.arch-rating__emoticon svg {
   width: 1em;
   height: 1em;
   fill: currentColor;

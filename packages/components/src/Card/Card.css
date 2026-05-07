@@ -1,15 +1,15 @@
 /* Card — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web card. */
 
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
 .arch-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-surface-raised);
-  border: var(--border-width-default) solid var(--color-border-default);
-  border-radius: var(--radius-component-md);
-  box-shadow: var(--shadow-component-sm);
+  background-color: var(--color-background-default);
+  border: var(--border-width-strong) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
   overflow: hidden;
   position: relative;
 }
@@ -33,8 +33,8 @@
 }
 
 .arch-card--clickable:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
 }
 
 .arch-card--clickable:active {
@@ -47,18 +47,69 @@
   }
 }
 
-/* ─── Sub-components ─────────────────────────────────────────────────────────── */
+/* ─── Header image ───────────────────────────────────────────────────────────── */
+
+.arch-card__header-image {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
+}
+
+/* ─── Thumbnail ──────────────────────────────────────────────────────────────── */
+
+.arch-card__thumbnail {
+  float: right;
+  inline-size: var(--spacing-96);
+  block-size: var(--spacing-96);
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+  margin-block-end: var(--spacing-12);
+  margin-inline-start: var(--spacing-12);
+}
+
+/* ─── Contents ───────────────────────────────────────────────────────────────── */
+
+.arch-card__contents {
+  padding: var(--spacing-16);
+}
+
+/* ─── Title ──────────────────────────────────────────────────────────────────── */
+
+.arch-card__title {
+  margin: 0;
+  padding: 0;
+  margin-block-end: var(--spacing-12);
+  font-size: var(--typography-scale-heading-small-font-size);
+  font-weight: var(--typography-scale-heading-small-font-weight);
+  line-height: var(--typography-scale-heading-small-line-height);
+  color: var(--color-text-default);
+}
+
+/* ─── Body ───────────────────────────────────────────────────────────────────── */
+
+.arch-card__body {
+  flex: 1;
+  margin-block-end: var(--spacing-16);
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+}
+
+/* ─── Actions ────────────────────────────────────────────────────────────────── */
+
+.arch-card__actions {
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+}
+
+/* ─── Legacy sub-components (backwards compat) ───────────────────────────────── */
 
 .arch-card__header {
   padding-inline: var(--spacing-16);
   padding-block: var(--spacing-12);
   border-block-end: var(--border-width-default) solid var(--color-border-default);
-}
-
-.arch-card__body {
-  flex: 1;
-  padding-inline: var(--spacing-16);
-  padding-block: var(--spacing-16);
 }
 
 .arch-card__footer {

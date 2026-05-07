@@ -1,68 +1,84 @@
 /* DndList — arch-ui component styles
+   Aligned with Uber Base Web dnd-list visual design.
    All values must be var(--token-name). No hex, pixel literals, or named colours.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
-/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+/* ─── Root ───────────────────────────────────────────────────────────────────── */
 
-.arch-dnd-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-4);
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.arch-dnd-list__root {
+  inline-size: 100%;
 }
 
-/* ─── Item ───────────────────────────────────────────────────────────────────── */
+/* ─── List ───────────────────────────────────────────────────────────────────── */
+
+.arch-dnd-list {
+  list-style: none;
+  margin: 0;
+  padding-inline-start: 0;
+}
+
+.arch-dnd-list--dragging {
+  cursor: grabbing;
+  pointer-events: none;
+}
+
+/* ─── Item — Base Web: padding=scale600 (16px), border=2px ───────────────────── */
 
 .arch-dnd-list__item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-8);
+  justify-content: space-between;
+  list-style: none;
   background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-subtle);
-  border-radius: var(--radius-component-md);
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-12);
-  font-size: var(--typography-scale-text-sm);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
   color: var(--color-text-default);
-  cursor: default;
-  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  cursor: grab;
+  border-width: var(--border-width-medium);
+  border-style: solid;
+  border-color: transparent;
 }
 
-.arch-dnd-list__item:hover {
-  border-color: var(--color-border-default);
+/* Hover — Base Web: borderSelected on all sides */
+.arch-dnd-list__item:hover:not(.arch-dnd-list__item--dragging):not(.arch-dnd-list__item--selected) {
+  border-color: var(--color-border-strong);
 }
 
+/* Focus — Base Web: 3px solid borderAccent, offset -3px */
+.arch-dnd-list__item:focus-visible:not(.arch-dnd-list__item--dragging):not(.arch-dnd-list__item--selected) {
+  outline: var(--spacing-4) solid var(--color-border-focus);
+  outline-offset: calc(var(--spacing-4) * -1);
+}
+
+/* Dragging — Base Web: box-shadow, borderSelected */
 .arch-dnd-list__item--dragging {
-  box-shadow: var(--shadow-sm);
-  border-color: var(--color-border-focus);
-  opacity: 0.8;
+  cursor: grabbing;
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
 }
 
-.arch-dnd-list__item--drag-over {
-  border-color: var(--color-border-focus);
-  background-color: var(--color-background-muted);
+/* Selected — Base Web: borderSelected */
+.arch-dnd-list__item--selected {
+  border-color: var(--color-border-strong);
 }
 
-/* ─── Grab handle ────────────────────────────────────────────────────────────── */
+/* ─── Grab handle — Base Web: marginRight=scale600 (16px), width=scale800 (24px) */
 
 .arch-dnd-list__handle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
   background: none;
   border: none;
-  padding: var(--spacing-4);
+  padding: 0;
+  margin-inline-end: var(--spacing-16);
+  inline-size: var(--spacing-24);
   cursor: grab;
   color: var(--color-text-subtle);
   flex-shrink: 0;
-  border-radius: var(--radius-component-md);
 }
 
 .arch-dnd-list__handle:focus-visible {
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--spacing-4) solid var(--color-border-focus);
 }
 
 .arch-dnd-list__handle:active {
@@ -74,7 +90,7 @@
   height: 1em;
 }
 
-/* ─── Label ──────────────────────────────────────────────────────────────────── */
+/* ─── Label — Base Web: font300, flexGrow 1 ──────────────────────────────────── */
 
 .arch-dnd-list__label {
   flex: 1;
@@ -82,31 +98,31 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
-/* ─── Remove button ──────────────────────────────────────────────────────────── */
+/* ─── Close/remove button — Base Web: marginLeft=scale600, width=scale800 ──── */
 
 .arch-dnd-list__remove {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  background: none;
+  background: transparent;
   border: none;
-  padding: var(--spacing-4);
+  padding: 0;
+  margin-inline-start: var(--spacing-16);
+  inline-size: var(--spacing-24);
   cursor: pointer;
   color: var(--color-text-subtle);
   flex-shrink: 0;
-  border-radius: var(--radius-component-md);
 }
 
 .arch-dnd-list__remove:hover {
   color: var(--color-text-default);
-  background-color: var(--color-background-muted);
 }
 
 .arch-dnd-list__remove:focus-visible {
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--spacing-4) solid var(--color-border-focus);
 }
 
 .arch-dnd-list__remove svg {

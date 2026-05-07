@@ -1,58 +1,125 @@
 /* TableSemantic — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web table-semantic. */
 
 /* ─── Wrapper ───────────────────────────────────────────────────────────────── */
 
 .arch-table-semantic__wrapper {
-  overflow-x: auto;
-  inline-size: 100%;
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--color-background-default);
+  transform: scale(1);
 }
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-table-semantic {
   inline-size: 100%;
-  border-collapse: collapse;
-  background-color: var(--color-background-default);
+  border-spacing: 0;
+  box-sizing: border-box;
+  min-width: 100%;
   color: var(--color-text-default);
 }
 
 /* ─── Header ────────────────────────────────────────────────────────────────── */
 
 .arch-table-semantic th {
+  position: sticky;
+  inset-block-start: 0;
   text-align: start;
   font-weight: var(--typography-weight-semibold);
-  font-size: var(--typography-scale-text-sm);
-  color: var(--color-text-subtle);
-  border-block-end: var(--border-width-default) solid var(--color-border-default);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-default);
+  background-color: var(--color-background-default);
   white-space: nowrap;
+  z-index: 1;
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Head cell sortable ─────────────────────────────────────────────────────── */
+
+.arch-table-semantic th[data-sortable] {
+  cursor: pointer;
+  outline: none;
+}
+
+.arch-table-semantic th[data-sortable]:focus-visible {
+  outline: var(--spacing-2) solid var(--color-border-focus);
+  outline-offset: calc(-1 * var(--spacing-2));
+}
+
+.arch-table-semantic th[data-sortable]:hover {
+  background-color: var(--color-background-subtle);
 }
 
 /* ─── Cells ─────────────────────────────────────────────────────────────────── */
 
 .arch-table-semantic td {
-  vertical-align: middle;
+  vertical-align: top;
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+}
+
+/* ─── Divider: horizontal (default) ─────────────────────────────────────────── */
+
+.arch-table-semantic td {
   border-block-end: var(--border-width-default) solid var(--color-border-default);
 }
 
-/* ─── Sizes ─────────────────────────────────────────────────────────────────── */
+.arch-table-semantic tr:last-child td {
+  border-block-end: none;
+}
+
+/* ─── Divider: vertical ──────────────────────────────────────────────────────── */
+
+.arch-table-semantic--vertical th:not(:last-child),
+.arch-table-semantic--vertical td:not(:last-child) {
+  border-inline-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Divider: grid ──────────────────────────────────────────────────────────── */
+
+.arch-table-semantic--grid {
+  border: var(--border-width-default) solid var(--color-border-default);
+}
+
+.arch-table-semantic--grid th,
+.arch-table-semantic--grid td {
+  border: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Divider: clean (no borders) ────────────────────────────────────────────── */
+
+.arch-table-semantic--clean th {
+  border-block-end: none;
+}
+
+.arch-table-semantic--clean td {
+  border-block-end: none;
+}
+
+/* ─── Sizes — match Base Web sizeToCellPadding ───────────────────────────────── */
 
 .arch-table-semantic--compact th,
 .arch-table-semantic--compact td {
-  padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-8);
+  padding: var(--spacing-12);
 }
 
 .arch-table-semantic--default th,
 .arch-table-semantic--default td {
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-16);
+  padding: var(--spacing-16);
 }
 
 .arch-table-semantic--spacious th,
 .arch-table-semantic--spacious td {
-  padding-block: var(--spacing-12);
-  padding-inline: var(--spacing-16);
+  padding: var(--spacing-24);
+}
+
+/* ─── Row hover ──────────────────────────────────────────────────────────────── */
+
+.arch-table-semantic tbody tr:hover {
+  background-color: var(--color-background-subtle);
 }
 
 /* ─── Striped ───────────────────────────────────────────────────────────────── */
@@ -61,8 +128,17 @@
   background-color: var(--color-background-subtle);
 }
 
-/* ─── Hoverable ─────────────────────────────────────────────────────────────── */
+/* ─── Hoverable (explicit opt-in) ────────────────────────────────────────────── */
 
 .arch-table-semantic--hoverable tbody tr:hover {
   background-color: var(--color-background-muted);
+}
+
+/* ─── Loading / Empty messages ───────────────────────────────────────────────── */
+
+.arch-table-semantic__loading,
+.arch-table-semantic__empty {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-default);
+  padding: var(--spacing-16);
 }

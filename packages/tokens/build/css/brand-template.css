@@ -98,6 +98,8 @@
   /* --color-border-warning: ; */
   /* color > border > disabled — current: #dddddd */
   /* --color-border-disabled: ; */
+  /* color > border > selected — current: #000000 */
+  /* --color-border-selected: ; */
   /* color > feedback > danger-bg — current: #fff0ee */
   /* --color-feedback-danger-bg: ; */
   /* color > feedback > danger-text — current: #bb032a */

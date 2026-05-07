@@ -4,18 +4,37 @@
   position: absolute;
   z-index: var(--z-semantic-popover);
   background-color: var(--color-surface-raised);
-  border: var(--border-width-default) solid var(--color-border-default);
-  box-shadow: var(--shadow-component-md);
-  padding-block: var(--spacing-16);
-  padding-inline: var(--spacing-16);
   border-radius: var(--radius-component-md);
-  min-inline-size: 12rem;
+  box-shadow: var(--shadow-lg);
   outline: none;
+  opacity: 0;
+  transition:
+    opacity var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter),
+    transform var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter);
+}
+
+.arch-popover--visible {
+  opacity: 1;
 }
 
 .arch-popover:focus-visible {
   outline: 2px solid var(--color-border-focus);
   outline-offset: 2px;
+}
+
+/* ─── Popover inner ─────────────────────────────────────────────────────────── */
+
+.arch-popover__inner {
+  position: relative;
+  background-color: var(--color-surface-raised);
+  border-radius: var(--radius-component-md);
+  color: var(--color-text-default);
+}
+
+/* ─── Popover padding (convenience wrapper) ─────────────────────────────────── */
+
+.arch-popover__padding {
+  padding: var(--spacing-12);
 }
 
 /* ─── Popover arrow ──────────────────────────────────────────────────────────── */
@@ -25,7 +44,7 @@
   width: var(--spacing-8);
   height: var(--spacing-8);
   background-color: var(--color-surface-raised);
-  border: var(--border-width-default) solid var(--color-border-default);
+  box-shadow: var(--shadow-lg);
   transform: rotate(45deg);
   pointer-events: none;
 }
@@ -35,8 +54,6 @@
   inset-block-start: calc(-1 * var(--spacing-4));
   inset-inline-start: 50%;
   margin-inline-start: calc(-1 * var(--spacing-4));
-  border-inline-end: none;
-  border-block-end: none;
 }
 
 /* Arrow pointing down (popover above trigger) */
@@ -44,8 +61,6 @@
   inset-block-end: calc(-1 * var(--spacing-4));
   inset-inline-start: 50%;
   margin-inline-start: calc(-1 * var(--spacing-4));
-  border-inline-start: none;
-  border-block-start: none;
 }
 
 /* Arrow pointing left (popover to the right of trigger) */
@@ -53,8 +68,6 @@
   inset-inline-start: calc(-1 * var(--spacing-4));
   inset-block-start: 50%;
   margin-block-start: calc(-1 * var(--spacing-4));
-  border-inline-end: none;
-  border-block-start: none;
 }
 
 /* Arrow pointing right (popover to the left of trigger) */
@@ -62,6 +75,4 @@
   inset-inline-end: calc(-1 * var(--spacing-4));
   inset-block-start: 50%;
   margin-block-start: calc(-1 * var(--spacing-4));
-  border-inline-start: none;
-  border-block-end: none;
 }

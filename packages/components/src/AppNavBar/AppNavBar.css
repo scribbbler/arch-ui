@@ -4,15 +4,28 @@
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-app-nav-bar {
+  box-sizing: border-box;
+  background-color: var(--color-background-default);
+  border-block-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Desktop menu layout ──────────────────────────────────────────────────── */
+
+.arch-app-nav-bar__desktop {
   display: flex;
   align-items: center;
-  gap: var(--spacing-16);
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-16);
+  justify-content: space-between;
+  margin: auto;
+}
 
-  background-color: var(--color-background-default);
-  border-block-end: var(--border-width-thin) solid var(--color-border-subtle);
-  box-shadow: var(--shadow-sm);
+/* ─── Spacing container ────────────────────────────────────────────────────── */
+
+.arch-app-nav-bar__spacing {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  block-size: 100%;
+  padding-block: var(--spacing-10);
 }
 
 /* ─── Start (logo + title) ──────────────────────────────────────────────────── */
@@ -30,60 +43,143 @@
 }
 
 .arch-app-nav-bar__title {
-  font-size: var(--typography-scale-text-sm);
-  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-weight-semibold);
   color: var(--color-text-default);
+  text-decoration: none;
   white-space: nowrap;
 }
 
-/* ─── Items ─────────────────────────────────────────────────────────────────── */
+/* ─── Side menu button ─────────────────────────────────────────────────────── */
 
-.arch-app-nav-bar__items {
+.arch-app-nav-bar__side-menu-btn {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: var(--spacing-4);
-  list-style: none;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-text-default);
+  border: none;
+  padding: var(--spacing-4);
   margin: 0;
-  padding: 0;
-  flex: 1;
+  margin-inline-end: var(--spacing-16);
+  cursor: pointer;
+  appearance: none;
 }
 
-.arch-app-nav-bar__item-wrapper {
-  display: flex;
+.arch-app-nav-bar__side-menu-btn:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: calc(-1 * var(--spacing-2));
 }
+
+/* ─── Primary menu container ───────────────────────────────────────────────── */
+
+.arch-app-nav-bar__primary {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: stretch;
+  block-size: 100%;
+  padding-inline-end: var(--spacing-32);
+}
+
+/* ─── Main menu item ───────────────────────────────────────────────────────── */
 
 .arch-app-nav-bar__item {
-  display: inline-flex;
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
-  gap: var(--spacing-4);
-  padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-8);
-
-  font-size: var(--typography-scale-text-sm);
   color: var(--color-text-subtle);
-  text-decoration: none;
-  border-radius: var(--radius-component-md);
+  margin-inline: var(--spacing-20);
+  border-block-end: var(--border-width-medium) solid transparent;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+.arch-app-nav-bar__item:first-child {
+  margin-inline-start: 0;
+}
+
+.arch-app-nav-bar__item:last-child {
+  margin-inline-end: 0;
 }
 
 .arch-app-nav-bar__item:hover {
-  background-color: var(--color-background-muted);
   color: var(--color-text-default);
 }
 
 .arch-app-nav-bar__item--active {
-  background-color: var(--color-background-primary);
-  color: var(--color-text-inverse);
+  color: var(--color-text-default);
+  border-block-end-color: var(--color-border-selected);
+  cursor: default;
 }
 
 .arch-app-nav-bar__item:focus-visible {
   outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: var(--spacing-2);
+  outline-offset: calc(-1 * var(--spacing-2));
 }
 
 .arch-app-nav-bar__item-icon {
   display: inline-flex;
   align-items: center;
+}
+
+/* ─── Secondary menu container ─────────────────────────────────────────────── */
+
+.arch-app-nav-bar__secondary {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin: auto;
+  overflow: auto;
+  block-size: 100%;
+}
+
+/* ─── User menu button ─────────────────────────────────────────────────────── */
+
+.arch-app-nav-bar__user-menu-btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-text-default);
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  appearance: none;
+}
+
+.arch-app-nav-bar__user-menu-btn:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: calc(-1 * var(--spacing-2));
+}
+
+/* ─── User profile tile ────────────────────────────────────────────────────── */
+
+.arch-app-nav-bar__profile {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  block-size: 100%;
+}
+
+.arch-app-nav-bar__profile-picture {
+  margin-inline-end: var(--spacing-16);
+}
+
+.arch-app-nav-bar__profile-info {
+  box-sizing: border-box;
+  align-self: center;
 }
 
 /* ─── End (user info) ───────────────────────────────────────────────────────── */

@@ -1,5 +1,6 @@
 /* Combobox — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web combobox/styled-components visual design.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
 /* ─── Root container ─────────────────────────────────────────────────────────── */
@@ -20,15 +21,17 @@
   gap: var(--spacing-4);
   width: 100%;
   box-sizing: border-box;
-  background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-muted);
+  border: var(--border-width-medium) solid var(--color-border-default);
   border-radius: var(--radius-component-md);
   cursor: pointer;
   outline: none;
-  transition: border-color 0.15s;
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
-.arch-combobox__control:hover:not(.arch-combobox__control--disabled) {
+.arch-combobox__control:hover:not(.arch-combobox__control--disabled):not(.arch-combobox__control--focused) {
   border-color: var(--color-border-strong);
 }
 
@@ -36,8 +39,7 @@
 
 .arch-combobox__control--focused {
   border-color: var(--color-border-focus);
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  background-color: var(--color-background-default);
 }
 
 /* ─── Error state ────────────────────────────────────────────────────────────── */
@@ -48,7 +50,6 @@
 
 .arch-combobox__control--error.arch-combobox__control--focused {
   border-color: var(--color-border-danger);
-  outline-color: var(--color-border-danger);
 }
 
 /* ─── Positive state ─────────────────────────────────────────────────────────── */
@@ -59,14 +60,13 @@
 
 .arch-combobox__control--positive.arch-combobox__control--focused {
   border-color: var(--color-border-success);
-  outline-color: var(--color-border-success);
 }
 
 /* ─── Disabled state ─────────────────────────────────────────────────────────── */
 
 .arch-combobox__control--disabled {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-border-disabled);
+  border-color: var(--color-background-disabled);
   color: var(--color-text-disabled);
   cursor: not-allowed;
 }
@@ -86,11 +86,12 @@
 }
 
 .arch-combobox__input::placeholder {
-  color: var(--color-text-subtle);
+  color: var(--color-text-placeholder);
 }
 
 .arch-combobox__input:disabled {
   color: var(--color-text-disabled);
+  -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
@@ -102,6 +103,7 @@
   gap: var(--spacing-4);
   margin-inline-start: auto;
   flex-shrink: 0;
+  padding-inline-end: var(--spacing-12);
 }
 
 .arch-combobox__clear-btn {
@@ -112,7 +114,7 @@
   background: transparent;
   cursor: pointer;
   padding: var(--spacing-2);
-  color: var(--color-text-subtle);
+  color: var(--color-text-default);
   border-radius: var(--radius-component-sm);
 }
 
@@ -121,15 +123,19 @@
 }
 
 .arch-combobox__clear-btn:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-0);
 }
 
 .arch-combobox__chevron {
   display: flex;
   align-items: center;
-  color: var(--color-text-subtle);
+  color: var(--color-text-default);
   pointer-events: none;
+}
+
+.arch-combobox__chevron--disabled {
+  color: var(--color-text-disabled);
 }
 
 /* ─── Dropdown (listbox) ─────────────────────────────────────────────────────── */
@@ -139,17 +145,18 @@
   z-index: var(--z-semantic-dropdown);
   width: 100%;
   box-sizing: border-box;
-  max-height: 300px;
+  max-height: var(--spacing-80);
   overflow-y: auto;
-  background-color: var(--color-surface-base);
+  background-color: var(--color-background-default);
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-component-md);
   box-shadow: var(--shadow-shallow-above);
   margin-block-start: var(--spacing-4);
-  padding-block: var(--spacing-4);
+  padding-block: var(--spacing-0);
   list-style: none;
   margin-inline: 0;
   padding-inline: 0;
+  outline: none;
 }
 
 /* ─── Option ─────────────────────────────────────────────────────────────────── */
@@ -157,19 +164,22 @@
 .arch-combobox__option {
   display: flex;
   align-items: center;
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-14);
-  cursor: pointer;
+  cursor: default;
   color: var(--color-text-default);
   font-family: inherit;
+  list-style: none;
 }
 
 .arch-combobox__option--focused {
   background-color: var(--color-background-muted);
 }
 
+.arch-combobox__option:hover:not(.arch-combobox__option--focused) {
+  background-color: var(--color-background-subtle);
+}
+
 .arch-combobox__option--selected {
-  font-weight: 600;
+  font-weight: var(--typography-weight-semibold);
 }
 
 .arch-combobox__option--disabled {
@@ -189,12 +199,18 @@
   color: var(--color-text-subtle);
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+/* ─── Sizes — matches Base Web Combobox padding scale ────────────────────────
+   mini:    height=30  paddingL=6   font=ParagraphXSmall
+   compact: height=36  paddingL=10  font=ParagraphSmall
+   default: height=48  paddingL=14  font=ParagraphMedium
+   large:   height=56  paddingL=16  font=ParagraphLarge
+   ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-combobox--mini .arch-combobox__control {
-  padding-block: var(--spacing-6);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-6);
   min-block-size: var(--spacing-28);
+  border-radius: var(--radius-sm);
 }
 
 .arch-combobox--mini .arch-combobox__input {
@@ -205,12 +221,16 @@
 .arch-combobox--mini .arch-combobox__option {
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-6);
+  min-block-size: var(--spacing-28);
 }
 
 .arch-combobox--compact .arch-combobox__control {
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-6);
+  padding-inline: var(--spacing-10);
   min-block-size: var(--spacing-36);
+  border-radius: var(--radius-sm);
 }
 
 .arch-combobox--compact .arch-combobox__input {
@@ -221,11 +241,14 @@
 .arch-combobox--compact .arch-combobox__option {
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
+  padding-block: var(--spacing-6);
+  padding-inline: var(--spacing-10);
+  min-block-size: var(--spacing-36);
 }
 
 .arch-combobox--default .arch-combobox__control {
-  padding-block: var(--spacing-12);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-10);
+  padding-inline: var(--spacing-10);
   min-block-size: var(--spacing-48);
 }
 
@@ -237,11 +260,14 @@
 .arch-combobox--default .arch-combobox__option {
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
+  padding-block: var(--spacing-10);
+  padding-inline: var(--spacing-14);
+  min-block-size: var(--spacing-48);
 }
 
 .arch-combobox--large .arch-combobox__control {
-  padding-block: var(--spacing-16);
-  padding-inline: var(--spacing-14);
+  padding-block: var(--spacing-14);
+  padding-inline: var(--spacing-10);
   min-block-size: var(--spacing-56);
 }
 
@@ -253,4 +279,7 @@
 .arch-combobox--large .arch-combobox__option {
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
+  padding-block: var(--spacing-14);
+  padding-inline: var(--spacing-16);
+  min-block-size: var(--spacing-56);
 }

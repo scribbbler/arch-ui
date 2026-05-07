@@ -1,122 +1,174 @@
 /* ButtonTimed — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Extends .arch-button base styles. Matches Base Web ButtonTimed overlay pattern. */
 
-/* ─── Base ──────────────────────────────────────────────────────────────────── */
+/* ─── Base — inherits from .arch-button, adds relative positioning ─────────── */
 
 .arch-button-timed {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-4);
-  border: none;
-  border-radius: var(--radius-component-md);
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: var(--typography-weight-semibold);
-  white-space: nowrap;
-  transition:
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Timer progress overlay — Base Web uses ::after pseudo-element ─────────── */
+
+.arch-button-timed::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  z-index: 1;
+  background-color: var(--color-background-overlay);
+  transform-origin: left;
+  animation-timing-function: linear;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arch-button-timed {
-    transition: none;
+  .arch-button-timed::after {
+    animation: none;
   }
 }
 
 /* ─── Kind: Primary ─────────────────────────────────────────────────────────── */
 
 .arch-button-timed--primary {
-  background-color: var(--color-background-primary);
-  color: var(--color-text-inverse);
+  background-color: var(--color-action-primary);
+  color: var(--color-action-primary-text);
 }
 
-.arch-button-timed--primary:hover:not(:disabled) {
-  background-color: var(--color-action-primary-hover);
+@media (hover: hover) {
+  .arch-button-timed--primary:hover:not(:disabled) {
+    box-shadow: inset 999px 999px 0 var(--color-action-primary-hover);
+  }
+}
+
+.arch-button-timed--primary:active:not(:disabled) {
+  box-shadow: inset 999px 999px 0 var(--color-action-primary-active);
 }
 
 /* ─── Kind: Secondary ───────────────────────────────────────────────────────── */
 
 .arch-button-timed--secondary {
-  background-color: var(--color-background-default);
-  color: var(--color-text-default);
-  box-shadow: inset 0 0 0 var(--border-width-default) var(--color-border-default);
+  background-color: var(--color-action-secondary);
+  color: var(--color-action-secondary-text);
 }
 
-.arch-button-timed--secondary:hover:not(:disabled) {
-  background-color: var(--color-background-muted);
+@media (hover: hover) {
+  .arch-button-timed--secondary:hover:not(:disabled) {
+    box-shadow: inset 999px 999px 0 var(--color-action-secondary-hover);
+  }
+}
+
+.arch-button-timed--secondary:active:not(:disabled) {
+  box-shadow: inset 999px 999px 0 var(--color-action-secondary-active);
 }
 
 /* ─── Kind: Tertiary ────────────────────────────────────────────────────────── */
 
 .arch-button-timed--tertiary {
   background-color: transparent;
-  color: var(--color-text-default);
+  color: var(--color-action-ghost-text);
 }
 
-.arch-button-timed--tertiary:hover:not(:disabled) {
-  background-color: var(--color-background-muted);
+@media (hover: hover) {
+  .arch-button-timed--tertiary:hover:not(:disabled) {
+    box-shadow: inset 999px 999px 0 var(--color-action-ghost-hover);
+  }
+}
+
+.arch-button-timed--tertiary:active:not(:disabled) {
+  box-shadow: inset 999px 999px 0 var(--color-action-ghost-active);
 }
 
 /* ─── Kind: Danger Primary ──────────────────────────────────────────────────── */
 
 .arch-button-timed--danger-primary {
-  background-color: var(--color-action-danger);
-  color: var(--color-text-inverse);
+  background-color: var(--color-action-destructive);
+  color: var(--color-action-destructive-text);
 }
 
-.arch-button-timed--danger-primary:hover:not(:disabled) {
-  background-color: var(--color-action-danger-hover);
+@media (hover: hover) {
+  .arch-button-timed--danger-primary:hover:not(:disabled) {
+    box-shadow: inset 999px 999px 0 var(--color-action-destructive-hover);
+  }
+}
+
+.arch-button-timed--danger-primary:active:not(:disabled) {
+  box-shadow: inset 999px 999px 0 var(--color-action-destructive-active);
 }
 
 /* ─── Kind: Danger Secondary ────────────────────────────────────────────────── */
 
 .arch-button-timed--danger-secondary {
-  background-color: var(--color-background-default);
-  color: var(--color-action-danger);
-  box-shadow: inset 0 0 0 var(--border-width-default) var(--color-border-danger);
+  background-color: var(--color-feedback-danger-bg);
+  color: var(--color-feedback-danger-text);
 }
 
-.arch-button-timed--danger-secondary:hover:not(:disabled) {
-  background-color: var(--color-background-muted);
+@media (hover: hover) {
+  .arch-button-timed--danger-secondary:hover:not(:disabled) {
+    box-shadow: inset 999px 999px 0 var(--color-action-destructive);
+    color: var(--color-action-destructive-text);
+  }
+}
+
+.arch-button-timed--danger-secondary:active:not(:disabled) {
+  box-shadow: inset 999px 999px 0 var(--color-action-destructive-active);
+  color: var(--color-action-destructive-text);
 }
 
 /* ─── Kind: Danger Tertiary ─────────────────────────────────────────────────── */
 
 .arch-button-timed--danger-tertiary {
   background-color: transparent;
-  color: var(--color-action-danger);
+  color: var(--color-feedback-danger-text);
 }
 
-.arch-button-timed--danger-tertiary:hover:not(:disabled) {
-  background-color: var(--color-background-muted);
+@media (hover: hover) {
+  .arch-button-timed--danger-tertiary:hover:not(:disabled) {
+    box-shadow: inset 999px 999px 0 var(--color-feedback-danger-bg);
+  }
 }
 
-/* ─── Sizes ─────────────────────────────────────────────────────────────────── */
+.arch-button-timed--danger-tertiary:active:not(:disabled) {
+  box-shadow: inset 999px 999px 0 var(--color-action-destructive);
+  color: var(--color-action-destructive-text);
+}
+
+/* ─── Sizes — matches Base Web button sizes ────────────────────────────────── */
 
 .arch-button-timed--mini {
-  padding-block: var(--spacing-4);
+  padding-block: var(--spacing-6);
   padding-inline: var(--spacing-8);
-  font-size: var(--typography-scale-text-xs);
+  font-size: var(--typography-scale-label-xsmall-font-size);
+  line-height: var(--typography-scale-label-xsmall-line-height);
+  min-block-size: var(--spacing-28);
 }
 
 .arch-button-timed--compact {
-  padding-block: var(--spacing-4);
+  padding-block: var(--spacing-10);
   padding-inline: var(--spacing-12);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-label-small-font-size);
+  line-height: var(--typography-scale-label-small-line-height);
+  min-block-size: var(--spacing-36);
 }
 
 .arch-button-timed--default {
-  padding-block: var(--spacing-8);
+  padding-block: var(--spacing-14);
   padding-inline: var(--spacing-16);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-label-medium-font-size);
+  line-height: var(--typography-scale-label-medium-line-height);
+  min-block-size: var(--spacing-48);
 }
 
 .arch-button-timed--large {
-  padding-block: var(--spacing-12);
-  padding-inline: var(--spacing-16);
-  font-size: var(--typography-scale-text-md);
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-20);
+  font-size: var(--typography-scale-label-large-font-size);
+  line-height: var(--typography-scale-label-large-line-height);
+  min-block-size: var(--spacing-56);
 }
 
 /* ─── Disabled ──────────────────────────────────────────────────────────────── */
@@ -124,22 +176,31 @@
 .arch-button-timed--disabled,
 .arch-button-timed:disabled {
   cursor: not-allowed;
+  pointer-events: none;
   background-color: var(--color-background-disabled);
   color: var(--color-text-disabled);
   box-shadow: none;
+}
+
+.arch-button-timed--disabled::after,
+.arch-button-timed:disabled::after {
+  display: none;
 }
 
 /* ─── Timer text ────────────────────────────────────────────────────────────── */
 
 .arch-button-timed__timer {
   font-weight: var(--typography-weight-regular);
+  font-variant-numeric: tabular-nums;
   color: inherit;
   opacity: 0.75;
+  min-inline-size: var(--spacing-48);
 }
 
 /* ─── Focus visible ─────────────────────────────────────────────────────────── */
 
 .arch-button-timed:focus-visible {
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow:
+    inset 0 0 0 var(--spacing-2) var(--color-border-focus),
+    0 0 0 var(--spacing-2) var(--color-border-focus);
 }

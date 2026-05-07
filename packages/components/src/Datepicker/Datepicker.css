@@ -1,4 +1,5 @@
 /* Datepicker — arch-ui component styles
+   Aligned with Uber Base Web datepicker visual design.
    All values must be var(--token-name). No hex, pixel literals, or named colours.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
@@ -9,6 +10,33 @@
   display: inline-flex;
   flex-direction: column;
   width: 100%;
+}
+
+/* ─── Input wrapper (for range inputs) ──────────────────────────────────────── */
+
+.arch-datepicker__input-wrapper {
+  inline-size: 100%;
+}
+
+.arch-datepicker__input-wrapper--range {
+  display: flex;
+  justify-content: center;
+}
+
+.arch-datepicker__input-label {
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  line-height: var(--typography-scale-label-medium-line-height);
+  margin-block-end: var(--spacing-8);
+}
+
+.arch-datepicker__start-date {
+  inline-size: 100%;
+  margin-inline-end: var(--spacing-8);
+}
+
+.arch-datepicker__end-date {
+  inline-size: 100%;
 }
 
 /* ─── Input trigger ──────────────────────────────────────────────────────────── */
@@ -35,7 +63,7 @@
 .arch-datepicker__input:focus-visible {
   border-color: var(--color-border-focus);
   outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline-offset: var(--spacing-2);
 }
 
 .arch-datepicker__input:disabled {
@@ -50,136 +78,340 @@
 .arch-datepicker--compact .arch-datepicker__input {
   padding-block: var(--spacing-4);
   padding-inline: var(--spacing-8);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
 .arch-datepicker--default .arch-datepicker__input {
   padding-block: var(--spacing-8);
   padding-inline: var(--spacing-12);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
 .arch-datepicker--large .arch-datepicker__input {
   padding-block: var(--spacing-12);
   padding-inline: var(--spacing-16);
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
-/* ─── Calendar popover ───────────────────────────────────────────────────────── */
+/* ─── Calendar root — Base Web: radius400, padding=scale500 (12px) ──────────── */
 
 .arch-datepicker__popover {
   position: absolute;
   inset-block-start: 100%;
   inset-inline-start: 0;
-  z-index: 1000;
+  z-index: var(--z-semantic-dropdown);
   margin-block-start: var(--spacing-4);
   background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-subtle);
   border-radius: var(--radius-component-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   padding: var(--spacing-12);
-  min-width: 280px;
+  display: inline-block;
+  text-align: center;
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  color: var(--color-text-default);
 }
 
-/* ─── Calendar header ────────────────────────────────────────────────────────── */
+/* ─── Month container — horizontal or vertical orientation ──────────────────── */
+
+.arch-datepicker__month-container {
+  display: flex;
+  gap: var(--spacing-16);
+}
+
+.arch-datepicker__month-container--vertical {
+  flex-direction: column;
+}
+
+/* ─── Calendar header — Base Web: grid layout, minHeight ────────────────────── */
 
 .arch-datepicker__header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  margin-block-end: var(--spacing-8);
+  box-sizing: border-box;
+  font-size: var(--typography-scale-label-large-font-size);
+  font-weight: var(--typography-scale-label-large-font-weight);
+  line-height: var(--typography-scale-label-large-line-height);
+  color: var(--color-text-default);
+  background-color: var(--color-background-default);
+  border-start-start-radius: var(--radius-component-md);
+  border-start-end-radius: var(--radius-component-md);
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+  min-block-size: var(--spacing-56);
 }
+
+.arch-datepicker__header--compact {
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  line-height: var(--typography-scale-label-medium-line-height);
+  min-block-size: calc(var(--spacing-24) + var(--spacing-2));
+}
+
+/* ─── Month/year select button — Base Web: transparent bg, flex, label font ── */
 
 .arch-datepicker__header-label {
-  font-size: var(--typography-scale-text-sm);
-  font-weight: 600;
-  color: var(--color-text-default);
-}
-
-.arch-datepicker__nav-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  background: none;
-  border: var(--border-width-default) solid var(--color-border-subtle);
-  border-radius: var(--radius-component-md);
+  background-color: transparent;
+  border: none;
   color: var(--color-text-default);
   cursor: pointer;
-  padding: var(--spacing-4);
-  font-size: var(--typography-scale-text-sm);
-  line-height: 1;
+  font-size: var(--typography-scale-label-large-font-size);
+  font-weight: var(--typography-scale-label-large-font-weight);
+  line-height: var(--typography-scale-label-large-line-height);
+  block-size: var(--spacing-56);
+  padding-block: var(--spacing-14);
+  padding-inline: var(--spacing-16);
+  outline: none;
+}
+
+.arch-datepicker__header-label:focus-visible {
+  box-shadow: 0 0 0 var(--spacing-4) var(--color-border-focus);
+}
+
+.arch-datepicker__header-icon {
+  display: flex;
+  align-items: center;
+  margin-inline-start: var(--spacing-12);
+}
+
+/* ─── Nav buttons — Base Web: 48px square, transparent bg, centered ──────────── */
+
+.arch-datepicker__nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  color: var(--color-text-default);
+  cursor: pointer;
+  block-size: var(--spacing-48);
+  inline-size: var(--spacing-48);
+  padding: 0;
+  margin: 0;
+  outline: none;
 }
 
 .arch-datepicker__nav-btn:focus-visible {
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: 0 0 0 var(--spacing-4) var(--color-border-focus);
 }
 
-.arch-datepicker__nav-btn:hover {
-  background-color: var(--color-background-muted);
+.arch-datepicker__nav-btn:disabled {
+  color: var(--color-text-disabled);
+  cursor: default;
 }
 
-/* ─── Day labels row ─────────────────────────────────────────────────────────── */
+.arch-datepicker__nav-btn--trailing {
+  justify-self: end;
+}
+
+.arch-datepicker__nav-btn--leading {
+  justify-self: start;
+}
+
+/* ─── Month header (weekday names row) ──────────────────────────────────────── */
 
 .arch-datepicker__weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  margin-block-end: var(--spacing-4);
+  display: flex;
+  justify-content: space-around;
+  white-space: nowrap;
+  inline-size: 100%;
+  color: var(--color-text-subtle);
+  background-color: var(--color-background-default);
 }
 
+/* ─── Weekday header — Base Web: LabelMedium, contentTertiary ────────────────── */
+
 .arch-datepicker__weekday {
-  font-size: var(--typography-scale-text-sm);
+  box-sizing: border-box;
+  position: relative;
+  cursor: default;
+  display: inline-block;
+  inline-size: var(--spacing-56);
+  block-size: var(--spacing-56);
+  text-align: center;
+  line-height: var(--spacing-28);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-6);
+  margin: 0;
+  background-color: transparent;
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
   color: var(--color-text-subtle);
-  padding: var(--spacing-4);
+}
+
+.arch-datepicker__weekday--compact {
+  inline-size: var(--spacing-48);
+  block-size: var(--spacing-48);
+}
+
+/* ─── Week row ───────────────────────────────────────────────────────────────── */
+
+.arch-datepicker__week {
+  display: flex;
+  justify-content: space-around;
+  margin-block-end: var(--spacing-2);
+  inline-size: 100%;
+  white-space: nowrap;
 }
 
 /* ─── Day grid ───────────────────────────────────────────────────────────────── */
 
 .arch-datepicker__grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1px;
+  display: inline-block;
+  inline-size: 100%;
 }
+
+/* ─── Day cell — Base Web: 56px wide, padded, relative, transform for stacking  */
 
 .arch-datepicker__day {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  border-radius: var(--radius-component-md);
-  color: var(--color-text-default);
+  box-sizing: border-box;
+  position: relative;
   cursor: pointer;
-  padding: var(--spacing-4);
-  font-size: var(--typography-scale-text-sm);
-  line-height: 1;
-  aspect-ratio: 1;
+  display: inline-block;
+  inline-size: var(--spacing-56);
+  block-size: var(--spacing-56);
+  text-align: center;
+  padding: var(--spacing-8);
+  margin: 0;
+  outline: none;
+  background-color: transparent;
+  transform: scale(1);
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--spacing-28);
+  border: none;
+  font-family: inherit;
 }
 
-.arch-datepicker__day:focus-visible {
-  outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+.arch-datepicker__day--compact {
+  inline-size: var(--spacing-48);
+  block-size: var(--spacing-48);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--spacing-24);
 }
 
-.arch-datepicker__day:hover:not(:disabled) {
-  background-color: var(--color-background-muted);
+/* Day circle pseudo-element — Base Web: ::after for selected/highlighted circle */
+.arch-datepicker__day::after {
+  content: '';
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  inset-block-start: var(--spacing-2);
+  inset-inline-start: var(--spacing-4);
+  block-size: var(--spacing-48);
+  inline-size: var(--spacing-48);
+  border-radius: var(--radius-component-full);
+  border: var(--border-width-medium) solid transparent;
+  z-index: -1;
 }
 
+.arch-datepicker__day--compact::after {
+  block-size: var(--spacing-40);
+  inline-size: var(--spacing-40);
+  inset-inline-start: var(--spacing-6);
+}
+
+/* Focus — Base Web: 3px borderAccent box-shadow */
+.arch-datepicker__day:focus-visible::after {
+  box-shadow: 0 0 0 var(--spacing-4) var(--color-border-focus);
+}
+
+/* Hover */
+.arch-datepicker__day:hover:not(:disabled):not(.arch-datepicker__day--outside) {
+  background-color: transparent;
+}
+
+/* Selected — Base Web: borderSelected border, selected bg */
 .arch-datepicker__day--selected {
-  background-color: var(--color-background-primary);
-  color: var(--color-text-inverse);
+  color: var(--color-text-default);
 }
 
+.arch-datepicker__day--selected::after {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-background-default);
+}
+
+/* Highlighted (hovered) — pseudo-selected color */
+.arch-datepicker__day--highlighted {
+  color: var(--color-text-default);
+}
+
+/* Today indicator */
 .arch-datepicker__day--today {
-  border: var(--border-width-default) solid var(--color-border-default);
+  font-weight: var(--typography-weight-bold);
 }
 
+/* Outside month — Base Web: calendarForegroundDisabled */
 .arch-datepicker__day--outside {
+  color: var(--color-text-disabled);
+}
+
+/* Disabled */
+.arch-datepicker__day:disabled {
+  color: var(--color-text-disabled);
+  cursor: default;
+}
+
+/* ─── Day label (sub-label below date number) ────────────────────────────────── */
+
+.arch-datepicker__day-label {
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
   color: var(--color-text-subtle);
 }
 
-.arch-datepicker__day:disabled {
-  color: var(--color-text-disabled);
-  cursor: not-allowed;
+.arch-datepicker__day--selected .arch-datepicker__day-label {
+  color: var(--color-text-subtle);
+}
+
+/* ─── Range pseudo-element — extends the selection background through range ─── */
+
+.arch-datepicker__day--in-range::before {
+  content: '';
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  inset-block-start: var(--spacing-2);
+  inset-inline-start: 50%;
+  block-size: var(--spacing-48);
+  inline-size: 50%;
+  background-color: var(--color-background-subtle);
+  z-index: -1;
+}
+
+.arch-datepicker__day--range-start::before {
+  inset-inline-start: 50%;
+  inline-size: 50%;
+}
+
+.arch-datepicker__day--range-end::before {
+  inset-inline-start: 0;
+  inset-inline-end: 50%;
+  inline-size: 50%;
+}
+
+/* ─── Input container ────────────────────────────────────────────────────────── */
+
+.arch-datepicker__input-container {
+  inline-size: 100%;
+  background-color: var(--color-background-default);
+  outline: none;
+  padding-inline-start: unset;
+}
+
+.arch-datepicker__input-container--range {
+  display: flex;
+  justify-content: center;
+}
+
+/* ─── Selector container (month/year select area) ────────────────────────────── */
+
+.arch-datepicker__selector-container {
+  margin-block-end: var(--spacing-16);
+  padding-inline: var(--spacing-16);
+  text-align: start;
 }

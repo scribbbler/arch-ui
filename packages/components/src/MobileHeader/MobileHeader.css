@@ -4,23 +4,29 @@
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-mobile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-12);
-
+  inline-size: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: var(--spacing-48);
   background-color: var(--color-background-default);
-  border-block-end: var(--border-width-thin) solid var(--color-border-subtle);
-  box-shadow: var(--shadow-sm);
 }
 
-/* ─── Start (back button) ───────────────────────────────────────────────────── */
+/* ─── Floating type ────────────────────────────────────────────────────────── */
+
+.arch-mobile-header--floating {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+/* ─── Nav container (start) ────────────────────────────────────────────────── */
 
 .arch-mobile-header__start {
-  display: flex;
-  align-items: center;
-  min-inline-size: var(--spacing-16);
+  pointer-events: auto;
+  min-inline-size: var(--spacing-48);
+}
+
+.arch-mobile-header--floating .arch-mobile-header__start {
+  padding-inline-start: var(--spacing-8);
 }
 
 .arch-mobile-header__back {
@@ -28,7 +34,6 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-4);
-
   font-family: inherit;
   color: var(--color-text-default);
   background: none;
@@ -46,32 +51,39 @@
   outline-offset: var(--spacing-2);
 }
 
-.arch-mobile-header__back-arrow {
-  font-size: var(--typography-scale-text-sm);
-}
-
 /* ─── Title ─────────────────────────────────────────────────────────────────── */
 
 .arch-mobile-header__title {
-  flex: 1;
-  margin: 0;
-  text-align: center;
-
-  font-size: var(--typography-scale-text-sm);
+  align-self: center;
+  justify-content: flex-start;
+  font-size: var(--typography-scale-label-large-font-size);
+  line-height: var(--typography-scale-label-large-line-height);
   font-weight: var(--typography-weight-medium);
   color: var(--color-text-default);
+  text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  margin: 0;
 }
 
-/* ─── End (action button) ───────────────────────────────────────────────────── */
+/* ─── Expanded title ────────────────────────────────────────────────────────── */
+
+.arch-mobile-header__title--expanded {
+  grid-column: 1 / 4;
+  grid-row: 2;
+  padding-inline-start: var(--spacing-16);
+  padding-block-end: var(--spacing-4);
+  font-size: var(--typography-scale-label-large-font-size);
+  font-weight: var(--typography-weight-bold);
+}
+
+/* ─── Action buttons container (end) ────────────────────────────────────────── */
 
 .arch-mobile-header__end {
   display: flex;
-  align-items: center;
-  min-inline-size: var(--spacing-16);
   justify-content: flex-end;
+  grid-column: 3 / 4;
+  pointer-events: auto;
 }
 
 .arch-mobile-header__action {
@@ -79,7 +91,6 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-4);
-
   font-family: inherit;
   color: var(--color-text-default);
   background: none;

@@ -1,5 +1,6 @@
 /* Input — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web input/styled-components visual design.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
 /* ─── Wrapper ────────────────────────────────────────────────────────────────── */
@@ -11,6 +12,21 @@
   width: 100%;
 }
 
+/* ─── Root (outer border container) ──────────────────────────────────────────── */
+
+.arch-input-root {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  border: var(--border-width-medium) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  background-color: var(--color-background-muted);
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
 /* ─── Base input ─────────────────────────────────────────────────────────────── */
 
 .arch-input {
@@ -18,13 +34,15 @@
   display: block;
   width: 100%;
   box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
 
   /* Appearance */
   appearance: none;
-  background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-default);
-  border-radius: var(--radius-component-md);
+  background-color: transparent;
+  border: none;
   color: var(--color-text-default);
+  caret-color: var(--color-text-default);
   font-family: inherit;
 
   /* Reset */
@@ -40,36 +58,72 @@
 
 /* ─── Hover ──────────────────────────────────────────────────────────────────── */
 
-.arch-input:hover:not(:disabled):not([aria-disabled="true"]):not(:focus-visible) {
+.arch-input-root:hover:not(.arch-input-root--disabled):not(.arch-input-root--focused) {
   border-color: var(--color-border-strong);
 }
 
 /* ─── Focus ──────────────────────────────────────────────────────────────────── */
 
-.arch-input:focus-visible {
+.arch-input-root--focused {
   border-color: var(--color-border-focus);
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  background-color: var(--color-background-default);
+}
+
+.arch-input:focus-visible {
+  outline: none;
+}
+
+/* Fallback: when no JS-driven root class, support native :focus-visible */
+.arch-input-wrapper:not(:has(.arch-input-root)) .arch-input:focus-visible {
+  border-color: var(--color-border-focus);
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
 }
 
 /* ─── Invalid ────────────────────────────────────────────────────────────────── */
 
+.arch-input-root--error,
 .arch-input[aria-invalid="true"] {
   border-color: var(--color-border-danger);
 }
 
-.arch-input[aria-invalid="true"]:focus-visible {
+.arch-input-root--error.arch-input-root--focused {
   border-color: var(--color-border-danger);
-  outline-color: var(--color-border-danger);
+}
+
+/* ─── Positive (valid) ────────────────────────────────────────────────────────── */
+
+.arch-input-root--positive {
+  border-color: var(--color-border-success);
+}
+
+.arch-input-root--positive.arch-input-root--focused {
+  border-color: var(--color-border-success);
+}
+
+.arch-input--positive {
+  border-color: var(--color-border-success);
+}
+
+.arch-input--positive:focus-visible {
+  border-color: var(--color-border-success);
+  outline-color: var(--color-border-success);
 }
 
 /* ─── Disabled ───────────────────────────────────────────────────────────────── */
+
+.arch-input-root--disabled {
+  background-color: var(--color-background-disabled);
+  border-color: var(--color-background-disabled);
+  cursor: not-allowed;
+}
 
 .arch-input:disabled,
 .arch-input[aria-disabled="true"] {
   background-color: var(--color-background-disabled);
   border-color: var(--color-border-disabled);
   color: var(--color-text-disabled);
+  -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
@@ -85,56 +139,75 @@
   cursor: default;
 }
 
-/* ─── Positive (valid) ────────────────────────────────────────────────────────── */
-
-.arch-input--positive {
-  border-color: var(--color-border-success);
-}
-
-.arch-input--positive:focus-visible {
-  border-color: var(--color-border-success);
-  outline-color: var(--color-border-success);
-}
-
 /* ─── Sizes — matches Base Web Input scale ───────────────────────────────────
-   mini:    paddingY=6   paddingX=14  minH=28  font=ParagraphXSmall (12px)
-   compact: paddingY=8   paddingX=14  minH=36  font=ParagraphSmall  (14px)
-   default: paddingY=12  paddingX=14  minH=48  font=ParagraphMedium (16px)
-   large:   paddingY=16  paddingX=14  minH=56  font=ParagraphLarge  (18px)
+   mini:    paddingY=4   paddingX=14  font=font100 (ParagraphXSmall)
+   compact: paddingY=6   paddingX=14  font=font200 (ParagraphSmall)
+   default: paddingY=10  paddingX=14  font=font300 (ParagraphMedium)
+   large:   paddingY=14  paddingX=14  font=font400 (ParagraphLarge)
    ──────────────────────────────────────────────────────────────────────────── */
 
 .arch-input--xs {
-  padding-block: var(--spacing-6);
+  padding-block: var(--spacing-4);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
-  min-block-size: var(--spacing-28);
+}
+
+.arch-input-root--xs {
   border-radius: var(--radius-sm);
 }
 
 .arch-input--sm {
-  padding-block: var(--spacing-8);
+  padding-block: var(--spacing-6);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
-  min-block-size: var(--spacing-36);
+}
+
+.arch-input-root--sm {
   border-radius: var(--radius-sm);
 }
 
 .arch-input--md {
-  padding-block: var(--spacing-12);
+  padding-block: var(--spacing-10);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
-  min-block-size: var(--spacing-48);
 }
 
 .arch-input--lg {
-  padding-block: var(--spacing-16);
+  padding-block: var(--spacing-14);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
-  min-block-size: var(--spacing-56);
+}
+
+/* ─── Input enhancer ─────────────────────────────────────────────────────────── */
+
+.arch-input__enhancer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-default);
+  transition:
+    color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-input__enhancer--xs {
+  padding-inline: var(--spacing-10);
+}
+
+.arch-input__enhancer--sm {
+  padding-inline: var(--spacing-10);
+}
+
+.arch-input__enhancer--md {
+  padding-inline: var(--spacing-8);
+}
+
+.arch-input__enhancer--lg {
+  padding-inline: var(--spacing-6);
 }
 
 /* ─── Element slots ───────────────────────────────────────────────────────────── */
@@ -173,21 +246,54 @@
 /* ─── Clear button ───────────────────────────────────────────────────────────── */
 
 .arch-input__clear {
-  position: absolute;
-  inset-inline-end: var(--spacing-8);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  block-size: 100%;
-  padding: 0;
+  padding-inline: var(--spacing-4);
   border: none;
   background: none;
   cursor: pointer;
-  color: var(--color-text-subtle);
+  color: var(--color-text-default);
   font-size: 1.125em;
   line-height: 1;
 }
 
 .arch-input__clear:hover {
   color: var(--color-text-default);
+}
+
+.arch-input__clear:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-0);
+}
+
+/* ─── Mask toggle button ─────────────────────────────────────────────────────── */
+
+.arch-input__mask-toggle {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  color: var(--color-text-default);
+  cursor: pointer;
+}
+
+.arch-input__mask-toggle--xs {
+  padding-inline: var(--spacing-10);
+}
+
+.arch-input__mask-toggle--sm {
+  padding-inline: var(--spacing-10);
+}
+
+.arch-input__mask-toggle--md {
+  padding-inline: var(--spacing-8);
+}
+
+.arch-input__mask-toggle--lg {
+  padding-inline: var(--spacing-6);
+}
+
+.arch-input__mask-toggle:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
 }

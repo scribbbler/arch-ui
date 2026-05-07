@@ -1,16 +1,18 @@
 /* SegmentedControl — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Base Web SegmentedControl layout and styling. */
 
 /* ─── Root ───────────────────────────────────────────────────────────────────── */
 
 .arch-segmented-control {
   display: inline-flex;
-  flex-direction: row;
-  align-items: center;
+  position: relative;
   background-color: var(--color-background-muted);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-2);
-  gap: var(--spacing-2);
+  border-radius: var(--spacing-12);
+  box-sizing: border-box;
+  padding: var(--spacing-4);
+  overflow: hidden;
+  isolation: isolate;
 }
 
 /* ─── Full width ─────────────────────────────────────────────────────────────── */
@@ -23,50 +25,18 @@
   flex: 1 1 0%;
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+/* ─── Segment list ──────────────────────────────────────────────────────────── */
 
-.arch-segmented-control--mini {
-  min-block-size: var(--spacing-28);
-}
-
-.arch-segmented-control--mini .arch-segmented-control__segment {
-  padding-block: var(--spacing-2);
-  padding-inline: var(--spacing-8);
-  font-size: var(--typography-scale-label-xsmall-font-size);
-  line-height: var(--typography-scale-label-xsmall-line-height);
-}
-
-.arch-segmented-control--compact {
-  min-block-size: var(--spacing-36);
-}
-
-.arch-segmented-control--compact .arch-segmented-control__segment {
-  padding-block: var(--spacing-4);
-  padding-inline: var(--spacing-12);
-  font-size: var(--typography-scale-label-small-font-size);
-  line-height: var(--typography-scale-label-small-line-height);
-}
-
-.arch-segmented-control--default {
-  min-block-size: var(--spacing-48);
-}
-
-.arch-segmented-control--default .arch-segmented-control__segment {
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-16);
-  font-size: var(--typography-scale-label-medium-font-size);
-  line-height: var(--typography-scale-label-medium-line-height);
-}
-
-.arch-segmented-control--large {
-  min-block-size: var(--spacing-56);
-}
-
-.arch-segmented-control--large .arch-segmented-control__segment {
-  padding-block: var(--spacing-10);
-  padding-inline: var(--spacing-20);
-  font-size: var(--typography-scale-label-large-font-size);
-  line-height: var(--typography-scale-label-large-line-height);
+.arch-segmented-control__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-block-size: var(--spacing-40);
+  z-index: -2;
 }
 
 /* ─── Segment button ─────────────────────────────────────────────────────────── */
@@ -74,18 +44,32 @@
 .arch-segmented-control__segment {
   appearance: none;
   border: none;
-  background: none;
+  background: transparent;
   cursor: pointer;
   font-family: inherit;
-  font-weight: var(--typography-weight-medium);
+  font-weight: var(--typography-scale-label-small-font-weight);
   color: var(--color-text-subtle);
-  border-radius: var(--radius-sm);
+  border-radius: var(--spacing-8);
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   white-space: nowrap;
-  text-align: center;
+  text-overflow: ellipsis;
+  position: relative;
+  margin: 0;
+  padding-inline: var(--spacing-12);
+  padding-block: var(--spacing-8);
+  flex-grow: 1;
+  outline: none;
+  outline-offset: -3px;
+  font-size: var(--typography-scale-label-small-font-size);
+  line-height: var(--typography-scale-label-small-line-height);
+
   transition:
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    box-shadow var(--motion-duration-fast) var(--motion-easing-linear),
+    color var(--motion-duration-fast) var(--motion-easing-linear);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -96,34 +80,116 @@
 
 /* ─── Hover ──────────────────────────────────────────────────────────────────── */
 
-.arch-segmented-control__segment:hover:not(:disabled):not(.arch-segmented-control__segment--active) {
-  color: var(--color-text-default);
-  background-color: var(--color-action-ghost-hover);
+@media (hover: hover) {
+  .arch-segmented-control__segment:hover:not(:disabled):not(.arch-segmented-control__segment--active) {
+    box-shadow: var(--shadow-xs);
+    color: var(--color-text-default);
+  }
 }
 
 /* ─── Active segment ─────────────────────────────────────────────────────────── */
 
 .arch-segmented-control__segment--active {
-  background-color: var(--color-background-default);
   color: var(--color-text-default);
-  font-weight: var(--typography-weight-semibold);
-  box-shadow: var(--shadow-xs);
+}
+
+/* ─── Active indicator — positioned behind active segment ───────────────────── */
+
+.arch-segmented-control__active-indicator {
+  position: absolute;
+  border-radius: var(--spacing-8);
+  box-sizing: border-box;
+  block-size: 100%;
+  border: var(--spacing-2) solid var(--color-action-primary);
+  background-color: var(--color-background-default);
+  z-index: -1;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+}
+
+.arch-segmented-control__active-indicator--animated {
+  transition:
+    all var(--motion-duration-normal) var(--motion-semantic-easing-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-segmented-control__active-indicator--animated {
+    transition: none;
+  }
+}
+
+/* ─── Label ─────────────────────────────────────────────────────────────────── */
+
+.arch-segmented-control__label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+/* ─── Label block (label + badge container) ─────────────────────────────────── */
+
+.arch-segmented-control__label-block {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ─── Description ───────────────────────────────────────────────────────────── */
+
+.arch-segmented-control__description {
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+/* ─── Artwork container ─────────────────────────────────────────────────────── */
+
+.arch-segmented-control__artwork {
+  display: flex;
+  block-size: var(--spacing-14);
+  inline-size: var(--spacing-14);
+  align-items: center;
 }
 
 /* ─── Focus ──────────────────────────────────────────────────────────────────── */
 
 .arch-segmented-control__segment:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: -2px;
+  outline: var(--spacing-2) solid var(--color-border-focus);
+  outline-offset: calc(-1 * var(--spacing-2));
 }
 
 /* ─── Disabled ───────────────────────────────────────────────────────────────── */
 
 .arch-segmented-control--disabled {
-  opacity: 0.5;
   pointer-events: none;
 }
 
 .arch-segmented-control__segment:disabled {
   cursor: not-allowed;
+  color: var(--color-text-disabled);
+}
+
+.arch-segmented-control__segment:disabled:hover {
+  box-shadow: none;
+  background: none;
+}
+
+/* ─── Segment panel ─────────────────────────────────────────────────────────── */
+
+.arch-segmented-control__panel {
+  flex-grow: 1;
+  outline: none;
+}
+
+.arch-segmented-control__panel--padded {
+  padding: var(--spacing-16);
 }

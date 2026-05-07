@@ -1,7 +1,8 @@
 /* MapMarker — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web map-marker. */
 
-/* ─── Root ──────────────────────────────────────────────────────────────────── */
+/* ─── Root (fixed marker) ──────────────────────────────────────────────────── */
 
 .arch-map-marker {
   display: inline-flex;
@@ -20,11 +21,29 @@
 /* ─── Head ──────────────────────────────────────────────────────────────────── */
 
 .arch-map-marker__head {
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
+  box-shadow: var(--shadow-lg);
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Head shapes */
+.arch-map-marker__head--circle {
+  border-radius: var(--radius-full);
+}
+
+.arch-map-marker__head--rounded {
   border-radius: var(--radius-component-md);
-  box-shadow: var(--shadow-sm);
+  padding-inline: var(--spacing-12);
+}
+
+/* ─── Needle ───────────────────────────────────────────────────────────────── */
+
+.arch-map-marker__needle {
+  width: var(--spacing-4);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ─── Tail (pointer) ────────────────────────────────────────────────────────── */
@@ -38,8 +57,62 @@
 /* ─── Label ─────────────────────────────────────────────────────────────────── */
 
 .arch-map-marker__label {
-  font-size: var(--typography-scale-text-sm);
   white-space: nowrap;
+  pointer-events: auto;
+  width: max-content;
+  max-width: var(--spacing-128);
+  color: var(--color-text-default);
+}
+
+/* ─── Label position ────────────────────────────────────────────────────────── */
+
+.arch-map-marker__label-container {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  display: flex;
+}
+
+.arch-map-marker__label-container--top {
+  inset-inline-start: 50%;
+  inset-block-end: 100%;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+}
+
+.arch-map-marker__label-container--bottom {
+  inset-inline-start: 50%;
+  inset-block-start: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+}
+
+.arch-map-marker__label-container--right {
+  inset-inline-start: 100%;
+  inset-block-start: 50%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.arch-map-marker__label-container--left {
+  inset-inline-end: 100%;
+  inset-block-start: 50%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* ─── Badge enhancer ────────────────────────────────────────────────────────── */
+
+.arch-map-marker__badge {
+  position: absolute;
+  font-size: var(--typography-scale-label-small-font-size);
+  font-weight: var(--typography-scale-label-small-font-weight);
+  box-sizing: border-box;
+  inset-inline-end: 0;
 }
 
 /* ─── Size: sm ──────────────────────────────────────────────────────────────── */
@@ -58,7 +131,7 @@
 }
 
 .arch-map-marker--sm .arch-map-marker__label {
-  font-size: var(--typography-scale-text-sm);
+  font-size: var(--typography-scale-paragraph-small-font-size);
 }
 
 /* ─── Size: md ──────────────────────────────────────────────────────────────── */
@@ -79,8 +152,8 @@
 /* ─── Size: lg ──────────────────────────────────────────────────────────────── */
 
 .arch-map-marker--lg .arch-map-marker__head {
-  min-inline-size: var(--spacing-32);
-  min-block-size: var(--spacing-32);
+  min-inline-size: var(--spacing-36);
+  min-block-size: var(--spacing-36);
   padding: var(--spacing-8);
 }
 
@@ -91,29 +164,61 @@
   border-inline-color: transparent;
 }
 
+/* ─── Floating marker root ──────────────────────────────────────────────────── */
+
+.arch-map-marker--floating {
+  position: relative;
+}
+
+.arch-map-marker--floating .arch-map-marker__head {
+  padding-inline: var(--spacing-8);
+}
+
+/* ─── Floating route marker ─────────────────────────────────────────────────── */
+
+.arch-map-marker--floating-route .arch-map-marker__head {
+  position: absolute;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4) var(--spacing-8);
+}
+
+/* ─── Drag shadow ───────────────────────────────────────────────────────────── */
+
+.arch-map-marker__drag-shadow {
+  border-radius: var(--radius-full);
+  position: absolute;
+  inset-block-end: 0;
+}
+
 /* ─── Variant: default ──────────────────────────────────────────────────────── */
 
 .arch-map-marker--default .arch-map-marker__head {
-  background-color: var(--color-background-primary);
+  background-color: var(--color-background-inverse);
   color: var(--color-text-inverse);
-  border: var(--border-width-default) solid var(--color-border-default);
 }
 
 .arch-map-marker--default .arch-map-marker__tail {
-  border-block-start-color: var(--color-background-primary);
+  border-block-start-color: var(--color-background-inverse);
+}
+
+.arch-map-marker--default .arch-map-marker__needle {
+  background-color: var(--color-background-inverse);
 }
 
 /* ─── Variant: active ───────────────────────────────────────────────────────── */
 
 .arch-map-marker--active .arch-map-marker__head {
-  background-color: var(--color-background-primary);
+  background-color: var(--color-background-inverse);
   color: var(--color-text-inverse);
-  border: var(--border-width-default) solid var(--color-border-focus);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-lg);
 }
 
 .arch-map-marker--active .arch-map-marker__tail {
-  border-block-start-color: var(--color-background-primary);
+  border-block-start-color: var(--color-background-inverse);
+}
+
+.arch-map-marker--active .arch-map-marker__needle {
+  background-color: var(--color-background-inverse);
 }
 
 /* ─── Variant: muted ────────────────────────────────────────────────────────── */
@@ -121,9 +226,31 @@
 .arch-map-marker--muted .arch-map-marker__head {
   background-color: var(--color-background-muted);
   color: var(--color-text-subtle);
-  border: var(--border-width-default) solid var(--color-border-default);
 }
 
 .arch-map-marker--muted .arch-map-marker__tail {
   border-block-start-color: var(--color-background-muted);
+}
+
+.arch-map-marker--muted .arch-map-marker__needle {
+  background-color: var(--color-background-muted);
+}
+
+/* ─── Location puck ─────────────────────────────────────────────────────────── */
+
+.arch-map-marker__location-puck {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arch-map-marker__location-puck-core {
+  border-radius: var(--radius-full);
+  position: absolute;
+}
+
+.arch-map-marker__location-puck-approximation {
+  border-radius: var(--radius-full);
+  position: absolute;
 }

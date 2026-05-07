@@ -1,12 +1,30 @@
 /* FileUpload — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web file-uploader/styled-components visual design.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
-/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+/* ─── Parent root ────────────────────────────────────────────────────────────── */
 
 .arch-file-upload {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+}
+
+/* ─── Label — LabelSmall, contentPrimary, marginBottom=8px ───────────────────── */
+
+.arch-file-upload__label {
+  font-size: var(--typography-scale-label-small-font-size);
+  line-height: var(--typography-scale-label-small-line-height);
+  font-weight: var(--typography-weight-medium);
+  width: 100%;
+  color: var(--color-text-default);
+  display: block;
+  margin-block-end: var(--spacing-8);
+}
+
+.arch-file-upload__label--disabled {
+  color: var(--color-text-disabled);
 }
 
 /* ─── Drop zone (label) ──────────────────────────────────────────────────────── */
@@ -19,11 +37,11 @@
   gap: var(--spacing-component-sm);
   padding-block: var(--spacing-component-lg);
   padding-inline: var(--spacing-component-md);
-  min-block-size: 8rem;
+  min-block-size: var(--spacing-128);
 
   background-color: var(--color-background-subtle);
   border: var(--border-width-default) dashed var(--color-border-default);
-  border-radius: var(--radius-component-md);
+  border-radius: var(--radius-component-lg);
   cursor: pointer;
   text-align: center;
   color: var(--color-text-subtle);
@@ -66,15 +84,14 @@
   border-color: var(--color-border-disabled);
   color: var(--color-text-disabled);
   cursor: not-allowed;
-  opacity: 0.6;
 }
 
 /* ─── Focus — relay focus-visible from hidden input to the zone ──────────────── */
 
 .arch-file-upload__input:focus-visible ~ .arch-file-upload__zone,
 .arch-file-upload__zone:focus-within {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-2);
 }
 
 /* ─── Hidden file input ──────────────────────────────────────────────────────── */
@@ -89,6 +106,104 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ─── File rows container — border, border-radius, no top margin ─────────────── */
+
+.arch-file-upload__rows {
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-lg);
+  list-style: none;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: var(--spacing-8);
+}
+
+/* ─── File row ───────────────────────────────────────────────────────────────── */
+
+.arch-file-upload__row {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-12);
+  gap: var(--spacing-12);
+  height: fit-content;
+}
+
+.arch-file-upload__row-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.arch-file-upload__row-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: var(--spacing-12);
+  justify-content: space-between;
+  width: 100%;
+  height: var(--spacing-32);
+}
+
+.arch-file-upload__row-filename {
+  font-size: var(--typography-scale-label-small-font-size);
+  line-height: var(--typography-scale-label-small-line-height);
+  font-weight: var(--typography-weight-medium);
+  color: var(--color-text-default);
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.arch-file-upload__row-text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: var(--spacing-2);
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.arch-file-upload__row-message {
+  font-size: var(--typography-scale-paragraph-xsmall-font-size);
+  line-height: var(--typography-scale-paragraph-xsmall-line-height);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex-direction: row;
+}
+
+/* ─── Item preview container — 36x36 ─────────────────────────────────────────── */
+
+.arch-file-upload__preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--spacing-36);
+  height: var(--spacing-36);
+}
+
+.arch-file-upload__preview-img {
+  border-radius: var(--radius-component-md);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ─── Hint text — ParagraphSmall, contentTertiary ────────────────────────────── */
+
+.arch-file-upload__hint {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  color: var(--color-text-subtle);
 }
 
 /* ─── Error message ──────────────────────────────────────────────────────────── */

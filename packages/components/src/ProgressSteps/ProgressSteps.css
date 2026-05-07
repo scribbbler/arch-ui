@@ -1,4 +1,5 @@
 /* ProgressSteps — arch-ui component styles
+   Aligned with Uber Base Web progress-steps visual design.
    All values must be var(--token-name). No hex, pixel literals, or named colours.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
@@ -6,137 +7,208 @@
 
 .arch-progress-steps {
   list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-4);
 }
 
 /* ─── Horizontal (default) ───────────────────────────────────────────────────── */
 
 .arch-progress-steps--horizontal {
-  flex-direction: row;
-  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .arch-progress-steps--horizontal .arch-progress-steps__step {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex: 1;
+  align-items: flex-start;
   position: relative;
-  /* connector line via pseudo-element on all but the last step */
+  overflow: visible;
+  list-style-type: none;
 }
 
+/* Connector line between horizontal steps */
 .arch-progress-steps--horizontal .arch-progress-steps__step:not(:last-child)::after {
   content: '';
   display: block;
-  position: absolute;
-  inset-block-start: calc(var(--spacing-component-md) / 2);
-  inset-inline-start: 50%;
+  position: relative;
+  inset-block-start: var(--spacing-10);
+  margin-inline-start: calc(var(--spacing-48) * -1);
+  margin-inline-end: calc(var(--spacing-48) * -1);
+  block-size: var(--spacing-2);
   inline-size: 100%;
-  block-size: 2px;
-  background-color: var(--color-background-subtle);
 }
 
 .arch-progress-steps--horizontal .arch-progress-steps__step--completed:not(:last-child)::after {
-  background-color: var(--color-action-primary);
+  background-color: var(--color-border-strong);
+}
+
+.arch-progress-steps--horizontal .arch-progress-steps__step:not(.arch-progress-steps__step--completed):not(:last-child)::after {
+  background-color: var(--color-border-default);
 }
 
 .arch-progress-steps--horizontal .arch-progress-steps__body {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   z-index: 1;
   padding-block-start: 0;
 }
 
 .arch-progress-steps--horizontal .arch-progress-steps__text {
-  margin-block-start: var(--spacing-component-xs);
-  text-align: center;
+  margin-block-start: var(--spacing-8);
+  inline-size: var(--spacing-128);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 
 /* ─── Vertical ───────────────────────────────────────────────────────────────── */
 
 .arch-progress-steps--vertical {
-  flex-direction: column;
+  display: inline-block;
 }
 
 .arch-progress-steps--vertical .arch-progress-steps__step {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  list-style-type: none;
   position: relative;
+  overflow: visible;
 }
 
-/* connector line on the inline-start side */
-.arch-progress-steps--vertical .arch-progress-steps__step:not(:last-child)::after {
-  content: '';
-  display: block;
+/* Connector tail on the inline-start side */
+.arch-progress-steps--vertical .arch-progress-steps__tail {
   position: absolute;
-  inset-inline-start: calc(var(--spacing-component-md) / 2);
-  inset-block-start: var(--spacing-component-md);
-  inline-size: 2px;
-  block-size: 100%;
-  background-color: var(--color-background-subtle);
+  inset-inline-start: var(--spacing-32);
+  inset-block-start: 0;
+  inline-size: var(--spacing-2);
+  block-size: calc(100% + var(--spacing-12));
+  display: inline-block;
 }
 
-.arch-progress-steps--vertical .arch-progress-steps__step--completed:not(:last-child)::after {
-  background-color: var(--color-action-primary);
+.arch-progress-steps__step--completed .arch-progress-steps__tail {
+  background-color: var(--color-border-strong);
+}
+
+.arch-progress-steps__step:not(.arch-progress-steps__step--completed) .arch-progress-steps__tail {
+  background-color: var(--color-border-default);
 }
 
 .arch-progress-steps--vertical .arch-progress-steps__body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: var(--spacing-inline-sm);
+  gap: var(--spacing-4);
   position: relative;
   z-index: 1;
-  padding-block-end: var(--spacing-component-sm);
 }
 
-.arch-progress-steps--vertical .arch-progress-steps__text {
-  margin-block-start: 0;
+.arch-progress-steps--vertical .arch-progress-steps__content {
+  margin-inline-start: var(--spacing-48);
 }
 
-/* ─── Circle ─────────────────────────────────────────────────────────────────── */
+/* ─── Circle (dot step) ─────────────────────────────────────────────────────── */
+
+.arch-progress-steps__circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background-default);
+}
 
 .arch-progress-steps__circle {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  inline-size: var(--spacing-component-md);
-  block-size: var(--spacing-component-md);
   border-radius: var(--radius-component-full);
-  border: 2px solid var(--color-background-subtle);
-  background-color: transparent;
-  font-size: var(--typography-scale-paragraph-xsmall-font-size);
-  font-weight: var(--typography-weight-medium);
-  color: var(--color-text-subtle);
+  text-align: center;
+}
+
+/* Default (inactive) circle */
+.arch-progress-steps__circle {
+  inline-size: var(--spacing-8);
+  block-size: var(--spacing-8);
+  background-color: var(--color-text-subtle);
+}
+
+/* Active circle — larger */
+.arch-progress-steps__step--current .arch-progress-steps__circle {
+  inline-size: var(--spacing-16);
+  block-size: var(--spacing-16);
+  background-color: var(--color-action-primary);
+}
+
+/* Active circle inner dot */
+.arch-progress-steps__inner-icon {
+  inline-size: var(--spacing-8);
+  block-size: var(--spacing-8);
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-text-inverse);
+  text-align: center;
 }
 
 /* Completed circle */
 .arch-progress-steps__step--completed .arch-progress-steps__circle {
-  background-color: var(--color-action-primary);
-  border-color: var(--color-action-primary);
-  color: var(--color-feedback-success-text);
+  inline-size: var(--spacing-8);
+  block-size: var(--spacing-8);
+  background-color: var(--color-text-default);
 }
 
-/* Current circle */
-.arch-progress-steps__step--current .arch-progress-steps__circle {
-  border-color: var(--color-action-primary);
-  color: var(--color-action-primary);
-  font-weight: var(--typography-weight-medium);
+/* ─── Number icon (numbered step) ───────────────────────────────────────────── */
+
+.arch-progress-steps__number-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--spacing-36);
+  block-size: var(--spacing-36);
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-background-subtle);
+  color: var(--color-text-default);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+  text-align: center;
+  margin-inline-start: var(--spacing-8);
+  margin-inline-end: var(--spacing-14);
+}
+
+.arch-progress-steps__step--current .arch-progress-steps__number-icon {
+  background-color: var(--color-action-primary);
+  color: var(--color-text-inverse);
+  position: relative;
+}
+
+/* Active number icon ring */
+.arch-progress-steps__step--current .arch-progress-steps__number-icon::before {
+  content: '';
+  position: absolute;
+  inset-block-start: calc(var(--spacing-4) * -1);
+  inset-inline-start: calc(var(--spacing-4) * -1);
+  inline-size: calc(100% + var(--spacing-8));
+  block-size: calc(100% + var(--spacing-8));
+  border-radius: var(--radius-component-full);
+  border: var(--border-width-medium) solid var(--color-action-primary);
+  box-sizing: border-box;
+}
+
+.arch-progress-steps__step--completed .arch-progress-steps__number-icon {
+  background-color: var(--color-text-default);
+  color: var(--color-text-inverse);
 }
 
 /* ─── Text block ─────────────────────────────────────────────────────────────── */
 
 .arch-progress-steps__label {
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  line-height: var(--typography-scale-label-medium-line-height);
   color: var(--color-text-subtle);
-  line-height: 1;
+  padding-block: var(--spacing-24);
 }
 
 .arch-progress-steps__step--current .arch-progress-steps__label {
@@ -147,9 +219,12 @@
   color: var(--color-text-default);
 }
 
+.arch-progress-steps--horizontal .arch-progress-steps__label {
+  padding-block: 0;
+  text-align: center;
+}
+
 .arch-progress-steps__description {
   display: block;
-  margin-block-start: var(--spacing-inline-xs);
-  font-size: var(--typography-scale-paragraph-xsmall-font-size);
-  color: var(--color-text-subtle);
+  margin-block-end: var(--spacing-20);
 }

@@ -4,35 +4,62 @@
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
 
 .arch-menu {
-  display: flex;
-  flex-direction: column;
-  padding-block: var(--spacing-4);
+  position: relative;
   margin: 0;
+  padding-block: var(--spacing-8);
+  padding-inline: 0;
   list-style: none;
-
   background-color: var(--color-background-default);
-  border: var(--border-width-thin) solid var(--color-border-subtle);
   border-radius: var(--radius-component-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-lg);
+  overflow: auto;
+}
+
+.arch-menu:focus-visible {
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+}
+
+/* ─── Empty state ──────────────────────────────────────────────────────────── */
+
+.arch-menu__empty {
+  display: block;
+  position: relative;
+  color: var(--color-text-disabled);
+  text-align: center;
+  cursor: not-allowed;
+  background-color: transparent;
+  margin-block-end: 0;
+  padding: var(--spacing-24);
+}
+
+/* ─── Optgroup header ──────────────────────────────────────────────────────── */
+
+.arch-menu__group-header {
+  font-weight: var(--typography-weight-semibold);
+  color: var(--color-text-default);
+  padding-block: var(--spacing-6);
+  padding-inline: var(--spacing-8);
 }
 
 /* ─── Item ──────────────────────────────────────────────────────────────────── */
 
 .arch-menu__item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-8);
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-12);
-
-  font-family: inherit;
-  font-size: var(--typography-scale-text-sm);
+  box-sizing: border-box;
+  position: relative;
+  display: block;
   color: var(--color-text-default);
   cursor: pointer;
+  background-color: transparent;
+  margin-block-end: 0;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+  transition:
+    color var(--motion-duration-normal) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-normal) var(--motion-semantic-easing-default);
 }
 
-.arch-menu__item:hover {
-  background-color: var(--color-background-muted);
+.arch-menu__item:focus {
+  outline: none;
 }
 
 .arch-menu__item:focus-visible {
@@ -40,10 +67,23 @@
   outline-offset: var(--spacing-2);
 }
 
+/* ─── Compact size ─────────────────────────────────────────────────────────── */
+
+.arch-menu--compact .arch-menu__item {
+  padding-block: var(--spacing-4);
+  padding-inline: var(--spacing-28);
+}
+
+/* ─── Item: highlighted ────────────────────────────────────────────────────── */
+
+.arch-menu__item--highlighted {
+  background-color: var(--color-background-muted);
+}
+
 /* ─── Item: disabled ────────────────────────────────────────────────────────── */
 
 .arch-menu__item--disabled {
-  color: var(--color-text-subtle);
+  color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
@@ -51,7 +91,7 @@
   background-color: transparent;
 }
 
-/* ─── Item icon ─────────────────────────────────────────────────────────────── */
+/* ─── Item icon ────────────────────────────────────────────────────────────── */
 
 .arch-menu__item-icon {
   display: inline-flex;
@@ -59,17 +99,83 @@
   flex-shrink: 0;
 }
 
-/* ─── Item label ────────────────────────────────────────────────────────────── */
+/* ─── Item label ───────────────────────────────────────────────────────────── */
 
 .arch-menu__item-label {
   flex: 1;
 }
 
-/* ─── Divider ───────────────────────────────────────────────────────────────── */
+/* ─── Profile item ─────────────────────────────────────────────────────────── */
+
+.arch-menu__item-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-24);
+  transition:
+    color var(--motion-duration-normal) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-normal) var(--motion-semantic-easing-default);
+}
+
+.arch-menu__item-profile:hover {
+  background-color: var(--color-background-muted);
+}
+
+/* ─── Profile image ────────────────────────────────────────────────────────── */
+
+.arch-menu__profile-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arch-menu__profile-img {
+  inline-size: 100%;
+  block-size: 100%;
+  border-radius: var(--radius-full);
+}
+
+/* ─── Profile labels ───────────────────────────────────────────────────────── */
+
+.arch-menu__profile-labels {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-inline-start: var(--spacing-16);
+}
+
+.arch-menu__profile-title {
+  font-weight: var(--typography-weight-semibold);
+  color: var(--color-text-default);
+  margin: 0;
+}
+
+.arch-menu__profile-subtitle {
+  color: var(--color-text-default);
+  margin: 0;
+}
+
+.arch-menu__profile-body {
+  color: var(--color-text-default);
+  margin: 0;
+}
+
+/* ─── Divider ──────────────────────────────────────────────────────────────── */
 
 .arch-menu__divider {
   block-size: 0;
   margin-block: var(--spacing-4);
+  margin-inline: var(--spacing-12);
   border: none;
-  border-block-start: var(--border-width-thin) solid var(--color-border-subtle);
+  border-block-start: var(--border-width-default) solid var(--color-border-default);
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-menu__item,
+  .arch-menu__item-profile {
+    transition: none;
+  }
 }

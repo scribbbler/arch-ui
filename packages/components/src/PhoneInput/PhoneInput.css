@@ -1,25 +1,115 @@
 /* PhoneInput — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web phone-input/styled-components visual design.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
-/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+/* ─── Wrapper — flex row layout ──────────────────────────────────────────────── */
 
 .arch-phone-input {
-  display: inline-flex;
+  display: flex;
   align-items: stretch;
   width: 100%;
 }
 
-/* ─── Country code button ────────────────────────────────────────────────────── */
+/* ─── Country code button / select root ──────────────────────────────────────── */
 
 .arch-phone-input__country-btn {
-  border-start-end-radius: var(--radius-none) !important;
-  border-end-end-radius: var(--radius-none) !important;
+  display: inline-block;
+  border-start-end-radius: var(--radius-none);
+  border-end-end-radius: var(--radius-none);
   flex-shrink: 0;
-  border-inline-end: none !important;
+  border-inline-end: none;
 }
 
-/* ─── Phone number input ─────────────────────────────────────────────────────── */
+/* Size-based widths matching Base Web (50/60/70/80px) */
+.arch-phone-input--mini .arch-phone-input__country-btn {
+  width: var(--spacing-48);
+  min-block-size: var(--spacing-28);
+}
+
+.arch-phone-input--compact .arch-phone-input__country-btn {
+  width: var(--spacing-56);
+  min-block-size: var(--spacing-36);
+}
+
+.arch-phone-input--default .arch-phone-input__country-btn {
+  width: var(--spacing-64);
+  min-block-size: var(--spacing-48);
+}
+
+.arch-phone-input--large .arch-phone-input__country-btn {
+  width: var(--spacing-80);
+  min-block-size: var(--spacing-56);
+}
+
+/* ─── Flag container ─────────────────────────────────────────────────────────── */
+
+.arch-phone-input__flag {
+  display: flex;
+  align-items: center;
+}
+
+/* Size-based flag font sizes matching Base Web */
+.arch-phone-input--mini .arch-phone-input__flag {
+  font-size: var(--spacing-20);
+}
+
+.arch-phone-input--compact .arch-phone-input__flag {
+  font-size: var(--spacing-24);
+}
+
+.arch-phone-input--default .arch-phone-input__flag {
+  font-size: var(--spacing-28);
+}
+
+.arch-phone-input--large .arch-phone-input__flag {
+  font-size: var(--spacing-32);
+}
+
+/* ─── Dial code ──────────────────────────────────────────────────────────────── */
+
+.arch-phone-input__dial-code {
+  margin-inline-start: var(--spacing-4);
+  display: flex;
+  align-items: center;
+}
+
+/* ─── Country select container ───────────────────────────────────────────────── */
+
+.arch-phone-input__country-container {
+  display: flex;
+  align-items: center;
+}
+
+/* ─── Country dropdown ───────────────────────────────────────────────────────── */
+
+.arch-phone-input__dropdown {
+  padding-block: 0;
+}
+
+.arch-phone-input__dropdown-item {
+  display: flex;
+  align-items: center;
+  height: var(--spacing-40);
+  padding: 0;
+}
+
+.arch-phone-input__dropdown-flag {
+  display: flex;
+  align-items: center;
+  padding-inline-start: var(--spacing-16);
+}
+
+.arch-phone-input__dropdown-name {
+  padding-inline-start: var(--spacing-16);
+}
+
+.arch-phone-input__dropdown-dialcode {
+  padding-inline-end: var(--spacing-16);
+  margin-inline-start: auto;
+}
+
+/* ─── Phone number input — mirrors Base Web Input root ───────────────────────── */
 
 .arch-phone-input__input {
   /* Layout */
@@ -29,20 +119,24 @@
   flex: 1;
   min-width: 0;
 
-  /* Appearance */
+  /* Appearance — 2px border, muted background */
   appearance: none;
-  background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-muted);
+  border: var(--border-width-medium) solid var(--color-border-default);
   border-start-start-radius: var(--radius-none);
   border-end-start-radius: var(--radius-none);
   border-start-end-radius: var(--radius-component-md);
   border-end-end-radius: var(--radius-component-md);
   color: var(--color-text-default);
+  caret-color: var(--color-text-default);
   font-family: inherit;
 
   /* Reset */
   margin: 0;
   outline: none;
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
 }
 
 /* ─── Placeholder ────────────────────────────────────────────────────────────── */
@@ -57,12 +151,12 @@
   border-color: var(--color-border-strong);
 }
 
-/* ─── Focus ──────────────────────────────────────────────────────────────────── */
+/* ─── Focus — borderSelected + inputFillActive ───────────────────────────────── */
 
 .arch-phone-input__input:focus-visible {
   border-color: var(--color-border-focus);
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  background-color: var(--color-background-default);
+  outline: none;
 }
 
 /* ─── Error ──────────────────────────────────────────────────────────────────── */
@@ -73,7 +167,6 @@
 
 .arch-phone-input--error .arch-phone-input__input:focus-visible {
   border-color: var(--color-border-danger);
-  outline-color: var(--color-border-danger);
 }
 
 /* ─── Positive ───────────────────────────────────────────────────────────────── */
@@ -84,15 +177,15 @@
 
 .arch-phone-input--positive .arch-phone-input__input:focus-visible {
   border-color: var(--color-border-success);
-  outline-color: var(--color-border-success);
 }
 
 /* ─── Disabled ───────────────────────────────────────────────────────────────── */
 
 .arch-phone-input--disabled .arch-phone-input__input {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-border-disabled);
+  border-color: var(--color-background-disabled);
   color: var(--color-text-disabled);
+  -webkit-text-fill-color: var(--color-text-disabled);
   cursor: not-allowed;
 }
 
@@ -100,52 +193,36 @@
   color: var(--color-text-disabled);
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+/* ─── Sizes — matches Base Web Input padding scale ───────────────────────────── */
 
 .arch-phone-input__input--mini {
-  padding-block: var(--spacing-6);
+  padding-block: var(--spacing-4);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-xsmall-font-size);
   line-height: var(--typography-scale-paragraph-xsmall-line-height);
   min-block-size: var(--spacing-28);
 }
 
-.arch-phone-input--mini .arch-phone-input__country-btn {
-  min-block-size: var(--spacing-28);
-}
-
 .arch-phone-input__input--compact {
-  padding-block: var(--spacing-8);
+  padding-block: var(--spacing-6);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
   min-block-size: var(--spacing-36);
 }
 
-.arch-phone-input--compact .arch-phone-input__country-btn {
-  min-block-size: var(--spacing-36);
-}
-
 .arch-phone-input__input--default {
-  padding-block: var(--spacing-12);
+  padding-block: var(--spacing-10);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
   min-block-size: var(--spacing-48);
 }
 
-.arch-phone-input--default .arch-phone-input__country-btn {
-  min-block-size: var(--spacing-48);
-}
-
 .arch-phone-input__input--large {
-  padding-block: var(--spacing-16);
+  padding-block: var(--spacing-14);
   padding-inline: var(--spacing-14);
   font-size: var(--typography-scale-paragraph-large-font-size);
   line-height: var(--typography-scale-paragraph-large-line-height);
-  min-block-size: var(--spacing-56);
-}
-
-.arch-phone-input--large .arch-phone-input__country-btn {
   min-block-size: var(--spacing-56);
 }

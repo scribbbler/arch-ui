@@ -1,17 +1,38 @@
 /* Radio — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web radio/styled-components visual design. */
 
-/* ─── Wrapper ────────────────────────────────────────────────────────────────── */
+/* ─── Radio group root ───────────────────────────────────────────────────────── */
+
+.arch-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arch-radio-group--horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.arch-radio-group--disabled {
+  cursor: not-allowed;
+}
+
+/* ─── Radio wrapper ──────────────────────────────────────────────────────────── */
 
 .arch-radio {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: var(--spacing-4);
   cursor: pointer;
-  user-select: none;
-  /* Minimum touch target height */
-  min-block-size: 2.75rem;
+  margin-block: var(--spacing-6);
   position: relative;
+}
+
+.arch-radio-group--horizontal .arch-radio {
+  margin-inline-end: var(--spacing-6);
 }
 
 .arch-radio--disabled {
@@ -21,39 +42,36 @@
 /* ─── Hidden native input ────────────────────────────────────────────────────── */
 
 .arch-radio__input {
-  /* Visually hidden but accessible to screen readers and keyboard */
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
+  width: 0;
+  height: 0;
+  margin: 0;
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  clip: rect(0 0 0 0);
+  position: absolute;
 }
 
-/* ─── Visual circle ──────────────────────────────────────────────────────────── */
+/* ─── Outer circle — 20px (scale700) ────────────────────────────────────────── */
 
 .arch-radio__circle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 
-  inline-size: var(--spacing-18);
-  block-size: var(--spacing-18);
-  min-inline-size: var(--spacing-18);
-  min-block-size: var(--spacing-18);
+  inline-size: var(--spacing-20);
+  block-size: var(--spacing-20);
 
-  border: var(--border-width-medium) solid var(--color-border-default);
-  border-radius: 50%;
-  background-color: var(--color-background-default);
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-border-default);
+  vertical-align: middle;
+
+  /* Margin matching Base Web: scale0 = 2px on all sides */
+  margin: var(--spacing-2);
 
   transition:
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
 
+  outline: none;
   position: relative;
 }
 
@@ -63,42 +81,66 @@
   }
 }
 
-/* ─── Inner dot (::after) ────────────────────────────────────────────────────── */
+/* ─── Inner circle ───────────────────────────────────────────────────────────── */
 
 .arch-radio__circle::after {
   content: '';
-  display: none;
-  position: absolute;
-  inline-size: 40%;
-  block-size: 40%;
-  border-radius: 50%;
-  background-color: var(--color-action-primary-text);
-  inset-block-start: 50%;
-  inset-inline-start: 50%;
-  translate: -50% -50%;
+  display: block;
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-background-default);
+  width: 100%;
+  height: 100%;
+  transition:
+    transform var(--motion-duration-fast) var(--motion-semantic-easing-default),
+    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+  /* Unchecked: inner circle is 70% (fills most of the outer) */
+  transform: scale(0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-radio__circle::after {
+    transition: none;
+  }
 }
 
 /* ─── Selected state ─────────────────────────────────────────────────────────── */
 
 .arch-radio--selected .arch-radio__circle {
   background-color: var(--color-action-primary);
-  border-color: var(--color-action-primary);
 }
 
 .arch-radio--selected .arch-radio__circle::after {
-  display: block;
+  /* Checked: inner dot shrinks to 30% revealing the colored outer ring */
+  background-color: var(--color-action-primary-text);
+  transform: scale(0.3);
+}
+
+/* ─── Error state ────────────────────────────────────────────────────────────── */
+
+.arch-radio--error .arch-radio__circle {
+  background-color: var(--color-border-danger);
+}
+
+.arch-radio--error .arch-radio__circle::after {
+  background-color: var(--color-background-default);
+}
+
+.arch-radio--error.arch-radio--selected .arch-radio__circle {
+  background-color: var(--color-border-danger);
 }
 
 /* ─── Disabled state ─────────────────────────────────────────────────────────── */
 
 .arch-radio--disabled .arch-radio__circle {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-border-disabled);
+}
+
+.arch-radio--disabled .arch-radio__circle::after {
+  background-color: var(--color-text-disabled);
 }
 
 .arch-radio--disabled.arch-radio--selected .arch-radio__circle {
   background-color: var(--color-background-disabled);
-  border-color: var(--color-border-disabled);
 }
 
 .arch-radio--disabled.arch-radio--selected .arch-radio__circle::after {
@@ -108,30 +150,64 @@
 /* ─── Focus visible ──────────────────────────────────────────────────────────── */
 
 .arch-radio__input:focus-visible + .arch-radio__circle {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
+  box-shadow: 0 0 0 var(--spacing-2) var(--color-border-focus);
+}
+
+.arch-radio--selected .arch-radio__input:focus-visible + .arch-radio__circle {
+  box-shadow: 0 0 0 var(--spacing-2) var(--color-border-focus);
 }
 
 /* ─── Hover (non-disabled) ───────────────────────────────────────────────────── */
 
 .arch-radio:not(.arch-radio--disabled):hover .arch-radio__circle {
-  border-color: var(--color-action-primary-hover);
+  background-color: var(--color-action-primary-hover);
+}
+
+.arch-radio:not(.arch-radio--disabled):hover .arch-radio__circle::after {
+  background-color: var(--color-background-default);
 }
 
 .arch-radio:not(.arch-radio--disabled).arch-radio--selected:hover .arch-radio__circle {
   background-color: var(--color-action-primary-hover);
-  border-color: var(--color-action-primary-hover);
 }
 
-/* ─── Label ──────────────────────────────────────────────────────────────────── */
+/* ─── Active (non-disabled) ──────────────────────────────────────────────────── */
+
+.arch-radio:not(.arch-radio--disabled):active .arch-radio__circle {
+  background-color: var(--color-action-primary-active);
+}
+
+.arch-radio:not(.arch-radio--disabled).arch-radio--selected:active .arch-radio__circle {
+  background-color: var(--color-action-primary-active);
+}
+
+/* ─── Label — LabelMedium ────────────────────────────────────────────────────── */
 
 .arch-radio__label {
-  font-size: var(--typography-scale-paragraph-medium-font-size);
-  font-weight: var(--typography-weight-regular);
+  vertical-align: middle;
+  padding-inline-start: var(--spacing-8);
+  font-size: var(--typography-scale-label-medium-font-size);
+  line-height: var(--typography-scale-label-medium-line-height);
+  font-weight: var(--typography-weight-medium);
   color: var(--color-text-default);
-  line-height: 1.5;
 }
 
 .arch-radio--disabled .arch-radio__label {
-  color: var(--color-text-disabled);
+  color: var(--color-text-subtle);
+}
+
+/* ─── Description ────────────────────────────────────────────────────────────── */
+
+.arch-radio__description {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  color: var(--color-text-subtle);
+  cursor: auto;
+  margin-inline-start: var(--spacing-28);
+  max-width: var(--spacing-96);
+}
+
+.arch-radio-group--horizontal .arch-radio__description {
+  margin-inline-start: 0;
+  margin-inline-end: var(--spacing-6);
 }

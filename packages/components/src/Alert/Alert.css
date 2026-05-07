@@ -6,13 +6,11 @@
 .arch-alert {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-8);
-  padding-block: var(--spacing-16);
-  padding-inline: var(--spacing-16);
-  border-radius: var(--radius-component-sm);
-  border-width: var(--border-width-default);
-  border-style: solid;
+  justify-content: space-between;
+  padding: var(--spacing-16);
+  border-radius: var(--radius-component-md);
   font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 /* ─── Icon ───────────────────────────────────────────────────────────────────── */
@@ -21,7 +19,7 @@
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  margin-block-start: 0.1em;
+  margin-inline-end: var(--spacing-16);
 }
 
 /* ─── Body ───────────────────────────────────────────────────────────────────── */
@@ -44,6 +42,7 @@
 .arch-alert__description {
   display: block;
   font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
 }
 
 /* ─── Close button ───────────────────────────────────────────────────────────── */
@@ -59,14 +58,11 @@
   padding: var(--spacing-4);
   border-radius: var(--radius-component-sm);
   color: inherit;
-  opacity: 0.7;
-  margin-block-start: -0.125em;
-  margin-inline-end: calc(-1 * var(--spacing-4));
+  inline-size: var(--spacing-16);
 }
 
 .arch-alert__close:hover {
-  opacity: 1;
-  background-color: var(--color-background-subtle);
+  opacity: 0.8;
 }
 
 .arch-alert__close:focus-visible {
@@ -79,7 +75,6 @@
 .arch-alert--info {
   background-color: var(--color-feedback-info-bg);
   color: var(--color-feedback-info-text);
-  border-color: var(--color-feedback-info-border);
 }
 
 .arch-alert--info .arch-alert__icon {
@@ -91,7 +86,6 @@
 .arch-alert--success {
   background-color: var(--color-feedback-success-bg);
   color: var(--color-feedback-success-text);
-  border-color: var(--color-feedback-success-border);
 }
 
 .arch-alert--success .arch-alert__icon {
@@ -103,7 +97,6 @@
 .arch-alert--warning {
   background-color: var(--color-feedback-warning-bg);
   color: var(--color-feedback-warning-text);
-  border-color: var(--color-feedback-warning-border);
 }
 
 .arch-alert--warning .arch-alert__icon {
@@ -115,7 +108,6 @@
 .arch-alert--danger {
   background-color: var(--color-feedback-danger-bg);
   color: var(--color-feedback-danger-text);
-  border-color: var(--color-feedback-danger-border);
 }
 
 .arch-alert--danger .arch-alert__icon {

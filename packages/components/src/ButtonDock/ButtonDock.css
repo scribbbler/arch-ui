@@ -1,36 +1,70 @@
 /* ButtonDock — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
-   Logical properties only: no left/right — use inline-start/inline-end. */
+   Matches Base Web ButtonDock: column layout with container queries for wide viewports. */
 
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
 .arch-button-dock {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  gap: var(--spacing-12);
-  padding: var(--spacing-16);
-  background-color: var(--color-surface-base);
-  box-shadow: var(--shadow-shallow-above);
-  inset-inline: 0;
-  inset-block-end: 0;
-  box-sizing: border-box;
+  gap: var(--spacing-8);
   width: 100%;
+  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-16);
+  background-color: var(--color-background-default);
+  box-sizing: border-box;
+  container: arch-button-dock / inline-size;
 }
 
 /* ─── Position variants ──────────────────────────────────────────────────────── */
 
 .arch-button-dock--fixed {
   position: fixed;
+  inset-inline: 0;
+  inset-block-end: 0;
   z-index: var(--z-semantic-sticky);
 }
 
 .arch-button-dock--sticky {
   position: sticky;
+  inset-block-end: 0;
   z-index: var(--z-semantic-sticky);
 }
 
-/* ─── Action slots ───────────────────────────────────────────────────────────── */
+/* ─── Action container — stacks vertically, goes row at wide widths ─────────── */
+
+.arch-button-dock__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+@container arch-button-dock (inline-size > 600px) {
+  .arch-button-dock__actions {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ─── Action sub-container ──────────────────────────────────────────────────── */
+
+.arch-button-dock__action-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+@container arch-button-dock (inline-size > 600px) {
+  .arch-button-dock__action-group {
+    flex-direction: row;
+  }
+
+  .arch-button-dock__action-group--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* ─── Primary action slot ───────────────────────────────────────────────────── */
 
 .arch-button-dock__primary {
   display: flex;
@@ -41,10 +75,14 @@
   flex: 1;
 }
 
+/* ─── Secondary action slot ─────────────────────────────────────────────────── */
+
 .arch-button-dock__secondary {
   display: flex;
   justify-content: center;
 }
+
+/* ─── Dismiss action slot ───────────────────────────────────────────────────── */
 
 .arch-button-dock__dismiss {
   display: flex;

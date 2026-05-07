@@ -8,15 +8,15 @@
   z-index: var(--z-semantic-modal);
   inset-inline: 0;
   inset-block-end: 0;
-  background-color: var(--color-surface-base);
-  border-block-start: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-default);
   border-start-start-radius: var(--radius-component-lg);
   border-start-end-radius: var(--radius-component-lg);
-  box-shadow: var(--shadow-overlay);
+  box-shadow: var(--shadow-deep-above);
   max-block-size: 85vh;
   display: flex;
   flex-direction: column;
   outline: none;
+  overflow: hidden;
   animation: arch-sheet-enter var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) both;
 }
 
@@ -52,8 +52,8 @@
 
 .arch-sheet__handle::after {
   content: '';
-  inline-size: 2rem;
-  block-size: 0.25rem;
+  inline-size: var(--spacing-32);
+  block-size: var(--spacing-4);
   background-color: var(--color-border-subtle);
   border-radius: var(--radius-component-sm);
 }
@@ -64,15 +64,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: var(--spacing-8);
+  padding-block-start: var(--spacing-24);
   padding-inline: var(--spacing-24);
-  border-block-end: var(--border-width-default) solid var(--color-border-default);
   flex-shrink: 0;
 }
 
+@media (max-width: 599px) {
+  .arch-sheet__header {
+    padding-inline: var(--spacing-16);
+  }
+}
+
 .arch-sheet__title {
-  font-size: var(--typography-scale-paragraph-medium-font-size);
-  font-weight: var(--typography-weight-semibold);
+  font-size: var(--typography-scale-heading-medium-font-size);
+  font-weight: var(--typography-scale-heading-medium-font-weight);
+  line-height: var(--typography-scale-heading-medium-line-height);
   color: var(--color-text-default);
   margin: 0;
 }
@@ -100,9 +106,18 @@
 /* ─── Body ──────────────────────────────────────────────────────────────────── */
 
 .arch-sheet__body {
-  padding-block: var(--spacing-24);
+  margin-block-start: var(--spacing-8);
+  margin-block-end: var(--spacing-24);
   padding-inline: var(--spacing-24);
   overflow-y: auto;
   flex: 1;
   color: var(--color-text-default);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+}
+
+@media (max-width: 599px) {
+  .arch-sheet__body {
+    padding-inline: var(--spacing-16);
+  }
 }

@@ -1,6 +1,20 @@
 /* Dialog — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours. */
 
+/* ─── Overlay ──────────────────────────────────────────────────────────────── */
+
+.arch-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-background-overlay);
+  animation: arch-dialog-overlay-enter var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) both;
+}
+
+@keyframes arch-dialog-overlay-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* ─── Wrapper ───────────────────────────────────────────────────────────────── */
 
 .arch-dialog-wrapper {
@@ -10,24 +24,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: var(--spacing-32);
-  padding-inline: var(--spacing-16);
 }
 
 /* ─── Panel ─────────────────────────────────────────────────────────────────── */
 
 .arch-dialog {
-  position: relative;
+  position: fixed;
   z-index: var(--z-semantic-modal);
-  background-color: var(--color-surface-base);
-  border: var(--border-width-default) solid var(--color-border-default);
-  box-shadow: var(--shadow-overlay);
-  border-radius: var(--radius-component-md);
-  inline-size: 100%;
-  max-inline-size: 28rem;
-  padding-block: var(--spacing-24);
-  padding-inline: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-background-default);
+  color: var(--color-text-default);
+  border-radius: var(--radius-component-lg);
+  box-shadow: var(--shadow-shallow-below);
+  border: none;
+  overflow: hidden;
   outline: none;
+  max-block-size: calc(100vh - var(--spacing-80));
+  max-inline-size: calc(100% - var(--spacing-80));
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
   animation: arch-dialog-enter var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) both;
 }
 
@@ -36,14 +54,44 @@
   outline-offset: 2px;
 }
 
+/* ─── Sizes ────────────────────────────────────────────────────────────────── */
+
+.arch-dialog--xs { inline-size: 30rem; }
+.arch-dialog--sm { inline-size: 40rem; }
+.arch-dialog--md { inline-size: 50rem; }
+.arch-dialog--lg { inline-size: 100%; }
+
 @keyframes arch-dialog-enter {
   from {
     opacity: 0;
-    transform: translateY(var(--spacing-8));
+    transform: translate(-50%, calc(-50% + var(--spacing-16)));
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 599px) {
+  .arch-dialog {
+    inline-size: calc(100% - var(--spacing-32));
+    max-inline-size: none;
+    inset-block-start: auto;
+    inset-block-end: var(--spacing-16);
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    animation: arch-dialog-enter-mobile var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) both;
+  }
+
+  @keyframes arch-dialog-enter-mobile {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(var(--spacing-16));
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
   }
 }
 
@@ -51,24 +99,60 @@
   .arch-dialog {
     animation: none;
   }
+
+  .arch-dialog-overlay {
+    animation: none;
+  }
 }
 
-/* ─── Title ─────────────────────────────────────────────────────────────────── */
+/* ─── Scroll container ─────────────────────────────────────────────────────── */
+
+.arch-dialog__scroll {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  inline-size: 100%;
+}
+
+/* ─── Heading ──────────────────────────────────────────────────────────────── */
 
 .arch-dialog__title {
-  font-size: var(--typography-scale-paragraph-medium-font-size);
-  font-weight: var(--typography-weight-semibold);
+  position: sticky;
+  inset-block-start: 0;
+  padding-block-start: var(--spacing-24);
+  padding-inline: var(--spacing-24);
+  background-color: var(--color-background-default);
+  font-size: var(--typography-scale-heading-medium-font-size);
+  font-weight: var(--typography-scale-heading-medium-font-weight);
+  line-height: var(--typography-scale-heading-medium-line-height);
   color: var(--color-text-default);
   margin: 0;
-  margin-block-end: var(--spacing-8);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 599px) {
+  .arch-dialog__title {
+    padding-inline: var(--spacing-16);
+  }
 }
 
 /* ─── Body ──────────────────────────────────────────────────────────────────── */
 
 .arch-dialog__body {
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  color: var(--color-text-subtle);
+  margin-block-start: var(--spacing-8);
   margin-block-end: var(--spacing-24);
+  padding-inline: var(--spacing-24);
+  font-size: var(--typography-scale-paragraph-large-font-size);
+  line-height: var(--typography-scale-paragraph-large-line-height);
+  color: var(--color-text-default);
+}
+
+@media (max-width: 599px) {
+  .arch-dialog__body {
+    padding-inline: var(--spacing-16);
+  }
 }
 
 /* ─── Footer ────────────────────────────────────────────────────────────────── */
@@ -78,6 +162,8 @@
   align-items: center;
   justify-content: flex-end;
   gap: var(--spacing-12);
+  padding-inline: var(--spacing-24);
+  padding-block-end: var(--spacing-24);
 }
 
 /* ─── Buttons ───────────────────────────────────────────────────────────────── */

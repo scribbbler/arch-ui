@@ -1,4 +1,6 @@
 /* List — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web list.
    Matches Base Web ListItem pattern: artwork | content | endEnhancer */
 
 /* ─── List container ─────────────────────────────────────────────────────────── */
@@ -7,10 +9,13 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  width: 100%;
   color: var(--color-text-default);
   font-size: var(--typography-scale-paragraph-medium-font-size);
   line-height: var(--typography-scale-paragraph-medium-line-height);
+  list-style-type: none;
 }
 
 .arch-list--bullet {
@@ -32,19 +37,20 @@
 .arch-list-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-16);
-  padding: var(--spacing-14) var(--spacing-16);
-  border-bottom: 1px solid var(--color-border-default);
+  width: 100%;
+  min-height: var(--spacing-48);
+  background-color: var(--color-background-default);
   list-style: none;
+  overflow: hidden;
 }
 
-.arch-list-item:last-child {
-  border-bottom: none;
+/* ─── ListItem shapes ────────────────────────────────────────────────────────── */
+
+.arch-list-item--round {
+  border-radius: var(--radius-xl);
 }
 
-.arch-list-item--sublist {
-  padding-inline-start: var(--spacing-48);
-}
+/* ─── ListItem interactive ───────────────────────────────────────────────────── */
 
 .arch-list-item--interactive {
   cursor: pointer;
@@ -54,6 +60,8 @@
   text-align: start;
   font: inherit;
   color: inherit;
+  padding: 0;
+  box-shadow: none;
 }
 
 .arch-list-item--interactive:hover {
@@ -61,7 +69,7 @@
 }
 
 .arch-list-item--interactive:focus-visible {
-  box-shadow: inset 0 0 0 2px var(--color-border-focus);
+  box-shadow: inset 0 0 0 var(--spacing-2) var(--color-border-focus);
   outline: none;
 }
 
@@ -75,19 +83,17 @@
   color: var(--color-text-default);
 }
 
+/* Small artwork (<=36px) centered in scale1600 (48px) container */
 .arch-list-item__artwork--small {
-  width: var(--spacing-24);
-  height: var(--spacing-24);
-}
-
-.arch-list-item__artwork--medium {
-  width: var(--spacing-36);
-  height: var(--spacing-36);
-}
-
-.arch-list-item__artwork--large {
   width: var(--spacing-48);
-  height: var(--spacing-48);
+  justify-content: center;
+}
+
+/* Larger artwork gets padding on sides */
+.arch-list-item__artwork--medium,
+.arch-list-item__artwork--large {
+  padding-inline-start: var(--spacing-16);
+  padding-inline-end: var(--spacing-16);
 }
 
 .arch-list-item__artwork--round {
@@ -103,12 +109,23 @@
 /* ─── Content ────────────────────────────────────────────────────────────────── */
 
 .arch-list-item__content {
-  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
   min-width: 0;
+  min-height: var(--spacing-48);
+  justify-content: space-between;
+  border-block-end: var(--border-width-default) solid var(--color-border-subtle);
+  padding-inline-end: var(--spacing-16);
+  margin-inline-start: var(--spacing-16);
 }
 
-.arch-list-item__content--sublist {
-  font-size: var(--typography-scale-paragraph-small-font-size);
+.arch-list-item:last-child .arch-list-item__content {
+  border-block-end: none;
+}
+
+.arch-list-item--sublist .arch-list-item__content {
+  min-height: auto;
 }
 
 /* ─── End enhancer ───────────────────────────────────────────────────────────── */
@@ -126,7 +143,7 @@
 .arch-list-item-label {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  padding-block: var(--spacing-12);
 }
 
 .arch-list-item-label__content {
@@ -134,17 +151,20 @@
   font-weight: var(--typography-scale-label-medium-font-weight);
   line-height: var(--typography-scale-label-medium-line-height);
   color: var(--color-text-default);
+  margin: 0;
 }
 
 .arch-list-item-label__description {
   font-size: var(--typography-scale-paragraph-small-font-size);
   line-height: var(--typography-scale-paragraph-small-line-height);
-  color: var(--color-text-subtle);
+  color: var(--color-text-default);
+  margin: 0;
 }
 
 .arch-list-item-label--sublist .arch-list-item-label__content {
-  font-size: var(--typography-scale-label-small-font-size);
-  font-weight: var(--typography-scale-label-small-font-weight);
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  margin-block: var(--spacing-12);
 }
 
 /* ─── ListHeading ────────────────────────────────────────────────────────────── */
@@ -152,15 +172,23 @@
 .arch-list-heading {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--spacing-16);
+  width: 100%;
+  background-color: var(--color-background-default);
+  overflow: hidden;
+  min-height: var(--spacing-48);
   list-style: none;
 }
 
 .arch-list-heading__start {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  flex-grow: 1;
+  width: 100%;
+  min-width: 0;
+  padding-block-start: var(--spacing-16);
+  padding-block-end: var(--spacing-8);
+  padding-inline-end: var(--spacing-16);
+  margin-inline-start: var(--spacing-16);
 }
 
 .arch-list-heading__heading {
@@ -168,29 +196,50 @@
   font-weight: var(--typography-scale-heading-xsmall-font-weight);
   line-height: var(--typography-scale-heading-xsmall-line-height);
   color: var(--color-text-default);
+  margin: 0;
+  margin-inline-end: var(--spacing-16);
 }
 
 .arch-list-heading__heading--clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .arch-list-heading__subheading {
-  font-size: var(--typography-scale-paragraph-small-font-size);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
   color: var(--color-text-subtle);
+  margin: 0;
+  margin-inline-end: var(--spacing-16);
+}
+
+.arch-list-heading__subheading--clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .arch-list-heading__end {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: var(--spacing-2);
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .arch-list-heading__end-description {
   font-size: var(--typography-scale-paragraph-small-font-size);
   color: var(--color-text-subtle);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ─── DescriptionList ────────────────────────────────────────────────────────── */

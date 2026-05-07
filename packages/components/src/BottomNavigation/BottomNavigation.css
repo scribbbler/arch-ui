@@ -1,51 +1,59 @@
 /* BottomNavigation — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours. */
 
-/* ─── Base ──────────────────────────────────────────────────────────────────── */
+/* ─── Root ──────────────────────────────────────────────────────────────────── */
 
 .arch-bottom-navigation {
+  block-size: 100%;
+  inline-size: 100%;
   display: flex;
-  align-items: stretch;
-  justify-content: space-around;
-
-  background-color: var(--color-background-default);
-  border-block-start: var(--border-width-thin) solid var(--color-border-subtle);
-  box-shadow: var(--shadow-sm);
+  flex-direction: column;
 }
 
-/* ─── Item ──────────────────────────────────────────────────────────────────── */
+/* ─── Selector list ────────────────────────────────────────────────────────── */
+
+.arch-bottom-navigation__list {
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--spacing-8);
+  inline-size: 100%;
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-8);
+  border-block-start: var(--border-width-medium) solid var(--color-border-default);
+  background-color: var(--color-background-default);
+}
+
+/* ─── Item (selector button) ───────────────────────────────────────────────── */
 
 .arch-bottom-navigation__item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   gap: var(--spacing-4);
-
-  flex: 1;
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-4);
-
-  font-family: inherit;
-  font-size: var(--typography-scale-text-sm);
-  color: var(--color-text-subtle);
-
+  /* button reset */
+  border-radius: var(--radius-none);
+  text-align: inherit;
   background: none;
-  border: none;
+  box-shadow: none;
+  padding: 0;
   cursor: pointer;
-}
-
-.arch-bottom-navigation__item:hover {
-  color: var(--color-text-default);
-}
-
-.arch-bottom-navigation__item--active {
-  color: var(--color-background-primary);
+  border: none;
+  color: inherit;
+  font: inherit;
 }
 
 .arch-bottom-navigation__item:focus-visible {
   outline: var(--border-width-medium) solid var(--color-border-focus);
   outline-offset: var(--spacing-2);
+}
+
+/* ─── Item active ──────────────────────────────────────────────────────────── */
+
+.arch-bottom-navigation__item--active {
+  color: var(--color-text-default);
 }
 
 /* ─── Icon ──────────────────────────────────────────────────────────────────── */
@@ -56,8 +64,29 @@
   justify-content: center;
 }
 
-/* ─── Label ─────────────────────────────────────────────────────────────────── */
+/* ─── Label ────────────────────────────────────────────────────────────────── */
 
 .arch-bottom-navigation__label {
+  font-size: var(--typography-scale-label-xsmall-font-size);
+  line-height: var(--typography-scale-label-xsmall-line-height);
+  font-weight: var(--typography-scale-label-xsmall-font-weight);
   white-space: nowrap;
+}
+
+/* ─── Panel ────────────────────────────────────────────────────────────────── */
+
+.arch-bottom-navigation__panel {
+  flex: 1;
+  overflow: auto;
+}
+
+/* ─── Overflow panel ───────────────────────────────────────────────────────── */
+
+.arch-bottom-navigation__overflow-panel {
+  flex: 1;
+  overflow: auto;
+}
+
+.arch-bottom-navigation__overflow-panel-list {
+  padding-inline: 0;
 }

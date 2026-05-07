@@ -6,42 +6,83 @@
 .arch-snackbar-container {
   position: fixed;
   z-index: var(--z-semantic-toast);
-  inset-block-end: var(--spacing-24);
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
   display: flex;
-  flex-direction: column-reverse;
-  gap: var(--spacing-8);
+  flex-direction: column;
   pointer-events: none;
-  max-inline-size: min(calc(100vw - var(--spacing-24) * 2), 36rem);
-  inline-size: 100%;
+  inset-inline: 0;
+  margin: var(--spacing-8);
+}
+
+@media (min-width: 600px) {
+  .arch-snackbar-container {
+    margin: var(--spacing-16);
+  }
+}
+
+/* ─── Position variants ──────────────────────────────────────────────────────── */
+
+.arch-snackbar-container--top {
+  inset-block-start: 0;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.arch-snackbar-container--top-left {
+  inset-block-start: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.arch-snackbar-container--top-right {
+  inset-block-start: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.arch-snackbar-container--bottom {
+  inset-block-end: 0;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column-reverse;
+}
+
+.arch-snackbar-container--bottom-left {
+  inset-block-end: 0;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column-reverse;
+}
+
+.arch-snackbar-container--bottom-right {
+  inset-block-end: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column-reverse;
 }
 
 /* ─── Individual Snackbar ───────────────────────────────────────────────────── */
 
 .arch-snackbar {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--spacing-12);
-  padding-block: var(--spacing-12);
-  padding-inline: var(--spacing-16);
-  background-color: var(--color-surface-raised);
-  border: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-inverse);
   border-radius: var(--radius-component-md);
-  box-shadow: var(--shadow-component-md);
+  box-shadow: var(--shadow-xl);
   pointer-events: all;
-  inline-size: 100%;
-  animation: arch-snackbar-enter var(--motion-duration-normal) var(--motion-semantic-easing-default) forwards;
+  color: var(--color-text-inverse);
+  max-inline-size: 34rem;
+  min-inline-size: 20rem;
+  animation: arch-snackbar-enter var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) forwards;
 }
 
 .arch-snackbar--exiting {
-  animation: arch-snackbar-exit var(--motion-duration-normal) var(--motion-semantic-easing-default) forwards;
+  animation: arch-snackbar-exit var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) forwards;
 }
 
 @keyframes arch-snackbar-enter {
   from {
     opacity: 0;
-    transform: translateY(0.5rem);
+    transform: translateY(var(--spacing-8));
   }
   to {
     opacity: 1;
@@ -56,7 +97,7 @@
   }
   to {
     opacity: 0;
-    transform: translateY(0.5rem);
+    transform: translateY(var(--spacing-8));
   }
 }
 
@@ -71,13 +112,33 @@
   }
 }
 
+/* ─── Start enhancer ─────────────────────────────────────────────────────────── */
+
+.arch-snackbar__start-enhancer {
+  display: flex;
+  align-items: center;
+  padding-inline-start: var(--spacing-16);
+}
+
 /* ─── Message ───────────────────────────────────────────────────────────────── */
 
 .arch-snackbar__message {
   flex: 1;
   min-inline-size: 0;
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  color: var(--color-text-default);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+  color: var(--color-text-inverse);
+  margin-block: var(--spacing-16);
+  padding-inline-start: var(--spacing-16);
+  padding-inline-end: var(--spacing-8);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.arch-snackbar__message--no-suffix {
+  padding-inline-end: var(--spacing-16);
 }
 
 /* ─── Action button ─────────────────────────────────────────────────────────── */
@@ -94,7 +155,8 @@
   font-weight: var(--typography-weight-semibold);
   white-space: nowrap;
   flex-shrink: 0;
-  color: var(--color-text-default);
+  color: var(--color-text-inverse);
+  margin-inline-start: auto;
 }
 
 .arch-snackbar__action:focus-visible {
@@ -106,7 +168,7 @@
 
 .arch-snackbar--success {
   background-color: var(--color-feedback-success-bg);
-  border-color: var(--color-feedback-success-border);
+  color: var(--color-feedback-success-text);
 }
 
 .arch-snackbar--success .arch-snackbar__message {
@@ -117,7 +179,7 @@
 
 .arch-snackbar--warning {
   background-color: var(--color-feedback-warning-bg);
-  border-color: var(--color-feedback-warning-border);
+  color: var(--color-feedback-warning-text);
 }
 
 .arch-snackbar--warning .arch-snackbar__message {
@@ -128,7 +190,7 @@
 
 .arch-snackbar--error {
   background-color: var(--color-feedback-danger-bg);
-  border-color: var(--color-feedback-danger-border);
+  color: var(--color-feedback-danger-text);
 }
 
 .arch-snackbar--error .arch-snackbar__message {

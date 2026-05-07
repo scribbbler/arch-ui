@@ -1,69 +1,117 @@
 /* ButtonGroup — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Base Web ButtonGroup layout: flex with gap, optional wrap/padding. */
 
 /* ─── Root ───────────────────────────────────────────────────────────────────── */
 
 .arch-button-group {
-  display: inline-flex;
-  flex-direction: row;
+  display: flex;
+  column-gap: var(--spacing-8);
+  row-gap: var(--spacing-8);
 }
 
-/* ─── Item overrides — flush buttons with no gap ─────────────────────────────── */
+/* ─── Size-specific row-gap — Base Web uses smaller gap for mini/xSmall ────── */
+
+.arch-button-group--mini {
+  row-gap: var(--spacing-12);
+}
+
+.arch-button-group--compact,
+.arch-button-group--default,
+.arch-button-group--large {
+  row-gap: var(--spacing-8);
+}
+
+/* ─── Wrap behaviour ────────────────────────────────────────────────────────── */
+
+.arch-button-group--wrap {
+  flex-wrap: wrap;
+}
+
+.arch-button-group--nowrap {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.arch-button-group--nowrap::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Padding variants — Base Web PADDING.default uses scale600 (16px) ────── */
+
+.arch-button-group--padded {
+  padding-inline: var(--spacing-16);
+}
+
+.arch-button-group--no-padding {
+  padding-inline: 0;
+}
+
+/* ─── Item ──────────────────────────────────────────────────────────────────── */
 
 .arch-button-group__item {
-  border-radius: 0;
   position: relative;
 }
 
-/* Add subtle border between items using box-shadow to avoid layout shift */
-.arch-button-group__item + .arch-button-group__item {
+/* ─── Joined mode — flush buttons with no gap (original behaviour) ─────────── */
+
+.arch-button-group--joined {
+  column-gap: 0;
+  row-gap: 0;
+}
+
+.arch-button-group--joined .arch-button-group__item {
+  border-radius: 0;
+}
+
+.arch-button-group--joined .arch-button-group__item + .arch-button-group__item {
   margin-inline-start: calc(-1 * var(--border-width-default));
 }
 
 /* First child — rounded on inline-start side */
-.arch-button-group__item:first-child {
-  border-start-start-radius: var(--radius-md);
-  border-end-start-radius: var(--radius-md);
+.arch-button-group--joined .arch-button-group__item:first-child {
+  border-start-start-radius: var(--radius-component-md);
+  border-end-start-radius: var(--radius-component-md);
 }
 
 /* Last child — rounded on inline-end side */
-.arch-button-group__item:last-child {
-  border-start-end-radius: var(--radius-md);
-  border-end-end-radius: var(--radius-md);
+.arch-button-group--joined .arch-button-group__item:last-child {
+  border-start-end-radius: var(--radius-component-md);
+  border-end-end-radius: var(--radius-component-md);
 }
 
-/* Middle children — no border-radius (already 0 from base) */
-.arch-button-group__item:not(:first-child):not(:last-child) {
+/* Middle children — no border-radius */
+.arch-button-group--joined .arch-button-group__item:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
 
 /* Single child — full border-radius */
-.arch-button-group__item:only-child {
-  border-start-start-radius: var(--radius-md);
-  border-end-start-radius: var(--radius-md);
-  border-start-end-radius: var(--radius-md);
-  border-end-end-radius: var(--radius-md);
+.arch-button-group--joined .arch-button-group__item:only-child {
+  border-start-start-radius: var(--radius-component-md);
+  border-end-start-radius: var(--radius-component-md);
+  border-start-end-radius: var(--radius-component-md);
+  border-end-end-radius: var(--radius-component-md);
 }
 
-/* ─── Pill shape override ────────────────────────────────────────────────────── */
+/* ─── Pill shape override (joined mode) ─────────────────────────────────────── */
 
-.arch-button-group--pill .arch-button-group__item:first-child {
+.arch-button-group--pill.arch-button-group--joined .arch-button-group__item:first-child {
   border-start-start-radius: var(--radius-full);
   border-end-start-radius: var(--radius-full);
 }
 
-.arch-button-group--pill .arch-button-group__item:last-child {
+.arch-button-group--pill.arch-button-group--joined .arch-button-group__item:last-child {
   border-start-end-radius: var(--radius-full);
   border-end-end-radius: var(--radius-full);
 }
 
-.arch-button-group--pill .arch-button-group__item:only-child {
+.arch-button-group--pill.arch-button-group--joined .arch-button-group__item:only-child {
   border-radius: var(--radius-full);
 }
 
-/* ─── Separator between items ────────────────────────────────────────────────── */
+/* ─── Separator between items (joined mode) ─────────────────────────────────── */
 
-.arch-button-group__item + .arch-button-group__item::before {
+.arch-button-group--joined .arch-button-group__item + .arch-button-group__item::before {
   content: "";
   position: absolute;
   inset-block-start: var(--spacing-4);
@@ -75,8 +123,8 @@
 }
 
 /* Hide separator when the previous button is selected or the current one is */
-.arch-button-group__item.arch-button--selected + .arch-button-group__item::before,
-.arch-button-group__item.arch-button--selected::before {
+.arch-button-group--joined .arch-button-group__item.arch-button--selected + .arch-button-group__item::before,
+.arch-button-group--joined .arch-button-group__item.arch-button--selected::before {
   display: none;
 }
 

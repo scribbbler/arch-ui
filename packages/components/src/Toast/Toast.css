@@ -7,46 +7,53 @@
   position: fixed;
   z-index: var(--z-semantic-toast);
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-8);
   pointer-events: none;
-  max-inline-size: min(calc(100vw - var(--spacing-24) * 2), 24rem);
+  inset-inline: 0;
+  margin-block: var(--spacing-8);
+  margin-inline: var(--spacing-16);
 }
 
 /* ─── Position variants ──────────────────────────────────────────────────────── */
 
 .arch-toast-container--top-left {
-  inset-block-start: var(--spacing-24);
-  inset-inline-start: var(--spacing-24);
+  inset-block-start: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .arch-toast-container--top-center {
-  inset-block-start: var(--spacing-24);
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
+  inset-block-start: 0;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .arch-toast-container--top-right {
-  inset-block-start: var(--spacing-24);
-  inset-inline-end: var(--spacing-24);
+  inset-block-start: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .arch-toast-container--bottom-left {
-  inset-block-end: var(--spacing-24);
-  inset-inline-start: var(--spacing-24);
+  inset-block-end: 0;
+  align-items: flex-start;
+  justify-content: flex-end;
   flex-direction: column-reverse;
 }
 
 .arch-toast-container--bottom-center {
-  inset-block-end: var(--spacing-24);
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
+  inset-block-end: 0;
+  align-items: center;
+  justify-content: flex-end;
   flex-direction: column-reverse;
 }
 
 .arch-toast-container--bottom-right {
-  inset-block-end: var(--spacing-24);
-  inset-inline-end: var(--spacing-24);
+  inset-block-end: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
   flex-direction: column-reverse;
 }
 
@@ -55,28 +62,34 @@
 .arch-toast {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-8);
-  padding-block: var(--spacing-16);
-  padding-inline: var(--spacing-16);
+  justify-content: space-between;
+  padding: var(--spacing-16);
   background-color: var(--color-surface-raised);
-  border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-component-md);
-  box-shadow: var(--shadow-component-md);
+  box-shadow: var(--shadow-lg);
   pointer-events: all;
-  inline-size: 100%;
+  inline-size: 18rem;
+  margin-block: var(--spacing-8);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
+  color: var(--color-text-default);
+  opacity: 0;
+  transition:
+    opacity var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter),
+    transform var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter);
 
   /* Entry animation */
-  animation: arch-toast-enter var(--motion-duration-normal) var(--motion-semantic-easing-default) forwards;
+  animation: arch-toast-enter var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) forwards;
 }
 
 .arch-toast--exiting {
-  animation: arch-toast-exit var(--motion-duration-normal) var(--motion-semantic-easing-default) forwards;
+  animation: arch-toast-exit var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter) forwards;
 }
 
 @keyframes arch-toast-enter {
   from {
     opacity: 0;
-    transform: translateY(-0.5rem);
+    transform: translateY(var(--spacing-8));
   }
   to {
     opacity: 1;
@@ -91,7 +104,7 @@
   }
   to {
     opacity: 0;
-    transform: translateY(-0.5rem);
+    transform: translateY(var(--spacing-8));
   }
 }
 
@@ -140,8 +153,7 @@
   border-radius: var(--radius-component-sm);
   color: var(--color-text-subtle);
   flex-shrink: 0;
-  margin-block-start: -0.125em;
-  margin-inline-end: calc(-1 * var(--spacing-4));
+  inline-size: var(--spacing-16);
 }
 
 .arch-toast__close:hover {
@@ -153,11 +165,20 @@
   outline-offset: 2px;
 }
 
+/* ─── Variant: info ─────────────────────────────────────────────────────────── */
+
+.arch-toast--info {
+  background-color: var(--color-feedback-info-bg);
+}
+
+.arch-toast--info .arch-toast__title {
+  color: var(--color-feedback-info-text);
+}
+
 /* ─── Variant: success ───────────────────────────────────────────────────────── */
 
 .arch-toast--success {
   background-color: var(--color-feedback-success-bg);
-  border-color: var(--color-feedback-success-border);
 }
 
 .arch-toast--success .arch-toast__title {
@@ -168,7 +189,6 @@
 
 .arch-toast--warning {
   background-color: var(--color-feedback-warning-bg);
-  border-color: var(--color-feedback-warning-border);
 }
 
 .arch-toast--warning .arch-toast__title {
@@ -179,7 +199,6 @@
 
 .arch-toast--danger {
   background-color: var(--color-feedback-danger-bg);
-  border-color: var(--color-feedback-danger-border);
 }
 
 .arch-toast--danger .arch-toast__title {

@@ -4,16 +4,51 @@
 /* ─── Root ──────────────────────────────────────────────────────────────────── */
 
 .arch-tabs-motion {
+  transform: scale(1);
+}
+
+.arch-tabs-motion--vertical {
   display: flex;
-  flex-direction: column;
+}
+
+/* ─── Tab bar ──────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__tabbar {
+  display: flex;
 }
 
 /* ─── Tab list ──────────────────────────────────────────────────────────────── */
 
 .arch-tabs-motion__tablist {
   display: flex;
+  flex-wrap: nowrap;
+  flex-grow: 1;
   position: relative;
-  border-block-end: var(--border-width-default) solid var(--color-border-subtle);
+}
+
+.arch-tabs-motion__tablist--horizontal {
+  flex-direction: row;
+}
+
+.arch-tabs-motion__tablist--vertical {
+  flex-direction: column;
+}
+
+/* Scrollable (intrinsic fill) */
+.arch-tabs-motion__tablist--intrinsic {
+  scrollbar-width: none;
+}
+
+.arch-tabs-motion__tablist--intrinsic::-webkit-scrollbar {
+  display: none;
+}
+
+.arch-tabs-motion__tablist--horizontal.arch-tabs-motion__tablist--intrinsic {
+  overflow-x: scroll;
+}
+
+.arch-tabs-motion__tablist--vertical.arch-tabs-motion__tablist--intrinsic {
+  overflow-y: scroll;
 }
 
 /* ─── Tab button ────────────────────────────────────────────────────────────── */
@@ -21,18 +56,34 @@
 .arch-tabs-motion__tab {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding-block: var(--spacing-8);
-  padding-inline: var(--spacing-16);
-  border: none;
-  background: none;
+  box-sizing: border-box;
   cursor: pointer;
-  font-size: var(--typography-scale-text-sm);
-  font-weight: var(--typography-weight-regular);
-  color: var(--color-text-subtle);
+  appearance: none;
+  margin: 0;
+  padding: var(--spacing-16);
+  border: none;
+  color: var(--color-text-default);
+  background-color: var(--color-background-default);
+  font-size: var(--typography-scale-label-small-font-size);
+  line-height: var(--typography-scale-label-small-line-height);
+  font-weight: var(--typography-scale-label-small-font-weight);
   white-space: nowrap;
-  position: relative;
-  transition: color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+  outline: none;
+  outline-offset: calc(-1 * var(--spacing-2));
+  transition: background-color var(--motion-duration-normal) var(--motion-easing-linear);
+}
+
+.arch-tabs-motion__tab:hover {
+  background-color: var(--color-background-muted);
+}
+
+.arch-tabs-motion__tab:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+}
+
+.arch-tabs-motion__tab:disabled:hover {
+  background-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -45,44 +96,105 @@
 
 .arch-tabs-motion__tab--active {
   color: var(--color-text-default);
-  font-weight: var(--typography-weight-semibold);
 }
 
-/* ─── Hover ─────────────────────────────────────────────────────────────────── */
+/* ─── Horizontal tab alignment ──────────────────────────────────────────────── */
 
-.arch-tabs-motion__tab:not(.arch-tabs-motion__tab--active):hover {
-  color: var(--color-text-default);
+.arch-tabs-motion__tablist--horizontal .arch-tabs-motion__tab {
+  justify-content: center;
+}
+
+/* ─── Vertical tab alignment ────────────────────────────────────────────────── */
+
+.arch-tabs-motion__tablist--vertical .arch-tabs-motion__tab {
+  justify-content: flex-end;
 }
 
 /* ─── Focus visible ─────────────────────────────────────────────────────────── */
 
 .arch-tabs-motion__tab:focus-visible {
   outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: -2px;
-}
-
-/* ─── Sliding indicator ─────────────────────────────────────────────────────── */
-
-.arch-tabs-motion__indicator {
-  position: absolute;
-  inset-block-end: 0;
-  inset-inline-start: 0;
-  block-size: var(--border-width-medium);
-  background-color: var(--color-background-primary);
-  transition:
-    transform var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    width var(--motion-duration-fast) var(--motion-semantic-easing-default);
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .arch-tabs-motion__indicator {
-    transition: none;
-  }
+  outline-offset: calc(-1 * var(--spacing-2));
 }
 
 /* ─── Fill fixed ────────────────────────────────────────────────────────────── */
 
 .arch-tabs-motion--fill-fixed .arch-tabs-motion__tab {
-  flex: 1 1 0%;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+/* ─── End enhancer ──────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__end-enhancer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-inline-start: var(--spacing-16);
+}
+
+/* ─── Artwork container ─────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__artwork {
+  display: flex;
+  margin-inline-end: var(--spacing-8);
+}
+
+/* ─── Tab border ────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__border {
+  background-color: var(--color-border-default);
+  position: relative;
+}
+
+.arch-tabs-motion__border--horizontal {
+  block-size: var(--spacing-4);
+}
+
+.arch-tabs-motion__border--vertical {
+  inline-size: var(--spacing-4);
+}
+
+/* ─── Sliding indicator (highlight) ─────────────────────────────────────────── */
+
+.arch-tabs-motion__indicator {
+  position: absolute;
+  z-index: 1;
+  background-color: var(--color-border-selected);
+  pointer-events: none;
+}
+
+.arch-tabs-motion__indicator--horizontal {
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  block-size: var(--spacing-4);
+}
+
+.arch-tabs-motion__indicator--vertical {
+  inset-inline-end: 0;
+  inline-size: var(--spacing-4);
+}
+
+.arch-tabs-motion__indicator--animate {
+  transition:
+    transform var(--motion-duration-slow) var(--motion-semantic-easing-default),
+    width var(--motion-duration-slow) var(--motion-semantic-easing-default),
+    height var(--motion-duration-slow) var(--motion-semantic-easing-default);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arch-tabs-motion__indicator--animate {
+    transition: none;
+  }
+}
+
+/* ─── Panel ─────────────────────────────────────────────────────────────────── */
+
+.arch-tabs-motion__panel {
+  flex-grow: 1;
+  outline: none;
+}
+
+.arch-tabs-motion__panel--padded {
+  padding: var(--spacing-16);
 }

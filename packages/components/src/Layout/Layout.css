@@ -1,7 +1,32 @@
 /* Layout — arch-ui component styles
+   Aligned with Uber Base Web layout-grid visual design.
    All values must be var(--token-name). No hex, pixel literals, or named colours. */
 
-/* ─── Base ───────────────────────────────────────────────────────────────────── */
+/* ─── Grid Wrapper — Base Web: auto margin, max-width for fixed behavior ────── */
+
+.arch-layout-grid-wrapper {
+  margin: auto;
+}
+
+.arch-layout-grid-wrapper--fixed {
+  max-width: var(--arch-layout-grid-max-width, none);
+}
+
+/* ─── Grid — Base Web: flex-wrap, box-sizing, responsive gutters/margins ────── */
+
+.arch-layout-grid {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ─── Cell — Base Web: box-sizing, width computed from span/columns ──────────── */
+
+.arch-layout-grid__cell {
+  box-sizing: border-box;
+}
+
+/* ─── Legacy full-page layout (header/sidebar/content/footer) ────────────────── */
 
 .arch-layout {
   display: grid;
@@ -19,7 +44,7 @@
 
 .arch-layout__header {
   grid-area: header;
-  padding-inline: var(--spacing-16);
+  padding-inline: var(--spacing-layout-page-gutter);
   padding-block: var(--spacing-8);
   background-color: var(--color-background-default);
   border-block-end: var(--border-width-default) solid var(--color-border-subtle);
@@ -29,8 +54,8 @@
 
 .arch-layout__sidebar {
   grid-area: sidebar;
-  padding-inline: var(--spacing-16);
-  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-layout-page-gutter);
+  padding-block: var(--spacing-layout-page-gutter);
   background-color: var(--color-background-muted);
   border-inline-end: var(--border-width-default) solid var(--color-border-subtle);
 }
@@ -39,8 +64,8 @@
 
 .arch-layout__content {
   grid-area: content;
-  padding-inline: var(--spacing-16);
-  padding-block: var(--spacing-16);
+  padding-inline: var(--spacing-layout-page-gutter);
+  padding-block: var(--spacing-layout-page-gutter);
   background-color: var(--color-background-default);
 }
 
@@ -48,7 +73,7 @@
 
 .arch-layout__footer {
   grid-area: footer;
-  padding-inline: var(--spacing-16);
+  padding-inline: var(--spacing-layout-page-gutter);
   padding-block: var(--spacing-8);
   background-color: var(--color-background-default);
   border-block-start: var(--border-width-default) solid var(--color-border-subtle);

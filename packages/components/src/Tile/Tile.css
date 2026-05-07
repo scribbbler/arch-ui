@@ -1,55 +1,170 @@
 /* Tile — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web tile. */
 
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
 .arch-tile {
-  display: flex;
-  flex-direction: column;
-  padding-inline: var(--spacing-16);
-  padding-block: var(--spacing-12);
-  background-color: var(--color-background-default);
-  border: var(--border-width-default) solid var(--color-border-subtle);
-  border-radius: var(--radius-component-md);
+  display: inline-block;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-16);
+  min-width: var(--spacing-128);
+  text-decoration: none;
+  -webkit-appearance: none;
   cursor: pointer;
-  user-select: none;
+  border: none;
+  font: inherit;
+  text-align: start;
   color: var(--color-text-default);
   transition:
-    border-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    background-color var(--motion-semantic-duration-fast) var(--motion-semantic-easing-default),
+    box-shadow var(--motion-duration-normal) var(--motion-semantic-easing-default);
 }
 
-/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+/* ─── Tile kind: action (default) ────────────────────────────────────────────── */
 
-.arch-tile:hover:not(.arch-tile--disabled) {
+.arch-tile--action {
+  background-color: var(--color-background-muted);
+}
+
+.arch-tile--action:hover:not(.arch-tile--disabled) {
   background-color: var(--color-background-subtle);
+}
+
+.arch-tile--action:active:not(.arch-tile--disabled) {
+  background-color: var(--color-background-subtle);
+}
+
+/* ─── Tile kind: selection ───────────────────────────────────────────────────── */
+
+.arch-tile--selection {
+  background-color: var(--color-background-default);
+  box-shadow: inset 0 0 0 var(--border-width-strong) var(--color-border-default);
+}
+
+.arch-tile--selection:hover:not(.arch-tile--disabled) {
+  background-color: var(--color-background-subtle);
+}
+
+.arch-tile--selection:active:not(.arch-tile--disabled) {
+  background-color: var(--color-background-subtle);
+}
+
+/* ─── Selected ───────────────────────────────────────────────────────────────── */
+
+.arch-tile--selected {
+  box-shadow: inset 0 0 0 var(--spacing-2) var(--color-border-strong);
 }
 
 /* ─── Focus ──────────────────────────────────────────────────────────────────── */
 
 .arch-tile:focus-visible {
   outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: var(--spacing-2, 2px);
-}
-
-/* ─── Selected ───────────────────────────────────────────────────────────────── */
-
-.arch-tile--selected {
-  border-color: var(--color-action-primary);
-  background-color: var(--color-background-muted);
-}
-
-.arch-tile--selected:hover:not(.arch-tile--disabled) {
-  background-color: var(--color-background-subtle);
+  outline-offset: var(--spacing-2);
 }
 
 /* ─── Disabled ───────────────────────────────────────────────────────────────── */
 
 .arch-tile--disabled {
   cursor: not-allowed;
-  background-color: var(--color-background-disabled);
-  border-color: var(--color-border-disabled);
   color: var(--color-text-disabled);
+}
+
+.arch-tile--disabled.arch-tile--selection {
+  background-color: var(--color-background-default);
+  box-shadow: inset 0 0 0 var(--border-width-strong) var(--color-border-disabled);
+}
+
+/* ─── Header container ───────────────────────────────────────────────────────── */
+
+.arch-tile__header {
+  display: flex;
+  align-items: center;
+  margin-block-end: var(--spacing-16);
+}
+
+.arch-tile__header--between {
+  justify-content: space-between;
+}
+
+.arch-tile__header--start {
+  justify-content: flex-start;
+}
+
+.arch-tile__header--end {
+  justify-content: flex-end;
+}
+
+.arch-tile__header--center {
+  justify-content: center;
+}
+
+/* ─── Leading / Trailing content ─────────────────────────────────────────────── */
+
+.arch-tile__leading-content {
+  margin-inline-end: var(--spacing-8);
+  color: inherit;
+}
+
+.arch-tile__leading-content:last-child {
+  margin-inline-end: 0;
+}
+
+.arch-tile__trailing-content {
+  color: inherit;
+}
+
+/* ─── Body container ─────────────────────────────────────────────────────────── */
+
+.arch-tile__body {
+  width: 100%;
+  display: flex;
+}
+
+.arch-tile__body--start {
+  justify-content: flex-start;
+}
+
+.arch-tile__body--center {
+  justify-content: center;
+}
+
+.arch-tile__body--end {
+  justify-content: flex-end;
+}
+
+.arch-tile__body-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+/* ─── Label ──────────────────────────────────────────────────────────────────── */
+
+.arch-tile__label {
+  margin: 0;
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  line-height: var(--typography-scale-label-medium-line-height);
+  color: inherit;
+}
+
+/* ─── Paragraph ──────────────────────────────────────────────────────────────── */
+
+.arch-tile__paragraph {
+  margin: 0;
+  margin-block-start: var(--spacing-4);
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  color: inherit;
+}
+
+/* ─── Tile group ─────────────────────────────────────────────────────────────── */
+
+.arch-tile-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
 }
 
 /* ─── Reduced motion ─────────────────────────────────────────────────────────── */

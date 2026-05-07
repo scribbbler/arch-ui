@@ -1,4 +1,5 @@
 /* ProgressBar — arch-ui component styles
+   Aligned with Uber Base Web progress-bar visual design.
    All values must be var(--token-name). No hex, pixel literals, or named colours.
    Logical properties only: no left/right — use inline-start/inline-end. */
 
@@ -19,24 +20,41 @@
   }
 }
 
+/* ─── Root wrapper ──────────────────────────────────────────────────────────── */
+
+.arch-progressbar__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  inline-size: 100%;
+}
+
+.arch-progressbar__wrapper .arch-progressbar {
+  flex: 1;
+}
+
 /* ─── Track (wrapper) ────────────────────────────────────────────────────────── */
 
 .arch-progressbar {
-  display: block;
-  inline-size: 100%;
-  background-color: var(--color-background-muted);
-  border-radius: var(--radius-component-full);
-  overflow: hidden;
+  display: flex;
   position: relative;
+  inline-size: 100%;
+  background-color: var(--color-background-subtle);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
 }
 
-/* ─── Sizes ──────────────────────────────────────────────────────────────────── */
+/* ─── Sizes — Base Web: small=2px, medium=4px, large=8px ────────────────────── */
 
 .arch-progressbar--sm {
-  block-size: var(--spacing-4);
+  block-size: var(--spacing-2);
 }
 
 .arch-progressbar--md {
+  block-size: var(--spacing-4);
+}
+
+.arch-progressbar--lg {
   block-size: var(--spacing-8);
 }
 
@@ -44,14 +62,16 @@
 
 .arch-progressbar__fill {
   block-size: 100%;
+  inline-size: 100%;
   background-color: var(--color-action-primary);
-  border-radius: var(--radius-component-full);
-  transition: inline-size var(--motion-duration-normal) var(--motion-semantic-easing-default);
+  border-radius: var(--radius-xs);
+  transition: transform var(--motion-duration-normal) var(--motion-semantic-easing-default);
+  transform: translateX(-102%);
 }
 
-/* Determinate: inline-size driven by --arch-progress-value CSS custom property */
+/* Determinate: transform driven by --arch-progress-value CSS custom property */
 .arch-progressbar:not(.arch-progressbar--indeterminate) .arch-progressbar__fill {
-  inline-size: var(--arch-progress-value, 0%);
+  transform: translateX(calc(-100% + var(--arch-progress-value, 0%)));
 }
 
 /* ─── Indeterminate ──────────────────────────────────────────────────────────── */
@@ -68,25 +88,42 @@
   background-color: var(--color-feedback-success-text);
 }
 
-/* ─── Label wrapper ──────────────────────────────────────────────────────────── */
+/* ─── Stepped progress bar — gap between segments ───────────────────────────── */
 
-.arch-progressbar__wrapper {
-  display: flex;
-  align-items: center;
+.arch-progressbar--stepped {
   gap: var(--spacing-8);
+  background-color: transparent;
 }
 
-.arch-progressbar__wrapper .arch-progressbar {
+.arch-progressbar--stepped .arch-progressbar__segment {
   flex: 1;
+  background-color: var(--color-background-subtle);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
 }
+
+/* ─── Label ──────────────────────────────────────────────────────────────────── */
 
 .arch-progressbar__label {
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  font-weight: var(--typography-weight-medium);
+  text-align: center;
+  padding-inline: var(--spacing-16);
+  font-size: var(--typography-scale-label-medium-font-size);
+  font-weight: var(--typography-scale-label-medium-font-weight);
+  line-height: var(--typography-scale-label-medium-line-height);
   color: var(--color-text-default);
   white-space: nowrap;
-  min-inline-size: 2.5em;
-  text-align: end;
+}
+
+.arch-progressbar--sm .arch-progressbar__label {
+  font-size: var(--typography-scale-label-small-font-size);
+  font-weight: var(--typography-scale-label-small-font-weight);
+  line-height: var(--typography-scale-label-small-line-height);
+}
+
+.arch-progressbar--lg .arch-progressbar__label {
+  font-size: var(--typography-scale-label-large-font-size);
+  font-weight: var(--typography-scale-label-large-font-weight);
+  line-height: var(--typography-scale-label-large-line-height);
 }
 
 /* ─── Reduced motion ─────────────────────────────────────────────────────────── */

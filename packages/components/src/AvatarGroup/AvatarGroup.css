@@ -1,4 +1,6 @@
 /* AvatarGroup — arch-ui component styles
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web avatar group.
    Sizes match Avatar: xsmall=24, small=36, medium=48, large=64, xlarge=80, xxlarge=112 */
 
 /* ─── Base ──────────────────────────────────────────────────────────────────── */
@@ -7,7 +9,7 @@
   display: inline-flex;
   align-items: center;
   flex-direction: row;
-  --arch-avatar-group-size: 48px;
+  --arch-avatar-group-size: var(--spacing-48);
 }
 
 /* ─── Size variants ──────────────────────────────────────────────────────────── */
@@ -25,7 +27,7 @@
   display: inline-flex;
   margin-inline-start: calc(var(--arch-avatar-group-size) * -0.2);
   border-radius: var(--radius-full);
-  box-shadow: 0 0 0 2px var(--color-surface-base);
+  box-shadow: 0 0 0 var(--spacing-2) var(--color-background-default);
 }
 
 .arch-avatar-group__item:first-child {
@@ -43,7 +45,7 @@
   inline-size: var(--arch-avatar-group-size);
   block-size: var(--arch-avatar-group-size);
   margin-inline-start: calc(var(--arch-avatar-group-size) * -0.2);
-  box-shadow: 0 0 0 2px var(--color-surface-base);
+  box-shadow: 0 0 0 var(--spacing-2) var(--color-background-default);
 
   border-radius: var(--radius-full);
   background-color: var(--color-background-muted);

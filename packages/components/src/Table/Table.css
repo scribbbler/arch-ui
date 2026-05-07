@@ -1,11 +1,17 @@
 /* Table — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web table (custom flex-based table). */
 
 /* ─── Wrapper ────────────────────────────────────────────────────────────────── */
 
 .arch-table-wrapper {
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-component-md);
+  background-color: var(--color-background-default);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   overflow-x: auto;
-  inline-size: 100%;
 }
 
 /* ─── Table ──────────────────────────────────────────────────────────────────── */
@@ -33,32 +39,80 @@
 
 .arch-table--sm .arch-th,
 .arch-table--sm .arch-td {
-  padding-block: var(--spacing-6);
-  padding-inline: var(--spacing-8);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
 }
 
 .arch-table--md .arch-th,
 .arch-table--md .arch-td {
-  padding-block: var(--spacing-8);
+  padding-block: var(--spacing-12);
   padding-inline: var(--spacing-16);
 }
 
 /* ─── Header ─────────────────────────────────────────────────────────────────── */
 
+.arch-thead {
+  box-shadow: var(--shadow-sm);
+}
+
 .arch-th {
   text-align: start;
   font-weight: var(--typography-weight-semibold);
-  color: var(--color-text-subtle);
+  color: var(--color-text-default);
   font-size: var(--typography-scale-paragraph-small-font-size);
   border-block-end: var(--border-width-default) solid var(--color-border-default);
   white-space: nowrap;
+  padding-block: var(--spacing-12);
+  padding-inline: var(--spacing-16);
+}
+
+/* ─── Head cell right border ─────────────────────────────────────────────────── */
+
+.arch-th:not(:last-child) {
+  border-inline-end: var(--border-width-default) solid var(--color-border-default);
+}
+
+/* ─── Sortable header ────────────────────────────────────────────────────────── */
+
+.arch-th--sortable {
+  cursor: pointer;
+  outline: none;
+}
+
+.arch-th--sortable:focus-visible {
+  outline: var(--spacing-2) solid var(--color-border-focus);
+  outline-offset: calc(-1 * var(--spacing-2));
+}
+
+.arch-th--sortable:hover {
+  background-color: var(--color-background-subtle);
+}
+
+/* ─── Sort icon container ────────────────────────────────────────────────────── */
+
+.arch-table__sort-icon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: var(--spacing-12);
+  transform: translateY(-50%);
 }
 
 /* ─── Cell ───────────────────────────────────────────────────────────────────── */
 
 .arch-td {
-  vertical-align: middle;
+  vertical-align: top;
   border-block-end: var(--border-width-default) solid var(--color-border-default);
+  color: var(--color-text-default);
+  padding-block: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+}
+
+/* ─── Body row hover ─────────────────────────────────────────────────────────── */
+
+.arch-tbody .arch-tr:hover {
+  background-color: var(--color-background-subtle);
 }
 
 /* ─── Striped ────────────────────────────────────────────────────────────────── */
@@ -81,4 +135,39 @@
   font-weight: var(--typography-weight-semibold);
   border-block-start: var(--border-width-default) solid var(--color-border-default);
   border-block-end: none;
+}
+
+/* ─── Loading message ────────────────────────────────────────────────────────── */
+
+.arch-table__loading-message {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-default);
+  padding: var(--spacing-16);
+}
+
+/* ─── Empty message ──────────────────────────────────────────────────────────── */
+
+.arch-table__empty-message {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  color: var(--color-text-default);
+  padding: var(--spacing-16);
+}
+
+/* ─── Filter button ──────────────────────────────────────────────────────────── */
+
+.arch-table__filter-button {
+  background-color: transparent;
+  border: none;
+  color: var(--color-text-default);
+  cursor: pointer;
+  padding: 0;
+}
+
+.arch-table__filter-button:hover {
+  color: var(--color-text-default);
+}
+
+.arch-table__filter-button:disabled {
+  color: var(--color-text-disabled);
+  cursor: default;
 }

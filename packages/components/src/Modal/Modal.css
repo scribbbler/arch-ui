@@ -7,8 +7,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: var(--spacing-32);
-  padding-inline: var(--spacing-32);
+}
+
+/* ─── Modal — backdrop ──────────────────────────────────────────────────────── */
+
+.arch-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-background-overlay);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  opacity: 0;
+  transition: opacity var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter);
+}
+
+.arch-modal-backdrop--visible {
+  opacity: 1;
 }
 
 /* ─── Modal — panel ──────────────────────────────────────────────────────────── */
@@ -16,14 +30,27 @@
 .arch-modal {
   position: relative;
   z-index: var(--z-semantic-modal);
-  background-color: var(--color-surface-base);
-  border: var(--border-width-default) solid var(--color-border-default);
-  box-shadow: var(--shadow-overlay);
+  background-color: var(--color-background-default);
   border-radius: var(--radius-component-lg);
+  margin: var(--spacing-16);
   inline-size: 100%;
-  max-block-size: calc(100vh - 2 * var(--spacing-32));
   display: flex;
   flex-direction: column;
+  outline: none;
+  user-select: text;
+  opacity: 0;
+  transform: translateY(var(--spacing-20));
+  transition:
+    opacity var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter),
+    transform var(--motion-semantic-duration-normal) var(--motion-semantic-easing-enter);
+}
+
+.arch-modal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arch-modal:focus {
   outline: none;
 }
 
@@ -41,6 +68,7 @@
 .arch-modal--full {
   max-inline-size: 100%;
   block-size: 100%;
+  align-self: stretch;
   border-radius: 0;
 }
 
@@ -49,7 +77,7 @@
 @keyframes arch-modal-enter {
   from {
     opacity: 0;
-    transform: translateY(var(--spacing-8));
+    transform: translateY(var(--spacing-20));
   }
   to {
     opacity: 1;
@@ -65,6 +93,14 @@
   .arch-modal--animate {
     animation: none;
   }
+
+  .arch-modal {
+    transition: none;
+  }
+
+  .arch-modal-backdrop {
+    transition: none;
+  }
 }
 
 /* ─── Modal — header ─────────────────────────────────────────────────────────── */
@@ -73,14 +109,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: var(--spacing-16);
-  padding-inline: var(--spacing-24);
-  border-block-end: var(--border-width-default) solid var(--color-border-default);
+  padding-block-start: var(--spacing-28);
+  padding-block-end: var(--spacing-16);
+  padding-inline-start: var(--spacing-24);
+  padding-inline-end: var(--spacing-28);
   flex-shrink: 0;
+  color: var(--color-text-default);
 }
 
 .arch-modal__title {
-  font: var(--typography-scale-paragraph-medium-font-size);
+  font-size: var(--typography-scale-heading-small-font-size);
+  font-weight: var(--typography-scale-heading-small-font-weight);
+  line-height: var(--typography-scale-heading-small-line-height);
   color: var(--color-text-default);
   margin: 0;
 }
@@ -89,13 +129,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-8);
-  background: none;
-  border: none;
+  position: absolute;
+  inset-block-start: var(--spacing-12);
+  inset-inline-end: var(--spacing-12);
+  inline-size: var(--spacing-24);
+  block-size: var(--spacing-24);
+  padding: 0;
+  background: transparent;
+  border: var(--border-width-default) solid transparent;
   border-radius: var(--radius-component-sm);
   color: var(--color-text-subtle);
   cursor: pointer;
   line-height: 1;
+  transition: color var(--motion-semantic-duration-normal);
+}
+
+.arch-modal__close:hover {
+  color: var(--color-text-default);
 }
 
 .arch-modal__close:focus-visible {
@@ -106,11 +156,14 @@
 /* ─── Modal — body ───────────────────────────────────────────────────────────── */
 
 .arch-modal__body {
-  padding-block: var(--spacing-24);
+  padding-block-start: var(--spacing-16);
+  padding-block-end: var(--spacing-20);
   padding-inline: var(--spacing-24);
   overflow-y: auto;
   flex: 1;
-  color: var(--color-text-default);
+  color: var(--color-text-subtle);
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 }
 
 /* ─── Modal — footer ─────────────────────────────────────────────────────────── */
@@ -120,8 +173,9 @@
   align-items: center;
   justify-content: flex-end;
   gap: var(--spacing-12);
-  padding-block: var(--spacing-16);
+  padding-block: var(--spacing-12);
   padding-inline: var(--spacing-24);
-  border-block-start: var(--border-width-default) solid var(--color-border-default);
   flex-shrink: 0;
+  font-size: var(--typography-scale-paragraph-medium-font-size);
+  line-height: var(--typography-scale-paragraph-medium-line-height);
 }

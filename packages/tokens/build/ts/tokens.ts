@@ -164,6 +164,7 @@ export const tokens = {
   "colorBorderSuccess": "var(--color-border-success)",
   "colorBorderWarning": "var(--color-border-warning)",
   "colorBorderDisabled": "var(--color-border-disabled)",
+  "colorBorderSelected": "var(--color-border-selected)",
   "colorFeedbackDangerBg": "var(--color-feedback-danger-bg)",
   "colorFeedbackDangerText": "var(--color-feedback-danger-text)",
   "colorFeedbackDangerBorder": "var(--color-feedback-danger-border)",

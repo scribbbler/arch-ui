@@ -1,5 +1,6 @@
 /* TagGroup — arch-ui component styles
-   All values must be var(--token-name). No hex, pixel literals, or named colours. */
+   All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Visual design matched to Uber Base Web tag group. */
 
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
@@ -7,14 +8,17 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--spacing-8);
+  gap: var(--spacing-4);
 }
 
 /* ─── Disabled state ─────────────────────────────────────────────────────────── */
 
 .arch-tag-group--disabled {
-  opacity: 0.5;
   pointer-events: none;
+}
+
+.arch-tag-group--disabled .arch-tag {
+  cursor: not-allowed;
 }
 
 /* ─── Add button ─────────────────────────────────────────────────────────────── */
@@ -23,29 +27,29 @@
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-4);
-  padding-block: var(--spacing-2);
+  padding-block: var(--spacing-4);
   padding-inline: var(--spacing-8);
   border: var(--border-width-default) dashed var(--color-border-default);
-  border-radius: var(--radius-component-full);
+  border-radius: var(--radius-component-md);
   background: none;
   cursor: pointer;
-  font-size: var(--typography-scale-paragraph-small-font-size);
-  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-scale-label-small-font-size);
+  font-weight: var(--typography-scale-label-small-font-weight);
   color: var(--color-text-subtle);
 }
 
 .arch-tag-group__add:hover {
   color: var(--color-text-default);
-  border-color: var(--color-text-subtle);
+  border-color: var(--color-border-strong);
   background-color: var(--color-background-muted);
 }
 
 .arch-tag-group__add:focus-visible {
   outline: var(--border-width-medium) solid var(--color-border-focus);
-  outline-offset: 2px;
+  outline-offset: var(--spacing-2);
 }
 
 .arch-tag-group__add:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  color: var(--color-text-disabled);
 }

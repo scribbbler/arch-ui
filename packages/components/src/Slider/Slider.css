@@ -1,6 +1,14 @@
 /* Slider — arch-ui component styles
    All values must be var(--token-name). No hex, pixel literals, or named colours.
+   Matches Uber Base Web slider/styled-components visual design.
    Logical properties only: no left/right — use inline-start/inline-end. */
+
+/* ─── Root ───────────────────────────────────────────────────────────────────── */
+
+.arch-slider-root {
+  position: relative;
+  width: 100%;
+}
 
 /* ─── Wrapper ────────────────────────────────────────────────────────────────── */
 
@@ -11,7 +19,114 @@
   gap: var(--spacing-4);
 }
 
-/* ─── Range input ─────────────────────────────────────────────────────────────── */
+/* ─── Track container — padding 16px (scale600) for thumb overhang ───────────── */
+
+.arch-slider__track {
+  display: flex;
+  padding: var(--spacing-16);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.arch-slider__track--disabled {
+  cursor: not-allowed;
+}
+
+.arch-slider__track--dragged {
+  cursor: grabbing;
+}
+
+/* ─── Inner track — 2px height, borderRadius from theme ──────────────────────── */
+
+.arch-slider__inner-track {
+  height: var(--spacing-2);
+  width: 100%;
+  align-self: center;
+  border-radius: var(--radius-component-sm);
+  background-color: var(--color-border-default);
+}
+
+.arch-slider__inner-track--disabled {
+  background-color: var(--color-border-disabled);
+}
+
+/* ─── Inner track fill (selected range) ──────────────────────────────────────── */
+
+.arch-slider__fill {
+  height: 100%;
+  border-radius: var(--radius-component-sm);
+  background-color: var(--color-border-focus);
+}
+
+.arch-slider__fill--disabled {
+  background-color: var(--color-border-default);
+}
+
+/* ─── Thumb — 24px circle ────────────────────────────────────────────────────── */
+
+.arch-slider__thumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: var(--spacing-24);
+  block-size: var(--spacing-24);
+  border-radius: var(--radius-component-full);
+  background-color: var(--color-background-default);
+  outline: none;
+  box-shadow: var(--shadow-component-sm);
+  cursor: inherit;
+}
+
+.arch-slider__thumb--disabled {
+  background-color: var(--color-background-disabled);
+  cursor: not-allowed;
+}
+
+.arch-slider__thumb:focus-visible {
+  box-shadow: 0 0 0 var(--spacing-2) var(--color-border-focus);
+}
+
+/* ─── Thumb value tooltip ────────────────────────────────────────────────────── */
+
+.arch-slider__thumb-value {
+  position: absolute;
+  top: calc(-1 * var(--spacing-40));
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  background-color: var(--color-background-inverse);
+  color: var(--color-text-inverse);
+  padding-inline: var(--spacing-16);
+  padding-block: var(--spacing-12);
+  border-radius: var(--radius-component-full);
+  white-space: nowrap;
+}
+
+/* ─── Tick bar ───────────────────────────────────────────────────────────────── */
+
+.arch-slider__tick-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: var(--spacing-16);
+  padding-block-end: var(--spacing-10);
+}
+
+.arch-slider__tick {
+  font-size: var(--typography-scale-paragraph-small-font-size);
+  line-height: var(--typography-scale-paragraph-small-line-height);
+  color: var(--color-text-default);
+}
+
+/* ─── Mark ───────────────────────────────────────────────────────────────────── */
+
+.arch-slider__mark {
+  width: var(--spacing-4);
+  height: var(--spacing-2);
+  background-color: var(--color-background-default);
+  margin-inline-start: var(--spacing-16);
+}
+
+/* ─── Range input (native fallback) ──────────────────────────────────────────── */
 
 .arch-slider {
   /* Layout */
@@ -29,14 +144,14 @@
   outline: none;
 
   /* Ensure minimum touch target block-size */
-  min-block-size: 2.75rem; /* 44px */
+  min-block-size: var(--spacing-48);
 }
 
 /* ─── Focus ──────────────────────────────────────────────────────────────────── */
 
 .arch-slider:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 4px;
+  outline: var(--border-width-medium) solid var(--color-border-focus);
+  outline-offset: var(--spacing-4);
   border-radius: var(--radius-component-sm);
 }
 
@@ -44,86 +159,95 @@
 
 .arch-slider:disabled,
 .arch-slider--disabled {
-  opacity: 0.45;
   cursor: not-allowed;
 }
 
-/* ─── WebKit / Blink — Track ────────────────────────────────────────────────── */
+/* ─── WebKit / Blink — Track: 2px tall ───────────────────────────────────────── */
 
 .arch-slider::-webkit-slider-runnable-track {
-  block-size: var(--spacing-4); /* 4px */
-  border-radius: var(--radius-component-full);
-  background-color: var(--color-background-muted);
+  block-size: var(--spacing-2);
+  border-radius: var(--radius-component-sm);
+  background-color: var(--color-border-default);
   border: none;
 }
 
-/* ─── WebKit / Blink — Thumb ────────────────────────────────────────────────── */
+/* ─── WebKit / Blink — Thumb: 24px ───────────────────────────────────────────── */
 
 .arch-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  inline-size: var(--spacing-20);  /* 20px */
-  block-size: var(--spacing-20);   /* 20px */
+  inline-size: var(--spacing-24);
+  block-size: var(--spacing-24);
   border-radius: var(--radius-component-full);
-  background-color: var(--color-action-primary);
+  background-color: var(--color-background-default);
   border: none;
   cursor: pointer;
+  box-shadow: var(--shadow-component-sm);
   /* Vertically centre the thumb on the track */
-  margin-block-start: calc((var(--spacing-4) - var(--spacing-20)) / 2);
+  margin-block-start: calc((var(--spacing-2) - var(--spacing-24)) / 2);
   transition:
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-slider:disabled::-webkit-slider-thumb {
+  background-color: var(--color-background-disabled);
+  cursor: not-allowed;
 }
 
 .arch-slider:not(:disabled)::-webkit-slider-thumb:hover {
-  background-color: var(--color-action-primary-hover);
-  transform: scale(1.1);
+  box-shadow: var(--shadow-component-md);
 }
 
 .arch-slider:not(:disabled)::-webkit-slider-thumb:active {
-  background-color: var(--color-action-primary-active);
-  transform: scale(1.15);
+  box-shadow: var(--shadow-component-md);
 }
 
-/* ─── Firefox — Track ────────────────────────────────────────────────────────── */
+/* ─── Firefox — Track: 2px tall ──────────────────────────────────────────────── */
 
 .arch-slider::-moz-range-track {
-  block-size: var(--spacing-4);
-  border-radius: var(--radius-component-full);
-  background-color: var(--color-background-muted);
+  block-size: var(--spacing-2);
+  border-radius: var(--radius-component-sm);
+  background-color: var(--color-border-default);
   border: none;
 }
 
-/* ─── Firefox — Thumb ────────────────────────────────────────────────────────── */
+/* ─── Firefox — Thumb: 24px ──────────────────────────────────────────────────── */
 
 .arch-slider::-moz-range-thumb {
-  inline-size: var(--spacing-20);
-  block-size: var(--spacing-20);
+  inline-size: var(--spacing-24);
+  block-size: var(--spacing-24);
   border-radius: var(--radius-component-full);
-  background-color: var(--color-action-primary);
+  background-color: var(--color-background-default);
   border: none;
   cursor: pointer;
+  box-shadow: var(--shadow-component-sm);
   transition:
-    background-color var(--motion-duration-fast) var(--motion-semantic-easing-default),
-    transform var(--motion-duration-fast) var(--motion-semantic-easing-default);
+    box-shadow var(--motion-duration-fast) var(--motion-semantic-easing-default);
+}
+
+.arch-slider:disabled::-moz-range-thumb {
+  background-color: var(--color-background-disabled);
+  cursor: not-allowed;
 }
 
 .arch-slider:not(:disabled)::-moz-range-thumb:hover {
-  background-color: var(--color-action-primary-hover);
-  transform: scale(1.1);
+  box-shadow: var(--shadow-component-md);
 }
 
 .arch-slider:not(:disabled)::-moz-range-thumb:active {
-  background-color: var(--color-action-primary-active);
-  transform: scale(1.15);
+  box-shadow: var(--shadow-component-md);
 }
 
 /* ─── Firefox — Progress fill ────────────────────────────────────────────────── */
 
 .arch-slider::-moz-range-progress {
-  block-size: var(--spacing-4);
-  border-radius: var(--radius-component-full);
-  background-color: var(--color-action-primary);
+  block-size: var(--spacing-2);
+  border-radius: var(--radius-component-sm);
+  background-color: var(--color-border-focus);
+}
+
+.arch-slider:disabled::-moz-range-progress {
+  background-color: var(--color-border-default);
 }
 
 /* ─── Reduce motion ──────────────────────────────────────────────────────────── */
