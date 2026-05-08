@@ -7,12 +7,39 @@ export type ButtonKind =
   | 'primary'
   | 'secondary'
   | 'tertiary'
+  | 'minimal'
   | 'dangerPrimary'
   | 'dangerSecondary'
   | 'dangerTertiary';
 
 export type ButtonSize = 'mini' | 'compact' | 'default' | 'large';
-export type ButtonShape = 'default' | 'pill' | 'circle' | 'square';
+export type ButtonShape = 'default' | 'pill' | 'round' | 'circle' | 'square';
+
+/** Enum-like constants matching Base Web exports. */
+export const KIND = {
+  primary: 'primary',
+  secondary: 'secondary',
+  tertiary: 'tertiary',
+  minimal: 'minimal',
+  dangerPrimary: 'dangerPrimary',
+  dangerSecondary: 'dangerSecondary',
+  dangerTertiary: 'dangerTertiary',
+} as const;
+
+export const SIZE = {
+  mini: 'mini',
+  compact: 'compact',
+  default: 'default',
+  large: 'large',
+} as const;
+
+export const SHAPE = {
+  default: 'default',
+  pill: 'pill',
+  round: 'round',
+  circle: 'circle',
+  square: 'square',
+} as const;
 
 /**
  * PolymorphicRef — resolves the ref type for the rendered element.
@@ -69,6 +96,7 @@ const kindClassMap: Record<ButtonKind, string> = {
   primary: 'arch-button--primary',
   secondary: 'arch-button--secondary',
   tertiary: 'arch-button--tertiary',
+  minimal: 'arch-button--minimal',
   dangerPrimary: 'arch-button--danger-primary',
   dangerSecondary: 'arch-button--danger-secondary',
   dangerTertiary: 'arch-button--danger-tertiary',

@@ -165,6 +165,24 @@
   box-shadow: inset 999px 999px 0 var(--color-action-ghost-active);
 }
 
+/* ─── Kind: minimal — transparent, no hover background ─────────────────────── */
+
+.arch-button--minimal {
+  background-color: transparent;
+  color: var(--color-text-default);
+  padding-inline: 0;
+}
+
+@media (hover: hover) {
+  .arch-button--minimal:hover:not(:disabled):not([aria-disabled="true"]) {
+    color: var(--color-text-subtle);
+  }
+}
+
+.arch-button--minimal:active:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-text-subtle);
+}
+
 /* ─── Kind: dangerPrimary ───────────────────────────────────────────────────── */
 
 .arch-button--danger-primary {
@@ -302,7 +320,8 @@
 
 /* ─── Shapes ─────────────────────────────────────────────────────────────────── */
 
-.arch-button--shape-pill { border-radius: var(--radius-full); }
+.arch-button--shape-pill,
+.arch-button--shape-round { border-radius: var(--radius-full); }
 
 .arch-button--shape-circle,
 .arch-button--shape-square {
