@@ -10,7 +10,7 @@
     "test": "echo 'No tests yet'",
     "lint": "echo 'No lint yet'"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@arch-ui/components": "workspace:*",
     "@arch-ui/icons": "workspace:*",

@@ -10,7 +10,7 @@
     "clear": "docusaurus clear",
     "test": "echo 'No tests yet'"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@docusaurus/core": "^3.9.2",
     "@docusaurus/plugin-content-docs": "^3.9.2",
