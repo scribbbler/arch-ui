@@ -16,7 +16,7 @@
     "lint": "echo 'No lint yet'"
   },
   "sideEffects": false,
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "style-dictionary": "^4"
   }
